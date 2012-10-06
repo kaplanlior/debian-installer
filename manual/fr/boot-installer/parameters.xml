@@ -1,4 +1,4 @@
-<!-- original version:  68008 -->
+<!-- original version: 68161 -->
 
  <sect1 id="boot-parms"><title>Paramètres d'amorçage</title>
 <para arch="linux-any">
@@ -28,8 +28,7 @@ plus utilisés. Certains <emphasis>trucs</emphasis> sont donnés dans la
 
 <para arch="linux-any" condition="supports-serial-console">
 
-Si vous démarrez avec la console série, le noyau la
-détecte automatiquement. 
+Si vous démarrez avec la console série, le noyau la détecte automatiquement. 
 Si une carte vidéo («&nbsp;framebuffer&nbsp;») et un clavier sont également 
 connectés à l'ordinateur que vous voulez démarrer à l'aide de la console 
 série, vous devrez peut-être passer l'option
@@ -45,6 +44,11 @@ pour s'assurer que le type de terminal utilisé par l'installateur corresponde
 <literal>linux</literal>, <literal>bterm</literal>, <literal>ansi</literal>,
 <literal>vt102</literal> et <literal>dumb</literal>. Pour la console série, le type utilisé est
 <userinput>vt102</userinput>.
+Si vous utilisez un outil de virtualisation qui ne propose pas de conversion 
+pour ces types de terminal (comme QEMU/KVM), vous pouvez le lancer 
+dans une session <command>screen</command>. Cela effectuera une conversion vers le type de terminal
+<literal>screen</literal>, qui est très proche du type <literal>vt102</literal>.
+
 </para>
 
 </footnote>.
