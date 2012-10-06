@@ -1408,7 +1408,7 @@ msgstr ""
 
 #. Tag: para
 #: preparing.xml:855
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "If you already have an operating system on your system <phrase arch=\"any-"
 #| "x86\"> (Windows 9x, Windows NT/2000/XP/2003/Vista/7, OS/2, MacOS, "
@@ -1430,19 +1430,20 @@ msgid ""
 "not covered here. At the very least you will need a dedicated partition for "
 "the &debian; root filesystem."
 msgstr ""
-"Se você já possui um sistema operativo no seu sistema <phrase arch=\"any-"
+"Se já possuir um sistema operativo no seu sistema <phrase arch=\"any-"
 "x86\"> (Windows 9x, Windows NT/2000/XP/2003/Vista/7, OS/2, MacOS, Solaris, "
 "FreeBSD, &hellip;) </phrase> <phrase arch=\"s390\"> (VM, z/OS, OS/390, "
-"&hellip;) </phrase> e quiser colocar &debian; no mesmo disco, vai necessitar "
-"de reparticionar o disco. &debian; necessita das suas próprias partições no "
-"disco rígido. Não pode ser instalado em partições Windows ou MacOS. Pode ser "
-"possível partilhar algumas partições com outros sistemas Unix, mas isso não "
-"é coberto aqui. No mínimo necessita de uma partição dedicada para a raiz de "
+"&hellip;) </phrase> que utilize todo o disco e quiser colocar &debian; no "
+"mesmo disco, irá necessitar de o reparticionar. &debian; necessita das suas "
+"próprias partições no disco rígido. Não pode ser instalado em partições do "
+"Windows ou do MacOS. Pode ser possível partilhar algumas partições com "
+"outros sistemas Unix, mas esse tema não é coberto aqui. No mínimo irá "
+"necessitar de uma partição dedicada para o sistema de ficheiros raiz de "
 "&debian;."
 
 #. Tag: para
 #: preparing.xml:874
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "You can find information about your current partition setup by using a "
 #| "partitioning tool for your current operating system<phrase arch=\"any-"
@@ -1459,13 +1460,13 @@ msgid ""
 "Partitioning tools always provide a way to show existing partitions without "
 "making changes."
 msgstr ""
-"Você pode encontrar informação acerca da sua configuração actual de "
+"Poderá encontrar informação acerca da sua configuração actual de "
 "partições utilizando uma ferramenta de particionamento para o seu  sistema "
-"operativo actual, <phrase arch=\"any-x86\"> tal como o fdisk ou o "
-"PartitionMagic</phrase><phrase arch=\"powerpc\">, tal como o Drive Setup, HD "
-"Toolkit, ou MacTools</phrase><phrase arch=\"s390\">, tal como o VM diskmap</"
-"phrase>. As ferramentas de particionamento têm sempre uma forma de mostrar "
-"as partições actuais sem efectuar alterações."
+"operativo actual<phrase arch=\"any-x86\">, tal como o gestor de discos do "
+"Windows ou o fdisk no DOS</phrase><phrase arch=\"powerpc\">, tal como o "
+"Drive Setup, HD Toolkit, ou MacTools</phrase><phrase arch=\"s390\">, tal "
+"como o VM diskmap</phrase>. As ferramentas de particionamento têm sempre "
+"uma forma de mostrar as partições atuais sem efectuar alterações."
 
 #. Tag: para
 #: preparing.xml:884
@@ -1497,6 +1498,16 @@ msgid ""
 "the ability to move and resize them losslessly is provided both by &d-i; as "
 "well as by the integrated Disk Manager of Windows 7. </phrase>"
 msgstr ""
+"Vários sistemas operativos modernos oferecem a funcionalidade de mover e "
+"redimensionar certas partições existentes sem destruir o seu contéudo. Isto "
+"permite criar espaço para particões adicionais sem perder a informação "
+"existente. Mesmo que isto funcione bem na maioria dos casos, fazer "
+"alterações ao particionamento de um disco é uma ação inerentemente perigosa "
+"e deve apenas ser feita após ter feito um backup completo aos seus dados. "
+"<phrase arch=\"any-x86\">Para partições FAT/FAT32 e NTFS utilizadas em "
+"sistemas DOS e Windows, a capacidade de as mover e redimensionar sem perda "
+"de dados é disponibilizada quer pelo &d-i; quer pelo Gestor de Discos do "
+"Windows 7. </phrase>"
 
 #. Tag: para
 #: preparing.xml:907
@@ -1506,6 +1517,10 @@ msgid ""
 "to the partitioning step, select the option for manual partitioning, select "
 "the partition to resize, and simply specify its new size."
 msgstr ""
+"Para redimensionar uma partição FAT ou NTFS existente sem qualquer perda de "
+"dados a partir do &d-i;, vá para a etapa de particionamento, escolha a opção "
+"de particionamento manual, escolha a partição a redimensionar, e simplesmente "
+"indique o novo tamanho."
 
 #. Tag: emphasis
 #: preparing.xml:915
@@ -1528,10 +1543,20 @@ msgid ""
 "if you want to be sure, use the native partitioning tools to create "
 "partitions for use by other operating systems."
 msgstr ""
+"Criar e apagar partições pode ser feito a partir do &d-i; assim como a "
+"partir de um sistema operativo existente no seu sistema. Regra geral, as "
+"partições devem ser criadas pelo sistema que as irá utilizar, i.e. partições "
+"a serem utilizadas por &debian-gnu; devem ser criadas no &d-i; e partições a "
+"serem utilizadas noutro sistema operativo devem ser criadas por esse. O "
+"&d-i; é capaz de criar partições não-&arch-kernel; e partições criadas desta "
+"forma normalmente funcionam sem problemas quando utilizadas em outros "
+"sistemas operativos, por isso se quiser ter a certeza, utilize as "
+"ferramentas nativas para criar as partições a utilizar por outros sistemas "
+"operativos."
 
 #. Tag: para
 #: preparing.xml:930
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "If you are going to install more than one operating system on the same "
 #| "machine, you should install all other system(s) before proceeding with "
@@ -1545,10 +1570,10 @@ msgid ""
 "ability to start &debian;, or encourage you to reformat non-native "
 "partitions."
 msgstr ""
-"Se vai instalar mais do que um sistema operativo na mesma máquina, Você deve "
-"instalar todos os outros sistemas operativos antes de proceder com a "
-"instalação de &debian;. As instalações de Windows e de outros SO podem tirar "
-"a possibilidade de iniciar &debian;, ou encorajá-lo a reformatar as "
+"Se vai instalar mais de um sistema operativo na mesma máquina, deve instalar "
+"todos os outros sistemas operativos antes de proceder com a instalação de "
+"&debian;. As instalações de Windows e de outros sistemas operativos podem "
+"destruir a capacidade de arrancar &debian;, ou encorajá-lo a reformatar as "
 "partições não-nativas."
 
 #. Tag: para
@@ -1740,7 +1765,7 @@ msgstr "Pré-Instalação do Hardware e Configuração do Sistema Operativo"
 
 #. Tag: para
 #: preparing.xml:1111
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "This section will walk you through pre-installation hardware setup, if "
 #| "any, that you will need to do prior to installing &debian;. Generally, "
@@ -1757,14 +1782,12 @@ msgid ""
 "the core software used by the hardware; it is most critically invoked during "
 "the bootstrap process (after power-up)."
 msgstr ""
-"Esta secção vai levá-lo através da preparação do hardware da pré-instalação, "
+"Esta seção irá guiá-lo através da configuração de hardware da pré-instalação, "
 "se existir alguma, que necessite fazer antes de instalar &debian;. "
-"Normalmente isto envolve verificar e possivelmente alterar definições no "
-"firmware para o seu sistema. O <quote>firmware</quote> é o software mais "
-"importante utilizado pelo hardware; é o mais crítico invocado pelo processo "
-"de arranque (depois de o ligar). Também são sublinhados alguns casos "
-"conhecidos de hardware que afectam a estabilidade de &debian-gnu; no seu "
-"sistema."
+"Normalmente isto envolve verificar e possivelmente alterar definições de "
+"BIOS/firmware para o seu sistema. A <quote>BIOS</quote> ou o <quote>firmware"
+"</quote> do sistema é o software utilizado pelo hardware; é o mais crítico "
+"invocado durante o processo de arranque (depois de o ligar)." 
 
 #. Tag: title
 #: preparing.xml:1126
@@ -1774,7 +1797,7 @@ msgstr "Invocar o Menu de Configuração da BIOS"
 
 #. Tag: para
 #: preparing.xml:1128
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "BIOS provides the basic functions needed to boot your machine to allow "
 #| "your operating system to access your hardware. Your system probably "
@@ -1794,10 +1817,13 @@ msgid ""
 msgstr ""
 "A BIOS disponibiliza as funções básicas necessárias para arrancar a sua "
 "máquina e permitir ao seu sistema operativo aceder ao seu hardware. "
-"Provavelmente o seu sistema disponibiliza um menu, que é utilizado para "
-"configurar a BIOS. Antes de instalar, você <emphasis>tem</emphasis> de "
-"assegurar-se que a BIOS está correctamente configurada; se não o fizer pode "
-"levar a bloqueios intermitentes ou a não poder instalar &debian;."
+"O seu sistema disponibiliza um menu de configuração, que é utilizado para "
+"configurar a BIOS. Para entrar no menu de configuração da BIOS tem de "
+"carregar numa tecla ou numa combinação de teclas após ligar o computador. "
+"Frequentemente é a tecla <keycap>Delete</keycap> ou a tecla <keycap>F2"
+"</keycap>, mas alguns fabricantes utilizam outras teclas. Normalmente no "
+"arranque do computador é mostrada uma mensagem que diz qual a tecla a "
+"pressionar para entrar no ecrã de configuração." 
 
 # index.docbook:1522, index.docbook:1865
 #. Tag: title
