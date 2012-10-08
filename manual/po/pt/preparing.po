@@ -945,6 +945,12 @@ msgid ""
 "manager's details tab to actually see the IDs, as they are not displayed by "
 "default."
 msgstr ""
+"Em sistemas Windows, os IDs para um dispositivo podem ser encontrados no "
+"gestor de dispositivos do Windows no separador <quote>detalhes</quote>, onde "
+"o vendor ID tem o prefixo VEN_ e o product ID tem o prefixo DEV_. Em sistemas "
+"Windows 7, tem de escolher a propriedade <quote>Hardware IDs</quote> nos "
+"detalhes do gestor de dispositivos para ver os IDs, já que por predifinição "
+"não são mostrados."
 
 #. Tag: para
 #: preparing.xml:586
@@ -958,6 +964,14 @@ msgid ""
 "(<quote>RTL8111</quote>/<quote>RTL8168B</quote> in the network card example "
 "and <quote>RV710</quote> in the graphics card example), can help."
 msgstr ""
+"Procurar na internet por vendor/product ID, <quote>&arch-kernel;</quote> e "
+"<quote>driver</quote> como termos de procura resulta em informação referente "
+"ao estado do suporte do driver para um determinado chipset. Se a pesquisa "
+"pelo vendor/product ID não retornar resultados satisfatórios, poderá ajudar "
+"uma pesquisa pelos nomes de códigos dos chips, que também são normalmente "
+"disponibilizados pelos comandos lsusb e lspci (<quote>RTL811</quote>/<quote>"
+"RTL8168B</quote> no exemplo da placa de rede e <quote>RV710</quote> no "
+"exemplo da placa gráfica."
 
 #. Tag: title
 #: preparing.xml:599
@@ -1842,6 +1856,12 @@ msgid ""
 "devices such as USB sticks or external USB harddisks. On modern systems "
 "there is also often a possibility to enable network booting via PXE."
 msgstr ""
+"Dentro das opções da BIOS, pode escolher quais os dispositivos que serão "
+"verificados e em que sequência para arrancar o sistema operativo. Escolhas "
+"possíveis normalmente incluem os discos rígidos internos, o leitor de CD/DVD "
+"e dispositivos de armazenamento USB tais como pens USB ou discos externos com "
+"interface USB. Em sistemas modernos existe também a possibilidade de activar "
+"o arranque pela rede através de PXE."
 
 #. Tag: para
 #: preparing.xml:1152
@@ -1851,6 +1871,9 @@ msgid ""
 "you have chosen you should enable the appropriate boot devices if they are "
 "not already enabled."
 msgstr ""
+"Dependendo do meio de instalação (CD/DVD ROM, pen USB, arranque pela rede) "
+"que escolheu deve activar os dispositivos de arranque apropriados se ainda "
+"não estiverem activados."
 
 #. Tag: para
 #: preparing.xml:1158
@@ -1867,6 +1890,16 @@ msgid ""
 "while having configured the internal harddisk as the normal primary boot "
 "device."
 msgstr ""
+"A maioria das versões das BIOS permitem chamar um menu de arranque quando o "
+"sistema inicia no qual se pode escolher a partir de que dispositivo o "
+"computador deve iniciar. Se esta opção estiver disponível, a BIOS normalmente "
+"mostra uma curta mensagem como <quote>press <keycap>F12</keycap> for boot "
+"menu</quote> durante o arranque. A tecla a utilizar para escolher este menu "
+"varia de sistema para sistema; teclas normalmente utilizadas são <keycap>F12"
+"</keycap>, <keycap>F11</keycap> e <keycap>F8</keycap>. Escolher um "
+"dispositivo a partir deste menu não altera a normal ordem de arranque da "
+"BIOS, i.e. pode arrancar uma vez a partir de uma pen USB deixando o disco "
+"rígido interno configurado para o arranque normal."
 
 #. Tag: para
 #: preparing.xml:1172
@@ -1876,6 +1909,10 @@ msgid ""
 "the current boot device, you have to change your BIOS setup to make the "
 "device from which the &d-i; shall be booted the primary boot device."
 msgstr ""
+"Se a sua BIOS não disponibilizar um menu de arranque para fazer escolhas "
+"imediatas do dispositivo de arranque actual, terá que alterar a configuração "
+"da BIOS para tornar o dispositivo a partir do qual o &d-i; deve arrancar "
+"como dispositivo primário de arranque."
 
 #. Tag: para
 #: preparing.xml:1178
@@ -1893,6 +1930,18 @@ msgid ""
 "changing the device type to <quote>USB CDROM</quote> helps on some BIOSes "
 "which will not boot from a USB stick in USB harddisk mode.</phrase>"
 msgstr ""
+"Infelizmente alguns computadores têm BIOS com bugs. Arrancar o &d-i; a partir "
+"de uma pen USB poderá não funcionar mesmo que esteja escolhida a opção "
+"correcta na configuração da BIOS e a pen esteja escolhida como meio de "
+"arranque primário. Em alguns destes sistemas é impossível utilizar uma pen "
+"USB como meio de arranque; outros poderão ser enganados para arrancar a "
+"partir da pen alterando o tipo de dispositivo no menu de configuração da BIOS "
+"do predefinido <quote>USB haddisk</quote> ou <quote>USB stick</quote> para "
+"<quote>USB ZIP</quote> ou para <quote>USB CDROM</quote>. <phrase condition"
+"=\"isohybrid-supported\"> Em particular se utilizar uma imagem de CD/DVD "
+"isohybrid numa pen USB (veja <xref=\"usb-copy-isohybrid\"/>), alterar o tipo "
+"de dispositivo para <quote>USB CDROM</quote> ajuda nalgumas BIOS que não "
+"arrancam a partir de uma pen USB em modo de disco rígido.</phrase>"
 
 #. Tag: title
 #: preparing.xml:1203
@@ -2340,7 +2389,7 @@ msgstr "Suporte USB da BIOS e teclados"
 
 #. Tag: para
 #: preparing.xml:1464
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "If you have no AT-style keyboard and only a USB model, you may need to "
 #| "enable legacy AT keyboard emulation in your BIOS setup. Only do this if "
@@ -2357,13 +2406,12 @@ msgid ""
 "menu, consult your mainboard manual and look in the BIOS for <quote>Legacy "
 "keyboard emulation</quote> or <quote>USB keyboard support</quote> options."
 msgstr ""
-"Se não possuir nenhum teclado do tipo AT e apenas um modelo USB, você pode "
-"necessitar de habilitar emulação de teclado AT legacy na sua configuração da "
-"BIOS. Faça isto apenas se o sistema de instalação falhar devido à utilização "
-"do seu teclado em modo USB. Pelo contrário, para alguns sistemas "
-"(especialmente portáteis) você pode ter de desabilitar o suporte legacy USB "
-"se o seu teclado não responder. Consulte o manual da sua motherboard e veja "
-"as opções para <quote>Legacy keyboard emulation</quote> ou <quote>USB "
+"Se não possuir nenhum teclado PS/2, mas apenas um modelo USB, poderá ter "
+"que habilitar legacy keyboard emulation na configuração da BIOS para poder "
+"utilizar o seu teclado no menu do gestor de arranque, apesar disto não ser "
+"um problema para sistemas modernos. Se o seu teclado não trabalhar no menu do "
+"gestor de arranque, consulte o manual da sua motherboard e veja na BIOS as "
+"opções para <quote>Legacy keyboard emulation</quote> ou <quote>USB "
 "keyboard support</quote>."
 
 #. Tag: title
