@@ -10,12 +10,12 @@ manual_release=${manual_release:=wheezy}
 if [ -z "$languages" ]; then
     # Buildlist of languages to be included on the official website
     # Based on list of languages used in official builds
-    languages="$(cd ../debian; ./getfromlist langlist)"
+    languages="$(cd ../debian; ./getfromlist langlist | tr $'\n' ' ')"
 fi
 
 if [ -z "$architectures" ]; then
     # Based on list of architectures used in official builds
-    architectures="$(cd ../debian; ./getfromlist archlist)"
+    architectures="$(cd ../debian; ./getfromlist archlist | tr $'\n' ' ')"
 fi
 
 if [ -z "$destination" ]; then
