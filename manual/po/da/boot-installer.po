@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: boot-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2012-09-18 17:24+0000\n"
-"PO-Revision-Date: 2012-10-10 09:40+0100\n"
+"PO-Revision-Date: 2012-10-11 09:40+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -1418,6 +1418,11 @@ msgid ""
 "over the ttyS1 device, enter <command>console=ttyS1,57600n8</command> into "
 "the <classname>Boot:</classname> text window."
 msgstr ""
+"Hvis der ikke er en indstilling tilgængelig, som er konfigureret for den "
+"serielle enhed eller baudhastighed, du ønsker at bruge, så kan du overskrive "
+"konsolindstillingen for en af de eksisterende menuindstillinger. For eksempel: "
+"For at bruge 57600 baud-konsol over ttyS1-enheden så indtast <command>"
+"console=ttyS1,57600n8</command> i tekstvinduet <classname>Boot:</classname>."
 
 #. Tag: para
 #: boot-installer.xml:1028
@@ -1430,6 +1435,12 @@ msgid ""
 "Mode installation. See the <classname>Params</classname> help menu for "
 "instructions on starting the installer in Text Mode."
 msgstr ""
+"De fleste IA-64-bokse leveres med en standardindstilling for konsollen på "
+"9600 baud. Denne indstilling er ret langsom, og den normale installationsproces "
+"vil bruge lang tid på at tegne hver skærm. Du bør overveje enten at "
+"øge baudhastigheden brugt for udførelse af installationen eller udføre "
+"en installation i teksttilstand. Se hjælpemenuen <classname>Params</classname> "
+"for instruktioner på opstart af installationsprogrammet i teksttilstand."
 
 #. Tag: para
 #: boot-installer.xml:1037
@@ -1440,12 +1451,16 @@ msgid ""
 "soon as the kernel starts, requiring you to reboot before you can begin the "
 "installation."
 msgstr ""
+"Hvis du vælger den forkerte konsoltype, vil du kunne vælge kernen og "
+"indtaste parametre, men både skærmen og dine indtastninger vil gå tabt "
+"så snart at kernen starter, hvilket kræver at du genstarter, før du kan "
+"begynde installationen."
 
 #. Tag: title
 #: boot-installer.xml:1046
 #, no-c-format
 msgid "Selecting the Boot Kernel and Options"
-msgstr ""
+msgstr "Valg af opstartskernen og indstillinger"
 
 #. Tag: para
 #: boot-installer.xml:1048
@@ -1459,6 +1474,13 @@ msgid ""
 "explains the menu choices and the <classname>Params</classname> screen "
 "explains the common command line options."
 msgstr ""
+"Opstartsindlæseren vil vise en formular med en menuliste og et tekstvindue "
+"med en <classname>Boot:</classname>-prompt. Piletasterne vælger et punkt "
+"fra menuen og eventuel tekst indtastet på tastaturet vil blive vist i "
+"tekstvinduet. Der er også hjælpevinduer, som kan vises ved at trykke "
+"på den passende funktionstast. Hjælpevinduet <classname>General</classname> "
+"forklarer menuvalgene og vinduet <classname>Params</classname> forklarer "
+"de gængse indstillinger for kommandolinjen."
 
 #. Tag: para
 #: boot-installer.xml:1060
@@ -1474,6 +1496,15 @@ msgid ""
 "same problems with the system you install. The following two steps will "
 "select and start the install:"
 msgstr ""
+"Se hjælpevinduet <classname>General</classname> for beskrivelse af kernerne "
+"og installationstilstandene som bedst passer for din installation. Du bør "
+"også konsultere <xref linkend=\"boot-parms\"/> nedenfor for yderligere "
+"parametre, du ønsker at angive i tekstvinduet <classname>Boot:</classname>. "
+"Kerneversionen du vælger udvælger kerneversionen som vil blive brugt "
+"både for installationsprocessen og det installerede system. Hvis du møder "
+"kerneproblemer med installationen, kan du også have de samme problemer med "
+"systemet du installerer. De følgende to trin vil vælge og starte "
+"installationen:"
 
 #. Tag: para
 #: boot-installer.xml:1078
@@ -1482,6 +1513,8 @@ msgid ""
 "Select the kernel version and installation mode most appropriate to your "
 "needs with the arrow keys."
 msgstr ""
+"Vælg kerneversion og installationstilstand der bedst passer til dine "
+"behov med piletasterne."
 
 #. Tag: para
 #: boot-installer.xml:1083
@@ -1491,6 +1524,9 @@ msgid ""
 "displayed directly in the text window. This is where kernel parameters (such "
 "as serial console settings) are specified."
 msgstr ""
+"Indtast eventuelle opstartsparametre med tastaturet. Teksten vil blive "
+"vist direkte i tekstvinduet. Det er her at kerneparametre (såsom "
+"indstillinger for seriel konsol) specificeres."
 
 #. Tag: para
 #: boot-installer.xml:1090
@@ -1500,6 +1536,9 @@ msgid ""
 "kernel will display its usual initialization messages followed by the first "
 "screen of the &debian; Installer."
 msgstr ""
+"Tryk <command>RETUR</command>. Dette vil indlæse og starte kernen. Kernen "
+"vil vise dets normale initialiseringsbeskeder efterfulgt af den første "
+"skærm for &debian;-installationsprogrammet."
 
 #. Tag: para
 #: boot-installer.xml:1099 boot-installer.xml:1235
@@ -1508,6 +1547,8 @@ msgid ""
 "Proceed to the next chapter to continue the installation where you will set "
 "up the language locale, network, and disk partitions."
 msgstr ""
+"Fortsæt til det næste kapitel for at fortsætte installationen hvor du vil "
+"opsætte sprogområdet, netværk og diskpartitioner."
 
 #. Tag: para
 #: boot-installer.xml:1110
@@ -1521,6 +1562,13 @@ msgid ""
 "packages of the base install will be loaded from the network rather than the "
 "CD drive."
 msgstr ""
+"Opstart af et IA-64-system fra netværket ligner en cd-opstart. Den eneste "
+"forskel er hvordan installationskernen indlæses. EFI-opstartshåndteringen "
+"kan indlæse og starte programmer fra en server på netværket. Når først "
+"installationskernen er indlæst og starter, vil systeminstallationen "
+"fortsætte igennem de samme trin som cd-installationen med den undtagelse "
+"at pakkerne for grundinstallationen vil blive indlæst fra netværket "
+"fremfor fra cd-drevet."
 
 #. Tag: para
 #: boot-installer.xml:1144
@@ -1531,12 +1579,16 @@ msgid ""
 "<command>elilo</command>. On the client a new boot option must be defined in "
 "the EFI boot manager to enable loading over a network."
 msgstr ""
+"Netværksopstart af et IA-64-system kræver to arkitekturspecifikke handlinger. "
+"På opstartsserveren skal DHCP og TFTP være konfigureret til at levere <command>"
+"elilo</command>. På klienten skal en ny opstartsindstilling være defineret "
+"i EFI-opstartshåndteringen for at aktivere indlæsning over et netværk."
 
 #. Tag: title
 #: boot-installer.xml:1155
 #, no-c-format
 msgid "Configuring the Server"
-msgstr ""
+msgstr "Konfiguration af serveren"
 
 #. Tag: para
 #: boot-installer.xml:1156
@@ -1552,6 +1604,15 @@ msgid ""
 "</screen></informalexample> Note that the goal is to get <command>elilo.efi</"
 "command> running on the client."
 msgstr ""
+"Et egnet TFTP-punkt for netværksopstart af et IA-64-system kan se således "
+"ud: <informalexample><screen>\n"
+"host mcmuffin {\n"
+"        hardware ethernet 00:30:6e:1e:0e:83;\n"
+"        fixed-address 10.0.0.21;\n"
+"        filename \"debian-installer/ia64/elilo.efi\";\n"
+"}\n"
+"</screen></informalexample> Bemærk at formålet er at få <command>elilo.efi</"
+"command> til at køre på klienten."
 
 #. Tag: para
 #: boot-installer.xml:1166
@@ -1563,6 +1624,11 @@ msgid ""
 "will create a <filename>debian-installer</filename> directory tree "
 "containing the boot files for an IA-64 system."
 msgstr ""
+"Udtræk filen <filename>netboot.tar.gz</filename> til mappen brugt som root "
+"for din tftp-server. Typiske tftp-rootmapper inkluderer "
+"<filename>/var/lib/tftp</filename> og <filename>/tftpboot</filename>. Dette "
+"vil oprettet et mappetræ for <filename>debian-installer</filename>, der "
+"indeholder opstartsfilerne for et IA-64-system."
 
 #. Tag: screen
 #: boot-installer.xml:1176
@@ -1575,6 +1641,12 @@ msgid ""
 "./debian-installer/ia64/\n"
 "[...]"
 msgstr ""
+"# cd /var/lib/tftp\n"
+"# tar xvfz /home/user/netboot.tar.gz\n"
+"./\n"
+"./debian-installer/\n"
+"./debian-installer/ia64/\n"
+"[...]"
 
 #. Tag: para
 #: boot-installer.xml:1176
@@ -1589,12 +1661,20 @@ msgid ""
 "<filename>elilo.conf</filename>. See documentation provided in the "
 "<classname>elilo</classname> package for details."
 msgstr ""
+"<filename>netboot.tar.gz</filename> indeholder en fil <filename>elilo.conf</"
+"filename> som bør virke med de fleste konfigurationer. Har du brug for "
+"ændringer i denne fil, så kan du finde den i mappen <filename>debian-"
+"installer/ia64/</filename>. Det er muligt at have forskellige konfigurationsfiler "
+"for forskellige klienter ved at navngive dem med klientens IP-adresse i hex "
+"med filendelsen <filename>.conf</filename> i stedet for <filename>elilo.conf"
+"</filename>. Se dokumentationen tilbudt i pakken <classname>elilo</classname> "
+"for detaljer."
 
 #. Tag: title
 #: boot-installer.xml:1193
 #, no-c-format
 msgid "Configuring the Client"
-msgstr ""
+msgstr "Konfiguration af klienten"
 
 #. Tag: para
 #: boot-installer.xml:1194
@@ -1613,6 +1693,19 @@ msgid ""
 "you just created, and selecting it should initiate a DHCP query, leading to "
 "a TFTP load of <filename>elilo.efi</filename> from the server."
 msgstr ""
+"For at konfigurere klienten til at understøtte TFTP-opstart, så begynd med "
+"at starte op i EFI og gå ind i <guimenu>Boot Option Maintenance Menu</guimenu>. "
+"<itemizedlist> <listitem><para> Add a boot option. </para></listitem> "
+"<listitem><para> Du bør se en eller flere linjer med teksten <guimenuitem>Load File "
+"[Acpi()/.../Mac()]</guimenuitem>. Hvis mere end en af disse punkter findes, så "
+"vælg den der indeholder MAC-adressen for grænsefladen hvorfra du starter op. "
+"Brug piletasterne til at fremhæve dit valg, tryk retur. </"
+"para></listitem> <listitem><para> Name the entry <userinput>Netboot</"
+"userinput> eller noget lignende, gem og afslut tilbage til menuen for "
+"opstartsindstillingerne. </para></listitem> </itemizedlist> Du bør se den "
+"nye opstartsindstilling du netop har oprettet, og valg af den bør initiere "
+"en DHCP-forespørgsel, der fører til en TFTP-indlæsning af <filename>elilo.efi"
+"</filename> fra serveren."
 
 #. Tag: para
 #: boot-installer.xml:1226
@@ -1624,12 +1717,17 @@ msgid ""
 "when the kernel has completed installing itself from the network, it will "
 "start the &debian; Installer."
 msgstr ""
+"Opstartsindlæseren vil vise sin prompt efter at den har hentet og behandlet "
+"dens konfigurationsfil. På dette tidspunkt fortsætter installationen "
+"med de samme trin som ved en cd-installation. Vælg en opstartsindstilling "
+"som i ovenstående og når kernen har færddiggjort installation af sig selv "
+"fra netværket, vil den starte &debian;-installationsprogrammet."
 
 #. Tag: title
 #: boot-installer.xml:1252 boot-installer.xml:1276
 #, no-c-format
 msgid "SGI TFTP Booting"
-msgstr ""
+msgstr "SGI TFTP-opstart"
 
 #. Tag: para
 #: boot-installer.xml:1253
@@ -1649,7 +1747,7 @@ msgstr ""
 #: boot-installer.xml:1273 boot-installer.xml:1340 boot-installer.xml:1974
 #, no-c-format
 msgid "Boot Parameters"
-msgstr ""
+msgstr "Opstartsparametre"
 
 #. Tag: para
 #: boot-installer.xml:1277
@@ -1658,6 +1756,8 @@ msgid ""
 "On SGI machines you can append boot parameters to the <command>bootp():</"
 "command> command in the command monitor."
 msgstr ""
+"På SGI-maskiner kan du tilføje opstartsparametre til kommandoen "
+"<command>bootp():</command> i kommandoskærmen."
 
 #. Tag: para
 #: boot-installer.xml:1282
@@ -1675,13 +1775,13 @@ msgstr ""
 #: boot-installer.xml:1292
 #, no-c-format
 msgid "bootp(): append=\"root=/dev/sda1\""
-msgstr ""
+msgstr "bootp(): append=\"root=/dev/sda1\""
 
 #. Tag: title
 #: boot-installer.xml:1306 boot-installer.xml:1343
 #, no-c-format
 msgid "Cobalt TFTP Booting"
-msgstr ""
+msgstr "Cobalt TFTP-opstart"
 
 #. Tag: para
 #: boot-installer.xml:1307
@@ -1728,7 +1828,7 @@ msgstr ""
 #: boot-installer.xml:1359
 #, no-c-format
 msgid "s390 Limitations"
-msgstr ""
+msgstr "s390-begrænsninger"
 
 #. Tag: para
 #: boot-installer.xml:1360
@@ -1737,6 +1837,8 @@ msgid ""
 "In order to run the installation system a working network setup and ssh "
 "session is needed on S/390."
 msgstr ""
+"For at køre installationssystemet er en fungerende netværksopsætning og "
+"ssh-session krævet på S/390."
 
 #. Tag: para
 #: boot-installer.xml:1365
@@ -1752,7 +1854,7 @@ msgstr ""
 #: boot-installer.xml:1376
 #, no-c-format
 msgid "s390 Boot Parameters"
-msgstr ""
+msgstr "s390-opstartsparametre"
 
 #. Tag: para
 #: boot-installer.xml:1377
@@ -1896,13 +1998,13 @@ msgstr ""
 #: boot-installer.xml:1564
 #, no-c-format
 msgid "Booting from USB memory stick"
-msgstr ""
+msgstr "Opstart fra USB-hukommelsesdrev"
 
 #. Tag: para
 #: boot-installer.xml:1565
 #, no-c-format
 msgid "Currently, NewWorld PowerMac systems are known to support USB booting."
-msgstr ""
+msgstr "Aktuelt kan NewWorld PowerMac-systemer understøtte USB-opstart."
 
 #. Tag: para
 #: boot-installer.xml:1571
@@ -2431,43 +2533,43 @@ msgstr ""
 #: boot-installer.xml:2129
 #, no-c-format
 msgid "BOOT_DEBUG=0"
-msgstr ""
+msgstr "BOOT_DEBUG=0"
 
 #. Tag: para
 #: boot-installer.xml:2130
 #, no-c-format
 msgid "This is the default."
-msgstr ""
+msgstr "Dette er standarden."
 
 #. Tag: userinput
 #: boot-installer.xml:2134
 #, no-c-format
 msgid "BOOT_DEBUG=1"
-msgstr ""
+msgstr "BOOT_DEBUG=1"
 
 #. Tag: para
 #: boot-installer.xml:2135
 #, no-c-format
 msgid "More verbose than usual."
-msgstr ""
+msgstr "Mere uddybende end normalt."
 
 #. Tag: userinput
 #: boot-installer.xml:2139
 #, no-c-format
 msgid "BOOT_DEBUG=2"
-msgstr ""
+msgstr "BOOT_DEBUG=2"
 
 #. Tag: para
 #: boot-installer.xml:2140
 #, no-c-format
 msgid "Lots of debugging information."
-msgstr ""
+msgstr "Masser af fejlsøgningsinformation."
 
 #. Tag: userinput
 #: boot-installer.xml:2144
 #, no-c-format
 msgid "BOOT_DEBUG=3"
-msgstr ""
+msgstr "BOOT_DEBUG=3"
 
 #. Tag: para
 #: boot-installer.xml:2145
@@ -2476,6 +2578,8 @@ msgid ""
 "Shells are run at various points in the boot process to allow detailed "
 "debugging. Exit the shell to continue the boot."
 msgstr ""
+"Skaller køres på forskellige steder i opstartsprocessen for at tillade "
+"detaljeret fejlsøgning. Afslut skallen for at fortsætte opstarten."
 
 #. Tag: term
 #: boot-installer.xml:2159
