@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 68145 -->
+<!-- original version: 68201 -->
 
 <!--
 Be carefull with the format of this file as it is parsed to generate
@@ -476,11 +476,11 @@ Das funktioniert so:
 falls in der URL das Protokoll fehlt, wird http angenommen,
 </para></listitem>
 <listitem><para>
-falls der Teil des Hostnamens keinen Punkt enthält, wird die Domäne, die vom
+falls der Teil des Rechnernamens keinen Punkt enthält, wird die Domäne, die vom
 DHCP abgeleitet wird, angehängt und
 </para></listitem>
 <listitem><para>
-falls nach dem Hostnamen kein <literal>/</literal> folgt, wird der
+falls nach dem Rechnernamen kein <literal>/</literal> folgt, wird der
 Standardpfad hinzugefügt.
 </para></listitem>
 </itemizedlist>
@@ -617,7 +617,7 @@ Beachten Sie, dass das obige Beispiel die Angabe des Dateinamens auf
 DHCP-Klienten beschränkt, die sich selbst als »d-i« identifizieren; es wird
 also keine regulären DHCP-Klienten beeinflussen, sondern nur Rechner, auf denen
 der Installer läuft. Sie können den Text auch in einen Absatz der Datei
-einfügen, der nur für einen bestimmten Host gilt, um zu vermeiden, dass ALLE
+einfügen, der nur für einen bestimmten Rechner gilt, um zu vermeiden, dass ALLE
 Installationen im Netzwerk voreingestellt werden.
 
 </para><para>
@@ -940,16 +940,22 @@ d-i netcfg/choose_interface select auto
 #d-i netcfg/get_gateway string 192.168.1.1
 #d-i netcfg/confirm_static boolean true
 
-# Bedenken Sie, dass jeder Hostname und Domänenname, der per DHCP
+# Bedenken Sie, dass jeder Rechner- und Domänenname, der per DHCP
 # zugewiesen wird, Vorrang hat vor den hier angegebenen. Allerdings
 # bewirken diese Zeilen, dass keine Fragen angezeigt werden, auch wenn
 # Werte per DHCP empfangen werden.
 d-i netcfg/get_hostname string unassigned-hostname
 d-i netcfg/get_domain string unassigned-domain
 
+# Wenn Sie einen Rechnernamen erzwingen möchten, unabhängig davon, was der
+# DHCP-Server zurückgibt oder wie der Reverse-DNS-Eintrag für die IP-Adresse
+# lautet, entfernen Sie bei der folgenden Zeile das Kommentarzeichen und
+# passen Sie sie an.
+#d-i netcfg/hostname string somehost
+
 # Den lästigen WEP-Schlüssel-Dialog unterdrücken.
 d-i netcfg/wireless_wep string
-# Der verrückte DHCP-Hostname, den einige ISP als eine Art Passwort nutzen.
+# Der verrückte DHCP-Rechnername, den einige ISP als eine Art Passwort nutzen.
 #d-i netcfg/dhcp_hostname string radish
 
 # Falls nicht-freie Firmware benötigt wird für Netzwerk- oder andere
