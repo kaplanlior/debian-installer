@@ -5,7 +5,7 @@
 # on all relevant architectures, and compare the packages. From there,
 # display removed/added packages, as well as updated packages.
 #
-# Example:
+# Examples:
 #
 #   ./prepare-release-announce         \
 #     --old-linux-abi 3.2.0-2          \
@@ -13,6 +13,10 @@
 #     --old-linux-arch '(486|686-pae)' \
 #     --new-linux-arch 'amd64'         \
 #     20120508 20120712
+#
+#   ./prepare-release-announce         \
+#     --ignore-logs=20120930+b1/amd64  \
+#     20120828 20120930+b1
 
 use strict;
 use File::Temp qw(tempdir);
@@ -34,6 +38,7 @@ my $old_linux_abi;
 my $new_linux_abi;
 my $old_linux_arch;
 my $new_linux_arch;
+my $ignore_logs;
 
 GetOptions(
     'workdir=s'        => \$workdir,
@@ -45,6 +50,7 @@ GetOptions(
     'new-linux-arch=s' => \$new_linux_arch,
     'report=s'         => \$report_filename,
     'changelogs=s'     => \$changelogs_filename,
+    'ignore-logs=s'    => \$ignore_logs,
 );
 
 my ($old, $new) = @ARGV;
@@ -91,10 +97,16 @@ if ((! -f $status_dump) or (! -f $archs_dump)) {
             # Skip source…
             next if $a eq 'source';
 
-            print STDERR "DEBUG: downloading log: $source $v $a\n";
+            # Skip unwanted logs. Typical use case: when a binNMU happens
+            # for the uploader's architecture.
+            next if $ignore_logs && index($ignore_logs, "$v/$a") != -1;
+
+            # Plus signs want to be escaped for getbuildlog:
+            (my $version = "'$v'") =~ s/[+]/\\+/g;
+            print STDERR "DEBUG: downloading log: $source $version $a\n";
             # One can't use the return code for now (#681779). Also,
             # multiple logs = FAIL (#683231).
-            `cd $workdir && getbuildlog $source $v $a >/dev/null 2>&1`;
+            `cd $workdir && getbuildlog $source $version $a >/dev/null 2>&1`;
             my $filename = "$workdir/${source}_${v}_${a}.log";
             $status->{$v}->{$a} = (-f $filename ? "$filename" : undef);
             push @archs, $a;
