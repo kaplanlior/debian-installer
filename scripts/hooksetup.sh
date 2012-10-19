@@ -6,6 +6,9 @@ set -e
 
 cd /git/d-i
 
+SAVE_UMASK=`umask`
+umask 007
+
 cat > kgb-client.conf.new <<EOF
 # Generated file. See {svn}/scripts/hooksetup.sh
 #
@@ -24,6 +27,8 @@ EOF
 
 echo "cnffjbeq: Vrq0nvxr" | tr A-Za-z N-ZA-Mn-za-m >> kgb-client.conf.new
 mv -f kgb-client.conf.new kgb-client.conf
+
+umask $SAVE_UMASK
 
 # Where the kgb-bot lives, until it's installed system-wide.
 KGB=/home/groups/kgb/trunk
