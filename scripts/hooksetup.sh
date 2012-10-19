@@ -63,7 +63,7 @@ EOF
 	git config --replace-all hooks.mailinglist "debian-installer_cvs@packages.qa.debian.org"
 	git config --replace-all hooks.replyto "debian-boot@lists.debian.org"
 	# remove obsolete CIA hook
-	git config --unset hooks.cia-project
+	git config --unset hooks.cia-project || [ $? = 5 ]  # do not die when not set
 
 	echo "d-i $proj repository" > description
 done
