@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Debian Installation Guide boot-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2012-09-18 17:24+0000\n"
+"POT-Creation-Date: 2012-07-20 14:12+0000\n"
 "PO-Revision-Date: 2010-05-02 10:57+0300\n"
 "Last-Translator: Tapio Lehtonen <tale@debian.org>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
@@ -2557,7 +2557,7 @@ msgstr ""
 "\"><classname>brltty</classname>:n webbisivulta</ulink>."
 
 #. Tag: title
-#: boot-installer.xml:1898 boot-installer.xml:2858
+#: boot-installer.xml:1898 boot-installer.xml:2873
 #, fuzzy, no-c-format
 #| msgid "Hardware Speech Synthesis"
 msgid "Software Speech Synthesis"
@@ -2730,7 +2730,35 @@ msgstr ""
 "kohdassa <xref linkend=\"boot-troubleshooting\"/>."
 
 #. Tag: para
-#: boot-installer.xml:2000
+#: boot-installer.xml:1998
+#, no-c-format
+msgid ""
+"When the kernel boots, a message <informalexample><screen>\n"
+"Memory:<replaceable>avail</replaceable>k/<replaceable>total</replaceable>k "
+"available\n"
+"</screen></informalexample> should be emitted early in the process. "
+"<replaceable>total</replaceable> should match the total amount of RAM, in "
+"kilobytes. If this doesn't match the actual amount of RAM you have "
+"installed, you need to use the <userinput>mem=<replaceable>ram</"
+"replaceable></userinput> parameter, where <replaceable>ram</replaceable> is "
+"set to the amount of memory, suffixed with <quote>k</quote> for kilobytes, "
+"or <quote>m</quote> for megabytes. For example, both <userinput>mem=65536k</"
+"userinput> and <userinput>mem=64m</userinput> mean 64MB of RAM."
+msgstr ""
+"Kun ydin käynnistyy, viestin <informalexample><screen>\n"
+"Memory:<replaceable>avail</replaceable>k/<replaceable>total</replaceable>k "
+"available\n"
+"</screen></informalexample> pitäisi näkyä kohtalaisen alussa. "
+"<replaceable>total</replaceable> pitäisi olla koneen kaiken keskusmuistin "
+"määrä kilotavuissa. Jos tämä ei vastaa koneeseen asennettua muistia, on "
+"käytettävä parametria <userinput>mem=<replaceable>ram</replaceable></"
+"userinput>, missä <replaceable>ram</replaceable> on muistin määrä. Yksikkö "
+"ilmoitetaan kirjaimella <quote>k</quote> kilotavuille ja <quote>m</quote>:"
+"llä megatavuille. Esimerkiksi sekä <userinput>mem=65536k</userinput> että "
+"<userinput>mem=64m</userinput> tarkoittavat 64 Mt keskusmuistia."
+
+#. Tag: para
+#: boot-installer.xml:2014
 #, fuzzy, no-c-format
 #| msgid ""
 #| "If you are booting with a serial console, generally the kernel will "
@@ -2754,7 +2782,13 @@ msgid ""
 "have to pass the <userinput>console=<replaceable>device</replaceable></"
 "userinput> argument to the kernel, where <replaceable>device</replaceable> "
 "is your serial device, which is usually something like <filename>ttyS0</"
-"filename>."
+"filename><footnote> <para> In order to ensure the terminal type used by the "
+"installer matches your terminal emulator, the parameter "
+"<userinput>TERM=<replaceable>type</replaceable></userinput> can be added. "
+"Note that the installer only supports the following terminal types: "
+"<literal>linux</literal>, <literal>bterm</literal>, <literal>ansi</literal>, "
+"<literal>vt102</literal> and <literal>dumb</literal>. The default for serial "
+"console in &d-i; is <userinput>vt102</userinput>. </para> </footnote>."
 msgstr ""
 "Käytettäessä käynnistyksessä sarjapäätettä, osaa ydin yleensä havaita tämän "
 "automaattisesti. Jos myös näytönohjain (framebuffer) ja näppäimistö ovat "
@@ -2771,48 +2805,7 @@ msgstr ""
 "<userinput>vt102</userinput>. </para> </footnote>."
 
 #. Tag: para
-#: boot-installer.xml:2012
-#, fuzzy, no-c-format
-#| msgid ""
-#| "If you are booting with a serial console, generally the kernel will "
-#| "autodetect this. If you have a videocard (framebuffer) and a keyboard "
-#| "also attached to the computer which you wish to boot via serial console, "
-#| "you may have to pass the <userinput>console=<replaceable>device</"
-#| "replaceable></userinput> argument to the kernel, where "
-#| "<replaceable>device</replaceable> is your serial device, which is usually "
-#| "something like <filename>ttyS0</filename><footnote> <para> In order to "
-#| "ensure the terminal type used by the installer matches your terminal "
-#| "emulator, the parameter <userinput>TERM=<replaceable>type</replaceable></"
-#| "userinput> can be added. Note that the installer only supports the "
-#| "following terminal types: <literal>linux</literal>, <literal>bterm</"
-#| "literal>, <literal>ansi</literal>, <literal>vt102</literal> and "
-#| "<literal>dumb</literal>. The default for serial console in &d-i; is "
-#| "<userinput>vt102</userinput>. </para> </footnote>."
-msgid ""
-"In order to ensure the terminal type used by the installer matches your "
-"terminal emulator, the parameter <userinput>TERM=<replaceable>type</"
-"replaceable></userinput> can be added. Note that the installer only supports "
-"the following terminal types: <literal>linux</literal>, <literal>bterm</"
-"literal>, <literal>ansi</literal>, <literal>vt102</literal> and "
-"<literal>dumb</literal>. The default for serial console in &d-i; is "
-"<userinput>vt102</userinput>."
-msgstr ""
-"Käytettäessä käynnistyksessä sarjapäätettä, osaa ydin yleensä havaita tämän "
-"automaattisesti. Jos myös näytönohjain (framebuffer) ja näppäimistö ovat "
-"kiinni sarjapäätettä käyttäen käynnistettävässä tietokoneessa, pitää ehkä "
-"antaa ytimelle parametri <userinput>console=<replaceable>laite</"
-"replaceable></userinput>, missä <replaceable>laite</replaceable> on "
-"sarjaportti, joka yleensä on suunnilleen <filename>ttyS0</"
-"filename><footnote> <para> Asennin voidaan pakottaa valitsemaan "
-"pääteäemulaattorille sopiva päätetyyppi lisäämällä valitsin "
-"<userinput>TERM=<replaceable>type</replaceable></userinput>. Huomaa "
-"asentimen tukevan vain seuraavia päätetyppejä: <literal>linux</literal>, "
-"<literal>bterm</literal>, <literal>ansi</literal>, <literal>vt102</literal> "
-"ja <literal>dumb</literal>. &d-i;:in sarjapäätteen tyypin oletusarvo on "
-"<userinput>vt102</userinput>. </para> </footnote>."
-
-#. Tag: para
-#: boot-installer.xml:2024
+#: boot-installer.xml:2038
 #, no-c-format
 msgid ""
 "For &arch-title; the serial devices are <filename>ttya</filename> or "
@@ -2826,13 +2819,13 @@ msgstr ""
 "arvoksi <filename>ttya</filename>."
 
 #. Tag: title
-#: boot-installer.xml:2035
+#: boot-installer.xml:2049
 #, no-c-format
 msgid "&debian; Installer Parameters"
 msgstr "&debian;in asentimen parametrit"
 
 #. Tag: para
-#: boot-installer.xml:2036
+#: boot-installer.xml:2050
 #, no-c-format
 msgid ""
 "The installation system recognizes a few additional boot "
@@ -2847,7 +2840,7 @@ msgstr ""
 "hyödyllisiä."
 
 #. Tag: para
-#: boot-installer.xml:2049
+#: boot-installer.xml:2063
 #, no-c-format
 msgid ""
 "A number of parameters have a <quote>short form</quote> that helps avoid the "
@@ -2863,19 +2856,19 @@ msgstr ""
 "tavallisesti lyhyttä muotoa. "
 
 #. Tag: term
-#: boot-installer.xml:2061
+#: boot-installer.xml:2075
 #, no-c-format
 msgid "debconf/priority (priority)"
 msgstr "debconf/priority (priority)"
 
 #. Tag: para
-#: boot-installer.xml:2062
+#: boot-installer.xml:2076
 #, no-c-format
 msgid "This parameter sets the lowest priority of messages to be displayed."
 msgstr "Tämä parametri määrää, kuinka alhaisen prioriteetin viestit näytetään."
 
 #. Tag: para
-#: boot-installer.xml:2066
+#: boot-installer.xml:2080
 #, no-c-format
 msgid ""
 "The default installation uses <userinput>priority=high</userinput>. This "
@@ -2889,7 +2882,7 @@ msgstr ""
 "tulee pulmia, asennin säätää prioriteettia tarpeen mukaan."
 
 #. Tag: para
-#: boot-installer.xml:2073
+#: boot-installer.xml:2087
 #, no-c-format
 msgid ""
 "If you add <userinput>priority=medium</userinput> as boot parameter, you "
@@ -2908,13 +2901,13 @@ msgstr ""
 "kriittiset viestit ja yrittää tehdä oikeat valinnat kyselemättä turhia."
 
 #. Tag: term
-#: boot-installer.xml:2087
+#: boot-installer.xml:2101
 #, no-c-format
 msgid "DEBIAN_FRONTEND"
 msgstr "DEBIAN_FRONTEND"
 
 #. Tag: para
-#: boot-installer.xml:2088
+#: boot-installer.xml:2102
 #, fuzzy, no-c-format
 #| msgid ""
 #| "This boot parameter controls the type of user interface used for the "
@@ -2963,13 +2956,13 @@ msgstr ""
 "<userinput>gtk</userinput>-käyttöliittymää."
 
 #. Tag: term
-#: boot-installer.xml:2119
+#: boot-installer.xml:2133
 #, no-c-format
 msgid "BOOT_DEBUG"
 msgstr "BOOT_DEBUG"
 
 #. Tag: para
-#: boot-installer.xml:2120
+#: boot-installer.xml:2134
 #, no-c-format
 msgid ""
 "Setting this boot parameter to 2 will cause the installer's boot process to "
@@ -2983,49 +2976,49 @@ msgstr ""
 "tärkeissä vaiheissa. (Käynnistystä jatketaan poistumalla komentotulkista.)"
 
 #. Tag: userinput
-#: boot-installer.xml:2129
+#: boot-installer.xml:2143
 #, no-c-format
 msgid "BOOT_DEBUG=0"
 msgstr "BOOT_DEBUG=0"
 
 #. Tag: para
-#: boot-installer.xml:2130
+#: boot-installer.xml:2144
 #, no-c-format
 msgid "This is the default."
 msgstr "Tämä on oletusarvo"
 
 #. Tag: userinput
-#: boot-installer.xml:2134
+#: boot-installer.xml:2148
 #, no-c-format
 msgid "BOOT_DEBUG=1"
 msgstr "BOOT_DEBUG=1"
 
 #. Tag: para
-#: boot-installer.xml:2135
+#: boot-installer.xml:2149
 #, no-c-format
 msgid "More verbose than usual."
 msgstr "Tavallista yksityiskohtaisempi."
 
 #. Tag: userinput
-#: boot-installer.xml:2139
+#: boot-installer.xml:2153
 #, no-c-format
 msgid "BOOT_DEBUG=2"
 msgstr "BOOT_DEBUG=2"
 
 #. Tag: para
-#: boot-installer.xml:2140
+#: boot-installer.xml:2154
 #, no-c-format
 msgid "Lots of debugging information."
 msgstr "Paljon vianjäljitystietoa."
 
 #. Tag: userinput
-#: boot-installer.xml:2144
+#: boot-installer.xml:2158
 #, no-c-format
 msgid "BOOT_DEBUG=3"
 msgstr "BOOT_DEBUG=3"
 
 #. Tag: para
-#: boot-installer.xml:2145
+#: boot-installer.xml:2159
 #, no-c-format
 msgid ""
 "Shells are run at various points in the boot process to allow detailed "
@@ -3035,13 +3028,13 @@ msgstr ""
 "Jatka käynnistystä poistumalla komentotulkista."
 
 #. Tag: term
-#: boot-installer.xml:2159
+#: boot-installer.xml:2173
 #, no-c-format
 msgid "INSTALL_MEDIA_DEV"
 msgstr "INSTALL_MEDIA_DEV"
 
 #. Tag: para
-#: boot-installer.xml:2160
+#: boot-installer.xml:2174
 #, no-c-format
 msgid ""
 "The value of the parameter is the path to the device to load the &debian; "
@@ -3052,7 +3045,7 @@ msgstr ""
 "ladataan. Esimerkiksi <userinput>INSTALL_MEDIA_DEV=/dev/floppy/0</userinput>"
 
 #. Tag: para
-#: boot-installer.xml:2166
+#: boot-installer.xml:2180
 #, no-c-format
 msgid ""
 "The boot floppy, which normally scans all floppies it can to find the root "
@@ -3063,19 +3056,19 @@ msgstr ""
 "laitteeseen."
 
 #. Tag: term
-#: boot-installer.xml:2177
+#: boot-installer.xml:2191
 #, no-c-format
 msgid "log_host"
 msgstr ""
 
 #. Tag: term
-#: boot-installer.xml:2178
+#: boot-installer.xml:2192
 #, no-c-format
 msgid "log_port"
 msgstr ""
 
 #. Tag: para
-#: boot-installer.xml:2179
+#: boot-installer.xml:2193
 #, no-c-format
 msgid ""
 "Causes the installer to send log messages to a remote syslog on the "
@@ -3084,13 +3077,13 @@ msgid ""
 msgstr ""
 
 #. Tag: term
-#: boot-installer.xml:2190
+#: boot-installer.xml:2204
 #, no-c-format
 msgid "lowmem"
 msgstr "vähämuisti"
 
 #. Tag: para
-#: boot-installer.xml:2191
+#: boot-installer.xml:2205
 #, no-c-format
 msgid ""
 "Can be used to force the installer to a lowmem level higher than the one the "
@@ -3102,13 +3095,13 @@ msgstr ""
 "arvot ovat 1 ja 2. Katso myös <xref linkend=\"lowmem\"/>."
 
 #. Tag: term
-#: boot-installer.xml:2201
+#: boot-installer.xml:2215
 #, no-c-format
 msgid "noshell"
 msgstr "noshell"
 
 #. Tag: para
-#: boot-installer.xml:2202
+#: boot-installer.xml:2216
 #, no-c-format
 msgid ""
 "Prevents the installer from offering interactive shells on tty2 and tty3. "
@@ -3118,13 +3111,13 @@ msgstr ""
 "Hyödyllinen automaattisissa asennuksissa kun keskusmuistia on niukasti."
 
 #. Tag: term
-#: boot-installer.xml:2211
+#: boot-installer.xml:2225
 #, no-c-format
 msgid "debian-installer/framebuffer (fb)"
 msgstr "debian-installer/framebuffer (fb)"
 
 #. Tag: para
-#: boot-installer.xml:2212
+#: boot-installer.xml:2226
 #, no-c-format
 msgid ""
 "Some architectures use the kernel framebuffer to offer installation in a "
@@ -3142,13 +3135,13 @@ msgstr ""
 "jumittuminen muutaman minuutin sisällä asennuksen alusta."
 
 #. Tag: para
-#: boot-installer.xml:2221
+#: boot-installer.xml:2235
 #, no-c-format
 msgid "Such problems have been reported on hppa."
 msgstr "Pulmista on ilmoitettu hppa:lla."
 
 #. Tag: para
-#: boot-installer.xml:2225
+#: boot-installer.xml:2239
 #, no-c-format
 msgid ""
 "Because of display problems on some systems, framebuffer support is "
@@ -3167,13 +3160,13 @@ msgstr ""
 "<userinput>fb=true</userinput>."
 
 #. Tag: term
-#: boot-installer.xml:2239
+#: boot-installer.xml:2253
 #, no-c-format
 msgid "debian-installer/theme (theme)"
 msgstr "debian-installer/theme (theme)"
 
 #. Tag: para
-#: boot-installer.xml:2240
+#: boot-installer.xml:2254
 #, no-c-format
 msgid ""
 "A theme determines how the user interface of the installer looks (colors, "
@@ -3189,13 +3182,13 @@ msgstr ""
 "<userinput>theme=<replaceable>dark</replaceable></userinput>."
 
 #. Tag: term
-#: boot-installer.xml:2252 boot-installer.xml:2485
+#: boot-installer.xml:2266 boot-installer.xml:2499
 #, no-c-format
 msgid "netcfg/disable_dhcp"
 msgstr "netcfg/disable_dhcp"
 
 #. Tag: para
-#: boot-installer.xml:2253
+#: boot-installer.xml:2267
 #, no-c-format
 msgid ""
 "By default, the &d-i; automatically probes for network configuration via "
@@ -3208,7 +3201,7 @@ msgstr ""
 "Verkkoasetukset pääsee tekemään itse vain jos DHCP epäonnistuu."
 
 #. Tag: para
-#: boot-installer.xml:2260
+#: boot-installer.xml:2274
 #, no-c-format
 msgid ""
 "If you have a DHCP server on your local network, but want to avoid it "
@@ -3222,13 +3215,13 @@ msgstr ""
 "estää verkkoasetusten noutamisen DHCP:llä ja tiedot voi kirjoittaa itse."
 
 #. Tag: term
-#: boot-installer.xml:2271
+#: boot-installer.xml:2285
 #, no-c-format
 msgid "hw-detect/start_pcmcia"
 msgstr "hw-detect/start_pcmcia"
 
 #. Tag: para
-#: boot-installer.xml:2272
+#: boot-installer.xml:2286
 #, no-c-format
 msgid ""
 "Set to <userinput>false</userinput> to prevent starting PCMCIA services, if "
@@ -3239,13 +3232,13 @@ msgstr ""
 "läppäreillä."
 
 #. Tag: term
-#: boot-installer.xml:2282
+#: boot-installer.xml:2296
 #, no-c-format
 msgid "disk-detect/dmraid/enable (dmraid)"
 msgstr "disk-detect/dmraid/enable (dmraid)"
 
 #. Tag: para
-#: boot-installer.xml:2283
+#: boot-installer.xml:2297
 #, no-c-format
 msgid ""
 "Set to <userinput>true</userinput> to enable support for Serial ATA RAID "
@@ -3259,13 +3252,13 @@ msgstr ""
 "<ulink url=\"&url-d-i-wiki;\">Debian-asennin wikistä</ulink>."
 
 #. Tag: term
-#: boot-installer.xml:2294
+#: boot-installer.xml:2308
 #, no-c-format
 msgid "preseed/url (url)"
 msgstr "preseed/url (url)"
 
 #. Tag: para
-#: boot-installer.xml:2295
+#: boot-installer.xml:2309
 #, no-c-format
 msgid ""
 "Specify the url to a preconfiguration file to download and use for "
@@ -3275,13 +3268,13 @@ msgstr ""
 "asennuksen automatisoimiseksi. Katso <xref linkend=\"automatic-install\"/>."
 
 #. Tag: term
-#: boot-installer.xml:2304
+#: boot-installer.xml:2318
 #, no-c-format
 msgid "preseed/file (file)"
 msgstr "preseed/file (file)"
 
 #. Tag: para
-#: boot-installer.xml:2305
+#: boot-installer.xml:2319
 #, no-c-format
 msgid ""
 "Specify the path to a preconfiguration file to load for automating the "
@@ -3291,13 +3284,13 @@ msgstr ""
 "automatisoimiseksi. Katso <xref linkend=\"automatic-install\"/>."
 
 #. Tag: term
-#: boot-installer.xml:2314
+#: boot-installer.xml:2328
 #, no-c-format
 msgid "preseed/interactive"
 msgstr "preseed/interactive"
 
 #. Tag: para
-#: boot-installer.xml:2315
+#: boot-installer.xml:2329
 #, no-c-format
 msgid ""
 "Set to <userinput>true</userinput> to display questions even if they have "
@@ -3314,13 +3307,13 @@ msgstr ""
 "\"preseed-seenflag\"/>."
 
 #. Tag: term
-#: boot-installer.xml:2327
+#: boot-installer.xml:2341
 #, no-c-format
 msgid "auto-install/enable (auto)"
 msgstr "auto-install/enable (auto)"
 
 #. Tag: para
-#: boot-installer.xml:2328
+#: boot-installer.xml:2342
 #, no-c-format
 msgid ""
 "Delay questions that are normally asked before preseeding is possible until "
@@ -3333,13 +3326,13 @@ msgstr ""
 "hyödyntämisestä asennuksen automatisoinnissa."
 
 #. Tag: term
-#: boot-installer.xml:2339
+#: boot-installer.xml:2353
 #, no-c-format
 msgid "finish-install/keep-consoles"
 msgstr "finish-install/keep-consoles"
 
 #. Tag: para
-#: boot-installer.xml:2340
+#: boot-installer.xml:2354
 #, no-c-format
 msgid ""
 "During installations from serial or management console, the regular virtual "
@@ -3352,13 +3345,13 @@ msgstr ""
 "<userinput>true</userinput> estää tämän."
 
 #. Tag: term
-#: boot-installer.xml:2351
+#: boot-installer.xml:2365
 #, no-c-format
 msgid "cdrom-detect/eject"
 msgstr "cdrom-detect/eject"
 
 #. Tag: para
-#: boot-installer.xml:2352
+#: boot-installer.xml:2366
 #, no-c-format
 msgid ""
 "By default, before rebooting, &d-i; automatically ejects the optical media "
@@ -3377,7 +3370,7 @@ msgstr ""
 "asemaan automaattisesti."
 
 #. Tag: para
-#: boot-installer.xml:2361
+#: boot-installer.xml:2375
 #, no-c-format
 msgid ""
 "Set to <userinput>false</userinput> to disable automatic ejection, and be "
@@ -3390,13 +3383,13 @@ msgstr ""
 "jälkeen."
 
 #. Tag: term
-#: boot-installer.xml:2372
+#: boot-installer.xml:2386
 #, no-c-format
 msgid "base-installer/install-recommends (recommends)"
 msgstr "base-installer/install-recommends (recommends)"
 
 #. Tag: para
-#: boot-installer.xml:2373
+#: boot-installer.xml:2387
 #, no-c-format
 msgid ""
 "By setting this option to <userinput>false</userinput>, the package "
@@ -3410,7 +3403,7 @@ msgstr ""
 "Katso myös <xref linkend=\"di-install-base\"/>."
 
 #. Tag: para
-#: boot-installer.xml:2380
+#: boot-installer.xml:2394
 #, no-c-format
 msgid ""
 "Note that this option allows to have a leaner system, but can also result in "
@@ -3426,13 +3419,13 @@ msgstr ""
 "näin ollen vain hyvin kokeneiden käyttäjien käyttää. "
 
 #. Tag: term
-#: boot-installer.xml:2392
+#: boot-installer.xml:2406
 #, no-c-format
 msgid "debian-installer/allow_unauthenticated"
 msgstr "debian-installer/allow_unauthenticated"
 
 #. Tag: para
-#: boot-installer.xml:2393
+#: boot-installer.xml:2407
 #, no-c-format
 msgid ""
 "By default the installer requires that repositories be authenticated using a "
@@ -3446,13 +3439,13 @@ msgstr ""
 "emphasis>."
 
 #. Tag: term
-#: boot-installer.xml:2404
+#: boot-installer.xml:2418
 #, no-c-format
 msgid "ramdisk_size"
 msgstr "ramdisk_size"
 
 #. Tag: para
-#: boot-installer.xml:2405
+#: boot-installer.xml:2419
 #, no-c-format
 msgid ""
 "This parameter should already be set to a correct value where needed; set it "
@@ -3464,13 +3457,13 @@ msgstr ""
 "muistilevyä voitu ladata kokonaan. Arvon yksikkö on kt."
 
 #. Tag: term
-#: boot-installer.xml:2415
+#: boot-installer.xml:2429
 #, no-c-format
 msgid "rescue/enable"
 msgstr "rescue/enable"
 
 #. Tag: para
-#: boot-installer.xml:2416
+#: boot-installer.xml:2430
 #, no-c-format
 msgid ""
 "Set to <userinput>true</userinput> to enter rescue mode rather than "
@@ -3480,13 +3473,13 @@ msgstr ""
 "eikä tavallinen asennus. Katso <xref linkend=\"rescue\"/>."
 
 #. Tag: title
-#: boot-installer.xml:2429
+#: boot-installer.xml:2443
 #, no-c-format
 msgid "Using boot parameters to answer questions"
 msgstr "Valmiita vastauksia käynnistysparametreilla"
 
 #. Tag: para
-#: boot-installer.xml:2430
+#: boot-installer.xml:2444
 #, no-c-format
 msgid ""
 "With some exceptions, a value can be set at the boot prompt for any question "
@@ -3501,25 +3494,25 @@ msgstr ""
 "tapauksista on seuraavassa luettelossa."
 
 #. Tag: term
-#: boot-installer.xml:2442
+#: boot-installer.xml:2456
 #, no-c-format
 msgid "debian-installer/language (language)"
 msgstr "debian-installer/language (language)"
 
 #. Tag: term
-#: boot-installer.xml:2443
+#: boot-installer.xml:2457
 #, no-c-format
 msgid "debian-installer/country (country)"
 msgstr "debian-installer/country (country)"
 
 #. Tag: term
-#: boot-installer.xml:2444
+#: boot-installer.xml:2458
 #, no-c-format
 msgid "debian-installer/locale (locale)"
 msgstr "debian-installer/locale (locale)"
 
 #. Tag: para
-#: boot-installer.xml:2445
+#: boot-installer.xml:2459
 #, no-c-format
 msgid ""
 "There are two ways to specify the language, country and locale to use for "
@@ -3529,7 +3522,7 @@ msgstr ""
 "asennetussa järjestelmässä on kaksi tapaa."
 
 #. Tag: para
-#: boot-installer.xml:2450
+#: boot-installer.xml:2464
 #, no-c-format
 msgid ""
 "The first and easiest is to pass only the parameter <literal>locale</"
@@ -3548,7 +3541,7 @@ msgstr ""
 "maa-asetuston yhdistelmiä ei voi tällä tavalla saada."
 
 #. Tag: para
-#: boot-installer.xml:2459
+#: boot-installer.xml:2473
 #, no-c-format
 msgid ""
 "The second, more flexible option is to specify <literal>language</literal> "
@@ -3564,13 +3557,13 @@ msgstr ""
 "country=DE locale=en_GB.UTF-8</userinput>."
 
 #. Tag: term
-#: boot-installer.xml:2471
+#: boot-installer.xml:2485
 #, no-c-format
 msgid "anna/choose_modules (modules)"
 msgstr "anna/choose_modules (modules)"
 
 #. Tag: para
-#: boot-installer.xml:2472
+#: boot-installer.xml:2486
 #, no-c-format
 msgid ""
 "Can be used to automatically load installer components that are not loaded "
@@ -3587,7 +3580,7 @@ msgstr ""
 "\"pppoe\"/>)</phrase>."
 
 #. Tag: para
-#: boot-installer.xml:2486
+#: boot-installer.xml:2500
 #, no-c-format
 msgid ""
 "Set to <userinput>true</userinput> if you want to disable DHCP and instead "
@@ -3597,13 +3590,13 @@ msgstr ""
 "ja pakotetaan kiinteät verkkoasetukset."
 
 #. Tag: term
-#: boot-installer.xml:2495
+#: boot-installer.xml:2509
 #, no-c-format
 msgid "mirror/protocol (protocol)"
 msgstr "mirror/protocol (protocol)"
 
 #. Tag: para
-#: boot-installer.xml:2496
+#: boot-installer.xml:2510
 #, no-c-format
 msgid ""
 "By default the installer will use the http protocol to download files from "
@@ -3621,13 +3614,13 @@ msgstr ""
 "konenimi on kirjoitettava itse."
 
 #. Tag: term
-#: boot-installer.xml:2509
+#: boot-installer.xml:2523
 #, no-c-format
 msgid "tasksel:tasksel/first (tasks)"
 msgstr "tasksel:tasksel/first (tasks)"
 
 #. Tag: para
-#: boot-installer.xml:2510
+#: boot-installer.xml:2524
 #, no-c-format
 msgid ""
 "Can be used to select tasks that are not available from the interactive task "
@@ -3639,13 +3632,13 @@ msgstr ""
 "literal>. Katso lisätietoja kohdasta <xref linkend=\"pkgsel\"/>."
 
 #. Tag: title
-#: boot-installer.xml:2524
+#: boot-installer.xml:2538
 #, no-c-format
 msgid "Passing parameters to kernel modules"
 msgstr "Parametrien välittäminen ytimen moduuleille"
 
 #. Tag: para
-#: boot-installer.xml:2525
+#: boot-installer.xml:2539
 #, no-c-format
 msgid ""
 "If drivers are compiled into the kernel, you can pass parameters to them as "
@@ -3669,7 +3662,7 @@ msgstr ""
 "asennetun järjestelmän asetustiedostoihin."
 
 #. Tag: para
-#: boot-installer.xml:2538
+#: boot-installer.xml:2552
 #, no-c-format
 msgid ""
 "Note that it is now quite rare that parameters need to be passed to modules. "
@@ -3683,7 +3676,7 @@ msgstr ""
 "kuitenkin olla välttämätöntä asettaa parametrien arvo itse."
 
 #. Tag: para
-#: boot-installer.xml:2545
+#: boot-installer.xml:2559
 #, no-c-format
 msgid ""
 "The syntax to use to set parameters for modules is: "
@@ -3704,19 +3697,19 @@ msgstr ""
 "seuraavasti:"
 
 #. Tag: screen
-#: boot-installer.xml:2555
+#: boot-installer.xml:2569
 #, no-c-format
 msgid "3c509.xcvr=3 3c509.irq=10"
 msgstr "3c509.xcvr=3 3c509.irq=10"
 
 #. Tag: title
-#: boot-installer.xml:2561
+#: boot-installer.xml:2575
 #, no-c-format
 msgid "Blacklisting kernel modules"
 msgstr "Ytimen moduulien lisääminen kieltolistalle"
 
 #. Tag: para
-#: boot-installer.xml:2562
+#: boot-installer.xml:2576
 #, no-c-format
 msgid ""
 "Sometimes it may be necessary to blacklist a module to prevent it from being "
@@ -3733,7 +3726,7 @@ msgstr ""
 "oikein jos ajurit aiheuttavat ristiriidan tai jos väärä ajuri ladataan ensin."
 
 #. Tag: para
-#: boot-installer.xml:2571
+#: boot-installer.xml:2585
 #, no-c-format
 msgid ""
 "You can blacklist a module using the following syntax: "
@@ -3749,7 +3742,7 @@ msgstr ""
 "asennetussa järjestelmässä."
 
 #. Tag: para
-#: boot-installer.xml:2579
+#: boot-installer.xml:2593
 #, no-c-format
 msgid ""
 "Note that a module may still be loaded by the installation system itself. "
@@ -3763,19 +3756,19 @@ msgstr ""
 "luettelosta."
 
 #. Tag: title
-#: boot-installer.xml:2595
+#: boot-installer.xml:2609
 #, no-c-format
 msgid "Troubleshooting the Installation Process"
 msgstr "Asennusprosessin vianetsintä"
 
 #. Tag: title
-#: boot-installer.xml:2600
+#: boot-installer.xml:2614
 #, no-c-format
 msgid "CD-ROM Reliability"
 msgstr "CD-levyjen luotettavuus"
 
 #. Tag: para
-#: boot-installer.xml:2601
+#: boot-installer.xml:2615
 #, no-c-format
 msgid ""
 "Sometimes, especially with older CD-ROM drives, the installer may fail to "
@@ -3788,7 +3781,7 @@ msgstr ""
 "levyltä, se ei tunnista levyä tai asennuksen aikana tulee lukuvirheitä."
 
 #. Tag: para
-#: boot-installer.xml:2608
+#: boot-installer.xml:2622
 #, no-c-format
 msgid ""
 "There are many different possible causes for these problems. We can only "
@@ -3799,13 +3792,13 @@ msgstr ""
 "yleisiä tapauksia ja yleisiä toimintaohjeita. Lopusta saat huolehtia itse."
 
 #. Tag: para
-#: boot-installer.xml:2614
+#: boot-installer.xml:2628
 #, no-c-format
 msgid "There are two very simple things that you should try first."
 msgstr "Ensiksi kannattaa kokeilla kahta hyvin yksinkertaista juttua."
 
 #. Tag: para
-#: boot-installer.xml:2619
+#: boot-installer.xml:2633
 #, no-c-format
 msgid ""
 "If the CD-ROM does not boot, check that it was inserted correctly and that "
@@ -3815,7 +3808,7 @@ msgstr ""
 "ettei se ole likainen."
 
 #. Tag: para
-#: boot-installer.xml:2625
+#: boot-installer.xml:2639
 #, fuzzy, no-c-format
 #| msgid ""
 #| "If the installer fails to recognize a CD-ROM, try just running the option "
@@ -3825,8 +3818,8 @@ msgstr ""
 msgid ""
 "If the installer fails to recognize a CD-ROM, try just running the option "
 "<menuchoice> <guimenuitem>Detect and mount CD-ROM</guimenuitem> </"
-"menuchoice> a second time. Some DMA related issues with very old CD-ROM "
-"drives are known to be resolved in this way."
+"menuchoice> a second time. Some DMA related issues with older CD-ROM drives "
+"are known to be resolved in this way."
 msgstr ""
 "Mikäli asennin ei tunnista CD-levyä, yritä käynnistää uudelleen valikosta "
 "<menuchoice> <guimenuitem>Detect and mount CD-ROM</guimenuitem> </"
@@ -3834,7 +3827,7 @@ msgstr ""
 "tunnetusti tällä tavalla."
 
 #. Tag: para
-#: boot-installer.xml:2635
+#: boot-installer.xml:2649
 #, no-c-format
 msgid ""
 "If this does not work, then try the suggestions in the subsections below. "
@@ -3846,7 +3839,7 @@ msgstr ""
 "yksinkertaisuuden vuoksi termiä CD."
 
 #. Tag: para
-#: boot-installer.xml:2641
+#: boot-installer.xml:2655
 #, no-c-format
 msgid ""
 "If you cannot get the installation working from CD-ROM, try one of the other "
@@ -3856,13 +3849,13 @@ msgstr ""
 "asennustapoja."
 
 #. Tag: title
-#: boot-installer.xml:2649
+#: boot-installer.xml:2663
 #, no-c-format
 msgid "Common issues"
 msgstr "Yleisiä pulmia"
 
 #. Tag: para
-#: boot-installer.xml:2652
+#: boot-installer.xml:2666
 #, no-c-format
 msgid ""
 "Some older CD-ROM drives do not support reading from discs that were burned "
@@ -3872,46 +3865,58 @@ msgstr ""
 "nopeuksilla kirjoitettujen levyjen lukemista."
 
 #. Tag: para
-#: boot-installer.xml:2669
+#: boot-installer.xml:2672
+#, no-c-format
+msgid ""
+"If your system boots correctly from the CD-ROM, it does not necessarily mean "
+"that &arch-kernel; also supports the CD-ROM (or, more correctly, the "
+"controller that your CD-ROM drive is connected to)."
+msgstr ""
+"Vaikka tietokone käynnistyisikin CD-levyltä ongelmitta, ei se välttämättä "
+"tarkoita &arch-kernel; tukevan kyseistä CD-asemaa (tai täsmällisemmin "
+"ohjainta, johon  CD-asema on kytketty)."
+
+#. Tag: para
+#: boot-installer.xml:2679
 #, fuzzy, no-c-format
 #| msgid ""
 #| "Some older CD-ROM drives do not work correctly if <quote>direct memory "
 #| "access</quote> (DMA) is enabled."
 msgid ""
-"Some very old CD-ROM drives do not work correctly if <quote>direct memory "
-"access</quote> (DMA) is enabled for them."
+"Some older CD-ROM drives do not work correctly if <quote>direct memory "
+"access</quote> (DMA) is enabled."
 msgstr ""
 "Jotkut vanhat CD-asemat eivät toimi oikein jos <quote>direct memory access</"
 "quote> (DMA) on käytössä."
 
 #. Tag: title
-#: boot-installer.xml:2680
+#: boot-installer.xml:2690
 #, no-c-format
 msgid "How to investigate and maybe solve issues"
 msgstr "Miten pulmia tutkitaan ja ehkä selvitetään"
 
 #. Tag: para
-#: boot-installer.xml:2681
+#: boot-installer.xml:2691
 #, no-c-format
 msgid "If the CD-ROM fails to boot, try the suggestions listed below."
 msgstr "Jos CD-levy ei käynnisty, kokeile alla lueteltuja ehdotuksia."
 
 #. Tag: para
-#: boot-installer.xml:2686
+#: boot-installer.xml:2696
 #, fuzzy, no-c-format
 #| msgid ""
 #| "Check that your BIOS actually supports booting from CD-ROM (older systems "
 #| "possibly don't) and that your CD-ROM drive supports the media you are "
 #| "using."
 msgid ""
-"Check that your BIOS actually supports booting from CD-ROM (only an issue "
-"for very old systems) and that CD booting is enabled in the BIOS."
+"Check that your BIOS actually supports booting from CD-ROM (older systems "
+"possibly don't) and that your CD-ROM drive supports the media you are using."
 msgstr ""
 "Tarkista että BIOS oikeasti tukee CD-levyltä käynnistämistä (vanhat koneet "
 "luultavasti eivät tue) ja että CD-asema tukee käytettyä taltiota."
 
 #. Tag: para
-#: boot-installer.xml:2693
+#: boot-installer.xml:2702
 #, no-c-format
 msgid ""
 "If you downloaded an iso image, check that the md5sum of that image matches "
@@ -3936,7 +3941,7 @@ msgstr ""
 "käyttää otoksen kokoa lukeakseen oikean määrän tavuja levyltä."
 
 #. Tag: screen
-#: boot-installer.xml:2706
+#: boot-installer.xml:2715
 #, no-c-format
 msgid ""
 "$ dd if=/dev/cdrom | \\\n"
@@ -3958,7 +3963,7 @@ msgstr ""
 "134486016 bytes (134 MB) copied, 97.474 seconds, 1.4 MB/s"
 
 #. Tag: para
-#: boot-installer.xml:2711
+#: boot-installer.xml:2720
 #, no-c-format
 msgid ""
 "If, after the installer has been booted successfully, the CD-ROM is not "
@@ -3979,7 +3984,7 @@ msgstr ""
 "komentotulkki."
 
 #. Tag: para
-#: boot-installer.xml:2723
+#: boot-installer.xml:2732
 #, no-c-format
 msgid ""
 "Switch to VT4 or view the contents of <filename>/var/log/syslog</filename> "
@@ -3992,7 +3997,7 @@ msgstr ""
 "tuloste."
 
 #. Tag: para
-#: boot-installer.xml:2730
+#: boot-installer.xml:2739
 #, no-c-format
 msgid ""
 "Check in the output of <command>dmesg</command> if your CD-ROM drive was "
@@ -4022,7 +4027,7 @@ msgstr ""
 "lataamista itse komennolla <command>modprobe</command>."
 
 #. Tag: para
-#: boot-installer.xml:2744
+#: boot-installer.xml:2753
 #, no-c-format
 msgid ""
 "Check that there is a device node for your CD-ROM drive under <filename>/dev/"
@@ -4034,7 +4039,7 @@ msgstr ""
 "filename>. Pitäisi olla myös <filename>/dev/cdrom</filename>."
 
 #. Tag: para
-#: boot-installer.xml:2752
+#: boot-installer.xml:2761
 #, no-c-format
 msgid ""
 "Use the <command>mount</command> command to check if the CD-ROM is already "
@@ -4050,7 +4055,7 @@ msgstr ""
 "virheilmoituksia."
 
 #. Tag: para
-#: boot-installer.xml:2762
+#: boot-installer.xml:2771
 #, no-c-format
 msgid ""
 "Check if DMA is currently enabled: <informalexample><screen>\n"
@@ -4076,7 +4081,7 @@ msgstr ""
 "laitteen hakemistossa."
 
 #. Tag: para
-#: boot-installer.xml:2777
+#: boot-installer.xml:2786
 #, no-c-format
 msgid ""
 "If there are any problems during the installation, try checking the "
@@ -4090,13 +4095,13 @@ msgstr ""
 "luettua luotettavasti."
 
 #. Tag: title
-#: boot-installer.xml:2792
+#: boot-installer.xml:2801
 #, no-c-format
 msgid "Floppy Disk Reliability"
 msgstr "Levykkeen luotettavuus"
 
 #. Tag: para
-#: boot-installer.xml:2794
+#: boot-installer.xml:2803
 #, no-c-format
 msgid ""
 "The biggest problem for people using floppy disks to install &debian; seems "
@@ -4106,7 +4111,7 @@ msgstr ""
 "levykkeiden luotettavuus."
 
 #. Tag: para
-#: boot-installer.xml:2799
+#: boot-installer.xml:2808
 #, no-c-format
 msgid ""
 "The boot floppy is the floppy with the worst problems, because it is read by "
@@ -4124,7 +4129,7 @@ msgstr ""
 "koskevien virheilmoitusten tulvana."
 
 #. Tag: para
-#: boot-installer.xml:2808
+#: boot-installer.xml:2817
 #, no-c-format
 msgid ""
 "If you are having the installation stall at a particular floppy, the first "
@@ -4141,7 +4146,7 @@ msgstr ""
 "virheittä. Joskus kannattaa levyke kirjoittaa toisella koneella."
 
 #. Tag: para
-#: boot-installer.xml:2817
+#: boot-installer.xml:2826
 #, no-c-format
 msgid ""
 "One user reports he had to write the images to floppy <emphasis>three</"
@@ -4152,7 +4157,7 @@ msgstr ""
 "<emphasis>kolme</emphasis> kertaa ennen kuin yksi levyke vihdoin toimi."
 
 #. Tag: para
-#: boot-installer.xml:2823
+#: boot-installer.xml:2832
 #, no-c-format
 msgid ""
 "Normally you should not have to download a floppy image again, but if you "
@@ -4164,7 +4169,7 @@ msgstr ""
 "tarkistamalla niiden md5sum-tarkistussummat."
 
 #. Tag: para
-#: boot-installer.xml:2829
+#: boot-installer.xml:2838
 #, no-c-format
 msgid ""
 "Other users have reported that simply rebooting a few times with the same "
@@ -4176,13 +4181,13 @@ msgstr ""
 "viallisista laitteista tai laiteohjelmiston levykeajureista."
 
 #. Tag: title
-#: boot-installer.xml:2838
+#: boot-installer.xml:2847
 #, no-c-format
 msgid "Boot Configuration"
 msgstr "Käynnistysasetukset"
 
 #. Tag: para
-#: boot-installer.xml:2840
+#: boot-installer.xml:2849
 #, no-c-format
 msgid ""
 "If you have problems and the kernel hangs during the boot process, doesn't "
@@ -4196,16 +4201,33 @@ msgstr ""
 "kohdassa <xref linkend=\"boot-parms\"/>."
 
 #. Tag: para
-#: boot-installer.xml:2849
+#: boot-installer.xml:2856
 #, no-c-format
 msgid ""
-"In some cases, malfunctions can be caused by missing device firmware (see "
-"<xref linkend=\"hardware-firmware\"/> and <xref linkend=\"loading-firmware\"/"
-">)."
+"Often, problems can be solved by removing add-ons and peripherals, and then "
+"trying booting again. <phrase arch=\"any-x86\">Internal modems, sound cards, "
+"and Plug-n-Play devices can be especially problematic.</phrase>"
 msgstr ""
+"Usein pulmat katoavat poistamalla lisälaitekortit ja oheislaitteet, ja "
+"yrittämällä käynnistystä uudelleen. <phrase arch=\"any-x86\">Korttimodeemit, "
+"äänikortit ja Plug-n-Play-laitteet ovat erityisiä ongelmapesiä.</phrase>"
 
 #. Tag: para
-#: boot-installer.xml:2860
+#: boot-installer.xml:2862
+#, no-c-format
+msgid ""
+"If you have a large amount of memory installed in your machine, more than "
+"512M, and the installer hangs when booting the kernel, you may need to "
+"include a boot argument to limit the amount of memory the kernel sees, such "
+"as <userinput>mem=512m</userinput>."
+msgstr ""
+"Jos koneessa on asennettuna paljon muistia, enemmän kuin 512 Mt, ja asennin "
+"jumittuu ydintä käynnistettäessä, voi olla tarpeen antaa käynnistysparametri "
+"rajoittamaan ytimen näkemän muistin määrää, kuten <userinput>mem=512m</"
+"userinput>."
+
+#. Tag: para
+#: boot-installer.xml:2875
 #, no-c-format
 msgid ""
 "If software speech synthesis does not work, there is most probably an issue "
@@ -4217,37 +4239,37 @@ msgid ""
 msgstr ""
 
 #. Tag: userinput
-#: boot-installer.xml:2871
+#: boot-installer.xml:2886
 #, no-c-format
 msgid "dmesg"
 msgstr ""
 
 #. Tag: userinput
-#: boot-installer.xml:2873
+#: boot-installer.xml:2888
 #, no-c-format
 msgid "lspci"
 msgstr ""
 
 #. Tag: userinput
-#: boot-installer.xml:2875
+#: boot-installer.xml:2890
 #, no-c-format
 msgid "lsmod"
 msgstr ""
 
 #. Tag: userinput
-#: boot-installer.xml:2877
+#: boot-installer.xml:2892
 #, no-c-format
 msgid "amixer"
 msgstr ""
 
 #. Tag: title
-#: boot-installer.xml:2885 boot-installer.xml:2996
+#: boot-installer.xml:2900 boot-installer.xml:3002
 #, no-c-format
 msgid "Common &arch-title; Installation Problems"
 msgstr "Yleisiä suoritinperheen &arch-title; asennuspulmia"
 
 #. Tag: para
-#: boot-installer.xml:2886
+#: boot-installer.xml:2901
 #, no-c-format
 msgid ""
 "There are some common installation problems that can be solved or avoided by "
@@ -4257,7 +4279,79 @@ msgstr ""
 "asentimelle sopivia käynnistysparametreja."
 
 #. Tag: para
-#: boot-installer.xml:2937
+#: boot-installer.xml:2906
+#, no-c-format
+msgid ""
+"Some systems have floppies with <quote>inverted DCLs</quote>. If you receive "
+"errors reading from the floppy, even when you know the floppy is good, try "
+"the parameter <userinput>floppy=thinkpad</userinput>."
+msgstr ""
+"Joissakin tietokoneissa levykeasemassa on <quote>inverted DCL</quote>. Jos "
+"levykkeestä tulee lukuvirheitä, vaikka levyke tiedetään kunnolliseksi, "
+"kokeile parametria <userinput>floppy=thinkpad</userinput>."
+
+#. Tag: para
+#: boot-installer.xml:2912
+#, no-c-format
+msgid ""
+"On some systems, such as the IBM PS/1 or ValuePoint (which have ST-506 disk "
+"drivers), the IDE drive may not be properly recognized. Again, try it first "
+"without the parameters and see if the IDE drive is recognized properly. If "
+"not, determine your drive geometry (cylinders, heads, and sectors), and use "
+"the parameter <userinput>hd=<replaceable>cylinders</replaceable>,"
+"<replaceable>heads</replaceable>,<replaceable>sectors</replaceable></"
+"userinput>."
+msgstr ""
+"Joissakin tietokoneissa, kuten IBM PS/1 tai ValuePoint (joissa on ST-506-"
+"levyajurit), ei IDE-levyä ehkä tunnisteta oikein. Yritä taas ensin ilman "
+"parametreja ja kokeile josko IDE-asema tunnistuu oikein. Jos ei, selvitä "
+"levyn geometria (sylinterit, päät ja sektorit) ja käytä parametria "
+"<userinput>hd=<replaceable>sylinterit</replaceable>,<replaceable>päät</"
+"replaceable>,<replaceable>sektorit</replaceable></userinput>."
+
+#. Tag: para
+#: boot-installer.xml:2921
+#, no-c-format
+msgid ""
+"If you have a very old machine, and the kernel hangs after saying "
+"<computeroutput>Checking 'hlt' instruction...</computeroutput>, then you "
+"should try the <userinput>no-hlt</userinput> boot argument, which disables "
+"this test."
+msgstr ""
+"Jos kone on hyvin vanha, ja ydin jumittuu kun se on tulostanut rivin "
+"<computeroutput>Checking 'hlt' instruction...</computeroutput>, olisi "
+"kokeiltava käynnistysparametria <userinput>no-hlt</userinput>, joka ottaa "
+"tämän testin pois käytöstä."
+
+#. Tag: para
+#: boot-installer.xml:2928
+#, no-c-format
+msgid ""
+"Some systems (especially laptops) that have a native resolution that is not "
+"a 4:3 ratio (i.e. not for example 800x600 or 1024x768) may have a blank "
+"display after the installer has been booted. In that case adding the boot "
+"parameter <userinput>vga=788</userinput><footnote> <para> The parameter "
+"<userinput>vga=788</userinput> will activate the VESA framebuffer with a "
+"resolution of 800x600. This will probably work, but may not be the optimal "
+"resolution for your system. A list of supported resolutions can be obtained "
+"by using <userinput>vga=ask</userinput>, but you should be aware that list "
+"may not be complete. </para> </footnote> may help. If that does not work, "
+"try adding the boot parameter <userinput>fb=false</userinput>."
+msgstr ""
+"Jotkin laitteet (erityisesti kannettavat) joiden näytön natiivin tarkkuuden "
+"kuvasuhde ei ole 4:3 (t.s. ei ole esimerkiksi 800x600 tai 1024x768) "
+"saattavat näyttää tyhjän ruudun kun asennin on käynnistetty. Tässä "
+"tapauksessa saattaa auttaa käynnistysvalitsin <userinput>vga=788</"
+"userinput><footnote> <para> Valitsin <userinput>vga=788</userinput> "
+"käynistää VESA-ruutupuskurin tarkkuudella 800x600. Tämä toimii "
+"todennäköisesti, mutta ei ehkä ole paras mahdollinen tarkkuus laitteelle. "
+"Luettelo tuetuista tarkkuuksista saadaan käyttämällä <userinput>vga=ask</"
+"userinput>, mutta olisi huomattava ettei luettelo välttämättä ole kattava. </"
+"para> </footnote>. Jos se ei toimi, kokeile lisätä tarkennin "
+"<userinput>fb=false</userinput>."
+
+#. Tag: para
+#: boot-installer.xml:2946
 #, no-c-format
 msgid ""
 "If your screen begins to show a weird picture while the kernel boots, eg. "
@@ -4277,13 +4371,13 @@ msgstr ""
 "kohdasta <xref linkend=\"boot-parms\"/>."
 
 #. Tag: title
-#: boot-installer.xml:2951
+#: boot-installer.xml:2960
 #, no-c-format
 msgid "System Freeze During the PCMCIA Configuration Phase"
 msgstr "Järjestelmä jumittuu PCMCIA:n asetuksia tehtäessä"
 
 #. Tag: para
-#: boot-installer.xml:2952
+#: boot-installer.xml:2961
 #, fuzzy, no-c-format
 #| msgid ""
 #| "Some laptop models produced by Dell are known to crash when PCMCIA device "
@@ -4294,13 +4388,13 @@ msgstr "Järjestelmä jumittuu PCMCIA:n asetuksia tehtäessä"
 #| "You can then configure PCMCIA after the installation is completed and "
 #| "exclude the resource range causing the problems."
 msgid ""
-"Some very old laptop models produced by Dell are known to crash when PCMCIA "
-"device detection tries to access some hardware addresses. Other laptops may "
-"display similar problems. If you experience such a problem and you don't "
-"need PCMCIA support during the installation, you can disable PCMCIA using "
-"the <userinput>hw-detect/start_pcmcia=false</userinput> boot parameter. You "
-"can then configure PCMCIA after the installation is completed and exclude "
-"the resource range causing the problems."
+"Some laptop models produced by Dell are known to crash when PCMCIA device "
+"detection tries to access some hardware addresses. Other laptops may display "
+"similar problems. If you experience such a problem and you don't need PCMCIA "
+"support during the installation, you can disable PCMCIA using the "
+"<userinput>hw-detect/start_pcmcia=false</userinput> boot parameter. You can "
+"then configure PCMCIA after the installation is completed and exclude the "
+"resource range causing the problems."
 msgstr ""
 "Joidenkin Dellin tekemien läppärimallien tiedetään kaatuvan, kun PCMCIA-"
 "laitteiden tunnistus yrittää käsitellä tiettyjä laiteosoitteita. Muissakin "
@@ -4311,7 +4405,7 @@ msgstr ""
 "poistaa pulmia aiheuttavien osoitteiden arvoalue pois käytöstä."
 
 #. Tag: para
-#: boot-installer.xml:2962
+#: boot-installer.xml:2971
 #, no-c-format
 msgid ""
 "Alternatively, you can boot the installer in expert mode. You will then be "
@@ -4333,20 +4427,44 @@ msgstr ""
 "Huomaa, että pilkut, jos niitä on, on jätettävä pois kun tätä arvoa "
 "kirjoitetaan asentimelle."
 
+#. Tag: title
+#: boot-installer.xml:2988
+#, no-c-format
+msgid "System Freeze while Loading USB Modules"
+msgstr "Järjestelmä jumittuu ladattaessa USB-moduuleita"
+
 #. Tag: para
-#: boot-installer.xml:2997
+#: boot-installer.xml:2989
+#, no-c-format
+msgid ""
+"The kernel normally tries to install USB modules and the USB keyboard driver "
+"in order to support some non-standard USB keyboards. However, there are some "
+"broken USB systems where the driver hangs on loading. A possible workaround "
+"may be disabling the USB controller in your mainboard BIOS setup. Another "
+"option is passing the <userinput>nousb</userinput> parameter at the boot "
+"prompt."
+msgstr ""
+"Normaalisti ydin yrittää asentaa USB-moduuleita ja USB-näppäimistön ajurin "
+"tukeakseen joitakin ei-standardeja USB-näppäimistöjä. Eräissä rikkinäisissä "
+"USB-järjestelmissä ajuri kuitenkin jumittuu sitä ladattaessa. Pulman voi "
+"ehkä kiertää ottamalla USB-ohjaimen pois käytöstä emolevyn BIOSissa. Toinen "
+"tapa on antaa käynnistyskomentotulkissa parametri <userinput>nousb</"
+"userinput>."
+
+#. Tag: para
+#: boot-installer.xml:3003
 #, no-c-format
 msgid "There are some common installation problems that are worth mentioning."
 msgstr "Muutamat yleiset asennuspulmat kannattaa mainita."
 
 #. Tag: title
-#: boot-installer.xml:3003
+#: boot-installer.xml:3009
 #, no-c-format
 msgid "Misdirected video output"
 msgstr "Videosignaali väärään paikkaan"
 
 #. Tag: para
-#: boot-installer.xml:3004
+#: boot-installer.xml:3010
 #, no-c-format
 msgid ""
 "It is fairly common for &arch-title; to have two video cards in one machine, "
@@ -4374,7 +4492,7 @@ msgstr ""
 "<userinput>video=atyfb:off</userinput>."
 
 #. Tag: para
-#: boot-installer.xml:3018
+#: boot-installer.xml:3024
 #, no-c-format
 msgid ""
 "Note that you may also have to manually add this parameter to the silo "
@@ -4388,13 +4506,13 @@ msgstr ""
 "tiedostossa <filename>/etc/X11/xorg.conf</filename>."
 
 #. Tag: title
-#: boot-installer.xml:3029
+#: boot-installer.xml:3035
 #, no-c-format
 msgid "Failure to Boot or Install from CD-ROM"
 msgstr "Käynnistys tai asennus CD-levyltä ei toimi"
 
 #. Tag: para
-#: boot-installer.xml:3030
+#: boot-installer.xml:3036
 #, no-c-format
 msgid ""
 "Some Sparc systems are notoriously difficult to boot from CD-ROM and even if "
@@ -4406,7 +4524,7 @@ msgstr ""
 "aikana. Useimmat viat on raportoitu SunBlade-järjestelmistä."
 
 #. Tag: para
-#: boot-installer.xml:3036
+#: boot-installer.xml:3042
 #, no-c-format
 msgid "We recommend to install such systems by netbooting the installer."
 msgstr ""
@@ -4414,13 +4532,13 @@ msgstr ""
 "verkosta."
 
 #. Tag: title
-#: boot-installer.xml:3045
+#: boot-installer.xml:3051
 #, no-c-format
 msgid "Interpreting the Kernel Startup Messages"
 msgstr "Ytimen käynnistysviestien tulkinta"
 
 #. Tag: para
-#: boot-installer.xml:3047
+#: boot-installer.xml:3053
 #, no-c-format
 msgid ""
 "During the boot sequence, you may see many messages in the form "
@@ -4457,13 +4575,13 @@ msgstr ""
 "\"linux-any\">(katso <xref linkend=\"kernel-baking\"/>)</phrase>."
 
 #. Tag: title
-#: boot-installer.xml:3072
+#: boot-installer.xml:3078
 #, no-c-format
 msgid "Reporting Installation Problems"
 msgstr "Asennuspulmista ilmoittaminen"
 
 #. Tag: para
-#: boot-installer.xml:3073
+#: boot-installer.xml:3079
 #, no-c-format
 msgid ""
 "If you get through the initial boot phase but cannot complete the install, "
@@ -4482,7 +4600,7 @@ msgstr ""
 "vikailmoitukset, halunnet liittää nämä tiedot vikailmoitukseen."
 
 #. Tag: para
-#: boot-installer.xml:3084
+#: boot-installer.xml:3090
 #, no-c-format
 msgid ""
 "Other pertinent installation messages may be found in <filename>/var/log/</"
@@ -4494,13 +4612,13 @@ msgstr ""
 "</filename> kun tietokone on käynnistynyt asennettuun järjestelmään."
 
 #. Tag: title
-#: boot-installer.xml:3095
+#: boot-installer.xml:3101
 #, no-c-format
 msgid "Submitting Installation Reports"
 msgstr "Asennusraporttien lähettäminen"
 
 #. Tag: para
-#: boot-installer.xml:3096
+#: boot-installer.xml:3102
 #, no-c-format
 msgid ""
 "If you still have problems, please submit an installation report. We also "
@@ -4513,7 +4631,7 @@ msgstr ""
 "mahdollisimman paljon tietoa mahdollisimman monista laitteistokokoonpanoista."
 
 #. Tag: para
-#: boot-installer.xml:3103
+#: boot-installer.xml:3109
 #, no-c-format
 msgid ""
 "Note that your installation report will be published in the Debian Bug "
@@ -4526,7 +4644,7 @@ msgstr ""
 "julkistamista et pane pahaksesi."
 
 #. Tag: para
-#: boot-installer.xml:3109
+#: boot-installer.xml:3115
 #, no-c-format
 msgid ""
 "If you have a working &debian; system, the easiest way to send an "
@@ -4546,7 +4664,7 @@ msgstr ""
 "<command>reportbug installation-reports</command>."
 
 #. Tag: para
-#: boot-installer.xml:3119
+#: boot-installer.xml:3125
 #, no-c-format
 msgid ""
 "Alternatively you can use this template when filling out installation "
@@ -4635,142 +4753,44 @@ msgstr ""
 "Describe the steps that you did which brought the system into the problem "
 "state."
 
+#, fuzzy
+#~| msgid ""
+#~| "If you are booting with a serial console, generally the kernel will "
+#~| "autodetect this. If you have a videocard (framebuffer) and a keyboard "
+#~| "also attached to the computer which you wish to boot via serial console, "
+#~| "you may have to pass the <userinput>console=<replaceable>device</"
+#~| "replaceable></userinput> argument to the kernel, where "
+#~| "<replaceable>device</replaceable> is your serial device, which is "
+#~| "usually something like <filename>ttyS0</filename><footnote> <para> In "
+#~| "order to ensure the terminal type used by the installer matches your "
+#~| "terminal emulator, the parameter <userinput>TERM=<replaceable>type</"
+#~| "replaceable></userinput> can be added. Note that the installer only "
+#~| "supports the following terminal types: <literal>linux</literal>, "
+#~| "<literal>bterm</literal>, <literal>ansi</literal>, <literal>vt102</"
+#~| "literal> and <literal>dumb</literal>. The default for serial console in "
+#~| "&d-i; is <userinput>vt102</userinput>. </para> </footnote>."
 #~ msgid ""
-#~ "When the kernel boots, a message <informalexample><screen>\n"
-#~ "Memory:<replaceable>avail</replaceable>k/<replaceable>total</"
-#~ "replaceable>k available\n"
-#~ "</screen></informalexample> should be emitted early in the process. "
-#~ "<replaceable>total</replaceable> should match the total amount of RAM, in "
-#~ "kilobytes. If this doesn't match the actual amount of RAM you have "
-#~ "installed, you need to use the <userinput>mem=<replaceable>ram</"
-#~ "replaceable></userinput> parameter, where <replaceable>ram</replaceable> "
-#~ "is set to the amount of memory, suffixed with <quote>k</quote> for "
-#~ "kilobytes, or <quote>m</quote> for megabytes. For example, both "
-#~ "<userinput>mem=65536k</userinput> and <userinput>mem=64m</userinput> mean "
-#~ "64MB of RAM."
+#~ "If you are booting with a serial console, generally the kernel will "
+#~ "autodetect this. If you have a videocard (framebuffer) and a keyboard "
+#~ "also attached to the computer which you wish to boot via serial console, "
+#~ "you may have to pass the <userinput>console=<replaceable>device</"
+#~ "replaceable></userinput> argument to the kernel, where "
+#~ "<replaceable>device</replaceable> is your serial device, which is usually "
+#~ "something like <filename>ttyS0</filename>."
 #~ msgstr ""
-#~ "Kun ydin käynnistyy, viestin <informalexample><screen>\n"
-#~ "Memory:<replaceable>avail</replaceable>k/<replaceable>total</"
-#~ "replaceable>k available\n"
-#~ "</screen></informalexample> pitäisi näkyä kohtalaisen alussa. "
-#~ "<replaceable>total</replaceable> pitäisi olla koneen kaiken keskusmuistin "
-#~ "määrä kilotavuissa. Jos tämä ei vastaa koneeseen asennettua muistia, on "
-#~ "käytettävä parametria <userinput>mem=<replaceable>ram</replaceable></"
-#~ "userinput>, missä <replaceable>ram</replaceable> on muistin määrä. "
-#~ "Yksikkö ilmoitetaan kirjaimella <quote>k</quote> kilotavuille ja "
-#~ "<quote>m</quote>:llä megatavuille. Esimerkiksi sekä "
-#~ "<userinput>mem=65536k</userinput> että <userinput>mem=64m</userinput> "
-#~ "tarkoittavat 64 Mt keskusmuistia."
-
-#~ msgid ""
-#~ "If your system boots correctly from the CD-ROM, it does not necessarily "
-#~ "mean that &arch-kernel; also supports the CD-ROM (or, more correctly, the "
-#~ "controller that your CD-ROM drive is connected to)."
-#~ msgstr ""
-#~ "Vaikka tietokone käynnistyisikin CD-levyltä ongelmitta, ei se välttämättä "
-#~ "tarkoita &arch-kernel; tukevan kyseistä CD-asemaa (tai täsmällisemmin "
-#~ "ohjainta, johon  CD-asema on kytketty)."
-
-#~ msgid ""
-#~ "Often, problems can be solved by removing add-ons and peripherals, and "
-#~ "then trying booting again. <phrase arch=\"any-x86\">Internal modems, "
-#~ "sound cards, and Plug-n-Play devices can be especially problematic.</"
-#~ "phrase>"
-#~ msgstr ""
-#~ "Usein pulmat katoavat poistamalla lisälaitekortit ja oheislaitteet, ja "
-#~ "yrittämällä käynnistystä uudelleen. <phrase arch=\"any-"
-#~ "x86\">Korttimodeemit, äänikortit ja Plug-n-Play-laitteet ovat erityisiä "
-#~ "ongelmapesiä.</phrase>"
-
-#~ msgid ""
-#~ "If you have a large amount of memory installed in your machine, more than "
-#~ "512M, and the installer hangs when booting the kernel, you may need to "
-#~ "include a boot argument to limit the amount of memory the kernel sees, "
-#~ "such as <userinput>mem=512m</userinput>."
-#~ msgstr ""
-#~ "Jos koneessa on asennettuna paljon muistia, enemmän kuin 512 Mt, ja "
-#~ "asennin jumittuu ydintä käynnistettäessä, voi olla tarpeen antaa "
-#~ "käynnistysparametri rajoittamaan ytimen näkemän muistin määrää, kuten "
-#~ "<userinput>mem=512m</userinput>."
-
-#~ msgid ""
-#~ "Some systems have floppies with <quote>inverted DCLs</quote>. If you "
-#~ "receive errors reading from the floppy, even when you know the floppy is "
-#~ "good, try the parameter <userinput>floppy=thinkpad</userinput>."
-#~ msgstr ""
-#~ "Joissakin tietokoneissa levykeasemassa on <quote>inverted DCL</quote>. "
-#~ "Jos levykkeestä tulee lukuvirheitä, vaikka levyke tiedetään "
-#~ "kunnolliseksi, kokeile parametria <userinput>floppy=thinkpad</userinput>."
-
-#~ msgid ""
-#~ "On some systems, such as the IBM PS/1 or ValuePoint (which have ST-506 "
-#~ "disk drivers), the IDE drive may not be properly recognized. Again, try "
-#~ "it first without the parameters and see if the IDE drive is recognized "
-#~ "properly. If not, determine your drive geometry (cylinders, heads, and "
-#~ "sectors), and use the parameter <userinput>hd=<replaceable>cylinders</"
-#~ "replaceable>,<replaceable>heads</replaceable>,<replaceable>sectors</"
-#~ "replaceable></userinput>."
-#~ msgstr ""
-#~ "Joissakin tietokoneissa, kuten IBM PS/1 tai ValuePoint (joissa on ST-506-"
-#~ "levyajurit), ei IDE-levyä ehkä tunnisteta oikein. Yritä taas ensin ilman "
-#~ "parametreja ja kokeile josko IDE-asema tunnistuu oikein. Jos ei, selvitä "
-#~ "levyn geometria (sylinterit, päät ja sektorit) ja käytä parametria "
-#~ "<userinput>hd=<replaceable>sylinterit</replaceable>,<replaceable>päät</"
-#~ "replaceable>,<replaceable>sektorit</replaceable></userinput>."
-
-#~ msgid ""
-#~ "If you have a very old machine, and the kernel hangs after saying "
-#~ "<computeroutput>Checking 'hlt' instruction...</computeroutput>, then you "
-#~ "should try the <userinput>no-hlt</userinput> boot argument, which "
-#~ "disables this test."
-#~ msgstr ""
-#~ "Jos kone on hyvin vanha, ja ydin jumittuu kun se on tulostanut rivin "
-#~ "<computeroutput>Checking 'hlt' instruction...</computeroutput>, olisi "
-#~ "kokeiltava käynnistysparametria <userinput>no-hlt</userinput>, joka ottaa "
-#~ "tämän testin pois käytöstä."
-
-#~ msgid ""
-#~ "Some systems (especially laptops) that have a native resolution that is "
-#~ "not a 4:3 ratio (i.e. not for example 800x600 or 1024x768) may have a "
-#~ "blank display after the installer has been booted. In that case adding "
-#~ "the boot parameter <userinput>vga=788</userinput><footnote> <para> The "
-#~ "parameter <userinput>vga=788</userinput> will activate the VESA "
-#~ "framebuffer with a resolution of 800x600. This will probably work, but "
-#~ "may not be the optimal resolution for your system. A list of supported "
-#~ "resolutions can be obtained by using <userinput>vga=ask</userinput>, but "
-#~ "you should be aware that list may not be complete. </para> </footnote> "
-#~ "may help. If that does not work, try adding the boot parameter "
-#~ "<userinput>fb=false</userinput>."
-#~ msgstr ""
-#~ "Jotkin laitteet (erityisesti kannettavat) joiden näytön natiivin "
-#~ "tarkkuuden kuvasuhde ei ole 4:3 (t.s. ei ole esimerkiksi 800x600 tai "
-#~ "1024x768) saattavat näyttää tyhjän ruudun kun asennin on käynnistetty. "
-#~ "Tässä tapauksessa saattaa auttaa käynnistysvalitsin <userinput>vga=788</"
-#~ "userinput><footnote> <para> Valitsin <userinput>vga=788</userinput> "
-#~ "käynistää VESA-ruutupuskurin tarkkuudella 800x600. Tämä toimii "
-#~ "todennäköisesti, mutta ei ehkä ole paras mahdollinen tarkkuus laitteelle. "
-#~ "Luettelo tuetuista tarkkuuksista saadaan käyttämällä <userinput>vga=ask</"
-#~ "userinput>, mutta olisi huomattava ettei luettelo välttämättä ole "
-#~ "kattava. </para> </footnote>. Jos se ei toimi, kokeile lisätä tarkennin "
-#~ "<userinput>fb=false</userinput>."
-
-#~ msgid "System Freeze while Loading USB Modules"
-#~ msgstr "Järjestelmä jumittuu ladattaessa USB-moduuleita"
-
-#~ msgid ""
-#~ "The kernel normally tries to install USB modules and the USB keyboard "
-#~ "driver in order to support some non-standard USB keyboards. However, "
-#~ "there are some broken USB systems where the driver hangs on loading. A "
-#~ "possible workaround may be disabling the USB controller in your mainboard "
-#~ "BIOS setup. Another option is passing the <userinput>nousb</userinput> "
-#~ "parameter at the boot prompt."
-#~ msgstr ""
-#~ "Normaalisti ydin yrittää asentaa USB-moduuleita ja USB-näppäimistön "
-#~ "ajurin tukeakseen joitakin ei-standardeja USB-näppäimistöjä. Eräissä "
-#~ "rikkinäisissä USB-järjestelmissä ajuri kuitenkin jumittuu sitä "
-#~ "ladattaessa. Pulman voi ehkä kiertää ottamalla USB-ohjaimen pois käytöstä "
-#~ "emolevyn BIOSissa. Toinen tapa on antaa käynnistyskomentotulkissa "
-#~ "parametri <userinput>nousb</userinput>."
+#~ "Käytettäessä käynnistyksessä sarjapäätettä, osaa ydin yleensä havaita "
+#~ "tämän automaattisesti. Jos myös näytönohjain (framebuffer) ja näppäimistö "
+#~ "ovat kiinni sarjapäätettä käyttäen käynnistettävässä tietokoneessa, pitää "
+#~ "ehkä antaa ytimelle parametri <userinput>console=<replaceable>laite</"
+#~ "replaceable></userinput>, missä <replaceable>laite</replaceable> on "
+#~ "sarjaportti, joka yleensä on suunnilleen <filename>ttyS0</"
+#~ "filename><footnote> <para> Asennin voidaan pakottaa valitsemaan "
+#~ "pääteäemulaattorille sopiva päätetyyppi lisäämällä valitsin "
+#~ "<userinput>TERM=<replaceable>type</replaceable></userinput>. Huomaa "
+#~ "asentimen tukevan vain seuraavia päätetyppejä: <literal>linux</literal>, "
+#~ "<literal>bterm</literal>, <literal>ansi</literal>, <literal>vt102</"
+#~ "literal> ja <literal>dumb</literal>. &d-i;:in sarjapäätteen tyypin "
+#~ "oletusarvo on <userinput>vt102</userinput>. </para> </footnote>."
 
 #~ msgid "Booting the NSLU2"
 #~ msgstr "NSLU2:n käynnistäminen"
