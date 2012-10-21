@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: d-i-manual\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2012-07-20 14:12+0000\n"
-"PO-Revision-Date: 2012-07-25 22:21+0800\n"
+"PO-Revision-Date: 2012-10-21 13:47+0800\n"
 "Last-Translator: Ji YongGang <jungleji@gmail.com>\n"
 "Language-Team: debian-chinese-gb <debian-chinese-gb@lists.debian.org>\n"
 "Language: \n"
@@ -20,14 +20,14 @@ msgstr "获取系统安装介质"
 
 #. Tag: title
 #: install-methods.xml:12
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "Official &debian-gnu; CD-ROM Sets"
 msgid "Official &debian-gnu; CD-ROM Sets"
 msgstr "官方的 &debian-gnu; 光盘套装"
 
 #. Tag: para
 #: install-methods.xml:13
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "By far the easiest way to install &debian-gnu; is from an Official "
 #| "&debian; CD-ROM Set. You can buy a set from a vendor (see the <ulink url="
@@ -68,7 +68,7 @@ msgstr ""
 
 #. Tag: para
 #: install-methods.xml:30
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "If your machine doesn't support CD booting, but you do have a CD set, you "
 #| "can use an alternative strategy such as <phrase condition=\"supports-"
@@ -276,7 +276,7 @@ msgstr "Plug Computer 和 OpenRD 安装文件"
 
 #. Tag: para
 #: install-methods.xml:173
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "The installation files for plug computers (SheevaPlug, GuruPlug, etc) and "
 #| "OpenRD devices consist of a kernel and initrd for U-Boot. You can obtain "
@@ -972,7 +972,7 @@ msgstr "我们将展示如何使用 U 盘的第一个分区，而不是整个设
 
 #. Tag: para
 #: install-methods.xml:671
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Since most USB sticks come pre-configured with a single FAT16 partition, "
 #| "you probably won't have to repartition or reformat the stick. If you have "
@@ -1001,14 +1001,11 @@ msgid ""
 "for your USB stick. The <command>mkdosfs</command> command is contained in "
 "the <classname>dosfstools</classname> &debian; package."
 msgstr ""
-"由于大多数 U 盘预先设置了一个单独的 FAT16 分区，您可能不需要重新分区或者格式"
-"化 U 盘。如果必须要做，请使用 <command>cfdisk</command> 或者其他的分区工具来"
-"创建一个 FAT16 分区<footnote> <para> 别忘记设置 <quote>bootable</quote> 引导"
-"标记。</para> </footnote>，然后建立文件系统：<informalexample><screen>\n"
+"由于大多数 U 盘预先设置了一个单独的 FAT16 分区，您可能不需要重新分区或者格式化 U 盘。如果必须格式化，请使用 <command>cfdisk</command> 或者其他的分区工具来创建一个 FAT16 分区<footnote> <para> 别忘了设置 <quote>bootable</quote> 引导标记。</para> </footnote>，安装 MBR 使用: <informalexample><screen>\n"
+"# install-mbr /dev/<replaceable>sdX</replaceable>\n"
+"</screen></informalexample> 其中 <command>install-mbr</command> 命令属于 <classname>mbr</classname> &debian; 软件包。然后建立文件系统： <informalexample><screen>\n"
 "# mkdosfs /dev/<replaceable>sdX1</replaceable>\n"
-"</screen></informalexample> 注意，请使用 U 盘正确的设备名称。"
-"<command>mkdosfs</command> 命令包含在 &debian; 的 <classname>dosfstools</"
-"classname> 软件包中。"
+"</screen></informalexample> 注意，请使用 U 盘正确的设备名称。<command>mkdosfs</command> 命令属于 <classname>dosfstools</classname> &debian; 软件包。"
 
 #. Tag: para
 #: install-methods.xml:695
@@ -1082,7 +1079,7 @@ msgstr ""
 
 #. Tag: para
 #: install-methods.xml:747
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Next you should create a <filename>syslinux.cfg</filename> configuration "
 #| "file, which at a bare minimum should contain the following two lines "
@@ -1105,13 +1102,10 @@ msgid ""
 "<userinput>vga=788</userinput> to the second line. Other parameters can be "
 "appended as desired."
 msgstr ""
-"接下来，您需要创建一个 <filename>syslinux.cfg</filename> 配置文件，里面最少要"
-"包含下面两行(如果您使用 <filename>netboot</filename> 映象，修改内核文件名为  "
-"<quote><filename>linux</filename></quote> )：<informalexample><screen>\n"
+"接下来，您需要创建一个 <filename>syslinux.cfg</filename> 配置文件，里面最少要包含下面两行(如果您使用 <filename>netboot</filename> 映象，修改内核文件名为  <quote><filename>linux</filename></quote> )：<informalexample><screen>\n"
 "default vmlinuz\n"
 "append initrd=initrd.gz\n"
-"</screen></informalexample> 对于图形安装程序，您需要添加 <userinput>vga=788</"
-"userinput> 到第二行尾部。"
+"</screen></informalexample> 对于图形安装程序，您需要添加 <userinput>vga=788</userinput> 到第二行尾部。还可以添加其他参数到行尾。"
 
 #. Tag: para
 #: install-methods.xml:759
@@ -1119,7 +1113,7 @@ msgstr ""
 msgid ""
 "To enable the boot prompt to permit further parameter appending, add a "
 "<userinput>prompt 1</userinput> line."
-msgstr ""
+msgstr "在启动提示符后允许添加参数，需要加上 <userinput>prompt 1</userinput>。"
 
 #. Tag: para
 #: install-methods.xml:764 install-methods.xml:874
@@ -2282,23 +2276,3 @@ msgid ""
 msgstr ""
 "在 <xref linkend=\"appendix-preseed\"/> 是有关预置文件的完整文档，并有一些可"
 "以使用的例子供您修改。"
-
-#, fuzzy
-#~| msgid "GLAN Tank Installation Files"
-#~ msgid "LaCie NASes Installation Files"
-#~ msgstr "GLAN Tank 安装文件"
-
-#, fuzzy
-#~| msgid ""
-#~| "The installation files for plug computers (SheevaPlug, GuruPlug, etc) "
-#~| "and OpenRD devices consist of a kernel and initrd for U-Boot. You can "
-#~| "obtain these files from &kirkwood-marvell-firmware-img;."
-#~ msgid ""
-#~ "The installation files for LaCie NASes (Network Space v2, Network Space "
-#~ "Max v2, Internet Space v2, d2 Network v2, 2Big Network v2 and 5Big "
-#~ "Network v2) consist of a kernel and initrd for U-Boot. You can obtain "
-#~ "these files from &lacie-kirkwood-firmware-img;."
-#~ msgstr ""
-#~ "plug computers (SheevaPlug、GuruPlug 等) 和 OpenRD 设备的安装文件包含对应 "
-#~ "U-Boot 的内核和 initrd。您可以从 &kirkwood-marvell-firmware-img; 取得这些"
-#~ "文件。"
