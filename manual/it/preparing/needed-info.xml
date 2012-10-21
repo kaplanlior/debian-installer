@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 67232 -->
+<!-- original version: 68010 -->
 
  <sect1 id="needed-info">
  <!-- <title>Information You Will Need</title> -->
@@ -77,7 +77,7 @@ Contiene informazioni utili sulla configurazione o l'utilizzo dell'hardware.
 <itemizedlist arch="x86;sparc;mips;mipsel">
 <listitem arch="x86"><para>
 
-<ulink url="&url-hardware-howto;">Linux Hardware Compatibility HOWTO</ulink>
+<ulink url="&url-debian-wiki-hardware;">The Debian Wiki hardware page</ulink>
 
 </para></listitem>
 
@@ -208,13 +208,19 @@ Manuali che sono venduti insieme a ciascun componente hardware.
 <!--
 The BIOS setup screens of your computer. You can view these screens
 when you start your computer by pressing a combination of keys. Check
-your manual for the combination. Often, it is the <keycap>Delete</keycap> key.
+your manual for the combination. Often, it is the <keycap>Delete</keycap>
+or the <keycap>F2</keycap> key, but some manufacturers use other keys
+or key combinations. Usually upon starting the computer there will
+be a message stating which key to press to enter the setup screen.
 -->
 
-Schermate prodotte dal BIOS del computer. Si possono vedere queste
-schermate premendo all'accensione del computer una certa combinazione di
+Menu di configurazione del BIOS del computer. Per accedere a questo menu
+premere all'accensione del computer una certa combinazione di
 tasti, vedere nel manuale della scheda madre qual è questa combinazione,
-spesso è il tasto <keycap>Canc</keycap>.
+spesso è il tasto <keycap>Canc</keycap> o <keycap>F2</keycap> ma alcuni
+costruttori altri tasti o altre combinazioni di tasti. Solitamente
+immediatamente dopo l'accensione del computer c'è un messaggio in è
+scritto qual è il tasto da premere per entrare nella configurazione.
 
 </para></listitem>
 <listitem><para>
@@ -267,8 +273,8 @@ rete e della posta elettronica.
 <para>
 
 <table>
-<!-- <title>Hardware Information Needed for an Install</title> -->
-<title>Informazioni sull'hardware necessarie per l'installazione</title>
+<!-- <title>Hardware Information Helpful for an Install</title> -->
+<title>Informazioni sull'hardware utili per l'installazione</title>
 <tgroup cols="2">
 <thead>
 <row>
@@ -288,7 +294,7 @@ rete e della posta elettronica.
 </row>
 <row arch="not-s390">
   <entry><!-- Whether IDE (also known as PATA), SATA or SCSI.</entry> -->
-  Se sono IDE (noti anche come PATA), SATA o SCSI.</entry>
+  IDE (noti anche come PATA), SATA o SCSI.</entry>
 </row>
 <row arch="not-s390">
   <entry><!-- Available free space. -->Spazio libero disponibile.</entry>
@@ -299,69 +305,56 @@ rete e della posta elettronica.
   Partizioni su cui sono installati altri sistemi operativi.</entry>
 </row>
 
+<!--
 <row arch="not-s390">
   <entry morerows="5">Monitor</entry>
-  <entry><!-- Model and manufacturer. -->Modello e produttore.</entry>
+  <entry>Model and manufacturer.  Modello e produttore.</entry>
 </row>
 <row arch="not-s390">
-  <entry><!-- Resolutions supported. -->Risoluzioni supportate.</entry>
+  <entry>Resolutions supported.  Risoluzioni supportate.</entry>
 </row>
 <row arch="not-s390">
-  <entry><!-- Horizontal refresh rate. -->
-  Frequenza di rinfresco orizzontale.</entry>
+  <entry>Horizontal refresh rate.  Frequenza di rinfresco orizzontale.</entry>
 </row>
 <row arch="not-s390">
-  <entry><!-- Vertical refresh rate. -->
-  Frequenza di rinfresco verticale.</entry>
+  <entry>Vertical refresh rate.  Frequenza di rinfresco verticale.</entry>
 </row>
 <row arch="not-s390">
-  <entry><!-- Color depth (number of colors) supported. -->
+  <entry>Color depth (number of colors) supported.
   Profondità di colore (numero di colori) supportata.</entry>
 </row>
 <row arch="not-s390">
-  <entry><!-- Screen size. -->Dimensione dello schermo.</entry>
+  <entry>Screen size.  Dimensione dello schermo.</entry>
 </row>
+-->
 
+<!--
 <row arch="not-s390">
   <entry morerows="3">Mouse</entry>
-  <entry><!-- Type: serial, PS/2, or USB. -->
+  <entry>Type: serial, PS/2, or USB.
   Tipo: seriale, PS/2 o USB.</entry>
 </row>
-<row arch="not-s390"><entry><!-- Port. -->Porta.</entry></row>
-<row arch="not-s390"><entry><!-- Manufacturer. -->Produttore.</entry></row>
+<row arch="not-s390"><entry>Port.  Porta.</entry></row>
+<row arch="not-s390"><entry><Manufacturer.  Produttore.</entry></row>
+<row arch="not-s390"><entry>Number of buttons.  Numero di tasti.</entry>
+</row>
+-->
+
 <row arch="not-s390">
-  <entry><!-- Number of buttons. -->Numero di tasti.</entry>
+  <entry morerows="0"><!-- Network interfaces -->Interfacce di rete</entry>
+  <entry><!-- Type/model of available network interfaces. -->
+  Tipo/modello delle interfacce di rete disponibili.</entry>
 </row>
 
 <row arch="not-s390">
-  <entry morerows="1"><!-- Network -->Rete</entry>
+  <entry morerows="0"><!-- Printer -->Stampante</entry>
   <entry><!-- Model and manufacturer. -->Modello e produttore.</entry>
-</row>
-<row arch="not-s390">
-  <entry><!-- Type of adapter. -->Tipo di scheda.</entry>
 </row>
 
 <row arch="not-s390">
-  <entry morerows="1"><!-- Printer -->Stampante</entry>
-  <entry><!-- Model and manufacturer. -->Modello e produttore.</entry>
-</row>
-<row arch="not-s390">
-  <entry><!-- Printing resolutions supported. -->
-  Risoluzioni di stampa supportate.</entry>
-</row>
-
-<row arch="not-s390">
-  <entry morerows="2"><!-- Video Card -->Scheda video</entry>
-  <entry><!-- Model and manufacturer. -->Modello e produttore.</entry>
-</row>
-<row arch="not-s390">
-  <entry><!-- Video RAM available. -->RAM video disponibile.</entry>
-</row>
-<row arch="not-s390">
-  <entry><!-- Resolutions and color depths supported (these should be
-  checked against your monitor's capabilities). -->
-  Risoluzioni e profondità di colore supportate (queste devono essere
-  verificate con le capacità del monitor).</entry>
+  <entry morerows="0"><!-- Video Card -->Scheda video</entry>
+  <entry><!-- Type/model and manufacturer. -->
+  Tipo/modello e produttore.</entry>
 </row>
 
 <row arch="s390">
@@ -400,100 +393,242 @@ hardware support in &arch-kernel; is improving daily. However, &arch-kernel; sti
 not run as many different types of hardware as some operating systems.
 -->
 
-Molti prodotti di marca funzionano senza problemi con &arch-kernel;. Inoltre
-l'hardware supportato da &arch-kernel; cresce quotidianamente anche se, purtroppo,
-ancora &arch-kernel; non funziona su parecchi tipi di hardware su cui invece
-funzionano altri sistemi operativi.
-
-</para><para arch="any-x86">
-
-<!--
-In particular, &arch-kernel; usually cannot run hardware that requires a
-running version of Windows to work.
--->
-
-In particolare &arch-kernel; non può funzionare sull'hardware che richiede Windows
-per funzionare.
-
-</para><para arch="x86">
-
-<!--
-Although some Windows-specific hardware can be made to run on Linux,
-doing so usually requires extra effort. In addition, Linux drivers
-for Windows-specific hardware are usually specific to one Linux
-kernel. Therefore, they can quickly become obsolete.
--->
-
-Nonostante che anche l'hardware specifico per Windows possa essere fatto
-funzionare sotto Linux, farlo di solito richiede del lavoro aggiuntivo.
-Inoltre i driver Linux per l'hardware specifico per Windows sono specifici
-per una versione del kernel, quindi diventano rapidamente obsoleti.
-
-</para><para arch="any-x86">
-
-<!--
-So called win-modems are the most common type of this hardware.
-However, printers and other equipment may also be Windows-specific.
--->
-
-I cosiddetti win-modem sono l'esempio più comune di questo tipo di hardware.
-Purtroppo esistono stampanti e altro hardware che possono essere specifici
-per Windows.
+Molti prodotti funzionano senza problemi su &arch-kernel;. Inoltre
+l'hardware supportato da &arch-kernel; cresce quotidianamente anche
+se, purtroppo, &arch-kernel; non funziona ancora su parecchi tipi di
+hardware su cui invece funzionano altri sistemi operativi.
 
 </para><para>
 
 <!--
-You can check hardware compatibility by:
+Drivers in &arch-kernel; in most cases are not written for a certain
+<quote>product</quote> or <quote>brand</quote> from a specific manufacturer, but for a certain
+hardware/chipset. Many seemingly
+different products/brands are based on the same hardware design; it is not
+uncommon that chip manufacturers provide so-called <quote>reference designs</quote> for
+products based on their chips which are then used by several different
+device manufacturers and sold under lots of different product or brand
+names.
 -->
 
-Si può verificare la compatibilità dell'hardware con:
+Nella maggior parte dei casi i driver in &arch-kernel; non sono stati
+scritti per un determinato <quote>prodotto</quote> o <quote>marchio</quote>
+da un particolare costruttore, ma sono stati scritti per un certo
+hardware/chip. Molti prodotti sono solo apparentemente differenti ma in
+realtà sono basati sullo stesso hardware; non è raro che i produttori di
+chip forniscano un <quote>reference designs</quote> per i prodotti basati
+sui loro chip che sono poi usati da vari costruttori per i dispositivi
+che poi sono venduti con molti nomi o marchi diversi.
 
-<itemizedlist>
-<listitem><para>
+</para><para>
 
 <!--
-Checking manufacturers' web sites for new drivers.
+This has advantages and disadvantages. An advantage is that a driver for one
+chipset works with lots of different products from different manufacturers,
+as long as their product is based on the same chipset.  The disadvantage is
+that it is not always easy to see which actual chipset is used in a certain
+product/brand.  Unfortunately sometimes device manufacturers change the
+hardware base of their product without changing the product name or at least
+the product version number, so that when having two items of the same
+brand/product name bought at different times, they can sometimes be based on
+two different chipsets and therefore use two different drivers or there
+might be no driver at all for one of them.
 -->
 
-Cercando nel sito web del produttore dei nuovi driver.
+Ciò ha dei vantaggi e degli svantaggi. Un vantaggio è che il driver per un
+chip funziona con molti prodotti anche di produttori differenti poiché i
+prodotti sono basati sullo stesso chip. Lo svantaggio è che non è sempre
+facile scoprire qual è il chip realmente montato in determinato dispositivo.
+Sfortunatamente qualche volta i produttori cambiano la base hardware dei
+loro prodotti senza cambiare il nome del prodotto e nemmeno il numero di
+versione, quindi avendo due oggetti con lo stesso marchio/nome prodotto
+comprati in tempi diversi potrebbero essere basati su due chip diversi e
+di conseguenza usare due driver diversi oppure uno dei due potrebbe non
+disporre di un driver.
 
-</para></listitem>
-<listitem><para>
+</para><para>
 
 <!--
-Looking at web sites or manuals for information about emulation.
-Lesser known brands can sometimes use the drivers or settings for
-better-known ones.
+For USB and PCI/PCI-Express/ExpressCard devices, a good way to find out on
+which chipset they are based is to look at their device IDs.  All
+USB/PCI/PCI-Express/ExpressCard devices have so called <quote>vendor</quote> and
+<quote>product</quote> IDs, and the combination of these two is usually the same for any
+product based on the same chipset.
 -->
 
-Cercando sui siti web o nei manuali informazioni sull'emulazione. I prodotti
-di marchi meno conosciuti qualche volta possono utilizzare i driver o le
-impostazioni di quelli più conosciuti.
+Un buon modo per scoprire su quali chip sono basati i dispositivi USB e
+PCI/PCI-Express/ExpressCard è cercare gli ID del dispositivo. Tutti i
+dispositivi USB/PCI/PCI-Express/ExpressCard hanno un ID per il
+<quote>produttore</quote> e per il <quote>prodotto</quote> e la loro
+combinazione è solitamente la stessa per qualsiasi prodotto basato sullo
+stesso chip.
 
-</para></listitem>
-<listitem><para>
+</para><para>
 
 <!--
-Checking hardware compatibility lists for &arch-kernel; on web sites
-dedicated to your architecture.
+On Linux systems, these IDs can be read with the <command>lsusb</command>
+command for USB devices and with the <command>lspci -nn</command> command for
+PCI/PCI-Express/ExpressCard devices.  The vendor and product IDs are usually
+given in the form of two hexadecimal numbers, seperated by a colon, such as
+<quote>1d6b:0001</quote>.
 -->
 
-Verificando che l'hardware sia presente nell'elenco dell'hardware compatibile
-con &arch-kernel; pubblicato nei siti web dedicati alla propria architettura.
+Sui sistemi Linux, questi ID possono essere trovati con il comando
+<command>lsusb</command> per i dispositivi USB e con il comando
+<command>lspci -nn</command> per i dispositivi PCI/PCI-Express/ExpressCard.  
 
-</para></listitem>
-<listitem><para>
+</para><para>
 
 <!--
-Searching the Internet for other users' experiences.
+An example for the output of <command>lsusb</command>: <quote>Bus 001
+Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub</quote>, whereby 1d6b is
+the vendor ID and 0002 is the product ID.
 -->
 
-Cercando su Internet le esperienze di altri utenti.
+Per esempio, l'output di <command>lsusb</command>: <quote>Bus 001
+Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub</quote> dove 1d6b
+è l'ID del produttore e 0002 è l'ID del prodotto.
 
-</para></listitem>
-</itemizedlist>
+</para><para>
+
+<!--
+An example for the output of <command>lspci -nn</command> for an Ethernet
+card: <quote>03:00.0 Ethernet controller [0200]: Realtek Semiconductor Co., Ltd. 
+RTL8111/8168B PCI Express Gigabit Ethernet controller [10ec:8168] (rev 06)</quote>. 
+The IDs are given inside the rightmost square brackets, i.e. here
+10ec is the vendor- and 8168 is the product ID.
+-->
+
+Per esempio, l'output di <command>lspci -nn</command> per una scheda Ethernet:
+<quote>03:00.0 Ethernet controller [0200]: Realtek Semiconductor Co., Ltd. 
+RTL8111/8168B PCI Express Gigabit Ethernet controller [10ec:8168] (rev 06)</quote>.
+Gli ID sono mostrati dentro le parentesi quadre più a destra, in questo caso
+10ec è il produttore e 8168 è l'ID del prodotto.
+
+</para><para>
+
+<!--
+As another example, a graphics card could give the following output:
+<quote>04:00.0 VGA compatible controller [0300]: Advanced Micro Devices [AMD] nee
+ATI RV710 [Radeon HD 4350] [1002:954f]</quote>.
+-->
+
+Ancora un esempio, una scheda grafica potrebbe restituire il seguente output:
+<quote>04:00.0 VGA compatible controller [0300]: Advanced Micro Devices [AMD] nee
+ATI RV710 [Radeon HD 4350] [1002:954f]</quote>.
+
+</para><para>
+
+<!--
+On Windows systems, the IDs for a device can be found in the Windows device
+manager on the tab <quote>details</quote>, where the vendor ID is prefixed with VEN_
+and the product ID is prefixed with DEV_.
+
+On Windows 7 systems, you have to select the property <quote>Hardware IDs</quote> in the
+device manager's details tab to actually see the IDs, as they are not
+displayed by default.
+-->
+
+Su sistemi Windows, gli ID di un dispositivo possono essere trovati
+nella gestione dispositivi di Windows nella scheda <quote>dettagli</quote>,
+dove l'ID del produttore ha il prefisso VEN_ e l'ID del prodotto ha il
+prefisso DEV_.
+Su sistemi Windows 7, è necessario selezionare la proprietà <quote>ID
+Hardware</quote> nella scheda dettgli del gestore dispositivi per vedere
+gli ID perché normalmente non sono mnostrati.
+
+</para><para>
+
+<!--
+Searching on the internet with the vendor/product ID, <quote>&arch-kernel;</quote> and
+<quote>driver</quote> as the search terms often results in information regarding
+the driver support status for a certain chipset. If a search for the
+vendor/product ID does not yield usable results, a search for the chip
+code names, which are also often provided by lsusb and lspci
+(<quote>RTL8111</quote>/<quote>RTL8168B</quote> in the network card example and <quote>RV710</quote> in the
+graphics card example), can help.
+-->
+
+Cercando su Internet per produttore/ID prodotto, <quote>&arch-kernel;</quote>
+e <quote>driver</quote> come chiavi di ricerca spesso restituiscono 
+informazioni riguardo lo stato dei driver per un certo chipset. Se la
+ricerca per produttore/ID prodotto non dà risultati utili, la ricerca con
+il nome del chip, tale nome è spesso mostrato fornito da lsusb e lspci
+(<quote>RTL8111</quote>/<quote>RTL8168B</quote> nell'esempio della scheda
+di rete e <quote>RV710</quote> nell'esempio della scheda grafica) può
+essere d'aiuto.
 
 </para>
+   <sect3>
+   <!-- <title>Testing hardware compatibility with a Live-System</title> -->
+   <title>Verifica della compatibilità hardware con un sistema live</title>
+<para>
+
+<!--
+&debian-gnu; is also available as a so-called <quote>live system</quote> for certain
+architectures.  A live system is a preconfigured ready-to-use system
+in a compressed format that can be booted and used from a read-only medium
+like a CD or DVD.  Using it by default does not create any permanent changes
+on your computer.  You can change user settings and install additional
+programs from within the live system, but all this only happens in the
+computer's RAM, i.e.  if you turn off the computer and boot the live system
+again, everything is reset to its defaults.  If you want to see whether
+your hardware is supported by &debian-gnu;, the easiest way is to run a
+&debian; live system on it and try it out.
+-->
+
+&debian-gnu; è disponibile su alcune architetture anche come <quote>sistema
+live</quote>. Un sistema live è un sistema preconfigurato e pronto all'uso
+in formato compresso che può essere avviato e usato da un supporto di
+sola lettura tipo un CD o DVD. L'uso di un sistema live non crea nessun
+cambiamento permanente sul proprio computer; a dentril sistema live è
+possibile cambiare le impostazioni dell'utente e installare programmi
+aggiuntivi ma tutto questo avviene nella RAM, cioè spegnendo il computer
+e avviando di nuovo il sistema live, tutto è ripristinato alla
+configurazione predefinita. Il modo più semplice per verificare se il
+proprio hardware è supportato da &debian-gnu; è avviare un sistema &debian;
+live e provarlo.
+ 
+</para><para>
+
+<!--
+There are a few limitations in using a live system. The first is that as
+all changes you do within the live system must be held in your computer's
+RAM, this only works on systems with enough RAM to do that, so installing
+additional large software packages may fail due to memory constraints. 
+Another limitation with regards to hardware compatibility testing is
+that the official &debian-gnu; live system contains only free components,
+i.e. there are no non-free firmware files included in it. Such non-free
+packages can of course be installed manually within the system, but there
+is no automatic detection of required firmware files like in the &d-i;,
+so installation of non-free components must be done manually if needed.
+-->
+
+Ci sono alcune limitazioni durante l'uso di un sistema live. La prima è
+che tutte le modifiche che si fanno dall'interno del sistema live devono
+essere tenute nella RAM del computer, quindi funziona solo su sistemi con
+RAM sufficiente, quindi l'installazione di grossi pacchetti aggiuntivi
+potrebbe fallire a causa di problemi di memoria. Un'altra limitazione che
+riguarda il test della compatibilità hardware è che il sistema &debian-gnu;
+live ufficiale contiene solo componenti libere, quindi non include i file
+del firmware non-free. I pacchetti non-free possono essere installati
+manualmente nel sistema ma non c'è il rilevamento automatico della
+necessità di firmware come nel &d-i;, quindi l'installazione di componenti
+non-free deve essere fatta manualmente.
+
+</para><para>
+
+<!--
+Information about the available variants of the  &debian; live images
+can be found at the <ulink url="&url-debian-live-cd;">Debian Live Images website</ulink>.
+-->
+
+È possibile trvare informazioni sulle varianti disponibili delle immagini
+di &debian; live sul <ulink url="&url-debian-live-cd;">sito web Debian
+Live Images</ulink>.
+
+</para>
+    </sect3>
   </sect2>
 
   <sect2>
@@ -502,14 +637,16 @@ Cercando su Internet le esperienze di altri utenti.
 <para>
 
 <!--
-If your computer is connected to a network 24 hours a day (i.e., an
-Ethernet or equivalent connection &mdash; not a PPP connection), you
-should ask your network's system administrator for this information.
+If your computer is connected to a fixed network (i.e. an Ethernet or
+equivalent connection &mdash; not a dialup/PPP connection) which is
+administered by somebody else, you should ask your network's system
+administrator for this information:
 -->
 
 Se il computer ha una connessione permanente alla rete (cioè una connessione
-Ethernet o equivalente, non una connessione PPP) si devono chiedere
-all'amministratore di sistema le seguenti informazioni:
+Ethernet o equivalente, non una connessione dialup/PPP) che è amministrata
+da qualcun'altro, si deve chiedere all'amministratore di rete le seguenti
+informazioni:
 
 <itemizedlist>
 <listitem><para>
@@ -574,42 +711,70 @@ Il sistema della propria rete da usare come server DNS (Domain Name Service).
 </para><para>
 
 <!--
-On the other hand, if your administrator tells you that a DHCP server
-is available and is recommended, then you don't need this information
+If the network you are connected to uses DHCP (Dynamic Host Configuration
+Protocol) for configuring network settings, you don't need this information
 because the DHCP server will provide it directly to your computer
 during the installation process.
 -->
 
-D'altra parte se il proprio amministratore comunica che è possibile usare
-un server DHCP le informazioni precedenti sono inutili poiché il server
-DHCP le fornisce direttamente al proprio computer durante il processo
-d'installazione.
+Se la rete a cui si è connessi usa DHCP (Dynamic Host Configuration
+Protocol) per la configurazione della rete, le informazioni precedenti
+sono inutili poiché il server DHCP le fornisce direttamente al proprio
+computer durante il processo d'installazione.
+
+</para><para>
+
+<!--
+If you have internet access via DSL or cable modem (i.e. over a cable tv
+network) and have a router (often provided preconfigured by your phone or
+catv provider) which handles your network connectivity, DHCP is usually
+available by default.
+-->
+
+Chi accede a Internet cia DSL o con un cable modem (cioè tramite la tv
+via cavo) e dispone di un router (spesso fornito già preconfigurato dal
+fornitore telefonico della tv via cavo) che gestisce la connettività di
+rete, solitamente è disponibile DHCP.
+
+</para><para arch="x86">
+
+<!--
+As a rule of thumb: if you run a Windows system in your home network and did
+not have to manually perform any network settings there to achieve Internet
+access, network connectivity in  &debian-gnu; will also be configured
+automatically.
+-->
+
+Come regola del pollice: se nella propria rete casalinga si usa Windows e non
+è stata effettuata nessuna configurazione manuale sulla rete per potersi
+collegare a Internet, anche la connettività di rete di &debian-gnu; verrà
+configurata automaticamente.
 
 </para><para arch="not-s390">
 
 <!--
-If you use a wireless network, you should also find out:
+If you use a WLAN/WiFi network, you should find out:
 -->
 
-Se si usa una rete wireless si deve anche conoscere:
+Se si usa una rete WLAN/WiFi si deve anche conoscere:
 
 <itemizedlist>
 <listitem><para>
 
 <!--
-ESSID of your wireless network.
+The ESSID (<quote>network name</quote>) of your wireless network.
 -->
 
-L'ESSID della propria rete wireless.
+L'ESSID (<quote>nome della rete</quote>) della propria rete wireless.
 
 </para></listitem>
 <listitem><para>
 
 <!--
-WEP or WPA/WPA2 security key (if applicable).
+The WEP or WPA/WPA2 security key to access the network (if applicable).
 -->
 
-La chiave WEP o WPA/WPA2 (se usata).
+La chiave di sicurezza WEP o WPA/WPA2 per accedere alla rete (se usata).
 
 </para></listitem>
 </itemizedlist>

@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 64916 -->
+<!-- original version: 67993 -->
 
  <sect1 id="pre-install-bios-setup">
  <!-- <title>Pre-Installation Hardware and Operating System Setup</title> -->
@@ -9,21 +9,19 @@
 <!--
 This section will walk you through pre-installation hardware setup, if
 any, that you will need to do prior to installing &debian;.  Generally,
-this involves checking and possibly changing firmware settings for
-your system.  The <quote>firmware</quote> is the core software used by the
+this involves checking and possibly changing BIOS/system firmware settings for
+your system.  The <quote>BIOS</quote> or <quote>system firmware</quote> is the core software used by the
 hardware; it is most critically invoked during the bootstrap process
-(after power-up). Known hardware issues affecting the reliability of
-&debian-gnu; on your system are also highlighted.
+(after power-up).
 -->
 
 Questa sezione guida il lettore attraverso la riconfigurazione dell'hardware
 che in alcuni casi potrebbe essere necessaria prima di installare &debian;.
 Generalmente si tratta di controllare e, nel caso, di modificare le
-impostazioni del firmware del proprio sistema. Il <quote>firmware</quote>
+impostazioni del BIOS/firmware di sistema. Il <quote>BIOS</quote> o
+<quote>firmware di sistema</quote>
 è il software essenziale usato dall'hardware. Ne viene fatto un utilizzo
-critico durante il processo di bootstrap (che segue l'accensione). Verranno
-anche evidenziati problemi noti con hardware particolare che potrebbero
-incidere sull'affidabilità di &debian-gnu;.
+critico durante il processo di bootstrap (che segue l'accensione).
 
 </para>
 
@@ -37,26 +35,25 @@ incidere sull'affidabilità di &debian-gnu;.
   <title>Problemi hardware a cui prestare attenzione</title>
    <formalpara arch="x86">
    <!-- <title>USB BIOS support and keyboards</title> -->
-   <title>Tastiere e BIOS USB</title>
+   <title>Tastiere USB e BIOS</title>
 <para>
 
 <!--
-If you have no AT-style keyboard and only a USB model, you may need
-to enable legacy AT keyboard emulation in your BIOS setup. Only do this if
-the installation system fails to use your keyboard in USB mode. Conversely,
-for some systems (especially laptops) you may need to disable legacy USB
-support if your keyboard does not respond.
-Consult your main board manual and look in the BIOS for <quote>Legacy
+If you have no PS/2-style keyboard, but only a USB model, on some
+very old PCs you may need to enable legacy keyboard emulation in your BIOS setup
+to be able to use your keyboard in the bootloader menu, but this is not an issue
+for modern systems. If your keyboard does not work in the bootloader
+menu, consult your mainboard manual and look in the BIOS for <quote>Legacy
 keyboard emulation</quote> or <quote>USB keyboard support</quote> options.
 -->
 
-Se non si dispone di una tastiera AT e si ha solo una tastiera USB potrebbe
-essere necessario attivare nella configurazione del BIOS l'emulazione di
-tastiera AT. Questa configurazione deve essere fatta solo se il sistema
-d'installazione non riesce a usare la tastiera in modalità USB. Al contrario
-(in particolare sui portatili) potrebbe essere necessario disattivare il
-supporto per USB se la tastiera non risponde. Si consulti il manuale della
-scheda madre cercando le voci <quote>Legacy keyboard emulation</quote> o
+Se non si dispone di una tastiera PS/2 e si ha solo una tastiera USB,
+su alcuni PC molto vecchi potrebbe essere necessario attivare nella
+configurazione del BIOS l'emulazione di tastiera per poter usare la
+tastiera nel menu del bootloader; questo non è un problema sui sistemi
+più recenti. Se non è possibile usare la tastiera nel menu del
+bootloader, consultare il manuale della scheda madre cercando
+informazioni sulle opzioni <quote>Legacy keyboard emulation</quote> o
 <quote>USB keyboard support</quote>.
 
 </para>

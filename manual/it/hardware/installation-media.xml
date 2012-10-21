@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 67007 -->
+<!-- original version: 67991 -->
 
  <sect1 id="installation-media">
  <!-- <title>Installation Media</title> -->
@@ -56,51 +56,29 @@ Attualmente il supporto per i floppy per CHRP non funziona.
 <!--
 Whenever you see <quote>CD-ROM</quote> in this manual, it applies to both
 CD-ROMs and DVD-ROMs, because both technologies are really
-the same from the operating system's point of view, except for some very
-old nonstandard CD-ROM drives which are neither SCSI nor IDE/ATAPI.
+the same from the operating system's point of view.
 -->
 
 Tutte le volte che in questo manuale è riportato <quote>CD-ROM</quote>,
 devono essere considerati sia i CD-ROM che i DVD-ROM, perché le due
-tecnologie sono molto simili dal punto di vista del sistema operativo,
-con l'eccezione di alcuni vecchi lettori CD-ROM non standard che non sono
-né SCSI né IDE/ATAPI.
+tecnologie sono molto simili dal punto di vista del sistema operativo.
 
 </para></note><para>
 
 <!--
-CD-ROM based installation is supported for some architectures.
-On machines which support bootable CD-ROMs, you should be able to do a
-completely
-<phrase arch="not-s390">floppy-less</phrase>
-<phrase arch="s390">tape-less</phrase>
-installation.  Even if your system doesn't
-support booting from a CD-ROM, you can use the CD-ROM in conjunction
-with the other techniques to install your system, once you've booted
-up by other means; see <xref linkend="boot-installer"/>.
+CD-ROM based installation is supported for most architectures.
 -->
 
-L'installazione basata sui CD-ROM è supportata per alcune
-architetture. Sulle macchine con il supporto dei CD-ROM avviabili
-è possibile fare una completa installazione
-<phrase arch="not-s390">senza floppy</phrase>
-<phrase arch="s390">senza unità a nastro</phrase>.
-Anche se il proprio sistema non supporta l'avvio da CD-ROM, è
-possibile usare il CD-ROM assieme ad un'altra tecnica per l'installazione
-del sistema, dopo che il sistema d'installazione è stato avviato
-in un altro modo; vedere <xref linkend="boot-installer"/>.
+L'installazione basata sui CD-ROM è supportata sulla maggior parte delle
+architetture.
 
 </para><para arch="x86">
 
 <!--
-SCSI, SATA and IDE/ATAPI CD-ROMs are supported.  The <ulink
-url="&url-cd-howto;">Linux CD-ROM HOWTO</ulink> contains in-depth information
-on using CD-ROMs with Linux.
+On PCs SATA, IDE/ATAPI and SCSI CD-ROMs are supported.
 -->
 
-Sono supportati i CD-ROM SCSI, SATA e IDE/ATAPI. Il
-<ulink url="&url-cd-howto;">Linux CD-ROM HOWTO</ulink> contiene delle
-informazioni più approfondite sull'uso dei CD-ROM con Linux.
+Sui PC sono supportati CD-ROM SATA, IDE/ATAPI e SCSI.
 
 </para><para arch="x86">
 
@@ -145,56 +123,26 @@ Per avviare l'installazione basta semplicemente selezionare la voce
 </para>
   </sect2>
 
-  <sect2>
-  <!-- <title>Hard Disk</title> -->
-  <title>Dischi fissi</title>
-<para>
-
-<!--
-Booting the installation system directly from a hard disk is another option
-for many architectures. This will require some other operating system
-to load the installer onto the hard disk.
--->
-
-L'avvio dell'installazione del sistema direttamente dal disco fisso è
-un'altra possibilità disponibile per molte architetture. Questa
-richiede un altro sistema operativo per caricare l'Installatore sul disco
-fisso.
-
-</para><para arch="sparc">
-
-<!--
-Although the &arch-title; does not allow booting from SunOS
-(Solaris), you can install from a SunOS partition (UFS slices).
--->
-
-Sebbene &arch-title; non permetta di effettuare l'avvio da SunOS (Solaris),
-è possibile installare da una partizione SunOS (UFS slice).
-
-</para>
-  </sect2>
-
   <sect2 condition="bootable-usb">
   <!-- <title>USB Memory Stick</title> -->
   <title>Chiavette USB</title>
 <para>
 
 <!--
-Many &debian; boxes need their floppy and/or CD-ROM drives only for
-setting up the system and for rescue purposes. If you operate some
-servers, you will probably already have thought about omitting those
-drives and using an USB memory stick for installing and (when
-necessary) for recovering the system. This is also useful for small
-systems which have no room for unnecessary drives.
+USB flash disks a.k.a. USB memory sticks have become a commonly
+used and cheap storage device. Most modern computer systems
+also allow booting the &d-i; from such a stick.
+Many modern computer systems, in particular netbooks and thin laptops, do not have
+a CD/DVD-ROM drive anymore at all and booting from USB media ist
+the standard way of installing a new operating system on them.
 -->
 
-Molti computer &debian; hanno bisogno del floppy o del lettore CD-ROM solo
-per installare il sistema o per operazioni di ripristino del sistema. Se
-ci si trova a operare con dei server probabilmente questi lettori sono
-già stati rimossi ed è possibile usare una chiavetta USB per
-installare e (quando necessario) recuperare il sistema. Questo è
-utile anche per i piccoli sistemi che non hanno spazio per lettori
-inutili.
+I dischi USB flash conosciuti anche come chiavette USB sono diventati dei
+dispositivi di memorizzazione molto comuni e economici. I sistemi più
+moderni consentono di avviare il &d-i; dalla chiavetta. Inoltre gran parte
+dei sistemi moderni, in particolare i portatili e i netbook, non hanno più
+un lettore CD/DVD e l'avvio da un supporto USB è il metodo standard per
+installare un nuovo sistema operativo.
 
 </para>
   </sect2>
@@ -248,6 +196,37 @@ l'intero filesystem attraverso NFS è un'altra opzione.
   </sect2>
 
   <sect2>
+  <!--<title>Hard Disk</title> -->
+  <title>Disco fisso</title>
+<para>
+
+<!--
+Booting the installation system directly from a hard disk is another option
+for many architectures. This will require some other operating system
+to load the installer onto the hard disk. This method is only recommended
+for special cases when no other installation method is available.
+-->
+
+L'avvio dell'installazione del sistema direttamente dal disco fisso è
+un'altra possibilità disponibile per molte architetture. Questa richiede
+un altro sistema operativo per caricare l'Installatore sul disco fisso.
+Questo metodo è raccomandato solo in casi particolari per i quali non
+sono disponibili altri metodi d'installazione.
+
+</para><para arch="sparc">
+
+<!--
+Although the &arch-title; does not allow booting from SunOS
+(Solaris), you can install from a SunOS partition (UFS slices).
+-->
+
+Sebbene &arch-title; non permetta di effettuare l'avvio da SunOS (Solaris),
+è possibile installare da una partizione SunOS (UFS slice).
+
+</para>
+  </sect2>
+
+  <sect2>
   <!-- <title>Un*x or GNU system</title> -->
   <title>Un*x o sistemi GNU</title>
 <para>
@@ -258,7 +237,8 @@ If you are running another Unix-like system, you could use it to install
 manual. This kind of install may be useful for users with otherwise
 unsupported hardware or on hosts which can't afford downtime.  If you
 are interested in this technique, skip to the <xref
-linkend="linux-upgrade"/>.
+linkend="linux-upgrade"/>. This installation method is only recommended
+for advanced users when no other installation method is available.
 -->
 
 Se si usano altri sistemi Unix, è possibile usarli anche per installare
@@ -266,7 +246,9 @@ Se si usano altri sistemi Unix, è possibile usarli anche per installare
 tipo d'installazione può essere utile per gli utenti che hanno
 dell'hardware che altrimenti non è supportato o sui computer che
 non possono tollerare interruzioni. Se interessa a questa tecnica,
-si veda la sezione <xref linkend="linux-upgrade"/>.
+si veda la sezione <xref linkend="linux-upgrade"/>. Questo metodo
+d'installazione è raccomandato solo per gli utenti esperti nel caso che
+non siano disponibili altri metodi d'installazione.
 
 </para>
   </sect2>
@@ -277,54 +259,42 @@ si veda la sezione <xref linkend="linux-upgrade"/>.
 <para>
 
 <!--
-The &debian; boot disks contain a kernel which is built to maximize the
-number of systems it runs on.  Unfortunately, this makes for a larger
-kernel, which includes many drivers that won't be used for your
-machine<phrase arch="linux-any"> (see <xref linkend="kernel-baking"/> to learn how to
-build your own kernel)</phrase>.  Support for the widest possible range of
-devices is desirable in general, to ensure that &debian; can be
-installed on the widest array of hardware.
+The &debian; installer contains a kernel which is built to maximize the
+number of systems it runs on.
 -->
 
-I dischi d'avvio di &debian; contengono un kernel che è stato compilato
+L'Installatore &debian; contiene un kernel che è stato compilato
 per massimizzare il numero di sistemi su cui può girare.
-Sfortunatamente questo comporta un kernel di dimensione maggiore che
-include molti driver che non verranno usati sulla propria macchina<phrase arch="linux-any"> (vedere
-<xref linkend="kernel-baking"/> per imparare a compilare un kernel
-personalizzato)</phrase>. Il supporto per la maggior quantità di dispositivi
-è desiderabile in generale per permettere che &debian; possa essere
-installata sul numero maggiore possibile di combinazioni di hardware.
 
 </para><para arch="x86">
 
 <!--
-Generally, the &debian; installation system includes support for floppies,
-IDE (also known as PATA) drives, IDE floppies, parallel port IDE devices, SATA
-and SCSI controllers and drives, USB, and FireWire.  The supported file systems
-include FAT, Win-32 FAT extensions (VFAT) and NTFS.
+Generally, the &debian; installation system includes support for IDE (also
+known as PATA) drives, SATA and SCSI controllers and drives, USB, and
+FireWire.  The supported file systems include FAT, Win-32 FAT extensions
+(VFAT) and NTFS.
 -->
 
 In generale il sistema d'installazione di &debian; include il supporto per
-i floppy, i driver IDE (noti come PATA), i floppy IDE, i dispositivi IDE
-collegati alla porta parallela, i controller e i dispositivi SATA e SCSI,
+i lettori IDE (noti come PATA), i controller e i dispositivi SATA e SCSI,
 USB e FireWire. I filesystem supportati comprendono FAT, le estensioni
 Win-32 FAT (VFAT) e NTFS.
 
+<!--
 </para><para arch="i386">
 
-<!--
 Disk interfaces that emulate the <quote>AT</quote> hard disk interface
 &mdash; often called MFM, RLL, IDE, or PATA &mdash; are supported.  SATA and
 SCSI disk controllers from many different manufacturers are supported. See the
 <ulink url="&url-hardware-howto;">Linux Hardware Compatibility HOWTO</ulink>
 for more details.
--->
 
 Le interfacce dei dischi che emulano l'interfaccia <quote>AT</quote>,
 spesso chiamate MFM, RLL, IDE o PATA, sono supportate. I controller SATA
 e SCSI dei dischi di molti costruttori sono supportati. Per maggiori
 dettagli si veda il <ulink url="&url-hardware-howto;">Linux Hardware
 Compatibility HOWTO</ulink>.
+-->
 
 </para><para arch="sparc">
 

@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 65194 -->
+<!-- original version: 67998 -->
 
  <sect1 id="non-debian-partitioning">
  <!-- <title>Pre-Partitioning for Multi-Boot Systems</title> -->
@@ -47,38 +47,40 @@ Se sul proprio sistema è già presente un sistema operativo
 </phrase>
 
 <!--
-and want to stick &debian; on the same disk, you will need to repartition
-the disk. &debian; requires its own hard disk partitions. It cannot be
+which uses the whole disk and you want to stick &debian; on the same disk, you will need to repartition
+it. &debian; requires its own hard disk partitions. It cannot be
 installed on Windows or MacOS partitions. It may be able to share some
 partitions with other Unix systems, but that's not covered here. At
 the very least you will need a dedicated partition for the &debian;
-root.
+root filesystem.
 -->
 
-e si vuole posizionare &debian; sullo stesso disco, allora è necessario
+che occupa tutto il disco e si vuole installare &debian; sullo stesso
+disco, allora è necessario
 ripartizionarlo. &debian; richiede delle partizioni riservate sul disco
 fisso, non può essere installata su partizioni Windows o MacOS. Si
 potrebbero invece condividere alcune partizioni con altri sistemi Unix,
 ma tale questione non verrà affrontata in questo documento. Come minimo
-è necessaria una partizione dedicata per la root di &debian;.
+è necessaria una partizione dedicata per il file system root di &debian;.
 
 </para><para>
 
 <!--
 You can find information about your current partition setup by using
 a partitioning tool for your current operating system<phrase
-arch="any-x86">, such as fdisk or PartitionMagic</phrase><phrase
+arch="any-x86">, such as the integrated Disk Manager in Windows or fdisk in
+DOS</phrase><phrase
 arch="powerpc">, such as Drive Setup, HD Toolkit, or MacTools</phrase><phrase
 arch="s390">, such as the VM diskmap</phrase>. Partitioning tools always
 provide a way to show existing partitions without making changes.
 -->
 
-Si possono ottenere delle informazioni sull'attuale configurazione delle
+È possibile ottenere delle informazioni sull'attuale configurazione delle
 partizioni usando un programma per il partizionamento per il sistema
-operativo che si sta attualmente usando<phrase arch="any-x86">, per esempio
-fdisk o PartitionMagic</phrase><phrase arch="powerpc">, per esempio Drive
-Setup, HD Toolkit o MacTools</phrase>
-<phrase arch="s390">, per esempio
+operativo che si sta attualmente usando<phrase arch="any-x86">, per
+esempio il Gestore disco integrato in Windows o fdisk in
+DOS</phrase><phrase arch="powerpc">, per esempio Drive Setup, HD Toolkit
+o MacTools</phrase><phrase arch="s390">, per esempio
 VM diskmap</phrase>. I programmi di partizionamento forniscono sempre un
 modo per visualizzare le partizioni esistenti senza effettuare delle
 modifiche.
@@ -100,10 +102,6 @@ ad usare l'analogia della casa, è opportuno spostare tutti i mobili prima
 di procedere alla demolizione e ricostruzione di un muro, altrimenti si
 rischia di distruggerli.
 
-</para><para arch="hppa" condition="FIXME">
-
-<emphasis>FIXME: write about HP-UX disks?</emphasis>
-
 </para><para>
 
 <!--
@@ -111,111 +109,97 @@ If your computer has more than one hard disk, you may want to dedicate
 one of the hard disks completely to &debian;. If so, you don't need to
 partition that disk before booting the installation system; the
 installer's included partitioning program can handle the job nicely.
--->
 
 Se la propria macchina ha più di un disco fisso, si potrebbe voler dedicarne
 uno completamente a &debian;. In tal caso non c'è bisogno di partizionare tale
 disco prima di avviare il sistema d'installazione, l'installatore comprende
 un programma di partizionamento che può svolgere tranquillamente tale compito.
+-->
+
+<!--
+Several modern operating systems offer the ability to move and resize
+certain existing partitions without destroying their contents.  This allows
+making space for additional partitions without losing existing data.  Even
+though this works quite well in most cases, making changes to the
+partitioning of a disk is an inherently dangerous action and should only be
+done after having made a full backup of all data.
+<phrase arch="any-x86">For FAT/FAT32 and NTFS partitions as used by DOS and
+Windows systems, the ability to move and resize them losslessly is provided 
+both by &d-i; as well as by the integrated Disk Manager of Windows
+7. </phrase>
+-->
+
+Molti dei sistemi operativi più recenti offrono la possibilità di
+spostare e ridimensionare certe partizioni esistenti senza distruggere
+il loro contenuto. Questo permette di creare lo spazio per altre
+partizioni senza perdere i dati esistenti. Anche se nella maggior parte
+dei casi questa operazione funziona correttamente rimane comunque
+un'azione intrinsicamente pericolosa perciò deve essere effettuata solo
+dopo aver fatto un backup completo di tutti i dati.
+<phrase arch="any-x86">Le partizioni FAT/FAT32 e NTFS usate da sistemi
+DOS o Windows possono essere spostate e ridimensionate senza perdere
+dati usando &d-i; oppure il Gestore disco integrato in Windows
+7.</phrase>
+
+</para><para arch="x86">
+
+<!--
+To losslessly resize an existing FAT or NTFS partition from within &d-i;, go
+to the partitioning step, select the option for manual partitioning, select
+the partition to resize, and simply specify its new size.
+-->
+
+Per ridimensionare una partizione FAT o NTFS esistente senza perdere i
+dati da &d-i; selezionare il passo di partizionamento e scegliere
+l'opzione per il partizionamento manuale, poi scegliere la partizione
+da ridimensionare e specificare la sua nuova dimensione.
+
+</para><para arch="hppa" condition="FIXME">
+
+<emphasis>FIXME: write about HP-UX disks?</emphasis>
 
 </para><para>
 
 <!--
-If your machine has only one hard disk, and you would like to
-completely replace the current operating system with &debian-gnu;,
-you also can wait to partition as part of the installation process
-(<xref linkend="di-partition"/>), after you have booted the
-installation system.  However this only works if you plan to boot the
-installer system from tapes, CD-ROM or files on a connected machine.
-Consider: if you boot from files placed on the hard disk, and then
-partition that same hard disk within the installation system, thus
-erasing the boot files, you'd better hope the installation is
-successful the first time around.  At the least in this case, you
-should have some alternate means of reviving your machine like the
-original system's installation tapes or CDs.
+Creating and deleting partitions can be done from within &d-i; as
+well as from an existing operating system. As a rule of thumb,
+partitions should be created by the system for which they are to
+be used, i.e. partitions to be used by &debian-gnu; should be
+created from within &d-i; and partitions to be used from another
+operating system should be created from there. &d-i; is
+capable of creating non-&arch-kernel; partitions, and partitions created
+this way usually work without problems when used in other operating
+systems, but there are a few rare corner cases in which this could
+cause problems, so if you want to be sure, use the native partitioning
+tools to create partitions for use by other operating systems.
 -->
 
-Anche nel caso in cui la propria macchina abbia un solo disco fisso, se si
-vuole rimpiazzare completamente l'attuale sistema operativo con &debian-gnu; si
-può aspettare e partizionare il disco come parte del processo d'installazione
-(<xref linkend="di-partition"/>), dopo aver avviato il sistema d'installazione.
-Questo è possibile solo se si è programmato di fare l'avvio del sistema
-d'installazione da dischetti, CD-ROM o file su una macchina connessa in
-rete. Infatti se si fa l'avvio da file posti sul disco fisso per poi
-partizionarlo durante il processo d'installazione (cancellando in tal modo
-i file di avvio), è meglio sperare che l'installazione vada a buon fine al
-primo colpo. In questa situazione come minimo si dovrebbero avere dei sistemi
-alternativi per rimettere eventualmente in sesto la macchina, come ad esempio
-i dischetti o i CD d'installazione del sistema operativo originario.
-
-</para><para>
-
-<!--
-If your machine already has multiple partitions, and enough space can
-be provided by deleting and replacing one or more of them, then you
-too can wait and use the &debian; installer's partitioning program. You
-should still read through the material below, because there may be
-special circumstances like the order of the existing partitions within
-the partition map, that force you to partition before installing
-anyway.
--->
-
-Anche nel caso in cui la macchina sia già dotata di più d'una partizione e
-si possa ottenere lo spazio sufficiente cancellando e rimpiazzando una o
-più di esse, si può aspettare e utilizzare il programma di partizionamento
-dell'installatore &debian;. Si dovrebbe comunque leggere quanto segue,
-perché ci potrebbero essere delle circostanze particolari, come l'ordine
-delle partizioni esistenti all'interno della mappa delle partizioni, che
-rendono obbligatorio il ripartizionamento del disco prima di procedere
-all'installazione.
-
-</para><para arch="any-x86">
-
-<!--
-If your machine has a FAT or NTFS filesystem, as used by DOS and Windows,
-you can wait and use Debian installer's partitioning program to
-resize the filesystem.
--->
-
-Se sulla propria macchina c'è un filesystem FAT o NTFS, usati da DOS e
-Windows, si può aspettare e utilizzare il programma di partizionamento
-all'interno dell'Installatore Debian per ridimensionare il filesystem.
-
-</para><para>
-
-<!--
-If none of the above apply, you'll need to partition your hard disk before
-starting the installation to create partitionable space for
-&debian;. If some of the partitions will be owned by other operating
-systems, you should create those partitions using native operating
-system partitioning programs. We recommend that you do
-<emphasis>not</emphasis> attempt to create partitions for &debian-gnu;
-using another operating system's tools. Instead, you should just
-create the native operating system's partitions you will want to
-retain.
--->
-
-In tutti gli altri casi, è necessario partizionare il disco fisso
-prima di iniziare l'installazione per creare spazio per &debian;. Se alcune
-delle partizioni serviranno ad altri sistemi operativi, vanno create
-usando i programmi di partizionamento del sistema operativo nativo. Si
-raccomanda di <emphasis>non tentare</emphasis> la creazione di partizioni
-per &debian-gnu; usando i programmi di altri sistemi operativi. Piuttosto si
-dovrebbe creare solo la partizione (o le partizioni) che si vuole riservare
-al sistema nativo.
+La creazione e la cancellazione di partizioni può essere fatta
+dall'interno di &d-i; oppure con il sistema operativo esistente. Come
+regola del pollice le partizioni dovrebbero essere create dal sistema
+che poi le utilizzerà, cioè le partizione che saranno usate da
+&debian-gnu; dovrebbero essere create da &d-i; e le partizioni che
+saranno usate da altri sistemi operativi dovrebbero essere create
+usando quest'ultimi.
+&d-i; è in grado di creare partizioni non-&arch-kernel;, solitamente
+tali partizioni funzionano senza problemi anche quando sono utilizzate
+da altri sistemi operativi tuttavia ci sono dei rari casi in cui si
+possono verificare dei problemi perciò, per essere assolutamente sicuri,
+utilizzare gli strumenti di partizionamento nativi per creare le
+partizioni usate da altri sistemi operativi.
 
 </para><para>
 
 <!--
 If you are going to install more than one operating system on the same
 machine, you should install all other system(s) before proceeding with
-&debian; installation. Windows and other OS installations may destroy
+the &debian; installation. Windows and other OS installations may destroy
 your ability to start &debian;, or encourage you to reformat non-native
 partitions.
 -->
 
-Se si vuole installare più di un sistema operativo sulla stessa macchina
-si dovrebbe installare tutti gli altri sistemi prima di procedere con
+Per installare più di un sistema operativo sulla stessa macchina
+si dovrebbero installare prima tutti gli altri sistemi e poi procedere con
 l'installazione di &debian;. L'installazione di Windows e di altri SO potrebbero
 distruggere la capacità di avviare &debian; oppure incoraggiare la formattazione
 delle partizioni non native.
@@ -244,8 +228,8 @@ tools later during the actual install, and replace it with &arch-parttype;
 partitions.
 -->
 
-Affinché OpenFirmware avvii in automatico &debian-gnu;, le partizioni &arch-parttype;
-dovrebbero trovarsi prima di tutte le altre partizioni presenti sul disco,
+Per far avviare automaticamente &debian-gnu; da OpenFirmware, le partizioni
+&arch-parttype; devono essere le prime partizioni presenti sul disco,
 specialmente delle partizioni di boot MacOS. Lo si dovrebbe tenere presente
 quando si partiziona il disco in anticipo. Si dovrebbe creare una partizione
 &arch-parttype; che faccia da segnaposto e <emphasis>preceda</emphasis> tutte le altre
@@ -253,13 +237,14 @@ partizioni avviabili sul disco. In seguito, durante l'installazione
 effettiva, sarà possibile cancellare la partizione segnaposto usando gli
 appositi programmi &debian; e rimpiazzarla con partizioni &arch-parttype;.
 
-</para><para>
+</para>
 
-<!--
+<!-- paragraph scheduled for removal
+<para>
+
 If you currently have one hard disk with one partition (a common setup
 for desktop computers), and you want to multi-boot the native
 operating system and &debian;, you will need to:
--->
 
 Se attualmente si dispone di un solo disco fisso con una sola partizione
 (una situazione comune nei desktop) e si vuole un sistema ad avvio multiplo
@@ -268,23 +253,19 @@ con il sistema operativo nativo e &debian;, si deve:
 <orderedlist>
 <listitem><para>
 
-<!--
 Back up everything on the computer.
--->
 
 Fare il backup di qualunque file utile presente nel sistema.
 
 </para></listitem>
 <listitem><para>
 
-<!--
 Boot from the native operating system installer media such as CD-ROM
 or tapes.
 
 <phrase arch="powerpc">When booting from a MacOS CD, hold the
 <keycap>c</keycap> key while
 booting to force the CD to become the active MacOS system.</phrase>
--->
 
 Avviare il sistema dai supporti d'installazione del sistema operativo
 nativo, ad esempio CD-ROM o dischetti. <phrase arch="powerpc">Quando
@@ -295,11 +276,9 @@ attivo.</phrase>
 </para></listitem>
 <listitem><para>
 
-<!--
 Use the native partitioning tools to create native system
 partition(s). Leave either a place holder partition or free space for
 &debian-gnu;.
--->
 
 Usare i programmi di partizionamento nativi per creare le partizioni per
 il sistema nativo. Lasciare una partizione segnaposto o dello spazio
@@ -308,19 +287,15 @@ libero per &debian-gnu;.
 </para></listitem>
 <listitem><para>
 
-<!--
 Install the native operating system on its new partition.
--->
 
 Installare il sistema operativo nativo nella sua nuova partizione.
 
 </para></listitem>
 <listitem><para>
 
-<!--
 Boot back into the native system to verify everything's OK,
 and to download the &debian; installer boot files.
--->
 
 Avviare il sistema con il s.o. nativo per verificare che sia tutto a posto e
 scaricare i file di boot dell'installatore &debian;.
@@ -328,9 +303,7 @@ scaricare i file di boot dell'installatore &debian;.
 </para></listitem>
 <listitem><para>
 
-<!--
 Boot the &debian; installer to continue installing &debian;.
--->
 
 Avviare il sistema con l'Installatore &debian; per continuare l'installazione di
 &debian;.
@@ -339,8 +312,12 @@ Avviare il sistema con l'Installatore &debian; per continuare l'installazione di
 </orderedlist>
 
 </para>
+-->
 
+<!-- &nondeb-part-x86.xml; currently includes only outdated information;
+     don't use it for building the manual.
 &nondeb-part-x86.xml;
+-->
 &nondeb-part-sparc.xml;
 &nondeb-part-powerpc.xml;
 

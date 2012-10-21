@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 67916 -->
+<!-- original version: 68127 -->
 
  <sect1 id="hardware-supported">
  <!-- <title>Supported Hardware</title> -->
@@ -303,18 +303,30 @@ debian-&arch-listname;</ulink>.
 <para>
 
 <!--
-Laptops are also supported and nowadays most laptops work out of the box.
-In case a laptop contains specialized or proprietary hardware, some specific
-functions may not be supported.  To see if your particular laptop works well
+From a technical point of view, laptops are normal PCs, so all information
+regarding PC systems applies to laptops as well. Installations
+on laptops nowadays usually work out of the box, including things like
+automatically suspending the system on closing the lid and laptop specfic
+hardware buttons like those for disabling the wifi interfaces (<quote>airplane
+mode</quote>). Nonetheless sometimes the hardware vendors use specialized or
+proprietary hardware for some laptop-specific functions which
+might not be supported. To see if your particular laptop works well
 with GNU/Linux, see for example the
 <ulink url="&url-x86-laptop;">Linux Laptop pages</ulink>.
 -->
 
-Oggigiorno anche la maggior parte dei portatili è supportata. Se un
-portatile contiene hardware speciale o proprietario, alcune funzionalità
-specifiche potrebbero non funzionare. Per sapere se un particolare
-portatile funziona bene con GNU/Linux, consultare le
-<ulink url="&url-x86-laptop;">pagine di Linux Laptop</ulink>.
+Dal punto di vista tecnico, i portatili sono dei normali PC quindi tutte
+le informazioni che riguardano i sistemi PC sono valide anche per i
+portatili. 
+Oggigiorno l'installazione su portatili funziona senza particolari
+operazioni e comprende funzionalità quali la sospensione automatica
+quando viene chiuso il coperchio e la gestione dei bottoni speciali,
+per esempio quello per disattivate le interfacce wifi (<quote>modalità aereo</quote>).
+Qualche volta i costruttori usano hardware speciale o proprietario per
+alcune funzionalità specifiche del portatile che potrebbero essere non
+supportate. Per sapere se un particolare portatile funziona bene con
+GNU/Linux consultare le <ulink url="&url-x86-laptop;">pagine di Linux
+Laptop</ulink>.
 
 </para>
   </sect2>
@@ -325,38 +337,36 @@ portatile funziona bene con GNU/Linux, consultare le
 <para>
 
 <!--
-Multiprocessor support &mdash; also called <quote>symmetric multiprocessing</quote>
-or SMP &mdash; is available for this architecture.  The standard &debian;
-&release; kernel image has been compiled with SMP support.  The standard
-kernel is also usable on non-SMP systems, but has a slight overhead which
-will cause a small reduction in performance. For normal system use this
-will hardly be noticable.
+Multiprocessor support &mdash; also called <quote>symmetric
+multiprocessing</quote> or SMP &mdash; is available for this
+architecture.  Having multiple processors in a computer was originally
+only an issue for high-end server systems but has become quite common in
+recent years even for rather low-end desktop computers and laptops with
+the introduction of so called <quote>multi-core</quote> processors.  These contain
+two or more processor units, called <quote>cores</quote>, in one physical chip.
 -->
 
 Il supporto multiprocessore &mdash; detto anche <quote>symmetric
 multiprocessing</quote> o SMP &mdash; è disponibile per questa
-architettura. Il kernel standard di &debian; &release; è stato compilato
-con il supporto per l'SMP ed è utilizzabile anche su sistemi non-SMP;
-questo kernel causerà un piccolo sovraccarico che può leggermente ridurre
-le prestazioni. Su un sistema comune sarà difficilmente notabile.
+architettura.
+In origine la presenza più processori in un computer era una
+caratteristica solo dei sistemi server di alto livello, negli
+ultimi anni questa caratteristica è diventata sempre più comune anche
+nei sistemi desktop di basso livello e nei portatili grazie ai
+cosiddetti processori <quote>multi-core</quote>. Tali processori
+contengono due o più unità di elaborazione, chiamate <quote>core</quote>,
+all'interno di un solo chip.
 
 </para><para>
 
 <!--
-In order to optimize the kernel for single CPU systems, you'll have to
-replace the standard &debian; kernel.  <phrase arch="linux-any">You can find a discussion of how
-to do this in <xref linkend="kernel-baking"/>.  At this time
-(kernel version &kernelversion;) the way you disable SMP is to deselect
-<quote>&smp-config-option;</quote> in the <quote>&smp-config-section;</quote>
-section of the kernel config.</phrase>
+The standard &debian; &release; kernel image has been compiled with SMP support.
+It is also usable on non-SMP systems without problems.
 -->
 
-Per ottimizzare il kernel per i sistemi con un solo processore, si deve
-sostituire il kernel standard di . <phrase arch="linux-any">Si può trovare una discussione su
-come farlo in <xref linkend="kernel-baking"/>. Attualmente (versione del
-kernel &kernelversion;) il modo per disabilitare l'SMP è deselezionare
-la voce <quote>&smp-config-option;</quote> nella sezione
-<quote>&smp-config-section;</quote> della configurazione del kernel.</phrase>
+L'immagine del kernel standard di &debian; &release; è stata compilata
+con il supporto per l'SMP ed è utilizzabile anche su sistemi non-SMP
+senza problemi.
 
 </para>
   </sect2>
@@ -382,6 +392,24 @@ con il supporto per <firstterm>SMP-alternatives</firstterm>. Questo
 vuol dire che il kernel rileva il numero di processori (o il numero
 di core) e disattiva automaticamente l'SMP sui sistemi monoprocessore.
 
+</para><para>
+
+<!--
+Having multiple processors in a computer was originally
+only an issue for high-end server systems but has become quite common in
+recent years even for rather low-end desktop computers and laptops with
+the introduction of so called <quote>multi-core</quote> processors.  These contain
+two or more processor units, called <quote>cores</quote>, in one physical chip.
+-->
+
+In origine la presenza più processori in un computer era una
+caratteristica solo dei sistemi server di alto livello, negli
+ultimi anni questa caratteristica è diventata sempre più comune anche
+nei sistemi desktop di basso livello e nei portatili grazie ai
+cosiddetti processori <quote>multi-core</quote>. Tali processori
+contengono due o più unità di elaborazione, chiamate <quote>core</quote>,
+all'interno di un solo chip.
+
 </para><para arch="i386">
 
 <!--
@@ -406,7 +434,7 @@ multiprocessing</quote> or SMP &mdash; is available for this architecture.
 However, the standard &debian; &release; kernel image does not support
 SMP.  This should not prevent installation, since the standard,
 non-SMP kernel should boot on SMP systems; the kernel will simply use
-the first CPU.
+only the first CPU.
 -->
 
 Il supporto multiprocessore &mdash; detto anche <quote>symmetric
@@ -414,7 +442,7 @@ multiprocessing</quote> o SMP &mdash; è disponibile per questa
 architettura. Tuttavia il kernel standard di &debian; &release; non è
 stato compilato con il supporto per l'SMP. Questo non causa problemi
 durante l'installazione, perché il kernel standard non-SMP funziona
-anche sui sistemi SMP; il kernel userà semplicemente il primo
+anche sui sistemi SMP; semplicemente il kernel userà solo il primo
 processore.
 
 </para><para>
@@ -500,37 +528,40 @@ la voce <quote>&smp-config-option;</quote> nella sezione
 <para arch="x86">
 
 <!--
-You should be using a VGA-compatible display interface for the console
-terminal. Nearly every modern display card is compatible with
-VGA. Ancient standards such CGA, MDA, or HGA should also work,
-assuming you do not require X11 support.  Note that X11 is not used
-during the installation process described in this document unless the
-graphical installer was explicitly selected.
+&debian;'s support for graphical interfaces is determined by the
+underlying support found in X.Org's X11 system. On modern PCs,
+having a graphical display usually works out of the box. Whether
+advanced graphics card features such as 3D-hardware acceleration
+or hardware-accelerated video are available, depends on the 
+actual graphics hardware used in the system and in some cases
+on the installation of additional <quote>firmware</quote> images (see <xref
+linkend="hardware-firmware"/>). In very few cases there have
+been reports about hardware on which installation of additional graphics
+card firmware was required even for basic graphics support, but
+these have been rare exceptions.
 -->
 
-Si deve usare un display VGA compatibile per la console del terminale.
-Praticamente tutte le moderne schede video sono VGA compatibili. Le vecchie
-schede video CGA, MDA o HGA dovrebbero funzionare lo stesso, a patto che
-non sia richiesto il supporto per X11. Notare che X11 non viene usato durante
-il processo di installazione descritto in questo documento a meno che non
-sia stato esplicitamente richiesto l'uso dell'installatore grafico.
+Il supporto di &debian; per le interfacce grafiche è determinato
+dal sottostante supporto trovato nel sistema X11 di X.Org.
+Sui PC recenti il display grafico funziona senza alcun intervento.
+La disponibilità delle funzionalità avanzate della scheda grafica come
+l'accelerazione 3D o l'accelerazione video dipende da quale hardware è
+installato nel sistema e in alcuni casi potrebbe essere necessario
+installare delle immagini aggiuntive con il <quote>firmware</quote>
+(consultare  <xref linkend="hardware-firmware"/>). In pochissimi casi
+è stata segnalata la presenza di schede grafiche che richiedono
+l'installazione di firware aggiuntivo persino per effettuare le
+funzionalità di base, comunque queste sono delle eccezioni molto rare.
 
 </para><para>
 
 <!--
-&debian;'s support for graphical interfaces is determined by the
-underlying support found in X.Org's X11 system.  Most AGP, PCI,
-PCIe, and PCI-X video cards work under X.Org.  Details on supported graphics
-buses, cards, monitors, and pointing devices can be found at
+Details on supported graphics cards and pointing devices can be found at
 <ulink url="&url-xorg;"></ulink>.  &debian; &release; ships
 with X.Org version &x11ver;.
 -->
 
-Il supporto di &debian; per le interfacce grafiche è determinato
-dal sottostante supporto trovato nel sistema X11 di X.Org. La maggior
-parte delle schede video AGP, PCI, PCIe e PCI-X funzionano con X.Org.
-I dettagli
-sulle schede video supportate, sui bus, monitor e dispositivi di puntamento
+I dettagli sulle schede video supportate e i dispositivi di puntamento
 possono essere trovati in <ulink url="&url-xorg;"></ulink>. &debian;
 &release; include la versione &x11ver; di X.Org.
 
@@ -612,6 +643,9 @@ so-called <firstterm>firmware</firstterm> or <firstterm>microcode</firstterm>
 to be loaded into the device before it can become operational. This is most
 common for network interface cards (especially wireless NICs), but for example
 some USB devices and even some hard disk controllers also require firmware.
+With many graphics cards, basic functionality is available without
+additional firmware, but the use of advanced features requires an
+appropriate firmware file to be installed in the system.
 -->
 
 Oltre alla disponibilità di un driver, alcuni dispositivi richiedono
@@ -620,6 +654,25 @@ anche un cosiddetto <firstterm>firmware</firstterm> o
 che sia completamente operativo. Questo è molto comune per le schede
 di rete (in particolare i NIC wireless) ma anche alcuni dispositivi
 USB e alcuni controller per dischi fissi richiedono un firmware.
+Su molte schede grafiche le funzionalità di base sono disponibili senza
+firmware agguntivi ma per usare le funzionalità avanzate è necessario
+che un appropriato file con firmware sia installato nel sistema.
+
+</para><para>
+
+<!--
+On many older devices which require firmware to work, the firmware file was
+permanently placed in an EEPROM/Flash chip on the device itself by the
+manufacturer.  Nowadays most new devices do not have the firmware embedded
+this way anymore, so the firmware file must be uploaded into the device by
+the host operating system every time the system boots.
+-->
+
+Su molti dei vecchi dispositivi che richiedono un firmware per funzionare,
+il firmware è memorizzato nel chip EEPROM/Flash sul dispositivo dal
+costruttore. Oggigiorno la maggior parte dei dispositivi non incorporano
+più il firmware in questo modo, il firmware deve essere caricato sul
+dispositivo dal sistema operativo a ogni avvio del sistema.
 
 </para><para>
 
@@ -645,7 +698,7 @@ pacchetto separato della sezione non-free dell'archivio.
 However, this does not mean that such hardware cannot be used during an
 installation. Starting with &debian-gnu; 5.0, &d-i; supports loading
 firmware files or packages containing firmware from a removable medium,
-such as a floppy disk or USB stick.
+such as a USB stick.
 See <xref linkend="loading-firmware"/> for detailed information on how to
 load firmware files or packages during the installation.
 -->
@@ -653,9 +706,29 @@ load firmware files or packages during the installation.
 Questo non vuol dire che questo hardware non può essere usato durante
 l'installazione. A partire da &debian-gnu; 5.0, &d-i; supporta il caricamento
 dei file con il firmware o dei pacchetti contenenti il firmware da un
-supporto removibile come un dischetto o una chiavetta USB. Si veda
+supporto removibile come una chiavetta USB. Si veda
 <xref linkend="loading-firmware"/> per le istruzioni dettagliate su come
 caricare i file o i pacchetti con il firmware durante l'installazione.
+
+</para><para>
+
+<!--
+If the &d-i; prompts for a firmware file and you do not have this firmware
+file available or do not want to install a non-free firmware file on your
+system, you can try to proceed without loading the firmware.  There are
+several cases where a driver prompts for additional firmware because it may
+be needed under certain circumstances, but the device does work without it
+on most systems (this e.g.  happens with certain network cards using the tg3
+driver).
+-->
+
+Qualora &d-i; richieda l'installazione di un file di firmware ma tale
+file non è disponibile oppure non si vuole installare un firmware non-free
+sul proprio sistema, è possibile continuare senza caricare il firmware.
+Ci sono molti casi in cui il driver richiede il firmware perché in alcune
+circostanze potrebbe essere necessario ma il dispositivo funziona anche
+senza (per esempio questo accade su alcune schede di rete con il driver
+tg3).
 
 </para>
  </sect1>

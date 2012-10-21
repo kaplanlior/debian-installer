@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 66709 -->
+<!-- original version: 68161 -->
 
  <sect1 id="boot-parms">
  <!-- <title>Boot Parameters </title> -->
@@ -50,40 +50,6 @@ più misterioso. Questa sezione del manuale contiene solo un riassunto
 delle parti più salienti, alcuni <quote>trucchi</quote> sono stati
 inseriti in <xref linkend="boot-troubleshooting"/>.
 
-</para><para arch="linux-any">
-
-<!--
-When the kernel boots, a message
--->
-
-All'inizio del processo d'avvio il kernel mostra il messaggio
-
-<informalexample><screen>
-<!--
-Memory:<replaceable>avail</replaceable>k/<replaceable>total</replaceable>k available
--->Memory:<replaceable>disp</replaceable>k/<replaceable>totale</replaceable>k available
-</screen></informalexample>
-
-<!--
-should be emitted early in the process.
-<replaceable>total</replaceable> should match the total amount of RAM,
-in kilobytes.  If this doesn't match the actual amount of RAM you have
-installed, you need to use the
-<userinput>mem=<replaceable>ram</replaceable></userinput> parameter,
-where <replaceable>ram</replaceable> is set to the amount of memory,
-suffixed with <quote>k</quote> for kilobytes, or <quote>m</quote> for
-megabytes.  For example, both <userinput>mem=65536k</userinput> and
-<userinput>mem=64m</userinput> mean 64MB of RAM.
--->
-
-<replaceable>totale</replaceable> è la quantità di RAM in kilobyte. Se
-questo valore non coincide con la quantità di RAM installata si deve
-usare il parametro <userinput>mem=<replaceable>ram</replaceable></userinput>,
-dove <replaceable>ram</replaceable> è la quantità di RAM presente, è
-possibile usare i suffissi <quote>k</quote> per kilobyte e <quote>m</quote>
-per megabyte. Per esempio sia <userinput>mem=65536k</userinput> che
-<userinput>mem=64m</userinput> indicano 64&nbsp;MB di RAM.
-
 </para><para arch="linux-any" condition="supports-serial-console">
 
 <!--
@@ -95,7 +61,8 @@ to pass the
 <userinput>console=<replaceable>device</replaceable></userinput>
 argument to the kernel, where <replaceable>device</replaceable> is
 your serial device, which is usually something like
-<filename>ttyS0</filename><footnote>
+<filename>ttyS0</filename>.
+<footnote>
 -->
 
 Generalmente se l'avvio è effettuato con una console seriale il kernel
@@ -114,7 +81,11 @@ terminal emulator, the parameter
 Note that the installer only supports the following terminal types:
 <literal>linux</literal>, <literal>bterm</literal>, <literal>ansi</literal>,
 <literal>vt102</literal> and <literal>dumb</literal>. The default for
-serial console in &d-i; is <userinput>vt102</userinput>.
+serial console in &d-i; is <userinput>vt102</userinput>. If you are using a
+virtualization tool which does not provide conversion into such terminals types
+itself, e.g. QEMU/KVM, you can start it inside a <command>screen</command>
+session. That will indeed perform translation into the <literal>screen</literal>
+terminal type, which is very close to <literal>vt102</literal>.
 -->
 
 Per assicurare che il tipo di terminale usato dall'installatore sia
@@ -124,6 +95,11 @@ Notare che l'installatore supporta solo questi tipi di terminale:
 <literal>linux</literal>, <literal>bterm</literal>, <literal>ansi</literal>,
 <literal>vt102</literal> e <literal>dumb</literal>. Il valore predefinito
 per la console seriale del &d-i; è <userinput>vt102</userinput>.
+Gli strumenti di virtualizzazione, per esempio QEMU/KVM, potrtebbero non
+fornire la conversione tra questi tipi di terminali, è comunque possibile
+avviarli all'interno di una sessione <command>screen</command>. In questo
+modo ferrà effettuata una traduzione per il tipo di terminale
+<literal>screen</literal>, che è molto simile a <literal>vt102</literal>.
 
 </para>
 

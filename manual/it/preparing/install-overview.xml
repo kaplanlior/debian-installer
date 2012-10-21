@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 64916 -->
+<!-- original version: 67991 -->
 
  <sect1 id="install-overview">
  <!-- <title>Overview of the Installation Process</title> -->
@@ -94,7 +94,7 @@ Raccolta delle informazioni sul proprio computer e di tutte le informazioni
 necessarie prima di iniziare l'installazione.
 
 </para></listitem>
-<listitem><para>
+<listitem arch="not-x86"><para>
 
 <!--
 Create partitionable space for &debian; on your hard disk.
@@ -107,23 +107,22 @@ Creazione dello spazio partizionabile per &debian; sul disco fisso.
 
 <!--
 Locate and/or download the installer software and any specialized
-driver files your machine requires (except &debian; CD users).
+driver or firmware files your machine requires.
 -->
 
-Localizzare e/o scaricare l'installatore e tutti driver speciali necessari
-per la propria macchina (tranne per coloro che usano i CD &debian;).
+Localizzare e/o scaricare l'installatore e tutti driver e firmware
+speciali necessari per la propria macchina.
 
 </para></listitem>
 <listitem><para>
 
 <!--
-Set up boot tapes/floppies/USB sticks, or place boot files (most &debian;
-CD users can boot from one of the CDs).
+Set up boot media such as CDs/DVDs/USB sticks or provide a network boot
+infrastructure from which the installer can be booted.
 -->
 
-Preparazione di nastri/dischetti/chiavette USB per l'avvio, oppure copia
-dei file per l'avvio (la maggior parte degli utenti che usano i CD &debian;
-può fare l'avvio da CD).
+Preparazione dei supporti per l'avvio come CD/DVD/chiavette USB oppure
+preparare l'infrastruttura per l'avvio da rete dell'installatore.
 
 </para></listitem>
 <listitem><para>
@@ -181,7 +180,17 @@ Attach one or more DASDs (Direct Access Storage Device).
 Collegamento di uno o più DASD (Direct Access Storage Device).
 
 </para></listitem>
+<listitem arch="x86"><para>
 
+<!--
+If necessary, resize existing partitions on your target harddisk to make
+space for the installation.
+-->
+
+Se necessario, ridimensionare le partizioni esistenti sul disco su cui
+si vuole installare per creare spazio per l'installazione.
+
+</para></listitem>
 <listitem><para>
 
 <!--
@@ -296,8 +305,9 @@ a graphical desktop environment, consisting of the X Window System and
 one of the available graphical desktop environments.
 If you choose not to select the <quote>Desktop environment</quote> task,
 you will only have a relatively basic, command line driven system.
-Installing the Desktop environment task is optional because it requires a
-fairly large amount of disk space, and because many &debian-gnu; systems are
+Installing the Desktop environment task is optional because in relation to a
+text-mode-only system it requires a comparatively large amount of disk space
+and because many &debian-gnu; systems are
 servers which don't really have any need for a graphical user interface
 to do their job.
 -->
@@ -307,7 +317,8 @@ ambiente desktop grafico, che consiste nel X11 window system e in uno degli
 ambienti desktop disponibili. Se si sceglie di non installare il task
 <quote>Ambiente desktop</quote>, si ottiene un sistema abbastanza semplice
 con la sola riga di comando. L'installazione del task <quote>Ambiente
-desktop</quote> è opzionale perché richiede molto spazio su disco e perché
+desktop</quote> è opzionale perché rispetto a un sistema solo testo
+richiede molto spazio su disco e perché
 molti dei sistemi &debian-gnu; sono dei server e non hanno bisogno di una
 interfaccia utente grafica per il loro lavoro.
 
@@ -316,12 +327,12 @@ interfaccia utente grafica per il loro lavoro.
 <!--
 Just be aware that the X Window System is completely separate from
 <classname>debian-installer</classname>, and in fact is much more
-complicated. Installation and troubleshooting of the X Window
+complicated. Troubleshooting of the X Window
 System is not within the scope of this manual.
 -->
 
 Notare che il sistema X Window è completamente separato dal
-<classname>debian-installer</classname>, quindi l'installazione e la
+<classname>debian-installer</classname>, quindi la
 risoluzione dei problemi per il sistema X Window non rientrano nello
 scopo di questo manuale.
 
