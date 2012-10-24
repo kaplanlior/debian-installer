@@ -33,7 +33,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: partitioning\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2012-06-16 09:12+0000\n"
+"POT-Creation-Date: 2012-10-24 19:53+0000\n"
 "PO-Revision-Date: 2012-07-21 14:23+0200\n"
 "Last-Translator: Javier Fernández-Sanguino <jfs@debian.org>\n"
 "Language-Team: Debian l10n Spanish <debian-l10n-spanish@lists.debian.org>\n"
@@ -122,8 +122,8 @@ msgstr ""
 "máquina para trabajar, pero realmente depende del uso de su máquina. Por "
 "ejemplo, un servidor de correo que recibe una gran cantidad de correo no "
 "deseado, se puede llenar fácilmente y dejar sin espacio una partición, "
-"dejando el sistema inutilizable. Si coloca <filename>/var/mail</filename> "
-"en una partición separada, por lo general su sistema seguirá funcionado "
+"dejando el sistema inutilizable. Si coloca <filename>/var/mail</filename> en "
+"una partición separada, por lo general su sistema seguirá funcionado "
 "perfectamente, a pesar de recibir una gran cantidad de de correo no deseado."
 
 #. Tag: para
@@ -889,6 +889,12 @@ msgstr ""
 "discos duros y arquitecturas aceptadas por &debian;. A continuación, se "
 "presenta una lista de los programas que se pueden aplicar a su arquitectura."
 
+#. Tag: command
+#: partitioning.xml:448
+#, no-c-format
+msgid "partman"
+msgstr ""
+
 #. Tag: para
 #: partitioning.xml:449
 #, no-c-format
@@ -903,6 +909,12 @@ msgstr ""
 "ficheros <phrase arch=\"any-x86\"> (como se llama en Windows a "
 "<quote>formatear</quote>) </phrase> y asignarlos a sus respectivos puntos de "
 "montaje."
+
+#. Tag: command
+#: partitioning.xml:460
+#, no-c-format
+msgid "fdisk"
+msgstr ""
 
 #. Tag: para
 #: partitioning.xml:461
@@ -928,6 +940,12 @@ msgstr ""
 "Para más información, revise el <ulink url=\"&url-linux-freebsd;\">CÓMO de "
 "Linux+FreeBSD</ulink>."
 
+#. Tag: command
+#: partitioning.xml:477
+#, no-c-format
+msgid "cfdisk"
+msgstr ""
+
 #. Tag: para
 #: partitioning.xml:478
 #, no-c-format
@@ -947,11 +965,23 @@ msgstr ""
 "nuevamente, los dispositivos mostrados en pantalla pueden ser un tanto "
 "diferentes a los que realmente tiene."
 
+#. Tag: command
+#: partitioning.xml:491
+#, no-c-format
+msgid "atari-fdisk"
+msgstr ""
+
 #. Tag: para
 #: partitioning.xml:492
 #, no-c-format
 msgid "Atari-aware version of <command>fdisk</command>."
 msgstr "Versión de <command>fdisk</command> para Atari."
+
+#. Tag: command
+#: partitioning.xml:500
+#, no-c-format
+msgid "amiga-fdisk"
+msgstr ""
 
 #. Tag: para
 #: partitioning.xml:501
@@ -959,11 +989,23 @@ msgstr "Versión de <command>fdisk</command> para Atari."
 msgid "Amiga-aware version of <command>fdisk</command>."
 msgstr "Versión de <command>fdisk</command> para Amiga"
 
+#. Tag: command
+#: partitioning.xml:509
+#, no-c-format
+msgid "mac-fdisk"
+msgstr ""
+
 #. Tag: para
 #: partitioning.xml:510
 #, no-c-format
 msgid "Mac-aware version of <command>fdisk</command>."
 msgstr "Versión de <command>fdisk</command> para Mac."
+
+#. Tag: command
+#: partitioning.xml:518
+#, no-c-format
+msgid "pmac-fdisk"
+msgstr ""
 
 #. Tag: para
 #: partitioning.xml:519
@@ -974,6 +1016,12 @@ msgid ""
 msgstr ""
 "Versión de <command>fdisk</command> para PowerMac, además usado por BVM y "
 "los sistemas VMEbus de Motorola."
+
+#. Tag: command
+#: partitioning.xml:528
+#, no-c-format
+msgid "fdasd"
+msgstr ""
 
 #. Tag: para
 #: partitioning.xml:529
@@ -1107,12 +1155,11 @@ msgstr ""
 "particionar el disco. Hay un límite del número de particiones "
 "<quote>primarias</quote> y <quote>lógicas</quote> que un disco puede "
 "almacenar. Adicionalmente, con las BIOS fabricadas antes de 1994&ndash;98, "
-"existen limitaciones sobre la ubicación en el dispositivo desde el que la "
-"la BIOS puede iniciar el sistema. "
-"Para más información, consulte la documentación acerca de <ulink url="
-"\"&url-partition-howto;\">Cómo particionar en Linux</ulink>, pero esta "
-"sección incluye una visión general para guiarlo en la "
-"mayoría de las situaciones posibles."
+"existen limitaciones sobre la ubicación en el dispositivo desde el que la la "
+"BIOS puede iniciar el sistema. Para más información, consulte la "
+"documentación acerca de <ulink url=\"&url-partition-howto;\">Cómo "
+"particionar en Linux</ulink>, pero esta sección incluye una visión general "
+"para guiarlo en la mayoría de las situaciones posibles."
 
 #. Tag: para
 #: partitioning.xml:611
@@ -1336,10 +1383,10 @@ msgstr ""
 "El particionador <command>partman</command> manejará la mayoría de "
 "estructuras de disco. Para casos especiales donde sea necesario configurar "
 "el disco en forma manual, puede usar el shell como se describe a "
-"continuación y ejecutar directamente la herramienta <command>parted</command> "
-"usando su interfaz de línea de órdenes. Asumiendo que desea borrar todo su "
-"disco y crear una tabla GPT y algunas particiones, entonces podría usar una "
-"secuencia similar a la siguiente: <informalexample><screen>\n"
+"continuación y ejecutar directamente la herramienta <command>parted</"
+"command> usando su interfaz de línea de órdenes. Asumiendo que desea borrar "
+"todo su disco y crear una tabla GPT y algunas particiones, entonces podría "
+"usar una secuencia similar a la siguiente: <informalexample><screen>\n"
 "      mklabel gpt\n"
 "      mkpartfs primary fat 0 50\n"
 "      mkpartfs primary linux-swap 51 1000\n"
@@ -1622,4 +1669,3 @@ msgstr ""
 "completo (desde el primer cilindro hasta el último). Esto se usa simplemente "
 "por conversión de las particiones Sun, lo que ayuda al cargador de arranque "
 "<command>SILO</command> a mantener todo correctamente establecido."
-
