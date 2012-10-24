@@ -80,8 +80,7 @@ function parse_file(PARSEFILE, FNAME,   fname, nwline, comment_count) {
     fname = FNAME
     
     # Test whether file exists
-    getline <PARSEFILE
-    if (length(ERRNO) != 0) {
+    if ( ( getline <PARSEFILE ) <= 0 ) {
         print "** Error: file '" PARSEFILE "' does not exist!" >>LOG
         return
     }
