@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: preparing.xml\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2012-06-16 09:12+0000\n"
+"POT-Creation-Date: 2012-09-18 17:24+0000\n"
 "PO-Revision-Date: 2012-08-05 22:09+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: Korean <debian-l10n-korean@lists.debian.org>\n"
@@ -132,8 +132,8 @@ msgstr "하드 디스크에 &debian; 파티션 사용 가능한 공간을 확보
 #| "Locate and/or download the installer software and any specialized driver "
 #| "files your machine requires (except &debian; CD users)."
 msgid ""
-"Locate and/or download the installer software and any specialized driver "
-"files your machine requires (except &debian; CD users)."
+"Locate and/or download the installer software and any specialized driver or "
+"firmware files your machine requires."
 msgstr ""
 "설치하면 컴퓨터에 필요한 특수 드라이버 파일의 위치를 확인하여 다운로드하십시"
 "오.(&debian; CD 사용자 제외)"
@@ -142,11 +142,9 @@ msgstr ""
 #: preparing.xml:79
 #, no-c-format
 msgid ""
-"Set up boot tapes/floppies/USB sticks, or place boot files (most &debian; CD "
-"users can boot from one of the CDs)."
+"Set up boot media such as CDs/DVDs/USB sticks or provide a network boot "
+"infrastructure from which the installer can be booted."
 msgstr ""
-"부팅 테이프/플로피/USB 메모리를 만들거나, 부팅 파일을 배치합니다. (대부분의 "
-"&debian; CD 사용자는 CD 중 한장으로 부팅합니다)"
 
 #. Tag: para
 #: preparing.xml:85
@@ -187,11 +185,19 @@ msgstr "1개 이상의 DASD(Direct Access Storage Device)를 부착하십시오.
 #. Tag: para
 #: preparing.xml:117
 #, no-c-format
+msgid ""
+"If necessary, resize existing partitions on your target harddisk to make "
+"space for the installation."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:122
+#, no-c-format
 msgid "Create and mount the partitions on which &debian; will be installed."
 msgstr "&debian;을 설치할 파티션을 만들고 마운트합니다."
 
 #. Tag: para
-#: preparing.xml:122
+#: preparing.xml:127
 #, no-c-format
 msgid ""
 "Watch the automatic download/install/setup of the <firstterm>base system</"
@@ -201,7 +207,7 @@ msgstr ""
 "오."
 
 #. Tag: para
-#: preparing.xml:128
+#: preparing.xml:133
 #, no-c-format
 msgid ""
 "Install a <firstterm>boot loader</firstterm> which can start up &debian-gnu; "
@@ -211,13 +217,13 @@ msgstr ""
 "를 설치하십시오."
 
 #. Tag: para
-#: preparing.xml:134
+#: preparing.xml:139
 #, no-c-format
 msgid "Load the newly installed system for the first time."
 msgstr "새로 설치한 시스템을 처음으로 시작하십시오."
 
 #. Tag: para
-#: preparing.xml:141
+#: preparing.xml:146
 #, no-c-format
 msgid ""
 "For &arch-title; you have the option of using <phrase arch=\"any-x86\">a</"
@@ -230,7 +236,7 @@ msgstr ""
 "\"graphical\"/>를 참조하십시오."
 
 #. Tag: para
-#: preparing.xml:149
+#: preparing.xml:154
 #, no-c-format
 msgid ""
 "If you have problems during the installation, it helps to know which "
@@ -241,7 +247,7 @@ msgstr ""
 "알아 두는 게 좋습니다. 이 설치 단계의 주요 소프트웨어를 소개하면:"
 
 #. Tag: para
-#: preparing.xml:155
+#: preparing.xml:160
 #, no-c-format
 msgid ""
 "The installer software, <classname>debian-installer</classname>, is the "
@@ -263,7 +269,7 @@ msgstr ""
 "installer</classname>가 작업을 마칩니다."
 
 #. Tag: para
-#: preparing.xml:167
+#: preparing.xml:172
 #, no-c-format
 msgid ""
 "To tune the system to your needs, <classname>tasksel</classname> allows you "
@@ -275,7 +281,7 @@ msgstr ""
 "있도록 선택할 수 있습니다."
 
 #. Tag: para
-#: preparing.xml:173
+#: preparing.xml:178
 #, fuzzy, no-c-format
 #| msgid ""
 #| "One important option during the installation is whether or not to install "
@@ -292,9 +298,10 @@ msgid ""
 "the available graphical desktop environments. If you choose not to select "
 "the <quote>Desktop environment</quote> task, you will only have a relatively "
 "basic, command line driven system. Installing the Desktop environment task "
-"is optional because it requires a fairly large amount of disk space, and "
-"because many &debian-gnu; systems are servers which don't really have any "
-"need for a graphical user interface to do their job."
+"is optional because in relation to a text-mode-only system it requires a "
+"comparatively large amount of disk space and because many &debian-gnu; "
+"systems are servers which don't really have any need for a graphical user "
+"interface to do their job."
 msgstr ""
 "설치할 때 중요한 옵션의 하나가 그래픽 데스크톱 환경을 설치할 지 옵션입니다. "
 "그래픽 데스크톱 환경은 X 윈도우 시스템과 그래픽 데스크톱 환경 하나로 구성되"
@@ -305,7 +312,7 @@ msgstr ""
 "이스가 전혀 필요없기 때문입니다."
 
 #. Tag: para
-#: preparing.xml:185
+#: preparing.xml:191
 #, fuzzy, no-c-format
 #| msgid ""
 #| "Just be aware that the X Window System is completely separate from "
@@ -315,21 +322,21 @@ msgstr ""
 msgid ""
 "Just be aware that the X Window System is completely separate from "
 "<classname>debian-installer</classname>, and in fact is much more "
-"complicated. Installation and troubleshooting of the X Window System is not "
-"within the scope of this manual."
+"complicated. Troubleshooting of the X Window System is not within the scope "
+"of this manual."
 msgstr ""
 "X 윈도우 시스템은 <classname>debian-installer</classname>와는 완전히 별도의 "
 "소프트웨어이고, 실제로 훨씬 더 복잡합니다. X 윈도우 시스템의 설치나 X 윈도우 "
 "시스템의 문제점 해결은 이 안내서가 다루는 범위를 벗어납니다."
 
 #. Tag: title
-#: preparing.xml:200
+#: preparing.xml:206
 #, no-c-format
 msgid "Back Up Your Existing Data!"
 msgstr "기존 데이터를 백업하십시오!"
 
 #. Tag: para
-#: preparing.xml:201
+#: preparing.xml:207
 #, fuzzy, no-c-format
 #| msgid ""
 #| "Before you start, make sure to back up every file that is now on your "
@@ -344,14 +351,15 @@ msgstr "기존 데이터를 백업하십시오!"
 #| "save hours of unnecessary work."
 msgid ""
 "Before you start, make sure to back up every file that is now on your "
-"system. If this is the first time a non-native operating system has been "
-"installed on your computer, it's quite likely you will need to re-partition "
-"your disk to make room for &debian-gnu;. Anytime you partition your disk, "
-"you run a risk of losing everything on the disk, no matter what program you "
-"use to do it. The programs used in installation are quite reliable and most "
-"have seen years of use; but they are also quite powerful and a false move "
-"can cost you. Even after backing up, be careful and think about your answers "
-"and actions. Two minutes of thinking can save hours of unnecessary work."
+"system. If this is the first time a non-native operating system is going to "
+"be installed on your computer, it is quite likely you will need to re-"
+"partition your disk to make room for &debian-gnu;. Anytime you partition "
+"your disk, you run a risk of losing everything on the disk, no matter what "
+"program you use to do it. The programs used in the installation are quite "
+"reliable and most have seen years of use; but they are also quite powerful "
+"and a false move can cost you. Even after backing up, be careful and think "
+"about your answers and actions. Two minutes of thinking can save hours of "
+"unnecessary work."
 msgstr ""
 "시작하기 전에 지금 시스템에 있는 모든 파일을 백업해 두십시오. 원래 설치된 운"
 "영 체제가 아닌 운영 체제를 처음으로 설치하는 거라면, &debian-gnu;의 루트로 "
@@ -363,7 +371,7 @@ msgstr ""
 "일이분만 더 생각하면 수 시간의 불필요한 작업을 예방할 수 있습니다."
 
 #. Tag: para
-#: preparing.xml:214
+#: preparing.xml:220
 #, fuzzy, no-c-format
 #| msgid ""
 #| "If you are creating a multi-boot system, make sure that you have the "
@@ -374,10 +382,11 @@ msgstr ""
 #| "partitions."
 msgid ""
 "If you are creating a multi-boot system, make sure that you have the "
-"distribution media of any other present operating systems on hand. "
-"Especially if you repartition your boot drive, you might find that you have "
-"to reinstall your operating system's boot loader, or in many cases the whole "
-"operating system itself and all files on the affected partitions."
+"distribution media of any other present operating systems on hand. Even "
+"though this is normally not necessary, there might be situations in which "
+"you could be required to reinstall your operating system's boot loader to "
+"make the system boot or in a worst case even have to reinstall the complete "
+"operating system and restore your previously made backup."
 msgstr ""
 "멀티 부팅 시스템을 만든다면, 기존 운영 체제의 배포 미디어를 가지고 있으십시"
 "오. 특히 부팅 드라이브를 다시 파티션하는 경우라면, 운영 체제의 부트로더를 다"
@@ -385,37 +394,37 @@ msgstr ""
 "도 있습니다."
 
 #. Tag: title
-#: preparing.xml:232
+#: preparing.xml:239
 #, no-c-format
 msgid "Information You Will Need"
 msgstr "필요한 정보"
 
 #. Tag: title
-#: preparing.xml:235
+#: preparing.xml:242
 #, no-c-format
 msgid "Documentation"
 msgstr "문서"
 
 #. Tag: title
-#: preparing.xml:238
+#: preparing.xml:245
 #, no-c-format
 msgid "Installation Manual"
 msgstr "설치 안내서"
 
 #. Tag: para
-#: preparing.xml:240
+#: preparing.xml:247
 #, no-c-format
 msgid "This document you are now reading, in plain ASCII, HTML or PDF format."
 msgstr "지금 읽고 있는 문서입니다. 일반 텍스트, HTML, 혹은 PDF 형식."
 
 #. Tag: itemizedlist
-#: preparing.xml:246
+#: preparing.xml:253
 #, no-c-format
 msgid "&list-install-manual-files;"
 msgstr "&list-install-manual-files;"
 
 #. Tag: para
-#: preparing.xml:252
+#: preparing.xml:259
 #, no-c-format
 msgid ""
 "The document you are now reading, which is the official version of the "
@@ -428,7 +437,7 @@ msgstr ""
 "한 형식과 언어 </ulink>를 사용할 수 있습니다."
 
 #. Tag: para
-#: preparing.xml:261
+#: preparing.xml:268
 #, no-c-format
 msgid ""
 "The document you are now reading, which is a development version of the "
@@ -440,44 +449,44 @@ msgstr ""
 "ulink>에서 사용할 수 있습니다."
 
 #. Tag: title
-#: preparing.xml:273
+#: preparing.xml:280
 #, no-c-format
 msgid "Hardware documentation"
 msgstr "하드웨어 문서"
 
 #. Tag: para
-#: preparing.xml:274
+#: preparing.xml:281
 #, no-c-format
 msgid ""
 "Often contains useful information on configuring or using your hardware."
 msgstr "하드웨어를 설정하고 이용하는 방법에 대한 유용한 정보가 들어있습니다."
 
 #. Tag: ulink
-#: preparing.xml:285
+#: preparing.xml:292
 #, no-c-format
-msgid "Linux Hardware Compatibility HOWTO"
-msgstr "리눅스 하드웨어 호환성 하우투"
+msgid "The Debian Wiki hardware page"
+msgstr ""
 
 #. Tag: ulink
-#: preparing.xml:291
+#: preparing.xml:298
 #, no-c-format
 msgid "Linux for SPARC Processors FAQ"
 msgstr "Linux for SPARC Processors FAQ"
 
 #. Tag: ulink
-#: preparing.xml:297
+#: preparing.xml:304
 #, no-c-format
 msgid "Linux/Mips website"
 msgstr "Linux/Mips 웹사이트"
 
 #. Tag: title
-#: preparing.xml:306
+#: preparing.xml:313
 #, no-c-format
 msgid "&arch-title; Hardware References"
 msgstr "&arch-title; 하드웨어 참고서"
 
 #. Tag: para
-#: preparing.xml:307
+#: preparing.xml:314
 #, no-c-format
 msgid ""
 "Documentation of &arch-title;-specific boot sequence, commands and device "
@@ -487,13 +496,13 @@ msgstr ""
 "XPRAM, Console, OSA, HiperSockets 및 z/VM interaction)."
 
 #. Tag: ulink
-#: preparing.xml:318
+#: preparing.xml:325
 #, no-c-format
 msgid "Device Drivers, Features, and Commands (Linux Kernel 2.6.32)"
 msgstr "장치 드라이버, 기능 및 명령 (리눅스 커널 2.6.32)"
 
 #. Tag: para
-#: preparing.xml:323
+#: preparing.xml:330
 #, no-c-format
 msgid ""
 "IBM Redbook describing how Linux can be combined with z/VM on zSeries and "
@@ -503,13 +512,13 @@ msgstr ""
 "설명합니다."
 
 #. Tag: ulink
-#: preparing.xml:333
+#: preparing.xml:340
 #, no-c-format
 msgid "Linux for &arch-title;"
 msgstr "&arch-title;용 리눅스"
 
 #. Tag: para
-#: preparing.xml:339
+#: preparing.xml:346
 #, no-c-format
 msgid ""
 "IBM Redbook describing the Linux distributions available for the mainframe. "
@@ -522,19 +531,19 @@ msgstr ""
 
 # IBM Redbook 이름
 #. Tag: ulink
-#: preparing.xml:350
+#: preparing.xml:357
 #, no-c-format
 msgid "Linux for IBM eServer zSeries and &arch-title;: Distributions"
 msgstr "Linux for IBM eServer zSeries and &arch-title;: Distributions"
 
 #. Tag: title
-#: preparing.xml:360
+#: preparing.xml:367
 #, no-c-format
 msgid "Finding Sources of Hardware Information"
 msgstr "하드웨어 정보가 있는 곳 찾기"
 
 #. Tag: para
-#: preparing.xml:361
+#: preparing.xml:368
 #, no-c-format
 msgid ""
 "In many cases, the installer will be able to automatically detect your "
@@ -545,19 +554,19 @@ msgstr ""
 "하려면, 설치하기 전에 하드웨어에 대해 잘 알아 두는 게 좋습니다."
 
 #. Tag: para
-#: preparing.xml:367
+#: preparing.xml:374
 #, no-c-format
 msgid "Hardware information can be gathered from:"
 msgstr "하드웨어 정보는 다음에서 알아낼 수 있습니다:"
 
 #. Tag: para
-#: preparing.xml:374
+#: preparing.xml:381
 #, no-c-format
 msgid "The manuals that come with each piece of hardware."
 msgstr "하드웨어에 같이 들어 있는 설명서."
 
 #. Tag: para
-#: preparing.xml:379
+#: preparing.xml:386
 #, fuzzy, no-c-format
 #| msgid ""
 #| "The BIOS setup screens of your computer. You can view these screens when "
@@ -566,25 +575,28 @@ msgstr "하드웨어에 같이 들어 있는 설명서."
 msgid ""
 "The BIOS setup screens of your computer. You can view these screens when you "
 "start your computer by pressing a combination of keys. Check your manual for "
-"the combination. Often, it is the <keycap>Delete</keycap> key."
+"the combination. Often, it is the <keycap>Delete</keycap> or the <keycap>F2</"
+"keycap> key, but some manufacturers use other keys or key combinations. "
+"Usually upon starting the computer there will be a message stating which key "
+"to press to enter the setup screen."
 msgstr ""
 "컴퓨터의 BIOS 설정 화면. 컴퓨터가 시작할 때 어떤 키 조합을 누르면 BIOS 설정 "
 "화면을 볼 수 있습니다. 보통 <keycap>Delete</keycap> 키입니다."
 
 #. Tag: para
-#: preparing.xml:386
+#: preparing.xml:396
 #, no-c-format
 msgid "The cases and boxes for each piece of hardware."
 msgstr "하드웨어의 케이스 및 포장."
 
 #. Tag: para
-#: preparing.xml:392
+#: preparing.xml:402
 #, no-c-format
 msgid "The System window in the Windows Control Panel."
 msgstr "윈도우 제어판의 시스템 창."
 
 #. Tag: para
-#: preparing.xml:398
+#: preparing.xml:408
 #, no-c-format
 msgid ""
 "System commands or tools in another operating system, including file manager "
@@ -595,7 +607,7 @@ msgstr ""
 "도구. 특히 RAM과 하드 드라이브에 대한 정보를 알아내는 데 유용합니다."
 
 #. Tag: para
-#: preparing.xml:405
+#: preparing.xml:415
 #, no-c-format
 msgid ""
 "Your system administrator or Internet Service Provider. These sources can "
@@ -605,214 +617,149 @@ msgstr ""
 "관련된 사항을 알 수 있습니다."
 
 #. Tag: title
-#: preparing.xml:417
+#: preparing.xml:427
 #, fuzzy, no-c-format
 #| msgid "Hardware Information Needed for an Install"
-msgid "Hardware Information Needed for an Install"
+msgid "Hardware Information Helpful for an Install"
 msgstr "설치하는 데 필요한 하드웨어 정보"
 
 #. Tag: entry
-#: preparing.xml:421
+#: preparing.xml:431
 #, no-c-format
 msgid "Hardware"
 msgstr "하드웨어"
 
 #. Tag: entry
-#: preparing.xml:421
+#: preparing.xml:431
 #, no-c-format
 msgid "Information You Might Need"
 msgstr "필요할 수 있는 정보"
 
 #. Tag: entry
-#: preparing.xml:427
+#: preparing.xml:437
 #, no-c-format
 msgid "Hard Drives"
 msgstr "하드 드라이브"
 
 #. Tag: entry
-#: preparing.xml:428
+#: preparing.xml:438
 #, no-c-format
 msgid "How many you have."
 msgstr "용량이 얼마나 되는 지."
 
 #. Tag: entry
-#: preparing.xml:430
+#: preparing.xml:440
 #, no-c-format
 msgid "Their order on the system."
 msgstr "시스템에 붙어 있는 순서."
 
 #. Tag: entry
-#: preparing.xml:432
+#: preparing.xml:442
 #, no-c-format
 msgid "Whether IDE (also known as PATA), SATA or SCSI."
 msgstr "IDE (PATA), SATA, SCSI 중 한 가지."
 
 #. Tag: entry
-#: preparing.xml:434 preparing.xml:486
+#: preparing.xml:444 preparing.xml:493
 #, no-c-format
 msgid "Available free space."
 msgstr "사용 가능한 빈 공간."
 
 #. Tag: entry
-#: preparing.xml:435
+#: preparing.xml:445
 #, no-c-format
 msgid "Partitions."
 msgstr "파티션."
 
 #. Tag: entry
-#: preparing.xml:437
+#: preparing.xml:447
 #, no-c-format
 msgid "Partitions where other operating systems are installed."
 msgstr "다른 운영 체제를 설치한 파티션."
 
 #. Tag: entry
-#: preparing.xml:441
-#, no-c-format
-msgid "Monitor"
-msgstr "모니터"
+#: preparing.xml:475
+#, fuzzy, no-c-format
+#| msgid "Network Settings"
+msgid "Network interfaces"
+msgstr "네트워크 설정"
 
 #. Tag: entry
-#: preparing.xml:442 preparing.xml:462 preparing.xml:468 preparing.xml:474
-#, no-c-format
-msgid "Model and manufacturer."
-msgstr "모델 및 제조사."
+#: preparing.xml:476
+#, fuzzy, no-c-format
+#| msgid "Configure one network interface."
+msgid "Type/model of available network interfaces."
+msgstr "네트워크 인터페이스를 하나 설정하십시오."
 
 #. Tag: entry
-#: preparing.xml:444
-#, no-c-format
-msgid "Resolutions supported."
-msgstr "지원하는 해상도."
-
-#. Tag: entry
-#: preparing.xml:445
-#, no-c-format
-msgid "Horizontal refresh rate."
-msgstr "가로 출력 주파수."
-
-#. Tag: entry
-#: preparing.xml:446
-#, no-c-format
-msgid "Vertical refresh rate."
-msgstr "세로 출력 주파수."
-
-#. Tag: entry
-#: preparing.xml:448
-#, no-c-format
-msgid "Color depth (number of colors) supported."
-msgstr "지원하는 색상수."
-
-#. Tag: entry
-#: preparing.xml:450
-#, no-c-format
-msgid "Screen size."
-msgstr "화면 크기."
-
-#. Tag: entry
-#: preparing.xml:453
-#, no-c-format
-msgid "Mouse"
-msgstr "마우스"
-
-#. Tag: entry
-#: preparing.xml:454
-#, no-c-format
-msgid "Type: serial, PS/2, or USB."
-msgstr "종류: 시리얼, PS/2, 혹은 USB."
-
-#. Tag: entry
-#: preparing.xml:456
-#, no-c-format
-msgid "Port."
-msgstr "포트."
-
-#. Tag: entry
-#: preparing.xml:457
-#, no-c-format
-msgid "Manufacturer."
-msgstr "제조사."
-
-#. Tag: entry
-#: preparing.xml:458
-#, no-c-format
-msgid "Number of buttons."
-msgstr "단추 개수."
-
-#. Tag: entry
-#: preparing.xml:461 preparing.xml:489
-#, no-c-format
-msgid "Network"
-msgstr "네트워크"
-
-#. Tag: entry
-#: preparing.xml:464 preparing.xml:490
-#, no-c-format
-msgid "Type of adapter."
-msgstr "어댑터 종류."
-
-#. Tag: entry
-#: preparing.xml:467
+#: preparing.xml:480
 #, no-c-format
 msgid "Printer"
 msgstr "프린터"
 
 #. Tag: entry
-#: preparing.xml:470
+#: preparing.xml:481
 #, no-c-format
-msgid "Printing resolutions supported."
-msgstr "지원하는 인쇄 해상도."
+msgid "Model and manufacturer."
+msgstr "모델 및 제조사."
 
 #. Tag: entry
-#: preparing.xml:473
+#: preparing.xml:485
 #, no-c-format
 msgid "Video Card"
 msgstr "비디오 카드"
 
 #. Tag: entry
-#: preparing.xml:476
-#, no-c-format
-msgid "Video RAM available."
-msgstr "비디오 RAM 크기."
+#: preparing.xml:486
+#, fuzzy, no-c-format
+#| msgid "Model and manufacturer."
+msgid "Type/model and manufacturer."
+msgstr "모델 및 제조사."
 
 #. Tag: entry
-#: preparing.xml:478
-#, no-c-format
-msgid ""
-"Resolutions and color depths supported (these should be checked against your "
-"monitor's capabilities)."
-msgstr "지원하는 해상도 및 색상수 (모니터에서도 지원하는 지 확인해야 합니다)."
-
-#. Tag: entry
-#: preparing.xml:483
+#: preparing.xml:490
 #, no-c-format
 msgid "DASD"
 msgstr "DASD"
 
 #. Tag: entry
-#: preparing.xml:484
+#: preparing.xml:491
 #, no-c-format
 msgid "Device number(s)."
 msgstr "장치 번호."
 
 #. Tag: entry
-#: preparing.xml:492
+#: preparing.xml:496
+#, no-c-format
+msgid "Network"
+msgstr "네트워크"
+
+#. Tag: entry
+#: preparing.xml:497
+#, no-c-format
+msgid "Type of adapter."
+msgstr "어댑터 종류."
+
+#. Tag: entry
+#: preparing.xml:499
 #, no-c-format
 msgid "Device numbers."
 msgstr "장치 번호."
 
 #. Tag: entry
-#: preparing.xml:493
+#: preparing.xml:500
 #, no-c-format
 msgid "Relative adapter number for OSA cards."
 msgstr "OSA 카드의 상대 어댑터 번호."
 
 #. Tag: title
-#: preparing.xml:501
+#: preparing.xml:508
 #, no-c-format
 msgid "Hardware Compatibility"
 msgstr "하드웨어 호환성"
 
 #. Tag: para
-#: preparing.xml:503
+#: preparing.xml:510
 #, fuzzy, no-c-format
 #| msgid ""
 #| "Many brand name products work without trouble on &arch-kernel;. Moreover, "
@@ -820,135 +767,215 @@ msgstr "하드웨어 호환성"
 #| "kernel; still does not run as many different types of hardware as some "
 #| "operating systems."
 msgid ""
-"Many brand name products work without trouble on &arch-kernel;. Moreover, "
-"hardware support in &arch-kernel; is improving daily. However, &arch-kernel; "
-"still does not run as many different types of hardware as some operating "
-"systems."
+"Many products work without trouble on &arch-kernel;. Moreover, hardware "
+"support in &arch-kernel; is improving daily. However, &arch-kernel; still "
+"does not run as many different types of hardware as some operating systems."
 msgstr ""
 "유명 제품의 대부분은 문제없이 &arch-kernel;에서 작동합니다. 또한 &arch-"
 "kernel;에서 지원하는 하드웨어는 날이 갈수록 발전하고 있습니다. 하지만 아직도 "
 "&arch-kernel;은 어떤 종류의 OS정도 만큼 다양한 하드웨어를 지원하지 않습니다."
 
 #. Tag: para
-#: preparing.xml:509
+#: preparing.xml:516
 #, no-c-format
 msgid ""
-"In particular, &arch-kernel; usually cannot run hardware that requires a "
-"running version of Windows to work."
+"Drivers in &arch-kernel; in most cases are not written for a certain "
+"<quote>product</quote> or <quote>brand</quote> from a specific manufacturer, "
+"but for a certain hardware/chipset. Many seemingly different products/brands "
+"are based on the same hardware design; it is not uncommon that chip "
+"manufacturers provide so-called <quote>reference designs</quote> for "
+"products based on their chips which are then used by several different "
+"device manufacturers and sold under lots of different product or brand names."
 msgstr ""
-"특히, &arch-kernel;는 일반적으로 특정 버전의 Windows를 필요로하는 하드웨어를 "
-"움직일 수 없습니다."
 
 #. Tag: para
-#: preparing.xml:514
+#: preparing.xml:527
 #, no-c-format
 msgid ""
-"Although some Windows-specific hardware can be made to run on Linux, doing "
-"so usually requires extra effort. In addition, Linux drivers for Windows-"
-"specific hardware are usually specific to one Linux kernel. Therefore, they "
-"can quickly become obsolete."
+"This has advantages and disadvantages. An advantage is that a driver for one "
+"chipset works with lots of different products from different manufacturers, "
+"as long as their product is based on the same chipset. The disadvantage is "
+"that it is not always easy to see which actual chipset is used in a certain "
+"product/brand. Unfortunately sometimes device manufacturers change the "
+"hardware base of their product without changing the product name or at least "
+"the product version number, so that when having two items of the same brand/"
+"product name bought at different times, they can sometimes be based on two "
+"different chipsets and therefore use two different drivers or there might be "
+"no driver at all for one of them."
 msgstr ""
-"일부의 윈도우 전용 하드웨어는 리눅스에도 쓸 수 있긴 하지만, 보통 추가적인 노"
-"력이 필요합니다. 게다가 윈도우 전용 하드웨어의 리눅스 드라이버는 보통 한 개"
-"의 리눅스 커널 버전에서만 쓸 수 있습니다. 그래서 그러한 드라이버는 금방 사용"
-"할 수 없게 됩니다."
 
 #. Tag: para
-#: preparing.xml:521
+#: preparing.xml:540
 #, no-c-format
 msgid ""
-"So called win-modems are the most common type of this hardware. However, "
-"printers and other equipment may also be Windows-specific."
+"For USB and PCI/PCI-Express/ExpressCard devices, a good way to find out on "
+"which chipset they are based is to look at their device IDs. All USB/PCI/PCI-"
+"Express/ExpressCard devices have so called <quote>vendor</quote> and "
+"<quote>product</quote> IDs, and the combination of these two is usually the "
+"same for any product based on the same chipset."
 msgstr ""
-"이른바 윈모뎀은 그러한 가장 전형적인 하드웨어입니다. 프린터와 그 외의 장치도 "
-"윈도우 전용이 있습니다."
 
 #. Tag: para
-#: preparing.xml:526
-#, no-c-format
-msgid "You can check hardware compatibility by:"
-msgstr "다음 방법으로 하드웨어 호환성을 알아볼 수 있습니다:"
-
-#. Tag: para
-#: preparing.xml:531
-#, no-c-format
-msgid "Checking manufacturers' web sites for new drivers."
-msgstr "제조사의 웹사이트에서 새 드라이버 확인하기."
-
-#. Tag: para
-#: preparing.xml:536
+#: preparing.xml:548
 #, no-c-format
 msgid ""
-"Looking at web sites or manuals for information about emulation. Lesser "
-"known brands can sometimes use the drivers or settings for better-known ones."
+"On Linux systems, these IDs can be read with the <command>lsusb</command> "
+"command for USB devices and with the <command>lspci -nn</command> command "
+"for PCI/PCI-Express/ExpressCard devices. The vendor and product IDs are "
+"usually given in the form of two hexadecimal numbers, seperated by a colon, "
+"such as <quote>1d6b:0001</quote>."
 msgstr ""
-"웹사이트와 안내 문서에서 에뮬레이션에 대한 정보 찾아보기. 덜 알려진 상표의 제"
-"품이 더 많이 알려진 제품의 드라이버와 설정을 그대로 사용하기도 합니다."
 
 #. Tag: para
-#: preparing.xml:543
+#: preparing.xml:556
 #, no-c-format
 msgid ""
-"Checking hardware compatibility lists for &arch-kernel; on web sites "
-"dedicated to your architecture."
+"An example for the output of <command>lsusb</command>: <quote>Bus 001 Device "
+"001: ID 1d6b:0002 Linux Foundation 2.0 root hub</quote>, whereby 1d6b is the "
+"vendor ID and 0002 is the product ID."
 msgstr ""
-"&arch-kernel;의 하드웨어 호환성 정보를 자신의 아키텍처의 web사이트에서 확인합"
-"니다."
 
 #. Tag: para
-#: preparing.xml:549
+#: preparing.xml:562
 #, no-c-format
-msgid "Searching the Internet for other users' experiences."
-msgstr "인터넷에서 다른 사용자의 사용담 검색해 보기."
+msgid ""
+"An example for the output of <command>lspci -nn</command> for an Ethernet "
+"card: <quote>03:00.0 Ethernet controller [0200]: Realtek Semiconductor Co., "
+"Ltd. RTL8111/8168B PCI Express Gigabit Ethernet controller [10ec:8168] (rev "
+"06)</quote>. The IDs are given inside the rightmost square brackets, i.e. "
+"here 10ec is the vendor- and 8168 is the product ID."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:570
+#, no-c-format
+msgid ""
+"As another example, a graphics card could give the following output: "
+"<quote>04:00.0 VGA compatible controller [0300]: Advanced Micro Devices "
+"[AMD] nee ATI RV710 [Radeon HD 4350] [1002:954f]</quote>."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:576
+#, no-c-format
+msgid ""
+"On Windows systems, the IDs for a device can be found in the Windows device "
+"manager on the tab <quote>details</quote>, where the vendor ID is prefixed "
+"with VEN_ and the product ID is prefixed with DEV_. On Windows 7 systems, "
+"you have to select the property <quote>Hardware IDs</quote> in the device "
+"manager's details tab to actually see the IDs, as they are not displayed by "
+"default."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:586
+#, no-c-format
+msgid ""
+"Searching on the internet with the vendor/product ID, <quote>&arch-kernel;</"
+"quote> and <quote>driver</quote> as the search terms often results in "
+"information regarding the driver support status for a certain chipset. If a "
+"search for the vendor/product ID does not yield usable results, a search for "
+"the chip code names, which are also often provided by lsusb and lspci "
+"(<quote>RTL8111</quote>/<quote>RTL8168B</quote> in the network card example "
+"and <quote>RV710</quote> in the graphics card example), can help."
+msgstr ""
 
 #. Tag: title
-#: preparing.xml:560
+#: preparing.xml:599
+#, no-c-format
+msgid "Testing hardware compatibility with a Live-System"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:601
+#, no-c-format
+msgid ""
+"&debian-gnu; is also available as a so-called <quote>live system</quote> for "
+"certain architectures. A live system is a preconfigured ready-to-use system "
+"in a compressed format that can be booted and used from a read-only medium "
+"like a CD or DVD. Using it by default does not create any permanent changes "
+"on your computer. You can change user settings and install additional "
+"programs from within the live system, but all this only happens in the "
+"computer's RAM, i.e. if you turn off the computer and boot the live system "
+"again, everything is reset to its defaults. If you want to see whether your "
+"hardware is supported by &debian-gnu;, the easiest way is to run a &debian; "
+"live system on it and try it out."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:614
+#, no-c-format
+msgid ""
+"There are a few limitations in using a live system. The first is that as all "
+"changes you do within the live system must be held in your computer's RAM, "
+"this only works on systems with enough RAM to do that, so installing "
+"additional large software packages may fail due to memory constraints. "
+"Another limitation with regards to hardware compatibility testing is that "
+"the official &debian-gnu; live system contains only free components, i.e. "
+"there are no non-free firmware files included in it. Such non-free packages "
+"can of course be installed manually within the system, but there is no "
+"automatic detection of required firmware files like in the &d-i;, so "
+"installation of non-free components must be done manually if needed."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:627
+#, no-c-format
+msgid ""
+"Information about the available variants of the &debian; live images can be "
+"found at the <ulink url=\"&url-debian-live-cd;\">Debian Live Images website</"
+"ulink>."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:641
 #, no-c-format
 msgid "Network Settings"
 msgstr "네트워크 설정"
 
 #. Tag: para
-#: preparing.xml:562
+#: preparing.xml:643
 #, fuzzy, no-c-format
 #| msgid ""
 #| "If your computer is connected to a network 24 hours a day (i.e., an "
 #| "Ethernet or equivalent connection &mdash; not a PPP connection), you "
 #| "should ask your network's system administrator for this information."
 msgid ""
-"If your computer is connected to a network 24 hours a day (i.e., an Ethernet "
-"or equivalent connection &mdash; not a PPP connection), you should ask your "
-"network's system administrator for this information."
+"If your computer is connected to a fixed network (i.e. an Ethernet or "
+"equivalent connection &mdash; not a dialup/PPP connection) which is "
+"administered by somebody else, you should ask your network's system "
+"administrator for this information:"
 msgstr ""
 "컴퓨터가 하루 24시간 내내 네트워크에 연결되어 있다면 (이더넷이나 비슷한 연결"
 "의 경우, PPP는 아님), 네트워크 시스템 관리자에게 이러한 정보를 알아봐야 합니"
 "다."
 
 #. Tag: para
-#: preparing.xml:569
+#: preparing.xml:651
 #, no-c-format
 msgid "Your host name (you may be able to decide this on your own)."
 msgstr "호스트 이름 (직접 정할 수도 있습니다)."
 
 #. Tag: para
-#: preparing.xml:574
+#: preparing.xml:656
 #, no-c-format
 msgid "Your domain name."
 msgstr "도메인 이름."
 
 #. Tag: para
-#: preparing.xml:579
+#: preparing.xml:661
 #, no-c-format
 msgid "Your computer's IP address."
 msgstr "컴퓨터의 IP 주소."
 
 #. Tag: para
-#: preparing.xml:584
+#: preparing.xml:666
 #, no-c-format
 msgid "The netmask to use with your network."
 msgstr "네트워크에 사용할 네트마스크."
 
 #. Tag: para
-#: preparing.xml:589
+#: preparing.xml:671
 #, no-c-format
 msgid ""
 "The IP address of the default gateway system you should route to, if your "
@@ -958,7 +985,7 @@ msgstr ""
 "는 경우</emphasis>)."
 
 #. Tag: para
-#: preparing.xml:595
+#: preparing.xml:677
 #, no-c-format
 msgid ""
 "The system on your network that you should use as a DNS (Domain Name "
@@ -966,7 +993,7 @@ msgid ""
 msgstr "네트워크에서 DNS (Domain Name Service) 서버로 사용할 시스템."
 
 #. Tag: para
-#: preparing.xml:603
+#: preparing.xml:685
 #, fuzzy, no-c-format
 #| msgid ""
 #| "On the other hand, if your administrator tells you that a DHCP server is "
@@ -974,9 +1001,9 @@ msgstr "네트워크에서 DNS (Domain Name Service) 서버로 사용할 시스�
 #| "because the DHCP server will provide it directly to your computer during "
 #| "the installation process."
 msgid ""
-"On the other hand, if your administrator tells you that a DHCP server is "
-"available and is recommended, then you don't need this information because "
-"the DHCP server will provide it directly to your computer during the "
+"If the network you are connected to uses DHCP (Dynamic Host Configuration "
+"Protocol) for configuring network settings, you don't need this information "
+"because the DHCP server will provide it directly to your computer during the "
 "installation process."
 msgstr ""
 "한편 관리자가 DHCP 서버를 사용할 수 있다고 하고 DHCP 서버 사용을 추천한다면, "
@@ -984,34 +1011,54 @@ msgstr ""
 "다."
 
 #. Tag: para
-#: preparing.xml:610
+#: preparing.xml:692
+#, no-c-format
+msgid ""
+"If you have internet access via DSL or cable modem (i.e. over a cable tv "
+"network) and have a router (often provided preconfigured by your phone or "
+"catv provider) which handles your network connectivity, DHCP is usually "
+"available by default."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:700
+#, no-c-format
+msgid ""
+"As a rule of thumb: if you run a Windows system in your home network and did "
+"not have to manually perform any network settings there to achieve Internet "
+"access, network connectivity in &debian-gnu; will also be configured "
+"automatically."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:707
 #, fuzzy, no-c-format
 #| msgid "If you use a wireless network, you should also find out:"
-msgid "If you use a wireless network, you should also find out:"
+msgid "If you use a WLAN/WiFi network, you should find out:"
 msgstr "무선 네트워크를 사용한다면, 다음도 알아봐야 합니다:"
 
 #. Tag: para
-#: preparing.xml:615
+#: preparing.xml:712
 #, fuzzy, no-c-format
 #| msgid "ESSID of your wireless network."
-msgid "ESSID of your wireless network."
+msgid "The ESSID (<quote>network name</quote>) of your wireless network."
 msgstr "무선 네트워크의 ESSID."
 
 #. Tag: para
-#: preparing.xml:620
+#: preparing.xml:717
 #, fuzzy, no-c-format
 #| msgid "WEP or WPA/WPA2 security key (if applicable)."
-msgid "WEP or WPA/WPA2 security key (if applicable)."
+msgid "The WEP or WPA/WPA2 security key to access the network (if applicable)."
 msgstr "WEP 또는 WPA/WPA2 보안 키 (보안 키를 사용하는 경우)."
 
 #. Tag: title
-#: preparing.xml:637
+#: preparing.xml:734
 #, no-c-format
 msgid "Meeting Minimum Hardware Requirements"
 msgstr "최소 하드웨어 요구 사항 맞추기"
 
 #. Tag: para
-#: preparing.xml:638
+#: preparing.xml:735
 #, no-c-format
 msgid ""
 "Once you have gathered information about your computer's hardware, check "
@@ -1022,7 +1069,7 @@ msgstr ""
 "서 설치할 수 있는 지 확인하십시오."
 
 #. Tag: para
-#: preparing.xml:644
+#: preparing.xml:741
 #, no-c-format
 msgid ""
 "Depending on your needs, you might manage with less than some of the "
@@ -1034,99 +1081,99 @@ msgstr ""
 "짜증나는 문제를 겪게 됩니다."
 
 #. Tag: para
-#: preparing.xml:650
+#: preparing.xml:747
 #, no-c-format
 msgid ""
 "A Pentium 4, 1GHz system is the minimum recommended for a desktop system."
 msgstr "데스크톱 시스템 용도로 최소 펜티엄 4 1GHz 시스템을 추천합니다."
 
 #. Tag: para
-#: preparing.xml:655
+#: preparing.xml:752
 #, no-c-format
 msgid "Any OldWorld or NewWorld PowerPC can serve well as a desktop system."
 msgstr ""
 "모든 올드월드 혹은 뉴월드 PowerPC는 데스크톱 시스템으로 쓸 수 있습니다."
 
 #. Tag: title
-#: preparing.xml:662
+#: preparing.xml:759
 #, no-c-format
 msgid "Recommended Minimum System Requirements"
 msgstr "추천하는 최소 시스템 요구사항"
 
 #. Tag: entry
-#: preparing.xml:666
+#: preparing.xml:763
 #, no-c-format
 msgid "Install Type"
 msgstr "설치 종류"
 
 #. Tag: entry
-#: preparing.xml:667
+#: preparing.xml:764
 #, no-c-format
 msgid "RAM (minimal)"
 msgstr "램 (최소)"
 
 #. Tag: entry
-#: preparing.xml:668
+#: preparing.xml:765
 #, no-c-format
 msgid "RAM (recommended)"
 msgstr "램 (추천)"
 
 #. Tag: entry
-#: preparing.xml:669
+#: preparing.xml:766
 #, no-c-format
 msgid "Hard Drive"
 msgstr "하드 드라이브"
 
 #. Tag: entry
-#: preparing.xml:675
+#: preparing.xml:772
 #, no-c-format
 msgid "No desktop"
 msgstr "데스크톱 없음"
 
 #. Tag: entry
-#: preparing.xml:676
+#: preparing.xml:773
 #, no-c-format
 msgid "64 megabytes"
 msgstr "64메가바이트"
 
 #. Tag: entry
-#: preparing.xml:677
+#: preparing.xml:774
 #, no-c-format
 msgid "256 megabytes"
 msgstr "256메가바이트"
 
 #. Tag: entry
-#: preparing.xml:678
+#: preparing.xml:775
 #, no-c-format
 msgid "1 gigabyte"
 msgstr "1기가바이트"
 
 #. Tag: entry
-#: preparing.xml:680
+#: preparing.xml:777
 #, no-c-format
 msgid "With Desktop"
 msgstr "데스크톱 포함"
 
 #. Tag: entry
-#: preparing.xml:681
+#: preparing.xml:778
 #, no-c-format
 msgid "128 megabytes"
 msgstr "128 메가바이트"
 
 #. Tag: entry
-#: preparing.xml:682
+#: preparing.xml:779
 #, no-c-format
 msgid "512 megabytes"
 msgstr "512메가바이트"
 
 #. Tag: entry
-#: preparing.xml:683
+#: preparing.xml:780
 #, no-c-format
 msgid "5 gigabytes"
 msgstr "5기가바이트"
 
 #. Tag: para
-#: preparing.xml:688
+#: preparing.xml:785
 #, no-c-format
 msgid ""
 "The actual minimum memory requirements are a lot less then the numbers "
@@ -1143,7 +1190,7 @@ msgstr ""
 "list\"/>를 참조하십시오."
 
 #. Tag: para
-#: preparing.xml:698
+#: preparing.xml:795
 #, no-c-format
 msgid ""
 "It is possible to run a graphical desktop environment on older or low-end "
@@ -1160,7 +1207,7 @@ msgstr ""
 "가 있습니다."
 
 #. Tag: para
-#: preparing.xml:707
+#: preparing.xml:804
 #, no-c-format
 msgid ""
 "It is practically impossible to give general memory or disk space "
@@ -1171,7 +1218,7 @@ msgstr ""
 "다. 그 서버가 어떤 용도로 사용하느냐에 따라 많이 달라지기 때문입니다."
 
 #. Tag: para
-#: preparing.xml:713
+#: preparing.xml:810
 #, no-c-format
 msgid ""
 "Remember that these sizes don't include all the other materials which are "
@@ -1183,7 +1230,7 @@ msgstr ""
 "게 잡는 게 좋습니다."
 
 #. Tag: para
-#: preparing.xml:720
+#: preparing.xml:817
 #, no-c-format
 msgid ""
 "Disk space required for the smooth operation of the &debian-gnu; system "
@@ -1205,13 +1252,13 @@ msgstr ""
 "그리고 그래픽 데스크톱 환경을 설치하는 경우에는 더 할당 할 것입니다."
 
 #. Tag: title
-#: preparing.xml:744
+#: preparing.xml:841
 #, no-c-format
 msgid "Pre-Partitioning for Multi-Boot Systems"
 msgstr "멀티 부팅 시스템에서 미리 파티션하기"
 
 #. Tag: para
-#: preparing.xml:745
+#: preparing.xml:842
 #, no-c-format
 msgid ""
 "Partitioning your disk simply refers to the act of breaking up your disk "
@@ -1224,7 +1271,7 @@ msgstr ""
 "떤 방에 가구를 놓는다고 해서 다른 방에 영향을 끼치지 않습니다."
 
 #. Tag: para
-#: preparing.xml:752
+#: preparing.xml:849
 #, no-c-format
 msgid ""
 "Whenever this section talks about <quote>disks</quote> you should translate "
@@ -1236,7 +1283,7 @@ msgstr ""
 "VM guest를 말합니다."
 
 #. Tag: para
-#: preparing.xml:758
+#: preparing.xml:855
 #, fuzzy, no-c-format
 #| msgid ""
 #| "If you already have an operating system on your system <phrase arch=\"any-"
@@ -1252,12 +1299,12 @@ msgid ""
 "If you already have an operating system on your system <phrase arch=\"any-"
 "x86\"> (Windows 9x, Windows NT/2000/XP/2003/Vista/7, OS/2, MacOS, Solaris, "
 "FreeBSD, &hellip;) </phrase> <phrase arch=\"s390\"> (VM, z/OS, OS/390, "
-"&hellip;) </phrase> and want to stick &debian; on the same disk, you will "
-"need to repartition the disk. &debian; requires its own hard disk "
-"partitions. It cannot be installed on Windows or MacOS partitions. It may be "
-"able to share some partitions with other Unix systems, but that's not "
-"covered here. At the very least you will need a dedicated partition for the "
-"&debian; root."
+"&hellip;) </phrase> which uses the whole disk and you want to stick &debian; "
+"on the same disk, you will need to repartition it. &debian; requires its own "
+"hard disk partitions. It cannot be installed on Windows or MacOS partitions. "
+"It may be able to share some partitions with other Unix systems, but that's "
+"not covered here. At the very least you will need a dedicated partition for "
+"the &debian; root filesystem."
 msgstr ""
 "시스템에 이미 다른 운영 체제 <phrase arch=\"any-x86\"> (Windows 9x, Windows "
 "NT/2000/XP/2003/Vista/7, OS/2, MacOS, Solaris, FreeBSD, &hellip;) </phrase> "
@@ -1268,7 +1315,7 @@ msgstr ""
 "루지 않습니다. 적어도 &debian;의 root에 사용할 전용 파티션이 필요합니다."
 
 #. Tag: para
-#: preparing.xml:777
+#: preparing.xml:874
 #, fuzzy, no-c-format
 #| msgid ""
 #| "You can find information about your current partition setup by using a "
@@ -1280,10 +1327,11 @@ msgstr ""
 msgid ""
 "You can find information about your current partition setup by using a "
 "partitioning tool for your current operating system<phrase arch=\"any-"
-"x86\">, such as fdisk or PartitionMagic</phrase><phrase arch=\"powerpc\">, "
-"such as Drive Setup, HD Toolkit, or MacTools</phrase><phrase arch=\"s390\">, "
-"such as the VM diskmap</phrase>. Partitioning tools always provide a way to "
-"show existing partitions without making changes."
+"x86\">, such as the integrated Disk Manager in Windows or fdisk in DOS</"
+"phrase><phrase arch=\"powerpc\">, such as Drive Setup, HD Toolkit, or "
+"MacTools</phrase><phrase arch=\"s390\">, such as the VM diskmap</phrase>. "
+"Partitioning tools always provide a way to show existing partitions without "
+"making changes."
 msgstr ""
 "현재 파티션 상태는 <phrase arch=\"any-x86\"> fdisk나 PartitionMagic,</"
 "phrase><phrase arch=\"powerpc\">Drive Setup, HD Toolkit이나 MacTools,</"
@@ -1292,7 +1340,7 @@ msgstr ""
 "지 않고도 표시 기능이 있습니다."
 
 #. Tag: para
-#: preparing.xml:786
+#: preparing.xml:884
 #, no-c-format
 msgid ""
 "In general, changing a partition with a file system already on it will "
@@ -1306,101 +1354,54 @@ msgstr ""
 "니다. 집의 경우에 비유하자면, 벽을 옮기기 전에 모든 가구를 다른 곳에 옮겨 놓"
 "아야 가구가 망가지지 않을 겁니다."
 
+#. Tag: para
+#: preparing.xml:892
+#, no-c-format
+msgid ""
+"Several modern operating systems offer the ability to move and resize "
+"certain existing partitions without destroying their contents. This allows "
+"making space for additional partitions without losing existing data. Even "
+"though this works quite well in most cases, making changes to the "
+"partitioning of a disk is an inherently dangerous action and should only be "
+"done after having made a full backup of all data. <phrase arch=\"any-"
+"x86\">For FAT/FAT32 and NTFS partitions as used by DOS and Windows systems, "
+"the ability to move and resize them losslessly is provided both by &d-i; as "
+"well as by the integrated Disk Manager of Windows 7. </phrase>"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:907
+#, no-c-format
+msgid ""
+"To losslessly resize an existing FAT or NTFS partition from within &d-i;, go "
+"to the partitioning step, select the option for manual partitioning, select "
+"the partition to resize, and simply specify its new size."
+msgstr ""
+
 #. Tag: emphasis
-#: preparing.xml:796
+#: preparing.xml:915
 #, no-c-format
 msgid "FIXME: write about HP-UX disks?"
 msgstr "FIXME: write about HP-UX disks?"
 
 #. Tag: para
-#: preparing.xml:798
+#: preparing.xml:917
 #, no-c-format
 msgid ""
-"If your computer has more than one hard disk, you may want to dedicate one "
-"of the hard disks completely to &debian;. If so, you don't need to partition "
-"that disk before booting the installation system; the installer's included "
-"partitioning program can handle the job nicely."
+"Creating and deleting partitions can be done from within &d-i; as well as "
+"from an existing operating system. As a rule of thumb, partitions should be "
+"created by the system for which they are to be used, i.e. partitions to be "
+"used by &debian-gnu; should be created from within &d-i; and partitions to "
+"be used from another operating system should be created from there. &d-i; is "
+"capable of creating non-&arch-kernel; partitions, and partitions created "
+"this way usually work without problems when used in other operating systems, "
+"but there are a few rare corner cases in which this could cause problems, so "
+"if you want to be sure, use the native partitioning tools to create "
+"partitions for use by other operating systems."
 msgstr ""
-"컴퓨터에 두 개 이상의 하드 디스크가있는 경우 그 중 하나를 debian; 전용으로하"
-"면 좋을지도 모릅니다. 이렇게하면 설치 시스템 부팅하기 전에 파티션을 할 필요"
-"가 없습니다. 설치 프로그램에 포함된 파티션 프로그램이 이 일을 정확하게 해내줍"
-"니다."
-
-# &debian-gnu; => 데비안 GNU/리눅스, 조사 사용 주의
-#. Tag: para
-#: preparing.xml:805
-#, no-c-format
-msgid ""
-"If your machine has only one hard disk, and you would like to completely "
-"replace the current operating system with &debian-gnu;, you also can wait to "
-"partition as part of the installation process (<xref linkend=\"di-partition"
-"\"/>), after you have booted the installation system. However this only "
-"works if you plan to boot the installer system from tapes, CD-ROM or files "
-"on a connected machine. Consider: if you boot from files placed on the hard "
-"disk, and then partition that same hard disk within the installation system, "
-"thus erasing the boot files, you'd better hope the installation is "
-"successful the first time around. At the least in this case, you should have "
-"some alternate means of reviving your machine like the original system's "
-"installation tapes or CDs."
-msgstr ""
-"컴퓨터에 하드 디스크가 1개 있고, 지금 운영 체제를 &debian-gnu;로 완전히 덮어 "
-"쓰려고 한다면, 설치 시스템을 부팅한 다음에 설치하는 과정에서 파티션을 할 수"
-"도 있습니다. (<xref linkend=\"di-partition\"/>.) 하지만 설치 시스템을 테이프"
-"에서 부팅하거나 CD-ROM에서 부팅하거나 연결되어 있는 다른 컴퓨터에 있는 파일에"
-"서 부팅할 경우에만 이렇게 할 수 있습니다. 생각해 보면 하드 디스크에 부팅 파일"
-"을 넣고 같은 그 하드 디스크를 파티션해 버린다면, 기존에 있던 부팅 파일이 지워"
-"질 수밖에 없고, 반드시 한 번에 설치를 성공적으로 해야 좋을 것입니다. 최소한 "
-"이러한 경우, 원래 운영 체제의 설치 테이프나 CD처럼 컴퓨터를 복구할 방법을 가"
-"지고 있는 게 좋습니다."
 
 #. Tag: para
-#: preparing.xml:820
-#, no-c-format
-msgid ""
-"If your machine already has multiple partitions, and enough space can be "
-"provided by deleting and replacing one or more of them, then you too can "
-"wait and use the &debian; installer's partitioning program. You should still "
-"read through the material below, because there may be special circumstances "
-"like the order of the existing partitions within the partition map, that "
-"force you to partition before installing anyway."
-msgstr ""
-"이미 컴퓨터에 파티션이 여러 개 있고 그 일부를 지우거나 바꾸거나해서 충분한 공"
-"간을 확보할  경우 &debian; 설치 프로그램의 파티션 프로그램에서 작업해도 됩니"
-"다. 그러나 이 경우에 아래의 내용은 읽어 둡시다. 파티션에서 기존 파티션의 순"
-"서 때문에, 설치 전에 파티션 작업을 해야 한다 할 경우도 있기 때문입니다."
-
-#. Tag: para
-#: preparing.xml:830
-#, no-c-format
-msgid ""
-"If your machine has a FAT or NTFS filesystem, as used by DOS and Windows, "
-"you can wait and use &debian; installer's partitioning program to resize the "
-"filesystem."
-msgstr ""
-"DOS나 Windows에서 사용하는 시스템에 FAT나 NTFS파일 시스템이 있으면 &debian; "
-"설치 프로그램의 파티션 프로그램에서 파일 시스템 크기를 조정할 수 있습니다 ."
-
-#. Tag: para
-#: preparing.xml:836
-#, no-c-format
-msgid ""
-"If none of the above apply, you'll need to partition your hard disk before "
-"starting the installation to create partitionable space for &debian;. If "
-"some of the partitions will be owned by other operating systems, you should "
-"create those partitions using native operating system partitioning programs. "
-"We recommend that you do <emphasis>not</emphasis> attempt to create "
-"partitions for &debian-gnu; using another operating system's tools. Instead, "
-"you should just create the native operating system's partitions you will "
-"want to retain."
-msgstr ""
-"위의 경우 중 아무것도 없으면 설치를 시작하기 전에 분할하고 &debian;에 파티션 "
-"가능한 공간을 만들어 줘야 합니다. 일부 파티션을 다른 OS에 사용하는 경우 파티"
-"션은 OS의 파티션 도구를 작성하는 것이 좋습니다. 그러나 &debian-gnu;의 파티션"
-"을 다른 OS의 도구로 <emphasis>만들지 않는</emphasis> 것이 좋습니다. 그 도구"
-"로 만들어 보관하려는 OS의 파티션에만 합니다."
-
-#. Tag: para
-#: preparing.xml:848
+#: preparing.xml:930
 #, fuzzy, no-c-format
 #| msgid ""
 #| "If you are going to install more than one operating system on the same "
@@ -1410,7 +1411,7 @@ msgstr ""
 #| "partitions."
 msgid ""
 "If you are going to install more than one operating system on the same "
-"machine, you should install all other system(s) before proceeding with "
+"machine, you should install all other system(s) before proceeding with the "
 "&debian; installation. Windows and other OS installations may destroy your "
 "ability to start &debian;, or encourage you to reformat non-native "
 "partitions."
@@ -1421,7 +1422,7 @@ msgstr ""
 "라고 할 수도 있습니다."
 
 #. Tag: para
-#: preparing.xml:856
+#: preparing.xml:938
 #, no-c-format
 msgid ""
 "You can recover from these actions or avoid them, but installing the native "
@@ -1432,7 +1433,7 @@ msgstr ""
 
 # &debian-gnu; => 데비안 GNU/리눅스, 조사 사용 주의
 #. Tag: para
-#: preparing.xml:861
+#: preparing.xml:943
 #, no-c-format
 msgid ""
 "In order for OpenFirmware to automatically boot &debian-gnu; the &arch-"
@@ -1452,284 +1453,14 @@ msgstr ""
 "능하지 않습니다). 이 위치에 파티션은 실제로 설치 때 &debian; 파티션 도구에서 "
 "제거하고 실제 &arch-parttype; 파티션 바꿀 수 있습니다."
 
-#. Tag: para
-#: preparing.xml:873
-#, no-c-format
-msgid ""
-"If you currently have one hard disk with one partition (a common setup for "
-"desktop computers), and you want to multi-boot the native operating system "
-"and &debian;, you will need to:"
-msgstr ""
-"하드 디스크가 하나의 파티션이 하나(데스크톱 컴퓨터와 일반 설정)되어, 원래의 "
-"OS와 &debian;과 듀얼 부팅하려면 다음 단계를 취할 필요가 있습니다."
-
-#. Tag: para
-#: preparing.xml:880
-#, no-c-format
-msgid "Back up everything on the computer."
-msgstr "컴퓨터에 들어 있는 내용을 전부 백업하십시오."
-
-#. Tag: para
-#: preparing.xml:885
-#, no-c-format
-msgid ""
-"Boot from the native operating system installer media such as CD-ROM or "
-"tapes. <phrase arch=\"powerpc\">When booting from a MacOS CD, hold the "
-"<keycap>c</keycap> key while booting to force the CD to become the active "
-"MacOS system.</phrase>"
-msgstr ""
-"CD-ROM이나 테이프같은 원래 운영 체제의 설치 미디어에서 부팅하십시오. <phrase "
-"arch=\"powerpc\">맥오에스 CD에서 부팅할 때, CD에서 맥오에스 시스템을 시작하려"
-"면 부팅하는 동안 <keycap>c</keycap> 키를 누르고 있으십시오.</phrase>"
-
-# &debian-gnu; => 데비안 GNU/리눅스, 조사 사용 주의
-#. Tag: para
-#: preparing.xml:895
-#, no-c-format
-msgid ""
-"Use the native partitioning tools to create native system partition(s). "
-"Leave either a place holder partition or free space for &debian-gnu;."
-msgstr ""
-"원래 운영 체제에 들어 있는 파티션 도구로 그 운영 체제용 시스템 파티션을 만드"
-"십시오. &debian-gnu;로 사용할 위치에 파티션을 만들거나 빈 공간을 만들어 놓으"
-"십시오."
-
-#. Tag: para
-#: preparing.xml:902
-#, no-c-format
-msgid "Install the native operating system on its new partition."
-msgstr "새 파티션에 원래 운영 체제를 설치하십시오."
-
-#. Tag: para
-#: preparing.xml:907
-#, no-c-format
-msgid ""
-"Boot back into the native system to verify everything's OK, and to download "
-"the &debian; installer boot files."
-msgstr ""
-"새로 넣은  OS에서 다시 시작 해, 제대로 되었는지 확인합니다. 문제가 없으면 "
-"&debian; 설치 프로그램 부팅 파일을 다운로드한다."
-
-#. Tag: para
-#: preparing.xml:913
-#, no-c-format
-msgid "Boot the &debian; installer to continue installing &debian;."
-msgstr "&debian; 설치 프로그램을 시작하고 &debian; 설치를 계속합니다."
-
-#. Tag: title
-#: preparing.xml:927
-#, no-c-format
-msgid "Partitioning From DOS or Windows"
-msgstr "DOS나 윈도우에서 파티션하기"
-
-#. Tag: para
-#: preparing.xml:928
-#, no-c-format
-msgid ""
-"If you are manipulating existing FAT or NTFS partitions, it is recommended "
-"that you either use the scheme below or native Windows or DOS tools. "
-"Otherwise, it is not really necessary to partition from DOS or Windows; the "
-"&debian; partitioning tools will generally do a better job."
-msgstr ""
-"기존 FAT나 NTFS 파티션을 변경하는 경우에는, 아래에서 설명하는 방법을 사용하거"
-"나 Windows나 DOS 도구를 사용하는 것을 권장합니다. 그 외의 경우에는 DOS나 "
-"Windows에서 파티션을 나눌 필요는 전혀 없습니다. 일반적으로 &debian;의 파티션 "
-"도구를 사용하면보다 효율적으로 작업이 가능합니다."
-
-#. Tag: para
-#: preparing.xml:936
-#, no-c-format
-msgid ""
-"But if you have a large IDE disk, and are not using LBA addressing, overlay "
-"drivers (sometimes provided by hard disk manufacturers), or a new (post "
-"1998) BIOS that supports large disk access extensions, then you must locate "
-"your &debian; boot partition carefully. In this case, you will have to put "
-"the boot partition into the first 1024 cylinders of your hard disk (usually "
-"around 524 megabytes, without BIOS translation). This may require that you "
-"move an existing FAT or NTFS partition."
-msgstr ""
-"큰 IDE 디스크를 가진 경우, LBA 주소나 오버레이 드라이버 (HDD 제조사에서 제공"
-"되는 일이 가끔 있습니다) 큰 디스크 접근을 지원하는 새로운(1998년 이후) BIOS"
-"도 때 &debian; 부팅 파티션을 주의하여 배치해야 합니다. 이런 경우 부팅 파티션"
-"을 하드 디스크의 첫 번째 1024 실린더 안에 해야 합니다(이것은 BIOS 변환이 없으"
-"면 보통 524 메가 바이트입니다). 이는 곧 기존 FAT나 NTFS 파티션을 이동하지 않"
-"으면 안되는 것을 의미합니다."
-
-#. Tag: title
-#: preparing.xml:950
-#, no-c-format
-msgid "Lossless Repartitioning When Starting From DOS, Win-32 or OS/2"
-msgstr "DOS, Win-32, OS/2의 데이터 손실없이 다시 파티션하기"
-
-#. Tag: para
-#: preparing.xml:953
-#, no-c-format
-msgid ""
-"One of the most common installations is onto a system that already contains "
-"DOS (including Windows 3.1), Win32 (such as Windows 95, 98, Me, NT, 2000, "
-"XP, 2003, Vista, 7), or OS/2, and it is desired to put &debian; onto the "
-"same disk without destroying the previous system. Note that the installer "
-"supports resizing of FAT and NTFS filesystems as used by DOS and Windows. "
-"Simply start the installer and when you get to the partitioning step, select "
-"the option for <menuchoice> <guimenuitem>Manual</guimenuitem> </menuchoice> "
-"partitioning, select the partition to resize, and specify its new size. So "
-"in most cases you should not need to use the method described below."
-msgstr ""
-"자주 묻는 설치 형태는 이미 DOS(Windows3.1 포함), Win32 Windows 95, 98, Me, "
-"NT, 2000, XP, 2003, Vista, 7), OS/2 등이 들어 있는 시스템에 새로운 &debian;"
-"를 설치하는 경우 기존의 시스템을 깨지 않고 같은 디스크에 &debian;을 설치하려"
-"는 경우입니다. DOS나 Windows에서 사용하는 FAT파일 시스템 NTFS 파일 시스템의 "
-"크기를 조정 설치는 지원하는 것에 주의하십시오. 단지 설치 프로그램을 시작하고 "
-"분할 단계에 오면, <menuchoice> <guimenuitem>수동</guimenuitem> </menuchoice> "
-"분할을 선택하고 조정하려는 파티션을 선택하고 새로운 크기를 지정하십시오. 대부"
-"분의 경우 다음 방법을 사용할 필요는 없습니다."
-
-#. Tag: para
-#: preparing.xml:965
-#, no-c-format
-msgid ""
-"Before going any further, you should have decided how you will be dividing "
-"up the disk. The method in this section will only split a partition into two "
-"pieces. One will contain the original OS and the other will be used for "
-"&debian;. During the installation of &debian;, you will be given the "
-"opportunity to use the &debian; portion of the disk as you see fit, i.e., as "
-"swap or as a file system."
-msgstr ""
-"진행하기 전에 디스크를 어떻게 나눌 지 정해 두지 않으면 안됩니다. 이 절에서는 "
-"하나의 파티션을 두 개로 분할하는 방법만을 설명합니다. 그 중 하나는 기존의 OS"
-"를 남겨두고 또 하나를 &debian;에서 사용합니다. 또한 &debian;에 할당된 디스크 "
-"공간을 어떤 용도(스왑이나 파일 시스템)에 얼마 씩 할당 여부를 &debian; 설치 중"
-"에 결정할 수 있습니다."
-
-#. Tag: para
-#: preparing.xml:974
-#, no-c-format
-msgid ""
-"The idea is to move all the data on the partition to the beginning, before "
-"changing the partition information, so that nothing will be lost. It is "
-"important that you do as little as possible between the data movement and "
-"repartitioning to minimize the chance of a file being written near the end "
-"of the partition as this will decrease the amount of space you can take from "
-"the partition."
-msgstr ""
-"지금 하려는 일은 파티션 정보를 바꾸기 전에 그 안의 모든 데이터를 앞쪽으로 옮"
-"기는 것입니다. 그래야 아무것도 잃지 않습니다. 가능하면 데이터 이동과 파티션"
-"을 조금 하는 게 중요합니다. 그래야 파일이 파티션 끝 부분에 들어 있지 않게 됩"
-"니다. 끝 부분에 파일이 들어가면 그 파티션에서 뽑아낼 수 있는 공간이 줄어듭니"
-"다."
-
-#. Tag: para
-#: preparing.xml:983
-#, no-c-format
-msgid ""
-"The first thing needed is a copy of <command>fips</command>. Unzip the "
-"archive and copy the files <filename>RESTORRB.EXE</filename>, <filename>FIPS."
-"EXE</filename> and <filename>ERRORS.TXT</filename> to a bootable floppy. A "
-"bootable floppy can be created using the command <filename>sys a:</filename> "
-"under DOS. <command>fips</command> comes with very good documentation which "
-"you may want to read. You will definitely need to read the documentation if "
-"you use a disk compression driver or a disk manager. Create the disk and "
-"read the documentation <emphasis>before</emphasis> you defragment the disk."
-msgstr ""
-"먼저 필요한 것은 <command>fips</command>의 복사본입니다. 아카이브를 unzip하"
-"여 <filename>RESTORRB.EXE</filename>, <filename>FIPS.EXE</filename>, "
-"<filename>ERRORS.TXT</filename>의 각 파일을 부팅 가능한 플로피에 복사 하십시"
-"오. 부팅 가능 플로피는 DOS에서 <filename>sys a:</filename>라는 명령어를 이용"
-"하면 만들 수 있습니다. <command>fips</command>는 매우 뛰어난 문서가 포함되어 "
-"있기 때문에, 읽어두면 좋습니다. 특히 디스크 압축 드라이 버나 디스크 관리자를 "
-"사용하는 경우 이 문서는 반드시 읽어야 할 것입니다. 디스크 단편화 <emphasis>전"
-"에</emphasis> 디스크를 만들고 문서를 읽어보십시오."
-
-#. Tag: para
-#: preparing.xml:995
-#, no-c-format
-msgid ""
-"The next thing needed is to move all the data to the beginning of the "
-"partition. <command>defrag</command>, which comes standard with DOS 6.0 and "
-"later, can easily do the job. See the <command>fips</command> documentation "
-"for a list of other software that may do the trick. Note that if you have "
-"Windows 9x, you must run <command>defrag</command> from there, since DOS "
-"doesn't understand VFAT, which is used to support for long filenames, used "
-"in Windows 95 and higher."
-msgstr ""
-"그 다음에 필요한 일은 모든 데이터를 파티션의 처음으로 옮기는 일입니다. DOS "
-"6.0 이후에 포함되어 있는 <command>defrag</command>가 이 작업을 합니다. 이런 "
-"일을 하는 다른 소프트웨어 목록을 보려면 <command>fips</command> 문서를 보십시"
-"오. 윈도우 9x를 사용한다면 윈도우 9x에서 <command>defrag</command>를 실행해"
-"야 합니다. DOS는 윈도우 95 이상에서 (긴 파일 이름을 지원하기 위해) 사용하는 "
-"VFAT를 인식하지 못합니다."
-
-#. Tag: para
-#: preparing.xml:1005
-#, no-c-format
-msgid ""
-"After running the defragmenter (which can take a while on a large disk), "
-"reboot with the <command>fips</command> disk you created in the floppy "
-"drive. Simply type <filename>a:\\fips</filename> and follow the directions."
-msgstr ""
-"단편화를 없애는 프로그램을 실행한 다음에 (디스크가 크면 꽤 오래 걸립니다), 플"
-"로피 드라이브에 새로 만든 <command>fips</command> 디스크를 넣고 다시 부팅하십"
-"시오. <filename>a:\\fips</filename>를 실행해 안내에 따르십시오."
-
-#. Tag: para
-#: preparing.xml:1011
-#, no-c-format
-msgid ""
-"Note that there are many other partition managers out there, in case "
-"<command>fips</command> doesn't do the trick for you."
-msgstr ""
-"<command>fips</command>에서 파티션 크기 조정을 못 하더라도, 다른 파티션 관리"
-"자가 많이 있습니다."
-
 #. Tag: title
 #: preparing.xml:1019
-#, no-c-format
-msgid "Partitioning for DOS"
-msgstr "DOS용 파티션하기"
-
-#. Tag: para
-#: preparing.xml:1021
-#, no-c-format
-msgid ""
-"If you are partitioning for DOS drives, or changing the size of DOS "
-"partitions, using &debian; tools, many people experience problems working "
-"with the resulting FAT partitions. For instance, some have reported slow "
-"performance, consistent problems with <command>scandisk</command>, or other "
-"weird errors in DOS or Windows."
-msgstr ""
-"DOS 드라이브에 파티션을 만들거나 DOS 파티션의 크기를 변경할 작업을 &debian; "
-"도구하면 만들어 낸 FAT 파티션에서 많은 문제가 남아있을 수 있는 것 같습니다. "
-"예를 들어 DOS 나 Windows에서 성능이 떨어지고, <command>scandisk</command>에"
-"서 일관성 문제가 발생하거나 기타 알 수 없는 오류가 발생하는 등의 보고 사례가 "
-"있습니다."
-
-#. Tag: para
-#: preparing.xml:1029
-#, no-c-format
-msgid ""
-"Apparently, whenever you create or resize a partition for DOS use, it's a "
-"good idea to fill the first few sectors with zeros. You should do this prior "
-"to running DOS's <command>format</command> command by executing the "
-"following command from &debian;:"
-msgstr ""
-"DOS에 사용할 파티션을 만들거나 크기를 변경할 경우, 처음 몇 섹터를 0으로 채워 "
-"두는 것이 좋습니다. DOS의 <command>format</command> 명령을 실행하기 전에 "
-"&debian;에서 다음 명령을 실행하십시오."
-
-#. Tag: screen
-#: preparing.xml:1036
-#, no-c-format
-msgid "# dd if=/dev/zero of=/dev/hdXX bs=512 count=4"
-msgstr "# dd if=/dev/zero of=/dev/hdXX bs=512 count=4"
-
-#. Tag: title
-#: preparing.xml:1047
 #, no-c-format
 msgid "Partitioning from SunOS"
 msgstr "SunOS에서 파티션하기"
 
 #. Tag: para
-#: preparing.xml:1049
+#: preparing.xml:1021
 #, no-c-format
 msgid ""
 "It's perfectly fine to partition from SunOS; in fact, if you intend to run "
@@ -1746,13 +1477,13 @@ msgstr ""
 "파티션에서 Linux와 SunOS 부팅을 지원합니다."
 
 #. Tag: title
-#: preparing.xml:1061
+#: preparing.xml:1033
 #, no-c-format
 msgid "Partitioning from Linux or another OS"
 msgstr "리눅스 및 그 밖의 OS에서 파티션하기"
 
 #. Tag: para
-#: preparing.xml:1063
+#: preparing.xml:1035
 #, no-c-format
 msgid ""
 "Whatever system you are using to partition, make sure you create a "
@@ -1774,7 +1505,7 @@ msgstr ""
 "을 만들어야 하고, 아니면 디스크 크기에 관련한 오류가 발생할 것입니다."
 
 #. Tag: para
-#: preparing.xml:1075
+#: preparing.xml:1047
 #, no-c-format
 msgid ""
 "You will probably be using <command>SILO</command> as your boot loader (the "
@@ -1787,13 +1518,13 @@ msgstr ""
 "격한 제한이 있습니다. <xref linkend=\"partitioning\"/> 부분을 참고하십시오."
 
 #. Tag: title
-#: preparing.xml:1090
+#: preparing.xml:1062
 #, no-c-format
 msgid "MacOS/OSX Partitioning"
 msgstr "맥오에스/맥오에스X 파티션하기"
 
 #. Tag: para
-#: preparing.xml:1092
+#: preparing.xml:1064
 #, no-c-format
 msgid ""
 "The <application>Apple Drive Setup</application> application can be found in "
@@ -1808,7 +1539,7 @@ msgstr ""
 "이버 파티션은 <application>Drive Setup</application>에 나타나지 않습니다."
 
 #. Tag: para
-#: preparing.xml:1099
+#: preparing.xml:1071
 #, no-c-format
 msgid ""
 "Remember to create a placeholder partition for GNU/Linux, preferably "
@@ -1821,7 +1552,7 @@ msgstr ""
 "다."
 
 #. Tag: para
-#: preparing.xml:1105
+#: preparing.xml:1077
 #, no-c-format
 msgid ""
 "If you are planning to install both MacOS 9 and OS X, it is best to create "
@@ -1846,7 +1577,7 @@ msgstr ""
 "과 OS X 파티션은 OS 9과 OS X 모두에서 접근할 수 있습니다."
 
 #. Tag: para
-#: preparing.xml:1118
+#: preparing.xml:1090
 #, no-c-format
 msgid ""
 "GNU/Linux is unable to access information on UFS partitions, but does "
@@ -1865,13 +1596,13 @@ msgstr ""
 "다."
 
 #. Tag: title
-#: preparing.xml:1138
+#: preparing.xml:1110
 #, no-c-format
 msgid "Pre-Installation Hardware and Operating System Setup"
 msgstr "설치하기 전에 할 하드웨어 및 운영 체제 설정"
 
 #. Tag: para
-#: preparing.xml:1139
+#: preparing.xml:1111
 #, fuzzy, no-c-format
 #| msgid ""
 #| "This section will walk you through pre-installation hardware setup, if "
@@ -1884,11 +1615,10 @@ msgstr "설치하기 전에 할 하드웨어 및 운영 체제 설정"
 msgid ""
 "This section will walk you through pre-installation hardware setup, if any, "
 "that you will need to do prior to installing &debian;. Generally, this "
-"involves checking and possibly changing firmware settings for your system. "
-"The <quote>firmware</quote> is the core software used by the hardware; it is "
-"most critically invoked during the bootstrap process (after power-up). Known "
-"hardware issues affecting the reliability of &debian-gnu; on your system are "
-"also highlighted."
+"involves checking and possibly changing BIOS/system firmware settings for "
+"your system. The <quote>BIOS</quote> or <quote>system firmware</quote> is "
+"the core software used by the hardware; it is most critically invoked during "
+"the bootstrap process (after power-up)."
 msgstr ""
 "이 절에서는 &debian; 설치에 앞서 필요한 하드웨어 설정에 대해 알아보겠습니다. "
 "일반적으로이 작업은 시스템의 펌웨어 설정을 확인하고 필요하다면 설정을 변경할 "
@@ -1898,13 +1628,13 @@ msgstr ""
 "에 대해서도 마찬가지로 취급 예정입니다."
 
 #. Tag: title
-#: preparing.xml:1161
+#: preparing.xml:1126
 #, no-c-format
 msgid "Invoking the BIOS Set-Up Menu"
 msgstr "BIOS 설정 메뉴 들어가기"
 
 #. Tag: para
-#: preparing.xml:1163
+#: preparing.xml:1128
 #, fuzzy, no-c-format
 #| msgid ""
 #| "BIOS provides the basic functions needed to boot your machine to allow "
@@ -1914,12 +1644,14 @@ msgstr "BIOS 설정 메뉴 들어가기"
 #| "correctly; not doing so can lead to intermittent crashes or an inability "
 #| "to install &debian;."
 msgid ""
-"BIOS provides the basic functions needed to boot your machine to allow your "
-"operating system to access your hardware. Your system probably provides a "
-"BIOS setup menu, which is used to configure the BIOS. Before installing, you "
-"<emphasis>must</emphasis> ensure that your BIOS is set up correctly; not "
-"doing so can lead to intermittent crashes or an inability to install "
-"&debian;."
+"The BIOS provides the basic functions needed to boot your machine and to "
+"allow your operating system to access your hardware. Your system provides a "
+"BIOS setup menu, which is used to configure the BIOS. To enter the BIOS "
+"setup menu you have to press a key or key combination after turning on the "
+"computer. Often it is the <keycap>Delete</keycap> or the <keycap>F2</keycap> "
+"key, but some manufacturers use other keys. Usually upon starting the "
+"computer there will be a message stating which key to press to enter the "
+"setup screen."
 msgstr ""
 "BIOS는 컴퓨터를 부팅에 필요한 기본적인 기능을 제공하고 OS가 하드웨어에 액세스"
 "할 수 있도록하는 것입니다. 이제 설치하려고하는 시스템에서도 아마도 BIOS를 설"
@@ -1927,488 +1659,82 @@ msgstr ""
 "는지 여부를 <emphasis>반드시</emphasis> 확인하십시오. 그렇지 않으면 시스템이 "
 "예기치 않게 충돌하거나 &debian;를 설치할 수 없게 될지도 모릅니다."
 
-#. Tag: para
-#: preparing.xml:1172
-#, no-c-format
-msgid ""
-"The rest of this section is lifted from the <ulink url=\"&url-pc-hw-faq;\"></"
-"ulink>, answering the question, <quote>How do I enter the CMOS configuration "
-"menu?</quote>. How you access the BIOS (or <quote>CMOS</quote>) "
-"configuration menu depends on who wrote your BIOS software:"
-msgstr ""
-"이 절의 나머지 부분은 <ulink url=\"&url-pc-hw-faq;\"></ulink>에서 가져온 "
-"<quote>어떻게 CMOS 설정 메뉴로 들어가는가?</quote>라는 질문에 대한 답입니다. "
-"BIOS (아니면 <quote>CMOS</quote>) 설정 메뉴에 들어가는 방법은 BIOS 소프트웨어"
-"를 만든 회사에 따라 다릅니다:"
-
-#. Tag: term
-#: preparing.xml:1186
-#, no-c-format
-msgid "AMI BIOS"
-msgstr "AMI BIOS"
-
-#. Tag: para
-#: preparing.xml:1187
-#, no-c-format
-msgid "<keycap>Delete</keycap> key during the POST (power on self test)"
-msgstr ""
-"POST (power on self test, 최초 테스트) 도중에 <keycap>Delete</keycap> 키 "
-
-#. Tag: term
-#: preparing.xml:1195
-#, no-c-format
-msgid "Award BIOS"
-msgstr "Award BIOS"
-
-#. Tag: para
-#: preparing.xml:1196
-#, no-c-format
-msgid ""
-"<keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Esc</keycap> </"
-"keycombo>, or <keycap>Delete</keycap> key during the POST"
-msgstr ""
-"POST 도중에 <keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Esc</"
-"keycap> </keycombo>, 아니면 <keycap>Delete</keycap> 키"
-
-#. Tag: term
-#: preparing.xml:1205
-#, no-c-format
-msgid "DTK BIOS"
-msgstr "DTK BIOS"
-
-#. Tag: para
-#: preparing.xml:1206
-#, no-c-format
-msgid "<keycap>Esc</keycap> key during the POST"
-msgstr "POST 도중에 <keycap>Esc</keycap> 키"
-
-#. Tag: term
-#: preparing.xml:1213
-#, no-c-format
-msgid "IBM PS/2 BIOS"
-msgstr "IBM PS/2 BIOS"
-
-#. Tag: para
-#: preparing.xml:1214
-#, no-c-format
-msgid ""
-"<keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Insert</keycap> "
-"</keycombo> after <keycombo> <keycap>Ctrl</keycap><keycap>Alt</"
-"keycap><keycap>Delete</keycap> </keycombo>"
-msgstr ""
-"<keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Delete</keycap> "
-"</keycombo> 다음에 <keycombo> <keycap>Ctrl</keycap><keycap>Alt</"
-"keycap><keycap>Insert</keycap> </keycombo>"
-
-#. Tag: term
-#: preparing.xml:1228
-#, no-c-format
-msgid "Phoenix BIOS"
-msgstr "Phoenix BIOS"
-
-#. Tag: para
-#: preparing.xml:1229
-#, no-c-format
-msgid ""
-"<keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Esc</keycap> </"
-"keycombo> or <keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>S</"
-"keycap> </keycombo> or <keycap>F1</keycap>"
-msgstr ""
-"<keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Esc</keycap> </"
-"keycombo> 아니면 <keycombo> <keycap>Ctrl</keycap><keycap>Alt</"
-"keycap><keycap>S</keycap> </keycombo> 아니면 <keycap>F1</keycap>"
-
-#. Tag: para
-#: preparing.xml:1245
-#, no-c-format
-msgid ""
-"Information on invoking other BIOS routines can be found in <ulink url="
-"\"&url-invoking-bios-info;\"></ulink>."
-msgstr ""
-"다른 BIOS를 실행하는 방법에 대한 정보는 <ulink url=\"&url-invoking-bios-info;"
-"\"></ulink>에 있습니다."
-
-#. Tag: para
-#: preparing.xml:1250
-#, no-c-format
-msgid ""
-"Some &arch-title; machines don't have a CMOS configuration menu in the BIOS. "
-"They require a software CMOS setup program. If you don't have the "
-"Installation and/or Diagnostics diskette for your machine, you can try using "
-"a shareware/freeware program. Try looking in <ulink url=\"&url-simtel;\"></"
-"ulink>."
-msgstr ""
-"일부 &arch-title; 컴퓨터에는 BIOS에 CMOS 설정 메뉴가 없습니다. 소프트웨어 "
-"CMOS 설정 프로그램이 필요합니다. 해당 컴퓨터의 설치 및/혹은 진단 디스켓이 없"
-"다면, 셰어웨어/프리웨어 프로그램을 사용해 볼 수 있습니다. <ulink url=\"&url-"
-"simtel;\"></ulink> 사이트를 살펴 보십시오."
-
 #. Tag: title
-#: preparing.xml:1261 preparing.xml:1579
+#: preparing.xml:1142 preparing.xml:1286
 #, no-c-format
 msgid "Boot Device Selection"
 msgstr "부팅 장치 선택"
 
 #. Tag: para
-#: preparing.xml:1263
+#: preparing.xml:1144
 #, no-c-format
 msgid ""
-"Many BIOS setup menus allow you to select the devices that will be used to "
-"bootstrap the system. Set this to look for a bootable operating system on "
-"<filename>A:</filename> (the first floppy disk), then optionally the first "
-"CD-ROM device (possibly appearing as <filename>D:</filename> or <filename>E:"
-"</filename>), and then from <filename>C:</filename> (the first hard disk). "
-"This setting enables you to boot from either a floppy disk or a CD-ROM, "
-"which are the two most common boot devices used to install &debian;."
+"Within the BIOS setup menu, you can select which devices shall be checked in "
+"which sequence for a bootable operating system. Possible choices usually "
+"include the internal harddisks, the CD/DVD-ROM drive and USB mass storage "
+"devices such as USB sticks or external USB harddisks. On modern systems "
+"there is also often a possibility to enable network booting via PXE."
 msgstr ""
-"많은 BIOS의 설정 메뉴에서는 시스템을 부팅 장치를 선택할 수 있도록 되어 있습니"
-"다. 이 설정은 다음과 같이하십시오. 먼저 부팅 가능한 운영 체제를 <filename>A:"
-"</filename>(첫번째 플로피 디스크)에서 찾아 CD-ROM 장치가 있다면 거기에서 (아"
-"마 <filename>D:</filename> 및 <filename>E:</filename> 것 입니다), 그 다음에 "
-"<filename>C:</filename> (첫 번째 하드 디스크)에서 찾도록 합니다. 이렇게 설정"
-"하면 플로피 디스크나 CD-ROM에서 시작할 수 있습니다. &debian; 설치에 가장 잘 "
-"이용되는 것은 이 두개 입니다."
 
 #. Tag: para
-#: preparing.xml:1274
+#: preparing.xml:1152
 #, no-c-format
 msgid ""
-"If you have a newer SCSI controller and you have a CD-ROM device attached to "
-"it, you are usually able to boot from the CD-ROM. All you have to do is "
-"enable booting from a CD-ROM in the SCSI-BIOS of your controller."
+"Depending on the installation media (CD/DVD ROM, USB stick, network boot) "
+"you have chosen you should enable the appropriate boot devices if they are "
+"not already enabled."
 msgstr ""
-"최신의 SCSI 컨트롤러가 있고 SCSI에 CD-ROM 장치가 붙어 있다면 보통 CD-ROM에서 "
-"부팅할 수 있을 것입니다. 해야 되는 일은 컨트롤러의 SCSI BIOS에서 CD-ROM 부팅"
-"을 켜는 일 뿐입니다."
 
 #. Tag: para
-#: preparing.xml:1281
+#: preparing.xml:1158
 #, no-c-format
 msgid ""
-"Another popular option is to boot from a USB storage device (also called a "
-"USB memory stick or USB key). Some BIOSes can boot directly from a USB "
-"storage device, but some cannot. You may need to configure your BIOS to boot "
-"from a <quote>Removable drive</quote> or even from <quote>USB-ZIP</quote> to "
-"get it to boot from the USB device."
+"Most BIOS versions allow to call up a boot menu on system startup in which "
+"you select from which device the computer should start for the current "
+"session. If this option is available, the BIOS usually displays a short "
+"message like <quote>press <keycap>F12</keycap> for boot menu</quote> on "
+"system startup. The actual key used to select this menu varies from system "
+"to system; commonly used keys are <keycap>F12</keycap>, <keycap>F11</keycap> "
+"and <keycap>F8</keycap>. Choosing a device from this menu does not change "
+"the default boot order of the BIOS, i.e. you can start once from a USB stick "
+"while having configured the internal harddisk as the normal primary boot "
+"device."
 msgstr ""
-"그 밖에 많이 쓰는 옵션으로, USB 저장 장치에서 (USB 메모리나 USB 키라고도 함) "
-"부팅하는 옵션입니다. 어떤 BIOS에서는 USB 저장 장치에서 직접 부팅할 수 있고, "
-"그렇지 않은 BIOS도 있습니다. USB 장치에서 부팅하려면 <quote>Removable drive</"
-"quote> 혹은 <quote>USB-ZIP</quote>에서 부팅하도록 BIOS를 설정합니다."
 
 #. Tag: para
-#: preparing.xml:1289
+#: preparing.xml:1172
 #, no-c-format
 msgid ""
-"Here are some details about how to set the boot order. Remember to reset the "
-"boot order after &arch-kernel; is installed, so that you restart your "
-"machine from the hard drive."
+"If your BIOS does not provide you with a boot menu to do ad-hoc choices of "
+"the current boot device, you have to change your BIOS setup to make the "
+"device from which the &d-i; shall be booted the primary boot device."
 msgstr ""
-"여기서는 부팅 순서 설정 방법을 자세히 설명합니다. &arch-kernel; 설치가 끝나"
-"면 부팅 순서를 다시 시스템이 하드웨어에서 시작하도록 합니다."
+
+#. Tag: para
+#: preparing.xml:1178
+#, no-c-format
+msgid ""
+"Unfortunately some computers contain buggy BIOS versions. Booting &d-i; from "
+"a USB stick might not work even if there is an appropriate option in the "
+"BIOS setup menu and the stick is selected as the primary boot device. On "
+"some of these systems using a USB stick as boot medium is impossible; others "
+"can be tricked into booting from the stick by changing the device type in "
+"the BIOS setup from the default <quote>USB harddisk</quote> or <quote>USB "
+"stick</quote> to <quote>USB ZIP</quote> or <quote>USB CDROM</quote>. <phrase "
+"condition=\"isohybrid-supported\"> In particular if you use an isohybrid CD/"
+"DVD image on a USB stick (see <xref linkend=\"usb-copy-isohybrid\"/>), "
+"changing the device type to <quote>USB CDROM</quote> helps on some BIOSes "
+"which will not boot from a USB stick in USB harddisk mode.</phrase>"
+msgstr ""
 
 #. Tag: title
-#: preparing.xml:1298
-#, no-c-format
-msgid "Changing the Boot Order on IDE Computers"
-msgstr "IDE 컴퓨터의 부팅 순서 바꾸기"
-
-#. Tag: para
-#: preparing.xml:1301
-#, no-c-format
-msgid ""
-"As your computer starts, press the keys to enter the BIOS utility. Often, it "
-"is the <keycap>Delete</keycap> key. However, consult the hardware "
-"documentation for the exact keystrokes."
-msgstr ""
-"컴퓨터가 시작할 때, BIOS 유틸리티에 들어가는 키를 누르십시오. 보통 그 키는 "
-"<keycap>Delete</keycap> 키입니다. 정확히 어떤 키를 눌러야 할 지는 하드웨어 문"
-"서를 참고하십시오."
-
-#. Tag: para
-#: preparing.xml:1308
-#, no-c-format
-msgid ""
-"Find the boot sequence in the setup utility. Its location depends on your "
-"BIOS, but you are looking for a field that lists drives."
-msgstr ""
-"설정 유틸리티에서 부팅 순서를 찾으십시오. 이 설정의 위치는 BIOS에 따라 다르지"
-"만, 드라이브 여러 개를 늘어 놓은 필드를 찾으면 됩니다."
-
-#. Tag: para
-#: preparing.xml:1313
-#, no-c-format
-msgid "Common entries on IDE machines are C, A, cdrom or A, C, cdrom."
-msgstr "IDE 컴퓨터에서는 보통 C, A, cdrom이거나 A, C, cdrom입니다."
-
-#. Tag: para
-#: preparing.xml:1318
-#, no-c-format
-msgid "C is the hard drive, and A is the floppy drive."
-msgstr "C는 하드 드라이브이고, A는 플로피 드라이브입니다."
-
-#. Tag: para
-#: preparing.xml:1324
-#, no-c-format
-msgid ""
-"Change the boot sequence setting so that the CD-ROM or the floppy is first. "
-"Usually, the <keycap>Page Up</keycap> or <keycap>Page Down</keycap> keys "
-"cycle through the possible choices."
-msgstr ""
-"부팅 순서 설정을 바꿔서 CD-ROM이나 플로피가 첫번째가 되도록 하십시오. 보통 "
-"<keycap>Page Up</keycap>이나 <keycap>Page Down</keycap> 키로 여러가지 중의 하"
-"나를 선택합니다."
-
-#. Tag: para
-#: preparing.xml:1332
-#, no-c-format
-msgid ""
-"Save your changes. Instructions on the screen tell you how to save the "
-"changes on your computer."
-msgstr "바꾼 내용을 저장하십시오. 설정 화면의 안내에 따라 저장하십시오."
-
-#. Tag: title
-#: preparing.xml:1342
-#, no-c-format
-msgid "Changing the Boot Order on SCSI Computers"
-msgstr "SCSI 컴퓨터에서 부팅 순서 바꾸기"
-
-#. Tag: para
-#: preparing.xml:1346
-#, no-c-format
-msgid ""
-"As your computer starts, press the keys to enter the SCSI setup utility."
-msgstr "컴퓨터가 시작하면, SCSI 설정 유틸리티로 들어가는 키를 누르십시오."
-
-#. Tag: para
-#: preparing.xml:1351
-#, no-c-format
-msgid ""
-"You can start the SCSI setup utility after the memory check and the message "
-"about how to start the BIOS utility displays when you start your computer."
-msgstr ""
-"컴퓨터를 시작하면 메모리 검사를 하고, BIOS 유틸리티를 시작하는 방법을 표시한 "
-"다음, SCSI 설정 유틸리티로 들어갈 수 있습니다."
-
-#. Tag: para
-#: preparing.xml:1357
-#, no-c-format
-msgid ""
-"The keystrokes you need depend on the utility. Often, it is "
-"<keycombo><keycap>Ctrl</keycap><keycap>F2</keycap></keycombo>. However, "
-"consult your hardware documentation for the exact keystrokes."
-msgstr ""
-"어떤 키를 눌러야 하는 지는 유틸리티에 따라 다릅니다. 보통 "
-"<keycombo><keycap>Ctrl</keycap><keycap>F2</keycap></keycombo>입니다. 정확한 "
-"키 조합은 하드웨어 문서를 보십시오."
-
-#. Tag: para
-#: preparing.xml:1365
-#, no-c-format
-msgid "Find the utility for changing the boot order."
-msgstr "부팅 순서를 바꾸는 유틸리티 찾기."
-
-#. Tag: para
-#: preparing.xml:1370
-#, no-c-format
-msgid ""
-"Set the utility so that the SCSI ID of the CD drive is first on the list."
-msgstr ""
-"CD 드라이브의 SCSI ID가 목록의 첫번째가 되도록 유틸리티를 설정하십시오."
-
-#. Tag: para
-#: preparing.xml:1376
-#, no-c-format
-msgid ""
-"Save your changes. Instructions on the screen tell you how to save the "
-"changes on your computer. Often, you must press <keycap>F10</keycap>."
-msgstr ""
-"바뀐 부분을 저장하십시오. 화면의 안내에 따라 바뀐 부분을 컴퓨터에 저장하십시"
-"오. 보통 <keycap>F10</keycap>을 눌러야 합니다."
-
-#. Tag: title
-#: preparing.xml:1390
-#, no-c-format
-msgid "Miscellaneous BIOS Settings"
-msgstr "기타 BIOS 설정"
-
-#. Tag: title
-#: preparing.xml:1392
-#, no-c-format
-msgid "CD-ROM Settings"
-msgstr "CD-ROM 설정"
-
-#. Tag: para
-#: preparing.xml:1393
-#, no-c-format
-msgid ""
-"Some BIOS systems (such as Award BIOS) allow you to automatically set the CD "
-"speed. You should avoid that, and instead set it to, say, the lowest speed. "
-"If you get <userinput>seek failed</userinput> error messages, this may be "
-"your problem."
-msgstr ""
-"어떤 BIOS 시스템은 (예: Award BIOS) CD 속도를 설정할 수 있습니다. 속도를 설정"
-"하지 말고, 그냥 최저 속도로 놔둬야 합니다. <userinput>seek failed</"
-"userinput> 오류 메시지가 나오게 된다면 이 문제 때문일 수도 있습니다."
-
-#. Tag: title
-#: preparing.xml:1403
-#, no-c-format
-msgid "Extended vs. Expanded Memory"
-msgstr "Extended와 Expanded Memory"
-
-#. Tag: para
-#: preparing.xml:1404
-#, no-c-format
-msgid ""
-"If your system provides both ex<emphasis>ten</emphasis>ded and "
-"ex<emphasis>pan</emphasis>ded memory, set it so that there is as much "
-"extended and as little expanded memory as possible. &arch-kernel; requires "
-"extended memory and cannot use expanded memory."
-msgstr ""
-"시스템 ex<emphasis>ten</emphasis> ded 메모리(XMS)와 ex<emphasis>pan</"
-"emphasis> ded 메모리(EMS)를 모두 지원하고있다면, extended 메모리를 가능한 많"
-"은 expanded 메모리를 최대한으로 해놓고 최소한으로 맞춰 놓으십시오. &arch-"
-"kernel; 필요한 것은 extended 메모리에서 expanded 메모리는 사용할 수 없습니다."
-
-#. Tag: title
-#: preparing.xml:1414
-#, no-c-format
-msgid "Virus Protection"
-msgstr "Virus Protection"
-
-#. Tag: para
-#: preparing.xml:1415
-#, no-c-format
-msgid ""
-"Disable any virus-warning features your BIOS may provide. If you have a "
-"virus-protection board or other special hardware, make sure it is disabled "
-"or physically removed while running GNU/&arch-kernel;. These aren't "
-"compatible with GNU/&arch-kernel;; moreover, due to the file system "
-"permissions and protected memory of the &arch-kernel; kernel, viruses are "
-"almost unheard of<footnote> <para> After installation you can enable Boot "
-"Sector protection if you want. This offers no additional security in &arch-"
-"kernel; but if you also run Windows it may prevent a catastrophe. There is "
-"no need to tamper with the Master Boot Record (MBR) after the boot manager "
-"has been set up. </para> </footnote>."
-msgstr ""
-"BIOS 바이러스 경고 기능이 있다는 일절 사용하지 마십시오. 바이러스 방지 보드"
-"나 기타 특수 하드웨어가 있는 경우, &arch-kernel;이 움직이고 있는 동안은 비활"
-"성화 하거나, 그렇지 않으면 물리적으로 제거하십시오. 이들은 &arch-kernel;와 호"
-"환되지 않습니다. 또 &arch-kernel;에는 파일 시스템의 권한 및 리눅스의 보호 메"
-"모리 때문에 바이러스는 거의 존재하지 않습니다. <footnote> <para>설치 후에 부"
-"트 섹터 보호를 사용해도 됩니다. 이 기능은 &arch-kernel; 보안을 높여주지 않지"
-"만 Windows에서 재앙을 막아줄지도 모릅니다. 부트 관리자가 설정된 후에는 마스"
-"터 부트 레코드 (MBR)를 변경할 필요가 없습니다. </para> </footnote>."
-
-#. Tag: title
-#: preparing.xml:1436
-#, no-c-format
-msgid "Shadow RAM"
-msgstr "Shadow RAM"
-
-#. Tag: para
-#: preparing.xml:1437
-#, no-c-format
-msgid ""
-"Your motherboard may provide <emphasis>shadow RAM</emphasis> or BIOS "
-"caching. You may see settings for <quote>Video BIOS Shadow</quote>, "
-"<quote>C800-CBFF Shadow</quote>, etc. <emphasis>Disable</emphasis> all "
-"shadow RAM. Shadow RAM is used to accelerate access to the ROMs on your "
-"motherboard and on some of the controller cards. &arch-kernel; does not use "
-"these ROMs once it has booted because it provides its own faster 32-bit "
-"software in place of the 16-bit programs in the ROMs. Disabling the shadow "
-"RAM may make some of it available for programs to use as normal memory. "
-"Leaving the shadow RAM enabled may interfere with &arch-kernel; access to "
-"hardware devices."
-msgstr ""
-"당신의 메인 보드에는 <emphasis>shadow RAM</emphasis> 또는 BIOS 캐시를 사용할 "
-"것입니다. 이 경우 <quote>Video BIOS Shadow</quote>나 <quote>C800-CBFF "
-"Shadow</quote>와 같은 설정이 있어야 합니다. shadow RAM은 모든 <emphasis>해제"
-"</emphasis>를 하십시오. shadow RAM은 마더보드와 컨트롤러 카드에 있는 ROM의 접"
-"근 속도를 높이는하기 위해 이용되는 것이지만, &arch-kernel;은 시작 후 이러한 "
-"ROM을 사용하지 않습니다. &arch-kernel;는 자기 부담의 빠른 32 비트 소프트웨어"
-"가 이를 ROM 내부 16 비트 프로그램 대신하기 때문입니다. shadow RAM을 해제하면 "
-"그 일부를 일반 메모리로 프로그램에서 사용할 수 있습니다. shadow RAM을 사용 "
-"한 채로 &arch-kernel; 하드웨어에 접근되어 버릴지도 모릅니다. 마더보드에서 "
-"<emphasis>shadow RAM</emphasis>이나 BIOS 캐시 기능이 있을 수도 있습니다. "
-"<quote>Video BIOS Shadow</quote>나 <quote>C800-CBFF Shadow</quote>와 같은 설"
-"정을 볼 수 있을 것입니다. 모든 shadow RAM을 <emphasis>끄십시오</emphasis>. "
-"shadow RAM은 마더보드와 일부 컨트롤러 카드에 있는 ROM의 접근 속도를 높이는 "
-"데 쓰입니다. 리눅스는 일단 부팅하면 이러한 ROM을 사용하지 않습니다. ROM에 들"
-"어 있는 16비트 프로그램 대신에 직접 32비트 소프트웨어가 들어 있기 때문입니"
-"다. 어떤 경우 shadow RAM을 꺼야만 이 shadow RAM을 다른 프로그램에서 일반 메모"
-"리로 사용할 수 있습니다. shadow RAM을 켜 놓으면 리눅스가 하드웨어에 접근할 "
-"때 문제가 발생할 수 있습니다."
-
-#. Tag: title
-#: preparing.xml:1454
-#, no-c-format
-msgid "Memory Hole"
-msgstr "Memory Hole"
-
-#. Tag: para
-#: preparing.xml:1455
-#, no-c-format
-msgid ""
-"If your BIOS offers something like <quote>15&ndash;16 MB Memory Hole</"
-"quote>, please disable that. &arch-kernel; expects to find memory there if "
-"you have that much RAM."
-msgstr ""
-"BIOS에 <quote>15&ndash;16 MB Memory Hole </quote>라고하는 설정이 있으면, 그것"
-"은 비활성화해야 합니다. 16MB 이상의 메모리가있는 경우는 &arch-kernel;이 영역"
-"에 메모리가 있는 것으로 작동합니다."
-
-#. Tag: para
-#: preparing.xml:1461
-#, no-c-format
-msgid ""
-"We have a report of an Intel Endeavor motherboard on which there is an "
-"option called <quote>LFB</quote> or <quote>Linear Frame Buffer</quote>. This "
-"had two settings: <quote>Disabled</quote> and <quote>1 Megabyte</quote>. Set "
-"it to <quote>1 Megabyte</quote>. When disabled, the installation floppy was "
-"not read correctly, and the system eventually crashed. At this writing we "
-"don't understand what's going on with this particular device &mdash; it just "
-"worked with that setting and not without it."
-msgstr ""
-"인텔이 만든 어떤 마더보드에서 <quote>LFB</quote> 혹은 <quote>Linear Frame "
-"Buffer</quote>라고 하는 옵션이 있다는 보고를 받았습니다. 두 가지 설정을 할 "
-"수 있습니다: <quote>Disabled</quote> 및 <quote>1 Megabyte</quote>입니다. "
-"<quote>1 Megabyte</quote>로 설정하십시오. Disabled인 경우에는, 설치 플로피를 "
-"제대로 읽지 못하고, 시스템이 결국 멈추었습니다. 현재로서는 이 특정 마더보드에"
-"서 무슨 일이 벌어지고 있는 건지 알아내지 못했습니다. (<quote>1 Megabyte</"
-"quote>로 설정하면 동작하고 아니면 동작하지 않는 것 밖에 알지 못합니다.)"
-
-#. Tag: title
-#: preparing.xml:1477
-#, no-c-format
-msgid "Advanced Power Management"
-msgstr "Advanced Power Management"
-
-#. Tag: para
-#: preparing.xml:1478
-#, no-c-format
-msgid ""
-"If your motherboard provides Advanced Power Management (APM), configure it "
-"so that power management is controlled by APM. Disable the doze, standby, "
-"suspend, nap, and sleep modes, and disable the hard disk's power-down timer. "
-"&arch-kernel; can take over control of these modes, and can do a better job "
-"of power-management than the BIOS."
-msgstr ""
-"마더보드에서 Advanced Power Management (APM)에 대응하고 있으면, 이것을 사용하"
-"여 전원 관리 APM을 제어하도록 하십시오. 또한 doze, standby, suspend, nap, "
-"sleep 각 모드는 해제하고 하드 디스크의 power-down 타이머도 비활성화하십시오. "
-"&arch-kernel;은 이 모드에 대한 컨트롤을 실행할 수 있는 전원 관리 일을 BIOS보"
-"다 잘 할 수 있습니다."
-
-#. Tag: title
-#: preparing.xml:1496
+#: preparing.xml:1203
 #, no-c-format
 msgid "Invoking OpenFirmware"
 msgstr "OpenFirmware 실행"
 
 #. Tag: para
-#: preparing.xml:1497
+#: preparing.xml:1204
 #, no-c-format
 msgid ""
 "There is normally no need to set up the BIOS (called OpenFirmware) on &arch-"
@@ -2423,7 +1749,7 @@ msgstr ""
 "셔야 합니다."
 
 #. Tag: para
-#: preparing.xml:1505
+#: preparing.xml:1212
 #, no-c-format
 msgid ""
 "On &arch-title; Macintoshes, you invoke OpenFirmware with "
@@ -2441,7 +1767,7 @@ msgstr ""
 "하십시오."
 
 #. Tag: para
-#: preparing.xml:1513
+#: preparing.xml:1220
 #, no-c-format
 msgid ""
 "The OpenFirmware prompt looks like this: <informalexample><screen>\n"
@@ -2464,7 +1790,7 @@ msgstr ""
 "를 쓸 수 있습니다."
 
 #. Tag: para
-#: preparing.xml:1526
+#: preparing.xml:1233
 #, no-c-format
 msgid ""
 "The OpenFirmware on OldWorld Beige G3 machines, OF versions 2.0f1 and 2.4, "
@@ -2485,13 +1811,13 @@ msgstr ""
 "를 눌러 펌웨어 패치를 nvram에 설치하십시오."
 
 #. Tag: title
-#: preparing.xml:1546
+#: preparing.xml:1253
 #, no-c-format
 msgid "Invoking OpenBoot"
 msgstr "OpenBoot 실행"
 
 #. Tag: para
-#: preparing.xml:1548
+#: preparing.xml:1255
 #, no-c-format
 msgid ""
 "OpenBoot provides the basic functions needed to boot the &arch-title; "
@@ -2506,7 +1832,7 @@ msgstr ""
 "지 일을 할 수 있습니다."
 
 #. Tag: para
-#: preparing.xml:1556
+#: preparing.xml:1263
 #, no-c-format
 msgid ""
 "To get to the boot prompt you need to hold down the <keycap>Stop</keycap> "
@@ -2526,7 +1852,7 @@ msgstr ""
 "가 나옵니다."
 
 #. Tag: para
-#: preparing.xml:1568
+#: preparing.xml:1275
 #, no-c-format
 msgid ""
 "If you are using a serial console, send a break to the machine. With "
@@ -2540,7 +1866,7 @@ msgstr ""
 "미널 에뮬레이터의 문서를 참고하십시오."
 
 #. Tag: para
-#: preparing.xml:1581
+#: preparing.xml:1288
 #, no-c-format
 msgid ""
 "You can use OpenBoot to boot from specific devices, and also to change your "
@@ -2559,7 +1885,7 @@ msgstr ""
 "Reference</ulink>에서 볼 수 있습니다."
 
 #. Tag: para
-#: preparing.xml:1591
+#: preparing.xml:1298
 #, no-c-format
 msgid ""
 "Typically, with newer revisions, you can use OpenBoot devices such as "
@@ -2600,7 +1926,7 @@ msgstr ""
 "openboot;\">Sun OpenBoot Reference</ulink>를 참고하십시오."
 
 #. Tag: para
-#: preparing.xml:1614
+#: preparing.xml:1321
 #, no-c-format
 msgid ""
 "To boot from a specific device, use the command <userinput>boot "
@@ -2629,20 +1955,20 @@ msgstr ""
 "</screen></informalexample> 그리고 Solaris에서는:"
 
 #. Tag: screen
-#: preparing.xml:1633
+#: preparing.xml:1340
 #, no-c-format
 msgid "eeprom boot-device=disk1:1"
 msgstr "eeprom boot-device=disk1:1"
 
 #. Tag: title
-#: preparing.xml:1643
+#: preparing.xml:1350
 #, no-c-format
 msgid "BIOS Setup"
 msgstr "BIOS 설정"
 
 # &debian-gnu; => 데비안 GNU/리눅스, 조사 사용 주의
 #. Tag: para
-#: preparing.xml:1644
+#: preparing.xml:1351
 #, no-c-format
 msgid ""
 "In order to install &debian-gnu; on a &arch-title; or zSeries machine you "
@@ -2663,7 +1989,7 @@ msgstr ""
 "서 3215/3270 콘솔은 문자 단위가 아니라 라인 단위입니다."
 
 #. Tag: para
-#: preparing.xml:1656
+#: preparing.xml:1363
 #, no-c-format
 msgid ""
 "Linux on this platform runs either natively on the bare machine, in a so-"
@@ -2682,7 +2008,7 @@ msgstr ""
 "있는 경우.)"
 
 #. Tag: para
-#: preparing.xml:1666
+#: preparing.xml:1373
 #, no-c-format
 msgid ""
 "Before you actually perform an installation, you have to go over some design "
@@ -2705,13 +2031,13 @@ msgstr ""
 "아가 &debian; 설치 단계를 진행하십시오."
 
 #. Tag: title
-#: preparing.xml:1683
+#: preparing.xml:1390
 #, no-c-format
 msgid "Native and LPAR installations"
 msgstr "네이티브 및 LPAR 설치"
 
 #. Tag: para
-#: preparing.xml:1684
+#: preparing.xml:1391
 #, no-c-format
 msgid ""
 "Please refer to chapter 5 of the <ulink url=\"http://www.redbooks.ibm.com/"
@@ -2727,13 +2053,13 @@ msgstr ""
 "드북의 3.2장을 참고하십시오."
 
 #. Tag: title
-#: preparing.xml:1698
+#: preparing.xml:1405
 #, no-c-format
 msgid "Installation as a VM guest"
 msgstr "VM guest로 설치"
 
 #. Tag: para
-#: preparing.xml:1700
+#: preparing.xml:1407
 #, no-c-format
 msgid ""
 "Please refer to chapter 6 of the <ulink url=\"http://www.redbooks.ibm.com/"
@@ -2749,7 +2075,7 @@ msgstr ""
 "Distributions</ulink> 레드북의 3.1장을 참고하십시오."
 
 #. Tag: para
-#: preparing.xml:1710
+#: preparing.xml:1417
 #, no-c-format
 msgid ""
 "You need to copy all the files from the <filename>generic</filename> sub-"
@@ -2770,13 +2096,13 @@ msgstr ""
 "filename> 예제 스크립트가 이미지에 포함되어 있습니다."
 
 #. Tag: title
-#: preparing.xml:1727
+#: preparing.xml:1434
 #, no-c-format
 msgid "Setting up an installation server"
 msgstr "설치 서버 준비하기"
 
 #. Tag: para
-#: preparing.xml:1729
+#: preparing.xml:1436
 #, no-c-format
 msgid ""
 "If you don't have a connection to the Internet (either directly or via a web "
@@ -2789,7 +2115,7 @@ msgstr ""
 "들어 있고 그 패키지를 NFS나 HTTP나 FTP로 외부에서 접근할 수 있게 합니다."
 
 #. Tag: para
-#: preparing.xml:1737
+#: preparing.xml:1444
 #, no-c-format
 msgid ""
 "The installation server needs to copy the exact directory structure from any "
@@ -2802,25 +2128,25 @@ msgstr ""
 "설치 CD의 내용만 복사해 올 수도 있습니다."
 
 #. Tag: emphasis
-#: preparing.xml:1746
+#: preparing.xml:1453
 #, no-c-format
 msgid "FIXME: more information needed &mdash; from a Redbook?"
 msgstr "FIXME: more information needed &mdash; from a Redbook?"
 
 #. Tag: title
-#: preparing.xml:1753
+#: preparing.xml:1460
 #, no-c-format
 msgid "Hardware Issues to Watch Out For"
 msgstr "주의해야 할 하드웨어 문제"
 
 #. Tag: title
-#: preparing.xml:1756
+#: preparing.xml:1463
 #, no-c-format
 msgid "USB BIOS support and keyboards"
 msgstr "USB BIOS 지원 및 키보드"
 
 #. Tag: para
-#: preparing.xml:1757
+#: preparing.xml:1464
 #, fuzzy, no-c-format
 #| msgid ""
 #| "If you have no AT-style keyboard and only a USB model, you may need to "
@@ -2831,13 +2157,12 @@ msgstr "USB BIOS 지원 및 키보드"
 #| "board manual and look in the BIOS for <quote>Legacy keyboard emulation</"
 #| "quote> or <quote>USB keyboard support</quote> options."
 msgid ""
-"If you have no AT-style keyboard and only a USB model, you may need to "
-"enable legacy AT keyboard emulation in your BIOS setup. Only do this if the "
-"installation system fails to use your keyboard in USB mode. Conversely, for "
-"some systems (especially laptops) you may need to disable legacy USB support "
-"if your keyboard does not respond. Consult your main board manual and look "
-"in the BIOS for <quote>Legacy keyboard emulation</quote> or <quote>USB "
-"keyboard support</quote> options."
+"If you have no PS/2-style keyboard, but only a USB model, on some very old "
+"PCs you may need to enable legacy keyboard emulation in your BIOS setup to "
+"be able to use your keyboard in the bootloader menu, but this is not an "
+"issue for modern systems. If your keyboard does not work in the bootloader "
+"menu, consult your mainboard manual and look in the BIOS for <quote>Legacy "
+"keyboard emulation</quote> or <quote>USB keyboard support</quote> options."
 msgstr ""
 "AT 방식 키보드가 없고 USB 키보드만 있는 경우에는, BIOS 설정에서 legacy AT "
 "keyboard emulation을 켜야 할 수도 있습니다. 설치 시스템에서 USB 모드로 키보드"
@@ -2847,13 +2172,13 @@ msgstr ""
 "emulation</quote>이나 <quote>USB keyboard support</quote> 옵션을 찾으십시오."
 
 #. Tag: title
-#: preparing.xml:1771
+#: preparing.xml:1477
 #, no-c-format
 msgid "Display-visibility on OldWorld Powermacs"
 msgstr "올드월드 파워맥에서 화면이 안 보이는 문제"
 
 #. Tag: para
-#: preparing.xml:1773
+#: preparing.xml:1479
 #, no-c-format
 msgid ""
 "Some OldWorld Powermacs, most notably those with the <quote>control</quote> "
@@ -2873,17 +2198,730 @@ msgstr ""
 "우, 맥오에스에서 디스플레이 설정을 <quote>thousands</quote>나 "
 "<quote>millions</quote> 대신에 256색으로 맞추십시오."
 
-#, fuzzy
-#~| msgid "Network Settings"
-#~ msgid "Network interfaces"
-#~ msgstr "네트워크 설정"
+#~ msgid ""
+#~ "Set up boot tapes/floppies/USB sticks, or place boot files (most &debian; "
+#~ "CD users can boot from one of the CDs)."
+#~ msgstr ""
+#~ "부팅 테이프/플로피/USB 메모리를 만들거나, 부팅 파일을 배치합니다. (대부분"
+#~ "의 &debian; CD 사용자는 CD 중 한장으로 부팅합니다)"
 
-#, fuzzy
-#~| msgid "Configure one network interface."
-#~ msgid "Type/model of available network interfaces."
-#~ msgstr "네트워크 인터페이스를 하나 설정하십시오."
+#~ msgid "Linux Hardware Compatibility HOWTO"
+#~ msgstr "리눅스 하드웨어 호환성 하우투"
 
-#, fuzzy
-#~| msgid "Model and manufacturer."
-#~ msgid "Type/model and manufacturer."
-#~ msgstr "모델 및 제조사."
+#~ msgid "Monitor"
+#~ msgstr "모니터"
+
+#~ msgid "Resolutions supported."
+#~ msgstr "지원하는 해상도."
+
+#~ msgid "Horizontal refresh rate."
+#~ msgstr "가로 출력 주파수."
+
+#~ msgid "Vertical refresh rate."
+#~ msgstr "세로 출력 주파수."
+
+#~ msgid "Color depth (number of colors) supported."
+#~ msgstr "지원하는 색상수."
+
+#~ msgid "Screen size."
+#~ msgstr "화면 크기."
+
+#~ msgid "Mouse"
+#~ msgstr "마우스"
+
+#~ msgid "Type: serial, PS/2, or USB."
+#~ msgstr "종류: 시리얼, PS/2, 혹은 USB."
+
+#~ msgid "Port."
+#~ msgstr "포트."
+
+#~ msgid "Manufacturer."
+#~ msgstr "제조사."
+
+#~ msgid "Number of buttons."
+#~ msgstr "단추 개수."
+
+#~ msgid "Printing resolutions supported."
+#~ msgstr "지원하는 인쇄 해상도."
+
+#~ msgid "Video RAM available."
+#~ msgstr "비디오 RAM 크기."
+
+#~ msgid ""
+#~ "Resolutions and color depths supported (these should be checked against "
+#~ "your monitor's capabilities)."
+#~ msgstr ""
+#~ "지원하는 해상도 및 색상수 (모니터에서도 지원하는 지 확인해야 합니다)."
+
+#~ msgid ""
+#~ "In particular, &arch-kernel; usually cannot run hardware that requires a "
+#~ "running version of Windows to work."
+#~ msgstr ""
+#~ "특히, &arch-kernel;는 일반적으로 특정 버전의 Windows를 필요로하는 하드웨어"
+#~ "를 움직일 수 없습니다."
+
+#~ msgid ""
+#~ "Although some Windows-specific hardware can be made to run on Linux, "
+#~ "doing so usually requires extra effort. In addition, Linux drivers for "
+#~ "Windows-specific hardware are usually specific to one Linux kernel. "
+#~ "Therefore, they can quickly become obsolete."
+#~ msgstr ""
+#~ "일부의 윈도우 전용 하드웨어는 리눅스에도 쓸 수 있긴 하지만, 보통 추가적인 "
+#~ "노력이 필요합니다. 게다가 윈도우 전용 하드웨어의 리눅스 드라이버는 보통 "
+#~ "한 개의 리눅스 커널 버전에서만 쓸 수 있습니다. 그래서 그러한 드라이버는 금"
+#~ "방 사용할 수 없게 됩니다."
+
+#~ msgid ""
+#~ "So called win-modems are the most common type of this hardware. However, "
+#~ "printers and other equipment may also be Windows-specific."
+#~ msgstr ""
+#~ "이른바 윈모뎀은 그러한 가장 전형적인 하드웨어입니다. 프린터와 그 외의 장치"
+#~ "도 윈도우 전용이 있습니다."
+
+#~ msgid "You can check hardware compatibility by:"
+#~ msgstr "다음 방법으로 하드웨어 호환성을 알아볼 수 있습니다:"
+
+#~ msgid "Checking manufacturers' web sites for new drivers."
+#~ msgstr "제조사의 웹사이트에서 새 드라이버 확인하기."
+
+#~ msgid ""
+#~ "Looking at web sites or manuals for information about emulation. Lesser "
+#~ "known brands can sometimes use the drivers or settings for better-known "
+#~ "ones."
+#~ msgstr ""
+#~ "웹사이트와 안내 문서에서 에뮬레이션에 대한 정보 찾아보기. 덜 알려진 상표"
+#~ "의 제품이 더 많이 알려진 제품의 드라이버와 설정을 그대로 사용하기도 합니"
+#~ "다."
+
+#~ msgid ""
+#~ "Checking hardware compatibility lists for &arch-kernel; on web sites "
+#~ "dedicated to your architecture."
+#~ msgstr ""
+#~ "&arch-kernel;의 하드웨어 호환성 정보를 자신의 아키텍처의 web사이트에서 확"
+#~ "인합니다."
+
+#~ msgid "Searching the Internet for other users' experiences."
+#~ msgstr "인터넷에서 다른 사용자의 사용담 검색해 보기."
+
+#~ msgid ""
+#~ "If your computer has more than one hard disk, you may want to dedicate "
+#~ "one of the hard disks completely to &debian;. If so, you don't need to "
+#~ "partition that disk before booting the installation system; the "
+#~ "installer's included partitioning program can handle the job nicely."
+#~ msgstr ""
+#~ "컴퓨터에 두 개 이상의 하드 디스크가있는 경우 그 중 하나를 debian; 전용으로"
+#~ "하면 좋을지도 모릅니다. 이렇게하면 설치 시스템 부팅하기 전에 파티션을 할 "
+#~ "필요가 없습니다. 설치 프로그램에 포함된 파티션 프로그램이 이 일을 정확하"
+#~ "게 해내줍니다."
+
+# &debian-gnu; => 데비안 GNU/리눅스, 조사 사용 주의
+#~ msgid ""
+#~ "If your machine has only one hard disk, and you would like to completely "
+#~ "replace the current operating system with &debian-gnu;, you also can wait "
+#~ "to partition as part of the installation process (<xref linkend=\"di-"
+#~ "partition\"/>), after you have booted the installation system. However "
+#~ "this only works if you plan to boot the installer system from tapes, CD-"
+#~ "ROM or files on a connected machine. Consider: if you boot from files "
+#~ "placed on the hard disk, and then partition that same hard disk within "
+#~ "the installation system, thus erasing the boot files, you'd better hope "
+#~ "the installation is successful the first time around. At the least in "
+#~ "this case, you should have some alternate means of reviving your machine "
+#~ "like the original system's installation tapes or CDs."
+#~ msgstr ""
+#~ "컴퓨터에 하드 디스크가 1개 있고, 지금 운영 체제를 &debian-gnu;로 완전히 덮"
+#~ "어 쓰려고 한다면, 설치 시스템을 부팅한 다음에 설치하는 과정에서 파티션을 "
+#~ "할 수도 있습니다. (<xref linkend=\"di-partition\"/>.) 하지만 설치 시스템"
+#~ "을 테이프에서 부팅하거나 CD-ROM에서 부팅하거나 연결되어 있는 다른 컴퓨터"
+#~ "에 있는 파일에서 부팅할 경우에만 이렇게 할 수 있습니다. 생각해 보면 하드 "
+#~ "디스크에 부팅 파일을 넣고 같은 그 하드 디스크를 파티션해 버린다면, 기존에 "
+#~ "있던 부팅 파일이 지워질 수밖에 없고, 반드시 한 번에 설치를 성공적으로 해"
+#~ "야 좋을 것입니다. 최소한 이러한 경우, 원래 운영 체제의 설치 테이프나 CD처"
+#~ "럼 컴퓨터를 복구할 방법을 가지고 있는 게 좋습니다."
+
+#~ msgid ""
+#~ "If your machine already has multiple partitions, and enough space can be "
+#~ "provided by deleting and replacing one or more of them, then you too can "
+#~ "wait and use the &debian; installer's partitioning program. You should "
+#~ "still read through the material below, because there may be special "
+#~ "circumstances like the order of the existing partitions within the "
+#~ "partition map, that force you to partition before installing anyway."
+#~ msgstr ""
+#~ "이미 컴퓨터에 파티션이 여러 개 있고 그 일부를 지우거나 바꾸거나해서 충분"
+#~ "한 공간을 확보할  경우 &debian; 설치 프로그램의 파티션 프로그램에서 작업해"
+#~ "도 됩니다. 그러나 이 경우에 아래의 내용은 읽어 둡시다. 파티션에서 기존 파"
+#~ "티션의 순서 때문에, 설치 전에 파티션 작업을 해야 한다 할 경우도 있기 때문"
+#~ "입니다."
+
+#~ msgid ""
+#~ "If your machine has a FAT or NTFS filesystem, as used by DOS and Windows, "
+#~ "you can wait and use &debian; installer's partitioning program to resize "
+#~ "the filesystem."
+#~ msgstr ""
+#~ "DOS나 Windows에서 사용하는 시스템에 FAT나 NTFS파일 시스템이 있으면 "
+#~ "&debian; 설치 프로그램의 파티션 프로그램에서 파일 시스템 크기를 조정할 수 "
+#~ "있습니다 ."
+
+#~ msgid ""
+#~ "If none of the above apply, you'll need to partition your hard disk "
+#~ "before starting the installation to create partitionable space for "
+#~ "&debian;. If some of the partitions will be owned by other operating "
+#~ "systems, you should create those partitions using native operating system "
+#~ "partitioning programs. We recommend that you do <emphasis>not</emphasis> "
+#~ "attempt to create partitions for &debian-gnu; using another operating "
+#~ "system's tools. Instead, you should just create the native operating "
+#~ "system's partitions you will want to retain."
+#~ msgstr ""
+#~ "위의 경우 중 아무것도 없으면 설치를 시작하기 전에 분할하고 &debian;에 파티"
+#~ "션 가능한 공간을 만들어 줘야 합니다. 일부 파티션을 다른 OS에 사용하는 경"
+#~ "우 파티션은 OS의 파티션 도구를 작성하는 것이 좋습니다. 그러나 &debian-gnu;"
+#~ "의 파티션을 다른 OS의 도구로 <emphasis>만들지 않는</emphasis> 것이 좋습니"
+#~ "다. 그 도구로 만들어 보관하려는 OS의 파티션에만 합니다."
+
+#~ msgid ""
+#~ "If you currently have one hard disk with one partition (a common setup "
+#~ "for desktop computers), and you want to multi-boot the native operating "
+#~ "system and &debian;, you will need to:"
+#~ msgstr ""
+#~ "하드 디스크가 하나의 파티션이 하나(데스크톱 컴퓨터와 일반 설정)되어, 원래"
+#~ "의 OS와 &debian;과 듀얼 부팅하려면 다음 단계를 취할 필요가 있습니다."
+
+#~ msgid "Back up everything on the computer."
+#~ msgstr "컴퓨터에 들어 있는 내용을 전부 백업하십시오."
+
+#~ msgid ""
+#~ "Boot from the native operating system installer media such as CD-ROM or "
+#~ "tapes. <phrase arch=\"powerpc\">When booting from a MacOS CD, hold the "
+#~ "<keycap>c</keycap> key while booting to force the CD to become the active "
+#~ "MacOS system.</phrase>"
+#~ msgstr ""
+#~ "CD-ROM이나 테이프같은 원래 운영 체제의 설치 미디어에서 부팅하십시오. "
+#~ "<phrase arch=\"powerpc\">맥오에스 CD에서 부팅할 때, CD에서 맥오에스 시스템"
+#~ "을 시작하려면 부팅하는 동안 <keycap>c</keycap> 키를 누르고 있으십시오.</"
+#~ "phrase>"
+
+# &debian-gnu; => 데비안 GNU/리눅스, 조사 사용 주의
+#~ msgid ""
+#~ "Use the native partitioning tools to create native system partition(s). "
+#~ "Leave either a place holder partition or free space for &debian-gnu;."
+#~ msgstr ""
+#~ "원래 운영 체제에 들어 있는 파티션 도구로 그 운영 체제용 시스템 파티션을 만"
+#~ "드십시오. &debian-gnu;로 사용할 위치에 파티션을 만들거나 빈 공간을 만들어 "
+#~ "놓으십시오."
+
+#~ msgid "Install the native operating system on its new partition."
+#~ msgstr "새 파티션에 원래 운영 체제를 설치하십시오."
+
+#~ msgid ""
+#~ "Boot back into the native system to verify everything's OK, and to "
+#~ "download the &debian; installer boot files."
+#~ msgstr ""
+#~ "새로 넣은  OS에서 다시 시작 해, 제대로 되었는지 확인합니다. 문제가 없으면 "
+#~ "&debian; 설치 프로그램 부팅 파일을 다운로드한다."
+
+#~ msgid "Boot the &debian; installer to continue installing &debian;."
+#~ msgstr "&debian; 설치 프로그램을 시작하고 &debian; 설치를 계속합니다."
+
+#~ msgid "Partitioning From DOS or Windows"
+#~ msgstr "DOS나 윈도우에서 파티션하기"
+
+#~ msgid ""
+#~ "If you are manipulating existing FAT or NTFS partitions, it is "
+#~ "recommended that you either use the scheme below or native Windows or DOS "
+#~ "tools. Otherwise, it is not really necessary to partition from DOS or "
+#~ "Windows; the &debian; partitioning tools will generally do a better job."
+#~ msgstr ""
+#~ "기존 FAT나 NTFS 파티션을 변경하는 경우에는, 아래에서 설명하는 방법을 사용"
+#~ "하거나 Windows나 DOS 도구를 사용하는 것을 권장합니다. 그 외의 경우에는 DOS"
+#~ "나 Windows에서 파티션을 나눌 필요는 전혀 없습니다. 일반적으로 &debian;의 "
+#~ "파티션 도구를 사용하면보다 효율적으로 작업이 가능합니다."
+
+#~ msgid ""
+#~ "But if you have a large IDE disk, and are not using LBA addressing, "
+#~ "overlay drivers (sometimes provided by hard disk manufacturers), or a new "
+#~ "(post 1998) BIOS that supports large disk access extensions, then you "
+#~ "must locate your &debian; boot partition carefully. In this case, you "
+#~ "will have to put the boot partition into the first 1024 cylinders of your "
+#~ "hard disk (usually around 524 megabytes, without BIOS translation). This "
+#~ "may require that you move an existing FAT or NTFS partition."
+#~ msgstr ""
+#~ "큰 IDE 디스크를 가진 경우, LBA 주소나 오버레이 드라이버 (HDD 제조사에서 제"
+#~ "공되는 일이 가끔 있습니다) 큰 디스크 접근을 지원하는 새로운(1998년 이후) "
+#~ "BIOS도 때 &debian; 부팅 파티션을 주의하여 배치해야 합니다. 이런 경우 부팅 "
+#~ "파티션을 하드 디스크의 첫 번째 1024 실린더 안에 해야 합니다(이것은 BIOS 변"
+#~ "환이 없으면 보통 524 메가 바이트입니다). 이는 곧 기존 FAT나 NTFS 파티션을 "
+#~ "이동하지 않으면 안되는 것을 의미합니다."
+
+#~ msgid "Lossless Repartitioning When Starting From DOS, Win-32 or OS/2"
+#~ msgstr "DOS, Win-32, OS/2의 데이터 손실없이 다시 파티션하기"
+
+#~ msgid ""
+#~ "One of the most common installations is onto a system that already "
+#~ "contains DOS (including Windows 3.1), Win32 (such as Windows 95, 98, Me, "
+#~ "NT, 2000, XP, 2003, Vista, 7), or OS/2, and it is desired to put &debian; "
+#~ "onto the same disk without destroying the previous system. Note that the "
+#~ "installer supports resizing of FAT and NTFS filesystems as used by DOS "
+#~ "and Windows. Simply start the installer and when you get to the "
+#~ "partitioning step, select the option for <menuchoice> "
+#~ "<guimenuitem>Manual</guimenuitem> </menuchoice> partitioning, select the "
+#~ "partition to resize, and specify its new size. So in most cases you "
+#~ "should not need to use the method described below."
+#~ msgstr ""
+#~ "자주 묻는 설치 형태는 이미 DOS(Windows3.1 포함), Win32 Windows 95, 98, "
+#~ "Me, NT, 2000, XP, 2003, Vista, 7), OS/2 등이 들어 있는 시스템에 새로운 "
+#~ "&debian;를 설치하는 경우 기존의 시스템을 깨지 않고 같은 디스크에 &debian;"
+#~ "을 설치하려는 경우입니다. DOS나 Windows에서 사용하는 FAT파일 시스템 NTFS "
+#~ "파일 시스템의 크기를 조정 설치는 지원하는 것에 주의하십시오. 단지 설치 프"
+#~ "로그램을 시작하고 분할 단계에 오면, <menuchoice> <guimenuitem>수동</"
+#~ "guimenuitem> </menuchoice> 분할을 선택하고 조정하려는 파티션을 선택하고 새"
+#~ "로운 크기를 지정하십시오. 대부분의 경우 다음 방법을 사용할 필요는 없습니"
+#~ "다."
+
+#~ msgid ""
+#~ "Before going any further, you should have decided how you will be "
+#~ "dividing up the disk. The method in this section will only split a "
+#~ "partition into two pieces. One will contain the original OS and the other "
+#~ "will be used for &debian;. During the installation of &debian;, you will "
+#~ "be given the opportunity to use the &debian; portion of the disk as you "
+#~ "see fit, i.e., as swap or as a file system."
+#~ msgstr ""
+#~ "진행하기 전에 디스크를 어떻게 나눌 지 정해 두지 않으면 안됩니다. 이 절에서"
+#~ "는 하나의 파티션을 두 개로 분할하는 방법만을 설명합니다. 그 중 하나는 기존"
+#~ "의 OS를 남겨두고 또 하나를 &debian;에서 사용합니다. 또한 &debian;에 할당"
+#~ "된 디스크 공간을 어떤 용도(스왑이나 파일 시스템)에 얼마 씩 할당 여부를 "
+#~ "&debian; 설치 중에 결정할 수 있습니다."
+
+#~ msgid ""
+#~ "The idea is to move all the data on the partition to the beginning, "
+#~ "before changing the partition information, so that nothing will be lost. "
+#~ "It is important that you do as little as possible between the data "
+#~ "movement and repartitioning to minimize the chance of a file being "
+#~ "written near the end of the partition as this will decrease the amount of "
+#~ "space you can take from the partition."
+#~ msgstr ""
+#~ "지금 하려는 일은 파티션 정보를 바꾸기 전에 그 안의 모든 데이터를 앞쪽으로 "
+#~ "옮기는 것입니다. 그래야 아무것도 잃지 않습니다. 가능하면 데이터 이동과 파"
+#~ "티션을 조금 하는 게 중요합니다. 그래야 파일이 파티션 끝 부분에 들어 있지 "
+#~ "않게 됩니다. 끝 부분에 파일이 들어가면 그 파티션에서 뽑아낼 수 있는 공간"
+#~ "이 줄어듭니다."
+
+#~ msgid ""
+#~ "The first thing needed is a copy of <command>fips</command>. Unzip the "
+#~ "archive and copy the files <filename>RESTORRB.EXE</filename>, "
+#~ "<filename>FIPS.EXE</filename> and <filename>ERRORS.TXT</filename> to a "
+#~ "bootable floppy. A bootable floppy can be created using the command "
+#~ "<filename>sys a:</filename> under DOS. <command>fips</command> comes with "
+#~ "very good documentation which you may want to read. You will definitely "
+#~ "need to read the documentation if you use a disk compression driver or a "
+#~ "disk manager. Create the disk and read the documentation "
+#~ "<emphasis>before</emphasis> you defragment the disk."
+#~ msgstr ""
+#~ "먼저 필요한 것은 <command>fips</command>의 복사본입니다. 아카이브를 unzip"
+#~ "하여 <filename>RESTORRB.EXE</filename>, <filename>FIPS.EXE</filename>, "
+#~ "<filename>ERRORS.TXT</filename>의 각 파일을 부팅 가능한 플로피에 복사 하십"
+#~ "시오. 부팅 가능 플로피는 DOS에서 <filename>sys a:</filename>라는 명령어를 "
+#~ "이용하면 만들 수 있습니다. <command>fips</command>는 매우 뛰어난 문서가 포"
+#~ "함되어 있기 때문에, 읽어두면 좋습니다. 특히 디스크 압축 드라이 버나 디스"
+#~ "크 관리자를 사용하는 경우 이 문서는 반드시 읽어야 할 것입니다. 디스크 단편"
+#~ "화 <emphasis>전에</emphasis> 디스크를 만들고 문서를 읽어보십시오."
+
+#~ msgid ""
+#~ "The next thing needed is to move all the data to the beginning of the "
+#~ "partition. <command>defrag</command>, which comes standard with DOS 6.0 "
+#~ "and later, can easily do the job. See the <command>fips</command> "
+#~ "documentation for a list of other software that may do the trick. Note "
+#~ "that if you have Windows 9x, you must run <command>defrag</command> from "
+#~ "there, since DOS doesn't understand VFAT, which is used to support for "
+#~ "long filenames, used in Windows 95 and higher."
+#~ msgstr ""
+#~ "그 다음에 필요한 일은 모든 데이터를 파티션의 처음으로 옮기는 일입니다. "
+#~ "DOS 6.0 이후에 포함되어 있는 <command>defrag</command>가 이 작업을 합니"
+#~ "다. 이런 일을 하는 다른 소프트웨어 목록을 보려면 <command>fips</command> "
+#~ "문서를 보십시오. 윈도우 9x를 사용한다면 윈도우 9x에서 <command>defrag</"
+#~ "command>를 실행해야 합니다. DOS는 윈도우 95 이상에서 (긴 파일 이름을 지원"
+#~ "하기 위해) 사용하는 VFAT를 인식하지 못합니다."
+
+#~ msgid ""
+#~ "After running the defragmenter (which can take a while on a large disk), "
+#~ "reboot with the <command>fips</command> disk you created in the floppy "
+#~ "drive. Simply type <filename>a:\\fips</filename> and follow the "
+#~ "directions."
+#~ msgstr ""
+#~ "단편화를 없애는 프로그램을 실행한 다음에 (디스크가 크면 꽤 오래 걸립니"
+#~ "다), 플로피 드라이브에 새로 만든 <command>fips</command> 디스크를 넣고 다"
+#~ "시 부팅하십시오. <filename>a:\\fips</filename>를 실행해 안내에 따르십시오."
+
+#~ msgid ""
+#~ "Note that there are many other partition managers out there, in case "
+#~ "<command>fips</command> doesn't do the trick for you."
+#~ msgstr ""
+#~ "<command>fips</command>에서 파티션 크기 조정을 못 하더라도, 다른 파티션 관"
+#~ "리자가 많이 있습니다."
+
+#~ msgid "Partitioning for DOS"
+#~ msgstr "DOS용 파티션하기"
+
+#~ msgid ""
+#~ "If you are partitioning for DOS drives, or changing the size of DOS "
+#~ "partitions, using &debian; tools, many people experience problems working "
+#~ "with the resulting FAT partitions. For instance, some have reported slow "
+#~ "performance, consistent problems with <command>scandisk</command>, or "
+#~ "other weird errors in DOS or Windows."
+#~ msgstr ""
+#~ "DOS 드라이브에 파티션을 만들거나 DOS 파티션의 크기를 변경할 작업을 "
+#~ "&debian; 도구하면 만들어 낸 FAT 파티션에서 많은 문제가 남아있을 수 있는 "
+#~ "것 같습니다. 예를 들어 DOS 나 Windows에서 성능이 떨어지고, "
+#~ "<command>scandisk</command>에서 일관성 문제가 발생하거나 기타 알 수 없는 "
+#~ "오류가 발생하는 등의 보고 사례가 있습니다."
+
+#~ msgid ""
+#~ "Apparently, whenever you create or resize a partition for DOS use, it's a "
+#~ "good idea to fill the first few sectors with zeros. You should do this "
+#~ "prior to running DOS's <command>format</command> command by executing the "
+#~ "following command from &debian;:"
+#~ msgstr ""
+#~ "DOS에 사용할 파티션을 만들거나 크기를 변경할 경우, 처음 몇 섹터를 0으로 채"
+#~ "워 두는 것이 좋습니다. DOS의 <command>format</command> 명령을 실행하기 전"
+#~ "에 &debian;에서 다음 명령을 실행하십시오."
+
+#~ msgid "# dd if=/dev/zero of=/dev/hdXX bs=512 count=4"
+#~ msgstr "# dd if=/dev/zero of=/dev/hdXX bs=512 count=4"
+
+#~ msgid ""
+#~ "The rest of this section is lifted from the <ulink url=\"&url-pc-hw-faq;"
+#~ "\"></ulink>, answering the question, <quote>How do I enter the CMOS "
+#~ "configuration menu?</quote>. How you access the BIOS (or <quote>CMOS</"
+#~ "quote>) configuration menu depends on who wrote your BIOS software:"
+#~ msgstr ""
+#~ "이 절의 나머지 부분은 <ulink url=\"&url-pc-hw-faq;\"></ulink>에서 가져온 "
+#~ "<quote>어떻게 CMOS 설정 메뉴로 들어가는가?</quote>라는 질문에 대한 답입니"
+#~ "다. BIOS (아니면 <quote>CMOS</quote>) 설정 메뉴에 들어가는 방법은 BIOS 소"
+#~ "프트웨어를 만든 회사에 따라 다릅니다:"
+
+#~ msgid "AMI BIOS"
+#~ msgstr "AMI BIOS"
+
+#~ msgid "<keycap>Delete</keycap> key during the POST (power on self test)"
+#~ msgstr ""
+#~ "POST (power on self test, 최초 테스트) 도중에 <keycap>Delete</keycap> 키 "
+
+#~ msgid "Award BIOS"
+#~ msgstr "Award BIOS"
+
+#~ msgid ""
+#~ "<keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Esc</keycap> "
+#~ "</keycombo>, or <keycap>Delete</keycap> key during the POST"
+#~ msgstr ""
+#~ "POST 도중에 <keycombo> <keycap>Ctrl</keycap><keycap>Alt</"
+#~ "keycap><keycap>Esc</keycap> </keycombo>, 아니면 <keycap>Delete</keycap> 키"
+
+#~ msgid "DTK BIOS"
+#~ msgstr "DTK BIOS"
+
+#~ msgid "<keycap>Esc</keycap> key during the POST"
+#~ msgstr "POST 도중에 <keycap>Esc</keycap> 키"
+
+#~ msgid "IBM PS/2 BIOS"
+#~ msgstr "IBM PS/2 BIOS"
+
+#~ msgid ""
+#~ "<keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Insert</"
+#~ "keycap> </keycombo> after <keycombo> <keycap>Ctrl</keycap><keycap>Alt</"
+#~ "keycap><keycap>Delete</keycap> </keycombo>"
+#~ msgstr ""
+#~ "<keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Delete</"
+#~ "keycap> </keycombo> 다음에 <keycombo> <keycap>Ctrl</keycap><keycap>Alt</"
+#~ "keycap><keycap>Insert</keycap> </keycombo>"
+
+#~ msgid "Phoenix BIOS"
+#~ msgstr "Phoenix BIOS"
+
+#~ msgid ""
+#~ "<keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Esc</keycap> "
+#~ "</keycombo> or <keycombo> <keycap>Ctrl</keycap><keycap>Alt</"
+#~ "keycap><keycap>S</keycap> </keycombo> or <keycap>F1</keycap>"
+#~ msgstr ""
+#~ "<keycombo> <keycap>Ctrl</keycap><keycap>Alt</keycap><keycap>Esc</keycap> "
+#~ "</keycombo> 아니면 <keycombo> <keycap>Ctrl</keycap><keycap>Alt</"
+#~ "keycap><keycap>S</keycap> </keycombo> 아니면 <keycap>F1</keycap>"
+
+#~ msgid ""
+#~ "Information on invoking other BIOS routines can be found in <ulink url="
+#~ "\"&url-invoking-bios-info;\"></ulink>."
+#~ msgstr ""
+#~ "다른 BIOS를 실행하는 방법에 대한 정보는 <ulink url=\"&url-invoking-bios-"
+#~ "info;\"></ulink>에 있습니다."
+
+#~ msgid ""
+#~ "Some &arch-title; machines don't have a CMOS configuration menu in the "
+#~ "BIOS. They require a software CMOS setup program. If you don't have the "
+#~ "Installation and/or Diagnostics diskette for your machine, you can try "
+#~ "using a shareware/freeware program. Try looking in <ulink url=\"&url-"
+#~ "simtel;\"></ulink>."
+#~ msgstr ""
+#~ "일부 &arch-title; 컴퓨터에는 BIOS에 CMOS 설정 메뉴가 없습니다. 소프트웨어 "
+#~ "CMOS 설정 프로그램이 필요합니다. 해당 컴퓨터의 설치 및/혹은 진단 디스켓이 "
+#~ "없다면, 셰어웨어/프리웨어 프로그램을 사용해 볼 수 있습니다. <ulink url="
+#~ "\"&url-simtel;\"></ulink> 사이트를 살펴 보십시오."
+
+#~ msgid ""
+#~ "Many BIOS setup menus allow you to select the devices that will be used "
+#~ "to bootstrap the system. Set this to look for a bootable operating system "
+#~ "on <filename>A:</filename> (the first floppy disk), then optionally the "
+#~ "first CD-ROM device (possibly appearing as <filename>D:</filename> or "
+#~ "<filename>E:</filename>), and then from <filename>C:</filename> (the "
+#~ "first hard disk). This setting enables you to boot from either a floppy "
+#~ "disk or a CD-ROM, which are the two most common boot devices used to "
+#~ "install &debian;."
+#~ msgstr ""
+#~ "많은 BIOS의 설정 메뉴에서는 시스템을 부팅 장치를 선택할 수 있도록 되어 있"
+#~ "습니다. 이 설정은 다음과 같이하십시오. 먼저 부팅 가능한 운영 체제를 "
+#~ "<filename>A:</filename>(첫번째 플로피 디스크)에서 찾아 CD-ROM 장치가 있다"
+#~ "면 거기에서 (아마 <filename>D:</filename> 및 <filename>E:</filename> 것 입"
+#~ "니다), 그 다음에 <filename>C:</filename> (첫 번째 하드 디스크)에서 찾도록 "
+#~ "합니다. 이렇게 설정하면 플로피 디스크나 CD-ROM에서 시작할 수 있습니다. "
+#~ "&debian; 설치에 가장 잘 이용되는 것은 이 두개 입니다."
+
+#~ msgid ""
+#~ "If you have a newer SCSI controller and you have a CD-ROM device attached "
+#~ "to it, you are usually able to boot from the CD-ROM. All you have to do "
+#~ "is enable booting from a CD-ROM in the SCSI-BIOS of your controller."
+#~ msgstr ""
+#~ "최신의 SCSI 컨트롤러가 있고 SCSI에 CD-ROM 장치가 붙어 있다면 보통 CD-ROM에"
+#~ "서 부팅할 수 있을 것입니다. 해야 되는 일은 컨트롤러의 SCSI BIOS에서 CD-"
+#~ "ROM 부팅을 켜는 일 뿐입니다."
+
+#~ msgid ""
+#~ "Another popular option is to boot from a USB storage device (also called "
+#~ "a USB memory stick or USB key). Some BIOSes can boot directly from a USB "
+#~ "storage device, but some cannot. You may need to configure your BIOS to "
+#~ "boot from a <quote>Removable drive</quote> or even from <quote>USB-ZIP</"
+#~ "quote> to get it to boot from the USB device."
+#~ msgstr ""
+#~ "그 밖에 많이 쓰는 옵션으로, USB 저장 장치에서 (USB 메모리나 USB 키라고도 "
+#~ "함) 부팅하는 옵션입니다. 어떤 BIOS에서는 USB 저장 장치에서 직접 부팅할 수 "
+#~ "있고, 그렇지 않은 BIOS도 있습니다. USB 장치에서 부팅하려면 "
+#~ "<quote>Removable drive</quote> 혹은 <quote>USB-ZIP</quote>에서 부팅하도록 "
+#~ "BIOS를 설정합니다."
+
+#~ msgid ""
+#~ "Here are some details about how to set the boot order. Remember to reset "
+#~ "the boot order after &arch-kernel; is installed, so that you restart your "
+#~ "machine from the hard drive."
+#~ msgstr ""
+#~ "여기서는 부팅 순서 설정 방법을 자세히 설명합니다. &arch-kernel; 설치가 끝"
+#~ "나면 부팅 순서를 다시 시스템이 하드웨어에서 시작하도록 합니다."
+
+#~ msgid "Changing the Boot Order on IDE Computers"
+#~ msgstr "IDE 컴퓨터의 부팅 순서 바꾸기"
+
+#~ msgid ""
+#~ "As your computer starts, press the keys to enter the BIOS utility. Often, "
+#~ "it is the <keycap>Delete</keycap> key. However, consult the hardware "
+#~ "documentation for the exact keystrokes."
+#~ msgstr ""
+#~ "컴퓨터가 시작할 때, BIOS 유틸리티에 들어가는 키를 누르십시오. 보통 그 키"
+#~ "는 <keycap>Delete</keycap> 키입니다. 정확히 어떤 키를 눌러야 할 지는 하드"
+#~ "웨어 문서를 참고하십시오."
+
+#~ msgid ""
+#~ "Find the boot sequence in the setup utility. Its location depends on your "
+#~ "BIOS, but you are looking for a field that lists drives."
+#~ msgstr ""
+#~ "설정 유틸리티에서 부팅 순서를 찾으십시오. 이 설정의 위치는 BIOS에 따라 다"
+#~ "르지만, 드라이브 여러 개를 늘어 놓은 필드를 찾으면 됩니다."
+
+#~ msgid "Common entries on IDE machines are C, A, cdrom or A, C, cdrom."
+#~ msgstr "IDE 컴퓨터에서는 보통 C, A, cdrom이거나 A, C, cdrom입니다."
+
+#~ msgid "C is the hard drive, and A is the floppy drive."
+#~ msgstr "C는 하드 드라이브이고, A는 플로피 드라이브입니다."
+
+#~ msgid ""
+#~ "Change the boot sequence setting so that the CD-ROM or the floppy is "
+#~ "first. Usually, the <keycap>Page Up</keycap> or <keycap>Page Down</"
+#~ "keycap> keys cycle through the possible choices."
+#~ msgstr ""
+#~ "부팅 순서 설정을 바꿔서 CD-ROM이나 플로피가 첫번째가 되도록 하십시오. 보"
+#~ "통 <keycap>Page Up</keycap>이나 <keycap>Page Down</keycap> 키로 여러가지 "
+#~ "중의 하나를 선택합니다."
+
+#~ msgid ""
+#~ "Save your changes. Instructions on the screen tell you how to save the "
+#~ "changes on your computer."
+#~ msgstr "바꾼 내용을 저장하십시오. 설정 화면의 안내에 따라 저장하십시오."
+
+#~ msgid "Changing the Boot Order on SCSI Computers"
+#~ msgstr "SCSI 컴퓨터에서 부팅 순서 바꾸기"
+
+#~ msgid ""
+#~ "As your computer starts, press the keys to enter the SCSI setup utility."
+#~ msgstr "컴퓨터가 시작하면, SCSI 설정 유틸리티로 들어가는 키를 누르십시오."
+
+#~ msgid ""
+#~ "You can start the SCSI setup utility after the memory check and the "
+#~ "message about how to start the BIOS utility displays when you start your "
+#~ "computer."
+#~ msgstr ""
+#~ "컴퓨터를 시작하면 메모리 검사를 하고, BIOS 유틸리티를 시작하는 방법을 표시"
+#~ "한 다음, SCSI 설정 유틸리티로 들어갈 수 있습니다."
+
+#~ msgid ""
+#~ "The keystrokes you need depend on the utility. Often, it is "
+#~ "<keycombo><keycap>Ctrl</keycap><keycap>F2</keycap></keycombo>. However, "
+#~ "consult your hardware documentation for the exact keystrokes."
+#~ msgstr ""
+#~ "어떤 키를 눌러야 하는 지는 유틸리티에 따라 다릅니다. 보통 "
+#~ "<keycombo><keycap>Ctrl</keycap><keycap>F2</keycap></keycombo>입니다. 정확"
+#~ "한 키 조합은 하드웨어 문서를 보십시오."
+
+#~ msgid "Find the utility for changing the boot order."
+#~ msgstr "부팅 순서를 바꾸는 유틸리티 찾기."
+
+#~ msgid ""
+#~ "Set the utility so that the SCSI ID of the CD drive is first on the list."
+#~ msgstr ""
+#~ "CD 드라이브의 SCSI ID가 목록의 첫번째가 되도록 유틸리티를 설정하십시오."
+
+#~ msgid ""
+#~ "Save your changes. Instructions on the screen tell you how to save the "
+#~ "changes on your computer. Often, you must press <keycap>F10</keycap>."
+#~ msgstr ""
+#~ "바뀐 부분을 저장하십시오. 화면의 안내에 따라 바뀐 부분을 컴퓨터에 저장하십"
+#~ "시오. 보통 <keycap>F10</keycap>을 눌러야 합니다."
+
+#~ msgid "Miscellaneous BIOS Settings"
+#~ msgstr "기타 BIOS 설정"
+
+#~ msgid "CD-ROM Settings"
+#~ msgstr "CD-ROM 설정"
+
+#~ msgid ""
+#~ "Some BIOS systems (such as Award BIOS) allow you to automatically set the "
+#~ "CD speed. You should avoid that, and instead set it to, say, the lowest "
+#~ "speed. If you get <userinput>seek failed</userinput> error messages, this "
+#~ "may be your problem."
+#~ msgstr ""
+#~ "어떤 BIOS 시스템은 (예: Award BIOS) CD 속도를 설정할 수 있습니다. 속도를 "
+#~ "설정하지 말고, 그냥 최저 속도로 놔둬야 합니다. <userinput>seek failed</"
+#~ "userinput> 오류 메시지가 나오게 된다면 이 문제 때문일 수도 있습니다."
+
+#~ msgid "Extended vs. Expanded Memory"
+#~ msgstr "Extended와 Expanded Memory"
+
+#~ msgid ""
+#~ "If your system provides both ex<emphasis>ten</emphasis>ded and "
+#~ "ex<emphasis>pan</emphasis>ded memory, set it so that there is as much "
+#~ "extended and as little expanded memory as possible. &arch-kernel; "
+#~ "requires extended memory and cannot use expanded memory."
+#~ msgstr ""
+#~ "시스템 ex<emphasis>ten</emphasis> ded 메모리(XMS)와 ex<emphasis>pan</"
+#~ "emphasis> ded 메모리(EMS)를 모두 지원하고있다면, extended 메모리를 가능한 "
+#~ "많은 expanded 메모리를 최대한으로 해놓고 최소한으로 맞춰 놓으십시오. "
+#~ "&arch-kernel; 필요한 것은 extended 메모리에서 expanded 메모리는 사용할 수 "
+#~ "없습니다."
+
+#~ msgid "Virus Protection"
+#~ msgstr "Virus Protection"
+
+#~ msgid ""
+#~ "Disable any virus-warning features your BIOS may provide. If you have a "
+#~ "virus-protection board or other special hardware, make sure it is "
+#~ "disabled or physically removed while running GNU/&arch-kernel;. These "
+#~ "aren't compatible with GNU/&arch-kernel;; moreover, due to the file "
+#~ "system permissions and protected memory of the &arch-kernel; kernel, "
+#~ "viruses are almost unheard of<footnote> <para> After installation you can "
+#~ "enable Boot Sector protection if you want. This offers no additional "
+#~ "security in &arch-kernel; but if you also run Windows it may prevent a "
+#~ "catastrophe. There is no need to tamper with the Master Boot Record (MBR) "
+#~ "after the boot manager has been set up. </para> </footnote>."
+#~ msgstr ""
+#~ "BIOS 바이러스 경고 기능이 있다는 일절 사용하지 마십시오. 바이러스 방지 보"
+#~ "드나 기타 특수 하드웨어가 있는 경우, &arch-kernel;이 움직이고 있는 동안은 "
+#~ "비활성화 하거나, 그렇지 않으면 물리적으로 제거하십시오. 이들은 &arch-"
+#~ "kernel;와 호환되지 않습니다. 또 &arch-kernel;에는 파일 시스템의 권한 및 리"
+#~ "눅스의 보호 메모리 때문에 바이러스는 거의 존재하지 않습니다. <footnote> "
+#~ "<para>설치 후에 부트 섹터 보호를 사용해도 됩니다. 이 기능은 &arch-kernel; "
+#~ "보안을 높여주지 않지만 Windows에서 재앙을 막아줄지도 모릅니다. 부트 관리자"
+#~ "가 설정된 후에는 마스터 부트 레코드 (MBR)를 변경할 필요가 없습니다. </"
+#~ "para> </footnote>."
+
+#~ msgid "Shadow RAM"
+#~ msgstr "Shadow RAM"
+
+#~ msgid ""
+#~ "Your motherboard may provide <emphasis>shadow RAM</emphasis> or BIOS "
+#~ "caching. You may see settings for <quote>Video BIOS Shadow</quote>, "
+#~ "<quote>C800-CBFF Shadow</quote>, etc. <emphasis>Disable</emphasis> all "
+#~ "shadow RAM. Shadow RAM is used to accelerate access to the ROMs on your "
+#~ "motherboard and on some of the controller cards. &arch-kernel; does not "
+#~ "use these ROMs once it has booted because it provides its own faster 32-"
+#~ "bit software in place of the 16-bit programs in the ROMs. Disabling the "
+#~ "shadow RAM may make some of it available for programs to use as normal "
+#~ "memory. Leaving the shadow RAM enabled may interfere with &arch-kernel; "
+#~ "access to hardware devices."
+#~ msgstr ""
+#~ "당신의 메인 보드에는 <emphasis>shadow RAM</emphasis> 또는 BIOS 캐시를 사용"
+#~ "할 것입니다. 이 경우 <quote>Video BIOS Shadow</quote>나 <quote>C800-CBFF "
+#~ "Shadow</quote>와 같은 설정이 있어야 합니다. shadow RAM은 모든 <emphasis>해"
+#~ "제</emphasis>를 하십시오. shadow RAM은 마더보드와 컨트롤러 카드에 있는 ROM"
+#~ "의 접근 속도를 높이는하기 위해 이용되는 것이지만, &arch-kernel;은 시작 후 "
+#~ "이러한 ROM을 사용하지 않습니다. &arch-kernel;는 자기 부담의 빠른 32 비트 "
+#~ "소프트웨어가 이를 ROM 내부 16 비트 프로그램 대신하기 때문입니다. shadow "
+#~ "RAM을 해제하면 그 일부를 일반 메모리로 프로그램에서 사용할 수 있습니다. "
+#~ "shadow RAM을 사용 한 채로 &arch-kernel; 하드웨어에 접근되어 버릴지도 모릅"
+#~ "니다. 마더보드에서 <emphasis>shadow RAM</emphasis>이나 BIOS 캐시 기능이 있"
+#~ "을 수도 있습니다. <quote>Video BIOS Shadow</quote>나 <quote>C800-CBFF "
+#~ "Shadow</quote>와 같은 설정을 볼 수 있을 것입니다. 모든 shadow RAM을 "
+#~ "<emphasis>끄십시오</emphasis>. shadow RAM은 마더보드와 일부 컨트롤러 카드"
+#~ "에 있는 ROM의 접근 속도를 높이는 데 쓰입니다. 리눅스는 일단 부팅하면 이러"
+#~ "한 ROM을 사용하지 않습니다. ROM에 들어 있는 16비트 프로그램 대신에 직접 32"
+#~ "비트 소프트웨어가 들어 있기 때문입니다. 어떤 경우 shadow RAM을 꺼야만 이 "
+#~ "shadow RAM을 다른 프로그램에서 일반 메모리로 사용할 수 있습니다. shadow "
+#~ "RAM을 켜 놓으면 리눅스가 하드웨어에 접근할 때 문제가 발생할 수 있습니다."
+
+#~ msgid "Memory Hole"
+#~ msgstr "Memory Hole"
+
+#~ msgid ""
+#~ "If your BIOS offers something like <quote>15&ndash;16 MB Memory Hole</"
+#~ "quote>, please disable that. &arch-kernel; expects to find memory there "
+#~ "if you have that much RAM."
+#~ msgstr ""
+#~ "BIOS에 <quote>15&ndash;16 MB Memory Hole </quote>라고하는 설정이 있으면, "
+#~ "그것은 비활성화해야 합니다. 16MB 이상의 메모리가있는 경우는 &arch-kernel;"
+#~ "이 영역에 메모리가 있는 것으로 작동합니다."
+
+#~ msgid ""
+#~ "We have a report of an Intel Endeavor motherboard on which there is an "
+#~ "option called <quote>LFB</quote> or <quote>Linear Frame Buffer</quote>. "
+#~ "This had two settings: <quote>Disabled</quote> and <quote>1 Megabyte</"
+#~ "quote>. Set it to <quote>1 Megabyte</quote>. When disabled, the "
+#~ "installation floppy was not read correctly, and the system eventually "
+#~ "crashed. At this writing we don't understand what's going on with this "
+#~ "particular device &mdash; it just worked with that setting and not "
+#~ "without it."
+#~ msgstr ""
+#~ "인텔이 만든 어떤 마더보드에서 <quote>LFB</quote> 혹은 <quote>Linear Frame "
+#~ "Buffer</quote>라고 하는 옵션이 있다는 보고를 받았습니다. 두 가지 설정을 "
+#~ "할 수 있습니다: <quote>Disabled</quote> 및 <quote>1 Megabyte</quote>입니"
+#~ "다. <quote>1 Megabyte</quote>로 설정하십시오. Disabled인 경우에는, 설치 플"
+#~ "로피를 제대로 읽지 못하고, 시스템이 결국 멈추었습니다. 현재로서는 이 특정 "
+#~ "마더보드에서 무슨 일이 벌어지고 있는 건지 알아내지 못했습니다. (<quote>1 "
+#~ "Megabyte</quote>로 설정하면 동작하고 아니면 동작하지 않는 것 밖에 알지 못"
+#~ "합니다.)"
+
+#~ msgid "Advanced Power Management"
+#~ msgstr "Advanced Power Management"
+
+#~ msgid ""
+#~ "If your motherboard provides Advanced Power Management (APM), configure "
+#~ "it so that power management is controlled by APM. Disable the doze, "
+#~ "standby, suspend, nap, and sleep modes, and disable the hard disk's power-"
+#~ "down timer. &arch-kernel; can take over control of these modes, and can "
+#~ "do a better job of power-management than the BIOS."
+#~ msgstr ""
+#~ "마더보드에서 Advanced Power Management (APM)에 대응하고 있으면, 이것을 사"
+#~ "용하여 전원 관리 APM을 제어하도록 하십시오. 또한 doze, standby, suspend, "
+#~ "nap, sleep 각 모드는 해제하고 하드 디스크의 power-down 타이머도 비활성화하"
+#~ "십시오. &arch-kernel;은 이 모드에 대한 컨트롤을 실행할 수 있는 전원 관리 "
+#~ "일을 BIOS보다 잘 할 수 있습니다."

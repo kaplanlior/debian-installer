@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2012-07-20 14:12+0000\n"
+"POT-Creation-Date: 2012-09-18 17:24+0000\n"
 "PO-Revision-Date: 2007-03-17 10:48+0100\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: Hungarian\n"
@@ -936,19 +936,13 @@ msgstr "Kezdés"
 
 #. Tag: para
 #: random-bits.xml:405
-#, fuzzy, no-c-format
-#| msgid ""
-#| "With your current *nix partitioning tools, repartition the hard drive as "
-#| "needed, creating at least one filesystem plus swap. You need around &base-"
-#| "system-size;MB of space available for a console only install, or about "
-#| "&task-desktop-lxde-inst;MB if you plan to install X (more if you intend "
-#| "to install desktop environments like GNOME or KDE)."
+#, no-c-format
 msgid ""
 "With your current *nix partitioning tools, repartition the hard drive as "
-"needed, creating at least one filesystem plus swap. You need around 350MB of "
-"space available for a console only install, or about 1GB if you plan to "
-"install X (more if you intend to install desktop environments like GNOME or "
-"KDE)."
+"needed, creating at least one filesystem plus swap. You need around &base-"
+"system-size;MB of space available for a console only install, or about &task-"
+"desktop-lxde-inst;MB if you plan to install X (more if you intend to install "
+"desktop environments like GNOME or KDE)."
 msgstr ""
 "Mostani *nix partíciós eszközöddel particionáld újra a merevlemezt ha és "
 "ahogy szükséges, legyen legalább 1 fájlrendszer és egy csere. Mintegy &base-"
@@ -1906,11 +1900,34 @@ msgstr ""
 #. Tag: title
 #: random-bits.xml:816
 #, no-c-format
+msgid "Remote access: Installing SSH and setting a password"
+msgstr ""
+
+#. Tag: para
+#: random-bits.xml:817
+#, no-c-format
+msgid ""
+"In case you can login to the system via console, you can skip this section. "
+"If the system should be accessible via the network later on, you need to "
+"install SSH and set a password for root:"
+msgstr ""
+
+#. Tag: screen
+#: random-bits.xml:823
+#, no-c-format
+msgid ""
+"# aptitude install ssh\n"
+"# passwd"
+msgstr ""
+
+#. Tag: title
+#: random-bits.xml:828
+#, no-c-format
 msgid "Finishing touches"
 msgstr "Végső lépések"
 
 #. Tag: para
-#: random-bits.xml:817
+#: random-bits.xml:829
 #, no-c-format
 msgid ""
 "As mentioned earlier, the installed system will be very basic. If you would "
@@ -1929,7 +1946,7 @@ msgstr ""
 "használható az egyes csomagok telepítésére."
 
 #. Tag: para
-#: random-bits.xml:828
+#: random-bits.xml:840
 #, no-c-format
 msgid ""
 "After the installation there will be a lot of downloaded packages in "
@@ -1941,19 +1958,19 @@ msgstr ""
 "hely például így:"
 
 #. Tag: screen
-#: random-bits.xml:834
+#: random-bits.xml:846
 #, no-c-format
 msgid "# aptitude clean"
 msgstr "# aptitude clean"
 
 #. Tag: title
-#: random-bits.xml:845
+#: random-bits.xml:857
 #, no-c-format
 msgid "Installing &debian-gnu; over Parallel Line IP (PLIP)"
 msgstr "A &debian-gnu; telepítése Parallel Line IP (PLIP) felett"
 
 #. Tag: para
-#: random-bits.xml:847
+#: random-bits.xml:859
 #, no-c-format
 msgid ""
 "This section explains how to install &debian-gnu; on a computer without an "
@@ -1968,7 +1985,7 @@ msgstr ""
 "elérő hálózaton van (például Interneten)."
 
 #. Tag: para
-#: random-bits.xml:855
+#: random-bits.xml:867
 #, no-c-format
 msgid ""
 "In the example in this appendix we will set up a PLIP connection using a "
@@ -1983,7 +2000,7 @@ msgstr ""
 "(természetesen, ha ezeket használjuk, más ne használja a hálózaton)."
 
 #. Tag: para
-#: random-bits.xml:863
+#: random-bits.xml:875
 #, no-c-format
 msgid ""
 "The PLIP connection set up during the installation will also be available "
@@ -1994,7 +2011,7 @@ msgstr ""
 "után is elérhető (lásd: <xref linkend=\"boot-new\"/>)."
 
 #. Tag: para
-#: random-bits.xml:868
+#: random-bits.xml:880
 #, no-c-format
 msgid ""
 "Before you start, you will need to check the BIOS configuration (IO base "
@@ -2007,13 +2024,13 @@ msgstr ""
 "<literal>io=0x378</literal>, <literal>irq=7</literal>."
 
 #. Tag: title
-#: random-bits.xml:878
+#: random-bits.xml:890
 #, no-c-format
 msgid "Requirements"
 msgstr "Követelmények"
 
 #. Tag: para
-#: random-bits.xml:881
+#: random-bits.xml:893
 #, no-c-format
 msgid ""
 "A target computer, called <emphasis>target</emphasis>, where &debian; will "
@@ -2023,13 +2040,13 @@ msgstr ""
 "rendszert most telepítjük."
 
 #. Tag: para
-#: random-bits.xml:887
+#: random-bits.xml:899
 #, no-c-format
 msgid "System installation media; see <xref linkend=\"installation-media\"/>."
 msgstr "Rendszer telepítő média; lásd: <xref linkend=\"installation-media\"/>."
 
 #. Tag: para
-#: random-bits.xml:892
+#: random-bits.xml:904
 #, no-c-format
 msgid ""
 "Another computer connected to the Internet, called <emphasis>source</"
@@ -2039,7 +2056,7 @@ msgstr ""
 "emphasis>, mely az átjárót adja majd."
 
 #. Tag: para
-#: random-bits.xml:898
+#: random-bits.xml:910
 #, no-c-format
 msgid ""
 "A DB-25 Null-Modem cable. See the <ulink url=\"&url-plip-install-howto;"
@@ -2051,13 +2068,13 @@ msgstr ""
 "készítésének módjáról."
 
 #. Tag: title
-#: random-bits.xml:910
+#: random-bits.xml:922
 #, no-c-format
 msgid "Setting up source"
 msgstr "Forrás beállítása"
 
 #. Tag: para
-#: random-bits.xml:911
+#: random-bits.xml:923
 #, no-c-format
 msgid ""
 "The following shell script is a simple example of how to configure the "
@@ -2067,7 +2084,7 @@ msgstr ""
 "állítására az Internetre a ppp0 által."
 
 #. Tag: screen
-#: random-bits.xml:916
+#: random-bits.xml:928
 #, no-c-format
 msgid ""
 "#!/bin/sh\n"
@@ -2109,13 +2126,13 @@ msgstr ""
 "echo 1 > /proc/sys/net/ipv4/ip_forward"
 
 #. Tag: title
-#: random-bits.xml:922
+#: random-bits.xml:934
 #, no-c-format
 msgid "Installing target"
 msgstr "A cél telepítése"
 
 #. Tag: para
-#: random-bits.xml:923
+#: random-bits.xml:935
 #, no-c-format
 msgid ""
 "Boot the installation media. The installation needs to be run in expert "
@@ -2141,13 +2158,13 @@ msgstr ""
 "válaszok."
 
 #. Tag: guimenuitem
-#: random-bits.xml:942
+#: random-bits.xml:954
 #, no-c-format
 msgid "Load installer components from CD"
 msgstr "Telepítő összetevők betöltése CD-lemezről"
 
 #. Tag: para
-#: random-bits.xml:944
+#: random-bits.xml:956
 #, no-c-format
 msgid ""
 "Select the <userinput>plip-modules</userinput> option from the list; this "
@@ -2157,13 +2174,13 @@ msgstr ""
 "meghajtók elérhetőek lesznek a telepítő rendszer számára."
 
 #. Tag: guimenuitem
-#: random-bits.xml:952
+#: random-bits.xml:964
 #, no-c-format
 msgid "Detect network hardware"
 msgstr "Hálózati hardver érzékelése"
 
 #. Tag: para
-#: random-bits.xml:957
+#: random-bits.xml:969
 #, no-c-format
 msgid ""
 "If target <emphasis>does</emphasis> have a network card, a list of driver "
@@ -2177,7 +2194,7 @@ msgstr ""
 "hálózati kártya, a telepítő nem adja e listát."
 
 #. Tag: para
-#: random-bits.xml:966
+#: random-bits.xml:978
 #, no-c-format
 msgid ""
 "Because no network card was detected/selected earlier, the installer will "
@@ -2189,26 +2206,26 @@ msgstr ""
 "modult."
 
 #. Tag: guimenuitem
-#: random-bits.xml:978
+#: random-bits.xml:990
 #, no-c-format
 msgid "Configure the network"
 msgstr "Hálózat beállítása"
 
 #. Tag: para
-#: random-bits.xml:981
+#: random-bits.xml:993
 #, no-c-format
 msgid "Auto-configure network with DHCP: No"
 msgstr "Hálózat automata-beállítása DHCP segítségével: Nem"
 
 #. Tag: para
-#: random-bits.xml:986
+#: random-bits.xml:998
 #, no-c-format
 msgid ""
 "IP address: <userinput><replaceable>192.168.0.1</replaceable></userinput>"
 msgstr "IP cím: <userinput><replaceable>192.168.0.1</replaceable></userinput>"
 
 #. Tag: para
-#: random-bits.xml:991
+#: random-bits.xml:1003
 #, no-c-format
 msgid ""
 "Point-to-point address: <userinput><replaceable>192.168.0.2</replaceable></"
@@ -2217,7 +2234,7 @@ msgstr ""
 "Pont-pont cím: <userinput><replaceable>192.168.0.2</replaceable></userinput>"
 
 #. Tag: para
-#: random-bits.xml:997
+#: random-bits.xml:1009
 #, no-c-format
 msgid ""
 "Name server addresses: you can enter the same addresses used on source (see "
@@ -2227,13 +2244,13 @@ msgstr ""
 "<filename>/etc/resolv.conf</filename> fájlt)"
 
 #. Tag: title
-#: random-bits.xml:1016
+#: random-bits.xml:1028
 #, no-c-format
 msgid "Installing &debian-gnu; using PPP over Ethernet (PPPoE)"
 msgstr "A &debian-gnu; telepítése PPP over Ethernet (PPPoE) használatával"
 
 #. Tag: para
-#: random-bits.xml:1018
+#: random-bits.xml:1030
 #, no-c-format
 msgid ""
 "In some countries PPP over Ethernet (PPPoE) is a common protocol for "
@@ -2248,7 +2265,7 @@ msgstr ""
 "telepítő, de nagyon könnyen használatba vehető. E szakasz leírja: hogyan."
 
 #. Tag: para
-#: random-bits.xml:1026
+#: random-bits.xml:1038
 #, no-c-format
 msgid ""
 "The PPPoE connection set up during the installation will also be available "
@@ -2259,7 +2276,7 @@ msgstr ""
 "újraindítása után is elérhető (lásd: <xref linkend=\"boot-new\"/>)."
 
 #. Tag: para
-#: random-bits.xml:1031
+#: random-bits.xml:1043
 #, no-c-format
 msgid ""
 "To have the option of setting up and using PPPoE during the installation, "
@@ -2272,7 +2289,7 @@ msgstr ""
 "netboot<phrase condition=\"supports-floppy-boot\"> vagy floppy</phrase>)."
 
 #. Tag: para
-#: random-bits.xml:1038
+#: random-bits.xml:1050
 #, no-c-format
 msgid ""
 "Installing over PPPoE is mostly the same as any other installation. The "
@@ -2281,7 +2298,7 @@ msgstr ""
 "A PPPoE és más telepítések szinte egyeznek. Az alábbi lépések a különbségek."
 
 #. Tag: para
-#: random-bits.xml:1046
+#: random-bits.xml:1058
 #, fuzzy, no-c-format
 #| msgid ""
 #| "Boot the installer with <userinput>modules=ppp-udeb</userinput> as boot "
@@ -2312,7 +2329,7 @@ msgstr ""
 "udeb</classname>) önműködően betöltésre és futtatásra kerül."
 
 #. Tag: para
-#: random-bits.xml:1061
+#: random-bits.xml:1073
 #, no-c-format
 msgid ""
 "Follow the regular initial steps of the installation (language, country and "
@@ -2332,7 +2349,7 @@ msgstr ""
 "</footnote>)"
 
 #. Tag: para
-#: random-bits.xml:1080
+#: random-bits.xml:1092
 #, no-c-format
 msgid ""
 "The next step is the detection of network hardware, in order to identify any "
@@ -2342,7 +2359,7 @@ msgstr ""
 "Ethernet kártya azonosítására."
 
 #. Tag: para
-#: random-bits.xml:1086
+#: random-bits.xml:1098
 #, no-c-format
 msgid ""
 "After this the actual setup of PPPoE is started. The installer will probe "
@@ -2353,7 +2370,7 @@ msgstr ""
 "PPPoE koncentrátort (egy PPPoE kapcsolatokat kezelő kiszolgáló típus)."
 
 #. Tag: para
-#: random-bits.xml:1092
+#: random-bits.xml:1104
 #, no-c-format
 msgid ""
 "It is possible that the concentrator will not to be found at the first "
@@ -2368,7 +2385,7 @@ msgstr ""
 "a telepítő fő menüjéből."
 
 #. Tag: para
-#: random-bits.xml:1101
+#: random-bits.xml:1113
 #, no-c-format
 msgid ""
 "After a concentrator is found, the user will be prompted to type the login "
@@ -2378,7 +2395,7 @@ msgstr ""
 "(a PPPoE felhasználónevet és jelszót)."
 
 #. Tag: para
-#: random-bits.xml:1107
+#: random-bits.xml:1119
 #, no-c-format
 msgid ""
 "At this point the installer will use the provided information to establish "
@@ -2397,13 +2414,13 @@ msgstr ""
 "kapcsolat beállítása és indítása</guimenuitem> ponttal."
 
 #. Tag: title
-#: random-bits.xml:1127
+#: random-bits.xml:1139
 #, no-c-format
 msgid "The Graphical Installer"
 msgstr "A grafikus telepítő"
 
 #. Tag: para
-#: random-bits.xml:1128
+#: random-bits.xml:1140
 #, no-c-format
 msgid ""
 "The graphical version of the installer is only available for a limited "
@@ -2416,7 +2433,7 @@ msgstr ""
 "felületen."
 
 #. Tag: para
-#: random-bits.xml:1136
+#: random-bits.xml:1148
 #, no-c-format
 msgid ""
 "Although the functionality is identical, the graphical installer still has a "
@@ -2433,7 +2450,7 @@ msgstr ""
 "néha pár kérdés egy képernyőre vonható."
 
 #. Tag: para
-#: random-bits.xml:1145
+#: random-bits.xml:1157
 #, fuzzy, no-c-format
 #| msgid ""
 #| "The graphical installer is available with all CD images and with the hd-"
@@ -2460,7 +2477,7 @@ msgstr ""
 "<userinput>expertgui</userinput> és <userinput>rescuegui</userinput> szóval."
 
 #. Tag: para
-#: random-bits.xml:1156
+#: random-bits.xml:1168
 #, fuzzy, no-c-format
 msgid ""
 "There is also a graphical installer image that can be netbooted. And there "
@@ -2478,7 +2495,7 @@ msgstr ""
 "kép."
 
 #. Tag: para
-#: random-bits.xml:1169
+#: random-bits.xml:1181
 #, fuzzy, no-c-format
 msgid ""
 "For &arch-title;, currently only an experimental <quote>mini</quote> ISO "
@@ -2495,7 +2512,7 @@ msgstr ""
 "kártyás PowerPC rendszeren működik más kártyákkal viszont valószínűleg nem."
 
 #. Tag: para
-#: random-bits.xml:1183
+#: random-bits.xml:1195
 #, no-c-format
 msgid ""
 "Just as with the regular installer it is possible to add boot parameters "
@@ -2503,7 +2520,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: random-bits.xml:1189
+#: random-bits.xml:1201
 #, no-c-format
 msgid ""
 "The graphical installer requires significantly more memory to run than the "
@@ -2515,7 +2532,7 @@ msgstr ""
 "memory-gtk;. Ha kevés van, a sima <quote>newt</quote> felület pótolja."
 
 #. Tag: para
-#: random-bits.xml:1196
+#: random-bits.xml:1208
 #, no-c-format
 msgid ""
 "If the amount of memory in your system is below &minimum-memory;, the "
@@ -2525,13 +2542,13 @@ msgid ""
 msgstr ""
 
 #. Tag: title
-#: random-bits.xml:1206
+#: random-bits.xml:1218
 #, no-c-format
 msgid "Using the graphical installer"
 msgstr "A grafikus telepítő használata"
 
 #. Tag: para
-#: random-bits.xml:1207
+#: random-bits.xml:1219
 #, no-c-format
 msgid ""
 "As already mentioned, the graphical installer basically works the same as "
@@ -2541,7 +2558,7 @@ msgstr ""
 "A grafikus telepítő a simához hasonlóan működik, melyet e kézikönyv bemutat."
 
 #. Tag: para
-#: random-bits.xml:1213
+#: random-bits.xml:1225
 #, fuzzy, no-c-format
 msgid ""
 "If you prefer using the keyboard over the mouse, there are two things you "
@@ -2561,7 +2578,7 @@ msgstr ""
 "gombot működteti."
 
 #. Tag: para
-#: random-bits.xml:1223
+#: random-bits.xml:1235
 #, no-c-format
 msgid ""
 "If a dialog offers additional help information, a <guibutton>Help</"
@@ -2570,7 +2587,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: random-bits.xml:1229
+#: random-bits.xml:1241
 #, fuzzy, no-c-format
 #| msgid ""
 #| "To switch to another console, you will also need to use the <keycap>Ctrl</"
