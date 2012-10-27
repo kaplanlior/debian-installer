@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 64916 -->
+<!-- original version: 68011 -->
 
  <sect1 arch="not-s390"><title>Hardware určený pro GNU/&arch-kernel;</title>
 
@@ -40,56 +40,47 @@ znemožňuje uveřejnění zdrojového kódu pro takový ovladač.
 </para><para>
 
 Z důvodu nedostupnosti dokumentace pro tento hardware neexistují
-ovladače pro &arch-kernel;. Můžete výrobce požádat o uvolnění
-dokumentace a pokud se na něj obrátí více lidí, uvědomí si, že
-komunita okolo svobodného softwaru představuje důležitou skupinu
-zákazníků.
-
-</para>
-</sect2>
-
-
-  <sect2 arch="any-x86"><title>Zařízení určená speciálně pro Windows</title>
-<para>
-
-Znepokojivým trendem je rozšíření modemů a tiskáren určených pouze pro
-Windows. Takové periferie byly konstruovány speciálně pro používání
-s operačním systémem Microsoft Windows a nesou označení WinModem nebo
-<quote>Vyrobeno pro systémy s Windows</quote>. Obvykle tato zařízení
-postrádají vlastní procesor a jsou obsluhována ovladačem
-zaměstnávajícím hlavní procesor počítače.  Díky této strategii je
-jejich výroba levnější, ale tato úspora se <emphasis>nemusí</emphasis>
-projevit v koncové ceně zařízení, které může být dokonce dražší než
-obdobné řešení s vlastním procesorem.
+ovladače pro &arch-kernel;.
 
 </para><para>
 
-Doporučujeme vyvarovat se těchto zařízení <quote>vyrobených pro
-Windows</quote> z následujících důvodů. Za prvé jejich výrobci
-zpravidla neposkytují informace pro napsání ovladače pro &arch-kernel; -
-obecně hardware i software pro tato zařízení je vlastnictvím výrobce
-a dokumentace není dostupná bez uzavření dohody o jejím nezveřejnění,
-pokud tedy vůbec dostupná je. Takový přístup k dokumentaci je
-neslučitelný s vytvořením volně šiřitelného ovladače, poněvadž jeho
-autor dává k dispozici zdrojový kód. Dalším důvodem je, že práci
-chybějícího vloženého procesoru musí odvádět operační systém často
-s <emphasis>real-time</emphasis> prioritou a na úkor běhu vašich
-programů, když se věnuje obsluze těchto zařízení. Jelikož typický
-uživatel Windows nespouští tolik souběžných procesů jako uživatel
-systému GNU/&arch-kernel;, doufají výrobci těchto zařízení, že si
-uživatelé nevšimnou, jakou
-zátěž klade jejich hardware na systém.  To nic nemění na faktu, že
-když výrobce ošidí výkon periferií, je tím výkon libovolného
-víceúlohového operačního systému (včetně Windows 2000 a XP)
-degradován.
+V mnoha případech existují standardy (nebo alespoň nepsané standardy),
+které popisují, jak má operační systém komunikovat s určitou skupinou
+zařízení. Všechna zařízení, která takový (nepsaný) standard dodržují,
+mohou být obsluhována jediným společným ovladačem. Konkrétním
+příkladem skupin zařízení, kde to funguje extrémně dobře, jsou třeba
+<firstterm>USB Human Interface Devices</firstterm> (klávesnice, myši,
+herní ovladače) nebo <firstterm>USB Mass Storage Devices</firstterm>
+(USB klíčenky a čtečky paměťových karet), kde prakticky každé zařízení
+na trhu odpovídá standardům.
 
 </para><para>
 
-V takovém případě můžete pomoci pobídnout výrobce k uvolnění
-potřebných materiálů, abychom mohli pro jejich zařízení napsat
-ovladače. Nejlepší však je vyhnout se hardwaru, který
-není uveden jako funkční v
-<ulink url="&url-hardware-howto;">Linux Hardware Compatibility HOWTO</ulink>.
+Naproti tomu třeba v oblasti tiskáren je situace výrazně horší. I když
+existují tiskárny, které se dají ovládat několika (více či méně)
+standardními ovládacími jazyky a tudíž je lze zprovoznit v téměř
+libovolném operačním systému, existuje dost modelů, které rozumí pouze
+proprietárním příkazům, ke kterým neexistuje žádná dostupná
+dokumentace. Takové tiskárny se ve svobodných operačních systémech buď
+nedají používat vůbec, nebo pouze s uzavřeným ovladačem od výrobce.
+
+</para><para>
+
+V případě existence uzavřeného ovladače od výrobce mějte na paměti, že
+praktická životnost takového zařízení je omezena na dobu, po kterou je
+dostupný ovladač. Se zkracováním životního cyklu výrobku není
+neobvyklé, že výrobce přestane aktualizovat ovladač krátce po ukončení
+výroby daného zařízení. Pokud po aktualizaci systému přestane uzavřený
+ovladač fungovat, stává se tím jinak funkční zařízení hromadou
+nepoužitelného šrotu. Takovému hardwaru je dobré se zdaleka vyhnout
+a to bez ohledu na operační systém, se kterým chcete zařízení
+provozovat.
+
+</para><para>
+
+Pomoci můžete tím, že výrobce uzavřeného hardwaru požádáte o uvolnění
+nezbytné dokumentace, podle které můžeme napsat svobodné ovladače pro
+jejich hardware.
 
 </para>
 </sect2>

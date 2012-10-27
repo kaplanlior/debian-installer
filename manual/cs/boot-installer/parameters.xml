@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 68008 -->
+<!-- original version: 68161 -->
 
  <sect1 id="boot-parms"><title>Zaváděcí parametry</title>
 <para arch="linux-any">
@@ -38,13 +38,20 @@ a připojenou klávesnici, měli byste při zavádění zadat parametr
 kde <replaceable>zařízení</replaceable> je vaše sériové zařízení, což
 je obvykle něco jako <filename>ttyS0</filename><footnote><para>
 
-Abyste zajistili, že instalace používá typ terminálu kompatibilní s
-vaším emulátorem terminálu, můžete přidat parametr
+Abyste zajistili, že instalace používá typ terminálu kompatibilní
+s vaším emulátorem terminálu, můžete přidat parametr
 <userinput>TERM=<replaceable>typ</replaceable></userinput>.
 Instalační systém podporuje následující typy terminálů:
-<literal>linux</literal>, <literal>bterm</literal>, <literal>ansi</literal>,
-<literal>vt102</literal> a <literal>dumb</literal>. Pro sériovou
-konzoli v &d-i; je výchozím typem <userinput>vt102</userinput>.
+<literal>linux</literal>, <literal>bterm</literal>,
+<literal>ansi</literal>, <literal>vt102</literal>
+a <literal>dumb</literal>. Pro sériovou konzoli v &d-i; je výchozím
+typem <userinput>vt102</userinput>.
+
+Používáte-li virtualizační nástroj (např. QEMU/KVM), který sám o sobě
+nenabízí konverzi do daných typů terminálu, můžete jej spustit uvnitř
+<command>screen</command>. To totiž zajistí automatický převod na typ
+terminálu <literal>screen</literal>, který je velmi podobný typu
+<literal>vt102</literal>.
 
 </para></footnote>.
 

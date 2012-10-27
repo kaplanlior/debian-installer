@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 67916 -->
+<!-- original version: 68127 -->
 
  <sect1 id="hardware-supported">
  <title>Podporovaná zařízení</title>
@@ -233,12 +233,14 @@ Také bude užitečné sledovat diskuzní list
   <sect2 arch="x86" id="laptops"><title>Notebooky</title>
 <para>
 
-Instalovat můžete i na notebooky. V dnešní době funguje většina
-notebooků bez problémů. Pokud notebook obsahuje nestandardní nebo
+Z technického pohledu jsou notebooky obyčejné počítače, tudíž se na ně
+vztahuje vše napsané o stolních systémech. V dnešní době funguje
+většina notebooků bez problémů, od automatického uspávání po zavření
+víka, až po speciální tlačítka pro vypnutí Wi-Fi (<quote>režim
+v letadle</quote>). Jestliže notebook obsahuje nestandardní nebo
 proprietární hardwarové prvky, je možné že tyto speciální funkce
-nebudou fungovat. Na stránce
-<ulink url="&url-x86-laptop;">Linux a notebooky</ulink>
-zjistíte, zda na vašem notebooku GNU/Linux poběží.
+nebudou fungovat. Na stránce <ulink url="&url-x86-laptop;">Linux
+a notebooky</ulink> zjistíte, zda na vašem notebooku GNU/Linux poběží.
 
 </para>
   </sect2>
@@ -248,19 +250,17 @@ zjistíte, zda na vašem notebooku GNU/Linux poběží.
 <para>
 
 Tato architektura umožňuje využití více procesorů &mdash;
-tzv. symetrický multiprocesing (SMP). Standardní jádro v distribuci
-&debian-gnu; &release; bylo sestaveno s touto podporou, což by nemělo vadit
-ani při instalaci na jednoprocesorový počítač; pouze režie jádra může
-být trošku vyšší.
+tzv. symetrický multiprocesing (SMP). Více procesorů v počítači bylo
+původně doménou výkonných serverů, ale s uvedením konceptu
+<firstterm>vícejádrových</firstterm> procesorů, kdy jeden fyzický čip
+obsahuje několik procesorových jednotek, tzv. <quote>jader</quote>, se
+s nimi dnes můžeme setkat i v nejnižších řadách počítačů a notebooků.
 
-</para><para arch="linux-any">
+</para><para>
 
-Abyste optimalizovali jádro pro jeden procesor, budete muset nahradit
-jádro operačního systému, viz <xref linkend="kernel-baking"/>.
-V aktuálním jádře verze &kernelversion; zrušíte podporu SMP tak, že
-v konfiguračním systému jádra v sekci
-<guimenu>&smp-config-section;</guimenu> vypnete položku
-<guimenuitem>&smp-config-option;</guimenuitem>.
+Standardní jádro v distribuci &debian-gnu; &release; bylo sestaveno
+s podporou SMP, což by nemělo vadit ani při instalaci na
+jednoprocesorový počítač.
 
 </para>
   </sect2>
@@ -275,6 +275,14 @@ tzv. symetrický multiprocesing (SMP). Standardní jádro v distribuci
 <firstterm>SMP-alternatives</firstterm>, což znamená, že jádro samo
 rozpozná počet procesorů (nebo procesorových jader) a na
 jednoprocesorových počítačích podporu SMP automaticky vypne.
+
+</para><para>
+
+Více procesorů v počítači bylo původně doménou výkonných serverů, ale
+s uvedením konceptu <firstterm>vícejádrových</firstterm> procesorů,
+kdy jeden fyzický čip obsahuje několik procesorových jednotek,
+tzv. <quote>jader</quote>, se s nimi dnes můžeme setkat i v nejnižších
+řadách počítačů a notebooků.
 
 </para><para arch="i386">
 
@@ -335,21 +343,20 @@ v sekci <guimenu>&smp-config-section;</guimenu> položku
   <title>Podpora grafických karet</title>
 <para arch="x86">
 
-Pro výstup v textovém režimu potřebujete grafickou kartu kompatibilní
-se standardem VGA, což dnes téměř každá grafická karta splňuje.
-Historické grafické karty kompatibilní se standardy CGA, MDA nebo HGA
-jsou rovněž postačující, pokud ovšem neplánujete využití systému X11.
-(Výchozí instalace popsaná v této příručce grafický systém X11
-nepoužívá, nicméně si můžete zvolit i takovou variantu.)
+Podpora grafických karet v grafickém režimu závisí na tom, zda pro
+kartu existuje ovladač v projektu X.Org. Na moderních počítačích by
+měl grafický režim fungovat zcela automaticky. Podpora pokročilých
+vlastností, jako je hardwarová akcelerace 3D a videa, závisí na
+použitém hardwaru a v některých případech i na instalaci dodatečného
+<quote>firmware</quote> (viz <xref linkend="hardware-firmware"/>).
+Byly zaznamenány i případy, kdy byl firmware pro grafickou kartu
+vyžadován i pro základní podporu grafického režimu, ale to se jednalo
+o výjimky.
 
 </para><para>
 
-Podpora grafických karet v grafickém režimu závisí na tom, zda pro
-kartu existuje ovladač v projektu X.Org. Většina grafických
-karet pro sloty PCI, AGP, PCIe a PCI-X funguje s X.Org bezproblémově.
-Podrobnosti o podporovaných grafických kartách, sběrnicích, monitorech
-a ukazovacích zařízeních naleznete na
-<ulink url="&url-xorg;"></ulink>.
+Podrobnosti o podporovaných grafických kartách a ukazovacích
+zařízeních naleznete na <ulink url="&url-xorg;"></ulink>.
 &debian-gnu; &release; je dodáván se systémem X.Org verze &x11ver;.
 
 </para><para arch="mips">
@@ -397,7 +404,18 @@ Některý hardware vyžaduje kromě samotného ovladače zařízení také
 <firstterm>firmware</firstterm> nebo <firstterm>mikrokód</firstterm>,
 který je třeba do zařízení před použitím nahrát. Nejčastěji se s tím
 setkáte u síťových karet (obzvláště bezdrátových), ale jsou známa
-i některá USB zařízení a dokonce řadiče disků.
+i některá USB zařízení a dokonce řadiče disků. U mnoha grafických
+karet je základní funkčnost dostupná i bez dodatečného firmware,
+nicméně pro využití pokročilejších vlastností je třeba mít v systému
+nachystaný příslušný soubor s firmwarem.
+
+</para><para>
+
+Ve starších zařízeních býval firmware nahrán permanentně v EEPROM nebo
+Flash paměti zařízení přímo od výrobce. To už se dnes příliš nenosí
+a proto je nutné soubor s firmwarem do zařízení nahrát při každém
+startu počítače. Naštěstí to nemusíme dělat ručně, ale postará se o to
+operační systém.
 
 </para><para>
 
@@ -413,6 +431,15 @@ Naštěstí to neznamená, že takový hardware nemůžete pro instalaci
 použít. Počínaje &debian;em 5.0 podporuje &d-i; nahrávání firmwaru
 z výměnných médií, jako jsou diskety nebo USB klíčenky. Tomuto tématu
 se podrobněji věnuje kapitola <xref linkend="loading-firmware"/>.
+
+</para><para>
+
+Pokud se instalační systém zeptá na soubor s firmwarem pro nějaké
+zařízení a vy zrovna firmware nemáte, nebo nechcete do systému
+instalovat nesvobodný balík, můžete zkusit pokračovat i bez firmware.
+Je docela možné, že zařízení bude fungovat, pouze nebudou dostupné
+některé pokročilé funkce (toto je případ některých síťových karet
+s ovladačem tg3).
 
 </para>
  </sect1>

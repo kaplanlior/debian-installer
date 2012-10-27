@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 67007 -->
+<!-- original version: 67991 -->
 
  <sect1 id="installation-media">
  <title>Instalační média</title>
@@ -37,19 +37,14 @@ operačního systému není mezi těmito technologiemi žádný rozdíl.
 
 </para></note><para>
 
-Některé architektury umožňují instalaci z CD. Na počítačích s možností
-zavedení systému z CD mechaniky se lze při instalaci vyhnout použití
-<phrase arch="not-s390">disket.</phrase>
-<phrase arch="s390">pásek.</phrase>
-I v případě, že váš počítač neumí zavádět systém přímo z CD, můžete
-CD-ROM využít po počátečním zavedení systému z jiného média, viz
-<xref linkend="boot-installer"/>.
+Většina architektur umožňuje instalaci z CD. I v případě, že váš
+počítač neumí zavádět systém přímo z CD, můžete CD-ROM využít po
+počátečním zavedení systému z jiného média, viz <xref
+linkend="boot-installer"/>.
 
 </para><para arch="x86">
 
-Využít můžete SCSI, SATA a IDE/ATAPI CD/DVD-ROM. Vyčerpávající
-informace o CD mechanikách v Linuxu najdete
-v <ulink url="&url-cd-howto;">Linux CD-ROM HOWTO</ulink>.
+Využít můžete SCSI, SATA a IDE/ATAPI CD/DVD-ROM.
 
 </para><para arch="x86">
 
@@ -73,32 +68,15 @@ položku <quote>System installation</quote>.
 </para>
   </sect2>
 
-  <sect2><title>Pevný disk</title>
-
-<para>
-
-Pro mnoho architektur je také zajímavá možnost zavedení instalačního
-systému z pevného disku. To však vyžaduje jiný operační systém, pomocí
-kterého nahrajete na disk instalační program.
-
-</para><para arch="sparc">
-
-Přestože &arch-title; nepodporuje zavádění ze SunOS (Solarisu), můžete
-instalovat z jejich oblasti (UFS).
-
-</para>
-  </sect2>
-
   <sect2 condition="bootable-usb"><title>USB Memory Stick</title>
 
 <para>
 
-Mnoho počítačů potřebuje disketové nebo CD-ROM mechaniky pouze pro
-instalaci systému a pro záchranné účely. Pokud spravujete nějaké
-servery, jistě jste již uvažovali o zbytečnosti těchto mechanik
-a o možnosti instalovat systém z paměťového USB média, populární
-<quote>klíčenky</quote>. Tato možnost je velmi zajímavá i pro malé
-systémy, jejichž skříně neoplývají volným prostorem.
+USB flash disky (též <quote>klíčenky</quote>) se staly běžně
+používanými a levnými úložišti. Většina moderních počítačů z nich umí
+zavádět a obzvláště u netbooků a tenkých notebooků bez CD mechaniky se
+předpokládá, že k instalaci operačního systému použijete právě USB
+klíčenku.
 
 </para>
   </sect2>
@@ -116,7 +94,8 @@ systém nastavit i pro tato připojení.
 
 </para><para condition="supports-tftp">
 
-Instalační systém také můžete <emphasis>zavést</emphasis> ze sítě.
+Instalační systém také můžete <emphasis>zavést</emphasis> ze sítě bez
+použití dalšího média jako CD/DVD nebo USB klíčenky.
 <phrase arch="mips;mipsel">
 Pro &arch-title; to je preferovaný způsob instalace.
 </phrase>
@@ -125,6 +104,22 @@ Pro &arch-title; to je preferovaný způsob instalace.
 
 Příjemnou možností je bezdisková instalace. Systém se zavede z lokální
 sítě a všechny lokální souborové systémy se připojí přes NFS.
+
+</para>
+  </sect2>
+
+  <sect2><title>Pevný disk</title>
+
+<para>
+
+Pro mnoho architektur je také zajímavá možnost zavedení instalačního
+systému z pevného disku. To však vyžaduje jiný operační systém, pomocí
+kterého nahrajete na disk instalační program.
+
+</para><para arch="sparc">
+
+Přestože &arch-title; nepodporuje zavádění ze SunOS (Solarisu), můžete
+instalovat z jejich oblasti (UFS).
 
 </para>
   </sect2>
@@ -148,20 +143,16 @@ zmíněná technika zajímá, přeskočte na <xref linkend="linux-upgrade"/>.
 <para>
 
 Zaváděcí disky &debian;u obsahují jádro s velkým množstvím ovladačů,
-aby fungovaly na co nejširší škále počítačů. Jestli se vám takto
-připravené jádro zdá pro běžné použití zbytečně velké, pročtěte si
-návod o přípravě vlastního jádra<phrase arch="linux-any"> (<xref	linkend="kernel-baking"/>)</phrase>.
-Podpora co nejvíce zařízení na instalačních discích je žádoucí pro
-snadnou instalaci na libovolném hardwaru.
+aby fungovaly na co nejširší škále počítačů.
 
 </para><para arch="x86">
 
-Instalační systém &debian;u obsahuje podporu pro disketové mechaniky,
-IDE disky (též známé jako PATA disky), disketové mechaniky IDE, IDE
-disky na paralelním portu, SATA a SCSI řadiče a jednotky, USB a
-FireWire. Systém umí pracovat se souborovými systémy FAT, FAT s
-rozšířením Win-32 (VFAT), NTFS a dalšími.
+Instalační systém &debian;u obsahuje podporu pro IDE disky (též známé
+jako PATA), SATA a SCSI řadiče a jednotky, USB i FireWire. Systém umí
+pracovat se souborovými systémy FAT, FAT s rozšířením Win-32 (VFAT),
+NTFS a dalšími.
 
+<!--
 </para><para arch="x86">
 
 Podporovány jsou také disky emulující AT rozhraní. Bývají označeny
@@ -169,6 +160,7 @@ jako MFM, RLL, IDE nebo PATA. Použít můžete také SATA a SCSI řadiče
 disků od nejrůznějších výrobců, podrobnosti jsou shromážděny
 v <ulink url="&url-hardware-howto;">Linux Hardware Compatibility
 HOWTO</ulink>.
+-->
 
 </para><para arch="sparc">
 

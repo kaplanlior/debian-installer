@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 64829 -->
+<!-- original version: 68102 -->
 
    <sect3 id="apt-setup">
    <title>Nastavení apt</title>
@@ -178,5 +178,38 @@ chyba, nebo pro které existuje novější verze na službě
 také nezakázali).
 
 </para>
-</sect4>
+    </sect4>
+
+    <sect4 id="apt-setup-mirror-selection">
+    <title>Výběr síťového zrcadla</title>
+<para>
+
+Jestliže jste během instalace zvolili použití síťového zrcadla, bude
+vám nabídnut seznam geograficky blízkých (a tedy doufejme rychlých)
+zrcadel. Není v tom žádná magie, použijí se zrcadla ze země, kterou
+jste zvolili na počátku instalace.
+
+</para><para>
+
+Pokud se váš počítač nachází na síti, na které se používá
+<emphasis>pouze</emphasis> protokol IPv6, nemusí výchozí nabídnuté
+zrcadlo fungovat. Všechna zrcadla jsou totiž dostupná přes IPv4, ale
+pouze některá přes IPv6. Jelikož se situace mění každým okamžikem,
+není tato informace dostupná přímo v instalačním systému. Jestliže
+výchozí nabídnuté zrcadlo IPv6 nepodporuje, zkuste nějaké jiné,
+případně zvolte možnost <quote>zadat informace ručně</quote> a jako
+název zrcadla zadejte <userinput>ftp.ipv6.debian.org</userinput>.
+Nebude to asi nejrychlejší, ale bude to fungovat.
+
+</para><para>
+
+Další možností, zatím ne zcela oficiální, je při ručním zadávání
+zrcadla zadat <userinput>http.debian.net</userinput>. Nejedná se
+o fyzické zrcadlo, ale o službu, která vás automaticky přesměruje na
+topologicky nejbližší zrcadlo. Služba bere v úvahu i protokol, kterým
+k ní přistupujete, takže v případě IPv6 by vás měla přesměrovat na
+blízké zrcadlo podporující právě protokol IPv6.
+
+</para>
+    </sect4>
    </sect3>

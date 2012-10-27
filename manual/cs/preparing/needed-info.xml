@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 67232 -->
+<!-- original version: 68010 -->
 
  <sect1 id="needed-info">
  <title>Dále budete potřebovat</title>
@@ -55,7 +55,7 @@ různého hardwaru.
 <itemizedlist arch="x86;sparc;mips;mipsel">
 <listitem arch="x86"><para>
 
-<ulink url="&url-hardware-howto;">Linux Hardware Compatibility HOWTO</ulink>
+<ulink url="&url-debian-wiki-hardware;">Debian Hardware Wiki</ulink>
 
 </para></listitem>
 <listitem arch="sparc"><para>
@@ -147,9 +147,11 @@ Z manuálů, které jste získali spolu s příslušným hardwarem.
 </para></listitem>
 <listitem><para>
 
-Z BIOSu vašeho počítače. K těmto informacím se dostanete, když
-během startu počítače stisknete určitou kombinaci kláves. Často to
-bývá klávesa <keycap>Delete</keycap>.
+Z BIOSu vašeho počítače. K těmto informacím se dostanete, když během
+startu počítače stisknete určitou kombinaci kláves. Často to bývá
+klávesa <keycap>Delete</keycap> nebo <keycap>F2</keycap>. Obvykle je
+tato klávesa zmíněna na obrazovce při startu počítače, nebo v příručce
+k základní desce.
 
 </para></listitem>
 <listitem><para>
@@ -181,7 +183,7 @@ mohou pomoci při nastavení sítě a elektronické pošty.
 <para>
 
 <table>
-<title>Hardwarové informace nutné pro instalaci</title>
+<title>Hardwarové informace užitečné pro instalaci</title>
 <tgroup cols="2">
 <thead>
 <row>
@@ -205,6 +207,7 @@ mohou pomoci při nastavení sítě a elektronické pošty.
   <entry>Oddíly, na kterých jsou nainstalovány jiné operační systémy</entry>
 </row>
 
+<!--
 <row arch="not-s390">
   <entry morerows="5">Monitor</entry>
   <entry>Výrobce a model.</entry>
@@ -220,7 +223,9 @@ mohou pomoci při nastavení sítě a elektronické pošty.
 </row><row arch="not-s390">
   <entry>Velikost obrazovky.</entry>
 </row>
+-->
 
+<!--
 <row arch="not-s390">
   <entry morerows="3">Myš</entry>
   <entry>Typ: sériová, PS/2 nebo USB.</entry>
@@ -231,29 +236,21 @@ mohou pomoci při nastavení sítě a elektronické pošty.
 </row><row arch="not-s390">
   <entry>Počet tlačítek.</entry>
 </row>
+-->
 
 <row arch="not-s390">
-  <entry morerows="1">Síť</entry>
-  <entry>Výrobce a model</entry>
-</row><row arch="not-s390">
-  <entry>Typ adaptéru.</entry>
+  <entry>Síťová rozhraní</entry>
+  <entry>Výrobce a model síťových adaptérů.</entry>
 </row>
 
 <row arch="not-s390">
-  <entry morerows="1">Tiskárna</entry>
+  <entry>Tiskárna</entry>
   <entry>Výrobce a model.</entry>
-</row><row arch="not-s390">
-  <entry>Podporovaná tisková rozlišení.</entry>
 </row>
 
 <row arch="not-s390">
-  <entry morerows="2">Grafická karta</entry>
+  <entry>Grafická karta</entry>
   <entry>Výrobce a model.</entry>
-</row><row arch="not-s390">
-  <entry>Dostupná videopaměť.</entry>
-</row><row arch="not-s390">
-  <entry>Podporovaná rozlišení a barevné hloubky (měli byste porovnat
-  se schopnostmi monitoru).</entry>
 </row>
 
 <row arch="s390">
@@ -282,60 +279,120 @@ mohou pomoci při nastavení sítě a elektronické pošty.
 
 <para>
 
-Mnoho značkových výrobků pracuje v operačním systému &arch-kernel; bez
-problémů a podpora hardwaru pro něj se zlepšuje každým dnem. Přes to
-všechno &arch-kernel; nepodporuje tolik typů hardwaru jako některé
-jiné operační systémy.
-
-</para><para arch="any-x86">
-
-&arch-kernel; obvykle neumí používat hardware, který ke své činnosti
-vyžaduje některou verzi Windows.
-
-</para><para arch="x86">
-
-Přestože některý Windows-specifický hardware můžete pod Linuxem
-rozchodit, obvykle to vyžaduje spoustu další práce. Navíc linuxové
-ovladače pro windowsový hardware bývají svázány s konkrétním jádrem
-a tudíž mohou rychle zastarat, respektive vás nutí zůstat u
-staršího jádra (které třeba obsahuje bezpečnostní chybu).
-
-</para><para arch="any-x86">
-
-Nejrozšířenějšími ukázkami tohoto hardwaru jsou takzvané
-win-modemy. Windows-specifické však mohou být i tiskárny a jiná
-zařízení.
+Mnoho výrobků pracuje v operačním systému &arch-kernel; bez problémů
+a podpora hardwaru pro něj se zlepšuje každým dnem. Přes to všechno
+&arch-kernel; nepodporuje tolik typů hardwaru jako některé jiné
+operační systémy.
 
 </para><para>
 
-Možný postup při ověřování hardwarové kompatibility:
+Ovladače v jádře &arch-kernel; většinou nejsou psány pro konkrétní
+<quote>výrobek</quote> nebo <quote>značku</quote>, ale pro konkrétní
+čipovou sadu. Mnoho na první pohled odlišných zařízení/značek bývá
+založeno na stejném hardwaru, často přímo na
+tzv. <firstterm>referenčním návrhu</firstterm>, který poskytuje
+výrobce čipu a ostatní firmy jej pak prodávají pod svými vlastními
+názvy.
 
-<itemizedlist>
-<listitem><para>
+</para><para>
 
-Zkontrolujte webové stránky výrobce, zda nemá nové ovladače.
+To má výhody i nevýhody. Výhodou je, že ovladač pro jednu čipovou sadu
+funguje se širokou škálou zařízení od různých výrobců. Nevýhodou je,
+že často není jednoduché poznat, který čip je v jakém zařízení použit,
+protože někteří výrobci občas změní hardware produktu bez změny názvu
+zařízení, nebo alespoň verze. Může se tak stát, že stejný výrobek
+koupený později, může mít zcela jiný hardware, pro který je potřeba
+použít jiný ovladač, nebo pro něj dokonce ani ovladač existovat
+nemusí.
 
-</para></listitem>
-<listitem><para>
+</para><para>
 
-Hledejte na webových stránkách nebo v manuálech informace o emulaci.
-Je možné, že některé méně známé značky používají stejné ovladače nebo
-nastavení, jako jejich známější kolegové.
+Pro USB a PCI/PCI-Express/ExpressCard zařízení se dá zjistit
+identifikační číslo zařízení (ID) a podle něj pak dohledat čipovou
+sadu, na které je výrobek založen.
 
-</para></listitem>
-<listitem><para>
+</para><para>
 
-Prohlejte seznamy hardwaru kompatibilního s jádrem &arch-kernel;.
+V Linuxu můžete tato ID zjistit příkazem <command>lsusb</command> pro
+USB zařízení, nebo příkazem <command>lspci -nn</command> pro zařízení
+PCI/PCI-Express/ExpressCard. ID obvykle vypadá jako dvě čísla
+v šestnáctkové soustavě oddělená dvojtečkou,
+např. <quote>1d6b:0001</quote>, kde <quote>1d6b</quote> je ID výrobce
+a <quote>0001</quote> je ID zařízení.
 
-</para></listitem>
-<listitem><para>
+</para><para>
 
-Hledejte na Internetu zkušenosti jiných uživatelů.
+Příklady výstupů obou příkazů:
 
-</para></listitem>
-</itemizedlist>
+<informalexample><screen>
+<prompt>#</prompt> <userinput>lsusb</userinput>
+<computeroutput>Bus 001 Device 001: ID <emphasis>1d6b:0002</emphasis> Linux Foundation 2.0 root hub</computeroutput>
+</screen></informalexample>
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>lspci -nn</userinput>
+<computeroutput>03:00.0 Ethernet controller [0200]: Realtek Semiconductor Co., Ltd. RTL8111/8168B PCI Express Gigabit Ethernet controller [<emphasis>10ec:8168</emphasis>] (rev 06)
+04:00.0 VGA compatible controller [0300]: Advanced Micro Devices [AMD] nee ATI RV710 [Radeon HD 4350] [<emphasis>1002:954f</emphasis>]</computeroutput>
+</screen></informalexample>
+
+Na druhém příkladu vidíme dvě zařízení - síťovou kartu od výrobce s ID
+<quote>10ec</quote> a grafickou kartu od výrobce s ID
+<quote>1002</quote>.
+
+</para><para>
+
+Na systémech Windows můžete zjistit ID zařízení ve Správce zařízení na
+záložce <quote>Podrobnosti</quote>. ID výrobce má předponu
+<quote>VEN_</quote>, ID zařízení pak předponu <quote>DEV_</quote>.
+U Windows 7 a novějších navíc musíte na záložce Podrobnosti vybrat ze
+seznamu vlastnost <quote>Hardwarová ID</quote>, jelikož jinak byste ID
+neviděli.
+
+</para><para>
+
+Vyzbrojeni ID pak můžete vyrazit do hlubin Internetu a pátrat po
+informacích ohledně ovladače pro danou čipovou sadu. Nebudete-li
+úspěšní, můžete zkusit hledat podle kódových jmen čipů, která jsou
+taktéž vidět ve výpisu příkazů <command>lsusb</command>
+a <command>lspci</command>. V našem případě to je
+<quote>RTL8111</quote>/<quote>RTL8168B</quote> pro síťovou kartu
+a <quote>RV710</quote> pro kartu grafickou.
 
 </para>
+
+   <sect3>
+   <title>Testování kompatibility hardware pomocí Live systému</title>
+<para>
+
+&debian-gnu; je též na některých architekturách dostupný ve formě
+tzv. <quote>live systému</quote>. Jedná se o předpřipravené obrazy
+systému, které se dají spustit přímo z USB klíčenky, CD nebo DVD a bez
+dalšího nastavování okamžitě používat. Výhodou je, že se v takovém
+systému ve výchozím nastavení nic nezapisuje na disk, vše se odehrává
+jen v operační paměti a po restartu počítače se vše vrátí do původního
+stavu. Nejpohodlnější cestou ke zjištění, zda je daný hardware
+systémem &debian-gnu; podporován, je tedy spustit &debian; live
+a zkusit ho chvíli používat.
+
+</para><para>
+
+Při používání live systému je třeba mít na paměti několik omezení.
+Jelikož se vše odehrává v paměti počítače, je třeba mít dostatek
+paměti. Dalším omezením pro testování hardwarové kompatibility může
+být fakt, že oficiální live obrazy systému &debian-gnu; obsahují pouze
+svobodné součásti, což znamená, že na nich nenaleznete například
+nesvobodný firmware. Ten sice můžete následně doinstalovat ručně, ale
+nebude to tak automatické, jako když se &d-i; sám dotázal po
+chybějících souborech s firmwarem.
+
+</para><para>
+
+Podrobnější informace o dostupných obrazech &debian; live můžete
+nalézt na stránce <ulink url="&url-debian-live-cd;">Debian
+Live</ulink>.
+
+</para>  
+   </sect3>
   </sect2>
 
   <sect2>
@@ -344,8 +401,8 @@ Hledejte na Internetu zkušenosti jiných uživatelů.
 <para>
 
 Pokud bude váš počítač trvale připojen do sítě (myslí se ethernetové
-a obdobné připojení, ne PPP), zjistěte si od správce sítě následující
-informace.
+a obdobné připojení, ne PPP), kterou spravuje někdo jiný, zjistěte si
+od správce sítě následující informace.
 
 <itemizedlist>
 <listitem><para>
@@ -384,9 +441,21 @@ počítačů na IP adresy (DNS).
 
 </para><para>
 
-Pokud vám správce sítě doporučí použít DHCP server, nemusíte tyto
-informace zjišťovat, protože DHCP server nastaví váš počítač
-automaticky.
+Pokud daná síť používá pro nastavení parametrů DHCP (Dynamic Host
+Configuration Protocol), nemusíte tyto informace zjišťovat, protože
+DHCP server nastaví váš počítač automaticky.
+
+</para><para>
+
+Při připojení přes DSL nebo kabelovou televizi obvykle dostanete
+router, přes který se připojujete, a na kterém obvykle bývá DHCP
+zapnuto.
+
+</para><para arch="x86">
+
+Hodně zjednodušeně: pokud jste ve svém předchozím operačním systému
+nemuseli síť nastavovat ručně, nebudete ji muset nastavovat ani
+v systému &debian-gnu;.
 
 </para><para arch="not-s390">
 
@@ -395,12 +464,13 @@ Používáte-li bezdrátové připojení, měli byste navíc zjistit:
 <itemizedlist>
 <listitem><para>
 
-ESSID vaší bezdrátové sítě.
+ESSID (jméno) vaší bezdrátové sítě.
 
 </para></listitem>
 <listitem><para>
 
-Bezpečnostní klíč WEP nebo WPA/WPA2 (pokud jej používáte).
+Bezpečnostní klíč WEP nebo WPA/WPA2 pro přístup k síti (pokud jej
+používáte).
 
 </para></listitem>
 </itemizedlist>

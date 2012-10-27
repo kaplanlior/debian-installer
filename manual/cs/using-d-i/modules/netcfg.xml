@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 67232 -->
+<!-- original version: 68097 -->
 
   <sect3 id="netcfg">
   <title>Nastavení sítě</title>
@@ -14,7 +14,11 @@ skončení instalace ručně &mdash; viz manuálová stránka <citerefentry>
 <refentrytitle>interfaces</refentrytitle> <manvolnum>5</manvolnum>
 </citerefentry>.
 
-</para><para>
+</para>
+
+    <sect4 id="netcfg-automatic">
+    <title>Automatické nastavení sítě</title>
+<para>
 
 Implicitně se &d-i; snaží nastavit síť automaticky přes DHCP. Pokud
 DHCP uspěje, vše je nastaveno. Jestliže DHCP skončí s chybou, může být
@@ -24,9 +28,15 @@ DHCP server nemáte. K přesnějšímu určení problému možná pomohou
 chybové hlášky na čtvrté konzoli. Ať už je chyba kdekoliv, budete
 dotázáni, zda chcete znovu zkusit DHCP, nebo zda nastavíte síť ručně.
 DHCP servery jsou někdy docela pomalé, takže pokud jste si jisti, že
-vše ostatní je v pořádku, klidně to zkuste znovu.
+vše ostatní je v pořádku, klidně to zkuste znovu. Jestliže automatické
+nastavení selhává opakovaně, zvolte ruční nastavení sítě.
 
-</para><para>
+</para>
+    </sect4>
+
+    <sect4 id="netcfg-manual">
+    <title>Ruční nastavení sítě</title>
+<para>
 
 Při ručním nastavení sítě vás <command>netcfg</command> vyzve
 k zadání údajů z <xref linkend="needed-info"/>
@@ -36,7 +46,8 @@ k zadání údajů z <xref linkend="needed-info"/>
 <computeroutput>Adresy jmenných serverů</computeroutput> a
 <computeroutput>Název počítače</computeroutput>).
 Pokud k instalaci používáte bezdrátové připojení, budete dotázáni
-ještě na <computeroutput>Bezdrátové ESSID</computeroutput>
+ještě na <computeroutput>Bezdrátové ESSID</computeroutput> (název
+bezdrátové sítě)
 a <computeroutput>WEP klíč</computeroutput> nebo
 <computeroutput>přístupovou frázi WPA/WPA2</computeroutput>.
 
@@ -51,4 +62,26 @@ Konfiguraci můžete na nainstalovaném systému upravit v souboru
 <filename>/etc/network/interfaces</filename>.
 
 </para></note>
+    </sect4>
+
+    <sect4 id="netcfg-ipv4-ipv6">
+    <title>IPv4 a IPv6</title>
+<para>
+
+&d-i; od verze 7.0 (<quote>Wheezy</quote>) podporuje kromě
+<quote>tradičního</quote> síťového protokolu IPv4 též protokol IPv6.
+Podporovány jsou všechny kombinace: samotné IPv4, samotné IPv6,
+i smíšené nastavení.
+
+</para><para>
+
+Automatické nastavení sítě se v případě IPv4 děje prostřednictvím DHCP
+(Dynamic Host Configuration Protocol). Automatické nastavení IPv6
+podporuje bezstavové nastavení pomocí NDP (Neighbor Discovery
+Protocol - včetně přiřazení rekurzivního DNS serveru (RDNSS)), stavové
+nastavení přes DHCPv6 i smíšené stavové/bezstavové nastavení
+(přiřazení adresy přes NDP, získání dalších parametrů přes DHCPv6).
+
+</para>
+    </sect4>
   </sect3>

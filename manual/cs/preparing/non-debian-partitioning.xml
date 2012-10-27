@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 65194 -->
+<!-- original version: 67998 -->
 
  <sect1 id="non-debian-partitioning">
  <title>Předrozdělení disku pro více operačních systémů</title>
@@ -41,11 +41,11 @@ oblast pro kořenový souborový systém.
 
 Informace o aktuálním rozdělení disku můžete získat dělicím programem
 svého stávajícího operačního systému<phrase arch="any-x86">, jako je
-fdisk nebo PartitionMagic</phrase><phrase arch="powerpc">, jako je
-Drive Setup, HD Toolkit nebo MacTools</phrase>
-<phrase
-arch="s390">, jako je VM diskmap</phrase>. Každý dělicí nástroj
-umožňuje prohlížet oblasti bez jejich modifikace.
+Správa disků ve Windows nebo fdisk v DOSu</phrase><phrase
+arch="powerpc">, jako je Drive Setup, HD Toolkit nebo
+MacTools</phrase> <phrase arch="s390">, jako je VM
+diskmap</phrase>. Každý dělicí nástroj umožňuje prohlížet oblasti bez
+jejich modifikace.
 
 </para><para>
 
@@ -54,51 +54,32 @@ dat, takže si raději disk před změnami do tabulky diskových oddílů
 zazálohujte. Podle analogie s bytem a zdmi, z bytu také raději
 vynesete veškerý nábytek, než budete přestavovat zdi.
 
-</para><para arch="hppa" condition="FIXME">
-
-<emphasis>FIXME: write about HP-UX disks?</emphasis>
-
 </para><para>
 
-Jestliže má váš počítač více než jeden pevný disk, můžete celý disk
-vyhradit pro &debian; a dělením disku se můžete zabývat až v průběhu
-instalace. Oddílový program obsažený v instalačním programu se s tím
-jednoduše vypořádá.
+Přestože některé moderní operační systémy zvládají přesun a změnu
+velikosti některých oddílů bez zničení obsahu, takže by se dalo
+vytvořit místo pro &debian; beze ztráty dat, jedná se o inherentně
+nebezpečnou operaci a proto byste to měli spáchat až po kompletní
+záloze všech dat. <phrase arch="any-x86">Oblasti typu FAT/FAT32 a NTFS
+se dají bezeztrátově upravovat například ze Správy disků ve Windows 7,
+nebo během instalace přímo z &d-i;u (viz <xref
+linkend="di-partition"/>).</phrase>
 
-</para><para>
+</para><para><warning>
 
-Stejně tak pokud máte pouze jeden pevný disk a chcete kompletně
-nahradit stávající operační systém &debian;em, může rozdělení disku
-proběhnout až během instalace (viz <xref linkend="di-partition"/>).
-Pozor: pokud startujete instalační systém z pevného disku a potom
-tento disk rozdělíte, smažete si zaváděcí soubory a musíte doufat, že
-se instalace povede napoprvé. (Minimálně v tomto případě je dobré mít
+Pokud startujete instalační systém z pevného disku a potom tento disk
+rozdělíte, smažete si zaváděcí soubory a musíte doufat, že se
+instalace povede napoprvé. (Minimálně v tomto případě je dobré mít
 u sebe nástroje pro oživení počítače, jako jsou zaváděcí diskety nebo
 CD s původním systémem a podobně.)
 
-</para><para>
+</warning></para><para>
 
-Také v případě, že již máte na disku několik oblastí a potřebné místo
-můžete získat jejich smazáním, můžete počkat s rozdělením disku a
-rozdělit jej až při instalaci. I tak byste si měli raději tuto
-kapitolu přečíst, protože někdy mohou nastat okolnosti, které vás k
-rozdělení disku před instalací stejně donutí (například vynucené
-pořadí některých oblastí).
-
-</para><para arch="any-x86">
-
-S rozdělováním můžete rovněž počkat, pokud máte ve svém počítači
-oblast(i) se souborovým systémem FAT nebo NTFS. Tyto oblasti můžete
-zmenšit rovnou v instalačním programu.
-
-</para><para>
-
-Ve všech ostatních případech musíte disk rozdělit ještě před
-instalací, abyste pro &debian; vytvořili volné místo.
-Pokud některé z oblastí budou patřit k jinému operačnímu systému,
-vytvořte je pomocí oddílových programů daného systému. Stejně tak
-<emphasis>nedoporučujeme</emphasis> vytvářet oblasti pro &debian-gnu; nástroji
-z jiných operačních systémů. (Každý systém ví nejlépe, co mu chutná.)
+I když s diskovými oblastmi mohou manipulovat jak &d-i;, tak nástroje
+ve stávajícím operačním systému, vždy bývá nejlepší, když si své
+oblasti vytváří vždy ten systém, který je bude používat, protože sám
+nejlépe ví, co mu chutná. To znamená, že oblasti pro &debian-gnu;
+byste měli vytvořit v &d-i;.
 
 </para><para>
 
@@ -123,7 +104,10 @@ To se zajistí třeba tím, že se před instalací vytvoří prázdná oblast
 zavádět.) Poté, při instalaci &debian;u, se tato oblast smaže a nahradí
 se oblastmi pro &arch-parttype;.
 
-</para><para>
+</para>
+
+<!-- paragraph scheduled for removal
+<para>
 
 Jestliže máte, jako většina kancelářských počítačů, pouze jeden pevný
 disk s oblastí o maximální velikosti a chcete zavádět oba operační
@@ -171,8 +155,14 @@ Zavést instalátor &debian;u a pokračovat v instalaci.
 </orderedlist>
 
 </para>
+-->
+
+<!-- &nondeb-part-x86.xml; currently includes only outdated information;
 
 &nondeb-part-x86.xml;
+
+-->
+
 &nondeb-part-sparc.xml;
 &nondeb-part-powerpc.xml;
 
