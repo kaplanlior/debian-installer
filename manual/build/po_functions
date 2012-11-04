@@ -33,7 +33,7 @@ generate_xml () {
 
 clear_xml () {
     for lang in $languages; do
-        if [ -d ../po/$lang ] && [ ! -d ../$lang/ ] && ! svn info ../$lang/ >/dev/null 2>&1 ; then
+        if [ -d ../po/$lang ] && [ -d ../$lang/ ] && ! svn info ../$lang/ >/dev/null 2>&1 ; then
             rm -rf ../$lang
         fi
     done
