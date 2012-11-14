@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: boot-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2012-10-24 19:53+0000\n"
-"PO-Revision-Date: 2012-10-27 09:40+0100\n"
+"PO-Revision-Date: 2012-11-14 09:40+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -3114,6 +3114,11 @@ msgid ""
 "the installed system. Example: <userinput>language=en country=DE "
 "locale=en_GB.UTF-8</userinput>."
 msgstr ""
+"Den anden, mere fleksible indstilling er at angive <literal>sprog</literal> "
+"og <literal>land</literal> adskilt. I dette tilfælde kan <literal>sted</"
+"literal> valgfrit tilføjes for at angive et specifikt standardsted for det "
+"installerede system. Eksempel: <userinput>language=en country=DE "
+"locale=en_GB.UTF-8</userinput>."
 
 #. Tag: term
 #: boot-installer.xml:2474
@@ -3131,6 +3136,11 @@ msgid ""
 "command> during the installation)<phrase arch=\"not-s390\"> and "
 "<classname>ppp-udeb</classname> (see <xref linkend=\"pppoe\"/>)</phrase>."
 msgstr ""
+"Kan bruges til automatisk at indlæse installationskomponenter, som ikke "
+"indlæses som standard. Eksempler på valgfrie komponenter, som kan være "
+"nyttige er <classname>openssh-client-udeb</classname> (så du kan bruge "
+"<command>scp</command> under installationen)<phrase arch=\"not-s390\"> og "
+"<classname>ppp-udeb</classname> (se <xref linkend=\"pppoe\"/>)</phrase>."
 
 #. Tag: para
 #: boot-installer.xml:2489
@@ -3139,12 +3149,14 @@ msgid ""
 "Set to <userinput>true</userinput> if you want to disable DHCP and instead "
 "force static network configuration."
 msgstr ""
+"Angiv som <userinput>true (sand)</userinput> hvis du ønsker at deaktivere "
+"DHCP og i stedet for fremtvinger statisk netværkskonfiguration."
 
 #. Tag: term
 #: boot-installer.xml:2498
 #, no-c-format
 msgid "mirror/protocol (protocol)"
-msgstr ""
+msgstr "mirror/protocol (protokol)"
 
 #. Tag: para
 #: boot-installer.xml:2499
@@ -3157,6 +3169,12 @@ msgid ""
 "instead. Note that you cannot select an ftp mirror from a list, you have to "
 "enter the hostname manually."
 msgstr ""
+"Som standard vil installationsprogrammet bruge http-protokollen til "
+"at hente filer fra &debian;-spejle og ændring af dette til ftp er ikke "
+"muligt under installationer med normal prioritet. Ved at angive denne "
+"parameter til <userinput>ftp</userinput>, så kan du tvinge installationsprogrammet "
+"til at bruge den protokol i stedet for. Bemærk at du ikke kan vælge et "
+"ftp-spejl fra en liste, du skal indtaste værtsnavnet manuelt."
 
 #. Tag: term
 #: boot-installer.xml:2512
@@ -3172,6 +3190,9 @@ msgid ""
 "list, such as the <literal>kde-desktop</literal> task. See <xref linkend="
 "\"pkgsel\"/> for additional information."
 msgstr ""
+"Kan bruges til at vælge opgaver, som ikke er tilgængelige fra den interaktive "
+"opgaveliste, såsom opgaven <literal>kde-desktop</literal>. Se <xref linkend="
+"\"pkgsel\"/> for yderligere information."
 
 #. Tag: title
 #: boot-installer.xml:2527
@@ -3193,6 +3214,15 @@ msgid ""
 "thus be used when the modules are actually loaded. The parameters will also "
 "be propagated automatically to the configuration for the installed system."
 msgstr ""
+"Hvis drivere er kompileret ind i kernen, så kan du sende parametre til dem "
+"som beskrevet i kernedokumentationen. Dog er det ikke muligt at sende "
+"parametre til moduler, som du normalt ville gøre, hvis drivere er kompileret "
+"som moduler og fordi kernemoduler indlæses en smule anderledes under "
+"installation end under opstart fra et installeret system. I stedet skal du "
+"bruge en speciel syntaks der genkendes af installationsprogrammet, som så vil "
+"sikre at parametrene er gemt i de korrekte konfigurationsfiler og vil "
+"derfor blive brugt når modulerne rent faktisk indlæses. Parametrene vil også "
+"automatisk blive videregivet til konfigurationen for det installerede system."
 
 #. Tag: para
 #: boot-installer.xml:2541
@@ -3203,6 +3233,10 @@ msgid ""
 "system and set good defaults that way. However, in some situations it may "
 "still be needed to set parameters manually."
 msgstr ""
+"Bemærk at det er ret sjældent at parametere skal sendes til moduler. "
+"I de fleste tilfælde vil kernen kunne finde frem til udstyret i et system og "
+"angive gode standarder via denne metode. I nogle situationer kan det dog "
+"være nødvendigt at angive parametre manuelt."
 
 #. Tag: para
 #: boot-installer.xml:2548
@@ -3217,6 +3251,14 @@ msgid ""
 "network interface card to use the BNC (coax) connector and IRQ 10, you would "
 "pass:"
 msgstr ""
+"Syntaksen for brug af modulparametre er: "
+"<informalexample><screen>\n"
+"<replaceable>module_name</replaceable>.<replaceable>parameter_name</"
+"replaceable>=<replaceable>value</replaceable>\n"
+"</screen></informalexample> Hvis du skal sende flere parametre til den samme "
+"eller forskellige moduler, så gentag bare dette. For eksmepel, for at angive at "
+"et gammelt 3Com-netværksgrænsefladekort skal bruge BNC-forbindelsen (coax) og "
+"IRQ 10, skal du skrive:"
 
 #. Tag: screen
 #: boot-installer.xml:2558
@@ -3228,7 +3270,7 @@ msgstr "3c509.xcvr=3 3c509.irq=10"
 #: boot-installer.xml:2564
 #, no-c-format
 msgid "Blacklisting kernel modules"
-msgstr ""
+msgstr "Sortliste kernemoduler"
 
 #. Tag: para
 #: boot-installer.xml:2565
@@ -3241,6 +3283,12 @@ msgid ""
 "the device to not work correctly if the drivers conflict or if the wrong "
 "driver is loaded first."
 msgstr ""
+"Undertiden kan det være nødvendigt at sortliste et modul for at forhindre "
+"det i at blive indlæst automatisk af kernen og udev. En årsag kunne være at "
+"et specifik modul medfører problemer med dit udstyr. Kernen viser også "
+"undertiden to forskellige drivere for den samme enhed. Dette kan medføre "
+"at enheden ikke fungerer korrekt, hvis driverne er i konflikt eller hvis "
+"den forkerte driver indlæses først."
 
 #. Tag: para
 #: boot-installer.xml:2574
@@ -3252,6 +3300,11 @@ msgid ""
 "blacklist.local</filename> both during the installation and for the "
 "installed system."
 msgstr ""
+"Du kan sortliste et modul med den følgende syntaks: "
+"<userinput><replaceable>modulnavn</replaceable>.blacklist=yes</userinput>. "
+"Dette vil gøre, at modulet bliver sortlistet i <filename>/etc/modprobe.d/"
+"blacklist.local</filename> både under installationen og for det installerede "
+"system."
 
 #. Tag: para
 #: boot-installer.xml:2582
@@ -3262,18 +3315,22 @@ msgid ""
 "mode and unselecting the module from the list of modules displayed during "
 "the hardware detection phases."
 msgstr ""
+"Bemærk at et modul stadig kan blive indlæst af selve installationssystemet. "
+"Du kan forhindre dette i at ske ved at køre installationen i eksperttilstand "
+"og fravælge modulet fra listen over moduler vist under detektionsfaserne "
+"for udstyret."
 
 #. Tag: title
 #: boot-installer.xml:2598
 #, no-c-format
 msgid "Troubleshooting the Installation Process"
-msgstr ""
+msgstr "Fejlsøgning af installationsprocessen"
 
 #. Tag: title
 #: boot-installer.xml:2603
 #, no-c-format
 msgid "CD-ROM Reliability"
-msgstr ""
+msgstr "Cd-rom-troværdighed"
 
 #. Tag: para
 #: boot-installer.xml:2604
@@ -3284,6 +3341,10 @@ msgid ""
 "successfully from CD-ROM &mdash; fail to recognize the CD-ROM or return "
 "errors while reading from it during the installation."
 msgstr ""
+"Undertiden, specielt med ældre cd-rom-drev, vil installationsprogrammet "
+"fejle i at starte op fra en cd-rom. Installationsprogrammet kan også "
+"&mdash; selv efter opstart fra cd-rom &mdash; mislykkes i at genkende "
+"cd-rommen eller returnere fejl under læsning fra den under installationen."
 
 #. Tag: para
 #: boot-installer.xml:2611
@@ -3293,12 +3354,15 @@ msgid ""
 "list some common issues and provide general suggestions on how to deal with "
 "them. The rest is up to you."
 msgstr ""
+"Der er mangle forskellige mulige årsager for disse problemer. Vi kan "
+"kun vise nogle gængse problemstillinger og tilbyde generelle forslag til "
+"hvordan du håndterer dem. Resten er op til dig."
 
 #. Tag: para
 #: boot-installer.xml:2617
 #, no-c-format
 msgid "There are two very simple things that you should try first."
-msgstr ""
+msgstr "Der er to meget simple metoder, du bør prøve først."
 
 #. Tag: para
 #: boot-installer.xml:2622
@@ -3307,6 +3371,8 @@ msgid ""
 "If the CD-ROM does not boot, check that it was inserted correctly and that "
 "it is not dirty."
 msgstr ""
+"Hvis cd-rommen ikke starter op, så kontroller at disken er korrekt indsat "
+"og at den ikke er ridset eller beskidt."
 
 #. Tag: para
 #: boot-installer.xml:2628
@@ -3317,6 +3383,10 @@ msgid ""
 "menuchoice> a second time. Some DMA related issues with very old CD-ROM "
 "drives are known to be resolved in this way."
 msgstr ""
+"Hvis installationsprogrammet ikke kan genkende en cd-rom, så prøv at køre "
+"indstillingen <menuchoice> <guimenuitem>Detekter og monter cd-rom</guimenuitem> "
+"</menuchoice> endnu en gang. Nogle DMA-relaterede problemstillinger med meget "
+"gamle cd-rom-drev kan løses på denne måde."
 
 #. Tag: para
 #: boot-installer.xml:2638
@@ -3326,6 +3396,9 @@ msgid ""
 "Most, but not all, suggestions discussed there are valid for both CD-ROM and "
 "DVD, but we'll use the term CD-ROM for simplicity."
 msgstr ""
+"Hvis dette ikke virker, så prøv forslagene i underafsnittene nedenfor. "
+"De fleste - men ikke alle - forslag diskuteret her er gyldige for både cd-rom "
+"og dvd, men vi bruger alene udtrykket cd-rom."
 
 #. Tag: para
 #: boot-installer.xml:2644
@@ -3334,12 +3407,14 @@ msgid ""
 "If you cannot get the installation working from CD-ROM, try one of the other "
 "installation methods that are available."
 msgstr ""
+"Hvis du ikke kan få installationen til at virke fra cd-rom, så prøv en af de "
+"andre tilgængelige installationsmetoder."
 
 #. Tag: title
 #: boot-installer.xml:2652
 #, no-c-format
 msgid "Common issues"
-msgstr ""
+msgstr "Gængse problemstillinger"
 
 #. Tag: para
 #: boot-installer.xml:2655
@@ -3348,6 +3423,8 @@ msgid ""
 "Some older CD-ROM drives do not support reading from discs that were burned "
 "at high speeds using a modern CD writer."
 msgstr ""
+"Nogle ældre cd-rom-drev understøtter ikke læsning fra diske som blev brændt "
+"med høje hastigheder via et moderne cd-rom-drev."
 
 #. Tag: para
 #: boot-installer.xml:2672
@@ -3356,6 +3433,8 @@ msgid ""
 "Some very old CD-ROM drives do not work correctly if <quote>direct memory "
 "access</quote> (DMA) is enabled for them."
 msgstr ""
+"Nogle meget gamle cd-rom-drev virker ikke korrekt hvis <quote>direct memory "
+"access</quote> (DMA) er aktiveret for dem."
 
 #. Tag: title
 #: boot-installer.xml:2683
@@ -3376,6 +3455,9 @@ msgid ""
 "Check that your BIOS actually supports booting from CD-ROM (only an issue "
 "for very old systems) and that CD booting is enabled in the BIOS."
 msgstr ""
+"Kontroller at din BIOS rent faktisk understøtter opstart fra cd-rom (kun "
+"en problemstilling for meget gamle systemer) og at cd-opstart er aktiveret "
+"i BIOS'en."
 
 #. Tag: para
 #: boot-installer.xml:2696
@@ -3392,6 +3474,16 @@ msgid ""
 "matches as well. The following command should work. It uses the size of the "
 "image to read the correct number of bytes from the CD-ROM."
 msgstr ""
+"Hvis du hentede et iso-aftryk, så kontroller at md5summen for det aftryk "
+"matcher det viste aftryk i filen <filename>MD5SUMS</filename>, som "
+"bør befinde sig samme sted, som du hentede aftrykket fra. "
+"<informalexample><screen>\n"
+"$ md5sum <replaceable>debian-testing-i386-netinst.iso</replaceable>\n"
+"a20391b12f7ff22ef705cee4059c6b92  <replaceable>debian-testing-i386-netinst."
+"iso</replaceable>\n"
+"</screen></informalexample> Derefter kontrollerer du at md5summen for den "
+"brændte cd-rom også matcher. Den følgende kommando bør virke. Den bruger "
+"størrelsen for aftrykket til at læse det korrekte antal byte fra cd-rommen."
 
 #. Tag: screen
 #: boot-installer.xml:2709
@@ -3406,6 +3498,13 @@ msgid ""
 "262668+0 records out\n"
 "134486016 bytes (134 MB) copied, 97.474 seconds, 1.4 MB/s"
 msgstr ""
+"> head -c `stat --format=%s <replaceable>debian-testing-i386-netinst.iso</"
+"replaceable>` | \\\n"
+"> md5sum\n"
+"a20391b12f7ff22ef705cee4059c6b92  -\n"
+"262668+0 poster ind\n"
+"262668+0 poster ud\n"
+"134486016 byte (134 MB) kopieret, 97,474 sekunder, 1,4 MB/s"
 
 #. Tag: para
 #: boot-installer.xml:2714
@@ -3420,6 +3519,14 @@ msgid ""
 "should first switch to the second virtual console (VT2) and activate the "
 "shell there."
 msgstr ""
+"Hvis, efter at installationsprogrammet er blevet korrekt startet, cd-rommen "
+"ikke detekteres, så kan det bare at prøve igen nogle gange løse problemet. "
+"Hvis du har mere end et cd-rom-drev, så prøv at indsætte disken i det andet "
+"drev. Hvis det ikke virker eller hvis diske genkendes men har fejl under "
+"læsning, så prøv forslagene nedenfor. Lidt grundlæggende viden om "
+"&arch-kernel; er krævet for dette. For at køre disse kommandoer, så skal du "
+"først skifte til den anden virtuelle konsol (VT2) og aktivere skallen "
+"der."
 
 #. Tag: para
 #: boot-installer.xml:2726
@@ -3429,6 +3536,10 @@ msgid ""
 "(use <command>nano</command> as editor) to check for any specific error "
 "messages. After that, also check the output of <command>dmesg</command>."
 msgstr ""
+"Skift til VT4 eller vis indholdet af <filename>/var/log/syslog</filename> "
+"(brug <command>nano</command> som redigeringsprogram) til at kontrollere "
+"efter specifikke fejlbeskeder. Derefter kontrolleres også resultatet "
+"af <command>dmesg</command>."
 
 #. Tag: para
 #: boot-installer.xml:2733
@@ -3447,6 +3558,19 @@ msgid ""
 "not supported at all. If you know what driver is needed for the controller, "
 "you can try loading it manually using <command>modprobe</command>."
 msgstr ""
+"Kontroller i resultatet fra <command>dmesg</command> om dit cd-rom-drev "
+"blev genkendt. Du bør se noget ala (linjerne skal ikke nødvendigvis "
+"være fortløbende): <informalexample><screen>\n"
+"Probing IDE interface ide1...\n"
+"hdc: TOSHIBA DVD-ROM SD-R6112, ATAPI CD/DVD-ROM drive\n"
+"ide1 at 0x170-0x177,0x376 on irq 15\n"
+"hdc: ATAPI 24X DVD-ROM DVD-R CD-R/RW drive, 2048kB Cache, UDMA(33)\n"
+"Uniform CD-ROM driver Revision: 3.20\n"
+"</screen></informalexample> Hvis du ikke ser noget der ligner eksemplet, "
+"er der en risiko for, at controlleren som dit cd-rom-drev er forbundet "
+"med ikke blev genkendt eller slet ikke er understøttet. Hvis du ved hvilken "
+"driver, der er krævet for controlleren, så kan du forsøge at indlæse den "
+"manuelt med <command>modprobe</command>."
 
 #. Tag: para
 #: boot-installer.xml:2747
@@ -3456,6 +3580,9 @@ msgid ""
 "</filename>. In the example above, this would be <filename>/dev/hdc</"
 "filename>. There should also be a <filename>/dev/cdrom</filename>."
 msgstr ""
+"Kontroller at der er en enhedsknude for dit cd-rom-drev under <filename>/dev/"
+"</filename>. I eksemplet ovenfor, skal dette være <filename>/dev/hdc</"
+"filename>. Der skal også være et <filename>/dev/cdrom</filename>."
 
 #. Tag: para
 #: boot-installer.xml:2755
@@ -3467,6 +3594,12 @@ msgid ""
 "</screen></informalexample> Check if there are any error messages after that "
 "command."
 msgstr ""
+"Brug kommandoen <command>mount</command> til at kontrollere om cd-rommen "
+"allerede er monteret; hvis ikke, så prøv at montere den manuelt: "
+"<informalexample><screen>\n"
+"$ mount /dev/<replaceable>hdc</replaceable> /cdrom\n"
+"</screen></informalexample> Kontroller hvis der er nogle fejlbeskeder efter "
+"den kommando."
 
 #. Tag: para
 #: boot-installer.xml:2765
@@ -3483,6 +3616,16 @@ msgid ""
 "</screen></informalexample> Make sure that you are in the directory for the "
 "device that corresponds to your CD-ROM drive."
 msgstr ""
+"Kontroller hvis DMA er aktuelt aktiveret: <informalexample><screen>\n"
+"$ cd /proc/<replaceable>ide</replaceable>/<replaceable>hdc</replaceable>\n"
+"$ grep using_dma settings\n"
+"using_dma      1       0       1       rw\n"
+"</screen></informalexample> Et <quote>1</quote> i den første kolonne efter "
+"<literal>using_dma</literal> betyder at den er aktiveret. Hvis den er, "
+"så prøv at deaktivere den: <informalexample><screen>\n"
+"$ echo -n \"using_dma:0\" >settings\n"
+"</screen></informalexample> Sikr dig at du er i mappen for enheden som "
+"svarer til dit cd-rom-drev."
 
 #. Tag: para
 #: boot-installer.xml:2780
@@ -3493,12 +3636,16 @@ msgid ""
 "main menu. This option can also be used as a general test if the CD-ROM can "
 "be read reliably."
 msgstr ""
+"Hvis der er problemer under installationen, så prøv at kontrollere "
+"integriteten for cd-rommen med indstillingen nær bunden af installationsprogrammets "
+"hovedmenu. Denne indstilling kan også bruges som en generel test af, "
+"om cd-rommen kan læses troværdigt."
 
 #. Tag: title
 #: boot-installer.xml:2795
 #, no-c-format
 msgid "Floppy Disk Reliability"
-msgstr ""
+msgstr "Troværdighed for disketter"
 
 #. Tag: para
 #: boot-installer.xml:2797
@@ -3507,6 +3654,8 @@ msgid ""
 "The biggest problem for people using floppy disks to install &debian; seems "
 "to be floppy disk reliability."
 msgstr ""
+"Det største problem for folk der bruger disketter til at installere "
+"&debian; ser ud til at være disketternes troværdighed."
 
 #. Tag: para
 #: boot-installer.xml:2802
@@ -3519,6 +3668,12 @@ msgid ""
 "failures in the driver floppies, most of which indicate themselves with a "
 "flood of messages about disk I/O errors."
 msgstr ""
+"Opstartsdisketten er disketten med de største problemer, da den læses af "
+"udstyret direkte, før Linux starter op. Ofte læser udstyret ikke lige så "
+"troværdigt som diskettedriveren for Linux, og kan bare stoppe uden at "
+"vise en fejlbesked, hvis den læser ukorrekte data. Der kan også være "
+"fejl i driverdisketterne, hvor de fleste fejl viser sig som en stor mængde "
+"af I/O-fejl."
 
 #. Tag: para
 #: boot-installer.xml:2811
@@ -3531,6 +3686,12 @@ msgid ""
 "reformatted and written with no errors. It is sometimes useful to try "
 "writing the floppy on a different system."
 msgstr ""
+"Hvis installationen stopper med en specifik diskette, er den første "
+"ting du skal gøre at skrive aftrykket til en <emphasis>anden</emphasis> "
+"diskette og se om dette løser problemet. En formatering af den gamle "
+"diskette er måske ikke nok, også selv om det ser ud til at disketten "
+"blev formateret og skrevet uden fejl. Det er undertiden nyttigt at "
+"prøve at skrive disketten på et andet system."
 
 #. Tag: para
 #: boot-installer.xml:2820
@@ -3540,6 +3701,9 @@ msgid ""
 "emphasis> times before one worked, and then everything was fine with the "
 "third floppy."
 msgstr ""
+"En bruger indrapporterede at han skulle skrive aftrykket til disketten "
+"<emphasis>tre</emphasis> gange før der var en der virkede, og så var "
+"alt okay med den tredje diskette."
 
 #. Tag: para
 #: boot-installer.xml:2826
@@ -3549,6 +3713,9 @@ msgid ""
 "are experiencing problems it is always useful to verify that the images were "
 "downloaded correctly by verifying their md5sums."
 msgstr ""
+"Normalt skal du ikke hente en disketteaftryk igen, men hvis du oplever "
+"problemer er det altid nyttigt at verificere at aftrykkene blev hentet "
+"korrekt ved at verificere deres md5summer."
 
 #. Tag: para
 #: boot-installer.xml:2832
@@ -3558,6 +3725,9 @@ msgid ""
 "floppy in the floppy drive can lead to a successful boot. This is all due to "
 "buggy hardware or firmware floppy drivers."
 msgstr ""
+"Andre brugere har indrapporteret at simple genstarter over et par gange "
+"med den samme diskette i drevet kan føre til en succesfuld opstart. Dette "
+"skyldes fejlramt udstyr eller firmware i diskettedrevene."
 
 #. Tag: title
 #: boot-installer.xml:2841
@@ -3574,6 +3744,10 @@ msgid ""
 "properly, the first thing to check is the boot parameters, as discussed in "
 "<xref linkend=\"boot-parms\"/>."
 msgstr ""
+"Hvis du har problemer og kernen hænger under opstartsprocessen, ikke genkender "
+"perifære enheder du rent faktisk har, eller driverne ikke bliver genkendt "
+"korrekt, så er den første ting du skal gøre er at kontrollere opstartsparametrene, "
+"som omtalt i <xref linkend=\"boot-parms\"/>."
 
 #. Tag: para
 #: boot-installer.xml:2852
@@ -3583,6 +3757,9 @@ msgid ""
 "<xref linkend=\"hardware-firmware\"/> and <xref linkend=\"loading-firmware\"/"
 ">)."
 msgstr ""
+"I nogle tilfælde kan fejlsituationer opstå på grund af manglende firmware "
+"for udstyr (se <xref linkend=\"hardware-firmware\"/> og "
+"<xref linkend=\"loading-firmware\"/>)."
 
 #. Tag: para
 #: boot-installer.xml:2863
@@ -3595,6 +3772,13 @@ msgid ""
 "includes the output of the following commands, run on the same machine from "
 "a Linux system which is known to have sound working (e.g., a live CD)."
 msgstr ""
+"Hvis talesyntese for programmer ikke virker, så er der sandsynligvis et "
+"problem med dit lydkort, normalt på grund af at enten drivere for den "
+"ikke er inkluderet i installationsprogrammet, eller fordi den har et "
+"unormalt navn for mikserniveauet som er sat til slukket som standard. "
+"Du skal derfor indsende en fejlraport som inkluderer resultatet fra "
+"de følgende kommandoer, kørt på den samme maskine fra et Linuxsystem "
+"som vides at have lyd virkende (dvs. en live-cd)."
 
 #. Tag: userinput
 #: boot-installer.xml:2874
@@ -3648,6 +3832,14 @@ msgid ""
 "languages will be available during the installation due to limited console "
 "features. See <xref linkend=\"boot-parms\"/> for details."
 msgstr ""
+"Hvis din skærm begynder at vise et underligt billede når kernen starter "
+"op, f.eks. ren hvid, ren sort eller usammenhængende farvede billedpunkter, "
+"så kan dit system indeholde et problematisk videokort, som ikke skifter "
+"til tilstanden for framebuffer korrekt. Så kan du bruge opstartsparameteren "
+"<userinput>fb=false</userinput> til at deaktivere framebuffer-konsollen. "
+"Kun et reduceret sæt af sprog vil være tilgængelige under installationen "
+"på grund af begrænsede konsolfunktioner. Se <xref linkend=\"boot-parms\"/> "
+"for detaljer."
 
 #. Tag: title
 #: boot-installer.xml:2954
@@ -3667,6 +3859,13 @@ msgid ""
 "can then configure PCMCIA after the installation is completed and exclude "
 "the resource range causing the problems."
 msgstr ""
+"Nogle meget gamle bærbare modeller fremstillet af Dell vides at bryde ned "
+"når PCMCIA-enhedsdetektering forsøger at tilgå udvalgte udstyrsadresser. "
+"Andre bærbare kan have lignende problemer. Hvis du oplever et sådant problem "
+"har du ikke brug for PCMCIA-understøttelse under installationen, så kan du "
+"deaktivere PCMCIA via opstartsparameteren <userinput>hw-detect/start_pcmcia=false"
+"</userinput>. Du kan så konfigurere PCMCIA efter at installationen er "
+"færdig og ekskludere ressourceintervallet, der medfører problemerne."
 
 #. Tag: para
 #: boot-installer.xml:2965
@@ -3681,6 +3880,14 @@ msgid ""
 "settings section of the PCMCIA HOWTO</ulink>. Note that you have to omit the "
 "commas, if any, when you enter this value in the installer."
 msgstr ""
+"Alternativt kan du starte installationsprogrammet op i eksperttilstand. Du "
+"vil så blive spurgt om at indtaste ressourceintervallet som dit udstyr "
+"kræver. For eksempel, hvis du har en af Dells bærbare nævnt ovenfor, skal du "
+"indtaste <userinput>exclude port 0x800-0x8ff</userinput>. Der er også en "
+"liste over nogle gængse intervalindstillinger for ressourcer i afsnittet for "
+"<ulink url=\"http://pcmcia-cs."
+"sourceforge.net/ftp/doc/PCMCIA-HOWTO-1.html#ss1.12\">Systemressourceindstillinger "
+"for PCMCIA - hjælp</ulink>."
 
 #. Tag: para
 #: boot-installer.xml:3000
@@ -3692,7 +3899,7 @@ msgstr "Der er nogle gængse installationsproblemer som det er værd at nævne."
 #: boot-installer.xml:3006
 #, no-c-format
 msgid "Misdirected video output"
-msgstr ""
+msgstr "Fejlramt videoresultat"
 
 #. Tag: para
 #: boot-installer.xml:3007
@@ -3709,6 +3916,17 @@ msgid ""
 "phase using a kernel parameter. For example, to disable an ATI card, you "
 "should boot the installer with <userinput>video=atyfb:off</userinput>."
 msgstr ""
+"Det er ret ofte at &arch-title; har to videokort i en maskine, for "
+"eksempel et ATI-kort og et Sun Creator 3D. I nogle tilfælde, kan dette "
+"resultere i at videoresultatet bliver fejlramt efter at systemet starter op. "
+"i typiske tilfælde vil skærmen kun vise: <informalexample><screen>\n"
+"Remapping the kernel... done\n"
+"Booting Linux...\n"
+"</screen></informalexample> For at omgå dete kan du enten fjerne et "
+"af videokortene eller deaktivere et af dem under OpenProm-opstartsfasen "
+"med en kerneparameter. For eksempel, for at deaktivere et ATI-kort, "
+"skal du starter installationsprogrammet op med <userinput>video=atyfb:off"
+"</userinput>."
 
 #. Tag: para
 #: boot-installer.xml:3021
@@ -3719,6 +3937,10 @@ msgid ""
 "rebooting) and, if you installed X11, modify the video driver in <filename>/"
 "etc/X11/xorg.conf</filename>."
 msgstr ""
+"Bemærk at du du måske også manuelt skal tilføje denne paramter til "
+"silo-konfigurationen (rediger <filename>/target/etc/silo.conf</filename> "
+"før genstart) og, hvis du installerede X11, så ændr videodriveren i <filename>/"
+"etc/X11/xorg.conf</filename>."
 
 #. Tag: title
 #: boot-installer.xml:3032
