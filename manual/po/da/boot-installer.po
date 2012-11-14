@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: boot-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2012-10-24 19:53+0000\n"
-"PO-Revision-Date: 2012-11-14 09:40+0100\n"
+"PO-Revision-Date: 2012-11-14 13:40+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -571,6 +571,12 @@ msgid ""
 "installer can then boot from the drive and install from the CD/DVD image, "
 "without needing the network."
 msgstr ""
+"Alternativt, hvis du forventer at bevare en eksisterende partition på "
+"harddisken uændret under installationen, så kan du hente filen "
+"<filename>hd-media/initrd.gz</filename> og dens kerne, samt kopiere en cd-iso "
+"(eller dvd-iso) til drevet (sikr dig at filens navn ender med "
+"<literal>.iso</literal>). Installationsprogrammet kan så starte op fra drevet "
+"og installere fra cd/dvd-aftrykket, uden at kræve netværket."
 
 #. Tag: para
 #: boot-installer.xml:448
@@ -583,6 +589,13 @@ msgid ""
 "a RAM disk as its root partition. </para></listitem> </itemizedlist> Here is "
 "a <filename>/etc/lilo.conf</filename> example:"
 msgstr ""
+"For <command>LILO</command> skal du konfigurere to essentielle ting i "
+"<filename>/etc/lilo.conf</filename>: <itemizedlist> <listitem><para> for "
+"at indlæse installationsprogrammet <filename>initrd.gz</filename> ved "
+"opstartstidspunktet; </para></listitem> <listitem><para> lad "
+"<filename>vmlinuz</filename>-kernen bruge en RAM-disk som sin rodpartition. "
+"</para></listitem> </itemizedlist> Her er et "
+"<filename>/etc/lilo.conf</filename>-eksempel:"
 
 #. Tag: screen
 #: boot-installer.xml:469
@@ -1072,7 +1085,7 @@ msgstr ""
 #: boot-installer.xml:779
 #, no-c-format
 msgid "CD Contents"
-msgstr ""
+msgstr "Cd-indhold"
 
 #. Tag: para
 #: boot-installer.xml:781
@@ -1289,6 +1302,11 @@ msgid ""
 "line with the arrow keys and press <command>ENTER</command>. This will start "
 "the boot load sequence."
 msgstr ""
+"Du skal kun bruge dette trin, hvis du vælger <command>Debian Inst [Acpi ..."
+"</command>. Mappevisningen vil også vise <command>[Treat like Removable Media "
+"Boot]</command> på den næste til den sidste linje. Vælg denne linje med "
+"piletasterne og tryk på <command>RETUR</command>. Dette vil igangsætte "
+"opstartssekvensen."
 
 #. Tag: para
 #: boot-installer.xml:919
@@ -1298,12 +1316,15 @@ msgid ""
 "for you to select a boot kernel and options. Proceed to selecting the boot "
 "kernel and options."
 msgstr ""
+"Disse trin starter &debian;-opstartsindlæseren, som vil vise en menuside "
+"hvor du kan vælge en opstartskerne og indstillinger. Fortsæt for at vælge "
+"opstartskernen og indstillinger."
 
 #. Tag: title
 #: boot-installer.xml:929
 #, no-c-format
 msgid "Option 2: Booting from the EFI Shell"
-msgstr ""
+msgstr "Indstilling 2: Opstart fra EFI-skallen"
 
 #. Tag: para
 #: boot-installer.xml:930
@@ -1314,6 +1335,10 @@ msgid ""
 "<command>EFI Shell [Built-in]</command>. Boot the &debian; Installer CD with "
 "the following steps:"
 msgstr ""
+"Hvis, af en eller anden årsag, indstilling 1 ikke lykkes, så genstart "
+"maskinen og når skærmen for EFI-opstartshåndteringen vises, bør der være "
+"en indstilling kaldt <command>EFI Shell [Built-in]</command>. Start "
+"&debian;-installations-cd'en med de følgende trin:"
 
 #. Tag: para
 #: boot-installer.xml:941
@@ -1323,6 +1348,9 @@ msgid ""
 "display the EFI Boot Manager page and menu after it completes system "
 "initialization."
 msgstr ""
+"Indsæt cd'en i dvd/cd-drevet og genstart maskinen. Firmwaren vil vise "
+"siden og menuen for EFI-opstartshåndteringen efter, at den er færdig med "
+"systeminitialiseringen."
 
 #. Tag: para
 #: boot-installer.xml:947
@@ -1337,6 +1365,15 @@ msgid ""
 "replaceable>:</filename>. If you inserted the CD just before entering the "
 "shell, this may take a few extra seconds as it initializes the CD drive."
 msgstr ""
+"Vælg <command>EFI Shell</command> fra menuen med piletastesrne og tryk "
+"<command>RETUR</command>. EFI-skallen vil skanne alle enheder, der kan "
+"startes op fra, og vise dem for konsollen før den viser sin kommandoprompt."
+"De genkendte opstartspartitioner på enheder vi vise et enhedsnavn på "
+"<filename>fs<replaceable>n</replaceable>:</filename>. Alle andre genkendte "
+"partitioner vil blive navngivet <filename>blk<replaceable>n</"
+"replaceable>:</filename>. Hvis du indsættede cd'en lige før du indtastede "
+"skallen, så kan dette tage nogle få ekstra sekunder, da den initialiserer "
+"c-drevet."
 
 #. Tag: para
 #: boot-installer.xml:961
@@ -1347,6 +1384,10 @@ msgid ""
 "bootable partitions will also show up as <filename>fs<replaceable>n</"
 "replaceable></filename>."
 msgstr ""
+"Undersøg resultatet fra skallen til du finder cd-rom-drevet. Det er højst "
+"sandsynlig enheden <filename>fs0:</filename> selvom andre enheder med "
+"opstartspartitioner også vil blive vist som <filename>fs<replaceable>n</"
+"replaceable></filename>."
 
 #. Tag: para
 #: boot-installer.xml:968
@@ -1357,6 +1398,10 @@ msgid ""
 "replaceable> is the partition number for the CDROM. The shell will now "
 "display the partition number as its prompt."
 msgstr ""
+"Indtast <command>fs<replaceable>n</replaceable>:</command> og tryk "
+"<command>RETUR</command> for at vælge den enhed hvor <replaceable>n</"
+"replaceable> er partitionsnummeret for cd'rommen. Skallen vil nu "
+"vise partitionsnummeret som sin prompt."
 
 #. Tag: para
 #: boot-installer.xml:975
@@ -1365,6 +1410,8 @@ msgid ""
 "Enter <command>elilo</command> and press <command>ENTER</command>. This will "
 "start the boot load sequence."
 msgstr ""
+"Indtast <command>elilo</command> og tryk <command>RETUR</command>. Dette vil "
+"igangsætte opstartssekvensen."
 
 #. Tag: para
 #: boot-installer.xml:982
@@ -1376,12 +1423,17 @@ msgid ""
 "command> command at the shell prompt. Proceed to selecting the boot kernel "
 "and options."
 msgstr ""
+"Som ved indstilling 1, igangsætter disse trin &debian;-opstartsindlæseren, "
+"som vil vise en menuside, hvor du kan vælge en opstartskerne og indstillinger. "
+"Du kan også indtaste den kortere kommando <command>fs<replaceable>n</replaceable>"
+":elilo</command> på skalprompten. Fortsæt for at vælge opstartskernen og "
+"indstillinger."
 
 #. Tag: title
 #: boot-installer.xml:996
 #, no-c-format
 msgid "Installing using a Serial Console"
-msgstr ""
+msgstr "Installation med en seriel konsol"
 
 #. Tag: para
 #: boot-installer.xml:998
@@ -1395,6 +1447,13 @@ msgid ""
 "serial console. Menu items for the most typical baud rate settings on the "
 "ttyS0 device are preconfigured."
 msgstr ""
+"Du kan vælge at udføre en installation med en skærm og tastatur eller "
+"med brug af en seriel forbindelse. For at bruge en opsætning for skærm/tastatur, "
+"så vælg en indstilling, der indeholder strengen [VGA console]. For at installere "
+"over en seriel forbindelse, så vælg en instilling der indeholder strengen "
+"[<replaceable>BAUD</replaceable> baud serial console], hvor <replaceable>BAUD"
+"</replaceable> er hastigheden for din serielle konsol. Menupunkter for de "
+"typiske indstillinger for baudhastigheder på ttyS0-enheden er prækonfigurerede."
 
 #. Tag: para
 #: boot-installer.xml:1009
@@ -1405,6 +1464,10 @@ msgid ""
 "is, you can obtain it using the command <command>baud</command> at the EFI "
 "shell."
 msgstr ""
+"I de fleste tilfælde vil du ønske at installationsprogrammet skal bruge den "
+"samme baudhastighed som din forbindelse til EFI-konsollen. Hvis du ikke er "
+"sikker på hvad denne indstilling er sat til, så kan du indhente denne oplysning "
+"med kommandoen <command>baud</command> via EFI-skallen."
 
 #. Tag: para
 #: boot-installer.xml:1016
@@ -1743,6 +1806,14 @@ msgid ""
 "unsetenv netaddr\n"
 "</screen></informalexample> in the command monitor to do this."
 msgstr ""
+"Efter indtastning så bruger kommandoovervågningen <informalexample><screen>\n"
+"bootp():\n"
+"</screen></informalexample> på SGI-maskiner til at starte Linux op og "
+"til at begynde installationen af &debian;-programmet. For at dette skal virke, "
+"så skal du måske ændre indstilling på miljøvariablen <envar>netaddr</envar>. "
+"Tast <informalexample><screen>\n"
+"unsetenv netaddr\n"
+"</screen></informalexample> i kommandoovervågningen for dette."
 
 #. Tag: title
 #: boot-installer.xml:1272 boot-installer.xml:1339 boot-installer.xml:1973
@@ -1771,6 +1842,12 @@ msgid ""
 "</screen></informalexample> Further kernel parameters can be passed via "
 "<command>append</command>:"
 msgstr ""
+"Efter kommandoen <command>bootp():</command> kan du angive stien og navnet "
+"på filen der skal igangsættes, hvis du ikke angav et eksplicit navn via din bootp/"
+"dhcp-server. Eksempel: <informalexample><screen>\n"
+"bootp():/boot/tftpboot.img\n"
+"</screen></informalexample> Yderligere kerneparametre kan sendes via "
+"<command>append</command>:"
 
 #. Tag: screen
 #: boot-installer.xml:1291
@@ -1795,6 +1872,12 @@ msgid ""
 "network from NFS. It will then display several options on the display. There "
 "are the following two installation methods:"
 msgstr ""
+"Rent faktisk så bruger Cobalt ikke TFTP men NFS til at igangsætte. Du "
+"skal installere en NFS-server og placere installationsfilerne i "
+"<filename>/nfsroot</filename>. Når du igangsætter din Cobalt, så skal "
+"du trykke på venstre og højre musetast på samme tid og maskinen vil så "
+"starte via netværket fra NFS. Den vil så vise flere indstillinger på "
+"skærmen. Der er de følgende to installationsmetoder:"
 
 #. Tag: para
 #: boot-installer.xml:1316
@@ -1806,6 +1889,11 @@ msgid ""
 "connect to the machine with an SSH client you can start with the "
 "installation."
 msgstr ""
+"Via SSH (standard): I dette tilfælde, vil installationsprogrammet konfigurere "
+"netværket via DHCP og starte en SSH-server. Den vil så vise en vilkårlig "
+"adgangskode og andre informationer for logind (såsom IP-adressen) på Cobalt LCD. "
+"Når du forbinder til maskinen med en SSH-klient, så kan du påbegynde "
+"installationen."
 
 #. Tag: para
 #: boot-installer.xml:1325
@@ -1815,6 +1903,9 @@ msgid ""
 "port of your Cobalt machine (using 115200 bps) and perform the installation "
 "this way."
 msgstr ""
+"Via seriel konsol: Med brug af et nullmodemkabel, så kan du forbinde til "
+"den serielle port på din Cobaltmaskine (med brug af 115200 bps) og udføre "
+"installationen på denne måde."
 
 #. Tag: para
 #: boot-installer.xml:1343
@@ -1824,6 +1915,9 @@ msgid ""
 "<filename>/nfsroot/default.colo</filename> file on the NFS server and add "
 "your parameters to the <replaceable>args</replaceable> variable."
 msgstr ""
+"Du kan ikke sende eventuelle parametre direkte. I stedet for skal du "
+"redigere filen <filename>/nfsroot/default.colo</filename> på NFS-serveren "
+"og tilføje dine parametre til variablen <replaceable>args</replaceable>."
 
 #. Tag: title
 #: boot-installer.xml:1358
@@ -1850,6 +1944,10 @@ msgid ""
 "by starting an ssh session which will launch the standard installation "
 "system."
 msgstr ""
+"Opstartsprocessen starter med en netværksopsætning, som anmoder dig om "
+"flere netværksparametre. Hvis opsætningen er succesfuld, vil du logge "
+"ind på systemet ved at starte en ssh-session, som vil igangsætte "
+"standardinstallationssystemet."
 
 #. Tag: title
 #: boot-installer.xml:1375
@@ -1865,6 +1963,9 @@ msgid ""
 "either be in ASCII or EBCDIC format. A sample parm file <filename>parmfile."
 "debian</filename> is provided with the installation images."
 msgstr ""
+"På S/390 kan du tilføje opstartsparametre i parm-filen. Denne fil kan "
+"enten være i ASCII- eller EBCDIC-format. Et eksempel på en sådan parm-fil "
+"<filename>parmfile.debian</filename> følger med installationsaftrykket."
 
 #. Tag: para
 #: boot-installer.xml:1436
@@ -1877,6 +1978,12 @@ msgid ""
 "and <keycap>Delete</keycap> keys together while booting to boot from the "
 "factory default CD/DVD drive."
 msgstr ""
+"Aktuelt er de eneste &arch-title;-underarkitekturer, som understøtter "
+"cd-rom-opstart, PReP/CHRP (dog ikke alle systemer) og New World PowerMacs. "
+"På PowerMacs, hold tasten <keycap>c</keycap>, eller kombinationen af "
+"<keycap>Command</keycap>, <keycap>Option</keycap>, <keycap>Skift</keycap>, "
+"og <keycap>slet</keycap> nede samtidig under opstarten for at starte op "
+"fra fabriksstandardens cd/dvd-drev."
 
 #. Tag: para
 #: boot-installer.xml:1445
@@ -1889,12 +1996,18 @@ msgid ""
 "</screen></informalexample> for an alternative way to boot from the internal "
 "factory default CD/DVD drive type"
 msgstr ""
+"For at starte fra en PowerMac fra et eksternt Firewire cd/dvd-drev "
+"så igangsæt først Open Firmware-prompten (se <xref "
+"linkend=\"invoking-openfirmware\"/>), tast så <informalexample><screen>\n"
+"0 &gt; boot fw/node/sbp-2/disk:,\\install\\yaboot\n"
+"</screen></informalexample> for en alternativ måde at starte op på fra "
+"den interne fabriksstandards cd/dvd-drevtype"
 
 #. Tag: screen
 #: boot-installer.xml:1456
 #, no-c-format
 msgid "0 &gt; boot cd:,\\install\\yaboot"
-msgstr ""
+msgstr "0 &gt; boot cd:,\\install\\yaboot"
 
 #. Tag: para
 #: boot-installer.xml:1458
@@ -1906,6 +2019,11 @@ msgid ""
 "floppy drives, so use the floppy drive to launch the installer, and then "
 "point the installer to the CD for the needed files."
 msgstr ""
+"OldWorld PowerMacs vil ikke starte op med en &debian;-cd, da OldWorld-computere "
+"afhang af at en Mac OS ROM CD-opstartsdriver var til stede på cd'en, og en "
+"fri programversion af denne driver er ikke tilgængelig. Alle OldWorld-systemer "
+"har diskettedrev, så brug diskettedrevet til at igangsætte installationsprogrammet, "
+"og peg så installationsprogrammet til cd'en for de krævede filer."
 
 #. Tag: para
 #: boot-installer.xml:1467
@@ -1915,18 +2033,21 @@ msgid ""
 "immediately after pressing the power-on button, when SmartFirmware prompt "
 "appears, type"
 msgstr ""
+"For at starte &debian;-cd eller -dvd på Pegasos II-maskiner, så hold tasten "
+"<keycap>Esc</keycap> nede umiddelbart efter at du har trykket på tændknappen, "
+"når SmartFirmware-prompten fremkommer, så tast"
 
 #. Tag: screen
 #: boot-installer.xml:1473
 #, no-c-format
 msgid "boot cd install/pegasos"
-msgstr ""
+msgstr "boot cd install/pegasos"
 
 #. Tag: title
 #: boot-installer.xml:1479
 #, no-c-format
 msgid "Booting from Hard Disk"
-msgstr ""
+msgstr "Opstart fra harddisk"
 
 #. Tag: para
 #: boot-installer.xml:1485
@@ -1935,6 +2056,8 @@ msgid ""
 "Booting from an existing operating system is often a convenient option; for "
 "some systems it is the only supported method of installation."
 msgstr ""
+"Opstart fra et eksisterende operativsystem er ofte en nem mulighed; for "
+"nogle systemer er det den eneste understøttede installationsmetode."
 
 #. Tag: para
 #: boot-installer.xml:1491
@@ -1944,6 +2067,9 @@ msgid ""
 "downloading and placing the needed files as described in <xref linkend="
 "\"boot-drive-files\"/>."
 msgstr ""
+"For at starte installationsprogrammet op fra harddisken, så skal du "
+"allerede have hentet og placeret de krævede filer som beskrevet i "
+"<xref linkend=\"boot-drive-files\"/>."
 
 #. Tag: title
 #: boot-installer.xml:1511
@@ -1964,12 +2090,20 @@ msgid ""
 "on your hardware. Then click the <guibutton>Linux</guibutton> button to shut "
 "down MacOS and launch the installer."
 msgstr ""
+"Hvis du opsætter BootX i <xref linkend=\"files-oldworld\"/>, så kan du bruge "
+"den til at starte op i installationssystemet. Dobbeltklik på programikonet "
+"<guiicon>BootX</guiicon>. Klik på knappen <guibutton>Options</guibutton> "
+"og vælg <guilabel>Use Specified RAM Disk</guilabel>. Dette vil give dig "
+"mulighed for at vælge filen <filename>ramdisk.image.gz</filename>. Du skal "
+"måske vælge afkrydsningsboksen <guilabel>No Video Driver</guilabel>, "
+"afhængig af dit udstyr. Klik så på knappen <guibutton>Linux</guibutton> "
+"for at lukke MacOS ned og igangsæt installationsprogrammet."
 
 #. Tag: title
 #: boot-installer.xml:1530
 #, no-c-format
 msgid "Booting NewWorld Macs from OpenFirmware"
-msgstr ""
+msgstr "Opstart af NewWorld Macs fra OpenFirmware"
 
 #. Tag: para
 #: boot-installer.xml:1531
@@ -1994,6 +2128,26 @@ msgid ""
 "argument is for maximum compatibility; you can try it if <userinput>install</"
 "userinput> doesn't work. The &debian; installation program should start."
 msgstr ""
+"Du har allerede placeret filerne <filename>vmlinux</filename>, "
+"<filename>initrd.gz</filename>, <filename>yaboot</filename> og "
+"<filename>yaboot.conf</filename> på rodniveauet på din HFS-partition i "
+"<xref linkend=\"files-newworld\"/>. Du skal nu starte op i OpenFirmware (se "
+"<xref linkend=\"invoking-openfirmware\"/>). I prompten taster du "
+"<informalexample><screen>\n"
+"0 &gt; boot hd:<replaceable>x</replaceable>,yaboot\n"
+"</screen></informalexample> hvor du erstatter <replaceable>x</replaceable> "
+"med partitionsnummret for HFS-partitionen, hvor kernen og yaboot-filerne "
+"blev placeret efterfulgt af &enterkey;. På nogle maskiner, skal du måske "
+"bruge <userinput>ide0:</userinput> i stedet for <userinput>hd:</userinput>. "
+"Efter nogle få yderligere sekunder vil du se en yaboot-prompt "
+"<informalexample><screen>\n"
+"boot:\n"
+"</screen></informalexample> Ved yaboots <prompt>boot:</prompt>-prompt, "
+"så tast enten <userinput>install</userinput> eller <userinput>install "
+"video=ofonly</userinput> efterfulgt af &enterkey;. Argumentet "
+"<userinput>video=ofonly</userinput> er for maksimal kompatibilitet; du "
+"kan prøve dette hvis <userinput>install</userinput> ikke fungerer. "
+"&debian;-installationsprogrammet bør starte."
 
 #. Tag: title
 #: boot-installer.xml:1563
@@ -2016,7 +2170,12 @@ msgid ""
 "Open Firmware prompt, since Open Firmware does not search USB storage "
 "devices by default. See <xref linkend=\"invoking-openfirmware\"/>."
 msgstr ""
+"Sikr dig at du har forberedt alt fra <xref linkend=\"boot-usb-files\"/"
+">. For at starte et Macintosh-system op fra et USB-drev, så skal du bruge "
+"Open Firmware-prompten, da Open Firmware ikke søger på USB-lagerenheder "
+"som standard. Se <xref linkend=\"invoking-openfirmware\"/>."
 
+# # engelsk fejl?
 #. Tag: para
 #: boot-installer.xml:1579
 #, no-c-format
@@ -2030,6 +2189,14 @@ msgid ""
 "filename>, <filename>/pci@f2000000/usb@1b,1/disk@1</filename>, and "
 "<filename>/pci@f2000000/usb@1b,1/hub@1/disk@1</filename> work."
 msgstr ""
+"Du skal undersøge hvor USB-lagerenheden fremgår af enhedstræet, da "
+"<command>ofpath</command> i øjeblikket ikke kan udregne dette automatisk. "
+"Tast <userinput>dev / ls</userinput> og <userinput>devalias</"
+"userinput> i Open Firmware-prompten for at få en liste over alle kendte "
+"enheder og enhedsaliasser. På forfatterens system med forskellige "
+"typer af USB-drev, ser stierne således ud <filename>usb0/disk</filename>, <filename>usb0/hub/disk</"
+"filename>, <filename>/pci@f2000000/usb@1b,1/disk@1</filename> og "
+"<filename>/pci@f2000000/usb@1b,1/hub@1/disk@1</filename>."
 
 #. Tag: para
 #: boot-installer.xml:1591
@@ -2046,6 +2213,16 @@ msgid ""
 "<command>yaboot</command>) in the directory previously blessed with "
 "<command>hattrib -b</command>."
 msgstr ""
+"Med enhedsstien fundet, så brug en kommando som denne for at starte "
+"installationsprogrammet op: <informalexample><screen>\n"
+"boot <replaceable>usb0/disk</replaceable>:<replaceable>2</replaceable>,\\\\:"
+"tbxi\n"
+"</screen></informalexample> <replaceable>2</replaceable> matcher "
+"partitionen Apple_HFS eller Apple_Bootstrap hvortil du tidligere kopierede "
+"opstartsaftrykket og delen <userinput>,\\\\:tbxi</userinput> instruerer "
+"Open Firmware i at opstarte fra filen med en HFS-filtype »tbxi« (dvs. "
+"<command>yaboot</command>) i mappen tidligere velsignet med "
+"<command>hattrib -b</command>."
 
 #. Tag: para
 #: boot-installer.xml:1605
@@ -2055,6 +2232,9 @@ msgid ""
 "<prompt>boot:</prompt> prompt. Here you can enter optional boot arguments, "
 "or just hit &enterkey;."
 msgstr ""
+"Systemet skal nu starte op, og du bør blive præsenteret for prompten "
+"<prompt>boot:</prompt>. Her kan du indtaste valgfrie opstartsargumenter, "
+"eller bare trykke på &enterkey;."
 
 #. Tag: para
 #: boot-installer.xml:1611
@@ -2064,12 +2244,15 @@ msgid ""
 "NewWorld systems. If you have problems, please file an installation report, "
 "as explained in <xref linkend=\"submit-bug\"/>."
 msgstr ""
+"Opstartsmetoden er ny, og kan være svær at få til at fungere på nogle "
+"NewWorld-systemer. Hvis du har problemer, så indsend venligst en "
+"installationsrapport, som forklaret i <xref linkend=\"submit-bug\"/>."
 
 #. Tag: para
 #: boot-installer.xml:1644
 #, no-c-format
 msgid "Currently, PReP and New World PowerMac systems support netbooting."
-msgstr ""
+msgstr "Aktuelt understøtter PReP- og New World PowerMac-systemer netopstart."
 
 #. Tag: para
 #: boot-installer.xml:1648
@@ -2091,6 +2274,21 @@ msgid ""
 "machines) the command <userinput>help boot</userinput> may give a "
 "description of syntax and available options."
 msgstr ""
+"På maskiner med Open Firmware, såsom NewWorld Power Macs, går du i "
+"boot-monitoren (se <xref linkend=\"invoking-openfirmware\"/>) og brug "
+"kommandoen <informalexample><screen>\n"
+"0 &gt; boot enet:0\n"
+"</screen></informalexample> Hvis dette ikke virker, så skal du måske "
+"tilføje filnavnet således: <informalexample><screen>\n"
+"0 &gt; boot enet:0,yaboot\n"
+"</screen></informalexample> PReP- og CHRP-bokse kan have forskellige "
+"måder at adressere netværket på. På en PReP-maskine, kan du prøve "
+"<informalexample><screen>\n"
+"boot net:<replaceable>server_ipaddr</replaceable>,<replaceable>file</"
+"replaceable>,<replaceable>client_ipaddr</replaceable>\n"
+"</screen></informalexample> På nogle PReP-systemer (f.eks. Motorola PowerStack-"
+"maskiner) kan kommandoen <userinput>help boot</userinput> levere en "
+"beskrivelse af syntaks og tilgængelige indstillinger."
 
 #. Tag: para
 #: boot-installer.xml:1676
@@ -2101,6 +2299,10 @@ msgid ""
 "equipped with floppy drives, and attached USB floppy drives are not "
 "supported for booting."
 msgstr ""
+"Opstart fra diskettedrev er understøttet for &arch-title;, selvom "
+"det generelt kun er gældende for OldWorld-systemer. NewWorld-systemer "
+"er ikke udstyret med diskettedrev, og tilsluttede USB-drev er ikke "
+"understøttet for opstart."
 
 #. Tag: para
 #: boot-installer.xml:1688
@@ -2110,6 +2312,9 @@ msgid ""
 "in floppy drive after shutting the system down, and before pressing the "
 "power-on button."
 msgstr ""
+"For at starte op fra disketten <filename>boot-floppy-hfs.img</filename>, "
+"så placer den i diskettedrevet efter at systemet er lukket ned, og før "
+"du trykker på tændknappen."
 
 #. Tag: para
 #: boot-installer.xml:1694
@@ -2120,6 +2325,10 @@ msgid ""
 "from. A floppy without a valid boot system will be ejected, and the machine "
 "will then check for bootable hard disk partitions."
 msgstr ""
+"For dem der ikke er bekendt med Macintosh-diskettedrevhandlinger: En diskette "
+"placeret i maskinen før opstart vil få første prioritet som opstart. En "
+"diskette uden et gyldigt opstartssystem vil blive skubbte ud, og maskinen "
+"vil så kigge efter harddiskpartitioner, der kan startes op fra."
 
 #. Tag: para
 #: boot-installer.xml:1701
@@ -2129,6 +2338,9 @@ msgid ""
 "the root floppy and press &enterkey;. The installer program is automatically "
 "launched after the root system has been loaded into memory."
 msgstr ""
+"Efter opstart anmodes der om disketten <filename>root.bin</filename>. Indsæt "
+"roddisketten og tryk på &enterkey;. Installationsprogrammet startes "
+"automatisk efter at rodsystemet er blevet indlæst i hukommelsen."
 
 #. Tag: title
 #: boot-installer.xml:1712
@@ -2146,6 +2358,12 @@ msgid ""
 "most Mach64 and Rage video hardware. For Rage 128 hardware, this changes to "
 "<userinput>video=aty128fb:vmode:6</userinput> ."
 msgstr ""
+"Mange ældre Appleskærme brugte en 640x480 67 Hz-tilstand. Hvis dit "
+"billede fremstår forskudt på en ældre Appleskærm, så prøv at tilføje "
+"opstartsparameteren <userinput>video=atyfb:vmode:6</userinput>, som "
+"vil vælge den tilstand for det meste Mach64- og Rage-videoudstyr. For "
+"Rage 128-udstyr bliver det "
+"<userinput>video=aty128fb:vmode:6</userinput> ."
 
 #. Tag: para
 #: boot-installer.xml:1753
@@ -2159,6 +2377,13 @@ msgid ""
 "extra boot parameters to &d-i; at the end of the <userinput>boot</userinput> "
 "command."
 msgstr ""
+"På maskiner med OpenBoot, så indtast opstartsskærmen for maskinen som der "
+"installeres på (se <xref linkend=\"invoking-openboot\"/>). brug kommandoen "
+"<userinput>boot net</userinput> til at starte op med fra en TFTP- og RARP-"
+"server, eller prøv <userinput>boot net:bootp</userinput> eller <userinput>boot net:"
+"dhcp</userinput> til at starte op fra en TFTP- og BOOTP- eller DHCP-server. "
+"Du kan sende ekstra opstartsparametre til &d-i; i slutningen af kommandoen "
+"<userinput>boot</userinput>."
 
 #. Tag: para
 #: boot-installer.xml:1808
@@ -2168,6 +2393,9 @@ msgid ""
 "which is simply an alias to boot from the SCSI device on ID 6 (or the "
 "secondary master for IDE based systems)."
 msgstr ""
+"De fleste OpenBoot-versioner understøtter kommandoen <userinput>boot cdrom"
+"</userinput>, hvilket kun er et alias for at starte fra SCSI-enheden på ID 6 "
+"(eller den sekundære master for IDE-baserede systemer)."
 
 #. Tag: title
 #: boot-installer.xml:1817
@@ -2185,12 +2413,17 @@ msgid ""
 "<ulink url=\"&url-sun-nvram-faq;\">Sun NVRAM FAQ</ulink> for more "
 "information."
 msgstr ""
+"Hvis du ikke kan starte op fordi du får beskeder om et problem med "
+"<quote>IDPROM</quote>, så er det muligt at dit NVRAM-batteri, som "
+"indeholder konfigurationsinformation for din firmware er løbet tør. "
+"se <ulink url=\"&url-sun-nvram-faq;\">Sun NVRAM OSS</ulink> for "
+"yderligere information."
 
 #. Tag: title
 #: boot-installer.xml:1837
 #, no-c-format
 msgid "Accessibility"
-msgstr ""
+msgstr "Tilgængelighed"
 
 #. Tag: para
 #: boot-installer.xml:1838
@@ -2208,12 +2441,24 @@ msgid ""
 "on most architectures the boot loader interprets your keyboard as a QWERTY "
 "keyboard."
 msgstr ""
+"Nogle brugere kan have brug for specifik understøtelse, f.eks. på grund af "
+"en synshæmmelse. <phrase arch=\"ia64;powerpc;x86\">USB-brailleskærme "
+"detekteres automatisk (ikke serielle skærme forbundet via en seriel-til-USB-"
+"konvertering), men de fleste andre</phrase> "
+"<phrase arch=\"arm;hppa;mips;mipsel;sparc\"> "
+"De fleste</phrase> funktioner for tilgængelighed skal aktiveres manuelt. "
+"<phrase arch=\"x86\">På maskiner som understøtter det, så afgiver opstartsmenuen "
+"en biplyd når den er klar til at modtage tastaturtryk.</phrase> Nogle "
+"opstartsparametre kan <phrase arch=\"x86\">så</phrase> tilføjes for at aktivere "
+"tilgængelighedsfunktioner<phrase arch=\"x86\"> (se også "
+"<xref linkend=\"boot-screen\"/>)</phrase>. Bemærk at på de fleste arkitekturer "
+"fortolker opstartsindlæseren dit tastatur som et QERTY-tastatur."
 
 #. Tag: title
 #: boot-installer.xml:1858
 #, no-c-format
 msgid "USB Braille Displays"
-msgstr ""
+msgstr "USB-brailleskærme"
 
 #. Tag: para
 #: boot-installer.xml:1859
@@ -2228,12 +2473,20 @@ msgid ""
 "available on the <ulink url=\"&url-brltty-driver-help;\"><classname>brltty</"
 "classname> website</ulink>."
 msgstr ""
+"USB-brailleskærme bør detekteres automatisk. En tekstversion af "
+"installationsprogrammet vil så blive valgt automatisk og understøttelse for "
+"brailleskærmen vil automatisk blive installeret på målsystemet. Du kan "
+"så bare trykke på &enterkey; ved opstartsmenuen. Når <classname>brltty</"
+"classname> er startet, så kan du vælge en brailletabel ved at indtaste "
+"præferencemenuen. Dokumentation for genvejstaster til brailleenheder er "
+"tilgængelige på <ulink url=\"&url-brltty-driver-help;\"><classname>brltty</"
+"classname> hjemmesiden</ulink>."
 
 #. Tag: title
 #: boot-installer.xml:1874
 #, no-c-format
 msgid "Serial Braille Displays"
-msgstr ""
+msgstr "Serielle brailleskærme"
 
 #. Tag: para
 #: boot-installer.xml:1875
@@ -2257,12 +2510,29 @@ msgid ""
 "devices is available on the <ulink url=\"&url-brltty-driver-help;"
 "\"><classname>brltty</classname> website</ulink>."
 msgstr ""
+"Serielle brailleskærme kan ikke detekteres på en sikker måde automatisk "
+"(da det kan ødelægge nogle af dem). Du skal derfor tilføje opstartsparameteren "
+"<userinput>brltty=<replaceable>driver</replaceable>,<replaceable>port</"
+"replaceable>,<replaceable>table</replaceable></userinput> for at fortælle "
+"<classname>brltty</classname> hvilken driver den skal bruge. "
+"<replaceable>driver</replaceable> skal erstattes af driverkoden i to bogstaver "
+"for din terminal (se <ulink url=\"&url-brltty-manual;\">BRLTTY-manualen</ulink>). "
+"<replaceable>port</replaceable> skal erstattes af navnet for den serielle port "
+"skærmen er forbundet til, <userinput>ttyS0</userinput> er standarden, "
+"<userinput>ttyUSB0</userinput> kan typisk bruges når der bruges et seriel-til-"
+"USB-konverteringsprogram. <replaceable>table</replaceable> er navnet "
+"for brailletabellen, der skal bruges (se <ulink url=\"&url-brltty-manual;\">"
+"BRLTTY-manualen</ulink>); den engelske tabel er standarden. Bemærk at tabellen "
+"kan ændres senere ved at indtaste præferencemenuen. Dokumentation vedrørende "
+"genvejstaster for brailleenheder er tilgængelig på "
+"<ulink url=\"&url-brltty-driver-help;"
+"\"><classname>brltty</classname> hjemmesiden</ulink>."
 
 #. Tag: title
 #: boot-installer.xml:1897 boot-installer.xml:2861
 #, no-c-format
 msgid "Software Speech Synthesis"
-msgstr ""
+msgstr "Understøttelse af talesyntese via programmer"
 
 #. Tag: para
 #: boot-installer.xml:1898
@@ -2274,12 +2544,16 @@ msgid ""
 "is spoken in the selected language (if available in <classname>espeak</"
 "classname>)."
 msgstr ""
+"Understøttelse af talesyntes via programmer kan aktiveres ved at taste "
+"<userinput>s</userinput> &enterkey; i opstartsmenuen. Det første spørgsmål "
+"(sprog) stilles på engelsk, resten af installationen udtales med det valgte "
+"sprog (hvis tilgængelig i <classname>espeak</classname>)."
 
 #. Tag: title
 #: boot-installer.xml:1909
 #, no-c-format
 msgid "Hardware Speech Synthesis"
-msgstr ""
+msgstr "Understøttelse af talesyntese via udstyr"
 
 #. Tag: para
 #: boot-installer.xml:1910
@@ -2289,6 +2563,9 @@ msgid ""
 "support for graphical installer. You thus need to select a <quote>Graphical "
 "install</quote> entry in the boot menu."
 msgstr ""
+"Understøttelse for talesyntese via udstyrsenheder er kun tilgængelig sammen "
+"med understøttelse for et grafisk installationsprogram. Du skal derfor "
+"vælge et punkt med <quote>Grafisk installation</quote> i opstartsmenuen."
 
 #. Tag: para
 #: boot-installer.xml:1916
@@ -2303,12 +2580,21 @@ msgid ""
 "the installer will then be automatically selected, and support for the "
 "speech synthesis device will be automatically installed on the target system."
 msgstr ""
+"Enheder for udstyrstalesyntese kan ikke automatisk detekteres. Du skal "
+"derfor tilføje opstartsparameteren <userinput>speakup.synth=<replaceable>driver</"
+"replaceable></userinput> for at fortælle <classname>speakup</classname> "
+"hvilken driver den skal bruge. <replaceable>driver</replaceable> "
+"skal erstattes af driverkoden for din enhed (se <ulink url=\"&url-"
+"speakup-driver-codes;\">driverkodelisten</ulink>). Den tekstmæssige "
+"udgave af installationsprogramemt vil så automatisk blive valgt, og "
+"understøttelse for talesynteseenheden vil automatisk blive installeret "
+"på målsystemet."
 
 #. Tag: title
 #: boot-installer.xml:1931
 #, no-c-format
 msgid "Board Devices"
-msgstr ""
+msgstr "Bundkortenheder"
 
 #. Tag: para
 #: boot-installer.xml:1932
@@ -2320,6 +2606,12 @@ msgid ""
 "\"x86\">vga=normal</userinput> <userinput>fb=false</userinput> boot "
 "parameter. This will however reduce the number of available languages."
 msgstr ""
+"Nogle tilgængelighedsenheder er fysiske bundkort som er indsat i selve "
+"maskinen og som læser tekst direkte fra videohukommelsen. For at få dem "
+"til at virke skal understøttelse af framebuffer være deaktiveret ved "
+"at bruge opstartsparameteren <userinput arch="
+"\"x86\">vga=normal</userinput> <userinput>fb=false</userinput>. Dette "
+"vil dog reducere antallet af tilgængelige sprog."
 
 #. Tag: para
 #: boot-installer.xml:1940
@@ -2328,12 +2620,15 @@ msgid ""
 "If desired a textual version of the bootloader can be activated before "
 "adding the boot parameter by typing <userinput>h</userinput> &enterkey;."
 msgstr ""
+"Hvis det ønskes kan en tekstversion af opstartsindlæseren aktiveres "
+"før tilføjelse af opstartsparameteren ved at indtaste <userinput>h</userinput> "
+"&enterkey;."
 
 #. Tag: title
 #: boot-installer.xml:1948
 #, no-c-format
 msgid "High-Contrast Theme"
-msgstr ""
+msgstr "Tema med høj kontrast"
 
 #. Tag: para
 #: boot-installer.xml:1949
@@ -2343,12 +2638,15 @@ msgid ""
 "makes it more readable. To enable it, append the <userinput>theme=dark</"
 "userinput> boot parameter."
 msgstr ""
+"For brugere med nedsat syn, kan installationsprogrammet bruge et tema med "
+"høj kontrast, hvilket gør det nemmere at læse. For at atkivere tilføjes "
+"<userinput>theme=dark</userinput> til opstartsparameteren."
 
 #. Tag: title
 #: boot-installer.xml:1958
 #, no-c-format
 msgid "Preseeding"
-msgstr ""
+msgstr "Forhåndsindstilling"
 
 #. Tag: para
 #: boot-installer.xml:1959
@@ -2357,6 +2655,9 @@ msgid ""
 "Alternatively, &debian; can be installed completely automatically by using "
 "preseeding. This is documented in <xref linkend=\"appendix-preseed\"/>."
 msgstr ""
+"Alternativt kan &debian; installeres fuldstændig automatisk med brugen "
+"af forhåndsindstillinger. Dette er dokumenteret i "
+"<xref linkend=\"appendix-preseed\"/>."
 
 #. Tag: para
 #: boot-installer.xml:1974
@@ -2367,6 +2668,10 @@ msgid ""
 "can auto-detect information about your peripherals. However, in some cases "
 "you'll have to help the kernel a bit."
 msgstr ""
+"Opstartsparametre er parametre for Linuxkernen, som generelt bruges til "
+"at sikre at perifære enheder håndteres korrekt. I de fleste tilfælde kan "
+"kernen automatisk detektere information om dine perifære enheder. Dog skal "
+"du i nogle tilfælde hjælpe kernen lidt."
 
 #. Tag: para
 #: boot-installer.xml:1981
@@ -2377,6 +2682,10 @@ msgid ""
 "correctly. It probably will. If not, you can reboot later and look for any "
 "special parameters that inform the system about your hardware."
 msgstr ""
+"Hvis dette er den første gang du starter systemet op, så prøv standardparametrene "
+"for opstart (dvs. prøv uden at angive parametre) og se om det virker korrekt. "
+"Det vil det sikkert. Hvis ikke så kan du genstarte senere og kigge efter "
+"eventuelle specielle parametre som informerer dit system om dit udstyr."
 
 #. Tag: para
 #: boot-installer.xml:1988
@@ -2388,6 +2697,11 @@ msgid ""
 "the most salient parameters. Some common gotchas are included below in <xref "
 "linkend=\"boot-troubleshooting\"/>."
 msgstr ""
+"Information om mange opstartsparametre kan findes i <ulink url=\"http://"
+"www.tldp.org/HOWTO/BootPrompt-HOWTO.html\"> Linux BootPrompt HOWTO</ulink>, "
+"inklusive fif for sjældent udstyr. Dette afsnit indeholder kun en skitse "
+"med de mest indlysende parametre. Nogle gængse problemstillinger er "
+"inkluderet nedenfor i <xref linkend=\"boot-troubleshooting\"/>."
 
 #. Tag: para
 #: boot-installer.xml:1999
@@ -2401,6 +2715,13 @@ msgid ""
 "is your serial device, which is usually something like <filename>ttyS0</"
 "filename>."
 msgstr ""
+"Hvis du starter op med en seriel konsol, vil kernen generelt detektere "
+"dette automatisk. Hvis du har et videokort (framebuffer) og et tastatur "
+"der også er tilsluttet computeren, som du ønsker at starte op via seriel "
+"konsol, så skal du måske sende argumentet <userinput>console=<replaceable>"
+"device</replaceable></userinput> til kernen, hvor <replaceable>device</replaceable> "
+"er din seriel enhed, hvilket normalt ligner noget ala <filename>ttyS0</"
+"filename>."
 
 #. Tag: para
 #: boot-installer.xml:2011
@@ -2418,6 +2739,17 @@ msgid ""
 "indeed perform translation into the <literal>screen</literal> terminal type, "
 "which is very close to <literal>vt102</literal>."
 msgstr ""
+"For at sikre at terminaltypen brugt af installationsprogrammet matcher "
+"din terminalemulator kan parameteren  <userinput>TERM=<replaceable>type</"
+"replaceable></userinput> tilføjes. Bemærk at installationsprogrammet "
+"kun understøtter de følgende terminaltyper: <literal>linux</literal>, <literal>bterm</"
+"literal>, <literal>ansi</literal>, <literal>vt102</literal> og "
+"<literal>dumb</literal>. Standarden for seriel konsol i &d-i; er "
+"<userinput>vt102</userinput>. Hvis du bruger et virtualiseringsværktøj, som "
+"ikke selv tilbyder konvertering til sådanne terminaltyper, f.eks. QEMU/KVM, "
+"så kan du starte den inden i en <command>screen</command>-session. Den "
+"vil udføre oversættelse til <literal>screen</literal>-terminaltypen, "
+"som er meget tæt på <literal>vt102</literal>."
 
 #. Tag: para
 #: boot-installer.xml:2027
@@ -2428,12 +2760,16 @@ msgid ""
 "envar> and <envar>output-device</envar> OpenPROM variables to "
 "<filename>ttya</filename>."
 msgstr ""
+"For &arch-title; er serielenhederne <filename>ttya</filename> eller "
+"<filename>ttyb</filename>. Alternativt sættes OpenPROM-variablerne "
+"<envar>input-device</envar> og <envar>output-device</envar> til "
+"<filename>ttya</filename>."
 
 #. Tag: title
 #: boot-installer.xml:2038
 #, no-c-format
 msgid "&debian; Installer Parameters"
-msgstr ""
+msgstr "Parametre for &debian;-installationsprogrammet"
 
 #. Tag: para
 #: boot-installer.xml:2039
@@ -2444,6 +2780,11 @@ msgid ""
 "use 32 command line options and 32 environment options. If these numbers are "
 "exceeded, the kernel will panic. </para> </footnote> which may be useful."
 msgstr ""
+"Installationssystemet genkender nogle få yderligere opstartsparametre"
+"<footnote> <para> med aktuelle kerner (2.6.9 eller nyere) kan du bruge "
+"32 kommandolinjeindstillinger og 32 miljøindstillinger. Hvis disse tal "
+"overskrides går kernen i panik. </para> </footnote> hvilket kan være "
+"nyttigt."
 
 #. Tag: para
 #: boot-installer.xml:2052
@@ -2455,6 +2796,11 @@ msgid ""
 "brackets behind the (normal) long form. Examples in this manual will "
 "normally use the short form too."
 msgstr ""
+"Et antal parametre har en <quote>kort form</quote> som hjælper med at "
+"undgå begrænsningerne i kernens indstillinger for kommandolinjen og "
+"gør indtastning af parametre nemmere. Hvis en parameter har en kort form, "
+"så vil den blive vist i parenteser bag den (normale) lange form. Eksempler "
+"i denne manual vil normalt også bruge den korte form."
 
 #. Tag: term
 #: boot-installer.xml:2064
@@ -2467,6 +2813,7 @@ msgstr "debconf/priority (prioritet)"
 #, no-c-format
 msgid "This parameter sets the lowest priority of messages to be displayed."
 msgstr ""
+"Denne parameter angiver den laveste prioritet beskeder kan have for at blive vist."
 
 #. Tag: para
 #: boot-installer.xml:2069
@@ -2749,7 +3096,7 @@ msgstr ""
 "På grund af visningsproblemer på nogle systemer, så er understøttelse af "
 "framebuffer <emphasis>deaktiveret som standard</emphasis> for &arch-title;. "
 "Dette kan medføre visninger, der ikke er så kønne, på systemer som ikke "
-"korrekt understøtter framebufferen, såsom med med ATI-grafikkort. Hvis du "
+"korrekt understøtter framebufferen, såsom med ATI-grafikkort. Hvis du "
 "ser problemer i installationsprogrammet, så kan du prøve at starte med "
 "parameteren <userinput>debian-installer/framebuffer=true</userinput> "
 "eller <userinput>fb=true</userinput> i kort form."
@@ -2981,7 +3328,7 @@ msgstr ""
 #: boot-installer.xml:2375
 #, no-c-format
 msgid "base-installer/install-recommends (recommends)"
-msgstr ""
+msgstr "base-installer/install-recommends (anbefalinger)"
 
 #. Tag: para
 #: boot-installer.xml:2376
@@ -2992,6 +3339,11 @@ msgid ""
 "<quote>Recommends</quote>, both during the installation and for the "
 "installed system. See also <xref linkend=\"di-install-base\"/>."
 msgstr ""
+"Ved at angive denne indstilling til <userinput>false</userinput>, "
+"vil pakkehåndteringssystemet blive konfigureret til ikke automatisk "
+"at installere <quote>Recommends (anbefalinger)</quote>, både under "
+"installationen og for det installerede system. Se også "
+"<xref linkend=\"di-install-base\"/>."
 
 #. Tag: para
 #: boot-installer.xml:2383
@@ -3003,6 +3355,11 @@ msgid ""
 "full functionality you want. This option should therefore only be used by "
 "very experienced users."
 msgstr ""
+"Bemærk at denne indstilling giver et mindre omfattende system, men kan "
+"også resultere i at funktioner mangler, som du ellers normalt ville "
+"forvente var tilgængelige. Du skal måske installere nogle af de anbefalede "
+"pakker for at få den fulde funktionalitet. Denne indstilling bør derfor "
+"kun bruges af meget erfarne brugere."
 
 #. Tag: term
 #: boot-installer.xml:2395
@@ -3019,6 +3376,10 @@ msgid ""
 "authentication. <emphasis role=\"bold\">Warning: insecure, not recommended.</"
 "emphasis>"
 msgstr ""
+"Som standard kræver installationsprogrammet at arkiver godkendes med en kendt "
+"gpg-nøgle. Angiv som <userinput>true (sand)</userinput> for at deaktivere den "
+"godkendelse. <emphasis role=\"bold\">Advarsel: usikker, kan ikke anbefales.</"
+"emphasis>"
 
 #. Tag: term
 #: boot-installer.xml:2407
@@ -3034,12 +3395,15 @@ msgid ""
 "only it you see errors during the boot that indicate the ramdisk could not "
 "be loaded completely. The value is in kB."
 msgstr ""
+"Denne parameter bør allerede være angivet til en korrekt værdi hvor krævet; "
+"angiv den kun hvis du ser fejl under opstarten som indikerer at ramdisk "
+"ikke kunne indlæses fuldt ud. Værdien er i kB."
 
 #. Tag: term
 #: boot-installer.xml:2418
 #, no-c-format
 msgid "rescue/enable"
-msgstr ""
+msgstr "rescue/enable"
 
 #. Tag: para
 #: boot-installer.xml:2419
@@ -3048,12 +3412,15 @@ msgid ""
 "Set to <userinput>true</userinput> to enter rescue mode rather than "
 "performing a normal installation. See <xref linkend=\"rescue\"/>."
 msgstr ""
+"Angiv til <userinput>true (sand)</userinput> for at gå i "
+"redningstilstand fremfor at udføre en normal installation. Se "
+"<xref linkend=\"rescue\"/>."
 
 #. Tag: title
 #: boot-installer.xml:2432
 #, no-c-format
 msgid "Using boot parameters to answer questions"
-msgstr ""
+msgstr "Brug af opstartsparametre til at besvare spørgsmål"
 
 #. Tag: para
 #: boot-installer.xml:2433
@@ -3064,6 +3431,11 @@ msgid ""
 "cases. General instructions how to do this can be found in <xref linkend="
 "\"preseed-bootparms\"/>. Some specific examples are listed below."
 msgstr ""
+"Med nogle undtagelser, kan en værdi angives ved opstartsprompten for "
+"spørgsmål stillet under installationen, dog er dette kun virkelig nyttigt "
+"i specifikke tilfælde. Generelle instruktioner om hvordan dette udføres "
+"kan findes i <xref linkend=\"preseed-bootparms\"/>. Nogle specifikke "
+"eksempler vises nedenfor."
 
 #. Tag: term
 #: boot-installer.xml:2445
@@ -3090,6 +3462,8 @@ msgid ""
 "There are two ways to specify the language, country and locale to use for "
 "the installation and the installed system."
 msgstr ""
+"Der er to måder at angive sproget på, land og sted at bruge for "
+"installationen og det installerede system."
 
 #. Tag: para
 #: boot-installer.xml:2453
@@ -3103,6 +3477,13 @@ msgid ""
 "possible combinations of language, country and locale can be achieved this "
 "way."
 msgstr ""
+"Den første og nemmeste måde er kun at sende parameteren <literal>locale</"
+"literal>. Sprog og land vil så blive udledt fra dens værdi. Du kan for "
+"eksempel bruge <userinput>locale=de_CH</userinput> til at vælge tysk som "
+"sprog og Schweitz som land (<literal>de_CH.UTF-8</literal> vil blive "
+"angivet som standardsted for det installerede system). Begrænsningen er "
+"at ikke alle mulige kombinationer af sprog, land og sted kan opnås på "
+"denne måde."
 
 #. Tag: para
 #: boot-installer.xml:2462
@@ -3937,7 +4318,7 @@ msgid ""
 "rebooting) and, if you installed X11, modify the video driver in <filename>/"
 "etc/X11/xorg.conf</filename>."
 msgstr ""
-"Bemærk at du du måske også manuelt skal tilføje denne paramter til "
+"Bemærk at du måske også manuelt skal tilføje denne paramter til "
 "silo-konfigurationen (rediger <filename>/target/etc/silo.conf</filename> "
 "før genstart) og, hvis du installerede X11, så ændr videodriveren i <filename>/"
 "etc/X11/xorg.conf</filename>."
