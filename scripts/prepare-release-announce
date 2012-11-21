@@ -150,12 +150,8 @@ for my $v (sort keys %{$status}) {
                 next if $line =~ /\.pdiff\b/;
                 next if $line =~ /\bTranslation-/;
 
-                # Funnily the arch doesn't appear when fetching from incoming:
                 my ($package, $arch, $version);
-                if ($line =~ /http:\/\/incoming.debian.org.*?(\S+)\s+(\S+)\s+\[.*?\]$/) {
-                    ($package, $version) = ($1, $2);
-                }
-                elsif ($line =~ /(\S+)\s+(\S+)\s+(\S+)\s+\[.*?\]$/) {
+                if ($line =~ /(\S+)\s+(\S+)\s+(\S+)\s+\[.*?\]$/) {
                     ($package, $arch, $version) = ($1, $2, $3);
                 }
                 else {
