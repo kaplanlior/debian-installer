@@ -147,6 +147,7 @@ for my $v (sort keys %{$status}) {
                 next if $line !~ /^Get:/;
                 next if $line =~ /\b(?:InRelease|Sources|Packages|TranslationIndex|Release\.gpg|Release)\b/;
                 next if $line =~ /\(dsc|tar\)/;
+                next if $line =~ /\.pdiff\b/;
                 next if $line =~ /\bTranslation-/;
 
                 # Funnily the arch doesn't appear when fetching from incoming:
