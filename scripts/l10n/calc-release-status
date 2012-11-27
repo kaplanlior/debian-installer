@@ -42,6 +42,7 @@ export LANG=C
 NUMLEVELS=5
 SUITE=testing
 REPO=svn://svn.debian.org/svn/d-i
+GITREPO=git+ssh://git.debian.org/git/d-i
 PTAGS=$REPO/tags/packages
 
 OLDIFS="$IFS"
@@ -169,10 +170,11 @@ real_contents packages_list | sort | while read p_dir p_status; do
 	if [ ! -d $package/$version/po ]; then
 		mkdir -p $package/$version
 		pushd $package/$version >/dev/null
-		if ! svn export $PTAGS/$p_dir/$version/debian/po >/dev/null; then
-			error "no tag $p_dir/$version found!"
-			exit 1
-		fi
+		git clone $GITREPO/$package
+		pushd $package
+		git checkout -b tag -t $version >/dev/null || true
+		popd
+		cp -r $package/debian/po .
 	else
 		pushd $package/$version >/dev/null
 	fi
