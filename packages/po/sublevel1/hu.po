@@ -15,12 +15,14 @@
 #   Gabor Kelemen <kelemeng@gnome.hu>, 2006, 2007.
 #   Kalman Kemenczy <kkemenczy@gmail.com>, 2010.
 #   Andras TIMAR <timar@gnome.hu>, 2000-2001.
+# SZERVÁC Attila <sas@321.hu>, 2012.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-11-03 22:02+0000\n"
-"PO-Revision-Date: 2012-04-20 09:55+0100\n"
+"PO-Revision-Date: 2012-11-28 18:33+0100\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian."
 "org>\n"
@@ -2609,23 +2611,14 @@ msgstr "Firmware ellenőrzése..."
 #. IPv6
 #. :sl1:
 #: ../netcfg-common.templates:2001
-#, fuzzy
-#| msgid "Auto-configure network with DHCP?"
 msgid "Auto-configure networking?"
-msgstr "A hálózat beállítása DHCP módú legyen?"
+msgstr "Megpróbáljam automatikusan beállítani a hálózatot DHCP-vel?"
 
 #. Type: boolean
 #. Description
 #. IPv6
 #. :sl1:
 #: ../netcfg-common.templates:2001
-#, fuzzy
-#| msgid ""
-#| "Networking can either be configured by DHCP or by manually entering all "
-#| "the information. If you choose to use DHCP and the installer is unable to "
-#| "get a working configuration from a DHCP server on your network, you will "
-#| "be given the opportunity to configure your network manually after the "
-#| "attempt to configure it by DHCP."
 msgid ""
 "Networking can be configured either by entering all the information "
 "manually, or by using DHCP (or a variety of IPv6-specific methods) to detect "
@@ -2633,8 +2626,9 @@ msgid ""
 "the installer is unable to get a working configuration from the network, you "
 "will be given the opportunity to configure the network manually."
 msgstr ""
-"A hálózat konfigurálása vagy DHCP-vel, vagy az összes szükséges adat kézi "
-"beírásával történhet. Ha a DHCP nem működik, lehetőség lesz a hálózat kézi "
+"A hálózat konfigurálása történhet DHCP-vel (vagy annak IPv6-specifikus "
+"módszereivel), vagy az összes szükséges adat  beírásával. Ha a telepítő DHCP-"
+"vel nem tudja beállítani a hálózatot, lehetőséged lesz a hálózat kézi "
 "beállítására."
 
 #. Type: string
@@ -2722,11 +2716,6 @@ msgstr "Nem leltem drótnélküli hálózatot"
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:7001
-#, fuzzy
-#| msgid ""
-#| "${iface} is a wireless network interface. Please enter the name (the "
-#| "ESSID) of the wireless network you would like ${iface} to use. If you "
-#| "would like to use any available network, leave this field blank."
 msgid ""
 "${iface} is a wireless network interface. Please enter the name (the ESSID) "
 "of the wireless network you would like ${iface} to use. To connect to any "
@@ -2796,25 +2785,21 @@ msgstr "Hálózat konfigurálása"
 #. :sl1:
 #: ../netcfg-common.templates:52001
 msgid "${essid_list} Enter ESSID manually"
-msgstr ""
+msgstr "${essid_list} ESSID (hálózat azonosító) megadása"
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:52002
-#, fuzzy
-#| msgid "Type of wireless network:"
 msgid "Wireless network:"
-msgstr "Drótnélküli hálózat típusa:"
+msgstr "Vezeték nélküli hálózat:"
 
 #. Type: select
 #. Description
 #. :sl1:
 #: ../netcfg-common.templates:52002
-#, fuzzy
-#| msgid "Choose the next step in the install process:"
 msgid "Select the wireless network to use during the installation process."
-msgstr "Válaszd ki a telepítőfolyamat következő lépését:"
+msgstr "Válassz vezeték nélküli hálózatot a telepítéshez:"
 
 #. Type: string
 #. Description
@@ -2957,7 +2942,7 @@ msgstr "IP-cím:"
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "The IP address is unique to your computer and may be:"
-msgstr ""
+msgstr "Az IP cím a számítógépre jellemző egyedi azonosító, ami lehet:"
 
 #. Type: string
 #. Description
@@ -2968,6 +2953,8 @@ msgid ""
 " * four numbers separated by periods (IPv4);\n"
 " * blocks of hexadecimal characters separated by colons (IPv6)."
 msgstr ""
+" * négy, pontokkal elválasztott szám (IPv4);\n"
+" * hexadecimális számok kettősponttal elválasztva (IPv6)."
 
 #. Type: string
 #. Description
@@ -2975,21 +2962,17 @@ msgstr ""
 #. :sl1:
 #: ../netcfg-static.templates:1001
 msgid "You can also optionally append a CIDR netmask (such as \"/24\")."
-msgstr ""
+msgstr "Megadhatsz egy CIDR hálózati maszkot is (mint pl. a \"/24\")."
 
 #. Type: string
 #. Description
 #. IPv6
 #. :sl1:
 #: ../netcfg-static.templates:1001
-#, fuzzy
-#| msgid ""
-#| "If you don't know what to enter, consult your documentation, or leave it "
-#| "blank to not load the module."
 msgid "If you don't know what to use here, consult your network administrator."
 msgstr ""
-"Bizonytalanság esetén, az eszköz leírásához kell fordulni, vagy üresen "
-"hagyni a modul mellőzéséhez."
+"Ha nem tudod, hogy mit írj ide, kérdezd meg a rendszergazdát vagy az "
+"internet szolgáltatót."
 
 #. Type: string
 #. Description
@@ -4515,10 +4498,8 @@ msgstr "biztonsági frissítések (innen: ${SEC_HOST})"
 #. including host name. In short, KEEP THIS SHORT and, yes, that's tricky
 #. :sl1:
 #: ../apt-setup-udeb.templates:10001
-#, fuzzy
-#| msgid "Erase data:"
 msgid "release updates"
-msgstr "Adatok törlése:"
+msgstr "kiadás frissítések"
 
 #. Type: multiselect
 #. Description
@@ -4531,16 +4512,12 @@ msgstr "Felhasznált szolgáltatások:"
 #. Description
 #. :sl1:
 #: ../apt-setup-udeb.templates:10002
-#, fuzzy
-#| msgid ""
-#| "Debian has two services that provide updates to releases: security and "
-#| "volatile."
 msgid ""
 "Debian has two services that provide updates to releases: security and "
 "release updates."
 msgstr ""
-"A Debian 2 szolgáltatást nyújt a kiadott verziók frissítéséhez: ezek a "
-"biztonsági és változékony frissítések."
+"A Debian két frissítési szolgáltatást nyújt: ezek a biztonsági (security) és "
+"a kiadás (release) frissítések."
 
 #. Type: multiselect
 #. Description
@@ -4557,23 +4534,16 @@ msgstr ""
 #. Description
 #. :sl1:
 #: ../apt-setup-udeb.templates:10002
-#, fuzzy
-#| msgid ""
-#| "Volatile updates provide more current versions for software that changes "
-#| "relatively frequently and where not having the latest version could "
-#| "reduce the usability of the software. An example is the virus signatures "
-#| "for a virus scanner. This service is only available for stable and "
-#| "oldstable releases."
 msgid ""
 "Release updates provide more current versions for software that changes "
 "relatively frequently and where not having the latest version could reduce "
 "the usability of the software. It also provides regression fixes. This "
 "service is only available for stable and oldstable releases."
 msgstr ""
-"A változékony frissítések az olyan sűrűn változó szoftverek frissítéseit "
-"adják, melyeknél az elavulás csökkenti a használhatóságot. Ilyenek például a "
-"vírusleírások. E szolgáltatás csak a \"stable\" és \"oldstable\" kiadásokhoz "
-"érhető el."
+"A iadás frissítések az olyan sűrűn változó szoftverek frissítéseit adják, "
+"melyeknél az elavulás csökkenti a használhatóságot. A javítás közben "
+"bekerült hibák javítását is tartalmazza. E szolgáltatás csak a \"stable\" és "
+"\"oldstable\" kiadásokhoz érhető el."
 
 #. Type: text
 #. Description
