@@ -9,13 +9,13 @@ manual_release=${manual_release:=wheezy}
 
 if [ -z "$languages" ]; then
     # Buildlist of languages
-    # Note: this list is no longer being maintained; see debian/langlist instead
-    languages="en de fr ja pt"
+    # Based on list of languages used in official builds
+    languages="$(cd ../debian; ./getfromlist langlist | tr $'\n' ' ')"
 fi
 
 if [ -z "$architectures" ]; then
     # Note: this list is no longer being maintained; see debian/archlist instead
-    architectures="amd64 armel hppa i386 ia64 mips mipsel powerpc s390 sparc"
+    architectures="$(cd ../debian; ./getfromlist archlist | tr $'\n' ' ')"
 fi
 
 if [ -z "$destination" ]; then
