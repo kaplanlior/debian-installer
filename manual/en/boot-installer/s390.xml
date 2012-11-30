@@ -22,15 +22,40 @@ standard installation system.
 <para>
 
 On S/390 you can append boot parameters in the parm file.  This file can
-either be in ASCII or EBCDIC format.
-A sample parm file <filename>parmfile.debian</filename> is provided with
-the installation images.
+either be in ASCII or EBCDIC format. It needs to be fixed-width with
+80 characters per line. A sample parm file
+<filename>parmfile.debian</filename> is provided with the installation
+images. If a parameter is too long to fit into the 80 characters limit
+it can simply be continued in the first column of the next line. All
+the lines are concatenated without spaces when being passed to the
+kernel.
 
 <!-- Link is bad; commented out for now
 Please read
 <ulink url="&url-s390-devices;">Device Drivers and Installation Commands</ulink>
 for more information about S/390-specific boot parameters.
 -->
+
+</para><para>
+
+If you boot the installer in a logical partition (LPAR) or virtual
+machine (VM) where a lot of devices are visible, you might want to
+instruct the kernel to restrict the list to a fixed set of devices. This
+is advised for the installer's boot process if a lot of disks are
+visible. The "cio_ignore" option supports both a blacklist (to only
+disallow a few devices) and a whitelist (to only allow specific
+devices):
+
+<informalexample role="example"><screen>
+ # blacklist: just ignore the two devices 300 and 301
+ cio_ignore=0.0.0300-0.0.0301
+ # whitelist: ignore everything but 1150, FD00, FD01 and FD02
+ cio_ignore=all,!0.0.1150,!0.0.fd00-0.0.fd02
+</screen></informalexample>
+
+Please note that all devices numbers' hex digits need to be specified in
+lower case. To be considered during the installer's boot process the
+above option needs to be added to <filename>parmfile.debian</filename>.
 
 </para>
   </sect2>
