@@ -1,4 +1,4 @@
-<!-- original version: 43745 -->
+<!-- original version: 68388 -->
 
   <sect2 arch="s390"><title>Limitations des s390</title>
 <para>
@@ -25,6 +25,9 @@ le fichier «&nbsp;parm&nbsp;». Ce fichier peut être au choix en
 ASCII ou au format EBCDIC. 
 Un fichier <filename>parmfile.debian</filename> d'exemple est fourni
 avec les images d'installation.
+Quand un paramètre dépasse 80 caractères, on peut continuer sa saisie sur la première
+colonne de la ligne suivante. Toutes les lignes sont concaténées sans espace quand elles sont
+passées au noyau.
 
 <!-- Link is bad; commented out for now
 Veuillez lire
@@ -32,5 +35,28 @@ Veuillez lire
 d'installation</ulink> pour avoir plus d'informations au sujet des
 paramètres d'amorçage spécifiques à S/390.
 -->
+</para>
+<para>
+
+Si vous amorcez l'installateur dans une partition logique (LPAR) ou sur une
+machine virtuelle (VM) où beaucoup de périphériques sont visibles, vous
+pouvez restreindre le nombre de périphériques pris en charge par le noyau.
+Cette restriction est conseillée pour le processus d'amorçage de 
+l'installateur. L'option « cio_ignore » accepte une <emphasis>blacklist</emphasis>
+(supprimer des périphériques) et une <emphasis>whitelist</emphasis> (autoriser certains
+périphériques) :
+
+<informalexample role="example"><screen>
+ # blacklist: ignorer les périphériques 300 et 301
+ cio_ignore=0.0.0300-0.0.0301
+ # whitelist: ignorer tout sauf 1150, FD00, FD01 et FD02
+ cio_ignore=all,!0.0.1150,!0.0.fd00-0.0.fd02
+</screen></informalexample>
+
+<!--Please note that all devices numbers' hex digits need to be specified in
+lower case.-->
+Pour être prises en charges par le processus d'amorçage de l'installateur,
+ces options doivent être ajoutées dans le fichier <filename>parmfile.debian</filename>.
+
 </para>
   </sect2>
