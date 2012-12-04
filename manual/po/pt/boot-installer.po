@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: boot-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2012-12-04 08:21+0000\n"
-"PO-Revision-Date: 2012-11-25 10:07+0000\n"
+"PO-Revision-Date: 2012-12-04 20:39+0000\n"
 "Last-Translator: Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
 "Language: pt\n"
@@ -1984,7 +1984,7 @@ msgstr "Parâmetros de Arranque de s390"
 
 #. Tag: para
 #: boot-installer.xml:1378
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "On S/390 you can append boot parameters in the parm file. This file can "
 #| "either be in ASCII or EBCDIC format. A sample parm file "
@@ -2000,9 +2000,12 @@ msgid ""
 "passed to the kernel."
 msgstr ""
 "Em S/390 pode acrescentar parâmetros de arranque no ficheiro parm. Este "
-"ficheiro pode estar tanto em formato ASCII como em EBCDIC. É disponibilizado "
-"um ficheiro parm de exemplo <filename>parmfile.debian</filename> com as "
-"imagens de instalação."
+"ficheiro pode estar tanto em formato ASCII como em EBCDIC. Necessita ter um "
+"tamanho fixo de 80 caracteres por linha. É disponibilizado um ficheiro parm "
+"de exemplo <filename>parmfile.debian</filename> com as imagens de instalação. "
+"Se um parâmetro for demasiado longo para caber no limite de 80 linhas pode "
+"simplesmente ser continuado na primeira coluna da linha seguinte. Todas as "
+"linhas são concatenadas sem espaços quando forem passadas ao kernel."
 
 #. Tag: para
 #: boot-installer.xml:1395
@@ -2024,6 +2027,21 @@ msgid ""
 "boot process the above option needs to be added to <filename>parmfile."
 "debian</filename>."
 msgstr ""
+"Se arrancar o instalador numa partição lógica (LPAR) ou numa máquina virtual "
+"(VM) onde estejam disponíveis muitos dispositivos, poderá querer instruir o "
+"kernel para restringir a lista a um conjunto fixo de dispositivos. Isto é "
+"aconselhado no processo de arranque do instalador se estiverem visíveis "
+"muitos discos. A opção \"cio_ignore\" suporta uma blacklist (para negar "
+"apenas alguns dispositivos) e uma whitelist (para permitir apenas uma lista "
+"de dispositivos específicos): <informalexample role=\"example\"><screen>\n"
+" # blacklist: ignorar apenas os dois dispositivos 300 e 301\n"
+" cio_ignore=0.0.0300-0.0.0301\n"
+" # whitelist: ignorar tudo exepto 1150, FD00, FD01 e FD02\n"
+" cio_ignore=all,!0.0.1150,!0.0.fd00-0.0.fd02\n"
+"</screen></informalexample> Por favor note que têm de ser especificados "
+"todos os números em hexadecimal dos dispositivos em minúsculas. Para ser "
+"considerada durante o processo de arranque a opção acima tem de ser "
+"acrescentada a <filename>parmfile.debian</filename>."
 
 #. Tag: para
 #: boot-installer.xml:1458
