@@ -38,13 +38,13 @@ for more information about S/390-specific boot parameters.
 
 </para><para>
 
-If you boot the installer in a logical partition (LPAR) or virtual
-machine (VM) where a lot of devices are visible, you might want to
-instruct the kernel to restrict the list to a fixed set of devices. This
-is advised for the installer's boot process if a lot of disks are
-visible. The "cio_ignore" option supports both a blacklist (to only
-disallow a few devices) and a whitelist (to only allow specific
-devices):
+If you boot the installer in a logical partition (LPAR) or
+virtual machine (VM) where a lot of devices are visible, you can
+instruct the kernel to restrict the list to a fixed set of devices.
+This is advised for the installer's boot process if a lot of disks are
+visible, most likely in LPAR mode. The "cio_ignore" option supports both
+a blacklist (to only disallow a few devices) and a whitelist (to only
+allow specific devices):
 
 <informalexample role="example"><screen>
  # blacklist: just ignore the two devices 300 and 301
@@ -54,7 +54,9 @@ devices):
 </screen></informalexample>
 
 Please note that all devices numbers' hex digits need to be specified in
-lower case. To be considered during the installer's boot process the
+lower case. Furthermore if this boot parameter is used all devices
+need to be listed: this includes at least disks, network devices and
+the console. To be considered during the installer's boot process the
 above option needs to be added to <filename>parmfile.debian</filename>.
 
 </para>
