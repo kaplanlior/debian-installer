@@ -1,15 +1,15 @@
-<!-- original version: 68388 -->
+<!-- original version: 68399 -->
 
   <sect2 arch="s390"><title>Limitations des s390</title>
 <para>
 
-Pour pouvoir lancer le système d'installation sur les S/390, vous aurez besoin
+Pour pouvoir lancer le système d'installation sur les S/390, vous avez besoin
 d'un réseau en état de marche ainsi qu'une session ssh.
 
 </para><para>
 
 Le processus de démarrage commence avec la configuration du réseau,
-où l'on vous demandera d'indiquer les paramètres de votre réseau. Si
+où l'on vous demande d'indiquer les paramètres de votre réseau. Si
 la configuration s'achève convenablement, vous vous connecterez sur le système
 en lançant une session ssh, ce qui lancera le système d'installation standard.
 
@@ -21,8 +21,7 @@ en lançant une session ssh, ce qui lancera le système d'installation standard.
 <para>
 
 Sur les S/390, vous pouvez passer les paramètres d'amorçage dans
-le fichier «&nbsp;parm&nbsp;». Ce fichier peut être au choix en
-ASCII ou au format EBCDIC. 
+le fichier «&nbsp;parm&nbsp;». Ce fichier peut être soit en ASCII soit au format EBCDIC. 
 Un fichier <filename>parmfile.debian</filename> d'exemple est fourni
 avec les images d'installation.
 Quand un paramètre dépasse 80 caractères, on peut continuer sa saisie sur la première
@@ -53,10 +52,13 @@ périphériques) :
  cio_ignore=all,!0.0.1150,!0.0.fd00-0.0.fd02
 </screen></informalexample>
 
-<!--Please note that all devices numbers' hex digits need to be specified in
-lower case.-->
-Pour être prises en charges par le processus d'amorçage de l'installateur,
-ces options doivent être ajoutées dans le fichier <filename>parmfile.debian</filename>.
+Notez que tous les chiffres hexadécimaux des numéros de périphériques
+doivent être saisis en minuscule.
+Quand cette option est utilisée, vous devez lister tous les périphériques,
+les disques, les périphériques réseau, la console.
+Pour être prise en charge par le processus d'amorçage de l'installateur,
+cette option doit être ajoutée dans le fichier <filename>parmfile.debian</filename>.
 
 </para>
   </sect2>
+
