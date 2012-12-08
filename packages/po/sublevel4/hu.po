@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-10-18 06:02+0000\n"
-"PO-Revision-Date: 2012-11-29 19:23+0100\n"
+"PO-Revision-Date: 2012-12-08 16:39+0100\n"
 "Last-Translator: Dr. Nagy Elemér Károly <eknagy@omikk.bme.hu>\n"
 "Language-Team: Debian L10n Hungarian <debian-l10n-hungarian@lists.debian."
 "org>\n"
@@ -1155,6 +1155,8 @@ msgid ""
 "Your root file system is on a ZFS pool that uses more than one physical "
 "volume."
 msgstr ""
+"A fájlrendszered gyökere egy olyan ZFS tárolón van, ami egynél több fizikai "
+"kötetből áll."
 
 #. Type: error
 #. Description
@@ -1176,6 +1178,9 @@ msgid ""
 "Make sure /boot and /lib/modules are on a partition using a supported ZFS "
 "pool configuration, or a different file system such as UFS."
 msgstr ""
+"Ellenőrizd, hogy a /boot és a /lib/modules útvonalak vagy támogatott ZFS "
+"tárolón lévő partíción vannak, vagy más fájlrendszeren (például UFS-en) "
+"vannak."
 
 #. Type: error
 #. Description
@@ -1192,6 +1197,8 @@ msgid ""
 "Your ${MNT} partition is on a ZFS pool that uses more than one physical "
 "volume."
 msgstr ""
+"A ${MNT} partíciód egy olyan ZFS tárolón van, amely egynél több fizikai "
+"kötetet tartalmaz. "
 
 #. Type: error
 #. Description
@@ -1201,6 +1208,8 @@ msgid ""
 "Make sure ${MNT} is on a partition using a supported ZFS pool configuration, "
 "or a different file system such as UFS."
 msgstr ""
+"Ellenőrizd, hogy a ${MNT} vagy egy támogatott ZFS tárolón lévő partíción, "
+"vagy egy másik fájlrendszeren (például UFS-en) van."
 
 #. Type: boolean
 #. Description
@@ -1265,10 +1274,9 @@ msgstr "ZFS beállítása"
 #. :sl4:
 #. What is "in use" is a partition
 #: ../partman-zfs.templates:9001
-#, fuzzy
 #| msgid "In use by LVM volume group ${VG}"
 msgid "In use by ZFS pool ${VG}"
-msgstr "LVM kötet csoport  ${VG} használja"
+msgstr "A ${VG} ZFS tároló használja"
 
 #. Type: text
 #. Description
@@ -1277,7 +1285,7 @@ msgstr "LVM kötet csoport  ${VG} használja"
 #. Use infinitive form
 #: ../partman-zfs.templates:11001
 msgid "Create ZFS pool"
-msgstr ""
+msgstr "ZFS tároló létrehozása"
 
 #. Type: text
 #. Description
@@ -1286,7 +1294,7 @@ msgstr ""
 #. Use infinitive form
 #: ../partman-zfs.templates:12001
 msgid "Delete ZFS pool"
-msgstr ""
+msgstr "ZFS tároló törlése"
 
 #. Type: boolean
 #. Description
@@ -1359,7 +1367,6 @@ msgstr "Jelenlegi ZFS beállítás összefoglalója:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:20001
-#, fuzzy
 #| msgid ""
 #| " Free Physical Volumes:  ${FREE_PVS}\n"
 #| " Used Physical Volumes:  ${USED_PVS}\n"
@@ -1371,10 +1378,10 @@ msgid ""
 " ZFS pools:              ${VGS}\n"
 " ZFS logical volumes:    ${LVS}"
 msgstr ""
-" Szabad fizikai kötetek:      ${FREE_PVS}\n"
+" Szabad fizikai kötetek:  ${FREE_PVS}\n"
 " Használt fizikai kötetek:  ${USED_PVS}\n"
-" Kötetcsoportok:             ${VGS}\n"
-" Logikai kötetek:            ${LVS}"
+" ZFS kötetek:              ${VGS}\n"
+" ZFS logikai kötetek:    ${LVS}"
 
 #. Type: note
 #. Description
@@ -1387,28 +1394,25 @@ msgstr "Jelenlegi ZFS beállítás:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
-#, fuzzy
 #| msgid "Devices for the new volume group:"
 msgid "Devices for the new ZFS pool:"
-msgstr "Új kötetcsoport eszközei:"
+msgstr "Az új ZFS tároló eszközei:"
 
 #. Type: multiselect
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:22001
-#, fuzzy
 #| msgid "Please select the devices for the new volume group."
 msgid "Please select devices for the new ZFS pool."
-msgstr "Jelöld ki az új kötetcsoportot alkotó eszközöket."
+msgstr "Válaszd ki az új ZFS tárolóhoz az eszközöket."
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:23001
-#, fuzzy
 #| msgid "Devices for the new volume group:"
 msgid "Multidisk mode for this ZFS pool:"
-msgstr "Új kötetcsoport eszközei:"
+msgstr "Többdiszkes működési mód ehhez a ZFS tárolóhoz:"
 
 #. Type: select
 #. Description
@@ -1423,6 +1427,14 @@ msgid ""
 " * RAID-Z:  similar to RAID 5 or RAID 6 - some physical volumes\n"
 "            store parity bits and data is spread across others."
 msgstr ""
+"Kérlek válassz többlemezes működési módot ehhez a ZFS tárolóhoz:\n"
+" * Csíkozott: (alapértelmezett) hasonlóan a RAID0-hoz az adat a\n"
+"              fizikai köteteken szét van terítve;\n"
+" * Mirror:    hasonlóan a RAID1-hez az adat minden fizikai \n"
+"              kötetre rákerül;\n"
+" * RAID-Z:    hasonlóan a RAID5/RAID6-hoz némelyik fizikai\n"
+"              kötet paritásbiteket tartalmaz és az adat szét\n"
+"              van terítve a fizikai köteteken."
 
 #. Type: select
 #. Description
@@ -1446,23 +1458,21 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:25001
 msgid "ZFS pool name:"
-msgstr ""
+msgstr "ZFS tároló neve:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:25001
-#, fuzzy
 #| msgid ""
 #| "Please enter the name you would like to use for the new logical volume."
 msgid "Please enter the name you would like to use for the new ZFS pool."
-msgstr "Add meg az új logikai kötet nevét."
+msgstr "Add meg az új ZFS tároló nevét."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:26001
-#, fuzzy
 #| msgid ""
 #| "No physical volumes were selected. The creation of a new volume group has "
 #| "been aborted."
@@ -1470,137 +1480,124 @@ msgid ""
 "No physical volumes were selected. The creation of a new ZFS pool has been "
 "aborted."
 msgstr ""
-"Nincs kiválasztott fizikai kötet. Az új kötetcsoport létrehozása "
-"félbeszakadt."
+"Nincs kiválasztott fizikai kötet. Az új ZFS tároló létrehozása félbeszakadt."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:27001
 msgid "No ZFS pool name"
-msgstr ""
+msgstr "Nincs ZFS tároló név"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:27001
-#, fuzzy
 #| msgid "No name for the volume group has been entered. Please enter a name."
 msgid "No name for the ZFS pool has been entered. Please enter a name."
-msgstr "Nincs kötetcsoportnév. Adj meg egyet."
+msgstr "Nincs ZFS tároló név megadva. Adj meg egyet."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 #| msgid "Volume group name already in use"
 msgid "ZFS pool name already in use"
-msgstr "A kötetcsoportnév már foglalt"
+msgstr "A ZFS tároló neve már foglalt"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:28001
-#, fuzzy
 #| msgid ""
 #| "The selected volume group name is already in use. Please choose a "
 #| "different name."
 msgid ""
 "The selected ZFS pool name is already in use. Please choose a different name."
-msgstr "Az adott kötetcsoportnév már foglalt. Válassz más nevet."
+msgstr "Az megadott ZFS tárolónév már foglalt. Válassz más nevet."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
-#, fuzzy
 #| msgid "Error while creating a new logical volume"
 msgid "Error while creating ZFS pool"
-msgstr "Hiba új logikai kötet létrehozása közben"
+msgstr "Hiba az új ZFS kötet létrehozása közben"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:29001
-#, fuzzy
 #| msgid "The volume group ${VG} could not be created."
 msgid "The ZFS pool ${VG} could not be created."
-msgstr "A kötetcsoport ${VG} nem hozható létre."
+msgstr "A ${VG} ZFS tárolót nem tudtam létrehozni."
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
-#, fuzzy
 #| msgid "Volume group to delete:"
 msgid "ZFS pool to delete:"
-msgstr "Törlendő kötetcsoport:"
+msgstr "Törlendő ZFS tároló:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:30001
-#, fuzzy
 #| msgid "Please select the volume group you wish to delete."
 msgid "Please select the ZFS pool you wish to delete."
-msgstr "Törlendő kötetcsoportot kiválasztása"
+msgstr "Kérlek választ ki a törlendő ZFS tárolót."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
 msgid "No ZFS pool"
-msgstr ""
+msgstr "Nem ZFS tároló"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
-#, fuzzy
 #| msgid "No volume group has been found."
 msgid "No ZFS pool has been found."
-msgstr "Nem találtam kötetcsoportot."
+msgstr "Nem találtam ZFS tárolót."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:31001
-#, fuzzy
 #| msgid "The volume group may have already been deleted."
 msgid "The ZFS pool may have already been deleted."
-msgstr "A kötetcsoport törlése már megtörténhetett."
+msgstr "A ZFS tároló törlése már megtörténhetett."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:32001
-#, fuzzy
 #| msgid "Really delete the volume group?"
 msgid "Really delete the ZFS pool?"
-msgstr "Kötetcsoport törlése?"
+msgstr "Tényleg törlöd a ZFS tárolót?"
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:32001
 msgid "Please confirm the removal of the ZFS pool ${VG}."
-msgstr ""
+msgstr "Kérlek erősítsd meg a ${VG} ZFS tároló törlését."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
-#, fuzzy
 #| msgid "Error while deleting volume group"
 msgid "Error while deleting ZFS pool"
-msgstr "Hiba a kötetcsoport törlésekor"
+msgstr "Hiba a ZFS tároló törlésekor"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:33001
-#, fuzzy
 #| msgid ""
 #| "The selected volume group could not be deleted. One or more logical "
 #| "volumes may currently be in use."
@@ -1608,23 +1605,21 @@ msgid ""
 "The selected ZFS pool could not be deleted. One or more logical volumes may "
 "currently be in use."
 msgstr ""
-"A kiválasztott kötetcsoport törlése meghiúsult. Egy vagy több logikai kötet "
-"még talán használat alatt állhat."
+"A kiválasztott ZFS tároló törlése meghiúsult. Egy vagy több logikai kötet "
+"még használat alatt állhat."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
-#, fuzzy
 #| msgid "No partitions found"
 msgid "No ZFS pool found"
-msgstr "Nincs elérhető partíció"
+msgstr "Nincs elérhető ZFS tároló"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:34001
-#, fuzzy
 #| msgid ""
 #| "No free volume groups were found for creating a new logical volume. "
 #| "Please create more physical volumes and volume groups, or reduce an "
@@ -1633,34 +1628,31 @@ msgid ""
 "No free ZFS pools were found for creating a new logical volume. Please "
 "create another ZFS pool, or free space in an existing ZFS pool."
 msgstr ""
-"Nincs szabad kötetcsoport új logikai kötet létrehozásához. Készíts újabb "
-"fizikai köteteket és kötetcsoportokat, vagy csökkents egy létező "
-"kötetcsoportot."
+"Nincs szabad ZFS tároló új logikai kötet létrehozásához. Készíts újabb ZFS "
+"tárolót, vagy szabadíts fel helyet a létező ZFS tárolókban."
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:36001
 msgid "ZFS pool:"
-msgstr ""
+msgstr "ZFS tároló:"
 
 #. Type: select
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:36001
-#, fuzzy
 #| msgid ""
 #| "Please select the volume group where the new logical volume should be "
 #| "created."
 msgid ""
 "Please select the ZFS pool where the new logical volume should be created."
-msgstr "Válaszd ki az új logikai kötetet befogadó kötetcsoportot."
+msgstr "Válaszd ki az új logikai kötetet befogadó ZFS tárolót."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:38001
-#, fuzzy
 #| msgid ""
 #| "The name ${LV} is already in use by another logical volume on the same "
 #| "volume group (${VG})."
@@ -1668,8 +1660,8 @@ msgid ""
 "The name ${LV} is already in use by another logical volume on the same ZFS "
 "pool (${VG})."
 msgstr ""
-"Az adott kötetcsoport (${VG}) egy másik logikai kötete már lefoglalta az "
-"adott nevet (${LV})."
+"Az adott ZFS tároló (${VG}) egy másik logikai kötete már lefoglalta az adott "
+"nevet (${LV})."
 
 #. Type: error
 #. Description
@@ -1703,16 +1695,14 @@ msgstr "E rendszermag nem támogat ZFS-t. Vagy be kell tölteni a zfs modult."
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 #| msgid "Invalid logical volume or volume group name"
 msgid "Invalid logical volume or ZFS pool name"
-msgstr "Érvénytelen logikai kötet vagy kötetcsoport név"
+msgstr "Érvénytelen logikai kötet vagy ZFS tároló név"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:47001
-#, fuzzy
 #| msgid ""
 #| "Logical volume or volume group names may only contain alphanumeric "
 #| "characters, hyphen, plus, period and underscore. They must be 128 "
@@ -1725,16 +1715,15 @@ msgid ""
 "and must begin with an alphanumeric character. The names \"mirror\", \"raidz"
 "\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"A logikai kötet vagy kötetcsoport nevek csak alfanumerikus karaktereket, "
-"kötőjelet, pluszt, pontot és aláhúzást tartalmazhatnak. Legfeljebb 128 "
-"karakter hosszúak lehetnek és nem kezdődhetnek kötőjellel. A \".\" és \"..\" "
-"nevek tilosak. A logikai kötet nevek nem kezdődhetnek így: \"snapshot\"."
+"A logikai kötet és ZFS tároló név csak alfanumerikus karaktert, kötőjelet, "
+"kettőspontot, pontot és aláhúzást tartalmazhat. Legfeljebb 255 karakter "
+"hosszú lehet és alfanumerikus karakterrel kell kezdődnie. A \"mirror\", "
+"\"raidz\", \"spare\" és \"log\" nevek tiltottak."
 
 #. Type: boolean
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 #| msgid ""
 #| "The selected device already contains the following LVM logical volumes, "
 #| "volume groups and physical volumes which are about to be removed:"
@@ -1742,8 +1731,8 @@ msgid ""
 "The selected device already contains the following ZFS logical volumes and "
 "ZFS pools which are about to be removed:"
 msgstr ""
-"A kijelölt eszköz már tartalmazza az alábbi LVM logikai köteteket, "
-"kötetcsoportokat és fizikai köteteket melyek törölésre kerülnek:"
+"A kijelölt eszköz már tartalmazza az alábbi ZFS logikai köteteket illetve "
+"ZFS tárolókat és ezek törölésre kerülnek:"
 
 #. Type: boolean
 #. Description
@@ -1757,7 +1746,7 @@ msgstr "Logikai kötetek: ${LVTARGETS}"
 #. :sl4:
 #: ../partman-zfs.templates:48001
 msgid "ZFS pool(s): ${VGTARGETS}"
-msgstr ""
+msgstr "ZFS tároló(k): ${VGTARGETS}"
 
 #. Type: note
 #. Description
@@ -1783,7 +1772,6 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 #| msgid ""
 #| "LVM allows combining disk or partition devices (\"physical volumes\") to "
 #| "form a virtual disk (\"volume group\"), which can then be divided into "
@@ -1799,18 +1787,17 @@ msgid ""
 "pool at any time, and logical volumes have no size limit other than the "
 "total size of the ZFS pool."
 msgstr ""
-"Az LVM segítségével lemez vagy partíció eszközökből (\"fizikai kötetek\") "
-"virtuális lemezek (\"kötetcsoportok\") képezhetők, melyek virtuális "
-"partíciókká oszthatók (\"logikai kötetek\"). A kötetcsoportok és logikai "
-"kötetek több fizikai lemezt átfoghatnak. Új fizikai kötetek is bármikor "
-"adhatók egy kötetcsoporthoz, a logikai kötetek pedig bármikor megnövelhetők "
-"a kötetcsoport kihasználatlan helye erejéig."
+"A ZFS segítségével lemezekből és partíciókból (\"fizikai kötetek\") "
+"virtuális lemezt (\"ZFS tároló\") képezhető, amelyek virtuális partíciókká "
+"oszthatók (\"logikai kötetek\"). A ZFS tárolók és logikai kötetek több "
+"fizikai lemezt is használhatnak. Új fizikai kötetek is bármikor hozzáadhatók "
+"egy ZFS tárolóhoz. A logikai köteteknek nincs méretkorlátja a ZFS tároló "
+"összméretét kivéve."
 
 #. Type: note
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:49001
-#, fuzzy
 #| msgid ""
 #| "The items on the LVM configuration menu can be used to edit volume groups "
 #| "and logical volumes. After you return to the main partition manager "
@@ -1822,7 +1809,7 @@ msgid ""
 "logical volumes will be displayed in the same way as ordinary partitions, "
 "and should be treated as such."
 msgstr ""
-"Az LVM beállító menü elemeivel szerkeszthetők a kötetcsoportok és logikai "
+"Az ZFS beállító menü elemeivel szerkeszthetők a ZFS tárolók és a logikai "
 "kötetek. A fő partíció kezelő menübe visszatérve a logikai kötetek a normál "
 "partíciókhoz hasonlóan jelennek meg és kezelhetők."
 
