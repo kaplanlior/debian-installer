@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 43745 -->
+<!-- original version: 68399 -->
 
   <sect2 arch="s390"><title>Omezení s390</title>
 <para>
@@ -22,14 +22,40 @@ přihlásit do systému, čímž se spustí standardní instalační systém.
 
 Na systémech S/390 můžete parametry uložit do souboru
 <filename>parm</filename>. Tento soubor může být ve formátu ASCII nebo
-EBCDIC. Ukázkový <filename>parmfile.debian</filename> naleznete
-u instalačních médií.
+EBCDIC a musí mít pevnou šířku 80 znaků na řádek. Pokud se parametr do
+80 znakového limitu nevleze, může bez problémů pokračovat na dalším
+řádku. Před předáním jádru jsou totiž všechny řádky spojeny (bez
+mezer) do jednoho dlouhého. Ukázkový
+<filename>parmfile.debian</filename> naleznete u instalačních médií.
 
 <!--
 Podrobné informace o zaváděcích parametrech specifických pro
 S/390 naleznete v <ulink url="&url-s390-devices;">Device Drivers and
 Installation Commands</ulink>.
 -->
+
+</para><para>
+
+Zavádíte-li instalaci v logické oblasti (LPAR) nebo ve virtuálním
+počítači (VM), kde je vidět spousta nejrůznějších zařízení, můžete
+jádru říct, aby se omezilo jen na zadanou množinu zařízení. To se hodí
+v případech, kdy je vidět spousta disků (nejspíše v LPAR režimu).
+Parametr <quote>cio_ignore</quote> může fungovat jak černá listina
+(pro zakázání několika málo zařízení), nebo jako seznam povolených
+zařízení (pro povolení jen konkrétních zařízení):
+
+<informalexample role="example"><screen>
+# černá listina: ignoruje jen zařízení 300 a 301
+cio_ignore=0.0.0300-0.0.0301
+# povolená zařízení: ignoruje vše kromě 1150, FD00, FD01 a FD02
+cio_ignore=all,!0.0.1150,!0.0.fd00-0.0.fd02
+</screen></informalexample>
+
+Poznamenejme, že hexadecimální číslice je třeba psát malými písmeny.
+Jestliže se rozhodnete použít tento parametr, pamatujte, že je potřeba
+vypsat všechna zařízení, což zahrnuje minimálně disky, síťová zařízení
+a konzoli. Aby se seznam použil během zavádění instalace, je potřeba
+tento parametr zadat do souboru <filename>parmfile.debian</filename>.
 
 </para>
   </sect2>
