@@ -41,29 +41,6 @@ Alternatively,
 for very small USB sticks, only a few megabytes in size, you can download
 the <filename>mini.iso</filename> image from the <filename>netboot</filename>
 directory (at the location mentioned in <xref linkend="where-files"/>).
-<footnote>
-
-<para arch="not-s390">
-
-A special method can be used to add firmware to the
-<filename>mini.iso</filename>. First, write the
-<filename>mini.iso</filename> to the USB stick.
-Next obtain the necessary firmware files.
-See <xref linkend="loading-firmware"/> for more information about firmware.
-Now unplug and replug the USB stick, and two partitions should now be visible on it.
-You should mount the second of the two partitions, and unpack the firmware onto it.
-
-<informalexample><screen>
-# mount /dev/<replaceable>sdX2</replaceable> /mnt
-# cd /mnt
-# tar zxvf <replaceable>/path/to/</replaceable>firmware.tar.gz
-# cd /
-# umount
-</screen></informalexample>
-
-</para>
-
-</footnote>
 
 </para><para>
 
@@ -84,6 +61,38 @@ for most users. The other options below are more complex, mainly for
 people with specialised needs.
 
 </para></important>
+
+<para>
+
+The hybrid image on the stick does not occupy all the storage space, so
+it may be worth considering using the free space to hold firmware files
+or packages or any other files of your choice. This could be useful if
+you have only one stick or just want to keep everything you need on one
+device.
+
+</para><para>
+
+Create a second, FAT partition on the stick, mount the partition
+and copy or unpack the firmware onto it. For example:
+
+<informalexample><screen>
+# mount /dev/<replaceable>sdX2</replaceable> /mnt
+# cd /mnt
+# tar zxvf <replaceable>/path/to/</replaceable>firmware.tar.gz
+# cd /
+# umount
+</screen></informalexample>
+
+</para><para arch="not-s390">
+
+You might have written the <filename>mini.iso</filename> to the USB
+stick. In this case the second partition doesn't have to be created as,
+very nicely, it will already be present. Unplugging and replugging the
+USB stick should make the two partitions visible.
+
+</para>
+
+
 
   </sect2>
 
