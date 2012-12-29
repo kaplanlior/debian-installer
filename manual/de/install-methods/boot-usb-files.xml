@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 68208 -->
+<!-- original version: 68419 -->
 
  <sect1 condition="bootable-usb" id="boot-usb-files">
  <title>Dateien vorbereiten für das Booten von einem USB-Memory-Stick</title>
@@ -45,30 +45,6 @@ Alternativ können Sie bei sehr kleinen USB-Sticks, die nur ein paar Megabyte
 groß sind, das <filename>mini.iso</filename>-Image aus dem
 <filename>netboot</filename>-Verzeichnis herunterladen (<xref
 linkend="where-files"/> gibt nähere Informationen, wo Sie dies finden können).
-<footnote>
-
-<para arch="not-s390">
-
-Es kann eine spezielle Methode verwendet werden, um Firmware zum
-<filename>mini.iso</filename>-Image hinzuzufügen: schreiben Sie zunächst die
-<filename>mini.iso</filename> auf den USB-Stick. Beschaffen Sie sich als
-nächstes die benötigten Firmware-Dateien (weitere Informationen über Firmware
-finden Sie in <xref linkend="loading-firmware"/>). Ziehen Sie nun den USB-Stick
-heraus und stecken Sie ihn erneut ein. Es sollten jetzt zwei Partitionen darauf
-sichtbar sein. Sie sollten die zweite der beiden einbinden und die Firmware
-darauf entpacken.
-
-<informalexample><screen>
-# mount /dev/<replaceable>sdX2</replaceable> /mnt
-# cd /mnt
-# tar zxvf <replaceable>/pfad/zu/ihrer/</replaceable>firmware.tar.gz
-# cd /
-# umount
-</screen></informalexample>
-
-</para>
-
-</footnote>
 
 </para><para>
 
@@ -91,6 +67,39 @@ erwähnten Optionen sind komplexer und hauptsächlich gedacht für Leute
 mit speziellen Bedürfnissen.
 
 </para></important>
+
+<para>
+
+Das Hybrid-Image auf dem Stick beansprucht nicht dem vollständigen
+Speicherplatz, daher können Sie in Betracht ziehen, den freien Platz zu
+verwenden, um Firmware-Dateien oder Pakete bzw. andere Dateien Ihrer Wahl
+abzulegen. Dies könnte nützlich sein, wenn Sie nur einen USB-Stick haben
+oder einfach alles, was Sie benötigen, auf einem Datenträger zusammenhalten
+möchten.
+
+</para><para>
+
+Sie erstellen dazu eine zweite FAT-Partition auf dem Stick, binden die
+Partition ein und kopieren oder entpacken die Firmware/Dateien dorthin. Zum
+Beispiel:
+
+<informalexample><screen>
+# mount /dev/<replaceable>sdX2</replaceable> /mnt
+# cd /mnt
+# tar zxvf <replaceable>/pfad/zu/ihrer/</replaceable>firmware.tar.gz
+# cd /
+# umount
+</screen></informalexample>
+
+</para><para arch="not-s390">
+
+Sie haben möglicherweise das <filename>mini.iso</filename>-Image auf
+den USB-Stick kopiert. In diesem Fall muss die zweite Partition nicht mehr
+erstellt werden, da sie praktischerweise bereits vorhanden ist. Ziehen Sie
+den Stick heraus und stecken Sie ihn neu ein, dann sollten zwei Partitionen
+sichtbar sein.
+
+</para>
 
   </sect2>
 

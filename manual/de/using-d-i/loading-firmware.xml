@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 66809 -->
+<!-- original version: 68421 -->
 
  <sect1 id="loading-firmware" arch="not-s390">
  <title>Fehlende Firmware nachladen</title>
@@ -39,6 +39,19 @@ Firmware auch von einer MMC- oder SD-Karte geladen werden.</phrase>
 Beachten Sie, dass es auch möglich ist, das Laden der Firmware zu
 überspringen, wenn Sie wissen, dass das Gerät auch ohne funktioniert oder
 dass es während der Installation nicht benötigt wird.
+
+</para><para>
+
+Der &d-i; fragt nur nach Firmware, die von Kernel-Modulen benötigt wird,
+welche während der Installation geladen werden. Nicht alle Treiber sind
+im &d-i; enthalten (insbesondere ist radeon nicht enthalten), was dazu
+führt, dass die Fähigkeiten einiger Geräte am Ende der Installation
+noch die gleichen sind wie zu Beginn. Als Konsequenz daraus werden einige
+Ihrer Hardware-Geräte unter Umständen nicht mit ihrem ganzen Potential
+genutzt. Wenn Sie vermuten, dass dies der Fall ist, oder wenn Sie einfach
+nur neugierig sind, können Sie in der Ausgabe des
+<command>dmesg</command>-Befehls auf dem neu installierten System nach
+dem Text <quote>firmware</quote> suchen.
 
 </para>
 
