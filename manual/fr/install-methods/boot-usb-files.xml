@@ -1,4 +1,4 @@
-<!-- original version: 68208 -->
+<!-- original version: 68419 -->
 
  <sect1 condition="bootable-usb" id="boot-usb-files">
  <title>Préparation des fichiers pour un amorçage avec une clé USB</title>
@@ -36,26 +36,7 @@ Consultez <xref linkend="official-cdrom"/> pour obtenir cette image.
 Pour les clés de très petite taille (quelques mégaoctets), 
 vous pouvez télécharger l'image <filename>mini.iso</filename>
 qui se trouve dans le répertoire <filename>netboot</filename> (son adresse précise
-est mentionnée dans <xref linkend="where-files"/>)<footnote>
-
-<para arch="not-s390">
-Pour ajouter un microprogramme sur l'image <filename>mini.iso</filename>, vous
-devez d'abord transférer l'image sur la clé. Puis vous devez récupérer les
-fichiers du microprogramme. Consultez <xref linkend="loading-firmware"/> pour des précisions.
-Puis, débranchez la clé et rebranchez-la. Vous devez voir maintenant deux partitions
-sur la clé. Montez la deuxième partition et placez-y les fichiers du microprogramme.
-
-<informalexample><screen>
-# mount /dev/<replaceable>sdX2</replaceable> /mnt
-# cd /mnt
-# tar zxvf <replaceable>/path/to/</replaceable>firmware.tar.gz
-# cd /
-# umount
-</screen></informalexample>
-
-</para>
-
-</footnote>.
+est mentionnée dans <xref linkend="where-files"/>)
 </para>
 <para>
 
@@ -76,6 +57,36 @@ Les méthodes qui suivent sont plus complexes et sont destinées à des utilisat
 aux besoins spécifiques.
 
 </para></important>
+
+<para>
+
+L'image hybride n'occupe pas toute la place sur la clé. Si vous n'avez qu'une seule
+clé ou si vous souhaitez mettre tout ce qui vous est nécessaire sur un seul périphérique,
+il peut être intéressant d'utiliser l'espace libre pour stocker d'autres fichiers,
+microprogrammes, paquets, etc.
+</para>
+
+<para>
+
+Pour cela, vous devez créer une deuxième partition FAT, monter la partition et y copier
+et décompacter le microprogramme. Par exemple :
+
+<informalexample><screen>
+# mount /dev/<replaceable>sdX2</replaceable> /mnt
+# cd /mnt
+# tar zxvf <replaceable>/path/to/</replaceable>firmware.tar.gz
+# cd /
+# umount
+</screen></informalexample>
+
+</para>
+
+<para arch="not-s390">
+Si vous avez copié le fichier <filename>mini.iso</filename> sur la clé,
+il n'est pas nécessaire de créer la deuxième partition car elle est déjà présente.
+Débrancher et rebrancher la clé rend les deux partitions visibles.
+</para>
+
  
   </sect2>
 

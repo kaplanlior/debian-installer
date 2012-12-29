@@ -1,4 +1,4 @@
-<!-- original version: 66809 -->
+<!-- original version: 68414 -->
 
  <sect1 id="loading-firmware" arch="not-s390">
  <title>Télécharger des microprogrammes (<emphasis>firmware</emphasis>) manquants</title>
@@ -39,6 +39,18 @@ nécessaire pendant l'installation.
 
 </para>
 
+<para>
+
+L'&d-i; ne demande que les microprogrammes nécessaires aux modules du noyau
+chargés pendant l'installation. L'&d-i; ne contient pas tous les pilotes et en 
+particulier, il ne contient pas radeon. Ainsi les capacités de certains périphériques
+à la fin de l'installation peuvent ne pas différer de ce qu'elles étaient au début de
+l'installation. Si vous suspectez que vos périphériques ne sont pas utilisés pleinement,
+ou si vous êtes simplement curieux, vous pouvez vérifier sur le nouveau système ce que
+donne une recherche de <emphasis>firmware</emphasis> sur le résultat
+de la commande <command>dmesg</command>.
+
+</para>
 
   <sect2><title>Préparer le support</title>
 <para>
@@ -57,8 +69,8 @@ ce système sera certainement reconnu dans les premières étapes du processus d
 
 </para><para>
 
-Des archives (<emphasis>tarballs</emphasis> ou fichiers zip) contenant les paquets pour les microprogrammes les plus courants
-sont disponibles sur
+Des archives (<emphasis>tarballs</emphasis> ou fichiers zip) contenant les paquets
+pour les microprogrammes les plus courants sont disponibles sur
 
 <itemizedlist>
 <listitem><para>
@@ -85,7 +97,7 @@ Elle n'est certainement pas complète et elle peut contenir des paquets qui ne s
 
 </para><para>
 
-Il est aussi possible de copier des microprogrammes sous forme de simple fichier sur le support.
+Il est aussi possible de copier sur le support des microprogrammes sous forme de simple fichier.
 Ces fichiers peuvent être pris par exemple sur un système déjà installé ou donnés par
 un vendeur de matériel.
 
@@ -120,7 +132,7 @@ Il faudra installer le microprogramme <emphasis>manuellement</emphasis>.
 <note><para>
 
 Quand le microprogramme provient de simples fichiers, une fois copié sur
-le système installé, il ne sera <emphasis>pas</emphasis> automatiquement mis à jour,
+le système installé, il <emphasis>ne</emphasis> sera <emphasis>pas</emphasis> automatiquement mis à jour,
 sauf s'il existe un paquet correspondant à ce microprogramme et que ce paquet
 est installé quand l'installation est terminée.  
 
