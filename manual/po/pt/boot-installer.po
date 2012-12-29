@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: boot-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2012-12-29 10:09+0000\n"
-"PO-Revision-Date: 2012-12-04 20:39+0000\n"
+"PO-Revision-Date: 2012-12-29 18:42+0000\n"
 "Last-Translator: Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
 "Language: pt\n"
@@ -475,10 +475,10 @@ msgstr ""
 
 #. Tag: title
 #: boot-installer.xml:389
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "Booting from DOS"
 msgid "Booting from DOS using loadlin"
-msgstr "A arrancar a partir do DOS"
+msgstr "A arrancar a partir do DOS com o loadlin"
 
 #. Tag: para
 #: boot-installer.xml:390
@@ -532,14 +532,14 @@ msgstr ""
 
 #. Tag: title
 #: boot-installer.xml:423
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Booting from Linux Using <command>LILO</command> or <command>GRUB</"
 #| "command>"
 msgid ""
 "Booting from Linux using <command>LILO</command> or <command>GRUB</command>"
 msgstr ""
-"Arrancar a partir de Linux utilizando o <command>LILO</command> ou o "
+"A arrancar a partir de Linux utilizando <command>LILO</command> ou "
 "<command>GRUB</command>"
 
 #. Tag: para
@@ -2009,7 +2009,7 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:1395
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "If you boot the installer in a logical partition (LPAR) or virtual "
 #| "machine (VM) where a lot of devices are visible, you might want to "
@@ -2046,20 +2046,23 @@ msgid ""
 "filename>."
 msgstr ""
 "Se arrancar o instalador numa partição lógica (LPAR) ou numa máquina virtual "
-"(VM) onde estejam disponíveis muitos dispositivos, poderá querer instruir o "
-"kernel para restringir a lista a um conjunto fixo de dispositivos. Isto é "
+"(VM) onde estejam disponíveis muitos dispositivos, poderá instruir o "
+"kernel a restringir a lista a um conjunto fixo de dispositivos. Isto é "
 "aconselhado no processo de arranque do instalador se estiverem visíveis "
-"muitos discos. A opção \"cio_ignore\" suporta uma blacklist (para negar "
-"apenas alguns dispositivos) e uma whitelist (para permitir apenas uma lista "
-"de dispositivos específicos): <informalexample role=\"example\"><screen>\n"
+"muitos discos, provavelmente em modeo LPAR. A opção <quote>cio_ignore"
+"</quote> suporta uma blacklist (para desabilitar apenas alguns dispositivos) "
+"e uma whitelist (para permitir apenas uma lista de dispositivos específicos): "
+"<informalexample role=\"example\"><screen>\n"
 " # blacklist: ignorar apenas os dois dispositivos 300 e 301\n"
 " cio_ignore=0.0.0300-0.0.0301\n"
 " # whitelist: ignorar tudo exepto 1150, FD00, FD01 e FD02\n"
 " cio_ignore=all,!0.0.1150,!0.0.fd00-0.0.fd02\n"
-"</screen></informalexample> Por favor note que têm de ser especificados "
-"todos os números em hexadecimal dos dispositivos em minúsculas. Para ser "
-"considerada durante o processo de arranque a opção acima tem de ser "
-"acrescentada a <filename>parmfile.debian</filename>."
+"</screen></informalexample> Por favor note que a numeração em hexadecimal "
+"dos dispositivos tem de ser especificada em minúsculas. Além disso, se este "
+"parâmetro de arranque for utilizado todos os dispositivos têm de ser "
+"listados: isto inclui pelo menos discos, dispositivos de rede e a consola. "
+"Para ser considerado durante o processo de arranque do instalador a opção "
+"acima tem de ser acrescentada a <filename>parmfile.debian</filename>."
 
 #. Tag: para
 #: boot-installer.xml:1460
