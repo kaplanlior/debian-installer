@@ -341,9 +341,31 @@ else {
 }
 
 
-print "<html><head><title>udeb testing summary</title><style>table, tr, th, td { border: solid 1px black; } table { border-collapse: collapse } tr.unblocked { background-color: #80ff80; } tr.unwanted { background-color: #808080; } tr.needsreview { background-color: orange; }</style></head><body>\n";
-
-print "<h1>udeb testing summary</h1>\n";
+print <<"HEADER";
+<html>
+  <head>
+    <title>udeb testing summary</title>
+    <style>
+      table, tr, th, td {
+        border: solid 1px black;
+      }
+      table {
+        border-collapse: collapse;
+      }
+      tr.unblocked {
+        background-color: #80ff80;
+      }
+      tr.unwanted {
+        background-color: #808080;
+      }
+      tr.needsreview {
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>udeb testing summary</h1>
+HEADER
 
 print "<table><tr align=left><th>source package</th><th>debs</th><th>arches</th>";
 foreach my $dist (@dists) {
