@@ -447,7 +447,7 @@ foreach my $package (sort keys %seenpackages) {
 			if ($package eq $ann->{package} &&
 			    (! exists $ann->{version} || between_versions($ann->{version}, $vers[0], $vers[1])) &&
 			    (! exists $ann->{arch} || grep $ann->{arch}, @{$transitions{$package}{$transition}}[0])) {
-				$row .= "<tr class=noborder><td class=noborder></td><td class=noborder colspan=".($numcols)."><span>$ann->{annotation}</span>";
+				$row .= "<tr class='noborder ##CLASS##'><td class=noborder>$package</td><td class=noborder colspan=".($numcols)."><span>$ann->{annotation}</span>";
 				if (exists $ann->{user}) {
 				$row .= " <i>-- $ann->{user}</i>";
 				}
@@ -467,7 +467,7 @@ foreach my $package (sort keys %seenpackages) {
 			}
 		}
 
-		$row =~ s/##CLASS##/$class/;
+		$row =~ s/##CLASS##/$class/g;
 		print $row;
 	}
 }
