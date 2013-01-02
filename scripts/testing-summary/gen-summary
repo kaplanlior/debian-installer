@@ -317,7 +317,7 @@ for my $hint_file (<hints/*>) {
 }
 
 
-print "<html><head><title>udeb testing summary</title><style>table, tr, th, td { border: solid 1px black; } table { border-collapse: collapse }</style></head><body>\n";
+print "<html><head><title>udeb testing summary</title><style>table, tr, th, td { border: solid 1px black; } table { border-collapse: collapse } tr.unblocked { background-color: #80ff80; }</style></head><body>\n";
 
 print "<h1>udeb testing summary</h1>\n";
 
@@ -330,8 +330,9 @@ my $numcols=9 + @dists;
 
 foreach my $package (sort keys %seenpackages) {
 	my $row='';
+	my $class='';
 	foreach my $transition (keys %{$transitions{$package}}) {
-		$row .= "<tr><td><a href=\"http://packages.debian.org/unstable/source/$package\">$package</a></td>";
+		$row .= "<tr class=##CLASS##><td><a href=\"http://packages.debian.org/unstable/source/$package\">$package</a></td>";
 		if (exists $has_debs{$package} && $has_debs{$package}==1) {
 			$row .= "<td align=\"center\">x</td>";
 		} else {
@@ -371,6 +372,11 @@ foreach my $package (sort keys %seenpackages) {
 		$row .= "<td>" . (join('<br>', @{$unstable_version ? $udeb_unblocks{"$package/$unstable_version"}  ||[] : []})) . "</td>";
 		$row .= "<td>" . (join('<br>', @{$unstable_version ? $age_days{"$package/$unstable_version"}       ||[] : []})) . "</td>";
 
+		if ((@{$unstable_version ? $normal_unblocks{"$package/$unstable_version"}||[] : []}) &&
+		    @{$unstable_version ? $udeb_unblocks{"$package/$unstable_version"}  ||[] : []}) {
+			$class = 'unblocked';
+		}
+
 		$row .= "<td><a href=\"http://release.debian.org/migration/testing.pl?package=$package\">t</a>
                <a href=\"http://buildd.debian.org/status/package.php?p=$package\">b</a>
                <a href=\"http://packages.qa.debian.org/$package\">s</a></td>";
@@ -398,6 +404,7 @@ foreach my $package (sort keys %seenpackages) {
 				$row .= "</td></tr>\n";
 			}
 		}
+		$row =~ s/##CLASS##/$class/;
 		print $row;
 	}
 }
