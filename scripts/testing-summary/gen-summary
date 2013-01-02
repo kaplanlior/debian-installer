@@ -379,7 +379,11 @@ foreach my $package (sort keys %seenpackages) {
 					$row .= "<td><a href=\"http://release.debian.org/migration/testing.pl?package=" . encode_str($package) . "\">$version</a></td>";
 				}
 				else {
-					$row .= "<td><a href=\"http://packages.debian.org/changelog:$package\">$version</a></td>";
+					my $unwanted_bits='';
+					if ($unwanted{$package} && $unwanted{$package}{version} ne $version) {
+						$unwanted_bits = '<br>' . $unwanted{$package}{version} . ': ' . $unwanted{$package}{reason};
+					}
+					$row .= "<td><a href=\"http://packages.debian.org/changelog:$package\">$version</a>$unwanted_bits</td>";
 					$unstable_version = $version;
 				}
 			}
