@@ -329,14 +329,15 @@ print "<th>age (days)</th><th>frozen</th><th>unblock</th><th>udeb-unblock</th><t
 my $numcols=9 + @dists;
 
 foreach my $package (sort keys %seenpackages) {
+	my $row='';
 	foreach my $transition (keys %{$transitions{$package}}) {
-		print "<tr><td><a href=\"http://packages.debian.org/unstable/source/$package\">$package</a></td>";
+		$row .= "<tr><td><a href=\"http://packages.debian.org/unstable/source/$package\">$package</a></td>";
 		if (exists $has_debs{$package} && $has_debs{$package}==1) {
-			print "<td align=\"center\">x</td>";
+			$row .= "<td align=\"center\">x</td>";
 		} else {
-			print "<td>\&nbsp;</td>";
+			$row .= "<td>\&nbsp;</td>";
 		}
-		print "<td>".archname(@{$transitions{$package}{$transition}})."</td>";
+		$row .= "<td>".archname(@{$transitions{$package}{$transition}})."</td>";
 		my $some_arch=@{$transitions{$package}{$transition}}[0];
 		my @vers;
 		my $unstable_version;
@@ -345,32 +346,32 @@ foreach my $package (sort keys %seenpackages) {
 			if (! defined $version) {
 				$version="-";
 				push @vers, '';
-				print "<td>-</td>";
+				$row .= "<td>-</td>";
 			}
 			else {
 				push @vers, $version;
 				if ($dist eq 'testing') {
-					print "<td><a href=\"http://release.debian.org/migration/testing.pl?package=" . encode_str($package) . "\">$version</a></td>";
+					$row .= "<td><a href=\"http://release.debian.org/migration/testing.pl?package=" . encode_str($package) . "\">$version</a></td>";
 				}
 				else {
-					print "<td><a href=\"http://packages.debian.org/changelog:$package\">$version</a></td>";
+					$row .= "<td><a href=\"http://packages.debian.org/changelog:$package\">$version</a></td>";
 					$unstable_version = $version;
 				}
 			}
 		}
 		my $minage = defined($unstable_version)&&defined($ages{$package}{$unstable_version}) ? $ages{$package}{$unstable_version} : 'unknown';
-		print "<td>".$minage."</td>";
+		$row .= "<td>".$minage."</td>";
 		if (exists $frozen{$package}) {
-			print "<td align=\"center\">yes</td>";
+			$row .= "<td align=\"center\">yes</td>";
 		} else {
-			print "<td align=\"center\"><font color=\"red\">NO</font></td>";
+			$row .= "<td align=\"center\"><font color=\"red\">NO</font></td>";
 		}
 
-		print "<td>" . (join('<br>', @{$unstable_version ? $normal_unblocks{"$package/$unstable_version"}||[] : []})) . "</td>";
-		print "<td>" . (join('<br>', @{$unstable_version ? $udeb_unblocks{"$package/$unstable_version"}  ||[] : []})) . "</td>";
-		print "<td>" . (join('<br>', @{$unstable_version ? $age_days{"$package/$unstable_version"}       ||[] : []})) . "</td>";
+		$row .= "<td>" . (join('<br>', @{$unstable_version ? $normal_unblocks{"$package/$unstable_version"}||[] : []})) . "</td>";
+		$row .= "<td>" . (join('<br>', @{$unstable_version ? $udeb_unblocks{"$package/$unstable_version"}  ||[] : []})) . "</td>";
+		$row .= "<td>" . (join('<br>', @{$unstable_version ? $age_days{"$package/$unstable_version"}       ||[] : []})) . "</td>";
 
-		print "<td><a href=\"http://release.debian.org/migration/testing.pl?package=$package\">t</a>
+		$row .= "<td><a href=\"http://release.debian.org/migration/testing.pl?package=$package\">t</a>
                <a href=\"http://buildd.debian.org/status/package.php?p=$package\">b</a>
                <a href=\"http://packages.qa.debian.org/$package\">s</a></td>";
 
@@ -380,23 +381,24 @@ foreach my $package (sort keys %seenpackages) {
 			my $desc = `cd $gitdir && git describe --tags`;
 			$commits = $desc =~ /-(\d+)-g/ ? $1 : 0;
 		}
-		print "<td>" . $commits . "</td>";
-		print "</tr>\n";
+		$row .= "<td>" . $commits . "</td>";
+		$row .= "</tr>\n";
 
 		foreach my $ann (@annotations) {
 			if ($package eq $ann->{package} &&
 			    (! exists $ann->{version} || between_versions($ann->{version}, $vers[0], $vers[1])) &&
 			    (! exists $ann->{arch} || grep $ann->{arch}, @{$transitions{$package}{$transition}}[0])) {
-				print "<tr><td></td><td colspan=".($numcols-1)."><b>$ann->{annotation}</b>";
+				$row .= "<tr><td></td><td colspan=".($numcols-1)."><b>$ann->{annotation}</b>";
 				if (exists $ann->{user}) {
-				print " <i>-- $ann->{user}</i>";
+				$row .= " <i>-- $ann->{user}</i>";
 				}
 				if (exists $ann->{version} && older_version($ann->{version}, $vers[1])) {
-					print " (re an older version)";
+					$row .= " (re an older version)";
 				}
-				print "</td></tr>\n";
+				$row .= "</td></tr>\n";
 			}
 		}
+		print $row;
 	}
 }
 
