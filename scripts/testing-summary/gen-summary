@@ -317,8 +317,31 @@ for my $hint_file (<hints/*>) {
 		or die "Unable to close $hint_file";
 }
 
+my %unwanted;
+my $unwanted_file = 'unwanted-packages';
+if (open (UNWANTED, $unwanted_file)) {
+	while (my $line = <UNWANTED>) {
+		# Discard comments:
+		next
+			if $line =~ /^\s*#/;
+		# Format is: package version some_reason_for_that
+		if ($line =~ /^(\S+)\s+(\S+)\s+(.*)$/) {
+			my ($package, $version, $reason) = ($1, $2, $3);
+			$unwanted{$package}{version} = $version;
+			$unwanted{$package}{reason} = $reason;
+		}
+		else {
+			print STDERR "failed to parse line from $unwanted_file\n";
+		}
+	}
+	close UNWANTED;
+}
+else {
+	print STDERR "unable to read unwanted file ($unwanted_file): $!\n";
+}
 
-print "<html><head><title>udeb testing summary</title><style>table, tr, th, td { border: solid 1px black; } table { border-collapse: collapse } tr.unblocked { background-color: #80ff80; }</style></head><body>\n";
+
+print "<html><head><title>udeb testing summary</title><style>table, tr, th, td { border: solid 1px black; } table { border-collapse: collapse } tr.unblocked { background-color: #80ff80; } tr.unwanted { background-color: #808080; } tr.needsreview { background-color: orange; }</style></head><body>\n";
 
 print "<h1>udeb testing summary</h1>\n";
 
@@ -405,6 +428,16 @@ foreach my $package (sort keys %seenpackages) {
 				$row .= "</td></tr>\n";
 			}
 		}
+
+		if ($unwanted{$package}) {
+			if (($unwanted{$package}{'version'}||'') eq $unstable_version) {
+				$class = 'unwanted';
+			}
+			else {
+				$class = 'needsreview';
+			}
+		}
+
 		$row =~ s/##CLASS##/$class/;
 		print $row;
 	}
