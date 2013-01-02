@@ -327,6 +327,8 @@ if (open (UNWANTED, $unwanted_file)) {
 		# Format is: package version some_reason_for_that
 		if ($line =~ /^(\S+)\s+(\S+)\s+(.*)$/) {
 			my ($package, $version, $reason) = ($1, $2, $3);
+			# Expand Message-IDs:
+			$reason =~ s{<MID:([^>]+)>}{<a href="http://lists.debian.org/$1">&lt;$1&gt;</a>}g;
 			$unwanted{$package}{version} = $version;
 			$unwanted{$package}{reason} = $reason;
 		}
