@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 68208 -->
+<!-- original version: 68419 -->
 
  <sect1 condition="bootable-usb" id="boot-usb-files">
  <!-- <title>Preparing Files for USB Memory Stick Booting</title> -->
@@ -73,46 +73,12 @@ Alternatively,
 for very small USB sticks, only a few megabytes in size, you can download
 the <filename>mini.iso</filename> image from the <filename>netboot</filename>
 directory (at the location mentioned in <xref linkend="where-files"/>).
-<footnote>
 -->
 
 In alternativa per le chiavette USB estremamente piccole, con capacità di
 pochi megabyte, è possibile scaricare l'immagine <filename>mini.iso</filename>
 dalla directory <filename>netboot</filename> (nella posizione specificata
-in <xref linkend="where-files"/>)<footnote>
-
-<para arch="not-s390">
-
-<!--
-A special method can be used to add firmware to the
-<filename>mini.iso</filename>. First, write the
-<filename>mini.iso</filename> to the USB stick.
-Next obtain the necessary firmware files.
-See <xref linkend="loading-firmware"/> for more information about firmware.
-Now unplug and replug the USB stick, and two partitions should now be visible on it.
-You should mount the second of the two partitions, and unpack the firmware onto it.
--->
-
-C'è un metodo speciale per aggiungere il firmware a
-<filename>mini.iso</filename>. Prima scrivere <filename>mini.iso</filename>
-sulla chiavetta USB, poi recuperare i file con il firmware.
-Vedere <xref linkend="loading-firmware"/> per maggiori informazioni.
-Scollegare
-e poi ricollegare la chiavetta USB, adesso dovrebbe avere due partizioni.
-È necessario montare la seconda delle due partizioni e scompattare il
-firmware al suo interno.
-
-<informalexample><screen>
-# mount /dev/<replaceable>sdX2</replaceable> /mnt
-# cd /mnt
-# tar zxvf <replaceable>/path/to/</replaceable>firmware.tar.gz
-# cd /
-# umount
-</screen></informalexample>
-
-</para>
-
-</footnote>.
+in <xref linkend="where-files"/>).
 
 </para><para>
 
@@ -147,7 +113,55 @@ funzionare correttamente per la maggior parte degli utenti. Le altre
 possibilità descritte in seguito sono più complesse e particolarmente
 adatte a chi ha necessità particolari.
 
-</para></important>
+</para></important><para>
+
+<!--
+The hybrid image on the stick does not occupy all the storage space, so
+it may be worth considering using the free space to hold firmware files
+or packages or any other files of your choice. This could be useful if
+you have only one stick or just want to keep everything you need on one
+device.
+-->
+
+L'immagine ibrida sulla chiavetta non occupa tutto lo spazio disponibile
+quindi potrebbe essere interessante usare lo spazio libero per i file
+con il firmware, per dei pacchetti oppure per altri file. Questo può
+essere utile se si dispone di una sola chiavetta USB oppure se si vuole
+tenere tutto ciò che serve in un solo dispositivo. 
+
+</para><para>
+
+<!--
+Create a second, FAT partition on the stick, mount the partition
+and copy or unpack the firmware onto it. For example:
+-->
+
+Creare sulla chiavetta una seconda partizione FAT, montare la partizione
+e copiare o spacchettare il firmware al suo interno. Per esempio:
+
+<informalexample><screen>
+# mount /dev/<replaceable>sdX2</replaceable> /mnt
+# cd /mnt
+# tar zxvf <replaceable>/path/to/</replaceable>firmware.tar.gz
+# cd /
+# umount
+</screen></informalexample>
+
+</para><para arch="not-s390">
+
+<!--
+You might have written the <filename>mini.iso</filename> to the USB
+stick. In this case the second partition doesn't have to be created as,
+very nicely, it will already be present. Unplugging and replugging the
+USB stick should make the two partitions visible.
+-->
+
+Se fosse stato necessario scrivere <filename>mini.iso</filename>
+sulla chiavetta USB, la seconda partizione non deve essere creata
+perché, molto probabilmente, è già presente. Scollegare e poi
+ricollegare la chiavetta USB per rendere visibili le due partizioni.
+
+</para>
   </sect2>
 
   <sect2 id="usb-copy-easy">

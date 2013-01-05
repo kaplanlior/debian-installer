@@ -1,6 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 43745 -->
-
+<!-- original version: 68399 -->
 
   <sect2 arch="s390">
   <!-- <title>s390 Limitations</title> -->
@@ -12,7 +11,7 @@ In order to run the installation system a working network setup and
 ssh session is needed on S/390.
 -->
 
-Per poter avviare il sistema d'installazione su S/390 sono necessarie
+Per avviare il sistema d'installazione su S/390 sono necessarie
 una connessione alla rete e una sessione ssh.
 
 </para><para>
@@ -40,9 +39,13 @@ sistema d'installazione.
 
 <!--
 On S/390 you can append boot parameters in the parm file.  This file can
-either be in ASCII or EBCDIC format.
-A sample parm file <filename>parmfile.debian</filename> is provided with
-the installation images.
+either be in ASCII or EBCDIC format. It needs to be fixed-width with
+80 characters per line. A sample parm file
+<filename>parmfile.debian</filename> is provided with the installation
+images. If a parameter is too long to fit into the 80 characters limit
+it can simply be continued in the first column of the next line. All
+the lines are concatenated without spaces when being passed to the
+kernel.
 -->
 <!-- Link is bad; commented out for now
 Please read
@@ -50,16 +53,63 @@ Please read
 for more information about S/390-specific boot parameters.
 -->
 
-Su S/390 è possibile inserire dei parametri all'avvio tramite il file
-parm. Questo file può essere sia in formato ASCII che EBCDIC. Insieme
-alle immagini per l'installazione è fornito anche un file parm di
-esempio: <filename>parmfile.debian</filename>.
+Su S/390 è possibile inserire i parametri di avvio tramite il file parm.
+Questo file può essere in formato sia ASCII che EBCDIC e deve avere
+righe a lunghezza fissa di 80 caratteri. Insieme alle immagini per
+l'installazione è fornito anche un file parm di esempio:
+<filename>parmfile.debian</filename>. Se un parametro è troppo lungo e
+non rientra nel limite di 80 caratteri, è possibile continuare dalla
+prima colonna della riga successiva. Tutte le righe sono concatenate
+senza introdurre spazi prima di essere passate al kernel.
 <!--
 Si consulti
 <ulink url="&url-s390-devices;">Device Drivers and Installation
 Commands</ulink> per maggiori informazioni sui parametri di avvio
 specifici per S/390.
 -->
+
+</para><para>
+
+<!--
+If you boot the installer in a logical partition (LPAR) or
+virtual machine (VM) where a lot of devices are visible, you can
+instruct the kernel to restrict the list to a fixed set of devices.
+This is advised for the installer's boot process if a lot of disks are
+visible, most likely in LPAR mode. The <quote>cio_ignore</quote> option supports both
+a blacklist (to only disallow a few devices) and a whitelist (to only
+allow specific devices):
+-->
+
+Se l'installatore è avviato in una partizione logica (LPAR) oppure in una
+macchina virtuale (VM) su cui sono vibili molti dispositivi, è possibile
+istruire il kernel in modo da ridurre l'elenco a un insieme fisso di
+dispositivi. Questo è utile durante il processo d'avvio dell'installatore
+quando sono visibili parecchi dischi, molto probabilmente in modalità
+LPAR. L'opzione <quote>cio_ignore</quote> supporta una blacklist (per
+rifiutare solo alcuni dispositivi) e una whitelist (per accettare solo
+dispositivi specifici):
+
+<informalexample role="example"><screen>
+ # blacklist: just ignore the two devices 300 and 301
+ cio_ignore=0.0.0300-0.0.0301
+ # whitelist: ignore everything but 1150, FD00, FD01 and FD02
+ cio_ignore=all,!0.0.1150,!0.0.fd00-0.0.fd02
+</screen></informalexample>
+
+<!--
+Please note that all devices numbers' hex digits need to be specified in
+lower case. Furthermore if this boot parameter is used all devices
+need to be listed: this includes at least disks, network devices and
+the console. To be considered during the installer's boot process the
+above option needs to be added to <filename>parmfile.debian</filename>.
+-->
+
+Notare che tutti i numeri di dispositivo in formato esadecimale devono
+essere scritti in minuscolo. Inoltre usando questo parametro è necessario
+elencare tutti i dispositivi: inserire almeno i dischi, i dispositivi di
+rete e la console. Questa opzione deve essere aggiunta nel file
+<filename>parmfile.debian</filename> in modo che il processo d'avvio la
+prenda in considerazione.
 
 </para>
   </sect2>

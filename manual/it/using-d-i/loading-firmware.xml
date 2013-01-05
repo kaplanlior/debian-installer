@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 66809 -->
+<!-- original version: 68421 -->
 
  <sect1 id="loading-firmware" arch="not-s390">
  <!-- <title>Loading Missing Firmware</title> -->
@@ -68,9 +68,33 @@ device will also function without it, or if the device is not needed during
 the installation.
 -->
 
-Notare che si può saltare il caricamento del firmware se il dispositivo
+Notare che è possibile saltare il caricamento del firmware se il dispositivo
 può funzionare senza oppure se il dispositivo non è necessario durante
 l'installazione.
+
+</para><para>
+
+<!--
+&d-i; only prompts for firmware needed by kernel modules loaded during
+the installation. Not all drivers are included in &d-i;, in particular
+radeon is not, so this implies that the capabilities of some devices may
+be no different at the end of the installation from what they were at
+the beginning. Consequently, some of your hardware may not be being used
+to its full potential. If you suspect this is the case, or are just
+curious, it is not a bad idea to check the output of the
+<command>dmesg</command> command on the newly booted system and search
+for <quote>firmware</quote>.
+-->
+
+&d-i; richiede solo il firmware che è necessario ai moduli del kernel
+durante l'installazione. Non tutti i driver sono compresi nel &d-i;, in
+particolare non è incluso radeon, quindi può accadere che al termine
+dell'installazione le funzionalità di alcuni dispositivi potrebbero
+essere uguali a come erano all'inizio. Di conseguenza parte dell'hardware
+potrebbe non essere usato al massimo del suo potenziale. Per verificare
+se accade proprio questo o per semplice curiosità, avviare il sistema
+appena installato e cercare <quote>firmware</quote> nell'output del
+comando <command>dmesg</command>.
 
 </para>
 
