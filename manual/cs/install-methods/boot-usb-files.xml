@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 68208 -->
+<!-- original version: 68456 -->
 
  <sect1 condition="bootable-usb" id="boot-usb-files">
  <title>Příprava souborů pro zavedení z USB zařízení</title>
@@ -40,23 +40,7 @@ Jestliže máte opravdu malou klíčenku v řádu megabajtů, můžete z
 adresáře <filename>netboot</filename> stáhnout obraz
 <filename>mini.iso</filename> (viz kapitola <xref
 linkend="where-files"/>), nicméně tato varianta zavede pouze minimální
-instalační systém a zbytek stahuje ze sítě.<footnote arch="not-s390"><para>
-
-Chcete-li na USB klíčenku přidat firmware, nejprve na ni zapište
-<filename>mini.iso</filename>, získejte příslušné soubory s firmwarem
-(viz <xref linkend="loading-firmware"/>), odpojte a znovu připojte USB
-klíčenku (měly by na ní být vidět dvě oblasti), připojte druhou oblast
-a firmware do ní rozbalte:
-
-<informalexample><screen>
-<prompt>#</prompt> <userinput>mount /dev/<replaceable>sdX2</replaceable> /mnt</userinput>
-<prompt>#</prompt> <userinput>cd /mnt</userinput>
-<prompt>#</prompt> <userinput>tar zxvf <replaceable>/cesta/k/</replaceable>firmware.tar.gz</userinput>
-<prompt>#</prompt> <userinput>cd /</userinput>
-<prompt>#</prompt> <userinput>umount /mnt</userinput>
-</screen></informalexample>
-
-</para></footnote>
+instalační systém a zbytek stahuje ze sítě.
 
 </para><para>
 
@@ -76,7 +60,35 @@ Vytvoření instalační USB klíčenky tímto způsobem by mělo fungovat
 většině uživatelů. Ostatní možnosti popsané níže slouží spíše lidem se
 speciálními požadavky.
 
-</para></important>
+</para></important><para>
+
+Hybridní obraz na USB klíčence obvykle nezabírá veškerý prostor, což
+přímo vybízí použití volného místa pro uložení potřebných souborů
+s firmwarem, speciálních balíků, nebo jiných souborů. Veškeré soubory
+jsou pak pěkně pohromadě na jednom médiu.
+
+</para><para>
+
+Stačí na USB klíčence vytvořit druhou oblast typu FAT, připojit ji
+a nakopírovat nebo rozbalit do ní příslušné soubory s firmwarem (viz
+<xref linkend="loading-firmware"/>). Například takto:
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>mount /dev/<replaceable>sdX2</replaceable> /mnt</userinput>
+<prompt>#</prompt> <userinput>cd /mnt</userinput>
+<prompt>#</prompt> <userinput>tar zxvf <replaceable>/cesta/k/</replaceable>firmware.tar.gz</userinput>
+<prompt>#</prompt> <userinput>cd /</userinput>
+<prompt>#</prompt> <userinput>umount /mnt</userinput>
+</screen></informalexample>
+
+</para><para arch="not-s390">
+
+Jestliže jste na USB klíčenku nakopírovali obraz
+<filename>mini.iso</filename>, nemusíte druhou oblast vytvářet,
+protože už je tam předchystaná. Po odpojení a novém zasunutí USB
+klíčenky by se měly objevit obě dvě oblasti.
+
+</para>
   </sect2>
 
   <sect2 id="usb-copy-easy">
