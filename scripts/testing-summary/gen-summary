@@ -460,7 +460,7 @@ foreach my $package (sort keys %seenpackages) {
 			}
 		}
 
-		if ($unwanted{$package}) {
+		if ($unwanted{$package} && $class ne 'unblocked') {
 			if (($unwanted{$package}{'version'}||'') eq $unstable_version) {
 				$class = 'unwanted';
 			}
