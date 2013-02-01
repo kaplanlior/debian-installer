@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 67919 -->
+<!-- original version: 68478 -->
 
  <sect1 id="linux-upgrade">
  <title>&debian-gnu; von einem anderen Unix/Linux-System aus installieren</title>
@@ -360,13 +360,14 @@ außerhalb der chroot-Umgebung einbinden:
    <title>Die Zeitzone setzen</title>
 <para>
 
-Eine Option in der Datei <filename>/etc/default/rcS</filename> legt fest, ob
+Indem Sie die dritte Zeile der Datei <filename>/etc/adjtime</filename> auf
+<quote>UTC</quote> oder <quote>LOCAL</quote> setzen, legen Sie fest, ob
 das System die Hardware-CMOS-Uhr als UTC-Zeit oder als lokale Zeit
-interpretiert. Mit dem folgenden Befehl können Sie diese Option setzen sowie
+interpretiert. Mit den folgenden Befehlen können Sie diese Option setzen sowie
 Ihre Zeitzone festlegen:
 
 <informalexample><screen>
-# editor /etc/default/rcS
+# editor /etc/adjtime
 # dpkg-reconfigure tzdata
 </screen></informalexample>
 
