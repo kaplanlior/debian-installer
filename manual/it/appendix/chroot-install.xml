@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 67919 -->
+<!-- original version: 68478 -->
 
  <sect1 id="linux-upgrade">
  <!-- <title>Installing &debian-gnu; from a Unix/Linux System</title> -->
@@ -565,19 +565,21 @@ montare proc da fuori della chroot:
 <para>
 
 <!--
-An option in the file <filename>/etc/default/rcS</filename> determines
+Setting the third line of the file <filename>/etc/adjtime</filename> to 
+<quote>UTC</quote> or <quote>LOCAL</quote> determines
 whether the system will interpret the hardware clock as being set to UTC
-or local time. The following command allows you to set that and choose
+respective local time. The following commands allow you to set that and choose
 your timezone.
 -->
 
-Una opzione all'interno del file <filename>/etc/default/rcS</filename>
+L'impostazione alla terza riga del file <filename>/etc/adjtime</filename>
+a <quote>UTC</quote> o <quote>LOCAL</quote> 
 determina se il sistema deve interpretare l'orologio hardware come impostato
 su UTC oppure sull'ora locale. I seguenti comandi permettono di impostare
 questa opzione e di scegliere il proprio fuso orario.
 
 <informalexample><screen>
-# editor /etc/default/rcS
+# editor /etc/adjtime
 # dpkg-reconfigure tzdata
 </screen></informalexample>
 
