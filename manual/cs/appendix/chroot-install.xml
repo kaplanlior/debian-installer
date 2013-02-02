@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 67919 -->
+<!-- original version: 68478 -->
 
  <sect1 id="linux-upgrade">
  <title>Jak nainstalovat &debian-gnu; ze stávajícího unixového/linuxového systému</title>
@@ -333,14 +333,14 @@ připojit <filename>proc</filename> z vnějšku chrootu:
    <title>Nastavení časového pásma</title>
 <para>
 
-Nastavením proměnné <quote>UTC</quote> v souboru
-<filename>/etc/default/rcS</filename> systému říkáte, zda má
-hardwarové hodiny počítače interpretovat jako místní čas, nebo jako
-čas v UTC. Nástrojem <userinput>dpkg-reconfigure tzdata</userinput> můžete nastavit
-své časové pásmo.
+Nastavením třetího řádku v souboru <filename>/etc/adjtime</filename>
+na hodnotu <quote>LOCAL</quote> resp. <quote>UTC</quote> systému
+říkáte, zda má hardwarové hodiny počítače interpretovat jako místní
+čas, resp. jako čas v UTC. Své časové pásmo můžete nastavit nástrojem
+<userinput>dpkg-reconfigure tzdata</userinput>.
 
 <informalexample><screen>
-<prompt>#</prompt> <userinput>editor /etc/default/rcS</userinput>
+<prompt>#</prompt> <userinput>editor /etc/adjtime</userinput>
 <prompt>#</prompt> <userinput>dpkg-reconfigure tzdata</userinput>
 </screen></informalexample>
 
