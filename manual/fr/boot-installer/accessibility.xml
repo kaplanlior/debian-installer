@@ -1,4 +1,4 @@
-<!-- original version: 68428 -->
+<!-- original version: 68473 -->
 
  <sect1 id="boot-installer-accessibility" arch="not-s390">
  <title>Accessibilité</title>
@@ -66,12 +66,37 @@ on peut trouver une documentation sur l'affectation des touches.
   <title>Synthèse vocale logicielle</title>
 <para>
 
-Il est possible d'activer la synthèse vocale logicielle en la sélectionnant
+La synthèse vocale logicielle est disponible sur toutes les images d'installation
+qui contiennent l'installateur graphique, à savoir, les images CD, DVD, netinst et la variante
+netbook gtk.
+Il est possible de l'activer  en la sélectionnant
 dans le menu d'amorçage par <userinput>s</userinput>, puis touche &enterkey;.
+La version texte de l'installateur sera automatiquement choisie et la synthèse vocale logicielle
+installée sur le système cible.
+</para>
+<para>
 La première question (sur la langue) est dite en anglais. La suite de l'installation
 se passe dans la langue choisie, si elle est disponible dans <classname>espeak</classname>.
 
 </para>
+<para>
+
+Par défaut, la vitesse de la voix est très faible. Pour l'accélérer,
+appuyez sur les touches
+<keycombo><keycap>CapsLock</keycap><keycap>6</keycap></keycombo>.
+Pour la ralentir,
+<keycombo><keycap>CapsLock</keycap><keycap>5</keycap></keycombo>.
+
+Le volume est moyen. Pour l'augmenter, appuyez sur les touches
+<keycombo><keycap>CapsLock</keycap><keycap>2</keycap></keycombo>.
+Pour le baisser,
+<keycombo><keycap>CapsLock</keycap><keycap>1</keycap></keycombo>.
+
+Consultez le <ulink url="&url-speakup-guide;">Speakup guide</ulink>
+pour des précisions sur les raccourcis disponibles.
+
+</para>
+
   </sect2>
 
 
@@ -79,21 +104,22 @@ se passe dans la langue choisie, si elle est disponible dans <classname>espeak</
   <title>Synthèse vocale matérielle</title>
 <para>
 
-La gestion de la synthèse vocale matérielle n'est disponible
-qu'avec l'installateur graphique. Vous devez donc choisir une entrée <quote>Graphical install</quote>
+La synthèse vocale matérielle est disponible sur toutes les images d'installation
+qui contiennent l'installateur graphique, à savoir, les images CD, DVD, netinst et la variante
+netbook gtk. Vous devez donc choisir une entrée <quote>Graphical install</quote>
 dans le menu d'amorçage.
 
 </para>
 <para>
 
-Ces périphériques ne sont pas automatiquement détectés. Vous devez donc
+Les périphériques de synthèse vocale ne sont pas automatiquement détectés. Vous devez donc
 ajouter le paramètre d'amorçage
 <userinput>speakup.synth=<replaceable>driver</replaceable></userinput>
 pour indiquer à <classname>speakup</classname> le pilote à utiliser.
 <replaceable>driver</replaceable> doit être remplacé par le code du pilote de votre
 périphérique. Consultez la <ulink url="&url-speakup-guide;">liste des codes de pilotes</ulink>.
 La version en mode texte de l'installateur est automatiquement sélectionnée et la gestion du périphérique
-de synthèse vocale sera automatiquement installée sur le système cible.
+de synthèse vocale sera automatiquement activée sur le système cible.
 
 </para>
   </sect2>
@@ -135,5 +161,12 @@ Une documentation est disponible dans <xref linkend="appendix-preseed"/>.
 </para>
   </sect2>
 
+  <sect2><title>Accessibilité du système installé</title>
+<para>
 
+Une documentation sur l'accessibilité est disponible sur la page du wiki Debian
+<ulink url="&url-debian-wiki-accessibility;">Accessibility</ulink>.
+
+</para>
+  </sect2>
  </sect1>

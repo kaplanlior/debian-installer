@@ -1,4 +1,4 @@
-<!-- original version: 67919 -->
+<!-- original version: 68478 -->
 
  <sect1 id="linux-upgrade">
  <title>Installer &debian-gnu; à partir d'un système Unix/Linux</title>
@@ -332,12 +332,13 @@ non vide. Si cela échoue, vous pouvez monter proc hors du chroot de cette mani�
    <title>Configurer le fuseau horaire</title>
 
 <para>
-Une option du fichier <filename>/etc/default/rcS</filename> détermine si
+La troisième ligne du fichier <filename>/etc/adjtime</filename> peut contenir 
+<quote>UTC</quote> ou <quote>LOCAL</quote>. Ce paramètre détermine si
 le système considère que l'horloge système est réglée sur le temps UTC ou non.
 La commande suivante permet de choisir le fuseau horaire.
 
 <informalexample><screen>
-# editor /etc/default/rcS
+# editor /etc/adjtime
 # dpkg-reconfigure tzdata
 </screen></informalexample>
 
