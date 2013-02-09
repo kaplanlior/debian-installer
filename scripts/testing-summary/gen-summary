@@ -409,11 +409,17 @@ HEADER
 print "<h2>d-i build-deps</h2>\n";
 print "<p>(taken from unstable's <code>debian-installer</code>source package)</p>\n";
 
-print "<ul>\n";
+print "<table>\n";
+print "<tr><th>Build-dep</th><th>Package</th><th>Version</th><th>Architecture</th><th>Source</th></tr>\n";
 foreach my $bdep (sort @di_bdeps) {
-	print "<li>$bdep</li>\n";
+	my $package = $bdep;
+	my ($version, $arch, $source) = ('', '', '');
+	$package =~ s/ .*//;
+	$version = $1 if $bdep =~ /\((.+)\)/;
+	$arch = $1 if $bdep =~ /\[(.+)\]/;
+	print "<tr><td>$bdep</td><td>$package</td><td>$version</td><td>$arch</td><td><i>source lookup</i></td></tr>\n";
 }
-print "</ul>\n";
+print "</table>\n";
 
 print "<h2>udebs</h2>\n";
 
