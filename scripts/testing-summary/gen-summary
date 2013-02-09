@@ -30,6 +30,8 @@ my %frozen;
 my %has_debs;
 my @annotations;
 my %ages;
+my %sourceversions;
+my @di_bdeps;
 
 sub markup {
 	my $text=shift;
@@ -111,6 +113,38 @@ if (!$ENV{NOSYNC}) {
 
 
 foreach my $dist (@dists) {
+	### Architecture-independent Sources file:
+	my $srcdir  = "dists/$dist/main/source";
+	my $srcfile = "$srcdir/Sources.gz";
+	# If not a local mirror, remove a (possible) file from a
+	# previous run and download again:
+	if ($mirror !~ m{^/}) {
+		if (!$ENV{NOSYNC}) {
+			unlink $srcfile;
+			`wget -q -P $srcdir $mirror/$srcfile`;
+		}
+	}
+	else {
+		$srcfile = "$mirror/$srcfile";
+	}
+
+	open(SRC, "zcat $srcfile |") || die "cannot read $srcfile: $!";
+	local $/="\n\n";
+	while (<SRC>) {
+		my ($package) = m/Package: (.*)\n/;
+		my ($binary)  = m/Binary: (.*)\n/;
+		my ($version) = m/Version: (.*)\n/;
+		my ($bdeps)   = m/Build-Depends: (.*)\n/;
+		for my $binary_item (split /, /, $binary) {
+			$sourceversions{$dist}{$binary_item}{source} = $package;
+			$sourceversions{$dist}{$binary_item}{version} = $version;
+		}
+		if ($package eq 'debian-installer' and $dist eq 'unstable') {
+			@di_bdeps = split /, /, $bdeps;
+		}
+	}
+
+	### Per-architecture Packages files:
 	foreach my $arch (@arches) {
 		my $pkgdir  = "dists/$dist/main/debian-installer/binary-$arch";
 		my $pkgfile = "$pkgdir/Packages.gz";
@@ -371,6 +405,17 @@ print <<"HEADER";
   <body>
     <h1>udeb testing summary</h1>
 HEADER
+
+print "<h2>d-i build-deps</h2>\n";
+print "<p>(taken from unstable's <code>debian-installer</code>source package)</p>\n";
+
+print "<ul>\n";
+foreach my $bdep (sort @di_bdeps) {
+	print "<li>$bdep</li>\n";
+}
+print "</ul>\n";
+
+print "<h2>udebs</h2>\n";
 
 print "<table><tr align=left><th>source package</th><th>debs</th><th>arches</th>";
 foreach my $dist (@dists) {
