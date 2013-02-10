@@ -137,7 +137,7 @@ foreach my $dist (@dists) {
 		my ($bdeps)   = m/Build-Depends: (.*)\n/;
 		for my $binary_item (split /, /, $binary) {
 			$sourceversions{$dist}{$binary_item}{source} = $package;
-			$sourceversions{$dist}{$binary_item}{version} = $version;
+			push @{$sourceversions{$dist}{$binary_item}{version}}, $version;
 		}
 		if ($package eq 'debian-installer' and $dist eq 'unstable') {
 			@di_bdeps = split /, /, $bdeps;
@@ -418,8 +418,8 @@ foreach my $bdep (sort @di_bdeps) {
 	$version = $1 if $bdep =~ /\((.+)\)/;
 	$arch = $1 if $bdep =~ /\[(.+)\]/;
 	$source = $sourceversions{unstable}{$package}{source} || '';
-	my $tv = $sourceversions{testing}{$package}{version}  || '';
-	my $uv = $sourceversions{unstable}{$package}{version} || '';
+	my $tv = join '<br/>', sort @{$sourceversions{testing}{$package}{version} || []};
+	my $uv = join '<br/>', sort @{$sourceversions{unstable}{$package}{version} || []};
 	$tdstyle = 'style="color: black; background-color: orange;"'
 		if $tv ne $uv;
 	print "<tr><td>$bdep</td><td>$package</td><td>$version</td><td>$arch</td><td>$source</td><td $tdstyle>$tv</td><td $tdstyle>$uv</td></tr>\n";
