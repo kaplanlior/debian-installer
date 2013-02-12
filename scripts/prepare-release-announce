@@ -367,6 +367,8 @@ EOF
       # supposed to prepare the announce right after a build, so the
       # proper versions should be available, right?
       print STDERR "DEBUG: unable to download changelog: ${source}_${version}\n";
+      print STDERR "DEBUG: try fetching the source package and copying its Debian changelog as $workdir/${source}_${version}\n";
+      die "missing changelog: ${source}_${version}";
     }
   }
 }
