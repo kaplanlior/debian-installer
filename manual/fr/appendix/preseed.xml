@@ -110,8 +110,8 @@ Seulement si vous avez accès au réseau et si vous définissez <literal>preseed
 
 </para><para>
 
-Le moment où le fichier de préconfiguration est chargé et exécuté est une
-différence fondamentale entre les diverses méthodes de préconfiguration.
+La différence fondamentale entre les diverses méthodes de préconfiguration
+est le moment où le fichier de préconfiguration est chargé et exécuté.
 Avec la méthode <emphasis>initrd</emphasis>, ce fichier est chargé au tout début
 de l'installation, avant même qu'une seule question soit posée. Avec la méthode
 <emphasis>file</emphasis>, il faut que le cédérom (ou une image) ait été chargé.
@@ -825,10 +825,11 @@ d-i netcfg/choose_interface select auto
 # Quand le serveur dhcp est lent et que l'installateur s'arrête pour l'attendre,
 # ceci peut être utile :
 #d-i netcfg/dhcp_timeout string 60
+#d-i netcfg/dhcpv6_timeout string 60
 
 # Si vous préférez configurer vous-même le réseau, décommentez cette ligne et
 # les lignes suivantes sur la configuration du réseau.
-#d-i netcfg/disable_dhcp boolean true
+#d-i netcfg/disable_autoconfig boolean true
 
 # Si vous voulez que le fichier de préconfiguration fonctionne aussi bien
 # avec que sans serveur dhcp, décommentez ces lignes et les lignes sur la
@@ -837,15 +838,25 @@ d-i netcfg/choose_interface select auto
 #d-i netcfg/dhcp_options select Configure network manually
 
 # Configuration du réseau.
-#d-i netcfg/get_nameservers string 192.168.1.1
+#
+# exemple pour IPv4
 #d-i netcfg/get_ipaddress string 192.168.1.42
 #d-i netcfg/get_netmask string 255.255.255.0
 #d-i netcfg/get_gateway string 192.168.1.1
+#d-i netcfg/get_nameservers string 192.168.1.1
 #d-i netcfg/confirm_static boolean true
+#
+# exemple pour IPv6
+#d-i netcfg/get_ipaddress string fc00::2
+#d-i netcfg/get_netmask string ffff:ffff:ffff:ffff::
+#d-i netcfg/get_gateway string fc00::1
+#d-i netcfg/get_nameservers string fc00::1
+#d-i netcfg/confirm_static boolean true
+
 
 # Remarquez que les valeurs données par DHCP, nom de domaine ou nom de 
 # machine, prennent le pas sur les valeurs déclarées ici. Cependant,
-# cette déclaration empêche que les questions ne soient posées même si les
+# cette déclaration empêche que les questions ne soient posées, même si les
 # valeurs viennent de dhcp.
 d-i netcfg/get_hostname string unassigned-hostname
 d-i netcfg/get_domain string unassigned-domain
@@ -1131,7 +1142,7 @@ d-i partman-auto/choose_recipe select atomic
 
 # Une documentation complète sur le format des schémas se trouve dans le
 # fichier <filename>partman-auto-recipe.txt</filename>, disponible dans le
-# paquet 'debian-installer' ou dans les sources de l'installateur.
+# paquet « debian-installer » ou dans les sources de l'installateur.
 # On trouve aussi dans ce document la manière d'indiquer les étiquettes
 # de systèmes de fichiers, les noms de groupes de volumes ainsi que les
 # noms de périphériques physiques à inclure dans les groupes de volumes.
@@ -1211,7 +1222,7 @@ si vous rencontrez des problèmes.
 
 # Une documentation complète se trouve dans le
 # fichier <filename>partman-auto-raid-recipe.txt</filename>, disponible dans le
-# paquet 'debian-installer' ou dans les sources de l'installateur.
+# paquet « debian-installer » ou dans les sources de l'installateur.
 
 # Pour que partman partitionne automatiquement sans demander de confirmation :
 d-i partman-md/confirm boolean true
@@ -1243,7 +1254,7 @@ les noms traditionnels seront toujours utilisés à la place des UUID.
 </para>
 <warning><para>
 
-les noms traditionnels des périphériques peuvent changer en fonction de l'ordre dans lequel
+Les noms traditionnels des périphériques peuvent changer en fonction de l'ordre dans lequel
 ils sont découverts par le noyau au moment du démarrage. Un système de fichiers
 peut être ainsi monté sur le mauvais périphérique.
 De même les étiquettes peuvent créer des conflits si vous branchez un nouveau disque ou
@@ -1252,8 +1263,8 @@ un périphérique USB. Si cela arrive, le comportement du système devient aléa
 </para></warning>
 
 <informalexample role="example"><screen>
-# Par défaut, les UUID sont utilisés, mais vous pouvez choisir "traditional" pour
-# utiliser les noms traditionnels des périphériques, ou "label" pour utiliser des étiquettes.
+# Par défaut, les UUID sont utilisés, mais vous pouvez choisir <emphasis>traditional</emphasis> pour
+# utiliser les noms traditionnels des périphériques, ou <emphasis>label</emphasis> pour utiliser des étiquettes.
 # En l'absence d'étiquette, l'UUID est utilisé.
 #d-i partman/mount_style select uuid
 </screen></informalexample>
