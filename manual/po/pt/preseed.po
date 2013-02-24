@@ -1,13 +1,13 @@
 # Portuguese translation of the Debian Installer Manual
 #
 # Miguel Figueiredo <elmig@debianpt.org> & Marco Ferra <mferra@sdf.lonestar.org>, 2005, 2006.
-# Miguel Figueiredo <elmig@debianpt.org>, 2006-2012.
+# Miguel Figueiredo <elmig@debianpt.org>, 2006-2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: preseed\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2013-02-24 13:00+0000\n"
-"PO-Revision-Date: 2012-10-27 17:55+0100\n"
+"PO-Revision-Date: 2013-02-24 16:57+0000\n"
 "Last-Translator: Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team: Portuguese <kde-i18n-doc@kde.org>\n"
 "Language: pt\n"
@@ -1615,7 +1615,7 @@ msgstr ""
 
 #. Tag: screen
 #: preseed.xml:794
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "# Disable network configuration entirely. This is useful for cdrom\n"
 #| "# installations on non-networked devices where the network questions,\n"
@@ -1769,10 +1769,11 @@ msgstr ""
 "# Se tiver um servidor de dhcp lento e o instalador esgotar o tempo à\n"
 "# espera, isto poderá ser útil.\n"
 "#d-i netcfg/dhcp_timeout string 60\n"
+"#d-i netcfg/dhcpv6_timeout string 60\n"
 "\n"
 "# Se preferir configurar manualmente a rede, descomente esta linha e a\n"
 "# configuração abaixo, da rede estática:\n"
-"#d-i netcfg/disable_dhcp boolean true\n"
+"#d-i netcfg/disable_autoconfig boolean true\n"
 "\n"
 "# Se quiser que o ficheiro de pré-configuração funcione em sistemas com e\n"
 "# sem servidor de dhcp, descomente estas linhas e a configuração da rede\n"
@@ -1781,10 +1782,20 @@ msgstr ""
 "#d-i netcfg/dhcp_options select Configure network manually\n"
 "\n"
 "# Configuração de rede estática.\n"
+"\n"
+"# Exemplo IPv4\n"
 "#d-i netcfg/get_nameservers string 192.168.1.1\n"
 "#d-i netcfg/get_ipaddress string 192.168.1.42\n"
 "#d-i netcfg/get_netmask string 255.255.255.0\n"
 "#d-i netcfg/get_gateway string 192.168.1.1\n"
+"#d-i netcfg/get_nameservers string 192.168.1.1\n"
+"#d-i netcfg/confirm_static boolean true\n"
+"\n"
+"# Exemplo IPv6"
+"#d-i netcfg/get_ipaddress string fc00::2\n"
+"#d-i netcfg/get_netmask string ffff:ffff:ffff:ffff::\n"
+"#d-i netcfg/get_gateway string fc00::2\n"
+"#d-i netcfg/get_nameservers string fc00::1\n"
 "#d-i netcfg/confirm_static boolean true\n"
 "\n"
 "# Quaisquer nomes de máquinas e de domínio atribuidos pelo dhcp têm\n"
