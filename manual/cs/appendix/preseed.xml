@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 68284 -->
+<!-- original version: 68505 -->
 
 <!--
 Be carefull with the format of this file as it is parsed to generate
@@ -905,9 +905,10 @@ d-i netcfg/choose_interface select auto
 # Máte-li pomalejší dhcp server a instalačnímu systému vyprší čas při
 # čekání na odpověď, bude užitečné následující.
 #d-i netcfg/dhcp_timeout string 60
+#d-i netcfg/dhcpv6_timeout string 60
 
 # Pokud dáváte přednost ručnímu nastavení sítě:
-#d-i netcfg/disable_dhcp boolean true
+#d-i netcfg/disable_autoconfig boolean true
 
 # Má-li tento soubor s přednastavením fungovat na systémech s i bez
 # dhcp serveru, odkomentujte následující řádky a také statické
@@ -916,10 +917,19 @@ d-i netcfg/choose_interface select auto
 #d-i netcfg/dhcp_options select Configure network manually
 
 # Statické nastavení sítě.
-#d-i netcfg/get_nameservers string 192.168.1.1
+#
+# Příklad IPv4
 #d-i netcfg/get_ipaddress string 192.168.1.42
 #d-i netcfg/get_netmask string 255.255.255.0
 #d-i netcfg/get_gateway string 192.168.1.1
+#d-i netcfg/get_nameservers string 192.168.1.1
+#d-i netcfg/confirm_static boolean true
+#
+# Příklad IPv6
+#d-i netcfg/get_ipaddress string fc00::2
+#d-i netcfg/get_netmask string ffff:ffff:ffff:ffff::
+#d-i netcfg/get_gateway string fc00::1
+#d-i netcfg/get_nameservers string fc00::1
 #d-i netcfg/confirm_static boolean true
 
 # Název počítače a domény přiřazené přes DHCP mají větší prioritu než
