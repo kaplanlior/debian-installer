@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 68284 -->
+<!-- original version: 68505 -->
 
 <!--
 Be carefull with the format of this file as it is parsed to generate
@@ -920,11 +920,12 @@ d-i netcfg/choose_interface select auto
 # Wenn Sie einen langsamen DHCP-Server haben und der Installer läuft in eine
 # Zeitüberschreitung, während er auf ihn wartet, könnte dies nützlich sein:
 #d-i netcfg/dhcp_timeout string 60
+#d-i netcfg/dhcpv6_timeout string 60
 
 # Wenn Sie es vorziehen, das Netzwerk manuell zu konfigurieren, entfernen
 # Sie hier das Kommentarzeichen und ebenso bei den Zeilen für die statische
 # Netzwerkkonfiguration unten.
-#d-i netcfg/disable_dhcp boolean true
+#d-i netcfg/disable_autoconfig boolean true
 
 # Falls Sie möchten, dass die Voreinstellungsdatei sowohl auf Systemen mit
 # DHCP-Server wie auch ohne einen solchen funktioniert, entfernen Sie hier
@@ -934,10 +935,19 @@ d-i netcfg/choose_interface select auto
 #d-i netcfg/dhcp_options select Configure network manually
 
 # Statische Netzwerkkonfiguration.
-#d-i netcfg/get_nameservers string 192.168.1.1
+#
+# IPv4-Beispiel:
 #d-i netcfg/get_ipaddress string 192.168.1.42
 #d-i netcfg/get_netmask string 255.255.255.0
 #d-i netcfg/get_gateway string 192.168.1.1
+#d-i netcfg/get_nameservers string 192.168.1.1
+#d-i netcfg/confirm_static boolean true
+#
+# IPv6-Beispiel:
+#d-i netcfg/get_ipaddress string fc00::2
+#d-i netcfg/get_netmask string ffff:ffff:ffff:ffff::
+#d-i netcfg/get_gateway string fc00::1
+#d-i netcfg/get_nameservers string fc00::1
 #d-i netcfg/confirm_static boolean true
 
 # Bedenken Sie, dass jeder Rechner- und Domänenname, der per DHCP

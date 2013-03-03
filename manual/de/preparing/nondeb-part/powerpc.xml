@@ -1,13 +1,13 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 64829 -->
+<!-- original version: 68523 -->
 
 
-  <sect2 arch="powerpc"><title>Partitionieren auf MacOS-/MacOS X-Systemen</title>
+  <sect2 arch="powerpc"><title>Partitionieren auf MacOS X-Systemen</title>
 
 <para>
 
-Das Programm <application>Apple Drive Setup</application> finden Sie im
-<filename>Utilities</filename>-Verzeichnis der MacOS-CD. Es kann keine
+Das Programm <application>Disk Utility</application> finden Sie im
+<filename>Utilities</filename>-Menü des MacOS X-Installers. Es kann keine
 vorhandenen Partitionen bearbeiten; es ist darauf beschränkt, die ganze
 Festplatte auf einmal zu partitionieren. Die Disk Driver-Partitionen
 (die kleinen Partitionen, die für Apple-Disk-Treiber reserviert sind) werden
@@ -21,28 +21,25 @@ diese Partition bekommt, sie wird eh vom &debian-gnu;-Installer gelöscht und er
 
 </para><para>
 
-Wenn Sie vorhaben, sowohl MacOS 9 als auch OS X zu installieren, ist es das
-Beste, separate Partitionen für OS 9 und OS X zu erzeugen. Wenn Sie auf der
-gleichen Partition installiert sind, muss das Programm <application>Startup Disk</application>
-(und reboot) benutzt werden, um zwischen den beiden auszuwählen; die Auswahl
-kann nicht zum Zeitpunkt des Bootens getroffen werden. Mit zwei
-separaten Partitionen werden verschiedene Wahlmöglichkeiten für OS 9 und OS X erscheinen,
-wenn Sie beim Booten die <keycap>Option</keycap>-Taste gedrückt halten;
-es können ebenfalls separate Einträge für das Bootmenü von
-<application>yaboot</application> konfiguriert werden. Außerdem wird
-<application>Startup Disk</application> alle anderen mountbaren Partitionen verunreinigen, was
-sich auf den Boot-Vorgang von GNU/Linux auswirken kann. Sowohl auf die
-OS 9- als auch auf die OS X-Partition kann von OS 9 und OS X aus zugegriffen werden.
+Die Werkzeuge zum Bearbeiten von Partitionstabellen im &d-i; sind kompatibel
+mit OS X, aber nicht mit MacOS 9. Wenn Sie vorhaben, sowohl MacOS 9 als auch
+OS X zu nutzen, ist es das Beste, OS X und &debian; auf einer Festplatte
+zu installieren und MacOS 9 auf eine andere, separate Festplatte zu legen.
+Separate Optionen für OS 9 und OS X werden angezeigt, wenn Sie beim Booten die
+<keycap>Option</keycap>-Taste gedrückt halten; im
+<application>yaboot</application>-Bootmenü können ebenfalls separate Einträge
+erstellt werden.
 
 </para><para>
 
-GNU/Linux kann nicht auf <quote>UFS</quote>-Partitionen zugreifen, unterstützt
-jedoch HFS+ (aka MacOS Extended). OS X erfordert eine der beiden Typen für seine
+GNU/Linux kann nicht auf <quote>UFS</quote>-Partitionen zugreifen, auf
+HFS+ (aka MacOS Extended)-Partitionen jedoch wohl.
+OS X erfordert eine der beiden Typen für seine
 Boot-Partition. MacOS 9 kann entweder auf HFS (aka MacOS-Standard) oder
-HFS+ installiert werden. Um Daten zwischen MacOS und GNU/Linux austauschen
+HFS+ installiert werden. Um Daten zwischen MacOS X und GNU/Linux austauschen
 zu können, ist eine extra Austausch-Partition praktisch.
-HFS-, HFS+- und MS-DOS-FAT-Partitionen werden sowohl von MacOS wie auch von Linux
-unterstützt.
+HFS-, HFS+- und MS-DOS-FAT-Dateisysteme werden sowohl von MacOS 9, MacOS X wie
+auch von GNU/Linux unterstützt.
 
 </para>
   </sect2>
