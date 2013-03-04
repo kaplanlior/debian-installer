@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2013-02-03 09:08+0000\n"
+"POT-Creation-Date: 2013-03-04 08:23+0000\n"
 "PO-Revision-Date: 2012-10-26 22:50+0900\n"
 "Last-Translator: KURASAWA Nozomu <nabetaro@debian.or.jp>\n"
 "Language-Team: Japanese <debian-japanese@lists.debian.org>\n"
@@ -1310,10 +1310,10 @@ msgid ""
 "FreeBSD, &hellip;) </phrase> <phrase arch=\"s390\"> (VM, z/OS, OS/390, "
 "&hellip;) </phrase> which uses the whole disk and you want to stick &debian; "
 "on the same disk, you will need to repartition it. &debian; requires its own "
-"hard disk partitions. It cannot be installed on Windows or MacOS partitions. "
-"It may be able to share some partitions with other Unix systems, but that's "
-"not covered here. At the very least you will need a dedicated partition for "
-"the &debian; root filesystem."
+"hard disk partitions. It cannot be installed on Windows or Mac OS X "
+"partitions. It may be able to share some partitions with other Unix systems, "
+"but that's not covered here. At the very least you will need a dedicated "
+"partition for the &debian; root filesystem."
 msgstr ""
 "システム上に既にオペレーティングシステム <phrase arch=\"any-x86\"> (Windows "
 "9x, Windows NT/2000/XP/2003/Vista/7, OS/2, MacOS, Solaris, FreeBSD, "
@@ -1338,10 +1338,10 @@ msgid ""
 "You can find information about your current partition setup by using a "
 "partitioning tool for your current operating system<phrase arch=\"any-"
 "x86\">, such as the integrated Disk Manager in Windows or fdisk in DOS</"
-"phrase><phrase arch=\"powerpc\">, such as Drive Setup, HD Toolkit, or "
-"MacTools</phrase><phrase arch=\"s390\">, such as the VM diskmap</phrase>. "
-"Partitioning tools always provide a way to show existing partitions without "
-"making changes."
+"phrase><phrase arch=\"powerpc\">, such as Disk Utility, Drive Setup, HD "
+"Toolkit, or MacTools</phrase><phrase arch=\"s390\">, such as the VM diskmap</"
+"phrase>. Partitioning tools always provide a way to show existing partitions "
+"without making changes."
 msgstr ""
 "現在のパーティションの設定は、<phrase arch=\"any-x86\">fdisk や "
 "PartitionMagic</phrase><phrase arch=\"powerpc\">Drive Setup、HD Toolkit、"
@@ -1446,11 +1446,21 @@ msgstr ""
 
 #. Tag: para
 #: preparing.xml:943
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "In order for OpenFirmware to automatically boot &debian-gnu; the &arch-"
+#| "parttype; partitions should appear before all other partitions on the "
+#| "disk, especially MacOS boot partitions. This should be kept in mind when "
+#| "pre-partitioning; you should create a &arch-parttype; placeholder "
+#| "partition to come <emphasis>before</emphasis> the other bootable "
+#| "partitions on the disk. (The small partitions dedicated to Apple disk "
+#| "drivers are not bootable.) You can delete the placeholder with the "
+#| "&debian; partition tools later during the actual install, and replace it "
+#| "with &arch-parttype; partitions."
 msgid ""
 "In order for OpenFirmware to automatically boot &debian-gnu; the &arch-"
 "parttype; partitions should appear before all other partitions on the disk, "
-"especially MacOS boot partitions. This should be kept in mind when pre-"
+"especially Mac OS X boot partitions. This should be kept in mind when pre-"
 "partitioning; you should create a &arch-parttype; placeholder partition to "
 "come <emphasis>before</emphasis> the other bootable partitions on the disk. "
 "(The small partitions dedicated to Apple disk drivers are not bootable.) You "
@@ -1536,19 +1546,25 @@ msgstr ""
 
 #. Tag: title
 #: preparing.xml:1062
-#, no-c-format
-msgid "MacOS/OSX Partitioning"
+#, fuzzy, no-c-format
+#| msgid "MacOS/OSX Partitioning"
+msgid "Mac OS X Partitioning"
 msgstr "MacOS/OSX のパーティション分割"
 
 #. Tag: para
 #: preparing.xml:1064
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "The <application>Apple Drive Setup</application> application can be found "
+#| "in the <filename>Utilities</filename> folder on the MacOS CD. It will not "
+#| "adjust existing partitions; it is limited to partitioning the entire disk "
+#| "at once. The disk driver partitions don't show up in <application>Drive "
+#| "Setup</application>."
 msgid ""
-"The <application>Apple Drive Setup</application> application can be found in "
-"the <filename>Utilities</filename> folder on the MacOS CD. It will not "
+"The <application>Disk Utility</application> application can be found under "
+"the <filename>Utilities</filename> menu in Mac OS X Installer. It will not "
 "adjust existing partitions; it is limited to partitioning the entire disk at "
-"once. The disk driver partitions don't show up in <application>Drive Setup</"
-"application>."
+"once."
 msgstr ""
 "MacOS CD の <filename>Utilities</filename> フォルダに、<application>Apple "
 "Drive Setup</application> アプリケーションが入っているはずです。これを用いて"
@@ -1557,7 +1573,7 @@ msgstr ""
 "<application>Drive Setup</application> からは見えません。"
 
 #. Tag: para
-#: preparing.xml:1071
+#: preparing.xml:1070
 #, no-c-format
 msgid ""
 "Remember to create a placeholder partition for GNU/Linux, preferably "
@@ -1569,42 +1585,34 @@ msgstr ""
 "から、一度消して置き換えることになりますので、タイプは何でも構いません。"
 
 #. Tag: para
-#: preparing.xml:1077
+#: preparing.xml:1076
 #, no-c-format
 msgid ""
-"If you are planning to install both MacOS 9 and OS X, it is best to create "
-"separate partitions for OS 9 and OS X. If they are installed on the same "
-"partition, <application>Startup Disk</application> (and reboot) must be used "
-"to select between the two; the choice between the two systems can't be made "
-"at boot time. With separate partitions, separate options for OS 9 and OS X "
-"will appear when holding the <keycap>option</keycap> key at boot time, and "
-"separate options can be installed in the <application>yaboot</application> "
-"boot menu as well. Also, Startup Disk will de-bless all other mountable "
-"partitions, which can affect GNU/Linux booting. Both OS 9 and OS X "
-"partitions will be accessible from either OS 9 or OS X."
+"&debian; installer partition table editing tools are compatible with OS X, "
+"but not with MacOS 9. If you are planning to use both MacOS 9 and OS X, it "
+"is best to install OS X and &debian; on one hard drive, and put MacOS 9 on a "
+"separate hard drive. Separate options for OS 9 and OS X will appear when "
+"holding the <keycap>option</keycap> key at boot time, and separate options "
+"can be installed in the <application>yaboot</application> boot menu as well."
 msgstr ""
-"MacOS 9 と OS X の両方をインストールする予定でしたら、OS 9 と OS X にはそれぞ"
-"れ別々のパーティションを作るのが良いでしょう。両者を同じパーティションにイン"
-"ストールすると、起動 OS を選ぶために <application>Startup Disk</application> "
-"が (再起動時にも) 必要になります。この両者の選択は、起動時には行えないので"
-"す。別々のパーティションにしておけば、起動時に <keycap>option</keycap> キーを"
-"押しておけば、OS 9 と OS X 共に、別々の選択肢が現れます。また "
-"<application>yaboot</application> のブートメニューにも、同じように別々の選択"
-"肢をインストールできます。Startup Disk はマウント可能なパーティションをすべて"
-"いじってしまう [訳注: 原文 de-bless] ので、GNU/Linux の起動が影響されることが"
-"あります。OS 9、OS X の各パーティションは、それぞれどちらの OS からもアクセス"
-"できます。"
 
 #. Tag: para
-#: preparing.xml:1090
-#, no-c-format
+#: preparing.xml:1086
+#, fuzzy, no-c-format
+#| msgid ""
+#| "GNU/Linux is unable to access information on UFS partitions, but does "
+#| "support HFS+ (aka MacOS Extended) partitions. OS X requires one of these "
+#| "two types for its boot partition. MacOS 9 can be installed on either HFS "
+#| "(aka MacOS Standard) or HFS+. To share information between the MacOS and "
+#| "GNU/Linux systems, an exchange partition is handy. HFS, HFS+ and MS-DOS "
+#| "FAT partitions are supported by both MacOS and Linux."
 msgid ""
-"GNU/Linux is unable to access information on UFS partitions, but does "
-"support HFS+ (aka MacOS Extended) partitions. OS X requires one of these two "
-"types for its boot partition. MacOS 9 can be installed on either HFS (aka "
-"MacOS Standard) or HFS+. To share information between the MacOS and GNU/"
-"Linux systems, an exchange partition is handy. HFS, HFS+ and MS-DOS FAT "
-"partitions are supported by both MacOS and Linux."
+"GNU/Linux is unable to access information on UFS partitions, but can access "
+"HFS+ (aka MacOS Extended) partitions. OS X requires one of these two types "
+"for its boot partition. MacOS 9 can be installed on either HFS (aka MacOS "
+"Standard) or HFS+. To share information between the Mac OS X and GNU/Linux "
+"systems, an exchange partition is handy. HFS, HFS+ and MS-DOS FAT file "
+"systems are supported by MacOS 9, Mac OS X and GNU/Linux."
 msgstr ""
 "GNU/Linux は UFS パーティションの情報にはアクセスできませんが、HFS+ パーティ"
 "ション (MacOS 拡張パーティション) をサポートしています。OS X は、この 2 つの"
@@ -1615,13 +1623,13 @@ msgstr ""
 "でサポートされています。"
 
 #. Tag: title
-#: preparing.xml:1110
+#: preparing.xml:1106
 #, no-c-format
 msgid "Pre-Installation Hardware and Operating System Setup"
 msgstr "インストール前に行うハードウェア・OS の設定"
 
 #. Tag: para
-#: preparing.xml:1111
+#: preparing.xml:1107
 #, fuzzy, no-c-format
 #| msgid ""
 #| "This section will walk you through pre-installation hardware setup, if "
@@ -1648,13 +1656,13 @@ msgstr ""
 "り扱っていく予定です。"
 
 #. Tag: title
-#: preparing.xml:1126
+#: preparing.xml:1122
 #, no-c-format
 msgid "Invoking the BIOS Set-Up Menu"
 msgstr "BIOS 設定メニューの起動"
 
 #. Tag: para
-#: preparing.xml:1128
+#: preparing.xml:1124
 #, fuzzy, no-c-format
 #| msgid ""
 #| "BIOS provides the basic functions needed to boot your machine to allow "
@@ -1681,13 +1689,13 @@ msgstr ""
 "トールができなくなるかもしれません。"
 
 #. Tag: title
-#: preparing.xml:1142 preparing.xml:1294
+#: preparing.xml:1138 preparing.xml:1290
 #, no-c-format
 msgid "Boot Device Selection"
 msgstr "ブートデバイスの選択"
 
 #. Tag: para
-#: preparing.xml:1144
+#: preparing.xml:1140
 #, no-c-format
 msgid ""
 "Within the BIOS setup menu, you can select which devices shall be checked in "
@@ -1698,7 +1706,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1152
+#: preparing.xml:1148
 #, no-c-format
 msgid ""
 "Depending on the installation media (CD/DVD ROM, USB stick, network boot) "
@@ -1707,7 +1715,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1158
+#: preparing.xml:1154
 #, no-c-format
 msgid ""
 "Most BIOS versions allow to call up a boot menu on system startup in which "
@@ -1723,7 +1731,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1172
+#: preparing.xml:1168
 #, no-c-format
 msgid ""
 "If your BIOS does not provide you with a boot menu to do ad-hoc choices of "
@@ -1732,7 +1740,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1178
+#: preparing.xml:1174
 #, no-c-format
 msgid ""
 "Unfortunately some computers contain buggy BIOS versions. Booting &d-i; from "
@@ -1749,7 +1757,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1193
+#: preparing.xml:1189
 #, no-c-format
 msgid ""
 "If you cannot manipulate the BIOS to boot directly from a USB stick you "
@@ -1760,13 +1768,13 @@ msgid ""
 msgstr ""
 
 #. Tag: title
-#: preparing.xml:1211
+#: preparing.xml:1207
 #, no-c-format
 msgid "Invoking OpenFirmware"
 msgstr "OpenFirmware の起動"
 
 #. Tag: para
-#: preparing.xml:1212
+#: preparing.xml:1208
 #, no-c-format
 msgid ""
 "There is normally no need to set up the BIOS (called OpenFirmware) on &arch-"
@@ -1781,7 +1789,7 @@ msgstr ""
 "にあたる必要があるでしょう。"
 
 #. Tag: para
-#: preparing.xml:1220
+#: preparing.xml:1216
 #, no-c-format
 msgid ""
 "On &arch-title; Macintoshes, you invoke OpenFirmware with "
@@ -1799,7 +1807,7 @@ msgstr ""
 "faq;\"></ulink> をご覧ください。"
 
 #. Tag: para
-#: preparing.xml:1228
+#: preparing.xml:1224
 #, no-c-format
 msgid ""
 "The OpenFirmware prompt looks like this: <informalexample><screen>\n"
@@ -1823,7 +1831,7 @@ msgstr ""
 "それをモデムポートにつなぐ必要があります。"
 
 #. Tag: para
-#: preparing.xml:1241
+#: preparing.xml:1237
 #, no-c-format
 msgid ""
 "The OpenFirmware on OldWorld Beige G3 machines, OF versions 2.0f1 and 2.4, "
@@ -1845,13 +1853,13 @@ msgstr ""
 "nvram にインストールされます。"
 
 #. Tag: title
-#: preparing.xml:1261
+#: preparing.xml:1257
 #, no-c-format
 msgid "Invoking OpenBoot"
 msgstr "OpenBoot の起動"
 
 #. Tag: para
-#: preparing.xml:1263
+#: preparing.xml:1259
 #, no-c-format
 msgid ""
 "OpenBoot provides the basic functions needed to boot the &arch-title; "
@@ -1867,7 +1875,7 @@ msgstr ""
 "て様々なことが行えます。"
 
 #. Tag: para
-#: preparing.xml:1271
+#: preparing.xml:1267
 #, no-c-format
 msgid ""
 "To get to the boot prompt you need to hold down the <keycap>Stop</keycap> "
@@ -1888,7 +1896,7 @@ msgstr ""
 "ます。"
 
 #. Tag: para
-#: preparing.xml:1283
+#: preparing.xml:1279
 #, no-c-format
 msgid ""
 "If you are using a serial console, send a break to the machine. With "
@@ -1903,7 +1911,7 @@ msgstr ""
 "い。"
 
 #. Tag: para
-#: preparing.xml:1296
+#: preparing.xml:1292
 #, no-c-format
 msgid ""
 "You can use OpenBoot to boot from specific devices, and also to change your "
@@ -1923,7 +1931,7 @@ msgstr ""
 "ulink> にあります。"
 
 #. Tag: para
-#: preparing.xml:1306
+#: preparing.xml:1302
 #, no-c-format
 msgid ""
 "Typically, with newer revisions, you can use OpenBoot devices such as "
@@ -1966,7 +1974,7 @@ msgstr ""
 "\">Sun OpenBoot Reference</ulink> をご覧ください。"
 
 #. Tag: para
-#: preparing.xml:1329
+#: preparing.xml:1325
 #, no-c-format
 msgid ""
 "To boot from a specific device, use the command <userinput>boot "
@@ -1997,19 +2005,19 @@ msgstr ""
 "</screen></informalexample> Solaris では以下のようにしてください。"
 
 #. Tag: screen
-#: preparing.xml:1348
+#: preparing.xml:1344
 #, no-c-format
 msgid "eeprom boot-device=disk1:1"
 msgstr "eeprom boot-device=disk1:1"
 
 #. Tag: title
-#: preparing.xml:1358
+#: preparing.xml:1354
 #, no-c-format
 msgid "BIOS Setup"
 msgstr "BIOS 設定"
 
 #. Tag: para
-#: preparing.xml:1359
+#: preparing.xml:1355
 #, no-c-format
 msgid ""
 "In order to install &debian-gnu; on a &arch-title; or zSeries machine you "
@@ -2033,7 +2041,7 @@ msgstr ""
 "アーキテクチャだからです。"
 
 #. Tag: para
-#: preparing.xml:1371
+#: preparing.xml:1367
 #, no-c-format
 msgid ""
 "Linux on this platform runs either natively on the bare machine, in a so-"
@@ -2052,7 +2060,7 @@ msgstr ""
 "Management Console) から起動できることもあります。"
 
 #. Tag: para
-#: preparing.xml:1381
+#: preparing.xml:1377
 #, no-c-format
 msgid ""
 "Before you actually perform an installation, you have to go over some design "
@@ -2076,13 +2084,13 @@ msgstr ""
 "ストール手順を行っていってください。"
 
 #. Tag: title
-#: preparing.xml:1398
+#: preparing.xml:1394
 #, no-c-format
 msgid "Native and LPAR installations"
 msgstr "ネイティブな LPAR へのインストール"
 
 #. Tag: para
-#: preparing.xml:1399
+#: preparing.xml:1395
 #, no-c-format
 msgid ""
 "Please refer to chapter 5 of the <ulink url=\"http://www.redbooks.ibm.com/"
@@ -2098,13 +2106,13 @@ msgstr ""
 "Redbook の 3.2 章をご覧ください。"
 
 #. Tag: title
-#: preparing.xml:1413
+#: preparing.xml:1409
 #, no-c-format
 msgid "Installation as a VM guest"
 msgstr "VM ゲストとしてのインストール"
 
 #. Tag: para
-#: preparing.xml:1415
+#: preparing.xml:1411
 #, no-c-format
 msgid ""
 "Please refer to chapter 6 of the <ulink url=\"http://www.redbooks.ibm.com/"
@@ -2120,7 +2128,7 @@ msgstr ""
 "Distributions</ulink> Redbook の 3.1 章をご覧ください。"
 
 #. Tag: para
-#: preparing.xml:1425
+#: preparing.xml:1421
 #, no-c-format
 msgid ""
 "You need to copy all the files from the <filename>generic</filename> sub-"
@@ -2142,13 +2150,13 @@ msgstr ""
 "ルスクリプトには、イメージを含んでいます。"
 
 #. Tag: title
-#: preparing.xml:1442
+#: preparing.xml:1438
 #, no-c-format
 msgid "Setting up an installation server"
 msgstr "インストールサーバの設定"
 
 #. Tag: para
-#: preparing.xml:1444
+#: preparing.xml:1440
 #, no-c-format
 msgid ""
 "If you don't have a connection to the Internet (either directly or via a web "
@@ -2162,7 +2170,7 @@ msgstr ""
 "NFS, HTTP, FTP のいずれかで提供できなければなりません。"
 
 #. Tag: para
-#: preparing.xml:1452
+#: preparing.xml:1448
 #, no-c-format
 msgid ""
 "The installation server needs to copy the exact directory structure from any "
@@ -2176,25 +2184,25 @@ msgstr ""
 "レクトリツリーにコピーしたのでも構いません。"
 
 #. Tag: emphasis
-#: preparing.xml:1461
+#: preparing.xml:1457
 #, no-c-format
 msgid "FIXME: more information needed &mdash; from a Redbook?"
 msgstr "FIXME: more information needed &mdash; from a Redbook?"
 
 #. Tag: title
-#: preparing.xml:1468
+#: preparing.xml:1464
 #, no-c-format
 msgid "Hardware Issues to Watch Out For"
 msgstr "気をつけるべきハードウェアの問題"
 
 #. Tag: title
-#: preparing.xml:1471
+#: preparing.xml:1467
 #, no-c-format
 msgid "USB BIOS support and keyboards"
 msgstr "USB BIOS サポートとキーボード"
 
 #. Tag: para
-#: preparing.xml:1472
+#: preparing.xml:1468
 #, no-c-format
 msgid ""
 "If you have no PS/2-style keyboard, but only a USB model, on some very old "
@@ -2212,13 +2220,13 @@ msgstr ""
 "keyboard support</quote> といった BIOS 設定に入ってください。"
 
 #. Tag: title
-#: preparing.xml:1485
+#: preparing.xml:1481
 #, no-c-format
 msgid "Display-visibility on OldWorld Powermacs"
 msgstr "OldWorld PowerMAC でのディスプレイ表示"
 
 #. Tag: para
-#: preparing.xml:1487
+#: preparing.xml:1483
 #, no-c-format
 msgid ""
 "Some OldWorld Powermacs, most notably those with the <quote>control</quote> "
@@ -2237,6 +2245,31 @@ msgstr ""
 "起動後に、ユーザインターフェースを表示せず画面が黒くなってしまった場合は、"
 "MacOS 上で、<quote>数千</quote>、<quote>数百万</quote> と設定せずに、256 色と"
 "してみてください。"
+
+#~ msgid ""
+#~ "If you are planning to install both MacOS 9 and OS X, it is best to "
+#~ "create separate partitions for OS 9 and OS X. If they are installed on "
+#~ "the same partition, <application>Startup Disk</application> (and reboot) "
+#~ "must be used to select between the two; the choice between the two "
+#~ "systems can't be made at boot time. With separate partitions, separate "
+#~ "options for OS 9 and OS X will appear when holding the <keycap>option</"
+#~ "keycap> key at boot time, and separate options can be installed in the "
+#~ "<application>yaboot</application> boot menu as well. Also, Startup Disk "
+#~ "will de-bless all other mountable partitions, which can affect GNU/Linux "
+#~ "booting. Both OS 9 and OS X partitions will be accessible from either OS "
+#~ "9 or OS X."
+#~ msgstr ""
+#~ "MacOS 9 と OS X の両方をインストールする予定でしたら、OS 9 と OS X にはそ"
+#~ "れぞれ別々のパーティションを作るのが良いでしょう。両者を同じパーティション"
+#~ "にインストールすると、起動 OS を選ぶために <application>Startup Disk</"
+#~ "application> が (再起動時にも) 必要になります。この両者の選択は、起動時に"
+#~ "は行えないのです。別々のパーティションにしておけば、起動時に "
+#~ "<keycap>option</keycap> キーを押しておけば、OS 9 と OS X 共に、別々の選択"
+#~ "肢が現れます。また <application>yaboot</application> のブートメニューに"
+#~ "も、同じように別々の選択肢をインストールできます。Startup Disk はマウント"
+#~ "可能なパーティションをすべていじってしまう [訳注: 原文 de-bless] ので、"
+#~ "GNU/Linux の起動が影響されることがあります。OS 9、OS X の各パーティション"
+#~ "は、それぞれどちらの OS からもアクセスできます。"
 
 #~ msgid ""
 #~ "Set up boot tapes/floppies/USB sticks, or place boot files (most &debian; "

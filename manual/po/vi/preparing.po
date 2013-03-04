@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: preparing\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2013-02-03 09:08+0000\n"
+"POT-Creation-Date: 2013-03-04 08:23+0000\n"
 "PO-Revision-Date: 2012-08-04 05:37+0700\n"
 "Last-Translator: hailang <hailangvn@gmail.com>\n"
 "Language-Team: MOST Project <du-an-most@lists.hanoilug.org>\n"
@@ -1323,10 +1323,10 @@ msgid ""
 "FreeBSD, &hellip;) </phrase> <phrase arch=\"s390\"> (VM, z/OS, OS/390, "
 "&hellip;) </phrase> which uses the whole disk and you want to stick &debian; "
 "on the same disk, you will need to repartition it. &debian; requires its own "
-"hard disk partitions. It cannot be installed on Windows or MacOS partitions. "
-"It may be able to share some partitions with other Unix systems, but that's "
-"not covered here. At the very least you will need a dedicated partition for "
-"the &debian; root filesystem."
+"hard disk partitions. It cannot be installed on Windows or Mac OS X "
+"partitions. It may be able to share some partitions with other Unix systems, "
+"but that's not covered here. At the very least you will need a dedicated "
+"partition for the &debian; root filesystem."
 msgstr ""
 "Nếu máy tính của bạn đã có một hệ điều hành <phrase arch=\"any-x86\"> "
 "(Windows 9x, Windows NT/2000/XP/2003/Vista/7, OS/2, MacOS, Solaris, FreeBSD, "
@@ -1352,10 +1352,10 @@ msgid ""
 "You can find information about your current partition setup by using a "
 "partitioning tool for your current operating system<phrase arch=\"any-"
 "x86\">, such as the integrated Disk Manager in Windows or fdisk in DOS</"
-"phrase><phrase arch=\"powerpc\">, such as Drive Setup, HD Toolkit, or "
-"MacTools</phrase><phrase arch=\"s390\">, such as the VM diskmap</phrase>. "
-"Partitioning tools always provide a way to show existing partitions without "
-"making changes."
+"phrase><phrase arch=\"powerpc\">, such as Disk Utility, Drive Setup, HD "
+"Toolkit, or MacTools</phrase><phrase arch=\"s390\">, such as the VM diskmap</"
+"phrase>. Partitioning tools always provide a way to show existing partitions "
+"without making changes."
 msgstr ""
 "Bạn có thể tìm thông tin về thiết lập phân vùng hiện thời của máy tính bằng "
 "cách sử dụng một công cụ phân vùng cho hệ điều hành đã có<phrase arch=\"any-"
@@ -1460,11 +1460,21 @@ msgstr ""
 
 #. Tag: para
 #: preparing.xml:943
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "In order for OpenFirmware to automatically boot &debian-gnu; the &arch-"
+#| "parttype; partitions should appear before all other partitions on the "
+#| "disk, especially MacOS boot partitions. This should be kept in mind when "
+#| "pre-partitioning; you should create a &arch-parttype; placeholder "
+#| "partition to come <emphasis>before</emphasis> the other bootable "
+#| "partitions on the disk. (The small partitions dedicated to Apple disk "
+#| "drivers are not bootable.) You can delete the placeholder with the "
+#| "&debian; partition tools later during the actual install, and replace it "
+#| "with &arch-parttype; partitions."
 msgid ""
 "In order for OpenFirmware to automatically boot &debian-gnu; the &arch-"
 "parttype; partitions should appear before all other partitions on the disk, "
-"especially MacOS boot partitions. This should be kept in mind when pre-"
+"especially Mac OS X boot partitions. This should be kept in mind when pre-"
 "partitioning; you should create a &arch-parttype; placeholder partition to "
 "come <emphasis>before</emphasis> the other bootable partitions on the disk. "
 "(The small partitions dedicated to Apple disk drivers are not bootable.) You "
@@ -1549,19 +1559,25 @@ msgstr ""
 
 #. Tag: title
 #: preparing.xml:1062
-#, no-c-format
-msgid "MacOS/OSX Partitioning"
+#, fuzzy, no-c-format
+#| msgid "MacOS/OSX Partitioning"
+msgid "Mac OS X Partitioning"
 msgstr "Phân vùng MacOS/MacOSX"
 
 #. Tag: para
 #: preparing.xml:1064
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "The <application>Apple Drive Setup</application> application can be found "
+#| "in the <filename>Utilities</filename> folder on the MacOS CD. It will not "
+#| "adjust existing partitions; it is limited to partitioning the entire disk "
+#| "at once. The disk driver partitions don't show up in <application>Drive "
+#| "Setup</application>."
 msgid ""
-"The <application>Apple Drive Setup</application> application can be found in "
-"the <filename>Utilities</filename> folder on the MacOS CD. It will not "
+"The <application>Disk Utility</application> application can be found under "
+"the <filename>Utilities</filename> menu in Mac OS X Installer. It will not "
 "adjust existing partitions; it is limited to partitioning the entire disk at "
-"once. The disk driver partitions don't show up in <application>Drive Setup</"
-"application>."
+"once."
 msgstr ""
 "Ứng dụng <application>Apple Drive Setup</application> nằm trong thư mục "
 "<filename>Utilities</filename> trên đĩa CD cài đặt hệ điều hành MacOS. Nó "
@@ -1570,7 +1586,7 @@ msgstr ""
 "phân vùng dành cho trình điều khiển đĩa."
 
 #. Tag: para
-#: preparing.xml:1071
+#: preparing.xml:1070
 #, no-c-format
 msgid ""
 "Remember to create a placeholder partition for GNU/Linux, preferably "
@@ -1582,42 +1598,34 @@ msgstr ""
 "bỏ và thay thế sau này trong tiến trình cài đặt &debian-gnu;."
 
 #. Tag: para
-#: preparing.xml:1077
+#: preparing.xml:1076
 #, no-c-format
 msgid ""
-"If you are planning to install both MacOS 9 and OS X, it is best to create "
-"separate partitions for OS 9 and OS X. If they are installed on the same "
-"partition, <application>Startup Disk</application> (and reboot) must be used "
-"to select between the two; the choice between the two systems can't be made "
-"at boot time. With separate partitions, separate options for OS 9 and OS X "
-"will appear when holding the <keycap>option</keycap> key at boot time, and "
-"separate options can be installed in the <application>yaboot</application> "
-"boot menu as well. Also, Startup Disk will de-bless all other mountable "
-"partitions, which can affect GNU/Linux booting. Both OS 9 and OS X "
-"partitions will be accessible from either OS 9 or OS X."
+"&debian; installer partition table editing tools are compatible with OS X, "
+"but not with MacOS 9. If you are planning to use both MacOS 9 and OS X, it "
+"is best to install OS X and &debian; on one hard drive, and put MacOS 9 on a "
+"separate hard drive. Separate options for OS 9 and OS X will appear when "
+"holding the <keycap>option</keycap> key at boot time, and separate options "
+"can be installed in the <application>yaboot</application> boot menu as well."
 msgstr ""
-"Nếu bạn định cài đặt cả hai hệ điều hành Mac OS9 và OSX, tốt nhất để tạo "
-"phân vùng riêng cho mỗi hệ thống. Nếu bạn cài đặt cả hai hệ thống vào cùng "
-"một phân vùng, cần phải dùng tiện ích <application>Startup Disk</"
-"application> (rồi khởi động lại) để chọn hệ thống nào khởi động máy: không "
-"thể chọn nó vào lúc khởi động. Nếu bạn cài đặt mỗi hệ điều hành OS9 và OSX "
-"vào phân vùng riêng, cũng có tùy chọn riêng sẽ xuất hiện khi bạn bấm giữ "
-"phím <keycap>option</keycap> vào lúc khởi động, và cũng có thể cài đặt tùy "
-"chọn riêng vào trình đơn khởi động của <application>yaboot</application>. "
-"Hơn nữa, tiện ích Startup Disk sẽ vô hiệu hoá các phân vùng lắp được khác có "
-"thể tác động lên khả năng khởi động GNU/Linux. Bạn sẽ cũng có thể truy cập "
-"mỗi kiểu phân vùng từ hệ điều hành hoặc OS9 hoặc OSX."
 
 #. Tag: para
-#: preparing.xml:1090
-#, no-c-format
+#: preparing.xml:1086
+#, fuzzy, no-c-format
+#| msgid ""
+#| "GNU/Linux is unable to access information on UFS partitions, but does "
+#| "support HFS+ (aka MacOS Extended) partitions. OS X requires one of these "
+#| "two types for its boot partition. MacOS 9 can be installed on either HFS "
+#| "(aka MacOS Standard) or HFS+. To share information between the MacOS and "
+#| "GNU/Linux systems, an exchange partition is handy. HFS, HFS+ and MS-DOS "
+#| "FAT partitions are supported by both MacOS and Linux."
 msgid ""
-"GNU/Linux is unable to access information on UFS partitions, but does "
-"support HFS+ (aka MacOS Extended) partitions. OS X requires one of these two "
-"types for its boot partition. MacOS 9 can be installed on either HFS (aka "
-"MacOS Standard) or HFS+. To share information between the MacOS and GNU/"
-"Linux systems, an exchange partition is handy. HFS, HFS+ and MS-DOS FAT "
-"partitions are supported by both MacOS and Linux."
+"GNU/Linux is unable to access information on UFS partitions, but can access "
+"HFS+ (aka MacOS Extended) partitions. OS X requires one of these two types "
+"for its boot partition. MacOS 9 can be installed on either HFS (aka MacOS "
+"Standard) or HFS+. To share information between the Mac OS X and GNU/Linux "
+"systems, an exchange partition is handy. HFS, HFS+ and MS-DOS FAT file "
+"systems are supported by MacOS 9, Mac OS X and GNU/Linux."
 msgstr ""
 "Hệ điều hành GNU/Linux không có khả năng truy cập thông tin nằm trên phân "
 "vùng kiểu UFS, nhưng có phải hỗ trợ dạng thức phân vùng HFS+ (cũng tên Mac "
@@ -1628,13 +1636,13 @@ msgstr ""
 "hai HĐH MacOS và GNU/Linux hỗ trợ phân vùng kiểu HFS, HFS+ và MS-DOS FAT."
 
 #. Tag: title
-#: preparing.xml:1110
+#: preparing.xml:1106
 #, no-c-format
 msgid "Pre-Installation Hardware and Operating System Setup"
 msgstr "Phần cứng cài đặt sẵn và thiết lập hệ điều hành"
 
 #. Tag: para
-#: preparing.xml:1111
+#: preparing.xml:1107
 #, fuzzy, no-c-format
 #| msgid ""
 #| "This section will walk you through pre-installation hardware setup, if "
@@ -1661,13 +1669,13 @@ msgstr ""
 "&debian-gnu; trên máy tính của bạn."
 
 #. Tag: title
-#: preparing.xml:1126
+#: preparing.xml:1122
 #, no-c-format
 msgid "Invoking the BIOS Set-Up Menu"
 msgstr "Gọi trình đơn thiết lập BIOS"
 
 #. Tag: para
-#: preparing.xml:1128
+#: preparing.xml:1124
 #, fuzzy, no-c-format
 #| msgid ""
 #| "BIOS provides the basic functions needed to boot your machine to allow "
@@ -1694,13 +1702,13 @@ msgstr ""
 "hoặc bạn sẽ không có khả năng cài đặt &debian;."
 
 #. Tag: title
-#: preparing.xml:1142 preparing.xml:1294
+#: preparing.xml:1138 preparing.xml:1290
 #, no-c-format
 msgid "Boot Device Selection"
 msgstr "Chọn thiết bị khởi động"
 
 #. Tag: para
-#: preparing.xml:1144
+#: preparing.xml:1140
 #, no-c-format
 msgid ""
 "Within the BIOS setup menu, you can select which devices shall be checked in "
@@ -1711,7 +1719,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1152
+#: preparing.xml:1148
 #, no-c-format
 msgid ""
 "Depending on the installation media (CD/DVD ROM, USB stick, network boot) "
@@ -1720,7 +1728,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1158
+#: preparing.xml:1154
 #, no-c-format
 msgid ""
 "Most BIOS versions allow to call up a boot menu on system startup in which "
@@ -1736,7 +1744,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1172
+#: preparing.xml:1168
 #, no-c-format
 msgid ""
 "If your BIOS does not provide you with a boot menu to do ad-hoc choices of "
@@ -1745,7 +1753,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1178
+#: preparing.xml:1174
 #, no-c-format
 msgid ""
 "Unfortunately some computers contain buggy BIOS versions. Booting &d-i; from "
@@ -1762,7 +1770,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1193
+#: preparing.xml:1189
 #, no-c-format
 msgid ""
 "If you cannot manipulate the BIOS to boot directly from a USB stick you "
@@ -1773,13 +1781,13 @@ msgid ""
 msgstr ""
 
 #. Tag: title
-#: preparing.xml:1211
+#: preparing.xml:1207
 #, no-c-format
 msgid "Invoking OpenFirmware"
 msgstr "Gọi OpenFirmware"
 
 #. Tag: para
-#: preparing.xml:1212
+#: preparing.xml:1208
 #, no-c-format
 msgid ""
 "There is normally no need to set up the BIOS (called OpenFirmware) on &arch-"
@@ -1794,7 +1802,7 @@ msgstr ""
 "dẫn có sẵn với máy đó."
 
 #. Tag: para
-#: preparing.xml:1220
+#: preparing.xml:1216
 #, no-c-format
 msgid ""
 "On &arch-title; Macintoshes, you invoke OpenFirmware with "
@@ -1812,7 +1820,7 @@ msgstr ""
 "Hỏi Đáp <ulink url=\"&url-netbsd-powerpc-faq;\"></ulink> để tìm mẹo thêm."
 
 #. Tag: para
-#: preparing.xml:1228
+#: preparing.xml:1224
 #, no-c-format
 msgid ""
 "The OpenFirmware prompt looks like this: <informalexample><screen>\n"
@@ -1837,7 +1845,7 @@ msgstr ""
 "OpenFirmware."
 
 #. Tag: para
-#: preparing.xml:1241
+#: preparing.xml:1237
 #, no-c-format
 msgid ""
 "The OpenFirmware on OldWorld Beige G3 machines, OF versions 2.0f1 and 2.4, "
@@ -1859,13 +1867,13 @@ msgstr ""
 "guibutton> (Lưu) để cài đặt các đắp vá phần vững vào bộ nhớ nvram."
 
 #. Tag: title
-#: preparing.xml:1261
+#: preparing.xml:1257
 #, no-c-format
 msgid "Invoking OpenBoot"
 msgstr "Gọi OpenBoot"
 
 #. Tag: para
-#: preparing.xml:1263
+#: preparing.xml:1259
 #, no-c-format
 msgid ""
 "OpenBoot provides the basic functions needed to boot the &arch-title; "
@@ -1881,7 +1889,7 @@ msgstr ""
 "tập lệnh đơn giản."
 
 #. Tag: para
-#: preparing.xml:1271
+#: preparing.xml:1267
 #, no-c-format
 msgid ""
 "To get to the boot prompt you need to hold down the <keycap>Stop</keycap> "
@@ -1901,7 +1909,7 @@ msgstr ""
 "phím <keycap>n</keycap> để hiển thị dấu nhắc kiểu mới."
 
 #. Tag: para
-#: preparing.xml:1283
+#: preparing.xml:1279
 #, no-c-format
 msgid ""
 "If you are using a serial console, send a break to the machine. With "
@@ -1916,7 +1924,7 @@ msgstr ""
 "nếu bạn chạy chương trình khác."
 
 #. Tag: para
-#: preparing.xml:1296
+#: preparing.xml:1292
 #, no-c-format
 msgid ""
 "You can use OpenBoot to boot from specific devices, and also to change your "
@@ -1936,7 +1944,7 @@ msgstr ""
 "<ulink url=\"&url-openboot;\">Sun OpenBoot Reference</ulink>."
 
 #. Tag: para
-#: preparing.xml:1306
+#: preparing.xml:1302
 #, no-c-format
 msgid ""
 "Typically, with newer revisions, you can use OpenBoot devices such as "
@@ -1979,7 +1987,7 @@ msgstr ""
 "\">Sun OpenBoot Reference</ulink>."
 
 #. Tag: para
-#: preparing.xml:1329
+#: preparing.xml:1325
 #, no-c-format
 msgid ""
 "To boot from a specific device, use the command <userinput>boot "
@@ -2012,19 +2020,19 @@ msgstr ""
 
 # Literal: don't translate / Nghĩa chữ: đừng dịch
 #. Tag: screen
-#: preparing.xml:1348
+#: preparing.xml:1344
 #, no-c-format
 msgid "eeprom boot-device=disk1:1"
 msgstr "eeprom boot-device=disk1:1"
 
 #. Tag: title
-#: preparing.xml:1358
+#: preparing.xml:1354
 #, no-c-format
 msgid "BIOS Setup"
 msgstr "Thiết lập BIOS"
 
 #. Tag: para
-#: preparing.xml:1359
+#: preparing.xml:1355
 #, no-c-format
 msgid ""
 "In order to install &debian-gnu; on a &arch-title; or zSeries machine you "
@@ -2046,7 +2054,7 @@ msgstr ""
 "thống đặc biệt: bàn điều khiển 3215/3270 dựa vào dòng, không phải vào ký tự."
 
 #. Tag: para
-#: preparing.xml:1371
+#: preparing.xml:1367
 #, no-c-format
 msgid ""
 "Linux on this platform runs either natively on the bare machine, in a so-"
@@ -2066,7 +2074,7 @@ msgstr ""
 "sẵn sàng."
 
 #. Tag: para
-#: preparing.xml:1381
+#: preparing.xml:1377
 #, no-c-format
 msgid ""
 "Before you actually perform an installation, you have to go over some design "
@@ -2091,13 +2099,13 @@ msgstr ""
 "về tài liệu này để theo những bước cài đặt đặc trưng cho &debian;."
 
 #. Tag: title
-#: preparing.xml:1398
+#: preparing.xml:1394
 #, no-c-format
 msgid "Native and LPAR installations"
 msgstr "Sự cài đặt kiểu sở hữu và LPAR"
 
 #. Tag: para
-#: preparing.xml:1399
+#: preparing.xml:1395
 #, no-c-format
 msgid ""
 "Please refer to chapter 5 of the <ulink url=\"http://www.redbooks.ibm.com/"
@@ -2113,13 +2121,13 @@ msgstr ""
 "distributions</ulink> để tìm thông tin về cách thiết lập LPAR dành cho Linux."
 
 #. Tag: title
-#: preparing.xml:1413
+#: preparing.xml:1409
 #, no-c-format
 msgid "Installation as a VM guest"
 msgstr "Cài đặt như là khách VM"
 
 #. Tag: para
-#: preparing.xml:1415
+#: preparing.xml:1411
 #, no-c-format
 msgid ""
 "Please refer to chapter 6 of the <ulink url=\"http://www.redbooks.ibm.com/"
@@ -2136,7 +2144,7 @@ msgstr ""
 "VM để chạy Linux."
 
 #. Tag: para
-#: preparing.xml:1425
+#: preparing.xml:1421
 #, no-c-format
 msgid ""
 "You need to copy all the files from the <filename>generic</filename> sub-"
@@ -2159,13 +2167,13 @@ msgstr ""
 "thứ tự đúng."
 
 #. Tag: title
-#: preparing.xml:1442
+#: preparing.xml:1438
 #, no-c-format
 msgid "Setting up an installation server"
 msgstr "Thiết lập máy phục vụ cài đặt"
 
 #. Tag: para
-#: preparing.xml:1444
+#: preparing.xml:1440
 #, no-c-format
 msgid ""
 "If you don't have a connection to the Internet (either directly or via a web "
@@ -2179,7 +2187,7 @@ msgstr ""
 "phải cung cấp chúng bằng giao thức NFS, HTTP hay FTP."
 
 #. Tag: para
-#: preparing.xml:1452
+#: preparing.xml:1448
 #, no-c-format
 msgid ""
 "The installation server needs to copy the exact directory structure from any "
@@ -2193,25 +2201,25 @@ msgstr ""
 "của các đĩa CD cài đặt vào cây thư mục như vậy."
 
 #. Tag: emphasis
-#: preparing.xml:1461
+#: preparing.xml:1457
 #, no-c-format
 msgid "FIXME: more information needed &mdash; from a Redbook?"
 msgstr "FIXME: (chưa ghi đoạn tiếng Anh)"
 
 #. Tag: title
-#: preparing.xml:1468
+#: preparing.xml:1464
 #, no-c-format
 msgid "Hardware Issues to Watch Out For"
 msgstr "Vấn đề phần cứng cần theo dõi"
 
 #. Tag: title
-#: preparing.xml:1471
+#: preparing.xml:1467
 #, no-c-format
 msgid "USB BIOS support and keyboards"
 msgstr "Hỗ trợ BIOS và bàn phím kiểu USB"
 
 #. Tag: para
-#: preparing.xml:1472
+#: preparing.xml:1468
 #, fuzzy, no-c-format
 #| msgid ""
 #| "If you have no AT-style keyboard and only a USB model, you may need to "
@@ -2239,13 +2247,13 @@ msgstr ""
 "hay <quote>USB keyboard support</quote> (khả năng hỗ trợ bàn phím USB)."
 
 #. Tag: title
-#: preparing.xml:1485
+#: preparing.xml:1481
 #, no-c-format
 msgid "Display-visibility on OldWorld Powermacs"
 msgstr "Tầm nhìn bộ trình bày của PowerMac kiểu cũ"
 
 #. Tag: para
-#: preparing.xml:1487
+#: preparing.xml:1483
 #, no-c-format
 msgid ""
 "Some OldWorld Powermacs, most notably those with the <quote>control</quote> "
@@ -2266,6 +2274,31 @@ msgstr ""
 "thay vào hiển thị giao diện người dùng, hãy thử thay đổi thiết lập trình bày "
 "dưới hệ điều hành MacOS thành 256 màu sắc thay cho <quote>thousands</quote> "
 "(mấy nghìn) hay <quote>millions</quote> (mấy tỷ) màu sắc."
+
+#~ msgid ""
+#~ "If you are planning to install both MacOS 9 and OS X, it is best to "
+#~ "create separate partitions for OS 9 and OS X. If they are installed on "
+#~ "the same partition, <application>Startup Disk</application> (and reboot) "
+#~ "must be used to select between the two; the choice between the two "
+#~ "systems can't be made at boot time. With separate partitions, separate "
+#~ "options for OS 9 and OS X will appear when holding the <keycap>option</"
+#~ "keycap> key at boot time, and separate options can be installed in the "
+#~ "<application>yaboot</application> boot menu as well. Also, Startup Disk "
+#~ "will de-bless all other mountable partitions, which can affect GNU/Linux "
+#~ "booting. Both OS 9 and OS X partitions will be accessible from either OS "
+#~ "9 or OS X."
+#~ msgstr ""
+#~ "Nếu bạn định cài đặt cả hai hệ điều hành Mac OS9 và OSX, tốt nhất để tạo "
+#~ "phân vùng riêng cho mỗi hệ thống. Nếu bạn cài đặt cả hai hệ thống vào "
+#~ "cùng một phân vùng, cần phải dùng tiện ích <application>Startup Disk</"
+#~ "application> (rồi khởi động lại) để chọn hệ thống nào khởi động máy: "
+#~ "không thể chọn nó vào lúc khởi động. Nếu bạn cài đặt mỗi hệ điều hành OS9 "
+#~ "và OSX vào phân vùng riêng, cũng có tùy chọn riêng sẽ xuất hiện khi bạn "
+#~ "bấm giữ phím <keycap>option</keycap> vào lúc khởi động, và cũng có thể "
+#~ "cài đặt tùy chọn riêng vào trình đơn khởi động của <application>yaboot</"
+#~ "application>. Hơn nữa, tiện ích Startup Disk sẽ vô hiệu hoá các phân vùng "
+#~ "lắp được khác có thể tác động lên khả năng khởi động GNU/Linux. Bạn sẽ "
+#~ "cũng có thể truy cập mỗi kiểu phân vùng từ hệ điều hành hoặc OS9 hoặc OSX."
 
 #~ msgid ""
 #~ "Set up boot tapes/floppies/USB sticks, or place boot files (most &debian; "
