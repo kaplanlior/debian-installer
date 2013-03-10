@@ -2,13 +2,13 @@
 # Russian L10N Team <debian-l10n-russian@lists.debian.org>, 2004.
 # Yuri Kozlov <yuray@komyakino.ru>, 2004, 2005.
 # Yuri Kozlov <yuray@komyakino.ru>, 2005, 2006, 2007, 2008.
-# Yuri Kozlov <yuray@komyakino.ru>, 2010, 2012.
+# Yuri Kozlov <yuray@komyakino.ru>, 2010, 2012, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: preparing\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2013-03-04 08:23+0000\n"
-"PO-Revision-Date: 2012-10-29 12:30+0400\n"
+"PO-Revision-Date: 2013-03-10 17:00+0400\n"
 "Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "Language: ru\n"
@@ -1361,7 +1361,7 @@ msgstr ""
 
 #. Tag: para
 #: preparing.xml:855
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "If you already have an operating system on your system <phrase arch=\"any-"
 #| "x86\"> (Windows 9x, Windows NT/2000/XP/2003/Vista/7, OS/2, MacOS, "
@@ -1389,13 +1389,14 @@ msgstr ""
 "&hellip;) </phrase>, которая занимает весь диск и вы хотите добавить "
 "&debian; на тот же диск, то вам нужно его переразметить. Для &debian; нужно "
 "создать отдельные разделы на жёстком диске. Он не может быть установлен на "
-"разделы Windows или MacOS. Он может совместно использовать некоторые разделы "
+"разделы Windows или Mac OS X. Он может совместно использовать некоторые "
+"разделы "
 "с другими системами Unix, но в этом руководстве это не описывается. Как "
 "минимум, вам нужно выделить место для корневой файловой системы &debian;."
 
 #. Tag: para
 #: preparing.xml:874
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "You can find information about your current partition setup by using a "
 #| "partitioning tool for your current operating system<phrase arch=\"any-"
@@ -1416,7 +1417,8 @@ msgstr ""
 "Информацию об имеющихся разделах можно получить с помощью инструментов "
 "разметки из установленной операционной системы<phrase arch=\"any-x86\">, "
 "например, встроенного в Windows Disk Manager, fdisk из DOS</phrase><phrase "
-"arch=\"powerpc\">, например, Drive Setup, HD Toolkit или MacTools</"
+"arch=\"powerpc\">, например, Disk Utility, Drive Setup, HD Toolkit или "
+"MacTools</"
 "phrase><phrase arch=\"s390\">, например, VM diskmap</phrase>. Любая утилита "
 "разметки умеет показывать существующие разделы без их изменения."
 
@@ -1529,7 +1531,7 @@ msgstr ""
 
 #. Tag: para
 #: preparing.xml:943
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "In order for OpenFirmware to automatically boot &debian-gnu; the &arch-"
 #| "parttype; partitions should appear before all other partitions on the "
@@ -1552,7 +1554,7 @@ msgid ""
 msgstr ""
 "Чтобы из OpenFirmware автоматически загружался &debian-gnu; &arch-parttype; "
 "разделы должны стоять перед остальными разделами на диске, особенно перед "
-"загрузочным разделом MacOS. Это нужно помнить при переразметке; вы должны "
+"загрузочным разделом Mac OS X. Это нужно помнить при переразметке; вы должны "
 "создать раздел-пустышку под &arch-parttype; <emphasis>перед</emphasis> "
 "другими загрузочными разделами на диске. (Маленькие разделы, выделенные для "
 "дисковых драйверов Apple, не загрузочные.) Вы можете удалить раздел-пустышку "
@@ -1630,14 +1632,14 @@ msgstr ""
 
 #. Tag: title
 #: preparing.xml:1062
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "MacOS/OSX Partitioning"
 msgid "Mac OS X Partitioning"
-msgstr "Разметка MacOS/OSX"
+msgstr "Разметка Mac OS X"
 
 #. Tag: para
 #: preparing.xml:1064
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "The <application>Apple Drive Setup</application> application can be found "
 #| "in the <filename>Utilities</filename> folder on the MacOS CD. It will not "
@@ -1650,10 +1652,10 @@ msgid ""
 "adjust existing partitions; it is limited to partitioning the entire disk at "
 "once."
 msgstr ""
-"Приложение <application>Apple Drive Setup</application> можно найти в папке "
-"<filename>Utilities</filename> компакт-диске MacOS. Оно не работает с "
-"существующими разделами; оно размечается весь диск сразу. Драйвер дисковой "
-"разметки не показан в <application>Drive Setup</application>."
+"Приложение <application>Disk Utility</application> можно найти в меню "
+"<filename>Utilities</filename> программы установки Mac OS X. Оно не работает "
+"с "
+"существующими разделами; оно размечается весь диск сразу."
 
 #. Tag: para
 #: preparing.xml:1070
@@ -1678,10 +1680,20 @@ msgid ""
 "holding the <keycap>option</keycap> key at boot time, and separate options "
 "can be installed in the <application>yaboot</application> boot menu as well."
 msgstr ""
+"Инструменты разметки разделов установщика &debian; совместимы со "
+"всеми OS X, за исключением MacOS 9. "
+"Если вы планируете использовать сразу MacOS 9 и OS X, то лучше "
+"установить OS X и &debian; на один жёсткий диск, а MacOS 9 поместить "
+"на отдельный жёсткий диск. "
+"Если во время загрузки удерживать клавишу "
+"<keycap>option</keycap>, то OS 9 и OS X появятся в виде "
+"раздельных пунктов, а также можно "
+"установить в меню загрузки <application>yaboot</application> дополнительный "
+"пункт."
 
 #. Tag: para
 #: preparing.xml:1086
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "GNU/Linux is unable to access information on UFS partitions, but does "
 #| "support HFS+ (aka MacOS Extended) partitions. OS X requires one of these "
@@ -1697,12 +1709,13 @@ msgid ""
 "systems, an exchange partition is handy. HFS, HFS+ and MS-DOS FAT file "
 "systems are supported by MacOS 9, Mac OS X and GNU/Linux."
 msgstr ""
-"GNU/Linux недоступна информация с HFS+ (так называемый MacOS Extended) или с "
-"разделов UFS. OS X требует один из этих типов для своего загрузочного "
+"GNU/Linux недоступна информация с разделов UFS, но доступна с "
+"разделов HFS+ (так называемый MacOS Extended). "
+"Для OS X требуется один из этих типов для своего загрузочного "
 "раздела. MacOS 9 можно установить или на HFS (так называемый MacOS Standard) "
-"или на HFS+. Чтобы обмениваться информацией между системами MacOS и GNU/"
-"Linux, удобно создать раздел для обмена. Разделы HFS и MS-DOS FAT "
-"поддерживаются и MacOS и Linux."
+"или на HFS+. Чтобы обмениваться информацией между системами Mac OS X "
+"и GNU/Linux, удобно создать раздел для обмена. Файловые системы "
+"HFS, HFS+ и MS-DOS FAT поддерживаются и MacOS 9, и Mac OS X, и Linux."
 
 #. Tag: title
 #: preparing.xml:1106
@@ -1778,7 +1791,7 @@ msgstr ""
 "В меню настройки BIOS вы можете задать последовательность проверяемых "
 "устройств на предмет наличия загружаемой ОС. Обычно в этот список включены "
 "встроенные жёсткие диски, привод CD/DVD-ROM и устройства хранения данных "
-"USB, такие как флешки USB или внешние жёсткие диски USB. Современные "
+"USB, такие как карты памяти USB или внешние жёсткие диски USB. Современные "
 "операционные системы также можно загружать по сети с помощью PXE."
 
 #. Tag: para
@@ -1789,7 +1802,8 @@ msgid ""
 "you have chosen you should enable the appropriate boot devices if they are "
 "not already enabled."
 msgstr ""
-"В зависимости от установочного носителя (CD/DVD ROM, флешка USB, загрузка по "
+"В зависимости от установочного носителя (CD/DVD ROM, карта памяти USB, "
+"загрузка по "
 "сети) вы должны включить загрузку с соответствующих устройств, если это ещё "
 "не сделано."
 
@@ -1816,7 +1830,7 @@ msgstr ""
 "меню, обычно, разная — часто используются <keycap>F12</keycap>, <keycap>F11</"
 "keycap> и <keycap>F8</keycap>. Выбор устройства в этом меню не изменяет "
 "настройку порядка загрузки по умолчанию в BIOS, т. е. мы можете единожды "
-"загрузиться с флешки USB, хотя основным загрузочным устройством является "
+"загрузиться с карты USB, хотя основным загрузочным устройством является "
 "встроенный жёсткий диск."
 
 #. Tag: para
@@ -1848,16 +1862,17 @@ msgid ""
 "which will not boot from a USB stick in USB harddisk mode.</phrase>"
 msgstr ""
 "К сожалению, некоторые компьютеры содержат BIOS с ошибками. Иногда нельзя "
-"загрузить &d-i; с флешки USB, даже если есть такой пункт в меню настройки "
-"BIOS и флешка выбрана в качестве основного устройства начальной загрузки. На "
-"некоторых таких системах использовать флешку USB в качестве носителя "
+"загрузить &d-i; с карты памяти USB, даже если есть такой пункт в меню "
+"настройки "
+"BIOS и карта выбрана в качестве основного устройства начальной загрузки. На "
+"некоторых таких системах использовать карту USB в качестве носителя "
 "начальной загрузки невозможно, но иногда помогает изменение типа "
 "загрузочного устройства в BIOS со значения по умолчанию <quote>USBharddisk </"
 "quote> или <quote>USB stick</quote> на <quote>USB ZIP</quote> или <quote>USB "
 "CDROM</quote>. <phrase condition=\"isohybrid-supported\"> В частности, если "
-"вы используете образ isohybrid CD/DVD с флешки USB (см. <xref linkend=\"usb-"
+"вы используете образ isohybrid CD/DVD с карты USB (см. <xref linkend=\"usb-"
 "copy-isohybrid\"/>), для некоторых BIOS помогает изменение типа устройства "
-"на <quote>USB CDROM</quote>, если не удаётся загрузиться с флешки USB в "
+"на <quote>USB CDROM</quote>, если не удаётся загрузиться с карты USB в "
 "режиме жёсткого диска USB.</phrase>"
 
 #. Tag: para
@@ -1870,6 +1885,12 @@ msgid ""
 "an installer ISO image, select the USB device and choose an installation "
 "image."
 msgstr ""
+"Если вы не можете настроить BIOS на загрузку непосредственно "
+"с карты памяти USB, то вы можете использовать её для хранения "
+"ISO. Запустите &d-i; с помощью"
+"<xref linkend=\"boot-drive-files\"/> и после поиска ISO-образа установщика "
+"на жёстких дисках выберите устройство USB и "
+"выберите установочный образ."
 
 #. Tag: title
 #: preparing.xml:1207
