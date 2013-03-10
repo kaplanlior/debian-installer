@@ -11,6 +11,7 @@ fi
 arch=${1:-i386}
 language=${2:-en}
 formats=${3:-html}
+lang_id="$(echo $language | tr A-Z a-z | sed "s/_/-/")"
 
 ## Configuration
 basedir="$(cd "$(dirname $0)"; pwd)"
@@ -100,6 +101,7 @@ create_profiled () {
     sed "s:##SRCPATH##:$source_path:" templates/docstruct.ent >> $dynamic
 
     sed "s:##LANG##:$language:g" templates/install.xml.template | \
+    sed "s:##LANG_ID##:$lang_id:g" | \
         sed "s:##TEMPDIR##:$tempdir:g" | \
         sed "s:##ENTPATH##:$entities_path:g" | \
         sed "s:##SRCPATH##:$source_path:" > $tempdir/install.${language}.xml

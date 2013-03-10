@@ -7,6 +7,7 @@ all: $(TARGETS)
 $(TARGETS): %:
 	target=$@ ; \
 	lang=$${target%.*} ; \
+	lang_id="$$(echo $$lang | tr A-Z a-z | sed "s/_/-/")" ; \
 	arch=$${target#*.} ; \
 	echo "Architecture: $$arch" ; \
 	if [ -n "$$noarchdir" ]; then \
@@ -28,7 +29,7 @@ $(TARGETS): %:
 		else \
 			# Do not fail because of missing PDF support for some languages \
 			if [ -n "$$web" ] ; then \
-				mv ./$$destdir/install.$$lang.$$format "$$destination/$$destsuffix/install.$$format.$$lang" 2>/dev/null || true ; \
+				mv ./$$destdir/install.$$lang.$$format "$$destination/$$destsuffix/install.$$format.$$lang_id" 2>/dev/null || true ; \
 			else \
 				mv ./$$destdir/install.$$lang.$$format "$$destination/$$destsuffix" 2>/dev/null || true ; \
 			fi ; \
