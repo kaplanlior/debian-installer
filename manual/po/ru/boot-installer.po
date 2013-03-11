@@ -436,20 +436,15 @@ msgstr "Чтобы запустить программу установки из
 #. Tag: para
 #: boot-installer.xml:355
 #, no-c-format
-#| msgid ""
-#| "obtain CD-ROM/DVD-ROM or USB memory stick installation media as described "
-#| "in <xref linkend=\"official-cdrom\"/> and <xref linkend=\"boot-usb-files"
-#| "\"/>, or"
 msgid ""
 "obtain CD-ROM/DVD-ROM<phrase condition=\"bootable-usb\"> or USB memory "
 "stick</phrase> installation media as described in <xref linkend=\"official-"
 "cdrom\"/><phrase condition=\"bootable-usb\"> respective <xref linkend=\"boot-"
 "usb-files\"/></phrase> or"
 msgstr ""
-"получить установочный носитель CD-ROM/DVD-ROM<phrase "
-"condition=\"bootable-usb\"> или карту памяти USB</phrase>, как "
-"описано в <xref linkend=\"official-cdrom\"/><phrase "
-"condition=\"bootable-usb\">(<xref linkend=\"boot-usb-files"
+"получить установочный носитель CD-ROM/DVD-ROM<phrase condition=\"bootable-usb"
+"\"> или карту памяти USB</phrase>, как описано в <xref linkend=\"official-"
+"cdrom\"/><phrase condition=\"bootable-usb\">(<xref linkend=\"boot-usb-files"
 "\"/>)</phrase> или "
 
 #. Tag: para
@@ -491,7 +486,6 @@ msgstr ""
 #. Tag: title
 #: boot-installer.xml:389
 #, no-c-format
-#| msgid "Booting from DOS"
 msgid "Booting from DOS using loadlin"
 msgstr "Загрузка из DOS с помощью loadlin"
 
@@ -549,14 +543,11 @@ msgstr ""
 #. Tag: title
 #: boot-installer.xml:423
 #, no-c-format
-#| msgid ""
-#| "Booting from Linux Using <command>LILO</command> or <command>GRUB</"
-#| "command>"
 msgid ""
 "Booting from Linux using <command>LILO</command> or <command>GRUB</command>"
 msgstr ""
-"Загрузка из Linux с помощью <command>LILO</command> или <command>GRUB<"
-"/command>"
+"Загрузка из Linux с помощью <command>LILO</command> или <command>GRUB</"
+"command>"
 
 # index.docbook:1670, index.docbook:2168
 #. Tag: para
@@ -1981,11 +1972,6 @@ msgstr "Параметры загрузки s390"
 #. Tag: para
 #: boot-installer.xml:1378
 #, no-c-format
-#| msgid ""
-#| "On S/390 you can append boot parameters in the parm file. This file can "
-#| "either be in ASCII or EBCDIC format. A sample parm file "
-#| "<filename>parmfile.debian</filename> is provided with the installation "
-#| "images."
 msgid ""
 "On S/390 you can append boot parameters in the parm file. This file can "
 "either be in ASCII or EBCDIC format. It needs to be fixed-width with 80 "
@@ -1997,12 +1983,10 @@ msgid ""
 msgstr ""
 "На S/390 вы можете добавить параметры загрузки в файл parm. Этот файл может "
 "быть как в ASCII так и в EBCDIC формате. В каждой строке должно быть 80 "
-"символов. "
-"В установочных образах есть пример "
-"parm файла &mdash; <filename>parmfile.debian</filename>. Если параметр "
-"превышает "
-"ограничение в 80 символов, то его можно просто продолжить с первой позиции "
-"следующей строки. При передаче ядру все строки объединяются без пробелов."
+"символов. В установочных образах есть пример parm файла &mdash; "
+"<filename>parmfile.debian</filename>. Если параметр превышает ограничение в "
+"80 символов, то его можно просто продолжить с первой позиции следующей "
+"строки. При передаче ядру все строки объединяются без пробелов."
 
 #. Tag: para
 #: boot-installer.xml:1395
@@ -2026,26 +2010,23 @@ msgid ""
 "process the above option needs to be added to <filename>parmfile.debian</"
 "filename>."
 msgstr ""
-"Если загрузка установщика производится с логического раздела (LPAR) "
-"или виртуальной машины (VM), и видно много устройств, то вы можете указать "
-"ядру ограниченный список устройств. "
-"Это рекомендуется при загрузки установщика, когда видно много дисков "
-"(наиболее вероятная ситуация в режиме LPAR). "
-"В параметре <quote>cio_ignore</quote> можно указать как чёрный список "
-"(для скрытия нескольких устройств), так и белый список "
-"(для показа только определённых устройств): <informalexample role=\"example\">"
-"<screen>\n"
+"Если загрузка установщика производится с логического раздела (LPAR) или "
+"виртуальной машины (VM), и видно много устройств, то вы можете указать ядру "
+"ограниченный список устройств. Это рекомендуется при загрузки установщика, "
+"когда видно много дисков (наиболее вероятная ситуация в режиме LPAR). В "
+"параметре <quote>cio_ignore</quote> можно указать как чёрный список (для "
+"скрытия нескольких устройств), так и белый список (для показа только "
+"определённых устройств): <informalexample role=\"example\"><screen>\n"
 " # чёрный список: игнорировать два устройства 300 и 301\n"
 " cio_ignore=0.0.0300-0.0.0301\n"
 " # белый список: игнорировать всё, кроме 1150, FD00, FD01 и FD02\n"
 " cio_ignore=all,!0.0.1150,!0.0.fd00-0.0.fd02\n"
-"</screen></informalexample> Заметим, что все шестнадцатеричные"
-"числа номеров устройств нужно указывать прописными буквами. "
-"Кроме этого, если в этом параметре загрузки используются "
-"все устройства, то будут показаны не только диски, но сетевые устройства "
-"и консоль. "
-"Для учёта приведённого выше параметра во время процесса загрузки установщика, "
-"он должен быть добавлен в <filename>parmfile.debian</filename>."
+"</screen></informalexample> Заметим, что все шестнадцатеричныечисла номеров "
+"устройств нужно указывать прописными буквами. Кроме этого, если в этом "
+"параметре загрузки используются все устройства, то будут показаны не только "
+"диски, но сетевые устройства и консоль. Для учёта приведённого выше "
+"параметра во время процесса загрузки установщика, он должен быть добавлен в "
+"<filename>parmfile.debian</filename>."
 
 #. Tag: para
 #: boot-installer.xml:1460
@@ -2622,10 +2603,6 @@ msgstr "ПО речевого синтеза"
 #. Tag: para
 #: boot-installer.xml:1923
 #, no-c-format
-#| msgid ""
-#| "Support for hardware speech synthesis devices is available only alongside "
-#| "support for graphical installer. You thus need to select a "
-#| "<quote>Graphical install</quote> entry in the boot menu."
 msgid ""
 "Support for software speech synthesis is available on all installer images "
 "which have the graphical installer, i.e. all netinst, CD and DVD images, and "
@@ -2634,32 +2611,24 @@ msgid ""
 "the installer will then be automatically selected, and support for software "
 "speech synthesis will be automatically installed on the target system."
 msgstr ""
-"Поддержка ПО речевого синтеза доступна во всех "
-"образах установщика с графическим интерфейсом, то есть "
-"во всех образах netinst, CD, DVD и варианте netboot gtk. "
-"Она может быть включена из загрузочного меню нажатием "
-"<userinput>s</userinput> &enterkey;. После этого выбирается "
-"текстовая версия установщика и в устанавливаемую систему "
-"будет автоматически добавлена поддержка "
-"ПО речевого синтеза."
+"Поддержка ПО речевого синтеза доступна во всех образах установщика с "
+"графическим интерфейсом, то есть во всех образах netinst, CD, DVD и варианте "
+"netboot gtk. Она может быть включена из загрузочного меню нажатием "
+"<userinput>s</userinput> &enterkey;. После этого выбирается текстовая версия "
+"установщика и в устанавливаемую систему будет автоматически добавлена "
+"поддержка ПО речевого синтеза."
 
 #. Tag: para
 #: boot-installer.xml:1932
 #, no-c-format
-#| msgid ""
-#| "Support for software speech synthesis can be activated by selecting it in "
-#| "the boot menu by typing <userinput>s</userinput> &enterkey;. The first "
-#| "question (language) is spoken in english, and the remainder of "
-#| "installation is spoken in the selected language (if available in "
-#| "<classname>espeak</classname>)."
 msgid ""
 "The first question (language) is spoken in english, and the remainder of "
 "installation is spoken in the selected language (if available in "
 "<classname>espeak</classname>)."
 msgstr ""
-"Первый вопрос (о языке) "
-"произносится на английском, а весь остальной процесс установки озвучивается "
-"на выбранном языке (если он доступен в <classname>espeak</classname>)."
+"Первый вопрос (о языке) произносится на английском, а весь остальной процесс "
+"установки озвучивается на выбранном языке (если он доступен в "
+"<classname>espeak</classname>)."
 
 #. Tag: para
 #: boot-installer.xml:1938
@@ -2674,18 +2643,15 @@ msgid ""
 "keycombo>. To get more details on the browsing shortcuts, see the <ulink url="
 "\"&url-speakup-guide;\">Speakup guide</ulink>."
 msgstr ""
-"По умолчанию скорость произношения относительно медленна. "
-"Чтобы было быстрее, нажмите "
-"<keycombo><keycap>CapsLock</keycap><keycap>6</keycap></keycombo>. "
-"Для замедления нажмите "
-"<keycombo><keycap>CapsLock</keycap><keycap>5</keycap></"
-"keycombo>. По умолчанию выбирается средняя громкость. "
-"Чтобы сделать громче, нажмите "
-"<keycombo><keycap>CapsLock</keycap><keycap>2</keycap></keycombo>. "
-"Чтобы сделать тише, нажмите "
-"<keycombo><keycap>CapsLock</keycap><keycap>1</keycap></"
-"keycombo>. Подробней о клавиатурных комбинациях читайте в <ulink url="
-"\"&url-speakup-guide;\">руководстве по использованию речи</ulink>."
+"По умолчанию скорость произношения относительно медленна. Чтобы было "
+"быстрее, нажмите <keycombo><keycap>CapsLock</keycap><keycap>6</keycap></"
+"keycombo>. Для замедления нажмите <keycombo><keycap>CapsLock</"
+"keycap><keycap>5</keycap></keycombo>. По умолчанию выбирается средняя "
+"громкость. Чтобы сделать громче, нажмите <keycombo><keycap>CapsLock</"
+"keycap><keycap>2</keycap></keycombo>. Чтобы сделать тише, нажмите "
+"<keycombo><keycap>CapsLock</keycap><keycap>1</keycap></keycombo>. Подробней "
+"о клавиатурных комбинациях читайте в <ulink url=\"&url-speakup-guide;"
+"\">руководстве по использованию речи</ulink>."
 
 #. Tag: title
 #: boot-installer.xml:1957
@@ -2696,21 +2662,16 @@ msgstr "Устройства речевого синтеза"
 #. Tag: para
 #: boot-installer.xml:1958
 #, no-c-format
-#| msgid ""
-#| "Support for hardware speech synthesis devices is available only alongside "
-#| "support for graphical installer. You thus need to select a "
-#| "<quote>Graphical install</quote> entry in the boot menu."
 msgid ""
 "Support for hardware speech synthesis devices is available on all installer "
 "images which have the graphical installer, i.e. all netinst, CD and DVD "
 "images, and the netboot gtk variant. You thus need to select a "
 "<quote>Graphical install</quote> entry in the boot menu."
 msgstr ""
-"Поддержка аппаратных устройств речевого синтеза доступна "
-"во всех образах установщика с графическим интерфейсом, то есть "
-"во всех образах netinst, CD, DVD и варианте netboot gtk. "
-"Для включения в загрузочном меню вам "
-"нужно выбрать пункт <quote>Graphical install</quote>."
+"Поддержка аппаратных устройств речевого синтеза доступна во всех образах "
+"установщика с графическим интерфейсом, то есть во всех образах netinst, CD, "
+"DVD и варианте netboot gtk. Для включения в загрузочном меню вам нужно "
+"выбрать пункт <quote>Graphical install</quote>."
 
 #. Tag: para
 #: boot-installer.xml:1965
@@ -2818,9 +2779,9 @@ msgid ""
 "<ulink url=\"&url-debian-wiki-accessibility;\">Debian Accessibility wiki "
 "page</ulink>."
 msgstr ""
-"Документация по специальным возможностям установленной системы "
-"доступна на <ulink url=\"&url-debian-wiki-accessibility;\">вики-странице "
-"специальных возможностей Debian</ulink>."
+"Документация по специальным возможностям установленной системы доступна на "
+"<ulink url=\"&url-debian-wiki-accessibility;\">вики-странице специальных "
+"возможностей Debian</ulink>."
 
 #. Tag: para
 #: boot-installer.xml:2032
