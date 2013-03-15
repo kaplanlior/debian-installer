@@ -1,15 +1,14 @@
 <!-- $Id$ -->
-<!-- original version: 64829 -->
+<!-- original version: 68523 -->
 
-  <sect2 arch="powerpc"><title>Rozdělení disku z MacOS/OSX</title>
+  <sect2 arch="powerpc"><title>Rozdělení disku z Mac OS X</title>
 
 <para>
 
-Aplikaci <application>Apple Drive Setup</application> můžete najít na
-CD MacOS ve složce <filename>Utilities</filename>. Tato aplikace
+Aplikaci <application>Disk Utility</application> můžete najít v
+instalátoru Mac OS X v menu <filename>Utilities</filename>. Tato aplikace
 bohužel neumožňuje upravit stávající oblasti. To znamená, že musíte
-disk rozdělit najednou. Oblasti obsahující ovladače disků se v
-programu nezobrazí.
+disk rozdělit najednou.
 
 </para><para>
 
@@ -18,17 +17,13 @@ typu nezáleží, protože ho instalační program &debian;u přepíše.
 
 </para><para>
 
-Pokud plánujete instalaci jak MacOS 9, tak OS X, je lepší jim vytvořit
-vlastní oblasti. Pokud jsou tyto systémy nainstalovány v jednom
-oddílu, musíte pro přepnutí do druhého systému použít program
-<application>Startup Disk</application> (a restartovat počítač); nelze
-se rozhodnout během startu počítače. Pokud jsou každý v jiném oddílu a
-během startu počítače stisknete klávesu <keycap>option</keycap>,
-uvidíte pro každý systém vlastní položku. Samozřejmě pak také můžete
-oba systémy přidat do menu zavaděče <application>yaboot</application>.
-Navíc použití aplikace <application>Startup Disk</application> může
-ovlivnit zavádění &debian;u. Obě oblasti budou samozřejmě přístupné z
-obou systémů (jak z OS 9, tak z OS X).
+Nástroje pro dělení disků dostupné v &d-i;u jsou kompatibilní s OS X,
+ale ne s MacOS 9. Pokud plánujete instalaci MacOS 9 i OS X, je lepší
+nainstalovat OS X a &debian; na jeden disk a MacOS 9 na druhý.
+Jestliže totiž během startu počítače stisknete klávesu
+<keycap>option</keycap>, uvidíte pro každý systém vlastní položku
+a také pak můžete v zavaděči <application>yaboot</application> použít
+pro různé systémy různé parametry.
 
 </para><para>
 
@@ -36,8 +31,8 @@ GNU/Linux neumí přistupovat k souborům na oblastech UFS, ale podporuje
 HFS+ (alias MacOS Extended). Zatímco OS X jednu z nich vyžaduje pro
 zavádění, MacOS 9 může být nainstalován buď na HFS (alias MacOS
 Standard) nebo na HFS+. Ke sdílení informací mezi MacOS a GNU/Linuxem
-je vhodné použít <quote>výměnnou</quote> oblast typu HFS, HFS+ nebo
-MS-DOS FAT, které rozumí oba systémy.
+je vhodné použít <quote>výměnnou</quote> oblast se souborovým systémem
+HFS, HFS+ nebo MS-DOS FAT, které rozumí MacOS 9, Max OS X i GNU/Linux.
 
 </para>
   </sect2>
