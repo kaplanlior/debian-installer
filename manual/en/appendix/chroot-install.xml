@@ -338,11 +338,22 @@ the chroot:
 Setting the third line of the file <filename>/etc/adjtime</filename> to 
 <quote>UTC</quote> or <quote>LOCAL</quote> determines
 whether the system will interpret the hardware clock as being set to UTC
-respective local time. The following commands allow you to set that and choose
-your timezone.
+respective local time.  The following command allows you to set that.
 
 <informalexample><screen>
 # editor /etc/adjtime
+</screen></informalexample>
+
+Here is a sample:
+<informalexample><screen>
+0.0 0 0.0
+0
+UTC
+</screen></informalexample>
+
+The following command allows you to choose your timezone.
+
+<informalexample><screen>
 # dpkg-reconfigure tzdata
 </screen></informalexample>
 
