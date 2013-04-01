@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2013-01-30 19:23+0000\n"
-"PO-Revision-Date: 2012-12-07 07:43+0900\n"
-"Last-Translator: KURASAWA Nozomu <nabetaro@debian.or.jp>\n"
+"PO-Revision-Date: 2013-03-05 21:44+0900\n"
+"Last-Translator: KURASAWA Nozomu (nabetaro) <nabetaro@debian.or.jp>\n"
 "Language-Team: Japanese <debian-japanese@lists.debian.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -460,10 +460,10 @@ msgstr ""
 
 #. Tag: title
 #: boot-installer.xml:389
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "Booting from DOS"
 msgid "Booting from DOS using loadlin"
-msgstr "DOS からの起動"
+msgstr "loadlin を用いた DOS からの起動"
 
 #. Tag: para
 #: boot-installer.xml:390
@@ -517,7 +517,7 @@ msgstr ""
 
 #. Tag: title
 #: boot-installer.xml:423
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Booting from Linux Using <command>LILO</command> or <command>GRUB</"
 #| "command>"
@@ -982,24 +982,7 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:683
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Choosing the <quote>Help</quote> entry will result in the first help "
-#| "screen being displayed which gives an overview of all available help "
-#| "screens. Note that it is not possible to return to the boot menu after "
-#| "the help screens have been displayed. However, the F3 and F4 help screens "
-#| "list commands that are equivalent to the boot methods listed in the menu. "
-#| "All help screens have a boot prompt at which the boot command can be "
-#| "typed: <informalexample><screen>\n"
-#| "Press F1 for the help index, or ENTER to boot:\n"
-#| "</screen></informalexample> At this boot prompt you can either just press "
-#| "&enterkey; to boot the installer with default options or enter a specific "
-#| "boot command and, optionally, boot parameters. A number of boot "
-#| "parameters which might be useful can be found on the various help "
-#| "screens. If you do add any parameters to the boot command line, be sure "
-#| "to first type the boot method (the default is <userinput>install</"
-#| "userinput>) and a space before the first parameter (e.g., "
-#| "<userinput>install fb=false</userinput>)."
+#, no-c-format
 msgid ""
 "Choosing the <quote>Help</quote> entry will result in the first help screen "
 "being displayed which gives an overview of all available help screens. To "
@@ -1015,12 +998,11 @@ msgid ""
 "method (the default is <userinput>install</userinput>) and a space before "
 "the first parameter (e.g., <userinput>install fb=false</userinput>)."
 msgstr ""
-"<quote>Help</quote> エントリを選択すると、有効なヘルプ画面すべての概要を表す"
-"最初のヘルプ画面を表示します。ヘルプ画面を表示してしまうと、ブートメニューに"
-"戻れなくなってしまうことにご注意ください。とはいえ、F3・F4ヘルプ画面には、メ"
-"ニューに表示する有効なブート方法のコマンドを表示します。ヘルプ画面にはすべ"
-"て、次のようなブートコマンドを入力できるブートプロンプトがあります。"
-"<informalexample><screen>\n"
+"<quote>Help</quote> エントリを選択すると、有効なヘルプ画面の概要をすべて表示"
+"する、最初のヘルプ画面が現れます。ヘルプ画面を表示した後で、ブートメニューに"
+"戻るには、ブートプロンプトで 'menu' と入力し、&enterkey; を押してください。ヘ"
+"ルプ画面にはすべて、次のようなブートコマンドを入力できるブートプロンプトがあ"
+"ります。<informalexample><screen>\n"
 "Press F1 for the help index, or ENTER to boot:\n"
 "</screen></informalexample> このブートプロンプトでは、&enterkey; を押してイン"
 "ストーラをデフォルトオプションで起動するか、特定のブートコマンドや (追加で) "
@@ -1937,12 +1919,7 @@ msgstr "s390 ブートパラメータ"
 
 #. Tag: para
 #: boot-installer.xml:1378
-#, fuzzy, no-c-format
-#| msgid ""
-#| "On S/390 you can append boot parameters in the parm file. This file can "
-#| "either be in ASCII or EBCDIC format. A sample parm file "
-#| "<filename>parmfile.debian</filename> is provided with the installation "
-#| "images."
+#, no-c-format
 msgid ""
 "On S/390 you can append boot parameters in the parm file. This file can "
 "either be in ASCII or EBCDIC format. It needs to be fixed-width with 80 "
@@ -1953,8 +1930,11 @@ msgid ""
 "passed to the kernel."
 msgstr ""
 "S/390 では、ブートパラメータは parm ファイルに追加します。このファイルは "
-"ASCII または EBCDIC フォーマットにします。パラメータの例は、インストールイ"
-"メージの <filename>parmfile.debian</filename> で提供しています。"
+"ASCII フォーマットないし EBCDIC フォーマットになります。1 行につき 80 文字の"
+"固定長でなければなりません。サンプル parm ファイル <filename>parmfile."
+"debian</filename> を、インストールイメージで提供しています。パラメータが 80 "
+"文字の制限よりも長い場合は、単純に次の行の先頭から続きを読みます。すべての行"
+"を空白で区切ることなく、結合してカーネルに渡します。"
 
 #. Tag: para
 #: boot-installer.xml:1395
@@ -1978,6 +1958,23 @@ msgid ""
 "process the above option needs to be added to <filename>parmfile.debian</"
 "filename>."
 msgstr ""
+"論理パーティション (LPAR) や、たくさんデバイスがある仮想マシン (VM) でインス"
+"トーラをブートする場合、デバイスの固定セットにリストを制限するよう、カーネル"
+"に指示できます。LPAR モードでよくあるのですが、たくさんのディスクが見えている"
+"場合、インストーラのブートプロセスに、何を使用するか知らせます。"
+"<quote>cio_ignore</quote> オプションは、ブラックリスト (指定したデバイスのみ"
+"を使用禁止) と、ホワイトリスト (指定したデバイスのみを使用許可) の両方を、以"
+"下のようにサポートしています。<informalexample role=\"example\"><screen>\n"
+" # blacklist: just ignore the two devices 300 and 301\n"
+" cio_ignore=0.0.0300-0.0.0301\n"
+" # whitelist: ignore everything but 1150, FD00, FD01 and FD02\n"
+" cio_ignore=all,!0.0.1150,!0.0.fd00-0.0.fd02\n"
+"</screen></informalexample> デバイス名の 16 進表記は、すべて小文字である必要"
+"があることに注意してください。さらに、このブートパラメータを使用する場合、デ"
+"バイスをすべて記述する必要があります。ここには少なくともディスクとネットワー"
+"クデバイス、コンソールを含めてください。インストーラのブートプロセス中に考慮"
+"されるためには、上記のオプションを <filename>parmfile.debian</filename> に追"
+"加する必要があります。"
 
 #. Tag: para
 #: boot-installer.xml:1460
@@ -2546,7 +2543,7 @@ msgstr "ソフトウェア音声合成"
 
 #. Tag: para
 #: boot-installer.xml:1923
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Support for hardware speech synthesis devices is available only alongside "
 #| "support for graphical installer. You thus need to select a "
@@ -2559,13 +2556,16 @@ msgid ""
 "the installer will then be automatically selected, and support for software "
 "speech synthesis will be automatically installed on the target system."
 msgstr ""
-"ハードウェア音声合成デバイスのサポートは、グラフィカルインストーラでのみ有効"
-"です。そのため、ブートメニューで <quote>Graphical install</quote> エントリを"
-"選択する必要があります。"
+"ソフトウェア音声合成のサポートは、グラフィカルインストーラがあるインストーラ"
+"イメージで利用できます。つまり、netinst すべて、CD・DVD イメージ、netboot の "
+"gtk 版で利用できます。ソフトウェア音声合成サポートを有効にするには、ブートメ"
+"ニューで <userinput>s</userinput> &enterkey; と入力します。その後、テキスト版"
+"インストーラが自動的に選択され、ターゲットシステムに、ソフトウェア音声合成の"
+"サポートを自動的にインストールします。"
 
 #. Tag: para
 #: boot-installer.xml:1932
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Support for software speech synthesis can be activated by selecting it in "
 #| "the boot menu by typing <userinput>s</userinput> &enterkey;. The first "
@@ -2577,10 +2577,8 @@ msgid ""
 "installation is spoken in the selected language (if available in "
 "<classname>espeak</classname>)."
 msgstr ""
-"ソフトウェア音声合成サポートを有効にするには、ブートメニューで <userinput>s</"
-"userinput> &enterkey; と入力します。最初の質問 (言語) は英語で発声します。そ"
-"れ以降のインストールには選択した言語で発声します (<classname>espeak</"
-"classname> が有効な場合)。"
+"最初の質問 (言語) は英語で発声します。それ以降のインストールには選択した言語"
+"で発声します (<classname>espeak</classname> が有効な場合)。"
 
 #. Tag: para
 #: boot-installer.xml:1938
@@ -2595,6 +2593,15 @@ msgid ""
 "keycombo>. To get more details on the browsing shortcuts, see the <ulink url="
 "\"&url-speakup-guide;\">Speakup guide</ulink>."
 msgstr ""
+"デフォルトの発話速度は非常にゆっくりです。速くするには、"
+"<keycombo><keycap>CapsLock</keycap><keycap>6</keycap></keycombo> を押してくだ"
+"さい。遅くするには、<keycombo><keycap>CapsLock</keycap><keycap>5</keycap></"
+"keycombo> を押してください。デフォルトのボリュームは中間になっているはずで"
+"す。大きくするには、<keycombo><keycap>CapsLock</keycap><keycap>2</keycap></"
+"keycombo> を押してください。小さくするには、<keycombo><keycap>CapsLock</"
+"keycap><keycap>1</keycap></keycombo> を押してください。ショートカットについて"
+"の詳細は、<ulink url=\"&url-speakup-guide;\">Speakup guide</ulink> を参照して"
+"ください。"
 
 #. Tag: title
 #: boot-installer.xml:1957
@@ -2604,7 +2611,7 @@ msgstr "ハードウェア音声合成"
 
 #. Tag: para
 #: boot-installer.xml:1958
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Support for hardware speech synthesis devices is available only alongside "
 #| "support for graphical installer. You thus need to select a "
@@ -2615,9 +2622,10 @@ msgid ""
 "images, and the netboot gtk variant. You thus need to select a "
 "<quote>Graphical install</quote> entry in the boot menu."
 msgstr ""
-"ハードウェア音声合成デバイスのサポートは、グラフィカルインストーラでのみ有効"
-"です。そのため、ブートメニューで <quote>Graphical install</quote> エントリを"
-"選択する必要があります。"
+"ハードウェア音声合成デバイスのサポートは、グラフィカルインストーラがあるイン"
+"ストーライメージで利用できます。つまり、netinst すべて、CD・DVD イメージ、"
+"netboot の gtk 版で利用できます。そのため、ブートメニューで <quote>Graphical "
+"install</quote> エントリを選択する必要があります。"
 
 #. Tag: para
 #: boot-installer.xml:1965
@@ -2710,7 +2718,7 @@ msgstr ""
 #: boot-installer.xml:2016
 #, no-c-format
 msgid "Accessibility of the installed system"
-msgstr ""
+msgstr "インストールしたシステムのアクセシビリティ"
 
 #. Tag: para
 #: boot-installer.xml:2017
@@ -2720,6 +2728,9 @@ msgid ""
 "<ulink url=\"&url-debian-wiki-accessibility;\">Debian Accessibility wiki "
 "page</ulink>."
 msgstr ""
+"インストールしたシステムのアクセシビリティについての文書は、<ulink url="
+"\"&url-debian-wiki-accessibility;\">Debian Accessibility wiki ページ</ulink> "
+"で利用できます。"
 
 #. Tag: para
 #: boot-installer.xml:2032
@@ -2767,22 +2778,7 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:2057
-#, fuzzy, no-c-format
-#| msgid ""
-#| "If you are booting with a serial console, generally the kernel will "
-#| "autodetect this. If you have a videocard (framebuffer) and a keyboard "
-#| "also attached to the computer which you wish to boot via serial console, "
-#| "you may have to pass the <userinput>console=<replaceable>device</"
-#| "replaceable></userinput> argument to the kernel, where "
-#| "<replaceable>device</replaceable> is your serial device, which is usually "
-#| "something like <filename>ttyS0</filename><footnote> <para> In order to "
-#| "ensure the terminal type used by the installer matches your terminal "
-#| "emulator, the parameter <userinput>TERM=<replaceable>type</replaceable></"
-#| "userinput> can be added. Note that the installer only supports the "
-#| "following terminal types: <literal>linux</literal>, <literal>bterm</"
-#| "literal>, <literal>ansi</literal>, <literal>vt102</literal> and "
-#| "<literal>dumb</literal>. The default for serial console in &d-i; is "
-#| "<userinput>vt102</userinput>. </para> </footnote>."
+#, no-c-format
 msgid ""
 "If you are booting with a serial console, generally the kernel will "
 "autodetect this. If you have a videocard (framebuffer) and a keyboard also "
@@ -2793,37 +2789,15 @@ msgid ""
 "filename>."
 msgstr ""
 "起動の際にシリアルコンソールを使うと、通常カーネルはこちらを自動検出します。"
-"ただし、シリアルコンソールから起動させたいコンピュータにビデオカード (フレー"
-"ムバッファ) とキーボードもついている場合には、カーネルに "
+"ただし、シリアルコンソールから起動させたいコンピュータに、ビデオカード (フ"
+"レームバッファ) とキーボードもついている場合には、カーネルに "
 "<userinput>console=<replaceable>device</replaceable></userinput> という引数を"
-"渡す必要があるでしょう。<replaceable>device</replaceable> は利用するシリアル"
-"デバイスです。これは普通 <filename>ttyS0</filename> のようになります"
-"<footnote> <para>インストーラが使用する端末タイプと、端末エミュレータが一致す"
-"るのを保証するため、パラメータ <userinput>TERM=<replaceable>type</"
-"replaceable></userinput> を追加できます。インストーラは以下の端末タイプしかサ"
-"ポートしないことに注意してください。<literal>linux</literal>, "
-"<literal>bterm</literal>, <literal>ansi</literal>, <literal>vt102</literal>, "
-"<literal>dumb</literal> です。&d-i; でのシリアルコンソールのデフォルトは、"
-"<userinput>vt102</userinput> です。</para> </footnote>。"
+"渡す必要があると思います。<replaceable>device</replaceable> は利用するシリア"
+"ルデバイスで、通常 <filename>ttyS0</filename> のようになります。"
 
 #. Tag: para
 #: boot-installer.xml:2069
-#, fuzzy, no-c-format
-#| msgid ""
-#| "If you are booting with a serial console, generally the kernel will "
-#| "autodetect this. If you have a videocard (framebuffer) and a keyboard "
-#| "also attached to the computer which you wish to boot via serial console, "
-#| "you may have to pass the <userinput>console=<replaceable>device</"
-#| "replaceable></userinput> argument to the kernel, where "
-#| "<replaceable>device</replaceable> is your serial device, which is usually "
-#| "something like <filename>ttyS0</filename><footnote> <para> In order to "
-#| "ensure the terminal type used by the installer matches your terminal "
-#| "emulator, the parameter <userinput>TERM=<replaceable>type</replaceable></"
-#| "userinput> can be added. Note that the installer only supports the "
-#| "following terminal types: <literal>linux</literal>, <literal>bterm</"
-#| "literal>, <literal>ansi</literal>, <literal>vt102</literal> and "
-#| "<literal>dumb</literal>. The default for serial console in &d-i; is "
-#| "<userinput>vt102</userinput>. </para> </footnote>."
+#, no-c-format
 msgid ""
 "In order to ensure the terminal type used by the installer matches your "
 "terminal emulator, the parameter <userinput>TERM=<replaceable>type</"
@@ -2837,19 +2811,16 @@ msgid ""
 "indeed perform translation into the <literal>screen</literal> terminal type, "
 "which is very close to <literal>vt102</literal>."
 msgstr ""
-"起動の際にシリアルコンソールを使うと、通常カーネルはこちらを自動検出します。"
-"ただし、シリアルコンソールから起動させたいコンピュータにビデオカード (フレー"
-"ムバッファ) とキーボードもついている場合には、カーネルに "
-"<userinput>console=<replaceable>device</replaceable></userinput> という引数を"
-"渡す必要があるでしょう。<replaceable>device</replaceable> は利用するシリアル"
-"デバイスです。これは普通 <filename>ttyS0</filename> のようになります"
-"<footnote> <para>インストーラが使用する端末タイプと、端末エミュレータが一致す"
-"るのを保証するため、パラメータ <userinput>TERM=<replaceable>type</"
-"replaceable></userinput> を追加できます。インストーラは以下の端末タイプしかサ"
-"ポートしないことに注意してください。<literal>linux</literal>, "
-"<literal>bterm</literal>, <literal>ansi</literal>, <literal>vt102</literal>, "
-"<literal>dumb</literal> です。&d-i; でのシリアルコンソールのデフォルトは、"
-"<userinput>vt102</userinput> です。</para> </footnote>。"
+"インストーラが使用する端末タイプと、端末エミュレータが一致するのを保証するた"
+"め、パラメータ <userinput>TERM=<replaceable>type</replaceable></userinput> を"
+"追加できます。インストーラは以下の端末タイプしかサポートしないことに注意して"
+"ください。<literal>linux</literal>, <literal>bterm</literal>, <literal>ansi</"
+"literal>, <literal>vt102</literal>, <literal>dumb</literal> です。&d-i; での"
+"シリアルコンソールのデフォルトは、<userinput>vt102</userinput> です。上記の端"
+"末タイプを提供しない、QEMU/KVM のような仮想化ツールを使用している場合、内部"
+"で <command>screen</command> セッションを開始できます。これにより、"
+"<literal>vt102</literal> によく似た <literal>screen</literal> 端末タイプに変"
+"換できます。"
 
 #. Tag: para
 #: boot-installer.xml:2085
@@ -3832,12 +3803,7 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:2686
-#, fuzzy, no-c-format
-#| msgid ""
-#| "If the installer fails to recognize a CD-ROM, try just running the option "
-#| "<menuchoice> <guimenuitem>Detect and mount CD-ROM</guimenuitem> </"
-#| "menuchoice> a second time. Some DMA related issues with older CD-ROM "
-#| "drives are known to be resolved in this way."
+#, no-c-format
 msgid ""
 "If the installer fails to recognize a CD-ROM, try just running the option "
 "<menuchoice> <guimenuitem>Detect and mount CD-ROM</guimenuitem> </"
@@ -3845,8 +3811,9 @@ msgid ""
 "drives are known to be resolved in this way."
 msgstr ""
 "インストーラが CD-ROM を認識しない場合、次に <menuchoice> <guimenuitem>CD-"
-"ROM の検出とマウント</guimenuitem> </menuchoice> を実行してください。古い CD-"
-"ROM ドライブの DMA に関連する問題は、この方法で解決することが知られています。"
+"ROM の検出とマウント</guimenuitem> </menuchoice> を試してください。非常に古"
+"い CD-ROM ドライブの、DMA に関する問題は、この方法で解決することが知られてい"
+"ます。"
 
 #. Tag: para
 #: boot-installer.xml:2696
@@ -3883,21 +3850,18 @@ msgid ""
 "Some older CD-ROM drives do not support reading from discs that were burned "
 "at high speeds using a modern CD writer."
 msgstr ""
-"古い CD-ROM ドライブの中には、最近の CD ライタで使用するような、高速で焼いた"
+"古い CD-ROM ドライブの中には、昨今の CD ライタで使用するような、高速で焼いた"
 "ディスクからの読み込みをサポートしていない物があります。"
 
 #. Tag: para
 #: boot-installer.xml:2730
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Some older CD-ROM drives do not work correctly if <quote>direct memory "
-#| "access</quote> (DMA) is enabled."
+#, no-c-format
 msgid ""
 "Some very old CD-ROM drives do not work correctly if <quote>direct memory "
 "access</quote> (DMA) is enabled for them."
 msgstr ""
-"古い CD-ROM ドライブの中には、<quote>ダイレクトメモリアクセス</quote> (DMA) "
-"が有効だと、正しく動作しない物もあります。"
+"非常に古い CD-ROM ドライブの中には、<quote>ダイレクトメモリアクセス</quote> "
+"(DMA) が有効だと、正しく動作しない物があります。"
 
 #. Tag: title
 #: boot-installer.xml:2741
@@ -4212,6 +4176,9 @@ msgid ""
 "<xref linkend=\"hardware-firmware\"/> and <xref linkend=\"loading-firmware\"/"
 ">)."
 msgstr ""
+"場合によっては、デバイスのファームウェアがないために動作しないことがあります "
+"(<xref linkend=\"hardware-firmware\"/> や <xref linkend=\"loading-firmware\"/"
+"> を参照)。"
 
 #. Tag: para
 #: boot-installer.xml:2921
@@ -4298,15 +4265,7 @@ msgstr "PCMCIA 設定中のシステムフリーズ"
 
 #. Tag: para
 #: boot-installer.xml:3013
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Some laptop models produced by Dell are known to crash when PCMCIA device "
-#| "detection tries to access some hardware addresses. Other laptops may "
-#| "display similar problems. If you experience such a problem and you don't "
-#| "need PCMCIA support during the installation, you can disable PCMCIA using "
-#| "the <userinput>hw-detect/start_pcmcia=false</userinput> boot parameter. "
-#| "You can then configure PCMCIA after the installation is completed and "
-#| "exclude the resource range causing the problems."
+#, no-c-format
 msgid ""
 "Some very old laptop models produced by Dell are known to crash when PCMCIA "
 "device detection tries to access some hardware addresses. Other laptops may "
@@ -4316,13 +4275,13 @@ msgid ""
 "can then configure PCMCIA after the installation is completed and exclude "
 "the resource range causing the problems."
 msgstr ""
-"DELL のラップトップモデルのいくつかは、PCMCIA デバイス検出でいくつかハード"
-"ウェアアドレスをアクセスしようとすると、クラッシュすることが知られています。"
-"他のラップトップコンピュータでも、同様の問題が起きるかもしれません。そのよう"
-"な問題に遭遇しても、PCMCIA サポートが必要でなければ、<userinput>hw-detect/"
-"start_pcmcia=false</userinput> というブートパラメータで、PCMCIA を無効にでき"
-"ます。インストールが完了した後、PCMCIA を設定し、問題が起きるリソース範囲を除"
-"外することができます。"
+"DELL の非常に古いラップトップモデルのいくつかは、PCMCIA デバイス検出でいくつ"
+"かハードウェアアドレスをアクセスしようとすると、クラッシュすることが知られて"
+"います。他のラップトップコンピュータでも、同様の問題が起きるかもしれません。"
+"そのような問題に遭遇し、インストール中に PCMCIA サポートが不要な場合、"
+"<userinput>hw-detect/start_pcmcia=false</userinput> というブートパラメータ"
+"で、PCMCIA を無効にできます。インストールが完了した後で PCMCIA を設定し、問題"
+"が起きるリソース範囲を除外できます。"
 
 #. Tag: para
 #: boot-installer.xml:3023
