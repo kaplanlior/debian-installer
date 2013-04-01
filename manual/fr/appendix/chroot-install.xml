@@ -1,4 +1,4 @@
-<!-- original version: 68550 -->
+<!-- original version: 68562 -->
 
  <sect1 id="linux-upgrade">
  <title>Installer &debian-gnu; à partir d'un système Unix/Linux</title>
@@ -335,13 +335,24 @@ non vide. Si cela échoue, vous pouvez monter proc hors du chroot de cette mani�
 La troisième ligne du fichier <filename>/etc/adjtime</filename> peut contenir 
 <quote>UTC</quote> ou <quote>LOCAL</quote>. Ce paramètre détermine si
 le système considère que l'horloge système est réglée sur le temps UTC ou non.
-La commande suivante permet de choisir le fuseau horaire.
+La commande suivante permet d'effectuer cette opération.
 
 <informalexample><screen>
 # editor /etc/adjtime
-# dpkg-reconfigure tzdata
 </screen></informalexample>
 
+Voici un exemple :
+<informalexample><screen>
+0.0 0 0.0
+0
+UTC
+</screen></informalexample>
+
+La commande suivante permet de modifier le fuseau horaire :
+
+<informalexample><screen>
+# dpkg-reconfigure tzdata
+</screen></informalexample>
 
 </para>
    </sect3>

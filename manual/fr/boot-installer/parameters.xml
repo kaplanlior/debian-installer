@@ -1,4 +1,4 @@
-<!-- original version: 68161 -->
+<!-- original version: 68564 -->
 
  <sect1 id="boot-parms"><title>Paramètres d'amorçage</title>
 <para arch="linux-any">
@@ -255,10 +255,10 @@ Des problèmes semblables ont été rencontrés sur les hppa.
 
 </para><note arch="sparc"><para>
 
-La gestion du tampon video est <emphasis>désactivé par défaut</emphasis>
+La gestion du tampon vidéo est <emphasis>désactivé par défaut</emphasis>
 sur &arch-title; à cause de problèmes d'affichage sur certains systèmes.
 Cela provoque un affichage très laid sur des systèmes qui gèrent correctement
-le tampon video, comme les systèmes avec des cartes graphiques ATI.
+le tampon vidéo, comme les systèmes avec des cartes graphiques ATI.
 Si vous rencontrez des problèmes d'affichage avec l'installateur, vous
 pouvez amorcer avec le paramètre 
 <userinput>debian-installer/framebuffer=true</userinput>, ou <userinput>fb=true</userinput>. 
@@ -286,17 +286,18 @@ Proposé par les interfaces newt et gtk, il peut être activé avec le paramètr
 <listitem><para>
 
 L'installateur &debian; recherche automatiquement la configuration du réseau 
-avec DHCP. Si la recherche réussit, vous n'aurez plus la possibilité de vérifier
+par autoconfiguration IPv6 et DHCP. Si la recherche réussit, vous n'aurez plus la possibilité de vérifier
 et de modifier les valeurs obtenues. Vous ne pouvez configurer vous-même
-le réseau que si la recherche avec DHCP a échoué.
-	  </para>
+le réseau que si la recherche automatique a échoué.
+
+</para>
 <para>
 
-S'il existe un serveur DHCP sur votre réseau local et si vous voulez l'ignorer
-parce qu'il donne, par exemple, des valeurs fausses, vous pouvez utiliser le
-paramètre <userinput>netcfg/disable_autoconfig=true</userinput> pour le désactiver et
-indiquer vous-même les paramètres du réseau.
-	  </para></listitem>
+S'il existe un routeur IPv6 ou un serveur DHCP sur votre réseau local et si vous voulez les ignorer
+parce qu'ils donnent, par exemple, des valeurs fausses, vous pouvez utiliser le
+paramètre <userinput>netcfg/disable_autoconfig=true</userinput> pour empêcher toute configuration
+automatique (ni v4 ni v6) et indiquer vous-même les paramètres du réseau.
+ </para></listitem>
 </varlistentry>
 
 <varlistentry>
@@ -426,7 +427,7 @@ expérimentés devraient se servir de cette option.
 Par défaut, l'installateur demande que les dépôts soient authentifiés par
 une clé gpg connue. On peut mettre ce paramètre à <userinput>true</userinput>
 pour désactiver cette authentification. 
-<emphasis role="bold">Attention : commande insécurisée et non recommandée.</emphasis>
+<emphasis role="bold">Attention : commande non sécurisée et non recommandée.</emphasis>
 
 </para></listitem>
 </varlistentry>
@@ -517,8 +518,8 @@ Voici des exemples de composants qui peuvent être utiles&nbsp;:
 <term>netcfg/disable_autoconfig</term>
 <listitem><para>
 
-Ce paramètre peut être mis à <userinput>true</userinput> pour désactiver DHCP et
-forcer une configuration manuelle du réseau.
+Ce paramètre peut être mis à <userinput>true</userinput> pour désactiver
+la configuration automatique IPv6 et DHCP et forcer une configuration manuelle du réseau.
 
 </para></listitem>
 </varlistentry>
@@ -567,7 +568,7 @@ propagés automatiquement dans la configuration du système installé.
 <para>
 Il est aujourd'hui très rare d'avoir à passer des paramètres aux modules.
 Dans la plupart des cas, le noyau sait tester le matériel présent sur une machine et
-donner de bons paramètres par défaut. Parfois cependant il sera nécessaire de passer
+donne de bons paramètres par défaut. Parfois cependant il sera nécessaire de passer
 soi-même des paramètres.
 </para>
 <para>
