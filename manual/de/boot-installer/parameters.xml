@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 68161 -->
+<!-- original version: 68564 -->
 
  <sect1 id="boot-parms"><title>Boot-Parameter</title>
 <para arch="linux-any">
@@ -305,19 +305,21 @@ Parameter <userinput>theme=<replaceable>dark</replaceable></userinput> booten.
 <term>netcfg/disable_autoconfig</term>
 <listitem><para>
 
-Standardmäßig versucht der &d-i;, die Netzwerkkonfiguration per DHCP
+Standardmäßig versucht der &d-i;, die Netzwerkkonfiguration per 
+automatischer IPv6-Konfiguration und DHCP
 zu beziehen. Wenn dies erfolgreich ist, haben Sie keine Chance mehr,
 sich anders zu entscheiden und die Einstellungen manuell zu ändern.
-Das manuelle Netzwerksetup kann man nur erreichen, wenn die DHCP-Abfrage
-fehlschlägt.
+Das manuelle Netzwerksetup kann man nur erreichen, wenn die automatische
+Konfiguration fehlschlägt.
 
 </para><para>
 
-Wenn Sie einen DHCP-Server in Ihrem lokalen Netzwerk haben, ihn aber
-umgehen wollen, z.B. weil er falsche Antworten gibt, können Sie
+Wenn Sie einen IPv6-Router oder einen DHCP-Server in Ihrem lokalen Netzwerk
+haben, diese aber
+umgehen wollen, z.B. weil sie falsche Antworten geben, können Sie
 den Parameter <userinput>netcfg/disable_autoconfig=true</userinput> benutzen,
-um die Konfiguration per DHCP zu unterdrücken und die Daten manuell
-einzugeben.
+um jegliche automatische Netzwerkkonfiguration (IPv6 und IPv4) zu unterdrücken
+und die Daten manuell einzugeben.
 
 </para></listitem>
 </varlistentry>
@@ -554,8 +556,9 @@ arch="not-s390"> oder <classname>ppp-udeb</classname> (siehe
 <term>netcfg/disable_autoconfig</term>
 <listitem><para>
 
-Setzen Sie dies auf <userinput>true</userinput>, wenn Sie DHCP deaktivieren
-möchten und stattdessen statische Netzwerkkonfiguration erzwingen möchten.
+Setzen Sie dies auf <userinput>true</userinput>, wenn Sie automatische
+IPv6-Konfiguration und DHCP deaktivieren
+und stattdessen statische Netzwerkkonfiguration erzwingen möchten.
 
 </para></listitem>
 </varlistentry>
