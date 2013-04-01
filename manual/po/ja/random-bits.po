@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2013-02-03 09:08+0000\n"
+"POT-Creation-Date: 2013-04-01 21:08+0000\n"
 "PO-Revision-Date: 2013-02-10 18:05+0900\n"
 "Last-Translator: KURASAWA Nozomu (nabetaro) <nabetaro@debian.or.jp>\n"
 "Language-Team: Japanese <debian-japanese@lists.debian.org>\n"
@@ -1364,17 +1364,25 @@ msgstr "タイムゾーンの設定"
 
 #. Tag: para
 #: random-bits.xml:638
-#, no-c-format
+#, fuzzy, no-c-format
 #| msgid ""
-#| "An option in the file <filename>/etc/default/rcS</filename> determines "
-#| "whether the system will interpret the hardware clock as being set to UTC "
-#| "or local time. The following command allows you to set that and choose "
-#| "your timezone."
+#| "Setting the third line of the file <filename>/etc/adjtime</filename> to "
+#| "<quote>UTC</quote> or <quote>LOCAL</quote> determines whether the system "
+#| "will interpret the hardware clock as being set to UTC respective local "
+#| "time. The following commands allow you to set that and choose your "
+#| "timezone."
 msgid ""
 "Setting the third line of the file <filename>/etc/adjtime</filename> to "
 "<quote>UTC</quote> or <quote>LOCAL</quote> determines whether the system "
 "will interpret the hardware clock as being set to UTC respective local time. "
-"The following commands allow you to set that and choose your timezone."
+"The following command allows you to set that. <informalexample><screen>\n"
+"# editor /etc/adjtime\n"
+"</screen></informalexample> Here is a sample: <informalexample><screen>\n"
+"0.0 0 0.0\n"
+"0\n"
+"UTC\n"
+"</screen></informalexample> The following command allows you to choose your "
+"timezone."
 msgstr ""
 "<filename>/etc/adjtime</filename> ファイルの 3 行目に、<quote>UTC</quote> か "
 "<quote>LOCAL</quote> を設定し、システムがハードウェアの時計を UTC として解釈"
@@ -1382,26 +1390,24 @@ msgstr ""
 "記の選択とタイムゾーンの選択を行えます。"
 
 #. Tag: screen
-#: random-bits.xml:646
-#, no-c-format
+#: random-bits.xml:652
+#, fuzzy, no-c-format
 #| msgid ""
-#| "# editor /etc/default/rcS\n"
+#| "# editor /etc/adjtime\n"
 #| "# dpkg-reconfigure tzdata"
-msgid ""
-"# editor /etc/adjtime\n"
-"# dpkg-reconfigure tzdata"
+msgid "# dpkg-reconfigure tzdata"
 msgstr ""
 "# editor /etc/adjtime\n"
 "# dpkg-reconfigure tzdata"
 
 #. Tag: title
-#: random-bits.xml:652
+#: random-bits.xml:658
 #, no-c-format
 msgid "Configure Networking"
 msgstr "ネットワークの設定"
 
 #. Tag: para
-#: random-bits.xml:653
+#: random-bits.xml:659
 #, no-c-format
 msgid ""
 "To configure networking, edit <filename>/etc/network/interfaces</filename>, "
@@ -1524,13 +1530,13 @@ msgstr ""
 "ス名 (eth0, eth1 など) と結びつけられます。"
 
 #. Tag: title
-#: random-bits.xml:694
+#: random-bits.xml:700
 #, no-c-format
 msgid "Configure Apt"
 msgstr "apt の設定"
 
 #. Tag: para
-#: random-bits.xml:695
+#: random-bits.xml:701
 #, no-c-format
 msgid ""
 "Debootstrap will have created a very basic <filename>/etc/apt/sources.list</"
@@ -1556,13 +1562,13 @@ msgstr ""
 "update</userinput> を必ず実行してください。"
 
 #. Tag: title
-#: random-bits.xml:711
+#: random-bits.xml:717
 #, no-c-format
 msgid "Configure Locales and Keyboard"
 msgstr "ロケールとキーボードの設定"
 
 #. Tag: para
-#: random-bits.xml:712
+#: random-bits.xml:718
 #, no-c-format
 msgid ""
 "To configure your locale settings to use a language other than English, "
@@ -1583,7 +1589,7 @@ msgstr ""
 "ださい。"
 
 #. Tag: screen
-#: random-bits.xml:722
+#: random-bits.xml:728
 #, no-c-format
 msgid ""
 "# aptitude install console-setup\n"
@@ -1593,7 +1599,7 @@ msgstr ""
 "# dpkg-reconfigure keyboard-configuration"
 
 #. Tag: para
-#: random-bits.xml:724
+#: random-bits.xml:730
 #, no-c-format
 msgid ""
 "Note that the keyboard cannot be set while in the chroot, but will be "
@@ -1603,13 +1609,13 @@ msgstr ""
 "てください。"
 
 #. Tag: title
-#: random-bits.xml:734
+#: random-bits.xml:740
 #, no-c-format
 msgid "Install a Kernel"
 msgstr "カーネルのインストール"
 
 #. Tag: para
-#: random-bits.xml:735
+#: random-bits.xml:741
 #, no-c-format
 msgid ""
 "If you intend to boot this system, you probably want a &arch-kernel; kernel "
@@ -1620,13 +1626,13 @@ msgstr ""
 "ください。"
 
 #. Tag: screen
-#: random-bits.xml:740
+#: random-bits.xml:746
 #, no-c-format
 msgid "# apt-cache search &kernelpackage;"
 msgstr "# apt-cache search &kernelpackage;"
 
 #. Tag: para
-#: random-bits.xml:742
+#: random-bits.xml:748
 #, no-c-format
 msgid "Then install the kernel package of your choice using its package name."
 msgstr ""
@@ -1634,23 +1640,19 @@ msgstr ""
 "ください。"
 
 #. Tag: screen
-#: random-bits.xml:746
+#: random-bits.xml:752
 #, no-c-format
-msgid ""
-"# aptitude install &kernelpackage;-<replaceable>arch-etc</"
-"replaceable>"
-msgstr ""
-"# aptitude install &kernelpackage;-<replaceable>arch-etc</"
-"replaceable>"
+msgid "# aptitude install &kernelpackage;-<replaceable>arch-etc</replaceable>"
+msgstr "# aptitude install &kernelpackage;-<replaceable>arch-etc</replaceable>"
 
 #. Tag: title
-#: random-bits.xml:752
+#: random-bits.xml:758
 #, no-c-format
 msgid "Set up the Boot Loader"
 msgstr "ブートローダのセットアップ"
 
 #. Tag: para
-#: random-bits.xml:753
+#: random-bits.xml:759
 #, no-c-format
 msgid ""
 "To make your &debian-gnu; system bootable, set up your boot loader to load "
@@ -1665,7 +1667,7 @@ msgstr ""
 "部の <command>aptitude</command> を使用できます。"
 
 #. Tag: para
-#: random-bits.xml:760
+#: random-bits.xml:766
 #, no-c-format
 msgid ""
 "Check <userinput>info grub</userinput> <phrase arch=\"x86\">or "
@@ -1690,7 +1692,7 @@ msgstr ""
 "ていてください)。</phrase>"
 
 #. Tag: para
-#: random-bits.xml:772
+#: random-bits.xml:778
 #, no-c-format
 msgid ""
 "Installing and setting up <classname>grub2</classname> is as easy as: "
@@ -1714,7 +1716,7 @@ msgstr ""
 "す。"
 
 #. Tag: para
-#: random-bits.xml:782
+#: random-bits.xml:788
 #, no-c-format
 msgid ""
 "Note that this assumes that a <filename>/dev/hda</filename> device file has "
@@ -1726,13 +1728,13 @@ msgstr ""
 "りますが、それはこの付録では扱いません。"
 
 #. Tag: para
-#: random-bits.xml:788
+#: random-bits.xml:794
 #, no-c-format
 msgid "Here is a basic <filename>/etc/lilo.conf</filename> as an example:"
 msgstr "以下は基本的な <filename>/etc/lilo.conf</filename> の例です。"
 
 #. Tag: screen
-#: random-bits.xml:792
+#: random-bits.xml:798
 #, no-c-format
 msgid ""
 "boot=/dev/<replaceable>hda6</replaceable>\n"
@@ -1754,7 +1756,7 @@ msgstr ""
 "label=Debian"
 
 #. Tag: para
-#: random-bits.xml:794
+#: random-bits.xml:800
 #, no-c-format
 msgid ""
 "Check <userinput>man yaboot.conf</userinput> for instructions on setting up "
@@ -1773,7 +1775,7 @@ msgstr ""
 "われるということを覚えていてください)"
 
 #. Tag: para
-#: random-bits.xml:804
+#: random-bits.xml:810
 #, no-c-format
 msgid ""
 "Here is a basic <filename>/etc/yaboot.conf</filename> as an example: "
@@ -1803,13 +1805,13 @@ msgstr ""
 "の代わりに <userinput>ide0:</userinput> を使う必要があるかもしれません。"
 
 #. Tag: title
-#: random-bits.xml:817
+#: random-bits.xml:823
 #, no-c-format
 msgid "Remote access: Installing SSH and setting a password"
 msgstr "リモートアクセス: SSH のインストールとパスワード設定"
 
 #. Tag: para
-#: random-bits.xml:818
+#: random-bits.xml:824
 #, no-c-format
 msgid ""
 "In case you can login to the system via console, you can skip this section. "
@@ -1821,7 +1823,7 @@ msgstr ""
 "と、root パスワードの設定が必要です。"
 
 #. Tag: screen
-#: random-bits.xml:824
+#: random-bits.xml:830
 #, no-c-format
 msgid ""
 "# aptitude install ssh\n"
@@ -1831,13 +1833,13 @@ msgstr ""
 "# passwd"
 
 #. Tag: title
-#: random-bits.xml:829
+#: random-bits.xml:835
 #, no-c-format
 msgid "Finishing touches"
 msgstr "仕上げに"
 
 #. Tag: para
-#: random-bits.xml:830
+#: random-bits.xml:836
 #, no-c-format
 msgid ""
 "As mentioned earlier, the installed system will be very basic. If you would "
@@ -1857,7 +1859,7 @@ msgstr ""
 "パッケージをインストールすることもできます。"
 
 #. Tag: para
-#: random-bits.xml:841
+#: random-bits.xml:847
 #, no-c-format
 msgid ""
 "After the installation there will be a lot of downloaded packages in "
@@ -1869,19 +1871,19 @@ msgstr ""
 "を解放できます。"
 
 #. Tag: screen
-#: random-bits.xml:847
+#: random-bits.xml:853
 #, no-c-format
 msgid "# aptitude clean"
 msgstr "# aptitude clean"
 
 #. Tag: title
-#: random-bits.xml:858
+#: random-bits.xml:864
 #, no-c-format
 msgid "Installing &debian-gnu; over Parallel Line IP (PLIP)"
 msgstr "パラレルライン IP (PLIP) による &debian-gnu; のインストール"
 
 #. Tag: para
-#: random-bits.xml:860
+#: random-bits.xml:866
 #, no-c-format
 msgid ""
 "This section explains how to install &debian-gnu; on a computer without an "
@@ -1897,7 +1899,7 @@ msgstr ""
 "ればなりません。"
 
 #. Tag: para
-#: random-bits.xml:868
+#: random-bits.xml:874
 #, no-c-format
 msgid ""
 "In the example in this appendix we will set up a PLIP connection using a "
@@ -1913,7 +1915,7 @@ msgstr ""
 "てはいけません)"
 
 #. Tag: para
-#: random-bits.xml:876
+#: random-bits.xml:882
 #, no-c-format
 msgid ""
 "The PLIP connection set up during the installation will also be available "
@@ -1924,7 +1926,7 @@ msgstr ""
 "たときに有効になります。(<xref linkend=\"boot-new\"/> をご覧ください)"
 
 #. Tag: para
-#: random-bits.xml:881
+#: random-bits.xml:887
 #, no-c-format
 msgid ""
 "Before you start, you will need to check the BIOS configuration (IO base "
@@ -1937,13 +1939,13 @@ msgstr ""
 "通の値は、<literal>io=0x378</literal>, <literal>irq=7</literal> です。"
 
 #. Tag: title
-#: random-bits.xml:891
+#: random-bits.xml:897
 #, no-c-format
 msgid "Requirements"
 msgstr "必要な物"
 
 #. Tag: para
-#: random-bits.xml:894
+#: random-bits.xml:900
 #, no-c-format
 msgid ""
 "A target computer, called <emphasis>target</emphasis>, where &debian; will "
@@ -1953,7 +1955,7 @@ msgstr ""
 "呼びます)"
 
 #. Tag: para
-#: random-bits.xml:900
+#: random-bits.xml:906
 #, no-c-format
 msgid "System installation media; see <xref linkend=\"installation-media\"/>."
 msgstr ""
@@ -1961,7 +1963,7 @@ msgstr ""
 "ご覧ください。"
 
 #. Tag: para
-#: random-bits.xml:905
+#: random-bits.xml:911
 #, no-c-format
 msgid ""
 "Another computer connected to the Internet, called <emphasis>source</"
@@ -1971,7 +1973,7 @@ msgstr ""
 "(<emphasis>source</emphasis> と呼びます)"
 
 #. Tag: para
-#: random-bits.xml:911
+#: random-bits.xml:917
 #, no-c-format
 msgid ""
 "A DB-25 Null-Modem cable. See the <ulink url=\"&url-plip-install-howto;"
@@ -1983,13 +1985,13 @@ msgstr ""
 "さい。"
 
 #. Tag: title
-#: random-bits.xml:923
+#: random-bits.xml:929
 #, no-c-format
 msgid "Setting up source"
 msgstr "source のセットアップ"
 
 #. Tag: para
-#: random-bits.xml:924
+#: random-bits.xml:930
 #, no-c-format
 msgid ""
 "The following shell script is a simple example of how to configure the "
@@ -1999,7 +2001,7 @@ msgstr ""
 "イ (ppp0 利用) に設定する簡単なサンプルです。"
 
 #. Tag: screen
-#: random-bits.xml:929
+#: random-bits.xml:935
 #, no-c-format
 msgid ""
 "#!/bin/sh\n"
@@ -2045,13 +2047,13 @@ msgstr ""
 "echo 1 > /proc/sys/net/ipv4/ip_forward"
 
 #. Tag: title
-#: random-bits.xml:935
+#: random-bits.xml:941
 #, no-c-format
 msgid "Installing target"
 msgstr "target のインストール"
 
 #. Tag: para
-#: random-bits.xml:936
+#: random-bits.xml:942
 #, no-c-format
 msgid ""
 "Boot the installation media. The installation needs to be run in expert "
@@ -2077,13 +2079,13 @@ msgstr ""
 "</screen></informalexample> 以下は、インストール中の各段階で与える値です。"
 
 #. Tag: guimenuitem
-#: random-bits.xml:955
+#: random-bits.xml:961
 #, no-c-format
 msgid "Load installer components from CD"
 msgstr "インストーラコンポーネントを CD からロード"
 
 #. Tag: para
-#: random-bits.xml:957
+#: random-bits.xml:963
 #, no-c-format
 msgid ""
 "Select the <userinput>plip-modules</userinput> option from the list; this "
@@ -2093,13 +2095,13 @@ msgstr ""
 "れにより、インストールするシステムで PLIP ドライバが使用可能になります。"
 
 #. Tag: guimenuitem
-#: random-bits.xml:965
+#: random-bits.xml:971
 #, no-c-format
 msgid "Detect network hardware"
 msgstr "ネットワークハードウェアの検出"
 
 #. Tag: para
-#: random-bits.xml:970
+#: random-bits.xml:976
 #, no-c-format
 msgid ""
 "If target <emphasis>does</emphasis> have a network card, a list of driver "
@@ -2114,7 +2116,7 @@ msgstr ""
 "現れません。"
 
 #. Tag: para
-#: random-bits.xml:979
+#: random-bits.xml:985
 #, no-c-format
 msgid ""
 "Because no network card was detected/selected earlier, the installer will "
@@ -2126,20 +2128,20 @@ msgstr ""
 "userinput> モジュールを選択してください。"
 
 #. Tag: guimenuitem
-#: random-bits.xml:991
+#: random-bits.xml:997
 #, no-c-format
 msgid "Configure the network"
 msgstr "ネットワークの設定"
 
 #. Tag: para
-#: random-bits.xml:994
+#: random-bits.xml:1000
 #, no-c-format
 msgid "Auto-configure network with DHCP: No"
 msgstr ""
 "「DHCP でネットワークを自動的に設定していますか」には「いいえ」と答えます。"
 
 #. Tag: para
-#: random-bits.xml:999
+#: random-bits.xml:1005
 #, no-c-format
 msgid ""
 "IP address: <userinput><replaceable>192.168.0.1</replaceable></userinput>"
@@ -2148,7 +2150,7 @@ msgstr ""
 "userinput> とします。"
 
 #. Tag: para
-#: random-bits.xml:1004
+#: random-bits.xml:1010
 #, no-c-format
 msgid ""
 "Point-to-point address: <userinput><replaceable>192.168.0.2</replaceable></"
@@ -2158,7 +2160,7 @@ msgstr ""
 "replaceable></userinput> とします。"
 
 #. Tag: para
-#: random-bits.xml:1010
+#: random-bits.xml:1016
 #, no-c-format
 msgid ""
 "Name server addresses: you can enter the same addresses used on source (see "
@@ -2168,13 +2170,13 @@ msgstr ""
 "す。(<filename>/etc/resolv.conf</filename> をご覧ください)"
 
 #. Tag: title
-#: random-bits.xml:1029
+#: random-bits.xml:1035
 #, no-c-format
 msgid "Installing &debian-gnu; using PPP over Ethernet (PPPoE)"
 msgstr "PPP over Ethernet (PPPoE) を用いた &debian-gnu; のインストール"
 
 #. Tag: para
-#: random-bits.xml:1031
+#: random-bits.xml:1037
 #, no-c-format
 msgid ""
 "In some countries PPP over Ethernet (PPPoE) is a common protocol for "
@@ -2189,7 +2191,7 @@ msgstr ""
 "トしていませんが、非常に簡単に設定できます。この節ではその方法を説明します。"
 
 #. Tag: para
-#: random-bits.xml:1039
+#: random-bits.xml:1045
 #, no-c-format
 msgid ""
 "The PPPoE connection set up during the installation will also be available "
@@ -2200,7 +2202,7 @@ msgstr ""
 "ムを再起動した後でも有効になります (<xref linkend=\"boot-new\"/> 参照)。"
 
 #. Tag: para
-#: random-bits.xml:1044
+#: random-bits.xml:1050
 #, no-c-format
 msgid ""
 "To have the option of setting up and using PPPoE during the installation, "
@@ -2214,7 +2216,7 @@ msgstr ""
 "いません。"
 
 #. Tag: para
-#: random-bits.xml:1051
+#: random-bits.xml:1057
 #, no-c-format
 msgid ""
 "Installing over PPPoE is mostly the same as any other installation. The "
@@ -2224,7 +2226,7 @@ msgstr ""
 "するステップが異なるだけです。"
 
 #. Tag: para
-#: random-bits.xml:1059
+#: random-bits.xml:1065
 #, no-c-format
 msgid ""
 "Boot the installer with the boot parameter <userinput>modules=ppp-udeb</"
@@ -2240,7 +2242,7 @@ msgstr ""
 "udeb</classname>) を確実に読み込み、自動的に起動します。"
 
 #. Tag: para
-#: random-bits.xml:1074
+#: random-bits.xml:1080
 #, no-c-format
 msgid ""
 "Follow the regular initial steps of the installation (language, country and "
@@ -2260,7 +2262,7 @@ msgstr ""
 "す。"
 
 #. Tag: para
-#: random-bits.xml:1093
+#: random-bits.xml:1099
 #, no-c-format
 msgid ""
 "The next step is the detection of network hardware, in order to identify any "
@@ -2270,7 +2272,7 @@ msgstr ""
 "クハードウェアを検出します。"
 
 #. Tag: para
-#: random-bits.xml:1099
+#: random-bits.xml:1105
 #, no-c-format
 msgid ""
 "After this the actual setup of PPPoE is started. The installer will probe "
@@ -2282,7 +2284,7 @@ msgstr ""
 "イーサネットインターフェースを調べます。"
 
 #. Tag: para
-#: random-bits.xml:1105
+#: random-bits.xml:1111
 #, no-c-format
 msgid ""
 "It is possible that the concentrator will not to be found at the first "
@@ -2298,7 +2300,7 @@ msgstr ""
 "connection</guimenuitem> を選択してください。"
 
 #. Tag: para
-#: random-bits.xml:1114
+#: random-bits.xml:1120
 #, no-c-format
 msgid ""
 "After a concentrator is found, the user will be prompted to type the login "
@@ -2308,7 +2310,7 @@ msgstr ""
 "入力してください。"
 
 #. Tag: para
-#: random-bits.xml:1120
+#: random-bits.xml:1126
 #, no-c-format
 msgid ""
 "At this point the installer will use the provided information to establish "
@@ -2327,13 +2329,13 @@ msgstr ""
 "て、設定を再度行えます。"
 
 #. Tag: title
-#: random-bits.xml:1140
+#: random-bits.xml:1146
 #, no-c-format
 msgid "The Graphical Installer"
 msgstr "グラフィカルインストーラ"
 
 #. Tag: para
-#: random-bits.xml:1141
+#: random-bits.xml:1147
 #, no-c-format
 msgid ""
 "The graphical version of the installer is only available for a limited "
@@ -2346,7 +2348,7 @@ msgstr ""
 "は同じです。同じプログラムを異なるフロントエンドで使用しています。"
 
 #. Tag: para
-#: random-bits.xml:1149
+#: random-bits.xml:1155
 #, no-c-format
 msgid ""
 "Although the functionality is identical, the graphical installer still has a "
@@ -2363,7 +2365,7 @@ msgstr ""
 "す。"
 
 #. Tag: para
-#: random-bits.xml:1158
+#: random-bits.xml:1164
 #, no-c-format
 msgid ""
 "The graphical installer is available with all CD images and with the hd-"
@@ -2385,7 +2387,7 @@ msgstr ""
 "するブートプロンプトから、まだ使用できます。"
 
 #. Tag: para
-#: random-bits.xml:1169
+#: random-bits.xml:1175
 #, no-c-format
 msgid ""
 "There is also a graphical installer image that can be netbooted. And there "
@@ -2402,7 +2404,7 @@ msgstr ""
 "iso</filename> を探してください。</para> </footnote>もあります。"
 
 #. Tag: para
-#: random-bits.xml:1182
+#: random-bits.xml:1188
 #, no-c-format
 msgid ""
 "For &arch-title;, currently only an experimental <quote>mini</quote> ISO "
@@ -2420,7 +2422,7 @@ msgstr ""
 "システムで動作するはずですが、その他のシステムでは動作しそうにありません。"
 
 #. Tag: para
-#: random-bits.xml:1196
+#: random-bits.xml:1202
 #, no-c-format
 msgid ""
 "Just as with the regular installer it is possible to add boot parameters "
@@ -2430,7 +2432,7 @@ msgstr ""
 "メータを追加できます。"
 
 #. Tag: para
-#: random-bits.xml:1202
+#: random-bits.xml:1208
 #, no-c-format
 msgid ""
 "The graphical installer requires significantly more memory to run than the "
@@ -2443,7 +2445,7 @@ msgstr ""
 "の <quote>newt</quote> フロントエンドに自動的にフォールバックします。"
 
 #. Tag: para
-#: random-bits.xml:1209
+#: random-bits.xml:1215
 #, no-c-format
 msgid ""
 "If the amount of memory in your system is below &minimum-memory;, the "
@@ -2456,13 +2458,13 @@ msgstr ""
 "メモリが少ない場合は、通常のインストーラを利用するのをお勧めします。"
 
 #. Tag: title
-#: random-bits.xml:1219
+#: random-bits.xml:1225
 #, no-c-format
 msgid "Using the graphical installer"
 msgstr "グラフィカルインストーラの使用法"
 
 #. Tag: para
-#: random-bits.xml:1220
+#: random-bits.xml:1226
 #, no-c-format
 msgid ""
 "As already mentioned, the graphical installer basically works the same as "
@@ -2474,7 +2476,7 @@ msgstr ""
 "に役に立ちます。"
 
 #. Tag: para
-#: random-bits.xml:1226
+#: random-bits.xml:1232
 #, no-c-format
 msgid ""
 "If you prefer using the keyboard over the mouse, there are two things you "
@@ -2493,7 +2495,7 @@ msgstr ""
 "選択が切り替わるだけで、&BTN-CONT; が有効にはなりません。"
 
 #. Tag: para
-#: random-bits.xml:1236
+#: random-bits.xml:1242
 #, no-c-format
 msgid ""
 "If a dialog offers additional help information, a <guibutton>Help</"
@@ -2505,7 +2507,7 @@ msgstr ""
 "アクセスできます。"
 
 #. Tag: para
-#: random-bits.xml:1242
+#: random-bits.xml:1248
 #, no-c-format
 msgid ""
 "To switch to another console, you will also need to use the <keycap>Ctrl</"
@@ -2563,16 +2565,14 @@ msgstr ""
 #~ msgid ""
 #~ "Then install the kernel package of your choice using its package name. "
 #~ "<informalexample><screen>\n"
-#~ "# aptitude install &kernelpackage;-<replaceable>arch-etc</"
-#~ "replaceable>\n"
+#~ "# aptitude install &kernelpackage;-<replaceable>arch-etc</replaceable>\n"
 #~ "</screen></informalexample> If you did not create a <filename>/etc/kernel-"
 #~ "img.conf</filename> before installing a pre-packaged kernel, you may be "
 #~ "asked some questions during its installation that refer to it."
 #~ msgstr ""
 #~ "それから、選んだパッケージ名のカーネルパッケージをインストールしてくださ"
 #~ "い。<informalexample><screen>\n"
-#~ "# aptitude install &kernelpackage;-<replaceable>arch-etc</"
-#~ "replaceable>\n"
+#~ "# aptitude install &kernelpackage;-<replaceable>arch-etc</replaceable>\n"
 #~ "</screen></informalexample> パッケージ化済みカーネルをインストールする前"
 #~ "に <filename>/etc/kernel-img.conf</filename> を作成しない場合、インストー"
 #~ "ル時に関連する質問が行われると思います。"

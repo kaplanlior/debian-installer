@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: random-bits\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2013-02-03 09:08+0000\n"
+"POT-Creation-Date: 2013-04-01 21:08+0000\n"
 "PO-Revision-Date: 2013-02-10 20:46+0200\n"
 "Last-Translator: galaxico <galaxico@quad-nrg.net>\n"
 "Language-Team: Greek <debian-l10n-greek@lists.debian.org>\n"
@@ -1411,12 +1411,25 @@ msgstr "Ρύθμιση της Χρονικής Ζώνης"
 
 #. Tag: para
 #: random-bits.xml:638
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "Setting the third line of the file <filename>/etc/adjtime</filename> to "
+#| "<quote>UTC</quote> or <quote>LOCAL</quote> determines whether the system "
+#| "will interpret the hardware clock as being set to UTC respective local "
+#| "time. The following commands allow you to set that and choose your "
+#| "timezone."
 msgid ""
 "Setting the third line of the file <filename>/etc/adjtime</filename> to "
 "<quote>UTC</quote> or <quote>LOCAL</quote> determines whether the system "
 "will interpret the hardware clock as being set to UTC respective local time. "
-"The following commands allow you to set that and choose your timezone."
+"The following command allows you to set that. <informalexample><screen>\n"
+"# editor /etc/adjtime\n"
+"</screen></informalexample> Here is a sample: <informalexample><screen>\n"
+"0.0 0 0.0\n"
+"0\n"
+"UTC\n"
+"</screen></informalexample> The following command allows you to choose your "
+"timezone."
 msgstr ""
 "Ορίζοντας την τρίτη γραμμή του αρχείου <filename>/etc/adjtime</filename> "
 "σε<quote>UTC</quote> ή <quote>LOCAL</quote> καθορίζει αν το σύστημα θα "
@@ -1425,23 +1438,24 @@ msgstr ""
 "καθορίσετε αυτή την επιλογή και να επιλέξετε την χρονική σας ζώνη."
 
 #. Tag: screen
-#: random-bits.xml:646
-#, no-c-format
-msgid ""
-"# editor /etc/adjtime\n"
-"# dpkg-reconfigure tzdata"
+#: random-bits.xml:652
+#, fuzzy, no-c-format
+#| msgid ""
+#| "# editor /etc/adjtime\n"
+#| "# dpkg-reconfigure tzdata"
+msgid "# dpkg-reconfigure tzdata"
 msgstr ""
 "# editor /etc/adjtime\n"
 "# dpkg-reconfigure tzdata"
 
 #. Tag: title
-#: random-bits.xml:652
+#: random-bits.xml:658
 #, no-c-format
 msgid "Configure Networking"
 msgstr "Ρύθμιση Δικτύου"
 
 #. Tag: para
-#: random-bits.xml:653
+#: random-bits.xml:659
 #, no-c-format
 msgid ""
 "To configure networking, edit <filename>/etc/network/interfaces</filename>, "
@@ -1567,13 +1581,13 @@ msgstr ""
 "της διεπαφής (eth0, eth1, etc.)."
 
 #. Tag: title
-#: random-bits.xml:694
+#: random-bits.xml:700
 #, no-c-format
 msgid "Configure Apt"
 msgstr "Ρύθμιση του Apt"
 
 #. Tag: para
-#: random-bits.xml:695
+#: random-bits.xml:701
 #, no-c-format
 msgid ""
 "Debootstrap will have created a very basic <filename>/etc/apt/sources.list</"
@@ -1600,13 +1614,13 @@ msgstr ""
 "λίστα των πηγών τρέξατε <userinput>aptitude update</userinput>."
 
 #. Tag: title
-#: random-bits.xml:711
+#: random-bits.xml:717
 #, no-c-format
 msgid "Configure Locales and Keyboard"
 msgstr "Ρύθμιση πληκτρολογίου και τοπικοποίησης"
 
 #. Tag: para
-#: random-bits.xml:712
+#: random-bits.xml:718
 #, no-c-format
 msgid ""
 "To configure your locale settings to use a language other than English, "
@@ -1627,7 +1641,7 @@ msgstr ""
 "απαραίτητο):"
 
 #. Tag: screen
-#: random-bits.xml:722
+#: random-bits.xml:728
 #, no-c-format
 msgid ""
 "# aptitude install console-setup\n"
@@ -1637,7 +1651,7 @@ msgstr ""
 "# dpkg-reconfigure keyboard-configuration "
 
 #. Tag: para
-#: random-bits.xml:724
+#: random-bits.xml:730
 #, no-c-format
 msgid ""
 "Note that the keyboard cannot be set while in the chroot, but will be "
@@ -1647,13 +1661,13 @@ msgstr ""
 "περιβάλλον chroot, αλλά θα ρυθμιστεί με την επόμενη επανεκκίνηση."
 
 #. Tag: title
-#: random-bits.xml:734
+#: random-bits.xml:740
 #, no-c-format
 msgid "Install a Kernel"
 msgstr "Εγκατάσταση ενός Πυρήνα"
 
 #. Tag: para
-#: random-bits.xml:735
+#: random-bits.xml:741
 #, no-c-format
 msgid ""
 "If you intend to boot this system, you probably want a &arch-kernel; kernel "
@@ -1664,13 +1678,13 @@ msgstr ""
 "πυρήνες με την εντολή:"
 
 #. Tag: screen
-#: random-bits.xml:740
+#: random-bits.xml:746
 #, no-c-format
 msgid "# apt-cache search &kernelpackage;"
 msgstr "# apt-cache search &kernelpackage; "
 
 #. Tag: para
-#: random-bits.xml:742
+#: random-bits.xml:748
 #, no-c-format
 msgid "Then install the kernel package of your choice using its package name."
 msgstr ""
@@ -1678,23 +1692,19 @@ msgstr ""
 "χρησιμοποιώντας το κατάλληλο όνομα."
 
 #. Tag: screen
-#: random-bits.xml:746
+#: random-bits.xml:752
 #, no-c-format
-msgid ""
-"# aptitude install &kernelpackage;-<replaceable>arch-etc</"
-"replaceable>"
-msgstr ""
-"# aptitude install &kernelpackage;-<replaceable>arch-etc</"
-"replaceable>"
+msgid "# aptitude install &kernelpackage;-<replaceable>arch-etc</replaceable>"
+msgstr "# aptitude install &kernelpackage;-<replaceable>arch-etc</replaceable>"
 
 #. Tag: title
-#: random-bits.xml:752
+#: random-bits.xml:758
 #, no-c-format
 msgid "Set up the Boot Loader"
 msgstr "Ρύθμιση του Φορτωτή Εκκίνησης (Boot Loader)"
 
 #. Tag: para
-#: random-bits.xml:753
+#: random-bits.xml:759
 #, no-c-format
 msgid ""
 "To make your &debian-gnu; system bootable, set up your boot loader to load "
@@ -1710,7 +1720,7 @@ msgstr ""
 "σύστημα &debian; για να κάνετε κάτι τέτοιο."
 
 #. Tag: para
-#: random-bits.xml:760
+#: random-bits.xml:766
 #, no-c-format
 msgid ""
 "Check <userinput>info grub</userinput> <phrase arch=\"x86\">or "
@@ -1736,7 +1746,7 @@ msgstr ""
 "σύστημα μέσα από το οποίο την εκτελείτε)</phrase>."
 
 #. Tag: para
-#: random-bits.xml:772
+#: random-bits.xml:778
 #, no-c-format
 msgid ""
 "Installing and setting up <classname>grub2</classname> is as easy as: "
@@ -1760,7 +1770,7 @@ msgstr ""
 "λειτουργικό αρχείο <filename>/boot/grub/menu.lst</filename>."
 
 #. Tag: para
-#: random-bits.xml:782
+#: random-bits.xml:788
 #, no-c-format
 msgid ""
 "Note that this assumes that a <filename>/dev/hda</filename> device file has "
@@ -1773,13 +1783,13 @@ msgstr ""
 "παραρτήματος."
 
 #. Tag: para
-#: random-bits.xml:788
+#: random-bits.xml:794
 #, no-c-format
 msgid "Here is a basic <filename>/etc/lilo.conf</filename> as an example:"
 msgstr "Εδώ είναι ένα <filename>/etc/lilo.conf</filename> σαν παράδειγμα:"
 
 #. Tag: screen
-#: random-bits.xml:792
+#: random-bits.xml:798
 #, no-c-format
 msgid ""
 "boot=/dev/<replaceable>hda6</replaceable>\n"
@@ -1801,7 +1811,7 @@ msgstr ""
 "label=Debian"
 
 #. Tag: para
-#: random-bits.xml:794
+#: random-bits.xml:800
 #, no-c-format
 msgid ""
 "Check <userinput>man yaboot.conf</userinput> for instructions on setting up "
@@ -1821,7 +1831,7 @@ msgstr ""
 "σύστημα μέσα από το οποίο το τρέχετε)."
 
 #. Tag: para
-#: random-bits.xml:804
+#: random-bits.xml:810
 #, no-c-format
 msgid ""
 "Here is a basic <filename>/etc/yaboot.conf</filename> as an example: "
@@ -1852,7 +1862,7 @@ msgstr ""
 "userinput>."
 
 #. Tag: title
-#: random-bits.xml:817
+#: random-bits.xml:823
 #, no-c-format
 msgid "Remote access: Installing SSH and setting a password"
 msgstr ""
@@ -1860,7 +1870,7 @@ msgstr ""
 "πρόσβασης"
 
 #. Tag: para
-#: random-bits.xml:818
+#: random-bits.xml:824
 #, no-c-format
 msgid ""
 "In case you can login to the system via console, you can skip this section. "
@@ -1873,7 +1883,7 @@ msgstr ""
 "να ορίσετε έναν κωδικό πρόσβασης για τον χρήστη root:"
 
 #. Tag: screen
-#: random-bits.xml:824
+#: random-bits.xml:830
 #, no-c-format
 msgid ""
 "# aptitude install ssh\n"
@@ -1883,13 +1893,13 @@ msgstr ""
 "# passwd"
 
 #. Tag: title
-#: random-bits.xml:829
+#: random-bits.xml:835
 #, no-c-format
 msgid "Finishing touches"
 msgstr "Τελευταίες πινελιές"
 
 #. Tag: para
-#: random-bits.xml:830
+#: random-bits.xml:836
 #, no-c-format
 msgid ""
 "As mentioned earlier, the installed system will be very basic. If you would "
@@ -1909,7 +1919,7 @@ msgstr ""
 "<command>aptitude</command> για να εγκαταστήσετε μεμονωμένα πακέτα."
 
 #. Tag: para
-#: random-bits.xml:841
+#: random-bits.xml:847
 #, no-c-format
 msgid ""
 "After the installation there will be a lot of downloaded packages in "
@@ -1921,19 +1931,19 @@ msgstr ""
 "ελευθερώσετε λίγο χώρο στον δίσκο τρέχοντας την εντολή:"
 
 #. Tag: screen
-#: random-bits.xml:847
+#: random-bits.xml:853
 #, no-c-format
 msgid "# aptitude clean"
 msgstr "# aptitude clean "
 
 #. Tag: title
-#: random-bits.xml:858
+#: random-bits.xml:864
 #, no-c-format
 msgid "Installing &debian-gnu; over Parallel Line IP (PLIP)"
 msgstr "Εγκαθιστώντας το &debian-gnu; πάνω από Parallel Line IP (PLIP)"
 
 #. Tag: para
-#: random-bits.xml:860
+#: random-bits.xml:866
 #, no-c-format
 msgid ""
 "This section explains how to install &debian-gnu; on a computer without an "
@@ -1950,7 +1960,7 @@ msgstr ""
 "στο Διαδίκτυο)."
 
 #. Tag: para
-#: random-bits.xml:868
+#: random-bits.xml:874
 #, no-c-format
 msgid ""
 "In the example in this appendix we will set up a PLIP connection using a "
@@ -1967,7 +1977,7 @@ msgstr ""
 "χώρο διευθύνσεων του δικτύου σας)."
 
 #. Tag: para
-#: random-bits.xml:876
+#: random-bits.xml:882
 #, no-c-format
 msgid ""
 "The PLIP connection set up during the installation will also be available "
@@ -1979,7 +1989,7 @@ msgstr ""
 "\"boot-new\"/>)."
 
 #. Tag: para
-#: random-bits.xml:881
+#: random-bits.xml:887
 #, no-c-format
 msgid ""
 "Before you start, you will need to check the BIOS configuration (IO base "
@@ -1993,13 +2003,13 @@ msgstr ""
 "<literal>io=0x378</literal>, <literal>irq=7</literal>."
 
 #. Tag: title
-#: random-bits.xml:891
+#: random-bits.xml:897
 #, no-c-format
 msgid "Requirements"
 msgstr "Απαιτήσεις"
 
 #. Tag: para
-#: random-bits.xml:894
+#: random-bits.xml:900
 #, no-c-format
 msgid ""
 "A target computer, called <emphasis>target</emphasis>, where &debian; will "
@@ -2009,13 +2019,13 @@ msgstr ""
 "οποίον θα εγκατασταθεί το &debian;."
 
 #. Tag: para
-#: random-bits.xml:900
+#: random-bits.xml:906
 #, no-c-format
 msgid "System installation media; see <xref linkend=\"installation-media\"/>."
 msgstr "Μέσα εγκατάστασης; δείτε <xref linkend=\"installation-media\"/>."
 
 #. Tag: para
-#: random-bits.xml:905
+#: random-bits.xml:911
 #, no-c-format
 msgid ""
 "Another computer connected to the Internet, called <emphasis>source</"
@@ -2025,7 +2035,7 @@ msgstr ""
 "<emphasis>αφετηρία</emphasis>, που θα λειτουργήσει σαν πύλη."
 
 #. Tag: para
-#: random-bits.xml:911
+#: random-bits.xml:917
 #, no-c-format
 msgid ""
 "A DB-25 Null-Modem cable. See the <ulink url=\"&url-plip-install-howto;"
@@ -2037,13 +2047,13 @@ msgstr ""
 "το καλώδιο και οδηγίες για το πώς να το φτιάξετε οι ίδιοι."
 
 #. Tag: title
-#: random-bits.xml:923
+#: random-bits.xml:929
 #, no-c-format
 msgid "Setting up source"
 msgstr "Ρύθμιση της αφετηρίας"
 
 #. Tag: para
-#: random-bits.xml:924
+#: random-bits.xml:930
 #, no-c-format
 msgid ""
 "The following shell script is a simple example of how to configure the "
@@ -2053,7 +2063,7 @@ msgstr ""
 "αφετηρίας σαν πύλη στο Διαδίκτυο χρησιμοποιώντας ppp0."
 
 #. Tag: screen
-#: random-bits.xml:929
+#: random-bits.xml:935
 #, no-c-format
 msgid ""
 "#!/bin/sh\n"
@@ -2095,13 +2105,13 @@ msgstr ""
 "echo 1 > /proc/sys/net/ipv4/ip_forward"
 
 #. Tag: title
-#: random-bits.xml:935
+#: random-bits.xml:941
 #, no-c-format
 msgid "Installing target"
 msgstr "Εγκατάσταση στο σύστημα προορισμού"
 
 #. Tag: para
-#: random-bits.xml:936
+#: random-bits.xml:942
 #, no-c-format
 msgid ""
 "Boot the installation media. The installation needs to be run in expert "
@@ -2128,13 +2138,13 @@ msgstr ""
 "κατά τα διάφορα στάδια της εγκατάστασης."
 
 #. Tag: guimenuitem
-#: random-bits.xml:955
+#: random-bits.xml:961
 #, no-c-format
 msgid "Load installer components from CD"
 msgstr "Φόρτωση συνιστωσών του εγκαταστάτη από το CD"
 
 #. Tag: para
-#: random-bits.xml:957
+#: random-bits.xml:963
 #, no-c-format
 msgid ""
 "Select the <userinput>plip-modules</userinput> option from the list; this "
@@ -2144,13 +2154,13 @@ msgstr ""
 "καταστήσει διαθέσιμους τους οδηγούς PLIP στο σύστημα εγκατάστασης."
 
 #. Tag: guimenuitem
-#: random-bits.xml:965
+#: random-bits.xml:971
 #, no-c-format
 msgid "Detect network hardware"
 msgstr "Ανίχνευση υλικού δικτύου"
 
 #. Tag: para
-#: random-bits.xml:970
+#: random-bits.xml:976
 #, no-c-format
 msgid ""
 "If target <emphasis>does</emphasis> have a network card, a list of driver "
@@ -2166,7 +2176,7 @@ msgstr ""
 "δικτύου, ο εγκαταστάτης δεν θα εμφανίσει αυτή τη λίστα."
 
 #. Tag: para
-#: random-bits.xml:979
+#: random-bits.xml:985
 #, no-c-format
 msgid ""
 "Because no network card was detected/selected earlier, the installer will "
@@ -2178,19 +2188,19 @@ msgstr ""
 "λίστα. Επιλέξτε τον οδηγό του αρθρώματος <userinput>plip</userinput>."
 
 #. Tag: guimenuitem
-#: random-bits.xml:991
+#: random-bits.xml:997
 #, no-c-format
 msgid "Configure the network"
 msgstr "Ρύθμιση του Δικτύου "
 
 #. Tag: para
-#: random-bits.xml:994
+#: random-bits.xml:1000
 #, no-c-format
 msgid "Auto-configure network with DHCP: No"
 msgstr "Αυτόματη ρύθμιση του δικτύου με DHCP: Όχι"
 
 #. Tag: para
-#: random-bits.xml:999
+#: random-bits.xml:1005
 #, no-c-format
 msgid ""
 "IP address: <userinput><replaceable>192.168.0.1</replaceable></userinput>"
@@ -2198,7 +2208,7 @@ msgstr ""
 "Διεύθυνση IP: <userinput><replaceable>192.168.0.1</replaceable></userinput>"
 
 #. Tag: para
-#: random-bits.xml:1004
+#: random-bits.xml:1010
 #, no-c-format
 msgid ""
 "Point-to-point address: <userinput><replaceable>192.168.0.2</replaceable></"
@@ -2208,7 +2218,7 @@ msgstr ""
 "userinput>"
 
 #. Tag: para
-#: random-bits.xml:1010
+#: random-bits.xml:1016
 #, no-c-format
 msgid ""
 "Name server addresses: you can enter the same addresses used on source (see "
@@ -2219,14 +2229,14 @@ msgstr ""
 "<filename>/etc/resolv.conf</filename>). "
 
 #. Tag: title
-#: random-bits.xml:1029
+#: random-bits.xml:1035
 #, no-c-format
 msgid "Installing &debian-gnu; using PPP over Ethernet (PPPoE)"
 msgstr ""
 "Εγκαθιστώντας το &debian-gnu; χρησιμοποιώντας PPP over Ethernet (PPPoE)"
 
 #. Tag: para
-#: random-bits.xml:1031
+#: random-bits.xml:1037
 #, no-c-format
 msgid ""
 "In some countries PPP over Ethernet (PPPoE) is a common protocol for "
@@ -2242,7 +2252,7 @@ msgstr ""
 "πετύχετε πολύ απλά. Η ενότητα αυτή εξηγεί το πώς."
 
 #. Tag: para
-#: random-bits.xml:1039
+#: random-bits.xml:1045
 #, no-c-format
 msgid ""
 "The PPPoE connection set up during the installation will also be available "
@@ -2254,7 +2264,7 @@ msgstr ""
 "(δείτε το <xref linkend=\"boot-new\"/>)."
 
 #. Tag: para
-#: random-bits.xml:1044
+#: random-bits.xml:1050
 #, no-c-format
 msgid ""
 "To have the option of setting up and using PPPoE during the installation, "
@@ -2269,7 +2279,7 @@ msgstr ""
 "\"> ή δισκέττες</phrase>)."
 
 #. Tag: para
-#: random-bits.xml:1051
+#: random-bits.xml:1057
 #, no-c-format
 msgid ""
 "Installing over PPPoE is mostly the same as any other installation. The "
@@ -2279,7 +2289,7 @@ msgstr ""
 "εγκατάσταση. Τα επόμενα βήματα εξηγούν τις διαφορές."
 
 #. Tag: para
-#: random-bits.xml:1059
+#: random-bits.xml:1065
 #, no-c-format
 msgid ""
 "Boot the installer with the boot parameter <userinput>modules=ppp-udeb</"
@@ -2296,7 +2306,7 @@ msgstr ""
 "φορτωθεί και θα εκτελεστεί αυτόματα."
 
 #. Tag: para
-#: random-bits.xml:1074
+#: random-bits.xml:1080
 #, no-c-format
 msgid ""
 "Follow the regular initial steps of the installation (language, country and "
@@ -2317,7 +2327,7 @@ msgstr ""
 "στο προτρεπτικό εκκίνησης. </para> </footnote>)."
 
 #. Tag: para
-#: random-bits.xml:1093
+#: random-bits.xml:1099
 #, no-c-format
 msgid ""
 "The next step is the detection of network hardware, in order to identify any "
@@ -2327,7 +2337,7 @@ msgstr ""
 "αναγνωριστούν οποιεσδήποτε κάρτες Ethernet υπάρχουν στο σύστημα."
 
 #. Tag: para
-#: random-bits.xml:1099
+#: random-bits.xml:1105
 #, no-c-format
 msgid ""
 "After this the actual setup of PPPoE is started. The installer will probe "
@@ -2340,7 +2350,7 @@ msgstr ""
 "συνδέσεις PPPoE)."
 
 #. Tag: para
-#: random-bits.xml:1105
+#: random-bits.xml:1111
 #, no-c-format
 msgid ""
 "It is possible that the concentrator will not to be found at the first "
@@ -2357,7 +2367,7 @@ msgstr ""
 "PPPoE</guimenuitem> από το κύριο μενού του εγκαταστάτη."
 
 #. Tag: para
-#: random-bits.xml:1114
+#: random-bits.xml:1120
 #, no-c-format
 msgid ""
 "After a concentrator is found, the user will be prompted to type the login "
@@ -2368,7 +2378,7 @@ msgstr ""
 "για την σύνδεση PPPoE)."
 
 #. Tag: para
-#: random-bits.xml:1120
+#: random-bits.xml:1126
 #, no-c-format
 msgid ""
 "At this point the installer will use the provided information to establish "
@@ -2390,13 +2400,13 @@ msgstr ""
 "μενού."
 
 #. Tag: title
-#: random-bits.xml:1140
+#: random-bits.xml:1146
 #, no-c-format
 msgid "The Graphical Installer"
 msgstr "Ο γραφικός εγκαταστάτης"
 
 #. Tag: para
-#: random-bits.xml:1141
+#: random-bits.xml:1147
 #, no-c-format
 msgid ""
 "The graphical version of the installer is only available for a limited "
@@ -2411,7 +2421,7 @@ msgstr ""
 "αλλά με ένα διαφορετικό frontend."
 
 #. Tag: para
-#: random-bits.xml:1149
+#: random-bits.xml:1155
 #, no-c-format
 msgid ""
 "Although the functionality is identical, the graphical installer still has a "
@@ -2430,7 +2440,7 @@ msgstr ""
 "μπορούν να εμφανιστούν σε μια και μόνο οθόνη."
 
 #. Tag: para
-#: random-bits.xml:1158
+#: random-bits.xml:1164
 #, no-c-format
 msgid ""
 "The graphical installer is available with all CD images and with the hd-"
@@ -2453,7 +2463,7 @@ msgstr ""
 "επιλογή <quote>Βοήθεια</quote> από το μενού εκκίνησης."
 
 #. Tag: para
-#: random-bits.xml:1169
+#: random-bits.xml:1175
 #, no-c-format
 msgid ""
 "There is also a graphical installer image that can be netbooted. And there "
@@ -2472,7 +2482,7 @@ msgstr ""
 "για δοκιμές."
 
 #. Tag: para
-#: random-bits.xml:1182
+#: random-bits.xml:1188
 #, no-c-format
 msgid ""
 "For &arch-title;, currently only an experimental <quote>mini</quote> ISO "
@@ -2492,7 +2502,7 @@ msgstr ""
 "συστήματα."
 
 #. Tag: para
-#: random-bits.xml:1196
+#: random-bits.xml:1202
 #, no-c-format
 msgid ""
 "Just as with the regular installer it is possible to add boot parameters "
@@ -2502,7 +2512,7 @@ msgstr ""
 "εισάγετε παραμέτρους εκκίνησης όταν ξεκινάτε τον γραφικό εγκαταστάτη."
 
 #. Tag: para
-#: random-bits.xml:1202
+#: random-bits.xml:1208
 #, no-c-format
 msgid ""
 "The graphical installer requires significantly more memory to run than the "
@@ -2516,7 +2526,7 @@ msgstr ""
 "quote>."
 
 #. Tag: para
-#: random-bits.xml:1209
+#: random-bits.xml:1215
 #, no-c-format
 msgid ""
 "If the amount of memory in your system is below &minimum-memory;, the "
@@ -2531,13 +2541,13 @@ msgstr ""
 "μνήμη."
 
 #. Tag: title
-#: random-bits.xml:1219
+#: random-bits.xml:1225
 #, no-c-format
 msgid "Using the graphical installer"
 msgstr "Χρησιμοποιώντας τον γραφικό εγκαταστάτη"
 
 #. Tag: para
-#: random-bits.xml:1220
+#: random-bits.xml:1226
 #, no-c-format
 msgid ""
 "As already mentioned, the graphical installer basically works the same as "
@@ -2550,7 +2560,7 @@ msgstr ""
 "<keycap>+</keycap> and <keycap>-</keycap>"
 
 #. Tag: para
-#: random-bits.xml:1226
+#: random-bits.xml:1232
 #, no-c-format
 msgid ""
 "If you prefer using the keyboard over the mouse, there are two things you "
@@ -2572,7 +2582,7 @@ msgstr ""
 "ενεργοποίηση του πλήκτρου για τη συνέχεια &BTN-CONT;."
 
 #. Tag: para
-#: random-bits.xml:1236
+#: random-bits.xml:1242
 #, no-c-format
 msgid ""
 "If a dialog offers additional help information, a <guibutton>Help</"
@@ -2585,7 +2595,7 @@ msgstr ""
 "πλήκτρο <keycap>F1</keycap>."
 
 #. Tag: para
-#: random-bits.xml:1242
+#: random-bits.xml:1248
 #, no-c-format
 msgid ""
 "To switch to another console, you will also need to use the <keycap>Ctrl</"
@@ -2647,16 +2657,14 @@ msgstr ""
 #~ msgid ""
 #~ "Then install the kernel package of your choice using its package name. "
 #~ "<informalexample><screen>\n"
-#~ "# aptitude install &kernelpackage;-<replaceable>arch-etc</"
-#~ "replaceable>\n"
+#~ "# aptitude install &kernelpackage;-<replaceable>arch-etc</replaceable>\n"
 #~ "</screen></informalexample> If you did not create a <filename>/etc/kernel-"
 #~ "img.conf</filename> before installing a pre-packaged kernel, you may be "
 #~ "asked some questions during its installation that refer to it."
 #~ msgstr ""
 #~ "Στη συνέχεια εγκαταστήστε το πακέτο πυρήνα της επιλογής σας "
 #~ "χρησιμοποιώντας το όνομα του πακέτου.<informalexample><screen>\n"
-#~ "# aptitude install &kernelpackage;-<replaceable>arch-etc</"
-#~ "replaceable>\n"
+#~ "# aptitude install &kernelpackage;-<replaceable>arch-etc</replaceable>\n"
 #~ "</screen></informalexample>. Αν δεν δημιουργήσατε ένα αρχείο <filename>/"
 #~ "etc/kernel-img.conf</filename> πριν την εγκατάσταση ενός ήδη "
 #~ "πακεταρισμένου πυρήνα, πιθανόν να σας γίνουν κάποιες ερωτήσεις σχετικά μ' "

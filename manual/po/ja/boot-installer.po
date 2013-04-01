@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2013-01-30 19:23+0000\n"
+"POT-Creation-Date: 2013-04-01 21:08+0000\n"
 "PO-Revision-Date: 2013-03-05 21:44+0900\n"
 "Last-Translator: KURASAWA Nozomu (nabetaro) <nabetaro@debian.or.jp>\n"
 "Language-Team: Japanese <debian-japanese@lists.debian.org>\n"
@@ -461,7 +461,6 @@ msgstr ""
 #. Tag: title
 #: boot-installer.xml:389
 #, no-c-format
-#| msgid "Booting from DOS"
 msgid "Booting from DOS using loadlin"
 msgstr "loadlin を用いた DOS からの起動"
 
@@ -518,9 +517,6 @@ msgstr ""
 #. Tag: title
 #: boot-installer.xml:423
 #, no-c-format
-#| msgid ""
-#| "Booting from Linux Using <command>LILO</command> or <command>GRUB</"
-#| "command>"
 msgid ""
 "Booting from Linux using <command>LILO</command> or <command>GRUB</command>"
 msgstr ""
@@ -2544,10 +2540,6 @@ msgstr "ソフトウェア音声合成"
 #. Tag: para
 #: boot-installer.xml:1923
 #, no-c-format
-#| msgid ""
-#| "Support for hardware speech synthesis devices is available only alongside "
-#| "support for graphical installer. You thus need to select a "
-#| "<quote>Graphical install</quote> entry in the boot menu."
 msgid ""
 "Support for software speech synthesis is available on all installer images "
 "which have the graphical installer, i.e. all netinst, CD and DVD images, and "
@@ -2566,12 +2558,6 @@ msgstr ""
 #. Tag: para
 #: boot-installer.xml:1932
 #, no-c-format
-#| msgid ""
-#| "Support for software speech synthesis can be activated by selecting it in "
-#| "the boot menu by typing <userinput>s</userinput> &enterkey;. The first "
-#| "question (language) is spoken in english, and the remainder of "
-#| "installation is spoken in the selected language (if available in "
-#| "<classname>espeak</classname>)."
 msgid ""
 "The first question (language) is spoken in english, and the remainder of "
 "installation is spoken in the selected language (if available in "
@@ -2612,10 +2598,6 @@ msgstr "ハードウェア音声合成"
 #. Tag: para
 #: boot-installer.xml:1958
 #, no-c-format
-#| msgid ""
-#| "Support for hardware speech synthesis devices is available only alongside "
-#| "support for graphical installer. You thus need to select a "
-#| "<quote>Graphical install</quote> entry in the boot menu."
 msgid ""
 "Support for hardware speech synthesis devices is available on all installer "
 "images which have the graphical installer, i.e. all netinst, CD and DVD "
@@ -3194,12 +3176,17 @@ msgstr "netcfg/disable_autoconfig"
 
 #. Tag: para
 #: boot-installer.xml:2314
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "By default, the &d-i; automatically probes for network configuration via "
+#| "DHCP. If the probe succeeds, you won't have a chance to review and change "
+#| "the obtained settings. You can get to the manual network setup only in "
+#| "case the DHCP probe fails."
 msgid ""
 "By default, the &d-i; automatically probes for network configuration via "
-"DHCP. If the probe succeeds, you won't have a chance to review and change "
-"the obtained settings. You can get to the manual network setup only in case "
-"the DHCP probe fails."
+"IPv6 autoconfiguration and DHCP. If the probe succeeds, you won't have a "
+"chance to review and change the obtained settings. You can get to the manual "
+"network setup only in case the automatic configuration fails."
 msgstr ""
 "デフォルトでは、&d-i; は DHCP によりネットワークの設定を自動検出します。 検出"
 "が成功すると、確認する機会がなく検出値を変更できないでしょう。DHCP の検出が失"
@@ -3207,16 +3194,23 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:2321
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "If you have a DHCP server on your local network, but want to avoid it "
+#| "because e.g. it gives wrong answers, you can use the parameter "
+#| "<userinput>netcfg/disable_autoconfig=true</userinput> to prevent "
+#| "configuring the network with DHCP and to enter the information manually."
 msgid ""
-"If you have a DHCP server on your local network, but want to avoid it "
-"because e.g. it gives wrong answers, you can use the parameter "
-"<userinput>netcfg/disable_autoconfig=true</userinput> to prevent configuring the "
-"network with DHCP and to enter the information manually."
+"If you have an IPv6 router or a DHCP server on your local network, but want "
+"to avoid them because e.g. they give wrong answers, you can use the "
+"parameter <userinput>netcfg/disable_autoconfig=true</userinput> to prevent "
+"any automatic configuration of the network (neither v4 nor v6) and to enter "
+"the information manually."
 msgstr ""
 "ローカルネットワークに DHCP サーバがあるのに、それを回避したい場合 (例: 誤っ"
 "た値を返す等)、DHCP でのネットワーク設定をせず手動で情報を入力するのに、"
-"<userinput>netcfg/disable_autoconfig=true</userinput> パラメータを使用できます。"
+"<userinput>netcfg/disable_autoconfig=true</userinput> パラメータを使用できま"
+"す。"
 
 #. Tag: term
 #: boot-installer.xml:2332
@@ -3575,10 +3569,13 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:2547
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "Set to <userinput>true</userinput> if you want to disable DHCP and "
+#| "instead force static network configuration."
 msgid ""
-"Set to <userinput>true</userinput> if you want to disable DHCP and instead "
-"force static network configuration."
+"Set to <userinput>true</userinput> if you want to disable IPv6 "
+"autoconfiguration and DHCP and instead force static network configuration."
 msgstr ""
 "DHCP を無効にし、静的ネットワーク設定を強制するには、<userinput>true</"
 "userinput> と設定します。"
