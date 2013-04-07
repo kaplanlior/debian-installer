@@ -154,7 +154,8 @@ log "Gathering the data..."
 > packages.log
 
 > stats/languages
-real_contents packages_list | sort | while read p_dir p_status; do
+#real_contents packages_list | sort | while read p_dir p_status; do
+for p_dir in `real_contents packages_list | sort `; do
 	package=$(basename $p_dir)
 
 	if [ "$p_status" = "-" ]; then
