@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 68161 -->
+<!-- original version: 68564 -->
 
  <sect1 id="boot-parms"><title>Zaváděcí parametry</title>
 <para arch="linux-any">
@@ -282,19 +282,20 @@ uživatele. Téma můžete nastavit zaváděcím parametrem
 <term>netcfg/disable_autoconfig</term>
 <listitem><para>
 
-Standardně se &d-i; snaží získat nastavení sítě přes DHCP. Je-li
-získáno nějaké nastavení, instalační systém se na nic nebude ptát
-a automaticky bude pokračovat v instalaci. K ručnímu nastavení sítě se
-dostanete pouze v případě, že dotaz na DHCP server selže.
+Standardně se &d-i; snaží získat nastavení sítě přes automatické
+nastavení sítě IPv6 a DHCP. Je-li získáno nějaké nastavení, instalační
+systém se na nic nebude ptát a automaticky bude pokračovat
+v instalaci. K ručnímu nastavení sítě se dostanete pouze v případě, že
+automatické nastavení selže.
 
 </para><para>
 
-Máte-li tedy na místní síti DHCP server, ale z nějakého důvodu jej
-nechcete použít (protože např. pro účely instalace vrací špatné
-hodnoty), můžete použít parametr
-<userinput>netcfg/disable_autoconfig=false</userinput>, kterým zabráníte
-automatickému nastavení sítě přes DHCP a rovnou budete požádáni
-o ruční nastavení síťových údajů.
+Máte-li tedy na místní síti DHCP server nebo IPv6 router, ale
+z nějakého důvodu jej nechcete použít (protože např. pro účely
+instalace vrací špatné hodnoty), můžete použít parametr
+<userinput>netcfg/disable_autoconfig=true</userinput>, kterým
+zabráníte automatickému nastavení sítě (ať už verze 4 nebo 6) a rovnou
+budete požádáni o ruční nastavení síťových údajů.
 
 </para></listitem>
 </varlistentry>
