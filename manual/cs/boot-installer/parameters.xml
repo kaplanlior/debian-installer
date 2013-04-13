@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 68564 -->
+<!-- original version: 68582 -->
 
  <sect1 id="boot-parms"><title>Zaváděcí parametry</title>
 <para arch="linux-any">
@@ -28,7 +28,11 @@ BootPrompt HOWTO</ulink>.
 Následující text obsahuje popis jen stěžejních parametrů. Vybrané
 problémy popisuje <xref linkend="boot-troubleshooting"/>.
 
-</para><para arch="linux-any" condition="supports-serial-console">
+</para>
+
+  <sect2 id="boot-console" arch="linux-any" condition="supports-serial-console">
+  <title>Zavěděcí konzole</title>
+<para>
 
 Jádro by
 mělo být schopno rozpoznat, že zavádíte systém ze sériové konzoly.
@@ -36,7 +40,16 @@ Pokud máte v zaváděném počítači rovněž grafickou kartu (framebuffer)
 a připojenou klávesnici, měli byste při zavádění zadat parametr
 <userinput>console=<replaceable>zařízení</replaceable></userinput>,
 kde <replaceable>zařízení</replaceable> je vaše sériové zařízení, což
-je obvykle něco jako <filename>ttyS0</filename><footnote><para>
+je obvykle něco jako <filename>ttyS0</filename>.
+
+</para><para>
+
+Někdy je potřeba zadat konkrétní parametry sériového portu, jako je
+jeho rychlost a parita, např.
+<userinput>console=ttyS0,9600n8</userinput>. Další obvyklé rychlosti
+bývají 57600 a 115200.
+
+</para><para>
 
 Abyste zajistili, že instalace používá typ terminálu kompatibilní
 s vaším emulátorem terminálu, můžete přidat parametr
@@ -53,8 +66,6 @@ nenabízí konverzi do daných typů terminálu, můžete jej spustit uvnitř
 terminálu <literal>screen</literal>, který je velmi podobný typu
 <literal>vt102</literal>.
 
-</para></footnote>.
-
 </para><para arch="sparc">
 
 Pro &arch-title; jsou sériová zařízení <filename>ttya</filename> nebo
@@ -63,6 +74,7 @@ OpenPROM <envar>input-device</envar> a <envar>output-device</envar> na
 hodnotu <filename>ttya</filename>.
 
 </para>
+  </sect2>
 
   <sect2 id="installer-args"><title>Parametry instalačního programu</title>
 <para>
