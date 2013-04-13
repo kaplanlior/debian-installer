@@ -1,4 +1,4 @@
-<!-- original version: 68564 -->
+<!-- original version: 68582 -->
 
  <sect1 id="boot-parms"><title>Paramètres d'amorçage</title>
 <para arch="linux-any">
@@ -26,7 +26,10 @@ plus utilisés. Certains <emphasis>trucs</emphasis> sont donnés dans la
 
 </para>
 
-<para arch="linux-any" condition="supports-serial-console">
+<sect2 id="boot-console" arch="linux-any" condition="supports-serial-console">
+  <title>Console d'amorçage</title>
+
+<para>
 
 Si vous démarrez avec la console série, le noyau la détecte automatiquement. 
 Si une carte vidéo («&nbsp;framebuffer&nbsp;») et un clavier sont également 
@@ -35,7 +38,15 @@ série, vous devrez peut-être passer l'option
 <userinput>console=<replaceable>device</replaceable></userinput> au noyau, où
 <replaceable>device</replaceable> est votre interface série, c'est-à-dire 
 quelque chose comme <filename>ttyS0</filename>.
-<footnote>
+
+</para>
+<para>
+
+Vous pouvez avoir besoin de spécifier certains paramètres du port série, par exemple
+la vitesse ou la parité, <userinput>console=ttyS0,9600n8</userinput> ; la valeur pour la vitesse
+peut être aussi 57600 ou 115200.
+
+</para>
 <para>
 
 Il est possible d'ajouter le paramètre <userinput>TERM=<replaceable>type</replaceable></userinput>
@@ -51,16 +62,17 @@ dans une session <command>screen</command>. Cela effectuera une conversion vers 
 
 </para>
 
-</footnote>
-  </para>
 
 <para arch="sparc">
+
 Pour &arch-title;, les interfaces série sont <filename>ttya</filename> ou
 <filename>ttyb</filename>. Alternativement, mettez les
-      variables OpenPROM <envar>input-device</envar> et
+variables OpenPROM <envar>input-device</envar> et
 <envar>output-device</envar> à <filename>ttya</filename>.
+
 </para>
 
+</sect2>
 
   <sect2 id="installer-args"><title>Paramètres pour l'installateur &debian;</title>
 <para>

@@ -1,4 +1,4 @@
-<!-- original version: 68550 -->
+<!-- original version: 68581 -->
 
 <!--
 Be carefull with the format of this file as it is parsed to generate
@@ -384,7 +384,14 @@ dans les paramètres d'amorçage, même encadrés par des guillemets.
 
 En combinant certaines fonctionnalités de l'installateur &debian;, il est
 possible d'écrire des lignes de commandes très simples qui automatiseront
-toutes vos installations, aussi complexes soient-elles. Voici quelques exemples
+toutes vos installations, aussi complexes soient-elles. <footnote>
+<para>
+Dans cette section, la partie « auto » des exemples est une <emphasis>étiquette d'amorçage </emphasis>
+de syslinux qui ajoute les paramètres du noyau <literal>auto=true priority=critical</literal>
+à la commande <literal>append</literal> pour l'étiquette d'amorçage.
+</para>
+</footnote>
+Voici quelques exemples
 à utiliser à l'invite d'amorçage&nbsp;:
 
 <informalexample><screen>
@@ -395,7 +402,7 @@ On suppose qu'un serveur DHCP permettra que <literal>autoserver</literal> puisse
 être résolu par un serveur DNS, en ajoutant peut-être un domaine local s'il est donné par le
 serveur DHCP.
 Si le site, dont le domaine est <literal>example.com</literal>, possède un serveur
-DHCP correctement configuré, alors le fichier de préconfiguration recherché serait
+DHCP correctement configuré, alors le fichier de préconfiguration recherché sera
 trouvé à l'URL <literal>http://autoserver.example.com/d-i/&releasename;/./preseed.cfg</literal>.
 </para>
 <para>
@@ -468,10 +475,10 @@ d'espace de noms et, qui sait ? que nous ajoutions un alias pour vos paramètres
 
 <para>
 
-Le paramètre <literal>auto</literal> n'est pas encore défini partout.
+Le paramètre <literal>auto</literal> n'est pas encore défini pour toutes les architectures.
 Mais il suffit d'ajouter les deux paramètres
 <literal>auto=true priority=critical</literal> sur la ligne de commande du
-noyau. Le paramètre <literal>auto</literal> est un alias pour
+noyau. Le paramètre du noyau <literal>auto</literal> est un alias pour
 <literal>auto-install/enable</literal>. Quand il vaut <literal>true</literal>, son effet est de retarder 
 les questions sur la locale et le clavier pour qu'elles puissent être préconfigurées.
 Le paramètre <literal>priority</literal> est un alias pour <literal>debconf/priority</literal>.
