@@ -397,15 +397,20 @@ parameters, even if you delimit them with quotes.
 
 There are several features of &debian; Installer that combine to allow
 fairly simple command lines at the boot prompt to result in
-arbitrarily complex customized automatic installs. <footnote>
-<para>
-Note that in this section the 'auto' part of the examples is a
-syslinux <emphasis>boot label</emphasis>
-which adds the kernel parameters <literal>auto=true priority=critical</literal>
-to the <literal>append</literal> command for the boot label.
-</para>
-</footnote> To illustrate
-this, here are some examples that can be used at the boot prompt:
+arbitrarily complex customized automatic installs.
+
+</para><para>
+
+This is enabled by using the <literal>Automated install</literal> boot choice,
+also called <literal>auto</literal> for some architectures or boot methods. In
+this section, <literal>auto</literal> is thus not a parameter, it means
+selecting that boot choice, and appending the following boot parameters on
+the boot prompt. <phrase arch="x86">See <xref linkend="boot-screen"/> for
+information on how to add a boot parameter.</phrase>
+
+</para><para>
+
+To illustrate this, here are some examples that can be used at the boot prompt:
 
 <informalexample><screen>
 auto url=autoserver
@@ -495,7 +500,7 @@ for you.
 
 </para><para>
 
-The <literal>auto</literal> boot label is not yet defined on all arches.
+The <literal>auto</literal> boot choice is not yet defined on all arches.
 The same effect may be achieved by simply adding the two
 parameters <literal>auto=true priority=critical</literal> to the kernel
 command line.  The <literal>auto</literal> kernel parameter is an alias for
