@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 68564 -->
+<!-- original version: 68582 -->
 
  <sect1 id="boot-parms"><title>Boot-Parameter</title>
 <para arch="linux-any">
@@ -29,7 +29,10 @@ Einige häufig vorkommenden Problemfälle sind in
 
 </para>
 
-<para arch="linux-any" condition="supports-serial-console">
+  <sect2 id="boot-console" arch="linux-any" condition="supports-serial-console">
+  <title>Boot-Konsole</title>
+
+<para>
 
 Wenn Sie mit einer seriellen Konsole booten, wird der Kernel dies
 normalerweise automatisch erkennen.
@@ -40,9 +43,15 @@ Sie dem Kernel das Boot-Argument
 mitgeben, wobei <replaceable>device</replaceable> Ihrer seriellen
 Schnittstelle entspricht, also normalerweise etwas wie
 <filename>ttyS0</filename>.
-<footnote>
 
-<para>
+</para><para>
+
+Sie müssen unter Umständen Parameter für den seriellen Port wie Geschwindigkeit
+und Parität angeben, z.B. <userinput>console=ttyS0,9600n8</userinput>; andere
+typische Werte für die Geschwindigkeit sind 57600 oder 115200.
+
+</para><para>
+
 Um sicherzustellen, dass der vom Installer verwendete Terminal-Typ zu Ihrem
 Terminal-Emulator passt, kann der Boot-Parameter
 <userinput>TERM=<replaceable>type</replaceable></userinput> angegeben
@@ -60,9 +69,7 @@ durchgeführt, welcher <literal>vt102</literal> sehr ähnlich ist.
 
 </para>
 
-</footnote>
-
-</para><para arch="sparc">
+<para arch="sparc">
 
 Auf &arch-title;-Systemen heißen die seriellen Schnittstellen
 <filename>ttya</filename> oder <filename>ttyb</filename>.
@@ -72,6 +79,7 @@ Alternativ können Sie die <envar>input-device</envar>- und
 
 </para>
 
+  </sect2>
 
   <sect2 id="installer-args"><title>&debian;-Installer-Parameter</title>
 <para>
