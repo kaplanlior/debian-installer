@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 68550 -->
+<!-- original version: 68600 -->
 
 <!--
 Be careful with the format of this file as it is parsed to generate
@@ -686,15 +686,41 @@ parametro d'avvio, persino se si delimitano con delle virgolette.
 <!--
 There are several features of &debian; Installer that combine to allow
 fairly simple command lines at the boot prompt to result in
-arbitrarily complex customized automatic installs.  To illustrate
-this, here are some examples that can be used at the boot prompt:
+arbitrarily complex customized automatic installs.
 -->
 
 Ci sono alcune funzionalità di &debian; Installer che combinate insieme
 permettono di ottenere installazioni automatiche e personalizzate (anche
 molto complesse) semplicemente passando delle righe di comando al prompt
-boot. Per illustrare queste funzionalità sono riportati alcuni esempi su
-come possono essere usate dal prompt boot:
+boot.
+
+</para><para>
+
+<!--
+This is enabled by using the <literal>Automated install</literal> boot choice,
+also called <literal>auto</literal> for some architectures or boot methods. In
+this section, <literal>auto</literal> is thus not a parameter, it means
+selecting that boot choice, and appending the following boot parameters on
+the boot prompt. <phrase arch="x86">See <xref linkend="boot-screen"/> for
+information on how to add a boot parameter.</phrase>
+-->
+
+Per attivare queste funzionalità si deve scegliere <literal>Automated
+install</literal> dal menu di avvio, su alcune architetture e in alcuni
+metodi di avvio è chiamato <literal>auto</literal>. Quindi, in questa
+sezione, <literal>auto</literal> non è un parametro ma si riferisce alla
+voce nel menu di avvio che poi deve essere seguita dai parametri di
+avvio. <phrase arch="x86">Consultare in <xref linkend="boot-screen"/>
+le informazioni su come aggiungere i parametri di avvio.</phrase>
+
+</para><para>
+
+<!--
+To illustrate this, here are some examples that can be used at the boot prompt:
+-->
+
+Per illustrare queste funzionalità sono riportati alcuni esempi su come
+possono essere usate dal prompt boot:
 
 <informalexample><screen>
 auto url=autoserver
@@ -871,10 +897,10 @@ i nuovi parametri.
 </para><para>
 
 <!--
-The <literal>auto</literal> boot label is not yet defined everywhere.
+The <literal>auto</literal> boot choice is not yet defined on all arches.
 The same effect may be achieved by simply adding the two
 parameters <literal>auto=true priority=critical</literal> to the kernel
-command line.  The <literal>auto</literal> parameter is an alias for
+command line.  The <literal>auto</literal> kernel parameter is an alias for
 <literal>auto-install/enable</literal> and setting it to
 <literal>true</literal> delays the
 locale and keyboard questions until after there has been a chance to
@@ -884,15 +910,16 @@ preseed them, while <literal>priority</literal> is an alias for
 from being asked.
 -->
 
-L'etichetta d'avvio <literal>auto</literal> non è ancora definita
-ovunque. Lo stesso effetto si può ottenere semplicemente aggiungendo
-i parametri <literal>auto=true priority=critical</literal> nella riga di
-comando per il kernel. Il parametro <literal>auto</literal> è un alias di
-<literal>auto-install/enable</literal> e se impostato a
-<literal>true</literal> ritarda le
-domande su localizzazione e tastiera fino a quando non è data la possibilità
-di preconfigurarle, mentre l'impostazione <literal>priority</literal>
-è un alias di <literal>debconf/priority</literal> e impostarla a
+La possibilità di scegliere all'avvio <literal>auto</literal> non è
+ancora disponibile su tutte le architetture. È possibile ottenere lo
+stesso effetto semplicemente aggiungendo i parametri
+<literal>auto=true priority=critical</literal> nella riga di comando
+per il kernel. Il parametro del kernel <literal>auto</literal> è un
+alias di <literal>auto-install/enable</literal> e se impostato a
+<literal>true</literal> ritarda le domande su localizzazione e tastiera
+fino a quando non è data la possibilità di preconfigurarle, mentre
+l'impostazione <literal>priority</literal> è un alias di
+<literal>debconf/priority</literal> e impostarla a
 <literal>critical</literal> blocca la richiesta di qualsiasi domanda
 con priorità inferiore.
 

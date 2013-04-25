@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 68161 -->
+<!-- original version: 68591 -->
 
  <sect1 id="boot-parms">
  <!-- <title>Boot Parameters </title> -->
@@ -50,7 +50,12 @@ più misterioso. Questa sezione del manuale contiene solo un riassunto
 delle parti più salienti, alcuni <quote>trucchi</quote> sono stati
 inseriti in <xref linkend="boot-troubleshooting"/>.
 
-</para><para arch="linux-any" condition="supports-serial-console">
+</para>
+
+  <sect2 id="boot-console" arch="linux-any" condition="supports-serial-console">
+  <!-- <title>Boot console</title> -->
+  <title>Avvio da console</title>
+<para>
 
 <!--
 If you are booting with a serial console, generally the kernel will
@@ -70,9 +75,21 @@ riconosce questa tecnica. Se al computer su cui si vuole fare l'installazione
 sono collegati una scheda video e una tastiera potrebbe essere necessario
 passare <userinput>console=<replaceable>device</replaceable></userinput>
 al kernel, dove <replaceable>device</replaceable> è il device seriale
-usato, di solito qualcosa di simile a <filename>ttyS0</filename><footnote>
+usato, di solito qualcosa di simile a <filename>ttyS0</filename>
 
-<para>
+</para><para>
+
+<!--
+You may need to specify parameters for the serial port, such as speed and
+parity, for instance <userinput>console=ttyS0,9600n8</userinput>; other typical
+speeds may be 57600 or 115200.
+-->
+
+Potrebbe essere necessario specificare i parametri di configurazione della
+porta seriale, per esempio <userinput>console=ttyS0,9600n8</userinput>;
+altre comuni velocità sono 57600 e 115200.
+
+</para><para>
 
 <!--
 In order to ensure the terminal type used by the installer matches your
@@ -101,10 +118,6 @@ avviarli all'interno di una sessione <command>screen</command>. In questo
 modo ferrà effettuata una traduzione per il tipo di terminale
 <literal>screen</literal>, che è molto simile a <literal>vt102</literal>.
 
-</para>
-
-</footnote>.
-
 </para><para arch="sparc">
 
 <!--
@@ -121,7 +134,7 @@ Per &arch-title; i device seriali sono <filename>ttya</filename> o
 <filename>ttya</filename>.
 
 </para>
-
+  </sect2>
 
   <sect2 id="installer-args">
   <!-- <title>&debian; Installer Parameters</title> -->
@@ -509,29 +522,32 @@ sistema.
 
 <!--
 By default, the &d-i; automatically probes for network configuration
-via DHCP. If the probe succeeds, you won't have a chance to review and
+via IPv6 autoconfiguration and DHCP. If the probe succeeds, you won't have a chance to review and
 change the obtained settings. You can get to the manual network setup
-only in case the DHCP probe fails.
+only in case the automatic configuration fails.
 -->
 
-Normalmente il &d-i; tenta di configurare la rete via DHCP. Se il tentativo
-ha successo non si ha la possibilità di verificare ed eventualmente
-modificare le impostazioni, è possibile fare la configurazione manuale
-della rete solo se DHCP fallisce.
+Normalmente il &d-i; tenta di configurare la rete via l'autoconfigurazione
+di IPv6 e DHCP. Se il tentativo ha successo non si ha la possibilità di
+verificare ed eventualmente modificare le impostazioni, è possibile fare
+la configurazione manuale della rete solo se la configurazione automatica
+fallisce.
 
 </para><para>
 
 <!--
-If you have a DHCP server on your local network, but want to avoid it
-because e.g. it gives wrong answers, you can use the parameter
-<userinput>netcfg/disable_autoconfig=true</userinput> to prevent configuring
-the network with DHCP and to enter the information manually.
+If you have an IPv6 router or a DHCP server on your local network, but want to avoid them
+because e.g. they give wrong answers, you can use the parameter
+<userinput>netcfg/disable_autoconfig=true</userinput> to prevent any automatic
+configuration of the network (neither v4 nor v6) and to enter the information manually.
 -->
 
-Se nella propria rete locale è presente un server DHCP ma si vuole evitare
-di usarlo, per esempio perché fornisce risposte sbagliate, si può usare il
-parametro <userinput>netcfg/disable_autoconfig=true</userinput> per evitare la
-configurazione della rete con DHCP e inserire le informazioni manualmente.
+Se nella propria rete locale è presente un router IPv6 oppure un
+server DHCP ma si vuole evitare di usarli, per esempio perché
+forniscono risposte sbagliate, si può usare il parametro
+<userinput>netcfg/disable_autoconfig=true</userinput> per evitare
+qualsiasi tentativo di configurazione automatica della rete (v4 e
+nemmeno v6) e per inserire le informazioni manualmente.
 
 </para></listitem>
 </varlistentry>
@@ -894,12 +910,13 @@ alcuni dei moduli opzionali che possono risultare utili sono
 <listitem><para>
 
 <!--
-Set to <userinput>true</userinput> if you want to disable DHCP and instead
-force static network configuration.
+Set to <userinput>true</userinput> if you want to disable IPv6 autoconfiguration
+and DHCP and instead force static network configuration.
 -->
 
-Da impostare a <userinput>true</userinput> per disabilitare il DHCP e
-forzare la configurazione statica della rete.
+Da impostare a <userinput>true</userinput> per disabilitare
+l'autoconfigurazione di IPv6 e il DHCP e quindi forzare la
+configurazione statica della rete.
 
 </para></listitem>
 </varlistentry>
