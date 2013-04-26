@@ -39,6 +39,7 @@ my $new_linux_abi;
 my $old_linux_arch;
 my $new_linux_arch;
 my $ignore_logs;
+my $mirror;
 
 GetOptions(
     'workdir=s'        => \$workdir,
@@ -51,6 +52,7 @@ GetOptions(
     'report=s'         => \$report_filename,
     'changelogs=s'     => \$changelogs_filename,
     'ignore-logs=s'    => \$ignore_logs,
+    'mirror=s'         => \$mirror,
 );
 
 my ($old, $new) = @ARGV;
@@ -353,7 +355,8 @@ EOF
     # The 'current' symlink seems to point to the highest version
     # available, meaning experimental in a bunch of cases, so use the
     # 'max' version for each package:
-    my $response = $ua->get("http://packages.debian.org/changelogs/pool/main/$location/${source}_${version}/changelog");
+    my $url = "http://packages.debian.org/changelogs/pool/main/$location/${source}_${version}/changelog";
+    my $response = $ua->get($url);
     if ($response->is_success) {
       print STDERR "DEBUG: downloaded changelog: $source\n";
       open my $file, '>', $source_filename
@@ -362,13 +365,25 @@ EOF
       close $file
         or die "Unable to close $source_filename";
     }
+    elsif ($mirror) {
+      # FIXME: This is very ugly, but wheezy rc2 has been lagging
+      # behind for a while already, so let's tolerate that for now.
+      print STDERR "DEBUG: falling back to downloading source package to extract changelog\n";
+      my $dsc = "$mirror/pool/main/$location/${source}_${version}.dsc";
+      `dget -x $dsc`;
+      `cp $source-*/debian/changelog $source_filename`;
+      `rm -rf $source-*`;
+      if (! -f $source_filename) {
+        die "missing changelog after dget workaround: ${source}_${version} ($url -- $$dsc)";
+      }
+    }
     else {
       # FIXME: Would a fallback to the 'current' symlink help? One is
       # supposed to prepare the announce right after a build, so the
       # proper versions should be available, right?
       print STDERR "DEBUG: unable to download changelog: ${source}_${version}\n";
       print STDERR "DEBUG: try fetching the source package and copying its Debian changelog as $workdir/${source}_${version}\n";
-      die "missing changelog: ${source}_${version}";
+      die "missing changelog: ${source}_${version} ($url)";
     }
   }
 }
