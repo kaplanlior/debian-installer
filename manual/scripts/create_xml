@@ -10,6 +10,15 @@ fi
 
 language=${1:-pl}
 
+# Required tools
+for tool in msgconv po2xml ; do
+    if [ -z "`which $tool`" ] ; then
+        echo "ERROR: $tool is required, please install it."
+        exit 1
+    fi
+done
+
+
 BUILDDIR="./build"
 if [ -z "$PO_USEBUILD" ] ; then
     WORKDIR="./integrated"
