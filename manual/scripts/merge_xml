@@ -15,6 +15,14 @@ language=${1:-pl}
 SCRIPTDIR="./scripts"
 BUILDDIR="./build"
 
+# Required tools
+for tool in gawk egrep iconf ; do
+    if [ -z "`which $tool`" ] ; then
+        echo "ERROR: $tool is required, please install it."
+        exit 1
+    fi
+done
+
 LANGDIR="./$language"
 [ -d $LANGDIR ] || exit 1
 
