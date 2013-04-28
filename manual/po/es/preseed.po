@@ -34,7 +34,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2013-04-16 19:15+0000\n"
+"POT-Creation-Date: 2013-04-28 20:37+0000\n"
 "PO-Revision-Date: 2013-04-28 22:24+0200\n"
 "Last-Translator: Javier Fernández-Sanguino <jfs@debian.org>\n"
 "Language-Team: Debian l10n Spanish <debian-l10n-spanish@lists.debian.org>\n"
@@ -174,9 +174,8 @@ msgstr "CD/DVD"
 
 #. Tag: entry
 #: preseed.xml:77 preseed.xml:78 preseed.xml:79 preseed.xml:89 preseed.xml:91
-#: preseed.xml:94 preseed.xml:95 preseed.xml:96 preseed.xml:99 preseed.xml:100
-#: preseed.xml:101 preseed.xml:104 preseed.xml:106 preseed.xml:109
-#: preseed.xml:111
+#: preseed.xml:94 preseed.xml:95 preseed.xml:99 preseed.xml:100
+#: preseed.xml:104 preseed.xml:106 preseed.xml:109 preseed.xml:111
 #, no-c-format
 msgid "<entry>yes</entry>"
 msgstr "<entry>sí</entry>"
@@ -211,6 +210,12 @@ msgid ""
 msgstr ""
 "hd-media <phrase condition=\"bootable-usb\">(incluyendo memorias usb)</"
 "phrase>"
+
+#. Tag: entry
+#: preseed.xml:96 preseed.xml:101
+#, no-c-format
+msgid "yes<footnoteref linkend=\"apx-ps-net\"/>"
+msgstr "sí<footnoteref linkend=\"apx-ps-net\"/>"
 
 #. Tag: entry
 #: preseed.xml:98
@@ -654,7 +659,11 @@ msgid ""
 "There are several features of &debian; Installer that combine to allow "
 "fairly simple command lines at the boot prompt to result in arbitrarily "
 "complex customized automatic installs."
-msgstr "Hay algunas funciones del Instalador de &debian; que se combinan para permitir que algunas entradas de línea de órdenes en el indicador del arranque tengan como consecuencia una instalación automática adaptada y de arbitrariedad compleja."
+msgstr ""
+"Hay algunas funciones del Instalador de &debian; que se combinan para "
+"permitir que algunas entradas de línea de órdenes en el indicador del "
+"arranque tengan como consecuencia una instalación automática adaptada y de "
+"arbitrariedad compleja."
 
 #. Tag: para
 #: preseed.xml:388
@@ -666,7 +675,14 @@ msgid ""
 "it means selecting that boot choice, and appending the following boot "
 "parameters on the boot prompt. <phrase arch=\"x86\">See <xref linkend=\"boot-"
 "screen\"/> for information on how to add a boot parameter.</phrase>"
-msgstr "Esto se habilita utilizando la opción de arranque <literal>Instalación automatizada</literal>, también llamada <literal>auto</literal> en algunas arquitecturas o métodos de arranque. En esta sección, <literal>auto</literal> no es por tanto un parámetro, significa la selección de esta opción de arranque y añadiendo los parámetros de arranque indicados al indicador de arraque. <phrase arch=\"x86\">Consulte <xref linkend=\"boot-screen\"/> para más información sobre cómo añadir un parámetro en el arranque.</phrase>"
+msgstr ""
+"Esto se habilita utilizando la opción de arranque <literal>Instalación "
+"automatizada</literal>, también llamada <literal>auto</literal> en algunas "
+"arquitecturas o métodos de arranque. En esta sección, <literal>auto</"
+"literal> no es por tanto un parámetro, significa la selección de esta opción "
+"de arranque y añadiendo los parámetros de arranque indicados al indicador de "
+"arraque. <phrase arch=\"x86\">Consulte <xref linkend=\"boot-screen\"/> para "
+"más información sobre cómo añadir un parámetro en el arranque.</phrase>"
 
 #. Tag: para
 #: preseed.xml:397
@@ -683,9 +699,17 @@ msgid ""
 "in the preseed file being retrieved from <literal>http://autoserver.example."
 "com/d-i/&releasename;/./preseed.cfg</literal>."
 msgstr ""
-"Para mostrar esto aquí tiene algunos ejemplos que se pueden utilizar en el indicador del arranque: <informalexample><screen>\n"
+"Para mostrar esto aquí tiene algunos ejemplos que se pueden utilizar en el "
+"indicador del arranque: <informalexample><screen>\n"
 "auto url=autoserver\n"
-"</screen></informalexample> Este valor depende de la existencia de un servidor de DHCP que hará que la máquina llegue al punto donde <literal>autoserver</literal> puede resolverse por DNS, quizás después de añadir un dominio local entregado por el servidor de DHCP. Si esto se utilizase en un sitio donde el dominio fuera <literal>ejemplo.com</literal>, y tuviese una configuración de DHCP razonablemente correcta, haría que se descargase el fichero de preconfiguración de <literal>http://autoserver.example.com/d-i/&releasename;/./preseed.cfg</literal>."
+"</screen></informalexample> Este valor depende de la existencia de un "
+"servidor de DHCP que hará que la máquina llegue al punto donde "
+"<literal>autoserver</literal> puede resolverse por DNS, quizás después de "
+"añadir un dominio local entregado por el servidor de DHCP. Si esto se "
+"utilizase en un sitio donde el dominio fuera <literal>ejemplo.com</literal>, "
+"y tuviese una configuración de DHCP razonablemente correcta, haría que se "
+"descargase el fichero de preconfiguración de <literal>http://autoserver."
+"example.com/d-i/&releasename;/./preseed.cfg</literal>."
 
 #. Tag: para
 #: preseed.xml:411
@@ -837,7 +861,18 @@ msgid ""
 "preseed them, while <literal>priority</literal> is an alias for "
 "<literal>debconf/priority</literal> and setting it to <literal>critical</"
 "literal> stops any questions with a lower priority from being asked."
-msgstr "La etiqueta de arranque <literal>auto</literal> aún no se ha definido en todas las arquitecturas. Para obtener el mismo efecto basta con añadir dos parámetros a la línea de órdenes del núcleo: <literal>auto=true priority=critical</literal>. El parámetro <literal>auto</literal> es una abreviatura para <literal>auto-install/enable</literal> que estableciéndola como <literal>true</literal> controla el tiempo de espera de las preguntas de localización y teclado para que estas se realicen más adelante y se puedan preconfigurar. El parámetro <literal>priority</literal> es la abreviatura de <literal>debconf/priority</literal>, si se fija a <literal>critical</literal> no se hará ninguna pregunta con una prioridad inferior a ésta."
+msgstr ""
+"La etiqueta de arranque <literal>auto</literal> aún no se ha definido en "
+"todas las arquitecturas. Para obtener el mismo efecto basta con añadir dos "
+"parámetros a la línea de órdenes del núcleo: <literal>auto=true "
+"priority=critical</literal>. El parámetro <literal>auto</literal> es una "
+"abreviatura para <literal>auto-install/enable</literal> que estableciéndola "
+"como <literal>true</literal> controla el tiempo de espera de las preguntas "
+"de localización y teclado para que estas se realicen más adelante y se "
+"puedan preconfigurar. El parámetro <literal>priority</literal> es la "
+"abreviatura de <literal>debconf/priority</literal>, si se fija a "
+"<literal>critical</literal> no se hará ninguna pregunta con una prioridad "
+"inferior a ésta."
 
 #. Tag: para
 #: preseed.xml:495
@@ -3278,9 +3313,6 @@ msgstr ""
 "Esto significa que tiene dos oportunidades para ejecutar la orden «preseed/"
 "early», la segunda tendrá lugar justo después de que se habilite el acceso a "
 "la red."
-
-#~ msgid "yes<footnoteref linkend=\"apx-ps-net\"/>"
-#~ msgstr "sí<footnoteref linkend=\"apx-ps-net\"/>"
 
 #~ msgid "desktop"
 #~ msgstr "Entorno de escritorio («desktop»)"
