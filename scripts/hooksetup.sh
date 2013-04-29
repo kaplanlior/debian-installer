@@ -20,7 +20,7 @@ servers:
 # gregoa, KGB-2
  - uri: http://colleen.colgarra.priv.at:8080/
 # Tincho, KGB-1
- - uri: http://abhean.mine.nu:9418/
+ - uri: http://kgb.tincho.org:9418/
 web-link: http://git.debian.org/?p=d-i/\${module}.git;a=commitdiff;h=\${commit}
 short-url-service: Debli
 EOF
