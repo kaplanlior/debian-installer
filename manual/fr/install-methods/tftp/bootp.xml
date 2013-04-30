@@ -8,7 +8,7 @@
 Il existe deux serveurs BOOTP pour GNU/Linux, <command>bootpd</command> CMU 
 et <command>dhcpd</command> ISC&nbsp;; le second est en fait un serveur DHCP.
 On peut trouver ces serveurs dans les paquets <classname>bootp</classname> et
-<classname>dhcp3-server</classname> de &debian-gnu;.
+<classname>isc-dhcp-server</classname> de &debian-gnu;.
 
 </para><para>
 
@@ -60,10 +60,10 @@ facile parce qu'il traite les clients BOOTP comme des clients DHCP légèrement
 spéciaux. Certaines architectures requièrent une configuration complexe pour 
 amorcer les clients par BOOTP. Si la vôtre en fait partie, lisez la 
 <xref linkend="dhcpd"/>. Sinon, il suffit simplement de modifier le fichier
-<filename>/etc/dhcp3/dhcpd.conf</filename> et d'ajouter la directive 
+<filename>/etc/dhcp/dhcpd.conf</filename> et d'ajouter la directive 
 <userinput>allow bootp</userinput> au bloc de configuration pour le 
 sous-réseau contenant le client, puis de redémarrer <command>dhcpd</command> 
-avec <userinput>/etc/init.d/dhcp3-server restart</userinput>.
+avec <userinput>/etc/init.d/isc-dhcp-server restart</userinput>.
 
 </para>
   </sect2>
