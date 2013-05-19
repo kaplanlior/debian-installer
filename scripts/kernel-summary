@@ -71,10 +71,9 @@ sub compare_and_mail {
 }
 
 
-# Cached from: `rmadison -S linux -s unstable|grep linux-image-`
 my $summary = shift @ARGV || "kernel-summary.html";
 my $url = "http://d-i.debian.org/kernel-summary.html";
-my @lines = read_file('/home/kibi/tmp/linux.txt');
+my @lines = `rmadison -S linux -s unstable|grep linux-image-`;
 my @allabis;
 my @allarchs;
 my %v;
