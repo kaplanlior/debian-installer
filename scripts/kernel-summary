@@ -99,7 +99,8 @@ foreach my $line (@lines) {
 ### Sort and uniquify:
 @allarchs = uniq sort @allarchs;
 @allabis = uniq sort { versioncmp($a,$b) } @allabis;
-my $lastabi = $allabis[-1];
+my $none = "(none)";
+my $lastabi = $allabis[-1] || $none;
 
 ### Compare with previous ABI if relevant:
 my $abi_comment = compare_and_mail($dist, $lastabi, $summary, $url);
@@ -108,6 +109,7 @@ my $abi_comment = compare_and_mail($dist, $lastabi, $summary, $url);
 $html .= "<h1>Linux kernel status in $dist</h1>\n";
 $html .= "$abi_comment\n";
 $html .= "<p>Top-most ABI: $lastabi</p>\n";
+if ($lastabi ne $none) {
 $html .= "<table border=1 cellpadding=3 style=\"border-collapse: collapse;\">\n";
 # First row, with archs:
 $html .= "<tr>\n";
@@ -126,6 +128,7 @@ foreach my $abi (@allabis) {
   $html .= "</tr>\n";
 }
 $html .= "</table>\n";
+}
 }
 
 
