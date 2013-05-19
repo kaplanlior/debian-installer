@@ -4,6 +4,7 @@ use strict;
 
 use File::Slurp;
 use List::MoreUtils qw(uniq);
+use Sort::Versions;
 
 
 sub colorize_flavours {
@@ -60,7 +61,7 @@ foreach my $line (@lines) {
 
 ### Sort and uniquify:
 @allarchs = uniq sort @allarchs;
-@allabis = uniq sort @allabis;
+@allabis = uniq sort { versioncmp($a,$b) } @allabis;
 my $lastabi = $allabis[-1];
 
 ### Output:
