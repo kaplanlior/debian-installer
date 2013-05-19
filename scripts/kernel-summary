@@ -16,24 +16,24 @@ sub colorize_flavours {
     foreach my $flavour (@{$v{$arch}{$abi}}) {
       my $color;
       if (($abi ne $lastabi) && $v{$arch}{$lastabi}) {
-	if (grep { $_ eq $flavour } @{$v{$arch}{$lastabi}}) {
-	  # Available in a newer ABI, can be decrufted:
-	  $color='darkorange';
-	}
-	else {
-	  # Not available in newer ABI, possibly dropped:
-	  $color='purple';
-	}
+        if (grep { $_ eq $flavour } @{$v{$arch}{$lastabi}}) {
+          # Available in a newer ABI, can be decrufted:
+          $color='darkorange';
+        }
+        else {
+          # Not available in newer ABI, possibly dropped:
+          $color='purple';
+        }
       }
       if (($abi ne $lastabi) && !$v{$arch}{$lastabi}) {
-	# Not built yet:
-	$color='red';
+        # Not built yet:
+        $color='red';
       }
       if ($color) {
-	$cell .= "<span style=\"color: $color;\">$flavour</span><br/>";
+        $cell .= "<span style=\"color: $color;\">$flavour</span><br/>";
       }
       else {
-	$cell .= "$flavour<br/>";
+        $cell .= "$flavour<br/>";
       }
     }
   }
