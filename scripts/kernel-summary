@@ -77,58 +77,57 @@ my $url = "http://d-i.debian.org/kernel-summary.html";
 
 my $html;
 foreach my $dist (qw(testing sid experimental)) {
-
-my @lines = `rmadison -S linux -s $dist|grep linux-image-`;
-my @allabis;
-my @allarchs;
-my %v;
-foreach my $line (@lines) {
-  chomp $line;
-  my ($package, $version, $dist, $archs) = split /\s*[|]\s*/, $line;
-  $package =~ s/\s*linux-image-//;
-  (my $abi = $package) =~ s/(-[\d+])-.*/$1/;
-  (my $flavour = $package) =~ s/.*?-[\d+]-//;
-  #print "$abi; $package; $version; $dist; $archs\n";
-  foreach my $arch (split /,\s*/, $archs) {
-    push @{$v{$arch}{$abi}}, $flavour;
-    push @allarchs, $arch;
+  my @lines = `rmadison -S linux -s $dist|grep linux-image-`;
+  my @allabis;
+  my @allarchs;
+  my %v;
+  foreach my $line (@lines) {
+    chomp $line;
+    my ($package, $version, $dist, $archs) = split /\s*[|]\s*/, $line;
+    $package =~ s/\s*linux-image-//;
+    (my $abi = $package) =~ s/(-[\d+])-.*/$1/;
+    (my $flavour = $package) =~ s/.*?-[\d+]-//;
+    #print "$abi; $package; $version; $dist; $archs\n";
+    foreach my $arch (split /,\s*/, $archs) {
+      push @{$v{$arch}{$abi}}, $flavour;
+      push @allarchs, $arch;
+    }
+    push @allabis, $abi;
   }
-  push @allabis, $abi;
-}
 
-### Sort and uniquify:
-@allarchs = uniq sort @allarchs;
-@allabis = uniq sort { versioncmp($a,$b) } @allabis;
-my $none = "(none)";
-my $lastabi = $allabis[-1] || $none;
+  ### Sort and uniquify:
+  @allarchs = uniq sort @allarchs;
+  @allabis = uniq sort { versioncmp($a,$b) } @allabis;
+  my $none = "(none)";
+  my $lastabi = $allabis[-1] || $none;
 
-### Compare with previous ABI if relevant:
-my $abi_comment = compare_and_mail($dist, $lastabi, $summary, $url);
+  ### Compare with previous ABI if relevant:
+  my $abi_comment = compare_and_mail($dist, $lastabi, $summary, $url);
 
-### Output:
-$html .= "<h1>Linux kernel status in $dist</h1>\n";
-$html .= "$abi_comment\n";
-$html .= "<p>Top-most ABI: $lastabi</p>\n";
-if ($lastabi ne $none) {
-$html .= "<table border=1 cellpadding=3 style=\"border-collapse: collapse;\">\n";
-# First row, with archs:
-$html .= "<tr>\n";
-$html .= "<th></th>\n";
-foreach my $arch (@allarchs) {
-  $html .= "<th>$arch</th>\n";
-}
-$html .= "</tr>\n";
-# Actual contents:
-foreach my $abi (@allabis) {
-  $html .= "<tr>\n";
-  $html .= "<th>$abi</th>\n";
-  foreach my $arch (@allarchs) {
-    $html .= colorize_flavours($arch, $abi, $lastabi, %v);
+  ### Output:
+  $html .= "<h1>Linux kernel status in $dist</h1>\n";
+  $html .= "$abi_comment\n";
+  $html .= "<p>Top-most ABI: $lastabi</p>\n";
+  if ($lastabi ne $none) {
+    $html .= "<table border=1 cellpadding=3 style=\"border-collapse: collapse;\">\n";
+    # First row, with archs:
+    $html .= "<tr>\n";
+    $html .= "<th></th>\n";
+    foreach my $arch (@allarchs) {
+      $html .= "<th>$arch</th>\n";
+    }
+    $html .= "</tr>\n";
+    # Actual contents:
+    foreach my $abi (@allabis) {
+      $html .= "<tr>\n";
+      $html .= "<th>$abi</th>\n";
+      foreach my $arch (@allarchs) {
+        $html .= colorize_flavours($arch, $abi, $lastabi, %v);
+      }
+      $html .= "</tr>\n";
+    }
+    $html .= "</table>\n";
   }
-  $html .= "</tr>\n";
-}
-$html .= "</table>\n";
-}
 }
 
 
