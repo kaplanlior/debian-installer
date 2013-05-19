@@ -24,20 +24,26 @@ foreach my $line (@lines) {
   push @allabis, $abi;
 }
 
+### Sort and uniquify:
+@allarchs = uniq sort @allarchs;
+@allabis = uniq sort @allabis;
+my $lastabi = $allabis[-1];
+
 ### Output:
+print "<p>Top-most ABI: $lastabi</p>\n";
 print "<table border=1 cellpadding=3 style=\"border-collapse: collapse;\">\n";
 # First row, with archs:
 print "<tr>\n";
 print "<th></th>\n";
-foreach my $arch (uniq sort @allarchs) {
+foreach my $arch (@allarchs) {
   print "<th>$arch</th>\n";
 }
 print "</tr>\n";
 # Actual contents:
-foreach my $abi (uniq sort @allabis) {
+foreach my $abi (@allabis) {
   print "<tr>\n";
   print "<th>$abi</th>\n";
-  foreach my $arch (uniq sort @allarchs) {
+  foreach my $arch (@allarchs) {
     if ($v{$arch}{$abi}) {
       print "<td>" . (join "<br/>", @{$v{$arch}{$abi}}) . "</td>\n";
     }
