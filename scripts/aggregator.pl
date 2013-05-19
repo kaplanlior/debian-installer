@@ -17,6 +17,7 @@ sub aggregate {
 	my $fh=shift;
 	my $mailfh=shift;
 	my $basename=shift;
+	my @buildlist=@_;
 	
 	my $success=0;
 	my $failed=0;
@@ -26,7 +27,7 @@ sub aggregate {
 	open (STATS, ">>$basename.stats") || die "$basename.stats: $!";
 	print STATS strftime("%m/%d/%Y %H:%M", gmtime);
 	
-	foreach my $log (@_) {
+	foreach my $log (@buildlist) {
 		my $onesuccess=0;
 		my $onefailed=0;
 		
@@ -128,7 +129,7 @@ sub aggregate {
 	
 	# plot the stats
 	my $c=2;
-	foreach my $log (@_) {
+	foreach my $log (@buildlist) {
 		my $png=logpng($log, $basename);
 		open (GNUPLOT, "| gnuplot") || die "gnuplot: $!";
 		print GNUPLOT qq{
