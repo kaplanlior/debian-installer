@@ -36,7 +36,7 @@ sub colorize_flavours {
     }
   }
   $cell ||= "&nbsp;";
-  print "<td>$cell</td>\n";
+  return "<td>$cell</td>\n";
 }
 
 
@@ -65,22 +65,24 @@ foreach my $line (@lines) {
 my $lastabi = $allabis[-1];
 
 ### Output:
-print "<p>Top-most ABI: $lastabi</p>\n";
-print "<table border=1 cellpadding=3 style=\"border-collapse: collapse;\">\n";
+my $html;
+$html .= "<p>Top-most ABI: $lastabi</p>\n";
+$html .= "<table border=1 cellpadding=3 style=\"border-collapse: collapse;\">\n";
 # First row, with archs:
-print "<tr>\n";
-print "<th></th>\n";
+$html .= "<tr>\n";
+$html .= "<th></th>\n";
 foreach my $arch (@allarchs) {
-  print "<th>$arch</th>\n";
+  $html .= "<th>$arch</th>\n";
 }
-print "</tr>\n";
+$html .= "</tr>\n";
 # Actual contents:
 foreach my $abi (@allabis) {
-  print "<tr>\n";
-  print "<th>$abi</th>\n";
+  $html .= "<tr>\n";
+  $html .= "<th>$abi</th>\n";
   foreach my $arch (@allarchs) {
-    colorize_flavours($arch, $abi, $lastabi, %v);
+    $html .= colorize_flavours($arch, $abi, $lastabi, %v);
   }
-  print "</tr>\n";
+  $html .= "</tr>\n";
 }
-print "</table>\n";
+$html .= "</table>\n";
+print $html;
