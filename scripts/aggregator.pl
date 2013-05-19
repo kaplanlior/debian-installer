@@ -25,7 +25,7 @@ sub aggregate {
 	my $old=0;
 	
 	open (STATS, ">>$basename.stats") || die "$basename.stats: $!";
-	print STATS strftime("%m/%d/%Y %H:%M", gmtime);
+	print STATS strftime("%Y-%m-%d %H:%M", gmtime);
 	
 	foreach my $log (@buildlist) {
 		my $onesuccess=0;
@@ -133,9 +133,9 @@ sub aggregate {
 		my $png=logpng($log, $basename);
 		open (GNUPLOT, "| gnuplot") || die "gnuplot: $!";
 		print GNUPLOT qq{
-			set timefmt "%m/%d/%Y %H:%M"
+			set timefmt "%Y-%m-%d %H:%M"
 			set xdata time
-			set format x "%m/%y"
+			set format x "%y-%m"
 			set yrange [-2 to 102]
 			set terminal png size 640,128
 			set output '$png'
