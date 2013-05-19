@@ -1,0 +1,50 @@
+#!/usr/bin/perl -w
+# Keep track of Linux kernel versions and ABI bumps
+use strict;
+
+use File::Slurp;
+use List::MoreUtils qw(uniq);
+
+# Cached from: `rmadison -S linux -s unstable|grep linux-image-`
+my @lines = read_file('/home/kibi/tmp/linux.txt');
+my @allabis;
+my @allarchs;
+my %v;
+foreach my $line (@lines) {
+  chomp $line;
+  my ($package, $version, $dist, $archs) = split /\s*[|]\s*/, $line;
+  $package =~ s/\s*linux-image-//;
+  (my $abi = $package) =~ s/(-[\d+])-.*/$1/;
+  (my $flavour = $package) =~ s/.*?-[\d+]-//;
+  #print "$abi; $package; $version; $dist; $archs\n";
+  foreach my $arch (split /,\s*/, $archs) {
+    push @{$v{$arch}{$abi}}, $flavour;
+    push @allarchs, $arch;
+  }
+  push @allabis, $abi;
+}
+
+### Output:
+print "<table border=1 cellpadding=3 style=\"border-collapse: collapse;\">\n";
+# First row, with archs:
+print "<tr>\n";
+print "<th></th>\n";
+foreach my $arch (uniq sort @allarchs) {
+  print "<th>$arch</th>\n";
+}
+print "</tr>\n";
+# Actual contents:
+foreach my $abi (uniq sort @allabis) {
+  print "<tr>\n";
+  print "<th>$abi</th>\n";
+  foreach my $arch (uniq sort @allarchs) {
+    if ($v{$arch}{$abi}) {
+      print "<td>" . (join "<br/>", @{$v{$arch}{$abi}}) . "</td>\n";
+    }
+    else {
+      print "<td>&nbsp;</td>\n";
+    }
+  }
+  print "</tr>\n";
+}
+print "</table>\n";
