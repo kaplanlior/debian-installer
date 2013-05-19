@@ -1,0 +1,25 @@
+# Never change release's crontab with `crontab -e`. Instead, edit
+# ~d-i/etc/cron/crontab, and run `make` in that directory (or
+# install that file by hand). Also, please `svn commit` any
+# non-temporary changes you make.
+
+MAILTO=luk,bubulle,kibi
+DI=/home/d-i/d-i/trunk
+
+@daily cd /srv/d-i.debian.org/bin;./trim-dailies
+
+00 1 * * * cd $DI/scripts; svn -q up; ./daily-build-aggregator /srv/d-i.debian.org/www/daily-images/build-logs
+
+18 1 * * * time nice -n 19 $HOME/bin/generate_l10n-stats
+
+18 3 * * * $HOME/bin/d-i_spellcheck
+
+55 3 * * * for i in `cat $HOME/.websec-txt/lang-mail-cvs.cfg|grep -E -v "^\#" | grep -E -v "^$" | awk '{print $1}' `; do $DI/scripts/l10n/websec/websec-txt-all $i ; done
+
+0 22 * * * cd $DI; mr -q up ; time nice -n 19 $DI/scripts/l10n/l10n-sync --levels=6 --online --commit $DI
+
+0 23 * * * cd $DI/manual && svn -q up ; cd build && destination=/srv/d-i.debian.org/www/manual ./build.sh >/dev/null
+
+55 * * * * cd $DI; mr -q up ; cd $DI/scripts/testing-summary; svn -q up; ./gen-summary > /srv/d-i.debian.org/www/testing-summary.html
+
+30 * * * * cd $DI/scripts; mr -q up; ./kernel-summary /srv/d-i.debian.org/www/kernel-summary.html
