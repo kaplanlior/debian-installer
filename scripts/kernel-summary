@@ -3,6 +3,8 @@
 use strict;
 
 use File::Slurp;
+use Email::MIME;
+use Email::Sender::Simple qw(sendmail);
 use List::MoreUtils qw(uniq);
 use Sort::Versions;
 
@@ -39,8 +41,39 @@ sub colorize_flavours {
   return "<td>$cell</td>\n";
 }
 
+sub compare_and_mail {
+  my ($lastabi, $summary, $url) = @_;
+  if (-f $summary) {
+    foreach my $line (read_file($summary)) {
+      if ($line =~ /<!-- ABI: (.*) -->/) {
+        my $previous_lastabi = $1;
+        if ($lastabi ne $previous_lastabi) {
+          my $body = "Linux kernel ABI bump: from $previous_lastabi to $lastabi\n\nFull summary: $url\n";
+          my $message = Email::MIME->create(
+            header_str => [
+              From    => 'Linux kernel watcher <debian-boot@lists.debian.org>',
+              To      => 'debian-boot@lists.debian.org',
+              Subject => "Linux kernel ABI bump: from $previous_lastabi to $lastabi",
+            ],
+            attributes => {
+              encoding => "quoted-printable",
+              charset  => "UTF-8",
+            },
+            body_str => $body,
+          );
+          sendmail($message);
+        }
+      }
+    }
+  }
+  # Beware: keep in sync with the match above
+  return "<!-- ABI: $lastabi -->";
+}
+
 
 # Cached from: `rmadison -S linux -s unstable|grep linux-image-`
+my $summary = shift @ARGV || "kernel-summary.html";
+my $url = "http://d-i.debian.org/kernel-summary.html";
 my @lines = read_file('/home/kibi/tmp/linux.txt');
 my @allabis;
 my @allarchs;
@@ -64,8 +97,12 @@ foreach my $line (@lines) {
 @allabis = uniq sort { versioncmp($a,$b) } @allabis;
 my $lastabi = $allabis[-1];
 
+### Compare with previous ABI if relevant:
+my $abi_comment = compare_and_mail($lastabi, $summary, $url);
+
 ### Output:
 my $html;
+$html .= "$abi_comment\n";
 $html .= "<p>Top-most ABI: $lastabi</p>\n";
 $html .= "<table border=1 cellpadding=3 style=\"border-collapse: collapse;\">\n";
 # First row, with archs:
@@ -85,4 +122,4 @@ foreach my $abi (@allabis) {
   $html .= "</tr>\n";
 }
 $html .= "</table>\n";
-print $html;
+write_file($summary, $html);
