@@ -42,18 +42,19 @@ sub colorize_flavours {
 }
 
 sub compare_and_mail {
-  my ($lastabi, $summary, $url) = @_;
+  my ($dist, $lastabi, $summary, $url) = @_;
   if (-f $summary) {
     foreach my $line (read_file($summary)) {
-      if ($line =~ /<!-- ABI: (.*) -->/) {
+      if ($line =~ /<!-- ABI: (.*) in (.*) -->/) {
         my $previous_lastabi = $1;
-        if ($lastabi ne $previous_lastabi) {
-          my $body = "Linux kernel ABI bump: from $previous_lastabi to $lastabi\n\nFull summary: $url\n";
+        my $previous_dist = $2;
+        if (($dist eq $previous_dist) and ($lastabi ne $previous_lastabi)) {
+          my $body = "Linux kernel ABI bump in $dist: from $previous_lastabi to $lastabi\n\nFull summary: $url\n";
           my $message = Email::MIME->create(
             header_str => [
               From    => 'Linux kernel watcher <debian-boot@lists.debian.org>',
               To      => 'debian-boot@lists.debian.org',
-              Subject => "Linux kernel ABI bump: from $previous_lastabi to $lastabi",
+              Subject => "Linux kernel ABI bump in $dist: from $previous_lastabi to $lastabi",
             ],
             attributes => {
               encoding => "quoted-printable",
@@ -67,13 +68,17 @@ sub compare_and_mail {
     }
   }
   # Beware: keep in sync with the match above
-  return "<!-- ABI: $lastabi -->";
+  return "<!-- ABI: $lastabi in $dist -->";
 }
 
 
 my $summary = shift @ARGV || "kernel-summary.html";
 my $url = "http://d-i.debian.org/kernel-summary.html";
-my @lines = `rmadison -S linux -s unstable|grep linux-image-`;
+
+my $html;
+foreach my $dist (qw(testing sid experimental)) {
+
+my @lines = `rmadison -S linux -s $dist|grep linux-image-`;
 my @allabis;
 my @allarchs;
 my %v;
@@ -97,12 +102,10 @@ foreach my $line (@lines) {
 my $lastabi = $allabis[-1];
 
 ### Compare with previous ABI if relevant:
-my $abi_comment = compare_and_mail($lastabi, $summary, $url);
+my $abi_comment = compare_and_mail($dist, $lastabi, $summary, $url);
 
 ### Output:
-my $date = `LC_ALL=C TZ=UTC date`;
-chomp $date;
-my $html;
+$html .= "<h1>Linux kernel status in $dist</h1>\n";
 $html .= "$abi_comment\n";
 $html .= "<p>Top-most ABI: $lastabi</p>\n";
 $html .= "<table border=1 cellpadding=3 style=\"border-collapse: collapse;\">\n";
@@ -123,6 +126,12 @@ foreach my $abi (@allabis) {
   $html .= "</tr>\n";
 }
 $html .= "</table>\n";
+}
+
+
+my $date = `LC_ALL=C TZ=UTC date`;
+chomp $date;
 $html .= "<hr/>\n";
 $html .= "Last update: $date\n";
+
 write_file($summary, $html);
