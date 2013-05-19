@@ -192,15 +192,15 @@ use strict;
 require "aggregator.pl";
 use Getopt::Long;
 
-my $basename=shift;
-if (! defined $basename) {
-	die "usage: $0 basename\n";
-}
-
 my $no_mail = 0;
 GetOptions(
   'no-mail' => \$no_mail,
 );
+
+my $basename=shift;
+if (! defined $basename) {
+	die "usage: $0 basename\n";
+}
 
 open (OUT, ">$basename.html.new") || die "$basename.html.new: $!";
 open (MAILOUT, ">$basename.mail") || die "$basename.mail: $!";
