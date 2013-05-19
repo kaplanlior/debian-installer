@@ -49,12 +49,13 @@ sub compare_and_mail {
         my $previous_lastabi = $1;
         my $previous_dist = $2;
         if (($dist eq $previous_dist) and ($lastabi ne $previous_lastabi)) {
-          my $body = "Linux kernel ABI bump in $dist: from $previous_lastabi to $lastabi\n\nFull summary: $url\n";
+          my $subject = "Linux kernel ABI bump in $dist: from $previous_lastabi to $lastabi";
+          my $body = "Linux kernel ABI bump in $dist: from $previous_lastabi to $lastabi\n\nFull summary: $url#$dist\n";
           my $message = Email::MIME->create(
             header_str => [
               From    => 'Linux kernel watcher <debian-boot@lists.debian.org>',
               To      => 'debian-boot@lists.debian.org',
-              Subject => "Linux kernel ABI bump in $dist: from $previous_lastabi to $lastabi",
+              Subject => $subject,
             ],
             attributes => {
               encoding => "quoted-printable",
@@ -63,6 +64,7 @@ sub compare_and_mail {
             body_str => $body,
           );
           sendmail($message);
+          print STDERR "Sending a notification: $subject\n";
         }
       }
     }
@@ -105,7 +107,7 @@ foreach my $dist (qw(testing sid experimental)) {
   my $abi_comment = compare_and_mail($dist, $lastabi, $summary, $url);
 
   ### Output:
-  $html .= "<h1>Linux kernel status in $dist</h1>\n";
+  $html .= "<a name=\"$dist\"><h1>Linux kernel status in $dist</h1></a>\n";
   $html .= "$abi_comment\n";
   $html .= "<p>Top-most ABI: $lastabi</p>\n";
   if ($lastabi ne $none) {
