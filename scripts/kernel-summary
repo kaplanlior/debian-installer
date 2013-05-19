@@ -5,6 +5,40 @@ use strict;
 use File::Slurp;
 use List::MoreUtils qw(uniq);
 
+
+sub colorize_flavours {
+  my ($arch, $abi, $lastabi, %v) = @_;
+  my $cell;
+  if ($v{$arch}{$abi}) {
+    foreach my $flavour (@{$v{$arch}{$abi}}) {
+      my $color;
+      if (($abi ne $lastabi) && $v{$arch}{$lastabi}) {
+	if (grep { $_ eq $flavour } @{$v{$arch}{$lastabi}}) {
+	  # Available in a newer ABI, can be decrufted:
+	  $color='darkorange';
+	}
+	else {
+	  # Not available in newer ABI, possibly dropped:
+	  $color='purple';
+	}
+      }
+      if (($abi ne $lastabi) && !$v{$arch}{$lastabi}) {
+	# Not built yet:
+	$color='red';
+      }
+      if ($color) {
+	$cell .= "<span style=\"color: $color;\">$flavour</span><br/>";
+      }
+      else {
+	$cell .= "$flavour<br/>";
+      }
+    }
+  }
+  $cell ||= "&nbsp;";
+  print "<td>$cell</td>\n";
+}
+
+
 # Cached from: `rmadison -S linux -s unstable|grep linux-image-`
 my @lines = read_file('/home/kibi/tmp/linux.txt');
 my @allabis;
@@ -44,12 +78,7 @@ foreach my $abi (@allabis) {
   print "<tr>\n";
   print "<th>$abi</th>\n";
   foreach my $arch (@allarchs) {
-    if ($v{$arch}{$abi}) {
-      print "<td>" . (join "<br/>", @{$v{$arch}{$abi}}) . "</td>\n";
-    }
-    else {
-      print "<td>&nbsp;</td>\n";
-    }
+    colorize_flavours($arch, $abi, $lastabi, %v);
   }
   print "</tr>\n";
 }
