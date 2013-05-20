@@ -96,7 +96,9 @@ sub build_status {
         $time =~ s/\s+\d+m$//;
         my %color = ( installed => 'darkgreen', building => 'darkorange', buildattempted => 'red'   );
         my %label = ( installed => 'Installed', building => 'Building'  , buildattempted => 'Failed');
-        $builds{$arch} = "<span style=\"color: $color{$status}\">$label{$status} ($time)</span>";
+        my $c = $color{$status} || 'black';
+        my $l = $label{$status} || $status;
+        $builds{$arch} = "<span style=\"color: $c\">$l ($time)</span>";
       }
     }
     $html .= "<tr>\n";
