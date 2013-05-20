@@ -7,6 +7,7 @@ use Email::MIME;
 use Email::Sender::Simple qw(sendmail);
 use List::MoreUtils qw(uniq);
 use Sort::Versions;
+use LWP::UserAgent;
 
 
 sub colorize_flavours {
@@ -73,12 +74,53 @@ sub compare_and_mail {
   return "<!-- ABI: $lastabi in $dist -->";
 }
 
+sub build_status {
+  my ($dist, @allarchs) = @_;
+  my $buildurl = "https://buildd.debian.org/status/package.php?p=linux&suite=$dist";
+
+  # Only look at build logs for those distributions:
+  return ''
+    if ! grep { $dist eq $_ } qw(unstable experimental);
+
+  my $html;
+  my $ua = LWP::UserAgent->new;
+  my $response = $ua->get($buildurl);
+  my %builds;
+  if ($response->is_success) {
+    foreach my $line (split /\n/, $response->content) {
+      # FIXME: The above match is fragile, but that'll do for now:
+      if ($line =~ m{<tr>.*<td>.*<a href="[^"]+">(.+?)</a>.*?</td><td.*?class="status ([^"]+)".*?</td><td>(.+?)</td>}) {
+        my ($arch, $status, $time) = ($1, $2, $3);
+        # Adjust status and precision:
+        $status =~ s/^status-//;
+        $time =~ s/\s+\d+m$//;
+        my %color = ( installed => 'darkgreen', building => 'darkorange', buildattempted => 'red'   );
+        my %label = ( installed => 'Installed', building => 'Building'  , buildattempted => 'Failed');
+        $builds{$arch} = "<span style=\"color: $color{$status}\">$label{$status} ($time)</span>";
+      }
+    }
+    $html .= "<tr>\n";
+    $html .= "<th>Build</th>\n";
+    foreach my $arch (@allarchs) {
+      $html .= "<td>$builds{$arch}</td>\n";
+    }
+    $html .= "</tr>\n";
+  }
+  else {
+    my $colspan = 1+scalar(@allarchs);
+    $html .= "<tr><td colspan=\"$colspan\">Failed to retrieve build status: " . $response->status_line . "</td></tr>";
+  }
+  return $html;
+}
+
 
 my $summary = shift @ARGV || "kernel-summary.html";
 my $url = "http://d-i.debian.org/kernel-summary.html";
 
 my $html;
-foreach my $dist (qw(testing sid experimental)) {
+foreach my $dist (qw(testing unstable experimental)) {
+  # FIXME: A few hours can happen until a built package can be seen
+  # here. Another option would be ssh {ftp-master,release}.d.o dak ls
   my @lines = `rmadison -S linux -s $dist|grep linux-image-`;
   my @allabis;
   my @allarchs;
@@ -128,6 +170,7 @@ foreach my $dist (qw(testing sid experimental)) {
       }
       $html .= "</tr>\n";
     }
+    $html .= build_status($dist, @allarchs);
     $html .= "</table>\n";
   }
 }
