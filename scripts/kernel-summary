@@ -119,7 +119,7 @@ sub build_status {
 my $summary = shift @ARGV || "kernel-summary.html";
 my $url = "http://d-i.debian.org/kernel-summary.html";
 
-my $html;
+my $html = "<html><head><title>Linux kernel status across distributions</title></head><body>\n";
 foreach my $dist (qw(testing unstable experimental)) {
   # FIXME: A few hours can happen until a built package can be seen
   # here. Another option would be ssh {ftp-master,release}.d.o dak ls
@@ -182,5 +182,6 @@ my $date = `LC_ALL=C TZ=UTC date`;
 chomp $date;
 $html .= "<hr/>\n";
 $html .= "Last update: $date\n";
+$html .= "</body></html>\n";
 
 write_file($summary, $html);
