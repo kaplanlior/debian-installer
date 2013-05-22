@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: install-methods\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2013-01-06 16:36+0000\n"
+"POT-Creation-Date: 2013-05-22 19:06+0000\n"
 "PO-Revision-Date: 2013-02-04 19:52+0200\n"
 "Last-Translator: galaxico <galaxico@quad-nrg.net>\n"
 "Language-Team: American English <debian-l10n-greek@lists.debian.org>\n"
@@ -89,17 +89,30 @@ msgstr ""
 
 #. Tag: para
 #: install-methods.xml:38
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "If your machine doesn't support CD booting<phrase arch=\"x86\"> (only "
+#| "relevant on very old PC systems)</phrase>, but you do have a CD set, you "
+#| "can use an alternative strategy such as <phrase condition=\"supports-"
+#| "floppy-boot\">floppy disk,</phrase> <phrase arch=\"s390\">tape, emulated "
+#| "tape,</phrase> <phrase condition=\"bootable-disk\">hard disk,</phrase> "
+#| "<phrase condition=\"bootable-usb\">usb stick,</phrase> <phrase condition="
+#| "\"supports-tftp\">net boot,</phrase> or manually loading the kernel from "
+#| "the CD to initially boot the system installer. The files you need for "
+#| "booting by another means are also on the CD; the &debian; network archive "
+#| "and CD folder organization are identical. So when archive file paths are "
+#| "given below for particular files you need for booting, look for those "
+#| "files in the same directories and subdirectories on your CD."
 msgid ""
 "If your machine doesn't support CD booting<phrase arch=\"x86\"> (only "
 "relevant on very old PC systems)</phrase>, but you do have a CD set, you can "
 "use an alternative strategy such as <phrase condition=\"supports-floppy-boot"
-"\">floppy disk,</phrase> <phrase arch=\"s390\">tape, emulated tape,</phrase> "
-"<phrase condition=\"bootable-disk\">hard disk,</phrase> <phrase condition="
-"\"bootable-usb\">usb stick,</phrase> <phrase condition=\"supports-tftp\">net "
-"boot,</phrase> or manually loading the kernel from the CD to initially boot "
-"the system installer. The files you need for booting by another means are "
-"also on the CD; the &debian; network archive and CD folder organization are "
+"\">floppy disk,</phrase> <phrase arch=\"s390\">VM reader,</phrase> <phrase "
+"condition=\"bootable-disk\">hard disk,</phrase> <phrase condition=\"bootable-"
+"usb\">usb stick,</phrase> <phrase condition=\"supports-tftp\">net boot,</"
+"phrase> or manually loading the kernel from the CD to initially boot the "
+"system installer. The files you need for booting by another means are also "
+"on the CD; the &debian; network archive and CD folder organization are "
 "identical. So when archive file paths are given below for particular files "
 "you need for booting, look for those files in the same directories and "
 "subdirectories on your CD."
@@ -131,10 +144,18 @@ msgstr ""
 
 #. Tag: para
 #: install-methods.xml:66
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "If you don't have a CD set, then you will need to download the installer "
+#| "system files and place them on the <phrase arch=\"s390\">installation "
+#| "tape</phrase> <phrase condition=\"supports-floppy-boot\">floppy disk or</"
+#| "phrase> <phrase condition=\"bootable-disk\">hard disk or</phrase> <phrase "
+#| "condition=\"bootable-usb\">usb stick or</phrase> <phrase condition="
+#| "\"supports-tftp\">a connected computer</phrase> so they can be used to "
+#| "boot the installer."
 msgid ""
 "If you don't have a CD set, then you will need to download the installer "
-"system files and place them on the <phrase arch=\"s390\">installation tape</"
+"system files and place them on the <phrase arch=\"s390\">VM minidisk</"
 "phrase> <phrase condition=\"supports-floppy-boot\">floppy disk or</phrase> "
 "<phrase condition=\"bootable-disk\">hard disk or</phrase> <phrase condition="
 "\"bootable-usb\">usb stick or</phrase> <phrase condition=\"supports-tftp\">a "
@@ -343,40 +364,11 @@ msgstr ""
 #. Tag: title
 #: install-methods.xml:244
 #, no-c-format
-msgid "Creating an IPL tape"
-msgstr "Δημιουργία μιας κασέτας IPL"
-
-#. Tag: para
-#: install-methods.xml:246
-#, no-c-format
-msgid ""
-"If you can't boot (IPL) from the CD-ROM and you are not using VM you need to "
-"create an IPL tape first. This is described in section 3.4.3 in the <ulink "
-"url=\"http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg246264.pdf\"> Linux "
-"for IBM eServer zSeries and S/390: Distributions</ulink> Redbook. The files "
-"you need to write to the tape are (in this order): <filename>kernel.debian</"
-"filename>, <filename>parmfile.debian</filename> and <filename>initrd.debian</"
-"filename>. The files can be downloaded from the <filename>tape</filename> "
-"sub-directory, see <xref linkend=\"where-files\"/>."
-msgstr ""
-"Αν δεν μπορείτε να εκκινήσετε το σύστημα (IPL) από ένα CD-ROM και δεν "
-"χρησιμοποιείτε VM θα πρέπει να δημιουργήσετε πρώτα μια κασέτα IPL. Αυτό "
-"περιγράφεται στην ενότητα 3.4.3 του βιβλίου <ulink url=\"http://www.redbooks."
-"ibm.com/pubs/pdfs/redbooks/sg246264.pdf\">Linux for IBM eServer zSeries and "
-"S/390: Distributions</ulink> Redbook. Τα αρχεία που χρειάζεται να γράψετε "
-"στην κασέτα είναι (μ' αυτή τη σειρά): <filename>kernel.debian</filename>, "
-"<filename>parmfile.debian</filename> και <filename>initrd.debian</filename>. "
-"Τα αρχεία μπορούν να μεταφορτωθούν από τον υποκατάλογο <filename>tape</"
-"filename>, δείτε το <xref linkend=\"where-files\"/>,"
-
-#. Tag: title
-#: install-methods.xml:270
-#, no-c-format
 msgid "Creating Floppies from Disk Images"
 msgstr "Γράφοντας Δισκέτες από Είδωλα Δισκετών"
 
 #. Tag: para
-#: install-methods.xml:271
+#: install-methods.xml:245
 #, no-c-format
 msgid ""
 "Bootable floppy disks are generally used as a last resort to boot the "
@@ -387,7 +379,7 @@ msgstr ""
 "CD ή από άλλο μέσο."
 
 #. Tag: para
-#: install-methods.xml:276
+#: install-methods.xml:250
 #, no-c-format
 msgid ""
 "Booting the installer from floppy disk reportedly fails on Mac USB floppy "
@@ -397,7 +389,7 @@ msgstr ""
 "δισκεττών USB σε Mac."
 
 #. Tag: para
-#: install-methods.xml:281
+#: install-methods.xml:255
 #, no-c-format
 msgid ""
 "Disk images are files containing the complete contents of a floppy disk in "
@@ -419,7 +411,7 @@ msgstr ""
 "δισκέττα."
 
 #. Tag: para
-#: install-methods.xml:292
+#: install-methods.xml:266
 #, no-c-format
 msgid ""
 "There are different techniques for creating floppies from disk images. This "
@@ -431,7 +423,7 @@ msgstr ""
 "είδωλα δισκεττών σε διαφορετικές πλατφόρμες."
 
 #. Tag: para
-#: install-methods.xml:298
+#: install-methods.xml:272
 #, no-c-format
 msgid ""
 "Before you can create the floppies, you will first need to download them "
@@ -447,7 +439,7 @@ msgstr ""
 "συμπεριλαμβάνονται ήδη στο CD/DVD.</phrase>"
 
 #. Tag: para
-#: install-methods.xml:306
+#: install-methods.xml:280
 #, no-c-format
 msgid ""
 "No matter which method you use to create your floppies, you should remember "
@@ -460,13 +452,13 @@ msgstr ""
 "καταστραφούν από αμέλεια."
 
 #. Tag: title
-#: install-methods.xml:314
+#: install-methods.xml:288
 #, no-c-format
 msgid "Writing Disk Images From a Linux or Unix System"
 msgstr "Γράφοντας Είδωλα Δισκεττών από ένα σύστημα Linux ή Unix"
 
 #. Tag: para
-#: install-methods.xml:315
+#: install-methods.xml:289
 #, no-c-format
 msgid ""
 "To write the floppy disk image files to the floppy disks, you will probably "
@@ -506,7 +498,7 @@ msgstr ""
 "σελίδα οδηγιών χρήσης της) </phrase>."
 
 #. Tag: para
-#: install-methods.xml:336
+#: install-methods.xml:310
 #, no-c-format
 msgid ""
 "Some systems attempt to automatically mount a floppy disk when you place it "
@@ -542,7 +534,7 @@ msgstr ""
 "συστήματα ρωτήστε τον διαχειριστή του συστήματός σας. </phrase>"
 
 #. Tag: para
-#: install-methods.xml:357
+#: install-methods.xml:331
 #, no-c-format
 msgid ""
 "If writing a floppy on powerpc Linux, you will need to eject it. The "
@@ -554,13 +546,13 @@ msgstr ""
 "θα είναι να το εγκαταστήσετε."
 
 #. Tag: title
-#: install-methods.xml:375
+#: install-methods.xml:349
 #, no-c-format
 msgid "Writing Disk Images From DOS, Windows, or OS/2"
 msgstr "Γράφοντας είδωλα δισκεττών σε DOS, Windows, ή OS/2"
 
 #. Tag: para
-#: install-methods.xml:377
+#: install-methods.xml:351
 #, no-c-format
 msgid ""
 "If you have access to an i386 or amd64 machine, you can use one of the "
@@ -570,7 +562,7 @@ msgstr ""
 "ένα από τα παρακάτω προγράμματα για να αντιγράψετε τις εικόνες σε δισκέττες."
 
 #. Tag: para
-#: install-methods.xml:382
+#: install-methods.xml:356
 #, no-c-format
 msgid ""
 "The <command>rawrite1</command> and <command>rawrite2</command> programs can "
@@ -587,7 +579,7 @@ msgstr ""
 "αναμένεται να δουλέψει."
 
 #. Tag: para
-#: install-methods.xml:390
+#: install-methods.xml:364
 #, no-c-format
 msgid ""
 "The <command>rwwrtwin</command> program runs on Windows 95, NT, 98, 2000, "
@@ -599,7 +591,7 @@ msgstr ""
 "πρέπει να αποσυμπιέσετε την βιβλιοθήκη diskio.dll στον ίδιο κατάλογο."
 
 #. Tag: para
-#: install-methods.xml:396
+#: install-methods.xml:370
 #, no-c-format
 msgid ""
 "These tools can be found on the Official &debian; CD-ROMs under the "
@@ -609,13 +601,13 @@ msgstr ""
 "από τον κατάλογο <filename>/tools</filename>."
 
 #. Tag: title
-#: install-methods.xml:409
+#: install-methods.xml:383
 #, no-c-format
 msgid "Writing Disk Images From MacOS"
 msgstr "Εγγραφή ειδώλων δισκέττας από το MacOS"
 
 #. Tag: para
-#: install-methods.xml:410
+#: install-methods.xml:384
 #, no-c-format
 msgid ""
 "An AppleScript, <application>Make &debian; Floppy</application>, is "
@@ -639,7 +631,7 @@ msgstr ""
 "προχωρήσετε στην εγγραφή του αρχείου εικόνας σε αυτήν."
 
 #. Tag: para
-#: install-methods.xml:421
+#: install-methods.xml:395
 #, no-c-format
 msgid ""
 "You can also use the MacOS utility <command>Disk Copy</command> directly, or "
@@ -654,13 +646,13 @@ msgstr ""
 "δημιουργία μιας δισκέττας από μια εικόνα δισκέττας με αυτά τα εργαλεία."
 
 #. Tag: title
-#: install-methods.xml:432
+#: install-methods.xml:406
 #, no-c-format
 msgid "Writing Disk Images with <command>Disk Copy</command>"
 msgstr "Εγγραφή Ειδώλων Δίσκων με το <command>Disk Copy</command>"
 
 #. Tag: para
-#: install-methods.xml:433
+#: install-methods.xml:407
 #, no-c-format
 msgid ""
 "If you are creating the floppy image from files which were originally on the "
@@ -675,7 +667,7 @@ msgstr ""
 "του &debian;."
 
 #. Tag: para
-#: install-methods.xml:442
+#: install-methods.xml:416
 #, no-c-format
 msgid ""
 "Obtain <ulink url=\"&url-powerpc-creator-changer;\">Creator-Changer</ulink> "
@@ -686,7 +678,7 @@ msgstr ""
 "filename>file."
 
 #. Tag: para
-#: install-methods.xml:449
+#: install-methods.xml:423
 #, no-c-format
 msgid ""
 "Change the Creator to <userinput>ddsk</userinput> (Disk Copy), and the Type "
@@ -698,7 +690,7 @@ msgstr ""
 "Προσέξτε ότι στα πεδία υπάρχει διάκριση κεφαλαίων-πεζών."
 
 #. Tag: para
-#: install-methods.xml:456
+#: install-methods.xml:430
 #, no-c-format
 msgid ""
 "<emphasis>Important:</emphasis> In the Finder, use <userinput>Get Info</"
@@ -714,7 +706,7 @@ msgstr ""
 "εκκίνησης σε περίπτωση που το είδωλο προσαρτηθεί κατά τύχη."
 
 #. Tag: para
-#: install-methods.xml:465
+#: install-methods.xml:439
 #, no-c-format
 msgid ""
 "Obtain <command>Disk Copy</command>; if you have a MacOS system or CD it "
@@ -726,7 +718,7 @@ msgstr ""
 "<ulink url=\"&url-powerpc-diskcopy;\"></ulink>."
 
 #. Tag: para
-#: install-methods.xml:472
+#: install-methods.xml:446
 #, no-c-format
 msgid ""
 "Run <command>Disk Copy</command>, and select <menuchoice> "
@@ -743,13 +735,13 @@ msgstr ""
 "θέλετε πραγματικά να τη διαγράψετε. Όταν τελειώσετε θα αποβάλλει τη δισκέττα."
 
 #. Tag: title
-#: install-methods.xml:487
+#: install-methods.xml:461
 #, no-c-format
 msgid "Writing Disk Images with <command>suntar</command>"
 msgstr "Εγγραφή Ειδώλων Δίσκων με το <command>suntar</command>"
 
 #. Tag: para
-#: install-methods.xml:491
+#: install-methods.xml:465
 #, no-c-format
 msgid ""
 "Obtain <command>suntar</command> from <ulink url=\"&url-powerpc-suntar;\"> </"
@@ -763,7 +755,7 @@ msgstr ""
 "<userinput>Special</userinput>."
 
 #. Tag: para
-#: install-methods.xml:499
+#: install-methods.xml:473
 #, no-c-format
 msgid ""
 "Insert the floppy disk as requested, then hit &enterkey; (start at sector 0)."
@@ -772,7 +764,7 @@ msgstr ""
 "(ξεκινώντας από τον τομέα 0)."
 
 #. Tag: para
-#: install-methods.xml:505
+#: install-methods.xml:479
 #, no-c-format
 msgid ""
 "Select the <filename>root.bin</filename> file in the file-opening dialog."
@@ -781,7 +773,7 @@ msgstr ""
 "αρχείου."
 
 #. Tag: para
-#: install-methods.xml:510
+#: install-methods.xml:484
 #, no-c-format
 msgid ""
 "After the floppy has been created successfully, select <menuchoice> "
@@ -795,7 +787,7 @@ msgstr ""
 "δισκέττας, απλά δοκιμάστε με μια άλλη."
 
 #. Tag: para
-#: install-methods.xml:518
+#: install-methods.xml:492
 #, no-c-format
 msgid ""
 "Before using the floppy you created, <emphasis>set the write protect tab</"
@@ -807,13 +799,13 @@ msgstr ""
 "MacOS, το MacOS θα την καταστρέψει."
 
 #. Tag: title
-#: install-methods.xml:537
+#: install-methods.xml:511
 #, no-c-format
 msgid "Preparing Files for USB Memory Stick Booting"
 msgstr "Προετοιμασία Αρχείων για Εκκίνηση από ένα USB Stick μνήμης"
 
 #. Tag: para
-#: install-methods.xml:539
+#: install-methods.xml:513
 #, no-c-format
 msgid ""
 "To prepare the USB stick, you will need a system where GNU/Linux is already "
@@ -838,7 +830,7 @@ msgstr ""
 "προστασία εγγραφής του."
 
 #. Tag: para
-#: install-methods.xml:552
+#: install-methods.xml:526
 #, no-c-format
 msgid ""
 "The procedures described in this section will destroy anything already on "
@@ -853,7 +845,7 @@ msgstr ""
 "για παράδειγμα."
 
 #. Tag: title
-#: install-methods.xml:562
+#: install-methods.xml:536
 #, no-c-format
 msgid "Preparing a USB stick using a hybrid CD or DVD image"
 msgstr ""
@@ -861,7 +853,7 @@ msgstr ""
 "CD ή DVD"
 
 #. Tag: para
-#: install-methods.xml:563
+#: install-methods.xml:537
 #, no-c-format
 msgid ""
 "Debian CD and DVD images can now be written directly a USB stick, which is a "
@@ -876,7 +868,7 @@ msgstr ""
 "\"/> για το πώς να αποκτήσετε μια εικόνα CD ή DVD."
 
 #. Tag: para
-#: install-methods.xml:570
+#: install-methods.xml:544
 #, no-c-format
 msgid ""
 "Alternatively, for very small USB sticks, only a few megabytes in size, you "
@@ -890,7 +882,7 @@ msgstr ""
 "ενότητα <xref linkend=\"where-files\"/>)."
 
 #. Tag: para
-#: install-methods.xml:577
+#: install-methods.xml:551
 #, no-c-format
 msgid ""
 "The CD or DVD image you choose should be written directly to the USB stick, "
@@ -905,7 +897,7 @@ msgstr ""
 "βεβαιωθεί ότι το κλειδί έχει αποπροσαρτηθεί:"
 
 #. Tag: screen
-#: install-methods.xml:584
+#: install-methods.xml:558
 #, no-c-format
 msgid ""
 "<prompt>#</prompt> <userinput>cp <replaceable>debian.iso</replaceable> /dev/"
@@ -917,7 +909,7 @@ msgstr ""
 "<prompt>#</prompt> <userinput>sync</userinput>"
 
 #. Tag: para
-#: install-methods.xml:586
+#: install-methods.xml:560
 #, no-c-format
 msgid ""
 "Simply writing the CD or DVD image to USB like this should work fine for "
@@ -930,7 +922,7 @@ msgstr ""
 "εξειδικευμένες ανάγκες."
 
 #. Tag: para
-#: install-methods.xml:594
+#: install-methods.xml:568
 #, no-c-format
 msgid ""
 "The hybrid image on the stick does not occupy all the storage space, so it "
@@ -946,7 +938,7 @@ msgstr ""
 "συσκευή."
 
 #. Tag: para
-#: install-methods.xml:602
+#: install-methods.xml:576
 #, no-c-format
 msgid ""
 "Create a second, FAT partition on the stick, mount the partition and copy or "
@@ -957,7 +949,7 @@ msgstr ""
 "παράδειγμα:"
 
 #. Tag: screen
-#: install-methods.xml:607
+#: install-methods.xml:581
 #, no-c-format
 msgid ""
 "# mount /dev/<replaceable>sdX2</replaceable> /mnt\n"
@@ -973,7 +965,7 @@ msgstr ""
 "# umount /mnt"
 
 #. Tag: para
-#: install-methods.xml:609
+#: install-methods.xml:583
 #, no-c-format
 msgid ""
 "You might have written the <filename>mini.iso</filename> to the USB stick. "
@@ -987,13 +979,13 @@ msgstr ""
 "ξανασυνδέοντας το κλειδί USB θα κάνει ορατές και τις δυο κατατμήσεις."
 
 #. Tag: title
-#: install-methods.xml:623
+#: install-methods.xml:597
 #, no-c-format
 msgid "Manually copying files to the USB stick"
 msgstr "Αντιγραφή αρχείων στο κλειδί USB με το χέρι"
 
 #. Tag: para
-#: install-methods.xml:624
+#: install-methods.xml:598
 #, no-c-format
 msgid ""
 "An alternative way to set up your USB stick is to manually copy the "
@@ -1008,7 +1000,7 @@ msgstr ""
 "ενότητα <xref linkend=\"usb-copy-flexible\"/>)."
 
 #. Tag: para
-#: install-methods.xml:631
+#: install-methods.xml:605
 #, no-c-format
 msgid ""
 "There is an all-in-one file <filename>hd-media/boot.img.gz</filename> which "
@@ -1024,7 +1016,7 @@ msgstr ""
 "<classname>yaboot</classname> και το αρχείο των ρυθμίσεών του</phrase>."
 
 #. Tag: para
-#: install-methods.xml:640
+#: install-methods.xml:614
 #, no-c-format
 msgid ""
 "Note that, although convenient, this method does have one major "
@@ -1041,7 +1033,7 @@ msgstr ""
 "χρησιμοποιήσετε για κάποιο άλλο σκοπό."
 
 #. Tag: para
-#: install-methods.xml:648
+#: install-methods.xml:622
 #, no-c-format
 msgid "To use this image simply extract it directly to your USB stick:"
 msgstr ""
@@ -1049,13 +1041,13 @@ msgstr ""
 "USB:"
 
 #. Tag: screen
-#: install-methods.xml:652
+#: install-methods.xml:626
 #, no-c-format
 msgid "# zcat boot.img.gz &gt; /dev/<replaceable>sdX</replaceable>"
 msgstr "# zcat boot.img.gz &gt; /dev/<replaceable>sdX</replaceable>"
 
 #. Tag: para
-#: install-methods.xml:654
+#: install-methods.xml:628
 #, no-c-format
 msgid ""
 "Create a partition of type \"Apple_Bootstrap\" on your USB stick using "
@@ -1067,13 +1059,13 @@ msgstr ""
 "<command>mac-fdisk</command> και εξάγετε την εικόνα κατευθείαν στο κλειδί:"
 
 #. Tag: screen
-#: install-methods.xml:660
+#: install-methods.xml:634
 #, no-c-format
 msgid "# zcat boot.img.gz &gt; /dev/<replaceable>sdX2</replaceable>"
 msgstr "# zcat boot.img.gz &gt; /dev/<replaceable>sdX2</replaceable>"
 
 #. Tag: para
-#: install-methods.xml:662
+#: install-methods.xml:636
 #, no-c-format
 msgid ""
 "After that, mount the USB memory stick <phrase arch=\"x86\">"
@@ -1095,13 +1087,13 @@ msgstr ""
 "(<userinput>umount /mnt</userinput>) και έχετε τελειώσει."
 
 #. Tag: title
-#: install-methods.xml:679
+#: install-methods.xml:653
 #, no-c-format
 msgid "Manually copying files to the USB stick &mdash; the flexible way"
 msgstr "Αντιγραφή αρχείων στο κλειδί USB με το χέρι &mdash; ο ευέλικτος τρόπος"
 
 #. Tag: para
-#: install-methods.xml:680
+#: install-methods.xml:654
 #, no-c-format
 msgid ""
 "If you like more flexibility or just want to know what's going on, you "
@@ -1117,13 +1109,13 @@ msgstr ""
 "τη δυνατότητα να αντιγράψετε μια ολόκληρη εικόνα ISO CD σ' αυτό."
 
 #. Tag: title
-#: install-methods.xml:695 install-methods.xml:817
+#: install-methods.xml:669 install-methods.xml:791
 #, no-c-format
 msgid "Partitioning the USB stick"
 msgstr "Διαμέριση του κλειδιού USB"
 
 #. Tag: para
-#: install-methods.xml:696
+#: install-methods.xml:670
 #, no-c-format
 msgid ""
 "We will show how to set up the memory stick to use the first partition, "
@@ -1133,7 +1125,7 @@ msgstr ""
 "το πρώτο τμήμα αντί ολόκληρης της συσκευής."
 
 #. Tag: para
-#: install-methods.xml:701
+#: install-methods.xml:675
 #, no-c-format
 msgid ""
 "Since most USB sticks come pre-configured with a single FAT16 partition, you "
@@ -1171,7 +1163,7 @@ msgstr ""
 "περιέχεται στο πακέτο <classname>dosfstools</classname> του &debian;."
 
 #. Tag: para
-#: install-methods.xml:725
+#: install-methods.xml:699
 #, no-c-format
 msgid ""
 "In order to start the kernel after booting from the USB stick, we will put a "
@@ -1191,7 +1183,7 @@ msgstr ""
 "φορτωτή εκκίνησης."
 
 #. Tag: para
-#: install-methods.xml:735
+#: install-methods.xml:709
 #, no-c-format
 msgid ""
 "To put <classname>syslinux</classname> on the FAT16 partition on your USB "
@@ -1217,13 +1209,13 @@ msgstr ""
 "εκκίνησης."
 
 #. Tag: title
-#: install-methods.xml:752 install-methods.xml:864
+#: install-methods.xml:726 install-methods.xml:838
 #, no-c-format
 msgid "Adding the installer image"
 msgstr "Προσθήκη της εικόνας του εγκαταστάτη"
 
 #. Tag: para
-#: install-methods.xml:753
+#: install-methods.xml:727
 #, no-c-format
 msgid ""
 "Mount the partition (<userinput>mount /dev/<replaceable>sdX1</replaceable> /"
@@ -1250,7 +1242,7 @@ msgstr ""
 "(8.3) του DOS."
 
 #. Tag: para
-#: install-methods.xml:777
+#: install-methods.xml:751
 #, no-c-format
 msgid ""
 "Next you should create a <filename>syslinux.cfg</filename> configuration "
@@ -1277,7 +1269,7 @@ msgstr ""
 "επιθυμίες σας."
 
 #. Tag: para
-#: install-methods.xml:789
+#: install-methods.xml:763
 #, no-c-format
 msgid ""
 "To enable the boot prompt to permit further parameter appending, add a "
@@ -1287,7 +1279,7 @@ msgstr ""
 "προτρεπτικό εκκίνησης, προσθέστε μια γραμμή <userinput>prompt 1</userinput>."
 
 #. Tag: para
-#: install-methods.xml:794 install-methods.xml:904
+#: install-methods.xml:768 install-methods.xml:878
 #, no-c-format
 msgid ""
 "If you used an <filename>hd-media</filename> image, you should now copy the "
@@ -1309,7 +1301,7 @@ msgstr ""
 "userinput>)."
 
 #. Tag: para
-#: install-methods.xml:818
+#: install-methods.xml:792
 #, no-c-format
 msgid ""
 "Most USB sticks do not come pre-configured in such a way that Open Firmware "
@@ -1340,7 +1332,7 @@ msgstr ""
 "στο πακέτο του &debian; <classname>hfsutils</classname>."
 
 #. Tag: para
-#: install-methods.xml:835
+#: install-methods.xml:809
 #, no-c-format
 msgid ""
 "In order to start the kernel after booting from the USB stick, we will put a "
@@ -1357,7 +1349,7 @@ msgstr ""
 "χρησιμοποιηθεί για να γίνουν αλλαγές στην ρύθμιση του φορτωτή εκκίνησης."
 
 #. Tag: para
-#: install-methods.xml:844
+#: install-methods.xml:818
 #, no-c-format
 msgid ""
 "The normal <command>ybin</command> tool that comes with <command>yaboot</"
@@ -1395,7 +1387,7 @@ msgstr ""
 "μπορεί να προετοιμαστεί χρησιμοποιώντας τα συνηθισμένα εργαλεία του Unix."
 
 #. Tag: para
-#: install-methods.xml:865
+#: install-methods.xml:839
 #, no-c-format
 msgid ""
 "Mount the partition (<userinput>mount /dev/<replaceable>sdX2</replaceable> /"
@@ -1406,31 +1398,31 @@ msgstr ""
 "εγκαταστάτη στο κλειδί:"
 
 #. Tag: para
-#: install-methods.xml:872
+#: install-methods.xml:846
 #, no-c-format
 msgid "<filename>vmlinux</filename> (kernel binary)"
 msgstr "<filename>vmlinux</filename> (εκετελέσιμο αρχείο πυρήνα)"
 
 #. Tag: para
-#: install-methods.xml:877
+#: install-methods.xml:851
 #, no-c-format
 msgid "<filename>initrd.gz</filename> (initial ramdisk image)"
 msgstr "<filename>initrd.gz</filename> (εικόνα αρχικού δίσκου μνήμης ramdisk)"
 
 #. Tag: para
-#: install-methods.xml:882
+#: install-methods.xml:856
 #, no-c-format
 msgid "<filename>yaboot.conf</filename> (yaboot configuration file)"
 msgstr "<filename>yaboot.conf</filename> (αρχείο ρυθμίσεων του yaboot)"
 
 #. Tag: para
-#: install-methods.xml:887
+#: install-methods.xml:861
 #, no-c-format
 msgid "<filename>boot.msg</filename> (optional boot message)"
 msgstr "<filename>boot.msg</filename> (προαιρετικό μήνυμα εκκίνησης)"
 
 #. Tag: para
-#: install-methods.xml:894
+#: install-methods.xml:868
 #, no-c-format
 msgid ""
 "The <filename>yaboot.conf</filename> configuration file should contain the "
@@ -1467,13 +1459,13 @@ msgstr ""
 "το μέγεθος της εικόνα ramdisk που χρησιμοποιείτε για την εκκίνηση."
 
 #. Tag: title
-#: install-methods.xml:932
+#: install-methods.xml:906
 #, no-c-format
 msgid "Preparing Files for Hard Disk Booting"
 msgstr "Προετοιμασία των αρχείων για Εκκίνηση από Σκληρό Δίσκο"
 
 #. Tag: para
-#: install-methods.xml:933
+#: install-methods.xml:907
 #, no-c-format
 msgid ""
 "The installer may be booted using boot files placed on an existing hard "
@@ -1486,7 +1478,7 @@ msgstr ""
 "εκκίνησης (boot loader) κατευθείαν από το BIOS."
 
 #. Tag: para
-#: install-methods.xml:939
+#: install-methods.xml:913
 #, no-c-format
 msgid ""
 "A full, <quote>pure network</quote> installation can be achieved using this "
@@ -1500,7 +1492,7 @@ msgstr ""
 "με πολυάριθμες και αναξιόπιστες δισκέττες."
 
 #. Tag: para
-#: install-methods.xml:946
+#: install-methods.xml:920
 #, no-c-format
 msgid ""
 "The installer cannot boot from files on an HFS+ file system. MacOS System "
@@ -1523,7 +1515,7 @@ msgstr ""
 "MacOS και του Linux, και συγκεκριμένα τα αρχεία που κατεβάζετε."
 
 #. Tag: para
-#: install-methods.xml:957
+#: install-methods.xml:931
 #, no-c-format
 msgid ""
 "Different programs are used for hard disk installation system booting, "
@@ -1535,7 +1527,7 @@ msgstr ""
 "εγκατάσταση από το σκληρό δίσκο."
 
 #. Tag: title
-#: install-methods.xml:966
+#: install-methods.xml:940
 #, no-c-format
 msgid ""
 "Hard disk installer booting from Linux using <command>LILO</command> or "
@@ -1545,7 +1537,7 @@ msgstr ""
 "<command>LILO</command> ή του <command>GRUB</command>"
 
 #. Tag: para
-#: install-methods.xml:968
+#: install-methods.xml:942
 #, no-c-format
 msgid ""
 "This section explains how to add to or even replace an existing linux "
@@ -1556,7 +1548,7 @@ msgstr ""
 "command> ή το <command>GRUB</command>."
 
 #. Tag: para
-#: install-methods.xml:974
+#: install-methods.xml:948
 #, no-c-format
 msgid ""
 "At boot time, both bootloaders support loading in memory not only the "
@@ -1569,7 +1561,7 @@ msgstr ""
 "αρχείων από τον πυρήνα."
 
 #. Tag: para
-#: install-methods.xml:980
+#: install-methods.xml:954
 #, no-c-format
 msgid ""
 "Copy the following files from the &debian; archives to a convenient location "
@@ -1582,19 +1574,19 @@ msgstr ""
 "<filename>/boot/newinstall/</filename>."
 
 #. Tag: para
-#: install-methods.xml:988
+#: install-methods.xml:962
 #, no-c-format
 msgid "<filename>vmlinuz</filename> (kernel binary)"
 msgstr "<filename>vmlinuz</filename> (αρχείο πυρήνα)"
 
 #. Tag: para
-#: install-methods.xml:993
+#: install-methods.xml:967
 #, no-c-format
 msgid "<filename>initrd.gz</filename> (ramdisk image)"
 msgstr "<filename>initrd.gz</filename> (είδωλο δίσκου μνήμης)"
 
 #. Tag: para
-#: install-methods.xml:1000
+#: install-methods.xml:974
 #, no-c-format
 msgid ""
 "Finally, to configure the bootloader proceed to <xref linkend=\"boot-initrd"
@@ -1604,7 +1596,7 @@ msgstr ""
 "linkend=\"boot-initrd\"/>."
 
 #. Tag: title
-#: install-methods.xml:1010
+#: install-methods.xml:984
 #, no-c-format
 msgid "Hard disk installer booting from DOS using <command>loadlin</command>"
 msgstr ""
@@ -1612,7 +1604,7 @@ msgstr ""
 "<command>loadlin</command>"
 
 #. Tag: para
-#: install-methods.xml:1011
+#: install-methods.xml:985
 #, no-c-format
 msgid ""
 "This section explains how to prepare your hard drive for booting the "
@@ -1623,7 +1615,7 @@ msgstr ""
 "<command>loadlin</command>."
 
 #. Tag: para
-#: install-methods.xml:1016
+#: install-methods.xml:990
 #, no-c-format
 msgid ""
 "Copy the following directories from a &debian; CD image to <filename>c:\\</"
@@ -1633,7 +1625,7 @@ msgstr ""
 "&debian; CD στομ <filename>c:\\</filename>."
 
 #. Tag: para
-#: install-methods.xml:1021
+#: install-methods.xml:995
 #, no-c-format
 msgid ""
 "<filename>/&x86-install-dir;</filename> (kernel binary and ramdisk image)"
@@ -1642,19 +1634,19 @@ msgstr ""
 "εικόνα δίσκου μνήμης, ramdisk)"
 
 #. Tag: para
-#: install-methods.xml:1026
+#: install-methods.xml:1000
 #, no-c-format
 msgid "<filename>/tools</filename> (loadlin tool)"
 msgstr "<filename>/tools</filename> (εργαλείο loadlin)"
 
 #. Tag: title
-#: install-methods.xml:1039
+#: install-methods.xml:1013
 #, no-c-format
 msgid "Hard Disk Installer Booting for OldWorld Macs"
 msgstr "Εκκίνηση του Εγκαταστάτη από το σκληρό δίσκο για OldWorld Macs"
 
 #. Tag: para
-#: install-methods.xml:1040
+#: install-methods.xml:1014
 #, no-c-format
 msgid ""
 "The <filename>boot-floppy-hfs</filename> floppy uses <application>miBoot</"
@@ -1679,7 +1671,7 @@ msgstr ""
 "απαραίτητο γι αυτό το μοντέλο."
 
 #. Tag: para
-#: install-methods.xml:1053
+#: install-methods.xml:1027
 #, no-c-format
 msgid ""
 "Download and unstuff the <application>BootX</application> distribution, "
@@ -1707,13 +1699,13 @@ msgstr ""
 "στο ενεργό System Folder."
 
 #. Tag: title
-#: install-methods.xml:1073
+#: install-methods.xml:1047
 #, no-c-format
 msgid "Hard Disk Installer Booting for NewWorld Macs"
 msgstr "Εκκίνηση του Εγκαταστάτη από το σκληρό δίσκο για NewWorld Macs"
 
 #. Tag: para
-#: install-methods.xml:1074
+#: install-methods.xml:1048
 #, no-c-format
 msgid ""
 "NewWorld PowerMacs support booting from a network or an ISO9660 CD-ROM, as "
@@ -1734,7 +1726,7 @@ msgstr ""
 "χρησιμοποιείται σε NewWorld PowerMac συστήματα."
 
 #. Tag: para
-#: install-methods.xml:1085
+#: install-methods.xml:1059
 #, no-c-format
 msgid ""
 "<emphasis>Copy</emphasis> (not move) the following four files which you "
@@ -1748,31 +1740,31 @@ msgstr ""
 "dragging κάθε αρχείου στο εικονίδιο του σκληρού δίσκου)."
 
 #. Tag: filename
-#: install-methods.xml:1095 install-methods.xml:1421
+#: install-methods.xml:1069 install-methods.xml:1395
 #, no-c-format
 msgid "vmlinux"
 msgstr "vmlinux"
 
 #. Tag: filename
-#: install-methods.xml:1100 install-methods.xml:1426
+#: install-methods.xml:1074 install-methods.xml:1400
 #, no-c-format
 msgid "initrd.gz"
 msgstr "initrd.gz"
 
 #. Tag: filename
-#: install-methods.xml:1105 install-methods.xml:1431
+#: install-methods.xml:1079 install-methods.xml:1405
 #, no-c-format
 msgid "yaboot"
 msgstr "yaboot"
 
 #. Tag: filename
-#: install-methods.xml:1110 install-methods.xml:1436
+#: install-methods.xml:1084 install-methods.xml:1410
 #, no-c-format
 msgid "yaboot.conf"
 msgstr "yaboot.conf"
 
 #. Tag: para
-#: install-methods.xml:1115
+#: install-methods.xml:1089
 #, no-c-format
 msgid ""
 "Make a note of the partition number of the MacOS partition where you place "
@@ -1789,7 +1781,7 @@ msgstr ""
 "εκκίνηση του εγκαταστάτη."
 
 #. Tag: para
-#: install-methods.xml:1123
+#: install-methods.xml:1097
 #, no-c-format
 msgid "To boot the installer, proceed to <xref linkend=\"boot-newworld\"/>."
 msgstr ""
@@ -1797,13 +1789,13 @@ msgstr ""
 "\"boot-newworld\"/>."
 
 #. Tag: title
-#: install-methods.xml:1136
+#: install-methods.xml:1110
 #, no-c-format
 msgid "Preparing Files for TFTP Net Booting"
 msgstr "Προετοιμασία Αρχείων για δικτυακή εκκίνηση με TFTP"
 
 #. Tag: para
-#: install-methods.xml:1137
+#: install-methods.xml:1111
 #, no-c-format
 msgid ""
 "If your machine is connected to a local area network, you may be able to "
@@ -1821,7 +1813,7 @@ msgstr ""
 "συγκεκριμένου μηχανήματός σας."
 
 #. Tag: para
-#: install-methods.xml:1145
+#: install-methods.xml:1119
 #, no-c-format
 msgid ""
 "You need to set up a TFTP server, and for many machines a DHCP server<phrase "
@@ -1834,7 +1826,7 @@ msgstr ""
 "εξυπηρετητή BOOTP</phrase>."
 
 #. Tag: para
-#: install-methods.xml:1152
+#: install-methods.xml:1126
 #, no-c-format
 msgid ""
 "<phrase condition=\"supports-rarp\">The Reverse Address Resolution Protocol "
@@ -1856,7 +1848,7 @@ msgstr ""
 "συστήματα μπορούν να ρυθμιστούν μόνο μέσω του πρωτοκόλλου αυτού."
 
 #. Tag: para
-#: install-methods.xml:1166
+#: install-methods.xml:1140
 #, no-c-format
 msgid ""
 "For PowerPC, if you have a NewWorld Power Macintosh machine, it is a good "
@@ -1869,7 +1861,7 @@ msgstr ""
 "BOOTP."
 
 #. Tag: para
-#: install-methods.xml:1172
+#: install-methods.xml:1146
 #, no-c-format
 msgid ""
 "Some older HPPA machines (e.g. 715/75) use RBOOTD rather than BOOTP. There "
@@ -1880,7 +1872,7 @@ msgstr ""
 "classname> "
 
 #. Tag: para
-#: install-methods.xml:1177
+#: install-methods.xml:1151
 #, no-c-format
 msgid ""
 "The Trivial File Transfer Protocol (TFTP) is used to serve the boot image to "
@@ -1895,7 +1887,7 @@ msgstr ""
 "SunOS 4.x, SunOS 5.x (δηλ. το Solaris), και GNU/Linux."
 
 #. Tag: para
-#: install-methods.xml:1185
+#: install-methods.xml:1159
 #, no-c-format
 msgid ""
 "For a &debian-gnu; server we recommend <classname>tftpd-hpa</classname>. "
@@ -1910,13 +1902,13 @@ msgstr ""
 "<classname>atftpd</classname>."
 
 #. Tag: title
-#: install-methods.xml:1201
+#: install-methods.xml:1175
 #, no-c-format
 msgid "Setting up RARP server"
 msgstr "Ρυθμίζοντας έναν εξυπηρετητή RARP"
 
 #. Tag: para
-#: install-methods.xml:1202
+#: install-methods.xml:1176
 #, no-c-format
 msgid ""
 "To set up RARP, you need to know the Ethernet address (a.k.a. the MAC "
@@ -1937,7 +1929,7 @@ msgstr ""
 "εντολή <userinput>ip addr show dev eth0</userinput>."
 
 #. Tag: para
-#: install-methods.xml:1214
+#: install-methods.xml:1188
 #, no-c-format
 msgid ""
 "On a RARP server system using a Linux 2.4 or 2.6 kernel, or Solaris/SunOS, "
@@ -1962,19 +1954,19 @@ msgstr ""
 "rarpd -a</userinput> στο σύστημα SunOS 4 (Solaris 1)."
 
 #. Tag: title
-#: install-methods.xml:1235
+#: install-methods.xml:1209
 #, no-c-format
 msgid "Setting up a DHCP server"
 msgstr "Ρυθμίζοντας έναν εξυπηρετητή DHCP"
 
 #. Tag: para
-#: install-methods.xml:1236
+#: install-methods.xml:1210
 #, no-c-format
 msgid ""
 "One free software DHCP server is ISC <command>dhcpd</command>. For &debian-"
-"gnu;, the <classname>isc-dhcp-server</classname> package is recommended. Here "
-"is a sample configuration file for it (see <filename>/etc/dhcp/dhcpd.conf</"
-"filename>):"
+"gnu;, the <classname>isc-dhcp-server</classname> package is recommended. "
+"Here is a sample configuration file for it (see <filename>/etc/dhcp/dhcpd."
+"conf</filename>):"
 msgstr ""
 "Ένας εξυπηρετητής DHCP που είναι ελεύθερο λογισμικό είναι ο <command>dhcpd</"
 "command> από το ISC. Για το  &debian-gnu; συνίσταται το πακέτο "
@@ -1982,7 +1974,7 @@ msgstr ""
 "ρυθμίσεων γι' αυτόν (δείτε το <filename>/etc/dhcp/dhcpd.conf</filename>):"
 
 #. Tag: screen
-#: install-methods.xml:1243
+#: install-methods.xml:1217
 #, no-c-format
 msgid ""
 "option domain-name \"example.com\";\n"
@@ -2026,7 +2018,7 @@ msgstr ""
 "}"
 
 #. Tag: para
-#: install-methods.xml:1245
+#: install-methods.xml:1219
 #, no-c-format
 msgid ""
 "In this example, there is one server <replaceable>servername</replaceable> "
@@ -2045,24 +2037,24 @@ msgstr ""
 "TFTP."
 
 #. Tag: para
-#: install-methods.xml:1255
+#: install-methods.xml:1229
 #, no-c-format
 msgid ""
 "After you have edited the <command>dhcpd</command> configuration file, "
 "restart it with <userinput>/etc/init.d/isc-dhcp-server restart</userinput>."
 msgstr ""
 "Μετά την έκδοση του αρχείου ρυθμίσεων του <command>dhcpd</command>,  "
-"επανεκκινήστε τον δαίμονα με την εντολή <userinput>/etc/init.d/isc-dhcp-server "
-"restart</userinput>."
+"επανεκκινήστε τον δαίμονα με την εντολή <userinput>/etc/init.d/isc-dhcp-"
+"server restart</userinput>."
 
 #. Tag: title
-#: install-methods.xml:1263
+#: install-methods.xml:1237
 #, no-c-format
 msgid "Enabling PXE Booting in the DHCP configuration"
 msgstr "Ενεργοποίηση Εκκίνησης με τη μέθοδο PXE στη ρύθμιση του DHCP"
 
 #. Tag: para
-#: install-methods.xml:1264
+#: install-methods.xml:1238
 #, no-c-format
 msgid ""
 "Here is another example for a <filename>dhcp.conf</filename> using the Pre-"
@@ -2135,13 +2127,13 @@ msgstr ""
 "\"tftp-images\"/> στη συνέχεια)."
 
 #. Tag: title
-#: install-methods.xml:1284
+#: install-methods.xml:1258
 #, no-c-format
 msgid "Setting up a BOOTP server"
 msgstr "Ρύθμιση ενός εξυπηρετητή BOOTP"
 
 #. Tag: para
-#: install-methods.xml:1285
+#: install-methods.xml:1259
 #, no-c-format
 msgid ""
 "There are two BOOTP servers available for GNU/Linux. The first is CMU "
@@ -2157,7 +2149,7 @@ msgstr ""
 "classname> και <classname>isc-dhcp-server</classname> αντίστοιχα."
 
 #. Tag: para
-#: install-methods.xml:1293
+#: install-methods.xml:1267
 #, no-c-format
 msgid ""
 "To use CMU <command>bootpd</command>, you must first uncomment (or add) the "
@@ -2223,8 +2215,18 @@ msgstr ""
 "userinput> είναι η διεύθυνση MAC του μηχανήματος.</phrase>"
 
 #. Tag: para
-#: install-methods.xml:1326
-#, no-c-format
+#: install-methods.xml:1300
+#, fuzzy, no-c-format
+#| msgid ""
+#| "By contrast, setting up BOOTP with ISC <command>dhcpd</command> is really "
+#| "easy, because it treats BOOTP clients as a moderately special case of "
+#| "DHCP clients. Some architectures require a complex configuration for "
+#| "booting clients via BOOTP. If yours is one of those, read the section "
+#| "<xref linkend=\"dhcpd\"/>. Otherwise you will probably be able to get "
+#| "away with simply adding the <userinput>allow bootp</userinput> directive "
+#| "to the configuration block for the subnet containing the client in "
+#| "<filename>/etc/dhcp3/dhcpd.conf</filename>, and restart <command>dhcpd</"
+#| "command> with <userinput>/etc/init.d/isc-dhcp-server restart</userinput>."
 msgid ""
 "By contrast, setting up BOOTP with ISC <command>dhcpd</command> is really "
 "easy, because it treats BOOTP clients as a moderately special case of DHCP "
@@ -2232,7 +2234,7 @@ msgid ""
 "clients via BOOTP. If yours is one of those, read the section <xref linkend="
 "\"dhcpd\"/>. Otherwise you will probably be able to get away with simply "
 "adding the <userinput>allow bootp</userinput> directive to the configuration "
-"block for the subnet containing the client in <filename>/etc/dhcp3/dhcpd."
+"block for the subnet containing the client in <filename>/etc/dhcp/dhcpd."
 "conf</filename>, and restart <command>dhcpd</command> with <userinput>/etc/"
 "init.d/isc-dhcp-server restart</userinput>."
 msgstr ""
@@ -2248,13 +2250,13 @@ msgstr ""
 "την εντολή <userinput>/etc/init.d/isc-dhcp-server restart</userinput>."
 
 #. Tag: title
-#: install-methods.xml:1345
+#: install-methods.xml:1319
 #, no-c-format
 msgid "Enabling the TFTP Server"
 msgstr "Ενεργοποίηση του εξυπηρετητή TFTP"
 
 #. Tag: para
-#: install-methods.xml:1346
+#: install-methods.xml:1320
 #, no-c-format
 msgid ""
 "To get the TFTP server ready to go, you should first make sure that "
@@ -2264,7 +2266,7 @@ msgstr ""
 "είναι ενεργοποιημένος ο <command>tftpd</command>"
 
 #. Tag: para
-#: install-methods.xml:1351
+#: install-methods.xml:1325
 #, no-c-format
 msgid ""
 "In the case of <classname>tftpd-hpa</classname> there are two ways the "
@@ -2281,7 +2283,7 @@ msgstr ""
 "μπορεί να αλλάξει με την επαναρύθμιση του πακέτου."
 
 #. Tag: para
-#: install-methods.xml:1360
+#: install-methods.xml:1334
 #, no-c-format
 msgid ""
 "Historically, TFTP servers used <filename>/tftpboot</filename> as directory "
@@ -2301,7 +2303,7 @@ msgstr ""
 "παραδείγματα ρυθμίσεων στην παρούσα ενότητα ανάλογα."
 
 #. Tag: para
-#: install-methods.xml:1370
+#: install-methods.xml:1344
 #, no-c-format
 msgid ""
 "All <command>in.tftpd</command> alternatives available in &debian; should "
@@ -2319,7 +2321,7 @@ msgstr ""
 "αφετηρίας για την διάγνωση της αιτίας τέτοιων σφαλμάτων."
 
 #. Tag: para
-#: install-methods.xml:1378
+#: install-methods.xml:1352
 #, no-c-format
 msgid ""
 "If you intend to install &debian; on an SGI machine and your TFTP server is "
@@ -2352,13 +2354,13 @@ msgstr ""
 "χρησιμοποιεί ο TFTP server στο Linux."
 
 #. Tag: title
-#: install-methods.xml:1400
+#: install-methods.xml:1374
 #, no-c-format
 msgid "Move TFTP Images Into Place"
 msgstr "Μεταφορά των ειδώλων TFTP στη θέση τους"
 
 #. Tag: para
-#: install-methods.xml:1401
+#: install-methods.xml:1375
 #, no-c-format
 msgid ""
 "Next, place the TFTP boot image you need, as found in <xref linkend=\"where-"
@@ -2376,7 +2378,7 @@ msgstr ""
 "αυτό σταθερά πρότυπα."
 
 #. Tag: para
-#: install-methods.xml:1410
+#: install-methods.xml:1384
 #, no-c-format
 msgid ""
 "On NewWorld Power Macintosh machines, you will need to set up the "
@@ -2392,13 +2394,13 @@ msgstr ""
 "παρακάτω αρχεία από τον κατάλογο <filename>netboot/</filename>:"
 
 #. Tag: filename
-#: install-methods.xml:1441
+#: install-methods.xml:1415
 #, no-c-format
 msgid "boot.msg"
 msgstr "boot.msg"
 
 #. Tag: para
-#: install-methods.xml:1446
+#: install-methods.xml:1420
 #, no-c-format
 msgid ""
 "For PXE booting, everything you should need is set up in the "
@@ -2415,7 +2417,7 @@ msgstr ""
 "αρχείου για εκκίνηση."
 
 #. Tag: para
-#: install-methods.xml:1454
+#: install-methods.xml:1428
 #, no-c-format
 msgid ""
 "For PXE booting, everything you should need is set up in the "
@@ -2432,13 +2434,13 @@ msgstr ""
 "το όνομα του αρχείου εκκίνησης."
 
 #. Tag: title
-#: install-methods.xml:1466
+#: install-methods.xml:1440
 #, no-c-format
 msgid "SPARC TFTP Booting"
 msgstr "Εκκίνηση με TFTP για SPARC"
 
 #. Tag: para
-#: install-methods.xml:1467
+#: install-methods.xml:1441
 #, no-c-format
 msgid ""
 "Some SPARC architectures add the subarchitecture names, such as "
@@ -2471,7 +2473,7 @@ msgstr ""
 "προσθέσετε στο τέλος το όνομα της υποαρχιτεκτονικής."
 
 #. Tag: para
-#: install-methods.xml:1483
+#: install-methods.xml:1457
 #, no-c-format
 msgid ""
 "If you've done all this correctly, giving the command <userinput>boot net</"
@@ -2485,7 +2487,7 @@ msgstr ""
 "εξυπηρετητή tftp για να δείτε ποιο όνομα εικόνας ζητείται."
 
 #. Tag: para
-#: install-methods.xml:1490
+#: install-methods.xml:1464
 #, no-c-format
 msgid ""
 "You can also force some sparc systems to look for a specific file name by "
@@ -2500,13 +2502,13 @@ msgstr ""
 "ψάχνει ο server TFTP."
 
 #. Tag: title
-#: install-methods.xml:1501
+#: install-methods.xml:1475
 #, no-c-format
 msgid "SGI TFTP Booting"
 msgstr "Εκκίνηση TFTP για SGI"
 
 #. Tag: para
-#: install-methods.xml:1502
+#: install-methods.xml:1476
 #, no-c-format
 msgid ""
 "On SGI machines you can rely on the <command>bootpd</command> to supply the "
@@ -2521,13 +2523,13 @@ msgstr ""
 "userinput> στο αρχείο <filename>/etc/dhcpd.conf</filename>."
 
 #. Tag: title
-#: install-methods.xml:1610
+#: install-methods.xml:1584
 #, no-c-format
 msgid "Automatic Installation"
 msgstr "Αυτόματη Εγκατάσταση"
 
 #. Tag: para
-#: install-methods.xml:1611
+#: install-methods.xml:1585
 #, no-c-format
 msgid ""
 "For installing on multiple computers it's possible to do fully automatic "
@@ -2545,13 +2547,13 @@ msgstr ""
 "για αναλυτικότερες πληροφορίες."
 
 #. Tag: title
-#: install-methods.xml:1623
+#: install-methods.xml:1597
 #, no-c-format
 msgid "Automatic Installation Using the &debian; Installer"
 msgstr "Αυτόματη εγκατάσταση με χρήση του &debian; Installer "
 
 #. Tag: para
-#: install-methods.xml:1624
+#: install-methods.xml:1598
 #, no-c-format
 msgid ""
 "The &debian; Installer supports automating installs via preconfiguration "
@@ -2566,7 +2568,7 @@ msgstr ""
 "εγκατάστασης."
 
 #. Tag: para
-#: install-methods.xml:1631
+#: install-methods.xml:1605
 #, no-c-format
 msgid ""
 "Full documentation on preseeding including a working example that you can "
@@ -2575,6 +2577,31 @@ msgstr ""
 "Πλήρης τεκμηρίωση σχετικά με τις προρυθμίσεις που συμπεριλαμβάνουν ένα "
 "πραγματικό παράδειγμα, που μπορείτε να το επεξεργαστείτε οι ίδιοι, βρίσκεται "
 "στο <xref linkend=\"appendix-preseed\"/>."
+
+#~ msgid "Creating an IPL tape"
+#~ msgstr "Δημιουργία μιας κασέτας IPL"
+
+#~ msgid ""
+#~ "If you can't boot (IPL) from the CD-ROM and you are not using VM you need "
+#~ "to create an IPL tape first. This is described in section 3.4.3 in the "
+#~ "<ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg246264.pdf"
+#~ "\"> Linux for IBM eServer zSeries and S/390: Distributions</ulink> "
+#~ "Redbook. The files you need to write to the tape are (in this order): "
+#~ "<filename>kernel.debian</filename>, <filename>parmfile.debian</filename> "
+#~ "and <filename>initrd.debian</filename>. The files can be downloaded from "
+#~ "the <filename>tape</filename> sub-directory, see <xref linkend=\"where-"
+#~ "files\"/>."
+#~ msgstr ""
+#~ "Αν δεν μπορείτε να εκκινήσετε το σύστημα (IPL) από ένα CD-ROM και δεν "
+#~ "χρησιμοποιείτε VM θα πρέπει να δημιουργήσετε πρώτα μια κασέτα IPL. Αυτό "
+#~ "περιγράφεται στην ενότητα 3.4.3 του βιβλίου <ulink url=\"http://www."
+#~ "redbooks.ibm.com/pubs/pdfs/redbooks/sg246264.pdf\">Linux for IBM eServer "
+#~ "zSeries and S/390: Distributions</ulink> Redbook. Τα αρχεία που "
+#~ "χρειάζεται να γράψετε στην κασέτα είναι (μ' αυτή τη σειρά): "
+#~ "<filename>kernel.debian</filename>, <filename>parmfile.debian</filename> "
+#~ "και <filename>initrd.debian</filename>. Τα αρχεία μπορούν να "
+#~ "μεταφορτωθούν από τον υποκατάλογο <filename>tape</filename>, δείτε το "
+#~ "<xref linkend=\"where-files\"/>,"
 
 #~ msgid ""
 #~ "A special method can be used to add firmware to the <filename>mini.iso</"

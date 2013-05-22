@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2013-04-16 19:15+0000\n"
+"POT-Creation-Date: 2013-05-22 19:06+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1127,95 +1127,95 @@ msgstr ""
 #. Tag: para
 #: preparing.xml:1367
 #, no-c-format
-msgid "Linux on this platform runs either natively on the bare machine, in a so-called LPAR (Logical Partition) or in a virtual machine supplied by the VM system. You can use a boot tape on all of those systems; you may use some other boot media, too, but those may not be generally available. For example, you can use the virtual card reader of a virtual machine, or boot from the HMC (Hardware Management Console) of an LPAR if the HMC and this option is available for you."
+msgid "Linux on this platform runs either natively on the bare machine, in a so-called LPAR (Logical Partition) or in a virtual machine supplied by the VM system. Boot media differs depending on the runtime mode. For example, you can use the virtual card reader of a virtual machine, or boot from the HMC (Hardware Management Console) of an LPAR if the HMC and this option is available for you."
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1377
+#: preparing.xml:1376
 #, no-c-format
 msgid "Before you actually perform an installation, you have to go over some design and preparation steps. IBM has made documentation available about the whole process, e.g. how to prepare an installation medium and how actually to boot from that medium. Duplicating that information here is neither possible nor necessary. However, we will describe here which kind of &debian;-specific data is needed and where to find it. Using both sources of information, you have to prepare your machine and the installation medium before you can perform a boot from it. When you see the welcome message in your client session, return to this document to go through the &debian;-specific installation steps."
 msgstr ""
 
 #. Tag: title
-#: preparing.xml:1394
+#: preparing.xml:1393
 #, no-c-format
 msgid "Native and LPAR installations"
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1395
+#: preparing.xml:1394
 #, no-c-format
 msgid "Please refer to chapter 5 of the <ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg244987.pdf\"> Linux for &arch-title;</ulink> Redbook and chapter 3.2 of the <ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg246264.pdf\"> Linux for IBM eServer zSeries and &arch-title;: Distributions</ulink> Redbook on how to set up an LPAR for Linux."
 msgstr ""
 
 #. Tag: title
-#: preparing.xml:1409
+#: preparing.xml:1408
 #, no-c-format
 msgid "Installation as a VM guest"
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1411
+#: preparing.xml:1410
 #, no-c-format
 msgid "Please refer to chapter 6 of the <ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg244987.pdf\"> Linux for &arch-title;</ulink> Redbook and chapter 3.1 of the <ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/redbooks/sg246264.pdf\"> Linux for IBM eServer zSeries and &arch-title;: Distributions</ulink> Redbook on how to set up a VM guest for running Linux."
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1421
+#: preparing.xml:1420
 #, no-c-format
 msgid "You need to copy all the files from the <filename>generic</filename> sub-directory to your CMS disk. Be sure to transfer <filename>kernel.debian</filename> and <filename>initrd.debian</filename> in binary mode with a fixed record length of 80 characters (by specifying <userinput>BINARY</userinput> and <userinput>LOCSITE FIX 80</userinput> in your FTP client). <filename>parmfile.debian</filename> can be in either ASCII or EBCDIC format. A sample <filename>debian.exec</filename> script, which will punch the files in the proper order, is included with the images."
 msgstr ""
 
 #. Tag: title
-#: preparing.xml:1438
+#: preparing.xml:1437
 #, no-c-format
 msgid "Setting up an installation server"
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1440
+#: preparing.xml:1439
 #, no-c-format
 msgid "If you don't have a connection to the Internet (either directly or via a web proxy) you need to create a local installation server that can be accessed from your S/390. This server keeps all the packages you want to install and must make them available using NFS, HTTP or FTP."
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1448
+#: preparing.xml:1447
 #, no-c-format
 msgid "The installation server needs to copy the exact directory structure from any &debian-gnu; mirror, but only the s390 and architecture-independent files are required. You can also copy the contents of all installation CDs into such a directory tree."
 msgstr ""
 
 #. Tag: emphasis
-#: preparing.xml:1457
+#: preparing.xml:1456
 #, no-c-format
 msgid "FIXME: more information needed &mdash; from a Redbook?"
 msgstr ""
 
 #. Tag: title
-#: preparing.xml:1464
+#: preparing.xml:1463
 #, no-c-format
 msgid "Hardware Issues to Watch Out For"
 msgstr ""
 
 #. Tag: title
-#: preparing.xml:1467
+#: preparing.xml:1466
 #, no-c-format
 msgid "USB BIOS support and keyboards"
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1468
+#: preparing.xml:1467
 #, no-c-format
 msgid "If you have no PS/2-style keyboard, but only a USB model, on some very old PCs you may need to enable legacy keyboard emulation in your BIOS setup to be able to use your keyboard in the bootloader menu, but this is not an issue for modern systems. If your keyboard does not work in the bootloader menu, consult your mainboard manual and look in the BIOS for <quote>Legacy keyboard emulation</quote> or <quote>USB keyboard support</quote> options."
 msgstr ""
 
 #. Tag: title
-#: preparing.xml:1481
+#: preparing.xml:1480
 #, no-c-format
 msgid "Display-visibility on OldWorld Powermacs"
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1483
+#: preparing.xml:1482
 #, no-c-format
 msgid "Some OldWorld Powermacs, most notably those with the <quote>control</quote> display driver, may not reliably produce a colormap under Linux when the display is configured for more than 256 colors. If you are experiencing such issues with your display after rebooting (you can sometimes see data on the monitor, but on other occasions cannot see anything) or, if the screen turns black after booting the installer instead of showing you the user interface, try changing your display settings under MacOS to use 256 colors instead of <quote>thousands</quote> or <quote>millions</quote>."
 msgstr ""
