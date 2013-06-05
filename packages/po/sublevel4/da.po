@@ -2,7 +2,7 @@
 # Danish messages for debian-installer.
 # This file is distributed under the same license as debian-installer.
 #
-# Joe Hansen <joedalton2@yahoo.dk>, 2011, 2012.
+# Joe Hansen <joedalton2@yahoo.dk>, 2011, 2012, 2013.
 # Jacob Sparre Andersen <sparre@nbi.dk>, 2008, 2010.
 # Henrik Christian Grove <debian@3001.dk>, 2008.
 # Jesper Dahl Nyerup <debian@jespernyerup.dk>, 2008.
@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: debian-installer_packages_po_sublevel3_da\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-05-22 22:05+0000\n"
-"PO-Revision-Date: 2012-05-04 20:24+0200\n"
+"PO-Revision-Date: 2013-06-05 20:24+0200\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -1316,10 +1316,8 @@ msgstr "Slet ZFS-pulje"
 #. Menu entry
 #. Use infinitive form
 #: ../partman-zfs.templates:14001
-#, fuzzy
-#| msgid "Create %s file system"
 msgid "Create root file system"
-msgstr "Opret %s-filsystem"
+msgstr "Opret root-filsystem"
 
 #. Type: boolean
 #. Description
@@ -1393,12 +1391,6 @@ msgstr "Opsummering af den aktuelle ZFS-konfiguration:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
-#| msgid ""
-#| " Free physical volumes:  ${FREE_PVS}\n"
-#| " Used physical volumes:  ${USED_PVS}\n"
-#| " ZFS pools:              ${VGS}\n"
-#| " ZFS logical volumes:    ${LVS}"
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
@@ -1410,6 +1402,7 @@ msgstr ""
 " Benyttede fysiske arkiver: ${USED_PVS}\n"
 " ZFS-puljer:                ${VGS}\n"
 " ZFS-logiske arkiver:       ${LVS}"
+" ${BOOTFS}"
 
 #. Type: note
 #. Description
@@ -1694,31 +1687,23 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
-#| msgid "Invalid logical volume or ZFS pool name"
 msgid "Invalid logical volume, ZFS pool name or ZFS file system name"
-msgstr "Ugyldigt navn på logisk arkiv eller ZFS-pulje"
+msgstr "Ugyldigt logisk arkiv, ZFS-puljenavn eller ZFS-filsystemnavn"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
-#| msgid ""
-#| "Logical volume or ZFS pool names may only contain alphanumeric "
-#| "characters, hyphen, colon, period, and underscore. They must be 255 "
-#| "characters or less and must begin with an alphanumeric character. The "
-#| "names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
 msgid ""
 "Logical volumes, ZFS pool names and ZFS file systems may only contain "
 "alphanumeric characters, hyphen, colon, period, and underscore. They must be "
 "255 characters or less and must begin with an alphanumeric character. The "
 "names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"Navne på logiske arkiver eller ZFS-puljer må kun indeholde alfanumeriske "
-"tegn, bindestreger, kolon, punktum og understreger. De skal være på 255 tegn "
-"eller kortere, og skal starte med et alfanumerisk tegn. Navnene \"mirror\", "
-"\"raidz\", \"spare\" og \"log\" er ikke tilladte."
+"Navne på logiske arkiver, ZFS-puljer og ZFS-filsystemer kun indeholde "
+"alfanumeriske tegn, bindestreger, kolon, punktum og understreger. De skal "
+"være på 255 tegn eller kortere, og skal starte med et alfanumerisk tegn. "
+"Navnene \"mirror\", \"raidz\", \"spare\" og \"log\" er ikke tilladte."
 
 #. Type: boolean
 #. Description
@@ -1804,25 +1789,21 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:51001
 msgid "Pool to modify:"
-msgstr ""
+msgstr "Pulje at ændre:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
-#| msgid "ZFS pool name:"
 msgid "ZFS boot file system name:"
-msgstr "ZFS-puljenavn:"
+msgstr "Filsystemnavn for ZFS-opstart:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
-#| msgid "Please enter the hostname for this system."
 msgid "Please enter the name of the boot file system among the following:"
-msgstr "Angiv dette systems værtsnavn."
+msgstr "Indtast venligst navnet for opstartsfilsystemet blandt de følgende:"
 
 #. Type: string
 #. Description
@@ -1831,42 +1812,35 @@ msgstr "Angiv dette systems værtsnavn."
 msgid ""
 "This will be prefixed by ${VG}/ROOT and mounted as the root file system."
 msgstr ""
+"De vil blive præfikset af ${VG}/ROOT og monteret som rodfilsystemet."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
-#| msgid "No file system mounted on /target"
 msgid "No file system name entered"
-msgstr "Ingen filsystemer monteret på /target"
+msgstr "Inget filsystemnavn angivet"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
-#| msgid "No name for the ZFS pool has been entered. Please enter a name."
 msgid "No name has been entered for the root file system. Please enter a name."
-msgstr "Der er ikke angivet noget navn for ZFS-puljen. Angiv venligst et navn."
+msgstr "Intet navn er blevet angivet for rodfilsystemet. Angiv venligst et navn."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:54001
-#, fuzzy
-#| msgid "ZFS pool:"
 msgid "ZFS boot"
-msgstr "ZFS-pulje:"
+msgstr "ZFS-opstart"
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:55001
-#, fuzzy
-#| msgid "Registering modules..."
 msgid "Loading ZFS module..."
-msgstr "Registrerer moduler..."
+msgstr "Indlæser ZFS-modul ..."
 
 #. Type: boolean
 #. Description
