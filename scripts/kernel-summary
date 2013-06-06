@@ -94,8 +94,8 @@ sub build_status {
         # Adjust status and precision:
         $status =~ s/^status-//;
         $time =~ s/\s+\d+m$//;
-        my %color = ( installed => 'darkgreen', building => 'darkorange', buildattempted => 'red'   );
-        my %label = ( installed => 'Installed', building => 'Building'  , buildattempted => 'Failed');
+        my %color = ( installed => 'darkgreen', building => 'darkorange', needsbuild => 'darkorange',  buildattempted => 'red'   );
+        my %label = ( installed => 'Installed', building => 'Building'  , needsbuild => 'Needs-Build', buildattempted => 'Failed');
         my $c = $color{$status} || 'black';
         my $l = $label{$status} || $status;
         $builds{$arch} = "<span style=\"color: $c\">$l ($time)</span>";
