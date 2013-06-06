@@ -134,8 +134,8 @@ foreach my $dist (qw(testing unstable experimental)) {
     chomp $line;
     my ($package, $version, $dist, $archs) = split /\s*[|]\s*/, $line;
     $package =~ s/\s*linux-image-//;
-    (my $abi = $package) =~ s/(-[\d+])-.*/$1/;
-    (my $flavour = $package) =~ s/.*?-[\d+]-//;
+    (my $abi = $package) =~ s/(-(?:rc)?[\d+])-.*/$1/;
+    (my $flavour = $package) =~ s/.*?-(?:rc)?[\d+]-//;
     #print "$abi; $package; $version; $dist; $archs\n";
     foreach my $arch (split /,\s*/, $archs) {
       push @{$v{$arch}{$abi}}, $flavour;
