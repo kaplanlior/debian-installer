@@ -123,7 +123,7 @@ my $html = "<html><head><title>Linux kernel status across distributions</title><
 foreach my $dist (qw(testing unstable experimental)) {
   # FIXME: A few hours can happen until a built package can be seen
   # here. Another option would be ssh {ftp-master,release}.d.o dak ls
-  my @lines = `rmadison -S linux -s $dist 2>/dev/null|grep linux-image-`;
+  my @lines = `rmadison -S linux -s $dist 2>/dev/null`;
   # Abort if rmadison fails (e.g. qa.debian.org fails to reply):
   exit 1
     if $? != 0;
@@ -131,6 +131,8 @@ foreach my $dist (qw(testing unstable experimental)) {
   my @allarchs;
   my %v;
   foreach my $line (@lines) {
+    next
+      if $line !~ /linux-image-/;
     chomp $line;
     my ($package, $version, $dist, $archs) = split /\s*[|]\s*/, $line;
     $package =~ s/\s*linux-image-//;
