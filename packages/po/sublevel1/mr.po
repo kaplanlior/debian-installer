@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-22 22:05+0000\n"
+"POT-Creation-Date: 2013-08-13 22:03+0000\n"
 "PO-Revision-Date: 2012-04-22 20:17+0530\n"
 "Last-Translator: sampada <sampadanakhare@gmail.com>\n"
 "Language-Team: Marathi, janabhaaratii, C-DAC, Mumbai, India "
@@ -1554,7 +1554,7 @@ msgstr "आवृत्तीची हस्ताक्षर तपासण�
 
 #. Type: select
 #. Description
-#: ../apt-setup-udeb.templates:7002
+#: ../apt-setup-udeb.templates:8002
 msgid "Downloading local repository key failed:"
 msgstr "स्थानिक रिपॉझिटरी की डाउनलोड करणे असफलः"
 
@@ -1562,7 +1562,7 @@ msgstr "स्थानिक रिपॉझिटरी की डाउनल
 #. Description
 #. You should end this with a colon. A non-translatable variable
 #. follows with the mirror URL
-#: ../apt-setup-udeb.templates:7002
+#: ../apt-setup-udeb.templates:8002
 msgid ""
 "The installer failed to download the public key used to sign the local "
 "repository at ${MIRROR}:"
@@ -1572,7 +1572,7 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../apt-setup-udeb.templates:7002
+#: ../apt-setup-udeb.templates:8002
 msgid ""
 "This may be a problem with your network, or with the server hosting this "
 "key. You can choose to retry the download, or ignore the problem and "
@@ -4095,7 +4095,7 @@ msgstr "पाया प्रणाली अधिष्ठापित कर
 #. Type: text
 #. Description
 #. :sl1:
-#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. #-#-#-#-#  templates.pot (apt-setup)  #-#-#-#-#
 #. Type: text
 #. Description
 #. :sl2:
@@ -4474,7 +4474,7 @@ msgstr "ऍप्ट संरचित होत आहे"
 #. Translators: the *entire* string should be under 55 columns
 #. including host name. In short, KEEP THIS SHORT and, yes, that's tricky
 #. :sl1:
-#: ../apt-setup-udeb.templates:10001
+#: ../apt-setup-udeb.templates:11001
 msgid "security updates (from ${SEC_HOST})"
 msgstr "सुरक्षा सुधारणा (${SEC_HOST} कडून)"
 
@@ -4484,21 +4484,33 @@ msgstr "सुरक्षा सुधारणा (${SEC_HOST} कडून)"
 #. Translators: the *entire* string should be under 55 columns
 #. including host name. In short, KEEP THIS SHORT and, yes, that's tricky
 #. :sl1:
-#: ../apt-setup-udeb.templates:10001
+#: ../apt-setup-udeb.templates:11001
 msgid "release updates"
 msgstr "आवृत्ती सुधारणा"
 
 #. Type: multiselect
+#. Choices
+#. SEC_HOST is a host name (e.g. security.debian.org)
+#. Translators: the *entire* string should be under 55 columns
+#. including host name. In short, KEEP THIS SHORT and, yes, that's tricky
+#. :sl1:
+#: ../apt-setup-udeb.templates:11001
+#, fuzzy
+#| msgid "Use backported software?"
+msgid "backported software"
+msgstr "बॅकपोर्टेड सॉफ्टवेअर वापरायचे?"
+
+#. Type: multiselect
 #. Description
 #. :sl1:
-#: ../apt-setup-udeb.templates:10002
+#: ../apt-setup-udeb.templates:11002
 msgid "Services to use:"
 msgstr "वापरायच्या सेवाः"
 
 #. Type: multiselect
 #. Description
 #. :sl1:
-#: ../apt-setup-udeb.templates:10002
+#: ../apt-setup-udeb.templates:11002
 msgid ""
 "Debian has two services that provide updates to releases: security and "
 "release updates."
@@ -4507,7 +4519,7 @@ msgstr "आवृत्त्यांकरिता सुधारणा प�
 #. Type: multiselect
 #. Description
 #. :sl1:
-#: ../apt-setup-udeb.templates:10002
+#: ../apt-setup-udeb.templates:11002
 msgid ""
 "Security updates help to keep your system secured against attacks. Enabling "
 "this service is strongly recommended."
@@ -4518,7 +4530,7 @@ msgstr ""
 #. Type: multiselect
 #. Description
 #. :sl1:
-#: ../apt-setup-udeb.templates:10002
+#: ../apt-setup-udeb.templates:11002
 msgid ""
 "Release updates provide more current versions for software that changes "
 "relatively frequently and where not having the latest version could reduce "
@@ -4528,6 +4540,28 @@ msgstr ""
 "आवृत्ती सुधारणा तुलनेने वारंवार बदलणार्‍या व अद्ययावत आवृत्ती नसल्यास ज्यांची उपयुक्तता कमी "
 "होऊ शकेल, अशा आज्ञावल्यांकरिता जास्त सद्य आवृत्त्या पुरवतात. याचे उदाहरण म्हणजे व्हायरस "
 "तपासनिसाकरिता व्हायरस स्वाक्षर्‍या. ही सेवा फक्त स्थिर व जुनेस्थिर आवृत्त्यांकरिताच आहे."
+
+#. Type: multiselect
+#. Description
+#. :sl1:
+#: ../apt-setup-udeb.templates:11002
+#, fuzzy
+#| msgid ""
+#| "Some software has been backported from the development tree to work with "
+#| "this release. Although this software has not gone through such complete "
+#| "testing as that contained in the release, it includes newer versions of "
+#| "some applications which may provide useful features."
+msgid ""
+"Backported software are adapted from the development version to work with "
+"this release. Although this software has not gone through such complete "
+"testing as that contained in the release, it includes newer versions of some "
+"applications which may provide useful features. Enabling backports here does "
+"not cause any of them to be installed by default; it only allows you to "
+"manually select backports to use."
+msgstr ""
+"विकासवृक्षातून काही सॉफ्टवेअर बॅकपोर्ट केले आहे. जरी या सॉफ्टवेअरचे वितरणात असलेल्याएवढे "
+"संपूर्ण परिक्षण झालेले नसले, तरी त्यात काही उपयोजकांच्या नवीन आवृत्त्या समाविष्ट आहेत, ज्या "
+"उपयोगी ठरू शकतात."
 
 #. Type: text
 #. Description

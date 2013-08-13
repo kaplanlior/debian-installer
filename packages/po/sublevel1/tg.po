@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-22 22:05+0000\n"
+"POT-Creation-Date: 2013-08-13 22:03+0000\n"
 "PO-Revision-Date: 2013-08-01 13:51-0000\n"
 "Last-Translator: Victor Ibragimov <victor.ibragimov@gmail.com>\n"
 "Language-Team: Tajik <victor.ibragimov@gmail.com>\n"
@@ -1557,7 +1557,7 @@ msgstr "Санҷиши имзои релиз"
 
 #. Type: select
 #. Description
-#: ../apt-setup-udeb.templates:7002
+#: ../apt-setup-udeb.templates:8002
 msgid "Downloading local repository key failed:"
 msgstr "Боргирии калиди бастаи анборҳои маҳаллӣ ба анҷом нарасид:"
 
@@ -1565,7 +1565,7 @@ msgstr "Боргирии калиди бастаи анборҳои маҳалл
 #. Description
 #. You should end this with a colon. A non-translatable variable
 #. follows with the mirror URL
-#: ../apt-setup-udeb.templates:7002
+#: ../apt-setup-udeb.templates:8002
 msgid ""
 "The installer failed to download the public key used to sign the local "
 "repository at ${MIRROR}:"
@@ -1575,7 +1575,7 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../apt-setup-udeb.templates:7002
+#: ../apt-setup-udeb.templates:8002
 msgid ""
 "This may be a problem with your network, or with the server hosting this "
 "key. You can choose to retry the download, or ignore the problem and "
@@ -4161,7 +4161,7 @@ msgstr "Насбкунии системаи асосӣ"
 #. Type: text
 #. Description
 #. :sl1:
-#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. #-#-#-#-#  templates.pot (apt-setup)  #-#-#-#-#
 #. Type: text
 #. Description
 #. :sl2:
@@ -4540,7 +4540,7 @@ msgstr "Танзимкунии Apt"
 #. Translators: the *entire* string should be under 55 columns
 #. including host name. In short, KEEP THIS SHORT and, yes, that's tricky
 #. :sl1:
-#: ../apt-setup-udeb.templates:10001
+#: ../apt-setup-udeb.templates:11001
 msgid "security updates (from ${SEC_HOST})"
 msgstr "навсозиҳои амниятӣ (аз ${SEC_HOST})"
 
@@ -4550,21 +4550,33 @@ msgstr "навсозиҳои амниятӣ (аз ${SEC_HOST})"
 #. Translators: the *entire* string should be under 55 columns
 #. including host name. In short, KEEP THIS SHORT and, yes, that's tricky
 #. :sl1:
-#: ../apt-setup-udeb.templates:10001
+#: ../apt-setup-udeb.templates:11001
 msgid "release updates"
 msgstr "навсозиҳои релиз"
 
 #. Type: multiselect
+#. Choices
+#. SEC_HOST is a host name (e.g. security.debian.org)
+#. Translators: the *entire* string should be under 55 columns
+#. including host name. In short, KEEP THIS SHORT and, yes, that's tricky
+#. :sl1:
+#: ../apt-setup-udeb.templates:11001
+#, fuzzy
+#| msgid "Use backported software?"
+msgid "backported software"
+msgstr "Нармафзори пешакӣ интиқолшударо истифода мебаред?"
+
+#. Type: multiselect
 #. Description
 #. :sl1:
-#: ../apt-setup-udeb.templates:10002
+#: ../apt-setup-udeb.templates:11002
 msgid "Services to use:"
 msgstr "Хидматҳо барои истифода:"
 
 #. Type: multiselect
 #. Description
 #. :sl1:
-#: ../apt-setup-udeb.templates:10002
+#: ../apt-setup-udeb.templates:11002
 msgid ""
 "Debian has two services that provide updates to releases: security and "
 "release updates."
@@ -4575,7 +4587,7 @@ msgstr ""
 #. Type: multiselect
 #. Description
 #. :sl1:
-#: ../apt-setup-udeb.templates:10002
+#: ../apt-setup-udeb.templates:11002
 msgid ""
 "Security updates help to keep your system secured against attacks. Enabling "
 "this service is strongly recommended."
@@ -4586,7 +4598,7 @@ msgstr ""
 #. Type: multiselect
 #. Description
 #. :sl1:
-#: ../apt-setup-udeb.templates:10002
+#: ../apt-setup-udeb.templates:11002
 msgid ""
 "Release updates provide more current versions for software that changes "
 "relatively frequently and where not having the latest version could reduce "
@@ -4597,6 +4609,29 @@ msgstr ""
 "тағйир меёбад ва нармафзоре, ки дорои версияи охирин намебошад, таъмин "
 "менамоянд. Он ҳамчунин ҳалҳои бозгаштро таъмин менамояд. Ин хидмат танҳо "
 "барои релизҳои устувор ва устувори қаблӣ дастрас аст."
+
+#. Type: multiselect
+#. Description
+#. :sl1:
+#: ../apt-setup-udeb.templates:11002
+#, fuzzy
+#| msgid ""
+#| "Some software has been backported from the development tree to work with "
+#| "this release. Although this software has not gone through such complete "
+#| "testing as that contained in the release, it includes newer versions of "
+#| "some applications which may provide useful features."
+msgid ""
+"Backported software are adapted from the development version to work with "
+"this release. Although this software has not gone through such complete "
+"testing as that contained in the release, it includes newer versions of some "
+"applications which may provide useful features. Enabling backports here does "
+"not cause any of them to be installed by default; it only allows you to "
+"manually select backports to use."
+msgstr ""
+"Баъзе нармафзор барои кор кардан бо ин релиз аз дарахти такомул пешакӣ "
+"интиқол дода шудаанд. Бо вуҷуди он ки ин нармафзор аз санҷиши пурра гузашта "
+"нашудааст, чӣ хеле ки барои релиз лозим аст, он версияҳои навтари баъзе "
+"барномаҳоеро, ки дорои хусусиятҳои фоиданок мебошанд, дар ба мегирад."
 
 #. Type: text
 #. Description

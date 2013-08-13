@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer Level 1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-22 22:05+0000\n"
+"POT-Creation-Date: 2013-08-13 22:03+0000\n"
 "PO-Revision-Date: 2013-05-22 09:11+0100\n"
 "Last-Translator: Hai-Nam Nguyen <hainam@jcisio.com>\n"
 "Language-Team: Vietnamese <debian-l10n-vietnamese@lists.debian.org>\n"
@@ -1562,7 +1562,7 @@ msgstr "Đang kiểm tra chữ ký Release"
 
 #. Type: select
 #. Description
-#: ../apt-setup-udeb.templates:7002
+#: ../apt-setup-udeb.templates:8002
 msgid "Downloading local repository key failed:"
 msgstr "Tải khóa cho kho địa phương thất bại:"
 
@@ -1570,7 +1570,7 @@ msgstr "Tải khóa cho kho địa phương thất bại:"
 #. Description
 #. You should end this with a colon. A non-translatable variable
 #. follows with the mirror URL
-#: ../apt-setup-udeb.templates:7002
+#: ../apt-setup-udeb.templates:8002
 msgid ""
 "The installer failed to download the public key used to sign the local "
 "repository at ${MIRROR}:"
@@ -1580,7 +1580,7 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../apt-setup-udeb.templates:7002
+#: ../apt-setup-udeb.templates:8002
 msgid ""
 "This may be a problem with your network, or with the server hosting this "
 "key. You can choose to retry the download, or ignore the problem and "
@@ -4136,7 +4136,7 @@ msgstr "Đang cài đặt hệ thống cơ bản"
 #. Type: text
 #. Description
 #. :sl1:
-#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. #-#-#-#-#  templates.pot (apt-setup)  #-#-#-#-#
 #. Type: text
 #. Description
 #. :sl2:
@@ -4517,7 +4517,7 @@ msgstr "Đang cấu hình trình apt"
 #. Translators: the *entire* string should be under 55 columns
 #. including host name. In short, KEEP THIS SHORT and, yes, that's tricky
 #. :sl1:
-#: ../apt-setup-udeb.templates:10001
+#: ../apt-setup-udeb.templates:11001
 msgid "security updates (from ${SEC_HOST})"
 msgstr "cập nhật bảo mật (từ ${SEC_HOST})"
 
@@ -4527,21 +4527,33 @@ msgstr "cập nhật bảo mật (từ ${SEC_HOST})"
 #. Translators: the *entire* string should be under 55 columns
 #. including host name. In short, KEEP THIS SHORT and, yes, that's tricky
 #. :sl1:
-#: ../apt-setup-udeb.templates:10001
+#: ../apt-setup-udeb.templates:11001
 msgid "release updates"
 msgstr "cập nhật"
 
 #. Type: multiselect
+#. Choices
+#. SEC_HOST is a host name (e.g. security.debian.org)
+#. Translators: the *entire* string should be under 55 columns
+#. including host name. In short, KEEP THIS SHORT and, yes, that's tricky
+#. :sl1:
+#: ../apt-setup-udeb.templates:11001
+#, fuzzy
+#| msgid "Use backported software?"
+msgid "backported software"
+msgstr "Dùng phần mềm đã nối cầu lùi không?"
+
+#. Type: multiselect
 #. Description
 #. :sl1:
-#: ../apt-setup-udeb.templates:10002
+#: ../apt-setup-udeb.templates:11002
 msgid "Services to use:"
 msgstr "Dịch vụ sẽ dùng:"
 
 #. Type: multiselect
 #. Description
 #. :sl1:
-#: ../apt-setup-udeb.templates:10002
+#: ../apt-setup-udeb.templates:11002
 msgid ""
 "Debian has two services that provide updates to releases: security and "
 "release updates."
@@ -4550,7 +4562,7 @@ msgstr "Debian cung cấp hai dịch vụ cập nhật phát hành: bảo mật 
 #. Type: multiselect
 #. Description
 #. :sl1:
-#: ../apt-setup-udeb.templates:10002
+#: ../apt-setup-udeb.templates:11002
 msgid ""
 "Security updates help to keep your system secured against attacks. Enabling "
 "this service is strongly recommended."
@@ -4561,7 +4573,7 @@ msgstr ""
 #. Type: multiselect
 #. Description
 #. :sl1:
-#: ../apt-setup-udeb.templates:10002
+#: ../apt-setup-udeb.templates:11002
 msgid ""
 "Release updates provide more current versions for software that changes "
 "relatively frequently and where not having the latest version could reduce "
@@ -4572,6 +4584,29 @@ msgstr ""
 "nhiều và nếu không có bản mới nhất sẽ ảnh hưởng tới chức năng của phần mềm. "
 "Bản này cũng cung cấp bản vá lỗi lũy tích. Dịch vụ này chỉ có với phiên bản "
 "ổn định và ổn định cũ (oldstable)."
+
+#. Type: multiselect
+#. Description
+#. :sl1:
+#: ../apt-setup-udeb.templates:11002
+#, fuzzy
+#| msgid ""
+#| "Some software has been backported from the development tree to work with "
+#| "this release. Although this software has not gone through such complete "
+#| "testing as that contained in the release, it includes newer versions of "
+#| "some applications which may provide useful features."
+msgid ""
+"Backported software are adapted from the development version to work with "
+"this release. Although this software has not gone through such complete "
+"testing as that contained in the release, it includes newer versions of some "
+"applications which may provide useful features. Enabling backports here does "
+"not cause any of them to be installed by default; it only allows you to "
+"manually select backports to use."
+msgstr ""
+"Một số gói phần mềm đã được nối cầu lùi (backport) từ cây phát triển, để "
+"hoạt động với bản phát hành này. Mặc dù phần mềm này chưa được thử ra hoàn "
+"thành như điều trong bản phát hành này, nó bao gồm phiên bản mới hơn của một "
+"số ứng dụng có thể cung cấp các tính năng hữu ích."
 
 #. Type: text
 #. Description

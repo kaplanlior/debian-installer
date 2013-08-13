@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-22 22:05+0000\n"
+"POT-Creation-Date: 2013-08-13 22:03+0000\n"
 "PO-Revision-Date: 2013-03-24 06:34+0100\n"
 "Last-Translator: Tegegne Tefera <tefera.tegegne@gmail.com>\n"
 "Language-Team: Amharic <linux-ethiopia@googlegroups.com>\n"
@@ -1544,7 +1544,7 @@ msgstr "የመልቀቂያ ፋይል ፊርማን በማረጋገጥ ላይ..."
 
 #. Type: select
 #. Description
-#: ../apt-setup-udeb.templates:7002
+#: ../apt-setup-udeb.templates:8002
 msgid "Downloading local repository key failed:"
 msgstr "የቅርብ አስቀማጭ ቁልፍ ማምጣት አልተሳካም"
 
@@ -1552,7 +1552,7 @@ msgstr "የቅርብ አስቀማጭ ቁልፍ ማምጣት አልተሳካም"
 #. Description
 #. You should end this with a colon. A non-translatable variable
 #. follows with the mirror URL
-#: ../apt-setup-udeb.templates:7002
+#: ../apt-setup-udeb.templates:8002
 msgid ""
 "The installer failed to download the public key used to sign the local "
 "repository at ${MIRROR}:"
@@ -1560,7 +1560,7 @@ msgstr "ተካዩ የቅርብ ማስቀመጪያ  ${MIRROR} ቁልፍን ማም
 
 #. Type: select
 #. Description
-#: ../apt-setup-udeb.templates:7002
+#: ../apt-setup-udeb.templates:8002
 msgid ""
 "This may be a problem with your network, or with the server hosting this "
 "key. You can choose to retry the download, or ignore the problem and "
@@ -4018,7 +4018,7 @@ msgstr "መሠረታዊ ሥርዓቱን በመትከል ላይ"
 #. Type: text
 #. Description
 #. :sl1:
-#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. #-#-#-#-#  templates.pot (apt-setup)  #-#-#-#-#
 #. Type: text
 #. Description
 #. :sl2:
@@ -4397,7 +4397,7 @@ msgstr "apt በማስተካከል ላይ"
 #. Translators: the *entire* string should be under 55 columns
 #. including host name. In short, KEEP THIS SHORT and, yes, that's tricky
 #. :sl1:
-#: ../apt-setup-udeb.templates:10001
+#: ../apt-setup-udeb.templates:11001
 msgid "security updates (from ${SEC_HOST})"
 msgstr "የደህንነት እዳሴ (ከ ${SEC_HOST})"
 
@@ -4407,21 +4407,33 @@ msgstr "የደህንነት እዳሴ (ከ ${SEC_HOST})"
 #. Translators: the *entire* string should be under 55 columns
 #. including host name. In short, KEEP THIS SHORT and, yes, that's tricky
 #. :sl1:
-#: ../apt-setup-udeb.templates:10001
+#: ../apt-setup-udeb.templates:11001
 msgid "release updates"
 msgstr "የተለቀቀውን እዳሴ፦"
 
 #. Type: multiselect
+#. Choices
+#. SEC_HOST is a host name (e.g. security.debian.org)
+#. Translators: the *entire* string should be under 55 columns
+#. including host name. In short, KEEP THIS SHORT and, yes, that's tricky
+#. :sl1:
+#: ../apt-setup-udeb.templates:11001
+#, fuzzy
+#| msgid "Use backported software?"
+msgid "backported software"
+msgstr "backported ስሳካል ልጠቀም?"
+
+#. Type: multiselect
 #. Description
 #. :sl1:
-#: ../apt-setup-udeb.templates:10002
+#: ../apt-setup-udeb.templates:11002
 msgid "Services to use:"
 msgstr "የሚጠቀሙበት አገልጋይ፦"
 
 #. Type: multiselect
 #. Description
 #. :sl1:
-#: ../apt-setup-udeb.templates:10002
+#: ../apt-setup-udeb.templates:11002
 msgid ""
 "Debian has two services that provide updates to releases: security and "
 "release updates."
@@ -4430,7 +4442,7 @@ msgstr "ደብያን ሁለት ማሻሻያዎችን የማቅረብ ኣገል�
 #. Type: multiselect
 #. Description
 #. :sl1:
-#: ../apt-setup-udeb.templates:10002
+#: ../apt-setup-udeb.templates:11002
 msgid ""
 "Security updates help to keep your system secured against attacks. Enabling "
 "this service is strongly recommended."
@@ -4439,7 +4451,7 @@ msgstr "የደህንነት ማሻሻያዎች ስርዓተ አስሊውን ከ�
 #. Type: multiselect
 #. Description
 #. :sl1:
-#: ../apt-setup-udeb.templates:10002
+#: ../apt-setup-udeb.templates:11002
 msgid ""
 "Release updates provide more current versions for software that changes "
 "relatively frequently and where not having the latest version could reduce "
@@ -4448,6 +4460,27 @@ msgid ""
 msgstr ""
 "የዝርያ ማሻሻያዎች በኣንጻሩ በየጊዜው የሚቀያየሩና አዳዲስ ስስአስሊን አለማግኘት ጠቀሜታ የሚቀንስ ሲሆን ይቀርባል። "
 "በተጨማሪም የኋልዮሽ መጠገኛዎችን ያቀርባል። ይህ አገልግሎት ለበሳልና ለአሮጌ-በሳል ዝርያዎች ብቻ ይቀርባል። "
+
+#. Type: multiselect
+#. Description
+#. :sl1:
+#: ../apt-setup-udeb.templates:11002
+#, fuzzy
+#| msgid ""
+#| "Some software has been backported from the development tree to work with "
+#| "this release. Although this software has not gone through such complete "
+#| "testing as that contained in the release, it includes newer versions of "
+#| "some applications which may provide useful features."
+msgid ""
+"Backported software are adapted from the development version to work with "
+"this release. Although this software has not gone through such complete "
+"testing as that contained in the release, it includes newer versions of some "
+"applications which may provide useful features. Enabling backports here does "
+"not cause any of them to be installed by default; it only allows you to "
+"manually select backports to use."
+msgstr ""
+"አንዳንድ ስልቶች ገና ከድፍድፍ ላይ ካለ ዝርያ ተወስደው ከዚህ ስርዓት ጋር እንዲሰሩ ትደርገዋል። ምንም እንኳን እነዚህ "
+"ስልቶች እንደለሎቹ ስልቶች ሙሉ በሙሉ ሙከራ ባይደረግባቸውም ጠቃሚ የሆኑ አዳዲስ ባህሪዎችን ይዘዋል።"
 
 #. Type: text
 #. Description

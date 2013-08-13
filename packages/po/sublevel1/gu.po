@@ -19,7 +19,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: d-i\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-22 22:05+0000\n"
+"POT-Creation-Date: 2013-08-13 22:03+0000\n"
 "PO-Revision-Date: 2008-08-01 10:44+0530\n"
 "Last-Translator: Kartik Mistry <kartik.mistry@gmail.com>\n"
 "Language-Team: Gujarati <team@utkarsh.org>\n"
@@ -1557,7 +1557,7 @@ msgstr "Release સહીની ચકાસણી કરે છે"
 
 #. Type: select
 #. Description
-#: ../apt-setup-udeb.templates:7002
+#: ../apt-setup-udeb.templates:8002
 msgid "Downloading local repository key failed:"
 msgstr "સ્થાનિક રેપોઝિટોરી કળ ડાઉનલોડ કરવામાં નિષ્ફળ:"
 
@@ -1565,7 +1565,7 @@ msgstr "સ્થાનિક રેપોઝિટોરી કળ ડાઉન
 #. Description
 #. You should end this with a colon. A non-translatable variable
 #. follows with the mirror URL
-#: ../apt-setup-udeb.templates:7002
+#: ../apt-setup-udeb.templates:8002
 msgid ""
 "The installer failed to download the public key used to sign the local "
 "repository at ${MIRROR}:"
@@ -1575,7 +1575,7 @@ msgstr ""
 
 #. Type: select
 #. Description
-#: ../apt-setup-udeb.templates:7002
+#: ../apt-setup-udeb.templates:8002
 msgid ""
 "This may be a problem with your network, or with the server hosting this "
 "key. You can choose to retry the download, or ignore the problem and "
@@ -4081,7 +4081,7 @@ msgstr "પાયાની સિસ્ટમ સ્થાપન કરે છ�
 #. Type: text
 #. Description
 #. :sl1:
-#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. #-#-#-#-#  templates.pot (apt-setup)  #-#-#-#-#
 #. Type: text
 #. Description
 #. :sl2:
@@ -4460,7 +4460,7 @@ msgstr "apt રૂપરેખાંકિત કરે છે..."
 #. Translators: the *entire* string should be under 55 columns
 #. including host name. In short, KEEP THIS SHORT and, yes, that's tricky
 #. :sl1:
-#: ../apt-setup-udeb.templates:10001
+#: ../apt-setup-udeb.templates:11001
 msgid "security updates (from ${SEC_HOST})"
 msgstr "સલામતી સુધારા (${SEC_HOST} માંથી)"
 
@@ -4470,21 +4470,33 @@ msgstr "સલામતી સુધારા (${SEC_HOST} માંથી)"
 #. Translators: the *entire* string should be under 55 columns
 #. including host name. In short, KEEP THIS SHORT and, yes, that's tricky
 #. :sl1:
-#: ../apt-setup-udeb.templates:10001
+#: ../apt-setup-udeb.templates:11001
 msgid "release updates"
 msgstr "રીલીઝ સુધારા"
 
 #. Type: multiselect
+#. Choices
+#. SEC_HOST is a host name (e.g. security.debian.org)
+#. Translators: the *entire* string should be under 55 columns
+#. including host name. In short, KEEP THIS SHORT and, yes, that's tricky
+#. :sl1:
+#: ../apt-setup-udeb.templates:11001
+#, fuzzy
+#| msgid "Use backported software?"
+msgid "backported software"
+msgstr "બેકપોર્ટેડ સોફ્ટવેર વાપરશો?"
+
+#. Type: multiselect
 #. Description
 #. :sl1:
-#: ../apt-setup-udeb.templates:10002
+#: ../apt-setup-udeb.templates:11002
 msgid "Services to use:"
 msgstr "ઉપયોગ કરવા માટેની સેવાઓ:"
 
 #. Type: multiselect
 #. Description
 #. :sl1:
-#: ../apt-setup-udeb.templates:10002
+#: ../apt-setup-udeb.templates:11002
 msgid ""
 "Debian has two services that provide updates to releases: security and "
 "release updates."
@@ -4493,7 +4505,7 @@ msgstr "ડેબિયન પાસે બે સેવાઓ છે જે ર
 #. Type: multiselect
 #. Description
 #. :sl1:
-#: ../apt-setup-udeb.templates:10002
+#: ../apt-setup-udeb.templates:11002
 msgid ""
 "Security updates help to keep your system secured against attacks. Enabling "
 "this service is strongly recommended."
@@ -4504,7 +4516,7 @@ msgstr ""
 #. Type: multiselect
 #. Description
 #. :sl1:
-#: ../apt-setup-udeb.templates:10002
+#: ../apt-setup-udeb.templates:11002
 msgid ""
 "Release updates provide more current versions for software that changes "
 "relatively frequently and where not having the latest version could reduce "
@@ -4515,6 +4527,28 @@ msgstr ""
 "જો તેમનાં છેલ્લી આવૃતિમાં ન હોય તો તે સોફ્ટવેરની ઉપયોગિતા ઘટાડી શકે છે. દાખલા તરીકે "
 "વાયરસ શોધવા માટેનાં વાયરસ હસ્તાક્ષરો. આ સેવા માત્ર સ્ટેબલ અને ઓલ્ડ સ્ટેબલ રીલીઝ માટે જ "
 "પ્રાપ્ત છે."
+
+#. Type: multiselect
+#. Description
+#. :sl1:
+#: ../apt-setup-udeb.templates:11002
+#, fuzzy
+#| msgid ""
+#| "Some software has been backported from the development tree to work with "
+#| "this release. Although this software has not gone through such complete "
+#| "testing as that contained in the release, it includes newer versions of "
+#| "some applications which may provide useful features."
+msgid ""
+"Backported software are adapted from the development version to work with "
+"this release. Although this software has not gone through such complete "
+"testing as that contained in the release, it includes newer versions of some "
+"applications which may provide useful features. Enabling backports here does "
+"not cause any of them to be installed by default; it only allows you to "
+"manually select backports to use."
+msgstr ""
+"કેટલાક સોફ્ટવેર ડેવલપમેન્ટમાંથી આ આવૃતિમાં લાવવામાં આવ્યા છે. આ સોફ્ટવેર આ આવૃતિની જેમ પૂર્ણ "
+"ચકાસણી થઇ ન હોવા છતાં, તે કેટલાક કાર્યક્રમોની નવી આવૃતિઓ ધરાવે છે જે તમને મહત્વની "
+"લાક્ષણિકતાઓ આપી શકે છે."
 
 #. Type: text
 #. Description
