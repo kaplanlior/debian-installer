@@ -179,7 +179,15 @@ for my $suite (@suites) {
     $html .= "</tr>\n";
   }
 }
-$html .= "</table></body></html>\n";
+$html .= "</table>";
+
+# Make it easy to detect an outdated page:
+my $date = `LC_ALL=C TZ=UTC date`;
+chomp $date;
+$html .= "<hr/>\n";
+$html .= "Last update: $date\n";
+
+$html .= "</body></html>\n";
 write_file("$workdir/$index_output", $html);
 
 
