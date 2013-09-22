@@ -55,6 +55,7 @@ for my $suite (@suites) {
   }
   for my $arch_dir (glob "$mirror/dists/$suite/main/debian-installer/binary-*") {
     (my $arch = $arch_dir) =~ s{.*/binary-}{};
+    (my $deb_arch_dir = $arch_dir) =~ s{/debian-installer/}{/};
     # binary-all isn't interesting:
     next if $arch eq 'all';
 
@@ -63,21 +64,29 @@ for my $suite (@suites) {
     $availables{$suite}{$arch} = 1;
 
     # FIXME: IO::Compress::Gzip would be nicer to use
-    my $packages_file = "$suitedir/$arch-Packages";
+    my $udeb_file = "$suitedir/$arch-Packages.udeb";
+    my $deb_file = "$suitedir/$arch-Packages.deb";
 
     # For debugging purposes, this sync can be disabled (--nosync):
     if ($sync) {
-      system("zcat $arch_dir/Packages.gz > $packages_file")==0
+      system("zcat $arch_dir/Packages.gz > $udeb_file")==0
         or die "Unable to zcat $arch_dir/Packages.gz";
+      if (-f "$deb_arch_dir/Packages.gz") {
+        system("zcat $deb_arch_dir/Packages.gz > $deb_file")==0
+          or die "Unable to zcat $deb_arch_dir/Packages.gz";
+      }
+      else {
+        warn "Missing deb Packages file: $deb_arch_dir/Packages.gz";
+      }
 
       # Add a few special packages in there:
-      open my $fh, '>>', $packages_file
-        or die "Unable to append to $packages_file";
+      open my $fh, '>>', $udeb_file
+        or die "Unable to append to $udeb_file";
       for my $fake (qw(libgcc1 libnewt0.52)) {
         print $fh "Package: $fake\nArchitecture: $arch\nVersion: fake\n\n";
       }
       close $fh
-        or die "Unable to close $packages_file";
+        or die "Unable to close $udeb_file";
     }
 
     # Call edos, explaining issues.
@@ -87,7 +96,7 @@ for my $suite (@suites) {
     $graph .= "node[shape=box];\n";
     my @deps;
     my @involved;
-    for my $line (`edos-debcheck -quiet -failures -explain < $packages_file`) {
+    for my $line (`edos-debcheck -quiet -failures -explain < $udeb_file`) {
       if ($line =~ /^(\S+)\s.*: FAILED$/) {
         my $package = $1;
         push @{$failed{$package}}, $arch;
