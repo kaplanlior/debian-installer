@@ -74,19 +74,49 @@ for my $suite (@suites) {
       if (-f "$deb_arch_dir/Packages.gz") {
         system("zcat $deb_arch_dir/Packages.gz > $deb_file")==0
           or die "Unable to zcat $deb_arch_dir/Packages.gz";
+
+        # Prepare for adding a few deb packages in there; during the
+        # build, that only happens when the package pops up through
+        # dpkg -s, while that's done unconditionally here.
+        open my $fh, '>>', $udeb_file
+          or die "Unable to append to $udeb_file";
+
+        # NOTE: Please keep this list in sync with the one in
+        # get-packages (from src:debian-installer)
+        my @fakepkgs = qw(libc0.1 libc0.3 libc6 libc6.1 libnewt0.52 libgcc1);
+        my $curpkg;
+        my $stanza;
+        for my $line (read_file($deb_file)) {
+          chomp $line;
+          if ($line eq '') {
+            # Terminator case:
+            if (grep {$curpkg eq $_} @fakepkgs) {
+              print $fh "$stanza\n";
+            }
+            # Reset:
+            $stanza = '';
+          }
+          elsif ($line =~ /^Package: (.+)$/) {
+            # New stanza:
+            $curpkg = $1;
+            $stanza = "$line\n";
+          }
+          elsif ($line =~ /^(?:Pre-|)Depends:/) {
+            # Ignore dependencies, packages are supposed to be
+            # installable and installed on the build host.
+          }
+          else {
+            # Stanza keeps on growing:
+            $stanza .= "$line\n";
+          }
+        }
+
+        close $fh
+          or die "Unable to close $udeb_file";
       }
       else {
         warn "Missing deb Packages file: $deb_arch_dir/Packages.gz";
       }
-
-      # Add a few special packages in there:
-      open my $fh, '>>', $udeb_file
-        or die "Unable to append to $udeb_file";
-      for my $fake (qw(libgcc1 libnewt0.52)) {
-        print $fh "Package: $fake\nArchitecture: $arch\nVersion: fake\n\n";
-      }
-      close $fh
-        or die "Unable to close $udeb_file";
     }
 
     # Call edos, explaining issues.
