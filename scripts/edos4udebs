@@ -19,6 +19,7 @@ my $mail;
 my $index_output = 'index.html';
 my $diff_output = 'diff.txt';
 my $workdir = 'edos.tmp';
+my $mirror = "/srv/ftp.debian.org/ftp";
 GetOptions(
   "sync!"   => \$sync,
   "store!"  => \$store,
@@ -26,7 +27,8 @@ GetOptions(
   "index=s" => \$index_output,
   "diff=s"  => \$diff_output,
   "workdir=s" => \$workdir,
-) or die "Usage: $0 --[no]sync --[no]store --mail=notification\@somewhere --index=$index_output --diff=$diff_output --workdir=$workdir";
+  "mirror=s" => \$mirror,
+) or die "Usage: $0 --[no]sync --[no]store --mail=notification\@somewhere --index=$index_output --diff=$diff_output --workdir=$workdir --mirror=$mirror";
 
 # Configuration goes here:
 my %known = qw(
@@ -37,8 +39,6 @@ my %known = qw(
   libmount1-udeb       723168
   libvte-2.90-9-udeb   723169
 );
-
-my $mirror = "/srv/ftp.debian.org/ftp";
 
 my @suites = qw(stable testing unstable);
 
