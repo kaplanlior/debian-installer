@@ -1,16 +1,16 @@
 # translation of Debian Installer templates to Esperanto.
-# Copyright (C) 2005, 2006, 2007, 2008, 2009, 2010, 2011 Software in the Public Interest, Inc.
+# Copyright (C) 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2013 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
 #
 # Samuel Gimeno <sgimeno@gmail.com>, 2005.
 # Serge Leblanc <serge.leblanc@wanadoo.fr>, 2005, 2006, 2007.
-# Felipe Castro <fefcas@gmail.com>, 2008, 2009, 2010, 2011.
+# Felipe Castro <fefcas@gmail.com>, 2008, 2009, 2010, 2011, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: eo\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-05-22 22:05+0000\n"
-"PO-Revision-Date: 2012-01-02 22:28-0300\n"
+"PO-Revision-Date: 2013-10-02 09:37-0300\n"
 "Last-Translator: Felipe Castro <fefcas@gmail.com>\n"
 "Language-Team: Esperanto <debian-l10n-esperanto@lists.debian.org>\n"
 "Language: eo\n"
@@ -1327,10 +1327,8 @@ msgstr "Forviŝi ZFS-aron"
 #. Menu entry
 #. Use infinitive form
 #: ../partman-zfs.templates:14001
-#, fuzzy
-#| msgid "Create %s file system"
 msgid "Create root file system"
-msgstr "Krei dosiersistemon %s"
+msgstr "Krei radikan dosiersistemon"
 
 #. Type: boolean
 #. Description
@@ -1404,12 +1402,6 @@ msgstr "Resumo de la nuna ZFS-agordo:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
-#| msgid ""
-#| " Free physical volumes:  ${FREE_PVS}\n"
-#| " Used physical volumes:  ${USED_PVS}\n"
-#| " ZFS pools:              ${VGS}\n"
-#| " ZFS logical volumes:    ${LVS}"
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
@@ -1420,7 +1412,8 @@ msgstr ""
 " Liberaj konkretaj datumportiloj:  ${FREE_PVS}\n"
 " Uzataj konktretaj datumportiloj:  ${USED_PVS}\n"
 " ZFS-aroj:                         ${VGS}\n"
-" Logikaj datumportiloj ZFS:        ${LVS}"
+" Logikaj datumportiloj ZFS:        ${LVS}\n"
+" ${BOOTFS}"
 
 #. Type: note
 #. Description
@@ -1704,31 +1697,24 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
-#| msgid "Invalid logical volume or ZFS pool name"
 msgid "Invalid logical volume, ZFS pool name or ZFS file system name"
-msgstr "Malvalida logika datumportilo aŭ nomo de ZFS-aro"
+msgstr ""
+"Malvalida logika datumportilo, nomo de ZFS-aro aŭ nomo de dosiersistemo ZFS"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
-#| msgid ""
-#| "Logical volume or ZFS pool names may only contain alphanumeric "
-#| "characters, hyphen, colon, period, and underscore. They must be 255 "
-#| "characters or less and must begin with an alphanumeric character. The "
-#| "names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
 msgid ""
 "Logical volumes, ZFS pool names and ZFS file systems may only contain "
 "alphanumeric characters, hyphen, colon, period, and underscore. They must be "
 "255 characters or less and must begin with an alphanumeric character. The "
 "names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"Logikaj datumportiloj aŭ nomoj de ZFS-aroj povas enhavi nur literojn, "
-"ciferojn, streketon, pluson, punkton kaj substrekon. Ili ampleksas maximume "
-"255 signojn kaj devas komenciĝi per literoj/ciferoj. La nomoj \"mirror\" "
-"\"raidz\", \"spare\", kaj \"log\" ne estas permesataj."
+"Logikaj datumportiloj, nomoj de ZFS-aroj aŭ dosiersistemoj ZFS povas enhavi "
+"nur literojn, ciferojn, streketon, dupunkton, punkton kaj substrekon. Ili "
+"ampleksas maximume 255 signojn kaj devas komenciĝi per literoj/ciferoj. La "
+"nomoj \"mirror\" \"raidz\", \"spare\", kaj \"log\" ne estas permesataj."
 
 #. Type: boolean
 #. Description
@@ -1814,25 +1800,21 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:51001
 msgid "Pool to modify:"
-msgstr ""
+msgstr "Aro por modifi:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
-#| msgid "ZFS pool name:"
 msgid "ZFS boot file system name:"
-msgstr "Nomo de ZFS-aro:"
+msgstr "Nomo ekŝarga dosiersistemo ZFS:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
-#| msgid "Please enter the hostname for this system."
 msgid "Please enter the name of the boot file system among the following:"
-msgstr "Bonvolu tajpi la gastnomon por tiu ĉi sistemo."
+msgstr "Bonvolu tajpi la nomon de la ekŝarga dosiersistemo el la jenaj:"
 
 #. Type: string
 #. Description
@@ -1841,42 +1823,37 @@ msgstr "Bonvolu tajpi la gastnomon por tiu ĉi sistemo."
 msgid ""
 "This will be prefixed by ${VG}/ROOT and mounted as the root file system."
 msgstr ""
+"Tio ĉi havos prefikson ${VG}/ROOT kaj estos muntita kiel radikan "
+"dosiersistemon."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
-#| msgid "No file system mounted on /target"
 msgid "No file system name entered"
-msgstr "Neniu dosiersistemo estas muntita sur '/target'"
+msgstr "Neniu dosiersistema nomo estis indikata"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
-#| msgid "No name for the ZFS pool has been entered. Please enter a name."
 msgid "No name has been entered for the root file system. Please enter a name."
-msgstr "Neniu nomo por la ZFS-aro estis indikata. Bonvolu tajpi nomon."
+msgstr ""
+"Neniu nomo estis indikata por la radika dosiersistemo. Bonvolu tajpi nomon."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:54001
-#, fuzzy
-#| msgid "ZFS pool:"
 msgid "ZFS boot"
-msgstr "ZFS-aro:"
+msgstr "Ekŝargo de ZFS"
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:55001
-#, fuzzy
-#| msgid "Registering modules..."
 msgid "Loading ZFS module..."
-msgstr "Registrado de moduloj..."
+msgstr "Ŝargado je moduloj ZFS..."
 
 #. Type: boolean
 #. Description
