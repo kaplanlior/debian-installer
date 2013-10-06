@@ -3708,7 +3708,7 @@ msgstr ""
 
 #. Tag: para
 #: using-d-i.xml:2329
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "If you are installing at default priority, the installer will largely "
 #| "take care of the configuration automatically, based on the installation "
@@ -3727,12 +3727,12 @@ msgstr ""
 "デフォルトの優先度でインストールしている場合、インストール方法と、可能であれ"
 "ばインストールの初期に選択した内容から、大部分の設定を自動で面倒みてくれま"
 "す。ほとんどの場合、インストーラは自動でセキュリティミラーを追加します。ま"
-"た、安定版をインストールしている場合、<quote>volatile</quote> 更新サービスの"
-"ミラーを追加します。"
+"た、安定版をインストールしている場合、<quote>stable-updates</quote> 更新サー"
+"ビスのミラーを追加します。"
 
 #. Tag: para
 #: using-d-i.xml:2338
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "If you are installing at a lower priority (e.g. in expert mode), you will "
 #| "be able to make more decisions yourself. You can choose whether or not to "
@@ -3747,9 +3747,9 @@ msgid ""
 "sections of the archive."
 msgstr ""
 "低い優先度でインストールしている場合 (例: エキスパートモード)、もっと多くのこ"
-"とを自分で決定できます。セキュリティや volatile 更新サービスの有無や、アーカ"
-"イブの <quote>contrib</quote> や <quote>non-free</quote> からのパッケージ追加"
-"の有無を選べます。"
+"とを自分で決定できます。セキュリティや stable-updates 更新サービスの有無や、"
+"アーカイブの <quote>contrib</quote> や <quote>non-free</quote> からのパッケー"
+"ジ追加の有無を選べます。"
 
 #. Tag: title
 #: using-d-i.xml:2349
@@ -3964,7 +3964,7 @@ msgstr "そのパッケージがスキャンした CD や DVD に収録されて
 
 #. Tag: para
 #: using-d-i.xml:2469
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "whether any updated versions of packages included on the CDs or DVDs are "
 #| "available from a mirror (either a regular package mirror, or a mirror for "
@@ -3975,12 +3975,12 @@ msgid ""
 "security or stable-updates)."
 msgstr ""
 "CDやDVDに収録したパッケージの更新版が、ミラーサイト (通常のパッケージのミラー"
-"サイトだけでなく、セキュリティのミラーサイトや volatile のミラーサイト) に用"
-"意されているかどうか。"
+"サイトだけでなく、セキュリティのミラーサイトや stable-updates のミラーサイ"
+"ト) に用意されているかどうか。"
 
 #. Tag: para
 #: using-d-i.xml:2478
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Note that the last point means that, even if you choose not to use a "
 #| "network mirror, some packages may still be downloaded from the Internet "
@@ -3993,9 +3993,9 @@ msgid ""
 "have been configured."
 msgstr ""
 "最後の点については、ネットワークミラーを使用しないように選択したとしても、セ"
-"キュリティや volatile に更新があり、そのサービスを使用するように設定している"
-"場合は、パッケージをダウンロードする可能性が残っている、ということに注意して"
-"ください。"
+"キュリティや stable-updates に更新があり、そのサービスを使用するように設定し"
+"ている場合は、パッケージをダウンロードする可能性が残っている、ということに注"
+"意してください。"
 
 #. Tag: title
 #: using-d-i.xml:2489
@@ -4029,6 +4029,10 @@ msgid ""
 "specifying an IPv6 address, one has to add square brackets around it, for "
 "instance <quote>[2001:db8::1]</quote>."
 msgstr ""
+"<quote>情報を手動で入力</quote>を選択することで、ミラーを手で指定することもで"
+"きます。そうするとミラーのホスト名とオプションでポート番号を指定できます。"
+"Wheezy で、これは実際の URL ベース、つまり IPv6 アドレスを指定する場合には "
+"[] で囲まなければならなくなりました。例えば <quote>[2001:db8::1]</quote>。"
 
 #. Tag: para
 #: using-d-i.xml:2506
@@ -4787,11 +4791,13 @@ msgid ""
 "After arcboot has been installed, the system can be booted from hard disk by "
 "setting some firmware environment variables entering "
 "<informalexample><screen>\n"
-"<userinput> setenv SystemPartition scsi(<replaceable>scsi</replaceable>)disk"
-"(<replaceable>disk</replaceable>)rdisk(0)partition(0)</userinput>\n"
-"<userinput> setenv OSLoadPartition scsi(<replaceable>scsi</replaceable>)disk"
-"(<replaceable>disk</replaceable>)rdisk(0)partition(<replaceable>partnr</"
-"replaceable>)</userinput>\n"
+"<userinput> setenv SystemPartition scsi(<replaceable>scsi</"
+"replaceable>)disk(<replaceable>disk</replaceable>)rdisk(0)partition(0)</"
+"userinput>\n"
+"<userinput> setenv OSLoadPartition scsi(<replaceable>scsi</"
+"replaceable>)disk(<replaceable>disk</"
+"replaceable>)rdisk(0)partition(<replaceable>partnr</replaceable>)</"
+"userinput>\n"
 "<userinput> setenv OSLoader arcboot</userinput>\n"
 "<userinput> setenv OSLoadFilename <replaceable>config</replaceable></"
 "userinput>\n"
@@ -4807,11 +4813,13 @@ msgstr ""
 "す。arcboot のインストール後、次のようなファームウェア環境変数をプロンプトに"
 "入力して、システムをハードディスクから起動できます。"
 "<informalexample><screen>\n"
-"<userinput> setenv SystemPartition scsi(<replaceable>scsi</replaceable>)disk"
-"(<replaceable>disk</replaceable>)rdisk(0)partition(0)</userinput>\n"
-"<userinput> setenv OSLoadPartition scsi(<replaceable>scsi</replaceable>)disk"
-"(<replaceable>disk</replaceable>)rdisk(0)partition(<replaceable>partnr</"
-"replaceable>)</userinput>\n"
+"<userinput> setenv SystemPartition scsi(<replaceable>scsi</"
+"replaceable>)disk(<replaceable>disk</replaceable>)rdisk(0)partition(0)</"
+"userinput>\n"
+"<userinput> setenv OSLoadPartition scsi(<replaceable>scsi</"
+"replaceable>)disk(<replaceable>disk</"
+"replaceable>)rdisk(0)partition(<replaceable>partnr</replaceable>)</"
+"userinput>\n"
 "<userinput> setenv OSLoader arcboot</userinput>\n"
 "<userinput> setenv OSLoadFilename <replaceable>config</replaceable></"
 "userinput>\n"

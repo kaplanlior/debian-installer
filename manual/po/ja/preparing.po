@@ -748,6 +748,12 @@ msgid ""
 "products based on their chips which are then used by several different "
 "device manufacturers and sold under lots of different product or brand names."
 msgstr ""
+"&arch-kernel; に収録されているドライバはほとんどの場合特定の製造者の一部の"
+"<quote>製品</quote>や<quote>商標</quote>向けではなく、あるハードウェア/チップ"
+"セット向けに書かれています。一見異なるように見える製品/商標が同一のハードウェ"
+"ア設計を基にしています。チップ製造者が自社チップを基に<quote>リファレンス設計"
+"</quote>と呼ばれる製品を提供し、それが複数の異なるデバイス製造者により利用さ"
+"れ、多くの異なる製品や商標名で売られることは珍しくありません。"
 
 #. Tag: para
 #: preparing.xml:527
@@ -764,6 +770,14 @@ msgid ""
 "different chipsets and therefore use two different drivers or there might be "
 "no driver at all for one of them."
 msgstr ""
+"これには利点と欠点があります。利点は、製品が同一チップセットを基にしている限"
+"りは製品や製造者が異なっていても、一つのチップセットに一つのドライバで動作す"
+"ることです。欠点はある製品/商標で実際にはどのチップセットが使われているのか判"
+"定するのが常に簡単だとは限らないことです。残念なことに、デバイス製造者は製品"
+"のベースとなるハードウェアを変更してもその製品名や製品のバージョン番号すら変"
+"えないことが時々あり、そのために別々に買った商標/製品名が同一の製品が二つある"
+"場合、異なる二種のチップセットを基にしているため異なるドライバを使う必要が"
+"あったり、一方には使えるドライバが何もないということもあります。"
 
 #. Tag: para
 #: preparing.xml:540
@@ -775,6 +789,11 @@ msgid ""
 "<quote>product</quote> IDs, and the combination of these two is usually the "
 "same for any product based on the same chipset."
 msgstr ""
+"USB や PCI/PCI-Express/ExpressCard 用のデバイスが基にしているチップセットを調"
+"べるにはデバイス ID を確認するのが良い方法です。USB/PCI/PCI-Express/"
+"ExpressCard デバイスには全て、<quote>ベンダー</quote>および<quote>製品</"
+"quote> ID というものがあり、同一チップセットを基にしている製品であればこれは"
+"通常同じ組み合わせになります。"
 
 #. Tag: para
 #: preparing.xml:548
@@ -786,6 +805,11 @@ msgid ""
 "usually given in the form of two hexadecimal numbers, seperated by a colon, "
 "such as <quote>1d6b:0001</quote>."
 msgstr ""
+"Linux システムでは、この ID は USB デバイスでは <command>lsusb</command> コマ"
+"ンド、PCI/PCI-Express/ExpressCard デバイスでは <command>lspci -nn</command> "
+"コマンドで読み取ることができます。ベンダーおよび製品 ID は通常 "
+"<quote>1d6b:0001</quote> のように二つの 16 進数をコロンで区切った形式になって"
+"います。"
 
 #. Tag: para
 #: preparing.xml:556
@@ -795,6 +819,9 @@ msgid ""
 "001: ID 1d6b:0002 Linux Foundation 2.0 root hub</quote>, whereby 1d6b is the "
 "vendor ID and 0002 is the product ID."
 msgstr ""
+"<command>lsusb</command> の出力例: <quote>Bus 001 Device 001: ID 1d6b:0002 "
+"Linux Foundation 2.0 root hub</quote> の場合、1d6b がベンダー ID で 0002 が製"
+"品 ID です。"
 
 #. Tag: para
 #: preparing.xml:562
@@ -806,6 +833,11 @@ msgid ""
 "06)</quote>. The IDs are given inside the rightmost square brackets, i.e. "
 "here 10ec is the vendor- and 8168 is the product ID."
 msgstr ""
+"イーサネットカードに対する <command>lspci -nn</command> の出力例: "
+"<quote>03:00.0 Ethernet controller [0200]: Realtek Semiconductor Co., Ltd. "
+"RTL8111/8168B PCI Express Gigabit Ethernet controller [10ec:8168] (rev 06)</"
+"quote>。ID は最も右側の [] 内にあります。つまりこの場合 10ec がベンダー、"
+"8168 が製品の ID です。"
 
 #. Tag: para
 #: preparing.xml:570
@@ -815,6 +847,9 @@ msgid ""
 "<quote>04:00.0 VGA compatible controller [0300]: Advanced Micro Devices "
 "[AMD] nee ATI RV710 [Radeon HD 4350] [1002:954f]</quote>."
 msgstr ""
+"また別の例として、あるグラフィックスカードでは次のような出力になります: "
+"<quote>04:00.0 VGA compatible controller [0300]: Advanced Micro Devices "
+"[AMD] nee ATI RV710 [Radeon HD 4350] [1002:954f]</quote>。"
 
 #. Tag: para
 #: preparing.xml:576
@@ -827,6 +862,11 @@ msgid ""
 "manager's details tab to actually see the IDs, as they are not displayed by "
 "default."
 msgstr ""
+"Windows システムでは、デバイスの ID は Windows デバイスマネージャの<quote>詳"
+"細</quote>タブで確認できます。ベンダー ID には先頭に VEN_、製品 ID には先頭"
+"に DEV_ が付けられます。Windows 7 システムではデフォルトでは表示されていない"
+"ため、実際に ID を確認するにはデバイスマネージャの詳細タブのプロパティから"
+"<quote>ハードウェア ID</quote> を選択する必要があります。"
 
 #. Tag: para
 #: preparing.xml:586
@@ -840,6 +880,13 @@ msgid ""
 "(<quote>RTL8111</quote>/<quote>RTL8168B</quote> in the network card example "
 "and <quote>RV710</quote> in the graphics card example), can help."
 msgstr ""
+"ベンダー/製品 ID、<quote>&arch-kernel;</quote>、<quote>ドライバ</quote>を検索"
+"語としてインターネットで検索すると多くの場合そのチップセット向けドライバの対"
+"応状態に関する情報が得られるでしょう。ベンダー/製品 ID を検索してあまり有効な"
+"検索結果が得られなかった場合は、多くの場合 lsusb や lspci でも提供されるチッ"
+"プのコード名 (ネットワークカードの例では <quote>RTL8111</quote>/"
+"<quote>RTL8168B</quote>、グラフィックスカードの例では <quote>RV710</quote>) "
+"を検索することで手がかりが得られるかもしれません。"
 
 #. Tag: title
 #: preparing.xml:599
@@ -862,6 +909,15 @@ msgid ""
 "hardware is supported by &debian-gnu;, the easiest way is to run a &debian; "
 "live system on it and try it out."
 msgstr ""
+"&debian-gnu; は一部のアーキテクチャで<quote>ライブシステム</quote>というもの"
+"も利用できます。ライブシステムは設定済みですぐに使える圧縮形式のシステムで、"
+"CD や DVD のような読み込み専用メディアから起動して使えます。デフォルトでの使"
+"用では、コンピュータ上への恒久的な変更は一切行いません。ライブシステム内で"
+"ユーザ設定を変更したりプログラムを追加でインストールすることはできますが、全"
+"てコンピュータの RAM 上でのみ発生します。つまり、コンピュータの電源を落として"
+"ライブシステムを起動し直すと、全てがデフォルトにリセットされます。手持ちの"
+"ハードウェアが &debian-gnu; でサポートされているか確認する最も簡単な方法は "
+"&debian; ライブシステムを使って試してみることです。"
 
 #. Tag: para
 #: preparing.xml:614
@@ -878,6 +934,16 @@ msgid ""
 "automatic detection of required firmware files like in the &d-i;, so "
 "installation of non-free components must be done manually if needed."
 msgstr ""
+"ライブシステムの使用にはいくつか制限があります。まず、ライブシステム内での変"
+"更は全てコンピュータの RAM に保持する必要があることで、そのため十分な RAM の"
+"あるシステムでないと機能しません。巨大なソフトウェアパッケージを追加でインス"
+"トールすることはメモリの制約のために失敗するかもしれません。もう一つの制限は"
+"ハードウェア互換性テストに関するもので、公式の &debian-gnu; ライブシステムに"
+"はフリーなものしか含まれません。つまり、フリーでないファームウェアファイルは"
+"一切含まれません。そういったフリーでないパッケージを手作業でシステムにインス"
+"トールすることはもちろんできますが、&d-i; のように必要なファームウェアファイ"
+"ルを自動的に検出するようなものは一切ないため、フリーでないものが必要であれば"
+"全て手作業によってインストールしなければなりません。"
 
 #. Tag: para
 #: preparing.xml:627
@@ -887,6 +953,8 @@ msgid ""
 "found at the <ulink url=\"&url-debian-live-cd;\">Debian Live Images website</"
 "ulink>."
 msgstr ""
+"利用可能な &debian; ライブイメージの種類についての情報は <ulink url=\"&url-"
+"debian-live-cd;\">Debian ライブイメージのウェブサイト</ulink>にあります。"
 
 #. Tag: title
 #: preparing.xml:641
@@ -971,6 +1039,10 @@ msgid ""
 "catv provider) which handles your network connectivity, DHCP is usually "
 "available by default."
 msgstr ""
+"DSL やケーブルモデム (つまりケーブルテレビネットワーク) を経由したインター"
+"ネット接続とルータ (設定済みのものが電話や CATV の提供業者により提供されるこ"
+"とがよくあります) があって、それがネットワーク接続を処理している場合、通常 "
+"DHCP がデフォルトで使えるようになっています。"
 
 #. Tag: para
 #: preparing.xml:700
@@ -981,6 +1053,9 @@ msgid ""
 "access, network connectivity in &debian-gnu; will also be configured "
 "automatically."
 msgstr ""
+"これは経験則ですが、ホームネットワークで Windows システムを使っていて特に手で"
+"ネットワーク設定をせずにインターネットにアクセスできている場合、&debian-gnu; "
+"でのネットワーク接続も自動で設定されるでしょう。"
 
 #. Tag: para
 #: preparing.xml:707
@@ -1240,7 +1315,7 @@ msgstr ""
 
 #. Tag: para
 #: preparing.xml:855
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "If you already have an operating system on your system <phrase arch=\"any-"
 #| "x86\"> (Windows 9x, Windows NT/2000/XP/2003/Vista/7, OS/2, MacOS, "
@@ -1263,17 +1338,18 @@ msgid ""
 "partition for the &debian; root filesystem."
 msgstr ""
 "システム上に既にオペレーティングシステム <phrase arch=\"any-x86\"> (Windows "
-"9x, Windows NT/2000/XP/2003/Vista/7, OS/2, MacOS, Solaris, FreeBSD, "
-"&hellip;) </phrase> <phrase arch=\"s390\"> (VM, z/OS, OS/390, &hellip;) </"
-"phrase> が入っていて、同じディスクに &debian; も入れたい場合には、ディスクの"
-"パーティション分割をやり直す必要があります。&debian; は Windows や MacOS の"
-"パーティションにはインストールできません。他の Unix システムとはパーティショ"
-"ンを共有することも可能かもしれませんが、ここではそれは取り扱いません。少なく"
-"とも、&debian; の root には専用のパーティションが必要となります。"
+"9x、Windows NT/2000/XP/2003/Vista/7、OS/2、MacOS、Solaris、FreeBSD、"
+"&hellip;) </phrase> <phrase arch=\"s390\"> (VM、z/OS、OS/390、&hellip;) </"
+"phrase> が入っていてディスク全体を使っているときに同じディスクに &debian; も"
+"入れたい場合には、ディスクのパーティション分割をやり直す必要があります。"
+"&debian; は Windows や MacOS のパーティションにはインストールできません。他"
+"の Unix システムとはパーティションを共有することも可能かもしれませんが、ここ"
+"ではそれは取り扱いません。少なくとも、&debian; の root ファイルシステムには専"
+"用のパーティションが必要となります。"
 
 #. Tag: para
 #: preparing.xml:874
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "You can find information about your current partition setup by using a "
 #| "partitioning tool for your current operating system<phrase arch=\"any-"
@@ -1290,12 +1366,12 @@ msgid ""
 "phrase>. Partitioning tools always provide a way to show existing partitions "
 "without making changes."
 msgstr ""
-"現在のパーティションの設定は、<phrase arch=\"any-x86\">fdisk や "
-"PartitionMagic</phrase><phrase arch=\"powerpc\">Drive Setup、HD Toolkit、"
-"MacTools</phrase><phrase arch=\"s390\">VM diskmap</phrase>のような、現在の "
-"OS に対応したパーティション分割ツールを使えばわかります。パーティション分割"
-"ツールには、必ず既存のパーティションを (変更せずに) 表示する機能が付いていま"
-"す。"
+"現在のパーティションの設定は、<phrase arch=\"any-x86\">Windows の統合ディスク"
+"マネージャや DOS の fdisk</phrase><phrase arch=\"powerpc\">Disk Utility や "
+"Drive Setup、HD Toolkit、MacTools</phrase><phrase arch=\"s390\">VM diskmap</"
+"phrase>のような、現在の OS に対応したパーティション分割ツールを使えばわかりま"
+"す。パーティション分割ツールには、必ず既存のパーティションを (変更せずに) 表"
+"示する機能が付いています。"
 
 #. Tag: para
 #: preparing.xml:884
@@ -1326,6 +1402,14 @@ msgid ""
 "the ability to move and resize them losslessly is provided both by &d-i; as "
 "well as by the integrated Disk Manager of Windows 7. </phrase>"
 msgstr ""
+"今の OS の中には、既存のパーティションをその内容を壊さずに移動、サイズ変更で"
+"きる機能を提供しているものがあります。この機能を使うと既存データを失うことな"
+"くスペースを作ることができます。これはほとんどの場合問題なく成功しますが、"
+"ディスクのパーティションを変更することは本質的に危険な操作であり、全データを"
+"完全にバックアップした上で行うべきものです。<phrase arch=\"any-x86\">DOS や "
+"Windows システムで利用される FAT/FAT32 や NTFS パーティションについては、損失"
+"なく移動、サイズ変更する機能は Windows 7 の統合ディスクマネージャと同様に &d-"
+"i; でも提供されています。</phrase>"
 
 #. Tag: para
 #: preparing.xml:907
@@ -1335,6 +1419,9 @@ msgid ""
 "to the partitioning step, select the option for manual partitioning, select "
 "the partition to resize, and simply specify its new size."
 msgstr ""
+"既存の FAT や NTFS パーティションを &d-i; から損失無く移動、サイズ変更するに"
+"は、パーティション作業に進んで手作業でのパーティション作業を選択し、サイズ変"
+"更するパーティションを選択し、単純に変更後のサイズを指定します。"
 
 #. Tag: emphasis
 #: preparing.xml:915
@@ -1357,10 +1444,18 @@ msgid ""
 "if you want to be sure, use the native partitioning tools to create "
 "partitions for use by other operating systems."
 msgstr ""
+"パーティションの作成や削除は既存の OS からと同じように &d-i; からもできます。"
+"経験則ですが、パーティションはそれを使うシステムから作成すべきです。つまり、"
+"&debian-gnu; により使われるパーティションは &d-i; から作成すべきで、他の OS "
+"から利用するパーティションはそちらから作成すべきです。&d-i; には &arch-"
+"kernel; 以外のパーティションを作成する機能があり、そうやって作成したパーティ"
+"ションは他の OS から通常問題なく使えますが、ごくレアな状況でこれが問題となる"
+"可能性があります。そのため、確実を期するのであれば、他の OS で利用するパー"
+"ティションの作成にはネイティブのパーティション用ツールを使ってください。"
 
 #. Tag: para
 #: preparing.xml:930
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "If you are going to install more than one operating system on the same "
 #| "machine, you should install all other system(s) before proceeding with "
@@ -1393,7 +1488,7 @@ msgstr ""
 
 #. Tag: para
 #: preparing.xml:943
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "In order for OpenFirmware to automatically boot &debian-gnu; the &arch-"
 #| "parttype; partitions should appear before all other partitions on the "
@@ -1415,14 +1510,14 @@ msgid ""
 "the actual install, and replace it with &arch-parttype; partitions."
 msgstr ""
 "OpenFirmware に &debian-gnu; を自動的に起動させるには、&arch-parttype; パー"
-"ティションを他の OS のパーティション (特に MacOS のブートパーティション) より"
-"ディスクの先頭近くに置かなければなりません。事前パーティション分割を行うとき"
-"にはこのことを心に留めておきましょう。&arch-parttype; 用に使う場所を埋めてお"
-"くパーティションを、他の起動可能なパーティションよりもディスクの <emphasis>前"
-"の方</emphasis> に作らなければなりません (Apple ディスクドライバ用の小さな"
-"パーティションは起動可能ではありません)。この場所埋めのパーティションは、実際"
-"にインストールする際に、&debian; パーティションツールで削除し、実際の &arch-"
-"parttype; パーティションと置き換えることができます。"
+"ティションを他の OS のパーティション (特に Mac OS X のブートパーティション) "
+"よりディスクの先頭近くに置かなければなりません。事前パーティション分割を行う"
+"ときにはこのことを心に留めておきましょう。&arch-parttype; 用に使う場所を埋め"
+"ておくパーティションを、他の起動可能なパーティションよりもディスクの "
+"<emphasis>前の方</emphasis> に作らなければなりません (Apple ディスクドライバ"
+"用の小さなパーティションは起動可能ではありません)。この場所埋めのパーティショ"
+"ンは、実際にインストールする際に、&debian; パーティションツールで削除し、実際"
+"の &arch-parttype; パーティションと置き換えることができます。"
 
 #. Tag: title
 #: preparing.xml:1019
@@ -1499,7 +1594,7 @@ msgstr "Mac OS X のパーティション分割"
 
 #. Tag: para
 #: preparing.xml:1064
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "The <application>Apple Drive Setup</application> application can be found "
 #| "in the <filename>Utilities</filename> folder on the MacOS CD. It will not "
@@ -1512,11 +1607,10 @@ msgid ""
 "adjust existing partitions; it is limited to partitioning the entire disk at "
 "once."
 msgstr ""
-"MacOS CD の <filename>Utilities</filename> フォルダに、<application>Apple "
-"Drive Setup</application> アプリケーションが入っているはずです。これを用いて"
-"既存のパーティションを調整できます。ただしディスク全体をいちどにパーティショ"
-"ン分割することしかできません。ディスクドライバパーティションは "
-"<application>Drive Setup</application> からは見えません。"
+"Mac OS X インストーラの <filename>Utilities</filename> メニューに "
+"<application>Disk Utility</application> アプリケーションが入っているはずで"
+"す。これは既存のパーティションの調整は行いません。ディスク全体を一括でパー"
+"ティション処理することに限られます。"
 
 #. Tag: para
 #: preparing.xml:1070
@@ -1541,10 +1635,17 @@ msgid ""
 "holding the <keycap>option</keycap> key at boot time, and separate options "
 "can be installed in the <application>yaboot</application> boot menu as well."
 msgstr ""
+"&debian; インストーラのパーティションテーブル編集ツールは OS X とは互換性があ"
+"りますが MacOS 9 との互換性はありません。MacOS 9 と OS X の両方を使うつもりで"
+"あれば、OS X と &debian; を同じハードドライブにインストールし、MacOS 9 は別の"
+"ハードドライブにインストールするのが最善です。分離オプションは OS 9 と OS X "
+"では起動時に <keycap>option</keycap> キーを押していると現れます。分離オプショ"
+"ンのインストールは同様に <application>yaboot</application> ブートメニューでイ"
+"ンストールできます。"
 
 #. Tag: para
 #: preparing.xml:1086
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "GNU/Linux is unable to access information on UFS partitions, but does "
 #| "support HFS+ (aka MacOS Extended) partitions. OS X requires one of these "
@@ -1561,12 +1662,12 @@ msgid ""
 "systems are supported by MacOS 9, Mac OS X and GNU/Linux."
 msgstr ""
 "GNU/Linux は UFS パーティションの情報にはアクセスできませんが、HFS+ パーティ"
-"ション (MacOS 拡張パーティション) をサポートしています。OS X は、この 2 つの"
+"ション (MacOS 拡張パーティション) にはアクセスできます。OS X は、この 2 つの"
 "いずれかをブートパーティションに必要とします。MacOS 9 は HFS パーティション "
-"(MacOS 標準パーティション) か HFS+ にインストールできます。MacOS と GNU/"
+"(MacOS 標準パーティション) か HFS+ にインストールできます。Mac OS X と GNU/"
 "Linux システムで情報を共有するには、情報交換用のパーティションを作るのが手軽"
-"です。HFS パーティションと MS-DOS FAT パーティションが MacOS と Linux の双方"
-"でサポートされています。"
+"です。HFS、HFS+、MS-DOS FAT ファイルシステムが MacOS 9、Mac OS X、Linux でサ"
+"ポートされています。"
 
 #. Tag: title
 #: preparing.xml:1106
@@ -1576,7 +1677,7 @@ msgstr "インストール前に行うハードウェア・OS の設定"
 
 #. Tag: para
 #: preparing.xml:1107
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "This section will walk you through pre-installation hardware setup, if "
 #| "any, that you will need to do prior to installing &debian;. Generally, "
@@ -1594,12 +1695,11 @@ msgid ""
 "the bootstrap process (after power-up)."
 msgstr ""
 "この節では、&debian; のインストールに先立って必要となるハードウェアの設定につ"
-"いて見ていきます。通常この作業では、システムのファームウェアの設定をチェック"
-"し、場合によってはその設定を変更することになります。<quote>ファームウェア</"
-"quote>は、ハードウェアが利用する中核的なソフトウェアで、電源投入後のブートプ"
-"ロセスの間に起動される、最も重要なものです。あなたが使うことになる &debian-"
-"gnu; の信頼性に影響を与えうる、既知のハードウェアの諸問題についても、同様に取"
-"り扱っていく予定です。"
+"いて見ていきます。通常この作業では、システムの BIOS/システム用ファームウェア"
+"の設定をチェックし、場合によってはその設定を変更することになります。"
+"<quote>BIOS</quote> や<quote>システムファームウェア</quote>は、ハードウェアが"
+"利用する中核的なソフトウェアで、電源投入後のブートプロセスの間に起動される、"
+"最も重要なものです。"
 
 #. Tag: title
 #: preparing.xml:1122
@@ -1609,7 +1709,7 @@ msgstr "BIOS 設定メニューの起動"
 
 #. Tag: para
 #: preparing.xml:1124
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "BIOS provides the basic functions needed to boot your machine to allow "
 #| "your operating system to access your hardware. Your system probably "
@@ -1629,10 +1729,12 @@ msgid ""
 msgstr ""
 "BIOS はマシンのブートに必要となる基本的機能を提供し、OS がハードウェアにアク"
 "セスできるようにするものです。これからインストールしようとしているマシンで"
-"も、恐らく BIOS を設定できるようなメニューがついていると思います。インストー"
-"ルの前に、BIOS が正しく設定されているかどうかを <emphasis>必ず</emphasis> 確"
-"認してください。さもないとシステムが不意にクラッシュしたり、&debian; のインス"
-"トールができなくなるかもしれません。"
+"も、BIOS を設定できるようなメニューがついていると思います。BIOS 設定メニュー"
+"に入るには、コンピュータの電源を入れてからキーを (一つまたは組み合わせて) 押"
+"しておく必要があります。多いのは <keycap>Delete</keycap> や <keycap>F2</"
+"keycap> キーですが、製造者によっては別のキーを使うこともあります。通常はコン"
+"ピュータの起動時にどのキーを押して設定画面に入るのか指示するメッセージが表示"
+"されるでしょう。"
 
 #. Tag: title
 #: preparing.xml:1138 preparing.xml:1290
@@ -1650,6 +1752,11 @@ msgid ""
 "devices such as USB sticks or external USB harddisks. On modern systems "
 "there is also often a possibility to enable network booting via PXE."
 msgstr ""
+"BIOS 設定メニューで起動可能な OS をどのデバイスから順に探すのか選択できるよう"
+"になっています。通常、内蔵ハードドライブや CD/DVD-ROM ドライブ、USB メモリや"
+"外付け USB ハードディスクのような USB 大容量デバイスが選択できるでしょう。い"
+"まのシステムでは PXE 経由でネットワークからの起動ができるようになっているもの"
+"もよくあります。"
 
 #. Tag: para
 #: preparing.xml:1148
@@ -1659,6 +1766,9 @@ msgid ""
 "you have chosen you should enable the appropriate boot devices if they are "
 "not already enabled."
 msgstr ""
+"選択したインストール用メディア (CD/DVD ROM、USB メモリ、ネットワーク経由) に"
+"よりますが、適切な起動デバイスが有効になっていなければここで有効化してくださ"
+"い。"
 
 #. Tag: para
 #: preparing.xml:1154
@@ -1675,6 +1785,15 @@ msgid ""
 "while having configured the internal harddisk as the normal primary boot "
 "device."
 msgstr ""
+"ほとんどの BIOS で、システム起動時に起動メニューを呼び出してコンピュータがそ"
+"のセッションでどのデバイスから起動するか選べるようになっています。これが可能"
+"な場合は、通常システム起動時に <quote>press <keycap>F12</keycap> for boot "
+"menu</quote> のような短いメッセージを BIOS が表示します。実際にこのメニューに"
+"入るために使うキーはシステムにより様々ですが、よく使われるキーは "
+"<keycap>F12</keycap> や <keycap>F11</keycap>、<keycap>F8</keycap> がありま"
+"す。このメニューからデバイスを選択した場合は BIOS のデフォルトの順は変更され"
+"ません。つまり、内蔵ハードディスクを通常第一の起動デバイスに設定している状態"
+"で USB メモリから一度だけ起動することができます。"
 
 #. Tag: para
 #: preparing.xml:1168
@@ -1684,6 +1803,9 @@ msgid ""
 "the current boot device, you have to change your BIOS setup to make the "
 "device from which the &d-i; shall be booted the primary boot device."
 msgstr ""
+"BIOS がその時限りの起動デバイス選択メニューを提供していない場合は、BIOS の設"
+"定を変更して &d-i; を起動するデバイスを第一の起動デバイスにする必要がありま"
+"す。"
 
 #. Tag: para
 #: preparing.xml:1174
@@ -1701,6 +1823,18 @@ msgid ""
 "changing the device type to <quote>USB CDROM</quote> helps on some BIOSes "
 "which will not boot from a USB stick in USB harddisk mode.</phrase>"
 msgstr ""
+"残念ながら一部のコンピュータには BIOS の動作がおかしいものがあります。BIOS 設"
+"定メニューにしかるべきオプションがあって USB メモリが第一の起動デバイスに選択"
+"されていても USB メモリからの &d-i; の起動ができないかもしれません。こういっ"
+"たシステムの一部では USB メモリを起動メディアとして使うことができません。"
+"BIOS 設定のデバイスタイプをデフォルトの <quote>USB ハードディスク</quote>や "
+"<quote>USB メモリ</quote> から <quote>USB ZIP</quote> や <quote>USB CDROM</"
+"quote> に変更することにより BIOS を騙して USB メモリから起動することができる"
+"ものもあります。<phrase condition=\"isohybrid-supported\">特に isohybrid CD/"
+"DVD イメージを USB メモリで使う場合 (<xref linkend=\"usb-copy-isohybrid\"/> "
+"参照)、USB ハードディスクモードで USB メモリから起動しない BIOS では、デバイ"
+"スタイプを <quote>USB CDROM</quote> に変更すると起動できることがあります。</"
+"phrase>"
 
 #. Tag: para
 #: preparing.xml:1189
@@ -1712,6 +1846,11 @@ msgid ""
 "an installer ISO image, select the USB device and choose an installation "
 "image."
 msgstr ""
+"BIOS を操作して USB メモリから直接起動することができない場合でも、まだ USB メ"
+"モリにコピーした ISO を使うという選択があります。<xref linkend=\"boot-drive-"
+"files\"/> を使って &d-i; を起動し、インストーラの ISO イメージを探してハード"
+"ドライブを走査した後で USB デバイスを選択し、インストール用イメージを選びま"
+"す。"
 
 #. Tag: title
 #: preparing.xml:1207
@@ -1988,7 +2127,7 @@ msgstr ""
 
 #. Tag: para
 #: preparing.xml:1367
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Linux on this platform runs either natively on the bare machine, in a so-"
 #| "called LPAR (Logical Partition) or in a virtual machine supplied by the "
@@ -2007,10 +2146,9 @@ msgid ""
 msgstr ""
 "このプラットフォームでの Linux は、マシン本体そのもので、LPAR (Logical "
 "Partition) と呼ばれるものの上、あるいは VM システムから与えられた仮想マシン上"
-"で動作させることが可能です。ブートテープはどんな場合でも利用できます。他にも"
-"使えるブートメディアはありますが、いつでも利用できるとは限りません。例えば仮"
-"想マシンでは仮想カードリーダーが使えますし、LPAR では HMC (Hardware "
-"Management Console) から起動できることもあります。"
+"で動作させることが可能です。ブートメディアはランタイムモードにより異なりま"
+"す。例えば仮想マシンでは仮想カードリーダーが使えますし、LPAR では HMC "
+"(Hardware Management Console) から起動できることもあります。"
 
 #. Tag: para
 #: preparing.xml:1376
