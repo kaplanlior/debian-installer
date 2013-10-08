@@ -77,8 +77,12 @@ for my $stat (@git_stats) {
 }
 
 # Trailer:
-$html .= << 'EOS';
+my $date = `LC_ALL=C TZ=UTC date`;
+chomp $date;
+$html .= << "EOS";
     </table>
+    <hr />
+    Last update: $date
   </body>
 </html>
 EOS
