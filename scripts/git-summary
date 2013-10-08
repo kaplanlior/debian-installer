@@ -24,7 +24,7 @@ for my $package_dir ($di_dir, <$root_dir/*/>) {
   my @package_commits;
   for my $suite (sort keys %branches) {
     my $branch = $branches{ $suite };
-    my $desc = `GIT_DIR=$package_dir/.git git describe --tags $branch 2>/dev/null`;
+    my $desc = `GIT_DIR=$package_dir/.git git describe --tags origin/$branch 2>/dev/null`;
     chomp $desc;
     # git describe worked so the branch is there:
     if ($desc) {
