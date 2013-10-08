@@ -1,0 +1,86 @@
+#!/usr/bin/perl
+# Summary of pending changes in git for master (unstable) and stable branches
+use strict;
+use warnings;
+
+use File::Basename;
+use List::MoreUtils qw(all);
+
+# What the branches mean in term of suites:
+my %branches = qw(
+  stable   wheezy
+  testing  jessie
+  unstable master
+);
+
+# Where the packages checkout live, assuming "usual" layout:
+my $di_dir = "../installer";
+my $root_dir = "../packages";
+
+my @git_stats;
+for my $package_dir ($di_dir, <$root_dir/*/>) {
+  # Compute git commits for all branches/suites:
+  my $package = basename $package_dir;
+  my @package_commits;
+  for my $suite (sort keys %branches) {
+    my $branch = $branches{ $suite };
+    my $desc = `GIT_DIR=$package_dir/.git git describe --tags $branch 2>/dev/null`;
+    chomp $desc;
+    # git describe worked so the branch is there:
+    if ($desc) {
+      my $commits = $desc =~ /-(\d+)-g/ ? $1 : 0;
+      push @package_commits, $commits;
+    }
+    else {
+      push @package_commits, '-';
+    }
+  }
+
+  # Skip packages with uninteresting stats:
+  next
+    if all { $_ eq '-' or $_ eq '0' } @package_commits;
+  push @git_stats, {
+    package => $package,
+    commits => [@package_commits],
+  };
+}
+
+# Generate output:
+my $html = << 'EOS';
+<html>
+  <head>
+    <title>Git status</title>
+    <link rel="stylesheet" type="text/css" href="/static/d-i.css" />
+    <style>
+      .rightalign { text-align: right; }
+    </style>
+  </head>
+  <body>
+    <h1>Git status</h1>
+    <table>
+EOS
+
+# Headers:
+$html .= "<tr><th>&nbsp;</th>";
+for my $suite (sort keys %branches) {
+  $html .= "<th class=\"rightalign\">$suite<br /><i><small>$branches{ $suite }</small></i></th>";
+}
+$html .= "</tr>\n";
+
+# Contents:
+for my $stat (@git_stats) {
+  $html .= "      <tr><td>" . $stat->{package} . "</td>";
+  for my $commit (@{ $stat->{commits} }) {
+    $html .= "<td class=\"rightalign\">$commit</td>";
+  }
+  $html .= "</tr>\n";
+}
+
+# Trailer:
+$html .= << 'EOS';
+    </table>
+  </body>
+</html>
+EOS
+
+print $html;
