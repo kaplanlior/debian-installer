@@ -51,7 +51,11 @@ doc-base-stamp:
 	    done
 	touch $@
 
-build: build-stamp
+build: build-arch build-indep
+
+build-arch:
+
+build-indep: build-stamp
 build-stamp:
 	rm -f $@
 	-rm -rf $(MANTMP)
@@ -98,4 +102,4 @@ binary-indep: install doc-base
 	#    done
 
 binary: binary-indep binary-arch 
-.PHONY: build build-images clean binary-indep binary-arch binary install 
+.PHONY: build build-arch build-indep build-images clean binary-indep binary-arch binary install 
