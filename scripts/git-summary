@@ -28,6 +28,18 @@ for my $package_dir ($di_dir, <$root_dir/*/>) {
     chomp $desc;
     # git describe worked so the branch is there:
     if ($desc) {
+      # if testing and fully merged into unstable, skip it, that was
+      # most likely a staging branch:
+      if ($suite eq 'testing') {
+        my $merge_base = `GIT_DIR=$package_dir/.git git merge-base origin/$branch origin/master`;
+        my $merge_desc = `GIT_DIR=$package_dir/.git git describe --tags $merge_base 2>/dev/null`;
+        chomp $merge_desc;
+        if ($merge_desc eq $desc) {
+          push @package_commits, '-';
+          next;
+        }
+      }
+
       my $commits = $desc =~ /-(\d+)-g/ ? $1 : 0;
       push @package_commits, $commits;
     }
