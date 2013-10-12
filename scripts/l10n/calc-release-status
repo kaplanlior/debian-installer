@@ -80,8 +80,8 @@ get_version() {
 		fi
 	fi
 
-	# ssh ries.debian.org is used to work around #699268; we want dak ls.
-	madison="$(ssh ries.debian.org dak ls -s $SUITE $package -a source)"
+	# ssh franck.debian.org is used to work around #699268; we want dak ls.
+	madison="$(ssh franck.debian.org dak ls -s $SUITE $package -a source)"
 	if [ -z "$madison" ]; then
 		error "error getting madison info for $package for '$SUITE'"
 		exit 1
