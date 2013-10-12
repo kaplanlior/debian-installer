@@ -169,12 +169,14 @@ for p_dir in `real_contents packages_list | sort `; do
 
 	log "- processing $p_dir ($version)"
 	echo "$package ($version)" >>packages.log
+	# Assume tags with an epoch are committed without it ("bar" instead of "foo:bar"):
+	version=$(echo $version|sed 's/^[0-9]\+://')
 	if [ ! -d $package/$version/po ]; then
 		mkdir -p $package/$version
 		pushd $package/$version >/dev/null
 		git clone $GITREPO/$package
 		pushd $package
-		git checkout -b tag -t $version >/dev/null || true
+		git checkout -b tag $version || { echo "Unable to find $version in $package"; exit 1; }
 		popd
 		cp -r $package/debian/po .
 	else
