@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-08-13 22:03+0000\n"
-"PO-Revision-Date: 2013-09-24 21:01-0000\n"
+"PO-Revision-Date: 2013-10-13 18:05-0000\n"
 "Last-Translator: Mert Dirik <mertdirik@gmail.com>\n"
 "Language-Team: Turkish <debian-l10n-turkish@lists.debian.org>\n"
 "Language: tr\n"
@@ -41,7 +41,7 @@ msgid ""
 msgstr ""
 "Kurulum adımlarından biri başarısız oldu. Bu adımı menüden seçerek tekrar "
 "deneyebilir veya bu adımı atlayarak başka bir adım seçebilirsiniz. Başarısız "
-"adım: ${ITEM}"
+"olan adım: ${ITEM}"
 
 #. Type: select
 #. Description
@@ -190,7 +190,7 @@ msgid ""
 msgstr ""
 "Kurulum programının, kurulumun tamamlanması için ihtiyaç duyacağı "
 "bileşenlerin tümü otomatik olarak yükleneceğinden burada listelenmemiştir. "
-"Diğer bazı (seçeneksel) kurulum bileşenleri aşağıda görülmektedir. Bunlar "
+"Diğer bazı (isteğe bağlı) kurulum bileşenleri aşağıda görülmektedir. Bunlar "
 "çoğu durum için gereksizdir; fakat bazı kullanıcıların işine yarayabilir."
 
 #. Type: multiselect
@@ -1859,8 +1859,8 @@ msgid ""
 "No modifications can be made to the partition #${PARTITION} of device "
 "${DEVICE} for the following reasons:"
 msgstr ""
-"${DEVICE} aygıtındaki #${PARTITION} nolu bölümde aşağıda belirtilen nedenle "
-"herhangi bir değişiklik yapılamıyor:"
+"${DEVICE} aygıtının ${PARTITION} numaralı bölümünde aşağıda belirtilen "
+"sebepten ötürü herhangi bir değişiklik yapılamıyor:"
 
 #. Type: boolean
 #. Description
@@ -1904,7 +1904,7 @@ msgstr "Aşağıdaki bölümler biçimlenecek:"
 #. for example: "partition #6 of IDE0 master as ext3 journaling file system"
 #: ../partman-base.templates:14001
 msgid "partition #${PARTITION} of ${DEVICE} as ${TYPE}"
-msgstr "${DEVICE} aygıtındaki #${PARTITION} bölümü ${TYPE} türünde"
+msgstr "${DEVICE} aygıtının ${PARTITION} numaralı bölümü ${TYPE} türünde"
 
 #. Type: text
 #. Description
@@ -1951,8 +1951,8 @@ msgid ""
 "You are editing partition #${PARTITION} of ${DEVICE}. ${OTHERINFO} "
 "${DESTROYED}"
 msgstr ""
-"${DEVICE} aygıtının #${PARTITION} bölümünü düzenliyorsunuz. ${OTHERINFO} "
-"${DESTROYED}"
+"${DEVICE} aygıtının ${PARTITION} numaralı bölümünü düzenliyorsunuz. "
+"${OTHERINFO} ${DESTROYED}"
 
 #. Type: text
 #. Description
@@ -2092,8 +2092,8 @@ msgstr "Menüye geri dönülsün mü?"
 #: ../partman-basicmethods.templates:1001
 msgid "No file system is specified for partition #${PARTITION} of ${DEVICE}."
 msgstr ""
-"${DEVICE} aygıtındaki #${PARTITION} bölümü için herhangi bir dosya sistemi "
-"belirtilmedi."
+"${DEVICE} aygıtının ${PARTITION} numaralı bölümü için herhangi bir dosya "
+"sistemi belirtilmedi."
 
 #. Type: boolean
 #. Description
@@ -2111,7 +2111,7 @@ msgstr ""
 #. :sl2:
 #: ../partman-basicmethods.templates:2001
 msgid "do not use the partition"
-msgstr "Bölümü kullanma"
+msgstr "Bu bölümü kullanma"
 
 #. Type: text
 #. Description
@@ -2126,7 +2126,7 @@ msgstr "Bölümü biçimlendir:"
 #. :sl2:
 #: ../partman-basicmethods.templates:4001
 msgid "yes, format it"
-msgstr "evet, biçimle"
+msgstr "evet, biçimlendir"
 
 #. Type: text
 #. Description
@@ -2819,8 +2819,8 @@ msgid ""
 "The test of the file system with type ${TYPE} in partition #${PARTITION} of "
 "${DEVICE} found uncorrected errors."
 msgstr ""
-"${DEVICE} aygıtındaki #${PARTITION} bölümünde ${TYPE} dosya sistemi için "
-"yapılan denetlemede düzeltilmemiş hatalar bulundu."
+"${DEVICE} aygıtının ${PARTITION} numaralı bölümünde ${TYPE} yapılan dosya "
+"sistemi denetiminde düzeltilmemiş hatalar bulundu."
 
 #. Type: boolean
 #. Description
@@ -2845,8 +2845,8 @@ msgid ""
 "The test of the swap space in partition #${PARTITION} of ${DEVICE} found "
 "uncorrected errors."
 msgstr ""
-"${DEVICE} aygıtındaki #${PARTITION} bölümünde bulunan takas alanı için "
-"yapılan denetlemede düzeltilmemiş hatalar bulundu."
+"${DEVICE} aygıtının ${PARTITION} numaralı bölümündeki takas alanında yapılan "
+"denetimde düzeltilmemiş hatalar bulundu."
 
 #. #-#-#-#-#  templates.pot (partman-basicfilesystems)  #-#-#-#-#
 #. Type: boolean
@@ -2917,7 +2917,7 @@ msgid ""
 "The ${TYPE} file system creation in partition #${PARTITION} of ${DEVICE} "
 "failed."
 msgstr ""
-"${DEVICE} aygıtındaki #${PARTITION} bölümünde ${TYPE} dosya sistemi "
+"${DEVICE} aygıtının ${PARTITION} numaralı bölümünde ${TYPE} dosya sistemi "
 "oluşturulamadı."
 
 #. Type: error
@@ -2934,7 +2934,8 @@ msgstr "Takas alanı oluşturulamadı"
 msgid ""
 "The creation of swap space in partition #${PARTITION} of ${DEVICE} failed."
 msgstr ""
-"${DEVICE} aygıtındaki #${PARTITION} bölümünde takas alanı oluşturulamadı."
+"${DEVICE} aygıtının ${PARTITION} numaralı bölümünde takas alanı "
+"oluşturulamadı."
 
 #. Type: boolean
 #. Description
@@ -2944,8 +2945,8 @@ msgid ""
 "No mount point is assigned for the ${FILESYSTEM} file system in partition #"
 "${PARTITION} of ${DEVICE}."
 msgstr ""
-"${DEVICE} aygıtındaki ${FILESYSTEM} dosya sistemine sahip #${PARTITION} "
-"bölümüne bir bağlama noktası atanmamış."
+"${DEVICE} aygıtının ${FILESYSTEM} dosya sistemine sahip ${PARTITION} "
+"numaralı bölümüne bir bağlama noktası atanmamış."
 
 #. #-#-#-#-#  templates.pot (partman-basicfilesystems)  #-#-#-#-#
 #. Type: boolean
@@ -3907,7 +3908,7 @@ msgid ""
 msgstr ""
 "Hedef dosya sistemi önceki bir kurulumdan kalan dosyalar içeriyor. Bu "
 "dosyalar kurulum işlemini veya kurulacak olan sistemi olumsuz etkileyebilir, "
-"ve önceden mevcut bazı dosyaların üzerine yazılabilir."
+"ve mevcut bazı dosyaların üzerine yazılabilir."
 
 #. Type: error
 #. Description
@@ -4510,7 +4511,7 @@ msgid ""
 msgstr ""
 "Aklınızda bulunsun, bu kullanıcı hesabını (ve diğer ek kullanıcı "
 "hesaplarını) daha sonra 'adduser <kullanıcı_adı>' komutunu root olarak "
-"yazarak yaratabilirsiniz. <kullanıcı_adı> 'imurdock' ya da 'rms' gibi bir "
+"yazarak yaratabilirsiniz. <kullanıcı_adı>, 'imurdock' ya da 'rms' gibi bir "
 "kullanıcı adıdır."
 
 #. Type: error
@@ -4731,7 +4732,7 @@ msgstr "GRUB yapılandırması başarısız"
 #: ../grub-installer.templates:7001 ../grub-installer.templates:8002
 #: ../yaboot-installer.templates:9001
 msgid "Device for boot loader installation:"
-msgstr "Önyükleyici kurulacak aygıt:"
+msgstr "Önyükleyicinin kurulacağı aygıt:"
 
 #. Type: string
 #. Description
