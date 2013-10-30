@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-22 22:05+0000\n"
+"POT-Creation-Date: 2013-10-30 22:04+0000\n"
 "PO-Revision-Date: 2011-09-29 23:43+0100\n"
 "Last-Translator: Martin Bagge (brother) <brother@bsnet.se>\n"
 "Language-Team: Swedish <debian-l10n-swedish@lists.debian.org>\n"
@@ -2186,7 +2186,7 @@ msgstr "Ta bort logisk volym"
 #. :sl3:
 #. Menu entry
 #. Use infinitive form
-#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. #-#-#-#-#  templates.pot (partman-crypto)  #-#-#-#-#
 #. Type: select
 #. Choices
 #. Note to translators : Please keep your translations of the choices
@@ -2209,7 +2209,7 @@ msgstr "Ta bort logisk volym"
 #. the 'Select "Finish" at the bottom of the list when you are done' string
 #: ../partman-zfs.templates:16001 ../mdcfg-utils.templates:3001
 #: ../partman-md.templates:5001 ../partman-lvm.templates:17001
-#: ../partman-crypto.templates:54001 ../partconf.templates:3001
+#: ../partman-crypto.templates:59001 ../partconf.templates:3001
 #: ../partitioner.templates:1001 ../s390-dasd.templates:1001
 msgid "Finish"
 msgstr "Slutför"
@@ -2247,14 +2247,14 @@ msgstr "Ett fel inträffade när ändringarna skrevs till diskarna."
 #. Type: multiselect
 #. Description
 #. :sl3:
-#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. #-#-#-#-#  templates.pot (partman-crypto)  #-#-#-#-#
 #. Type: multiselect
 #. Description
 #. :sl3:
 #: ../partman-zfs.templates:23001 ../lvmcfg-utils.templates:5001
 #: ../lvmcfg-utils.templates:17001 ../partman-lvm.templates:26001
 #: ../partman-lvm.templates:39001 ../partman-lvm.templates:44001
-#: ../partman-crypto.templates:55001
+#: ../partman-crypto.templates:60001
 msgid "You can select one or more devices."
 msgstr "Du kan välja en eller flera enheter."
 
@@ -4775,7 +4775,10 @@ msgstr "Radera data på den här partitionen"
 #. Type: boolean
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:22001
+#. Type: boolean
+#. Description
+#. :sl3:
+#: ../partman-crypto.templates:22001 ../partman-crypto.templates:26001
 msgid "Really erase the data on ${DEVICE}?"
 msgstr "Verkligen radera data på ${DEVICE}?"
 
@@ -4783,6 +4786,68 @@ msgstr "Verkligen radera data på ${DEVICE}?"
 #. Description
 #. :sl3:
 #: ../partman-crypto.templates:22001
+#, fuzzy
+#| msgid ""
+#| "The data on ${DEVICE} will be overwritten with random data. It can no "
+#| "longer be recovered after this step has completed. This is the last "
+#| "opportunity to abort the erase."
+msgid ""
+"The data on ${DEVICE} will be overwritten with zeroes. It can no longer be "
+"recovered after this step has completed. This is the last opportunity to "
+"abort the erase."
+msgstr ""
+"Data på ${DEVICE} kommer att skrivas över med slumpmässig data. Det kan inte "
+"längre återskapas efter att detta steg har färdigställts. Detta är den sista "
+"chansen att avbryta raderingen."
+
+#. Type: text
+#. Description
+#. :sl3:
+#. Type: text
+#. Description
+#. :sl3:
+#: ../partman-crypto.templates:23001 ../partman-crypto.templates:27001
+msgid "Erasing data on ${DEVICE}"
+msgstr "Raderar data på ${DEVICE}"
+
+#. Type: text
+#. Description
+#. :sl3:
+#: ../partman-crypto.templates:24001
+msgid ""
+"The installer is now overwriting ${DEVICE} with zeroes to delete its "
+"previous contents. This step may be skipped by cancelling this action."
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl3:
+#. Type: error
+#. Description
+#. :sl3:
+#: ../partman-crypto.templates:25001 ../partman-crypto.templates:29001
+msgid "Erasing data on ${DEVICE} failed"
+msgstr "Radering av data på ${DEVICE} misslyckades"
+
+#. Type: error
+#. Description
+#. :sl3:
+#: ../partman-crypto.templates:25001
+#, fuzzy
+#| msgid ""
+#| "An error occurred trying to erase the data on ${DEVICE}. The data has not "
+#| "been erased."
+msgid ""
+"An error occurred while trying to overwrite the data on ${DEVICE} with "
+"zeroes. The data has not been erased."
+msgstr ""
+"Ett fel inträffade vid försök att radera data på ${DEVICE}. Data har inte "
+"raderats."
+
+#. Type: boolean
+#. Description
+#. :sl3:
+#: ../partman-crypto.templates:26001
 msgid ""
 "The data on ${DEVICE} will be overwritten with random data. It can no longer "
 "be recovered after this step has completed. This is the last opportunity to "
@@ -4795,67 +4860,63 @@ msgstr ""
 #. Type: text
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:23001
-msgid "Erasing data on ${DEVICE}"
-msgstr "Raderar data på ${DEVICE}"
-
-#. Type: error
-#. Description
-#. :sl3:
-#: ../partman-crypto.templates:24001
-msgid "Erasing data on ${DEVICE} failed"
-msgstr "Radering av data på ${DEVICE} misslyckades"
-
-#. Type: error
-#. Description
-#. :sl3:
-#: ../partman-crypto.templates:24001
+#: ../partman-crypto.templates:28001
 msgid ""
-"An error occurred trying to erase the data on ${DEVICE}. The data has not "
-"been erased."
+"The installer is now overwriting ${DEVICE} with random data to prevent meta-"
+"information leaks from the encrypted volume. This step may be skipped by "
+"cancelling this action, albeit at the expense of a slight reduction of the "
+"quality of the encryption."
 msgstr ""
-"Ett fel inträffade vid försök att radera data på ${DEVICE}. Data har inte "
-"raderats."
+
+#. Type: error
+#. Description
+#. :sl3:
+#: ../partman-crypto.templates:29001
+msgid ""
+"An error occurred while trying to overwrite ${DEVICE} with random data. "
+"Recovery of the device's previous contents is possible and meta-information "
+"of its new contents may be leaked."
+msgstr ""
 
 #. Type: text
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:25001
+#: ../partman-crypto.templates:30001
 msgid "Setting up encryption..."
 msgstr "Konfigurerar kryptering..."
 
 #. Type: text
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:26001
+#: ../partman-crypto.templates:31001
 msgid "Configure encrypted volumes"
 msgstr "Konfigurera krypterade volymer"
 
 #. Type: note
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:27001
+#: ../partman-crypto.templates:32001
 msgid "No partitions to encrypt"
 msgstr "Inga partitioner att kryptera"
 
 #. Type: note
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:27001
+#: ../partman-crypto.templates:32001
 msgid "No partitions have been selected for encryption."
 msgstr "Inga partitioner har valts för kryptering."
 
 #. Type: note
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:28001
+#: ../partman-crypto.templates:33001
 msgid "Required programs missing"
 msgstr "Nödvändiga program saknas"
 
 #. Type: note
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:28001
+#: ../partman-crypto.templates:33001
 msgid ""
 "This build of debian-installer does not include one or more programs that "
 "are required for partman-crypto to function correctly."
@@ -4866,14 +4927,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:29001
+#: ../partman-crypto.templates:34001
 msgid "Required encryption options missing"
 msgstr "Nödvändiga krypteringsflaggor saknas"
 
 #. Type: error
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:29001
+#: ../partman-crypto.templates:34001
 msgid ""
 "The encryption options for ${DEVICE} are incomplete. Please return to the "
 "partition menu and select all required options."
@@ -4887,7 +4948,7 @@ msgstr ""
 #. Translators: this string is used to assemble a string of the format
 #. "$specify_option: $missing". If this proves to be a problem in your
 #. language, please contact the maintainer and we can do it differently.
-#: ../partman-crypto.templates:30001
+#: ../partman-crypto.templates:35001
 msgid "missing"
 msgstr "saknas"
 
@@ -4895,21 +4956,21 @@ msgstr "saknas"
 #. Description
 #. :sl3:
 #. What is "in use" is a partition
-#: ../partman-crypto.templates:31001
+#: ../partman-crypto.templates:36001
 msgid "In use as physical volume for encrypted volume ${DEV}"
 msgstr "Används som fysisk volym för den krypterade volymen ${DEV}"
 
 #. Type: error
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:32001
+#: ../partman-crypto.templates:37001
 msgid "Encryption package installation failure"
 msgstr "Installationen av krypteringspaketet misslyckades"
 
 #. Type: error
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:32001
+#: ../partman-crypto.templates:37001
 msgid ""
 "The kernel module package ${PACKAGE} could not be found or an error occurred "
 "during its installation."
@@ -4920,7 +4981,7 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:32001
+#: ../partman-crypto.templates:37001
 msgid ""
 "It is likely that there will be problems setting up encrypted partitions "
 "when the system is rebooted. You may be able to correct this by installing "
@@ -4933,14 +4994,14 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:33001
+#: ../partman-crypto.templates:38001
 msgid "Write the changes to disk and configure encrypted volumes?"
 msgstr "Skriv ändringarna till diskarna och konfigurera krypterade volymer?"
 
 #. Type: boolean
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:33001
+#: ../partman-crypto.templates:38001
 msgid ""
 "Before encrypted volumes can be configured, the current partitioning scheme "
 "has to be written to disk.  These changes cannot be undone."
@@ -4955,7 +5016,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:33001 ../partman-crypto.templates:34001
+#: ../partman-crypto.templates:38001 ../partman-crypto.templates:39001
 msgid ""
 "After the encrypted volumes have been configured, no additional changes to "
 "the partitions on the disks containing encrypted volumes are allowed. Please "
@@ -4970,7 +5031,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:34001
+#: ../partman-crypto.templates:39001
 msgid "Keep current partition layout and configure encrypted volumes?"
 msgstr ""
 "Behåll den nuvarande partitionsinformationen och konfigurera krypterade "
@@ -4979,35 +5040,35 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:35001
+#: ../partman-crypto.templates:40001
 msgid "Configuration of encrypted volumes failed"
 msgstr "Konfiguration av krypterade volymer misslyckades"
 
 #. Type: error
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:35001
+#: ../partman-crypto.templates:40001
 msgid "An error occurred while configuring encrypted volumes."
 msgstr "Ett fel inträffade med konfigurationen av krypterade volymer."
 
 #. Type: error
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:35001
+#: ../partman-crypto.templates:40001
 msgid "The configuration has been aborted."
 msgstr "Konfigurationen har avbrutits."
 
 #. Type: error
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:36001
+#: ../partman-crypto.templates:41001
 msgid "Initialisation of encrypted volume failed"
 msgstr "Initiering av krypterad volym misslyckades"
 
 #. Type: error
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:36001
+#: ../partman-crypto.templates:41001
 msgid "An error occurred while setting up encrypted volumes."
 msgstr "Ett fel inträffade när de krypterade volymerna ställdes in."
 
@@ -5018,7 +5079,7 @@ msgstr "Ett fel inträffade när de krypterade volymerna ställdes in."
 #. It can be either protected by a passphrase, a keyfile
 #. of a random key
 #. This text is one of these choices, so keep it short
-#: ../partman-crypto.templates:37001
+#: ../partman-crypto.templates:42001
 msgid "Passphrase"
 msgstr "Lösenfras"
 
@@ -5029,7 +5090,7 @@ msgstr "Lösenfras"
 #. It can be either protected by a passphrase, a keyfile
 #. of a random key
 #. This text is one of these choices, so keep it short
-#: ../partman-crypto.templates:38001
+#: ../partman-crypto.templates:43001
 msgid "Keyfile (GnuPG)"
 msgstr "Nyckelfil (GnuPG)"
 
@@ -5040,28 +5101,28 @@ msgstr "Nyckelfil (GnuPG)"
 #. It can be either protected by a passphrase, a keyfile
 #. of a random key
 #. This text is one of these choices, so keep it short
-#: ../partman-crypto.templates:39001
+#: ../partman-crypto.templates:44001
 msgid "Random key"
 msgstr "Slumpnyckel"
 
 #. Type: error
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:40001
+#: ../partman-crypto.templates:45001
 msgid "Unsafe swap space detected"
 msgstr "Osäkert växlingsutrymme hittades"
 
 #. Type: error
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:40001
+#: ../partman-crypto.templates:45001
 msgid "An unsafe swap space has been detected."
 msgstr "Ett osäkert växlingsutrymme har hittats."
 
 #. Type: error
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:40001
+#: ../partman-crypto.templates:45001
 msgid ""
 "This is a fatal error since sensitive data could be written out to disk "
 "unencrypted. This would allow someone with access to the disk to recover "
@@ -5074,7 +5135,7 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:40001
+#: ../partman-crypto.templates:45001
 msgid ""
 "Please disable the swap space (e.g. by running swapoff) or configure an "
 "encrypted swap space and then run setup of encrypted volumes again. This "
@@ -5087,21 +5148,21 @@ msgstr ""
 #. Type: password
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:41001
+#: ../partman-crypto.templates:46001
 msgid "Encryption passphrase:"
 msgstr "Lösenfras för kryptering:"
 
 #. Type: password
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:41001
+#: ../partman-crypto.templates:46001
 msgid "You need to choose a passphrase to encrypt ${DEVICE}."
 msgstr "Du måste välja en lösenfras för att kryptera ${DEVICE}."
 
 #. Type: password
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:41001
+#: ../partman-crypto.templates:46001
 msgid ""
 "The overall strength of the encryption depends strongly on this passphrase, "
 "so you should take care to choose a passphrase that is not easy to guess. It "
@@ -5116,7 +5177,7 @@ msgstr ""
 #. Type: password
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:41001
+#: ../partman-crypto.templates:46001
 msgid ""
 "A good passphrase will contain a mixture of letters, numbers and "
 "punctuation. Passphrases are recommended to have a length of 20 or more "
@@ -5129,14 +5190,14 @@ msgstr ""
 #. Type: password
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:42001
+#: ../partman-crypto.templates:47001
 msgid "Re-enter passphrase to verify:"
 msgstr "Skriv in lösenfrasen för att verifiera:"
 
 #. Type: password
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:42001
+#: ../partman-crypto.templates:47001
 msgid ""
 "Please enter the same passphrase again to verify that you have typed it "
 "correctly."
@@ -5147,28 +5208,28 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:43001
+#: ../partman-crypto.templates:48001
 msgid "Passphrase input error"
 msgstr "Lösenfras inmatningsfel"
 
 #. Type: error
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:43001
+#: ../partman-crypto.templates:48001
 msgid "The two passphrases you entered were not the same. Please try again."
 msgstr "De två lösenfraserna du angav var inte identiska. Försök igen."
 
 #. Type: error
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:44001
+#: ../partman-crypto.templates:49001
 msgid "Empty passphrase"
 msgstr "Ingen lösenfras"
 
 #. Type: error
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:44001
+#: ../partman-crypto.templates:49001
 msgid ""
 "You entered an empty passphrase, which is not allowed. Please choose a non-"
 "empty passphrase."
@@ -5177,7 +5238,7 @@ msgstr "Du angav ingen lösenfras vilket inte är tillåtet. Ange en lösenfras.
 #. Type: boolean
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:45001
+#: ../partman-crypto.templates:50001
 msgid "Use weak passphrase?"
 msgstr "Använda svag lösenfras?"
 
@@ -5187,7 +5248,7 @@ msgstr "Använda svag lösenfras?"
 #. Translators: we unfortunately cannot use plural forms here
 #. So, you are suggested to use the plural form adapted for
 #. MINIMUM=8, which is the current hardcoded value
-#: ../partman-crypto.templates:45001
+#: ../partman-crypto.templates:50001
 msgid ""
 "You entered a passphrase that consists of less than ${MINIMUM} characters, "
 "which is considered too weak. You should choose a stronger passphrase."
@@ -5198,14 +5259,14 @@ msgstr ""
 #. Type: entropy
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:46001
+#: ../partman-crypto.templates:51001
 msgid "The encryption key for ${DEVICE} is now being created."
 msgstr "Krypteringsnyckeln för ${DEVICE} skapas nu."
 
 #. Type: text
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:47001 ../cdebconf-newt-entropy.templates:3001
+#: ../partman-crypto.templates:52001 ../cdebconf-newt-entropy.templates:3001
 #: ../cdebconf-gtk-entropy.templates:3001
 #: ../cdebconf-text-entropy.templates:3001
 msgid "Key data has been created successfully."
@@ -5214,14 +5275,14 @@ msgstr "Skapandet av nyckeldata lyckades."
 #. Type: error
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:48001
+#: ../partman-crypto.templates:53001
 msgid "Keyfile creation failure"
 msgstr "Skapandet av nyckelfil misslyckades."
 
 #. Type: error
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:48001
+#: ../partman-crypto.templates:53001
 msgid "An error occurred while creating the keyfile."
 msgstr "Ett fel inträffade vid skapandet av nyckelfilen."
 
@@ -5231,14 +5292,14 @@ msgstr "Ett fel inträffade vid skapandet av nyckelfilen."
 #. Type: error
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:49001 ../partman-crypto.templates:50001
+#: ../partman-crypto.templates:54001 ../partman-crypto.templates:55001
 msgid "Encryption configuration failure"
 msgstr "Krypteringskonfigurationen misslyckad"
 
 #. Type: error
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:49001
+#: ../partman-crypto.templates:54001
 msgid ""
 "You have selected the root file system to be stored on an encrypted "
 "partition. This feature requires a separate /boot partition on which the "
@@ -5251,14 +5312,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:49001
+#: ../partman-crypto.templates:54001
 msgid "You should go back and setup a /boot partition."
 msgstr "Du bör gå tillbaka och konfigurera en /boot-partition."
 
 #. Type: error
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:50001
+#: ../partman-crypto.templates:55001
 msgid ""
 "You have selected the /boot file system to be stored on an encrypted "
 "partition. This is not possible because the boot loader would be unable to "
@@ -5272,7 +5333,7 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:50001
+#: ../partman-crypto.templates:55001
 msgid ""
 "You should go back and choose a non-encrypted partition for the /boot file "
 "system."
@@ -5283,14 +5344,14 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:51001
+#: ../partman-crypto.templates:56001
 msgid "Are you sure you want to use a random key?"
 msgstr "Är du säker på att du vill använda en slumpmässig nyckel?"
 
 #. Type: boolean
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:51001
+#: ../partman-crypto.templates:56001
 msgid ""
 "You have chosen a random key type for ${DEVICE} but requested the "
 "partitioner to create a file system on it."
@@ -5301,7 +5362,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:51001
+#: ../partman-crypto.templates:56001
 msgid ""
 "Using a random key type means that the partition data is going to be "
 "destroyed upon each reboot. This should only be used for swap partitions."
@@ -5312,14 +5373,14 @@ msgstr ""
 #. Type: error
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:52001
+#: ../partman-crypto.templates:57001
 msgid "Failed to download crypto components"
 msgstr "Misslyckades med att hämta krypteringskomponenter"
 
 #. Type: error
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:52001
+#: ../partman-crypto.templates:57001
 msgid "An error occurred trying to download additional crypto components."
 msgstr ""
 "Ett fel inträffade vid försök att hämta ytterligare krypteringskomponenter."
@@ -5327,7 +5388,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:53001
+#: ../partman-crypto.templates:58001
 msgid "Proceed to install crypto components despite insufficient memory?"
 msgstr ""
 "Fortsätt att installera krypteringskomponenter trots otillräckligt minne?"
@@ -5335,7 +5396,7 @@ msgstr ""
 #. Type: boolean
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:53001
+#: ../partman-crypto.templates:58001
 msgid ""
 "There does not seem to be sufficient memory available to install additional "
 "crypto components. If you choose to go ahead and continue anyway, the "
@@ -5351,49 +5412,49 @@ msgstr ""
 #. below a 65 columns limit (which means 65 characters
 #. in single-byte languages)
 #. :sl3:
-#: ../partman-crypto.templates:54001
+#: ../partman-crypto.templates:59001
 msgid "Create encrypted volumes"
 msgstr "Skapa krypterade volymer"
 
 #. Type: select
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:54002
+#: ../partman-crypto.templates:59002
 msgid "Encryption configuration actions"
 msgstr "Konfigurationsåtgärder för kryptering"
 
 #. Type: select
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:54002
+#: ../partman-crypto.templates:59002
 msgid "This menu allows you to configure encrypted volumes."
 msgstr "Denna meny låter dig konfigurera krypterade volymer."
 
 #. Type: multiselect
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:55001
+#: ../partman-crypto.templates:60001
 msgid "Devices to encrypt:"
 msgstr "Enheter att kryptera:"
 
 #. Type: multiselect
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:55001
+#: ../partman-crypto.templates:60001
 msgid "Please select the devices to be encrypted."
 msgstr "Välj enheter att kryptera."
 
 #. Type: error
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:56001
+#: ../partman-crypto.templates:61001
 msgid "No devices selected"
 msgstr "Inga enheter valda"
 
 #. Type: error
 #. Description
 #. :sl3:
-#: ../partman-crypto.templates:56001
+#: ../partman-crypto.templates:61001
 msgid "No devices were selected for encryption."
 msgstr "Inga enheter har valts för kryptering."
 
