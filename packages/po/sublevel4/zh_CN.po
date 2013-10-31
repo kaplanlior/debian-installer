@@ -5,21 +5,22 @@
 #
 # Translated by Yijun Yuan (2004), Carlos Z.F. Liu (2004,2005,2006) and
 # Ming Hua (2005,2006,2007,2008), Deng Xiyue (2008).
-# YunQiang Su <wzssyqa@gmail.com>, 2010, 2011, 2012.
+# YunQiang Su <wzssyqa@gmail.com>, 2010, 2011, 2012, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-05-22 22:05+0000\n"
-"PO-Revision-Date: 2012-01-02 21:41+0800\n"
+"PO-Revision-Date: 2013-10-31 22:59+0800\n"
 "Last-Translator: YunQiang Su <wzssyqa@gmail.com>\n"
-"Language-Team: Chinese (simplified) <debian-l10n-chinese@lists.debian.org>\n"
+"Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
 "Language: zh\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bits\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Gtranslator 2.91.6\n"
 
 #. Type: text
 #. Description
@@ -1287,10 +1288,9 @@ msgstr "删除 ZFS 池"
 #. Menu entry
 #. Use infinitive form
 #: ../partman-zfs.templates:14001
-#, fuzzy
 #| msgid "Create %s file system"
 msgid "Create root file system"
-msgstr "创建 %s 文件系统"
+msgstr "创建根文件系统"
 
 #. Type: boolean
 #. Description
@@ -1363,7 +1363,6 @@ msgstr "当前 ZFS 配置的总结："
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 #| msgid ""
 #| " Free physical volumes:  ${FREE_PVS}\n"
 #| " Used physical volumes:  ${USED_PVS}\n"
@@ -1379,7 +1378,8 @@ msgstr ""
 " 空闲物理卷：            ${FREE_PVS}\n"
 " 已用物理卷：            ${USED_PVS}\n"
 " ZFS 池：               ${VGS}\n"
-" ZFS 逻辑卷：           ${LVS}"
+" ZFS 逻辑卷：           ${LVS}\n"
+" ${BOOTFS}"
 
 #. Type: note
 #. Description
@@ -1648,16 +1648,14 @@ msgstr "当前的内核不支持 ZFS。您也许应该加载 zfs 模块。"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 #| msgid "Invalid logical volume or ZFS pool name"
 msgid "Invalid logical volume, ZFS pool name or ZFS file system name"
-msgstr "无效的逻辑卷或 ZFS 池名称"
+msgstr "无效的逻辑卷或 ZFS 池或 ZFS 文件系统的名称"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 #| msgid ""
 #| "Logical volume or ZFS pool names may only contain alphanumeric "
 #| "characters, hyphen, colon, period, and underscore. They must be 255 "
@@ -1669,9 +1667,9 @@ msgid ""
 "255 characters or less and must begin with an alphanumeric character. The "
 "names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"逻辑卷或 ZFS 池的名称只能包含半角的英文字母、数字、连字符 (-)、冒号、句点和下"
-"划线。这些名称必须少于或等于 128 个字符，并且不能以连字符开始。“.”和“..”两个"
-"名称是不被允许的。另外，逻辑卷的名称不能以“snapshot”开始。"
+"逻辑卷或 ZFS 池或 ZFS 文件系统的名称只能包含半角的英文字母、数字、连字符 "
+"(-)、冒号、句点和下划线。这些名称必须少于或等于 255 个字符，并且必须以字母开"
+"始，“mirror”“raidz”“spare”“log”这些名称是不允许的。"
 
 #. Type: boolean
 #. Description
@@ -1750,25 +1748,23 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:51001
 msgid "Pool to modify:"
-msgstr ""
+msgstr "要修改的池："
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 #| msgid "ZFS pool name:"
 msgid "ZFS boot file system name:"
-msgstr "ZFS 池名称"
+msgstr "ZFS boot 文件系统名称："
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 #| msgid "Please enter the hostname for this system."
 msgid "Please enter the name of the boot file system among the following:"
-msgstr "请输入系统的主机名。"
+msgstr "请在下方输入 boot 文件系统的名称："
 
 #. Type: string
 #. Description
@@ -1776,43 +1772,39 @@ msgstr "请输入系统的主机名。"
 #: ../partman-zfs.templates:52001
 msgid ""
 "This will be prefixed by ${VG}/ROOT and mounted as the root file system."
-msgstr ""
+msgstr "将被添加前缀 ${VG}/ROOT 并被挂载为根文件系统。"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 #| msgid "No file system mounted on /target"
 msgid "No file system name entered"
-msgstr "/target 上没有挂载文件系统"
+msgstr "没有输入文件系统名称"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 #| msgid "No name for the ZFS pool has been entered. Please enter a name."
 msgid "No name has been entered for the root file system. Please enter a name."
-msgstr "尚未输入 ZFS 池名。请输入一个名称。"
+msgstr "未输入 ZFS 文件系统名。请输入一个名称。"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:54001
-#, fuzzy
 #| msgid "ZFS pool:"
 msgid "ZFS boot"
-msgstr "ZFS 池："
+msgstr "ZFS boot"
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:55001
-#, fuzzy
 #| msgid "Registering modules..."
 msgid "Loading ZFS module..."
-msgstr "正在注册模块..."
+msgstr "正在加载 ZFS 模块..."
 
 #. Type: boolean
 #. Description
