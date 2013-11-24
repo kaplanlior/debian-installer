@@ -27,15 +27,6 @@ if echo "$*" | egrep -q '^unhide [0-9:-]*$'; then
     exit 0
 fi
 
-# now we do the kbsd specialities
-#UNKNOWN: rsync --server -vlre.iLsf --delete --safe-links . /srv/d-i.debian.org/www/daily-images/kfreebsd-amd64/20100407-10:40_RSYNC_IN_PROGRESS/
-#UNKNOWN: mkdir -p /srv/d-i.debian.org/www/daily-images/kfreebsd-amd64/20100408-10:40_RSYNC_IN_PROGRESS
-#UNKNOWN: test ! -d /srv/d-i.debian.org/www/daily-images/kfreebsd-amd64/daily
-#UNKNOWN: rm -rf /srv/d-i.debian.org/www/daily-images/kfreebsd-amd64/20100425-17:29
-#UNKNOWN: mv /srv/d-i.debian.org/www/daily-images/kfreebsd-amd64/20100425-17:29_RSYNC_IN_PROGRESS /srv/d-i.debian.org/www/daily-images/kfreebsd-amd64/20100425-17:29
-#UNKNOWN: rm -rf /srv/d-i.debian.org/www/daily-images/kfreebsd-amd64/daily
-#UNKNOWN: ln -sf 20100425-17:29 /srv/d-i.debian.org/www/daily-images/kfreebsd-amd64/daily
-
 if echo "$*" | egrep -q '^mkdir -p /srv/d-i.debian.org/www/daily-images/[a-zA-Z_0-9:/-]*$'; then
     echo "EXEC: $*" >> /org/d-i.debian.org/ABA.forced
     set +e
