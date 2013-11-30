@@ -211,7 +211,7 @@ EOS
 $html .= "<p>Jump to suite:" . (join '', map { " <a href=\"#$_\">$_</a>" } @suites) . "; display <a href=\"$diff_output\">diff from previous run</a></p>";
 $html .= "<table border=\"1\" cellpadding=3 style=\"border-collapse: collapse; margin: auto; \">\n";
 
-my $total;
+my $total=0;
 for my $suite (@suites) {
   $html .= "<tr><td colspan=\"$colspan\"><h1 style=\"margin-top: 20px; text-align: center;\"><a name=\"$suite\">Uninstallable packages in $suite</a></h1></td></tr>\n";
   $html .= "<tr><td></td>" . (join '', map { "<td>" . link2graph($suite, $_) ."</td>" } @allarchs) . "</tr>\n";
