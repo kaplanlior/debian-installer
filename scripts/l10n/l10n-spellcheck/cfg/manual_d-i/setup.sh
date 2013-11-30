@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # *** l10n-spellcheck.sh ***
-export LOCAL_REPOSITORY="${HOME}/d-i/trunk/manual/po"
+export LOCAL_REPOSITORY="${HOME}/trunk/manual/po"
 export REFRESH_CMD="svn -q up ${LOCAL_REPOSITORY}"
-export OUT_DIR="/org/d-i.debian.org/www/l10n-spellcheck/manual_d-i"
+export OUT_DIR="/srv/d-i.debian.org/www/l10n-spellcheck/manual_d-i"
 
 # *** check_dit.sh ***
 export PO_FINDER="./pof_di-manual.sh"
