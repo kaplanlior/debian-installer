@@ -16,7 +16,7 @@ DI=/home/d-i/trunk
 
 55 3 * * * for i in `cat $HOME/.websec-txt/lang-mail-cvs.cfg|grep -E -v "^\#" | grep -E -v "^$" | awk '{print $1}' `; do $DI/scripts/l10n/websec/websec-txt-all $i ; done
 
-0 22 * * * cd $DI; mr -q up ; time nice -n 19 $DI/scripts/l10n/l10n-sync --levels=6 --online --commit $DI
+0 22 * * * cd $DI; mr -q up ; nice -n 19 $DI/scripts/l10n/l10n-sync --levels=6 --online --commit $DI
 
 0 23 * * * cd $DI/manual && svn -q up ; cd build && destination=/srv/d-i.debian.org/www/manual ./build.sh >/dev/null ; ~/bin/push-www
 
