@@ -274,6 +274,7 @@ if (open (ANN, "annotations")) {
 # Read packages in freeze file
 if (open (FREEZE, "hints/freeze")) {
 	while (<FREEZE>) {
+		last if /^finished/;
 		next if /^#/;
 		next unless length;
 
