@@ -94,17 +94,17 @@ if (!$ENV{NOSYNC}) {
 	# Sync files from release.debian.org:
 	# - dates
 	unlink 'Dates';
-	`wget -q http://release.debian.org/britney/data-b2/Dates`;
+	`curl -s -o Dates https://release.debian.org/britney/data-b2/Dates`;
 	# - hints
 	unlink <hints/*>;
-	my $hints_url = 'http://release.debian.org/britney/hints/';
-	`wget -q -P hints $hints_url`;
+	my $hints_url = 'https://release.debian.org/britney/hints/';
+	`curl -s -o hints/index.html $hints_url`;
 	open my $hints_file, '<', 'hints/index.html'
 		or die "Unable to open hints file";
 	while (<$hints_file>) {
 		if (m{<li><a href="(.*)">\1</a></li>}) {
 			next if $1 eq 'README' or $1 eq 'satbritney';
-			`wget -q -P hints $hints_url/$1`;
+			`curl -s -o hints/$1 $hints_url/$1`;
 		}
 	}
 	close $hints_file
