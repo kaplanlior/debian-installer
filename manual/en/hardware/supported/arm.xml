@@ -11,7 +11,7 @@ architecture, where all systems share a common system firmware (BIOS or/and
 UEFI) which handles the board-specific basic hardware initialization in a
 standardized way.
 
-The ARM architecture is used mainly in so-called "systems-on-chip" (SOCs). 
+The ARM architecture is used mainly in so-called <quote>systems-on-chip</quote> (SOCs). 
 These SOCs are designed by many different companies with vastly varying
 hardware components even for the very basic functionality required to bring
 the system up.  Systems using them usually lack a common system firmware
@@ -25,7 +25,7 @@ mainboard's BIOS in the PC world.
 
 At the beginning of the ARM support in the Linux kernel, this resulted in
 the requirement of having a seperate kernel for each ARM system in contrast
-to the "one-fits-all" kernel for PC systems.  As this approach does not
+to the <quote>one-fits-all</quote> kernel for PC systems.  As this approach does not
 scale to a large number of different systems, work has started to be able to
 provide a single ARM kernel that can run on different ARM systems.  Support
 for newer ARM systems gets implemented in a way that allows the use of such
@@ -84,20 +84,6 @@ platform-specific kernels.
 <variablelist>
 
 <varlistentry>
-<term>IOP32x</term>
-<listitem><para>
-
-Intel's I/O Processor (IOP) line is found in a number of products related
-to data storage and processing.  &debian; currently supports the IOP32x
-platform, featuring the IOP 80219 and 32x chips commonly found in Network
-Attached Storage (NAS) devices.  &debian; explicitly supports two such
-devices: the <ulink url="&url-arm-cyrius-glantank;">GLAN Tank</ulink> from
-IO-Data and the <ulink url="&url-arm-cyrius-n2100;">Thecus N2100</ulink>.
-
-</para></listitem>
-</varlistentry>
-
-<varlistentry>
 <term>Kirkwood</term>
 <listitem><para>
 
@@ -144,16 +130,38 @@ test and run &debian; on ARM if you don't have the hardware.
 </para>
 </sect3>
 
+<sect3 arch="arm"><title>Platforms no longer supported by Debian/armel</title>
+
+<variablelist>
+<varlistentry>
+<term>IOP32x</term>
+<listitem><para>
+
+Intel's I/O Processor (IOP) line is found in a number of products
+related to data storage and processing, such as the <ulink
+url="&url-arm-cyrius-glantank;">GLAN Tank</ulink> from IO-Data and the
+<ulink url="&url-arm-cyrius-n2100;">Thecus N2100</ulink>.  &debian; has
+supported the IOP32x platform in &debian; 7, but does not support
+it anymore from version 8 on due to hardware constraints of the platform
+which make it unsuitable for the installation of newer &debian; releases.
+
+</para></listitem>
+</varlistentry>
+</variablelist>
+
+
+</sect3>
+
 <sect3 arch="arm"><title>Platforms supported by Debian/armhf</title>
 
   <para>
-  The following platforms are supported by &debian;/armhf using the
+  The following systems are known to work with &debian;/armhf using the
   multiplatform (armmp) kernel:
 
   <variablelist>
 
       <varlistentry>
-        <term>Freescale MX53 Quick Start Board, Codename "LOCO"</term>
+        <term>Freescale MX53 Quick Start Board</term>
         <listitem>
           <para>   
             The IMX53QSB is a development board based on the i.MX53 SOC.
@@ -161,8 +169,39 @@ test and run &debian; on ARM if you don't have the hardware.
         </listitem>
       </varlistentry>
 
+<!--
+      <varlistentry>
+        <term>Versatile Express</term>
+        <listitem>
+          <para>   
+            The Versatile Express is a development board series from ARM
+            consisting of a baseboard which can be equipped with various CPU
+            daughterboards.
+          </para>
+        </listitem>
+      </varlistentry>
+-->
+
     </variablelist>
   </para>
+
+  <para>
+    
+    Generally, the ARM multiplatform support in the Linux kernel allows
+    running &d-i; on armhf systems not explicitly listed above, as long as
+    the kernel used by &d-i; has support for the target system's components
+    and a device-tree file for the target is available.  In these cases, the
+    installer can usually provide a working userland installation, but it
+    probably cannot automatically make the system bootable, as doing that in
+    many cases requires device-specific information.
+   
+  </para>
+  <para>
+    When using &d-i; on such systems, you have to manually make the system 
+    bootable at the end of the installation, e.g. by running the required
+    commands in a shell started from within &d-i;.
+  </para>
+
 </sect3>
 
   </sect2>
