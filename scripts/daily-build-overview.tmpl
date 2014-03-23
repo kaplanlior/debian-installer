@@ -1,0 +1,89 @@
+<html>
+  <head>
+    <title><TMPL_VAR NAME=TITLE></title>
+    <link rel="stylesheet" type="text/css" href="/static/d-i.css" />
+    <style>
+table, tr, th, td {
+  padding: 2px 5px;
+  empty-cells: show;
+}
+table {
+  border-collapse: collapse;
+  font-family: monospace;
+}
+tr.title {
+  vertical-align: bottom;
+  font-family: sans-serif;
+  bottom: 0;
+  border-top: solid 1px blue;
+}
+tr.title span {
+  font-size: 200%;
+}
+tr.title td {
+  padding: 5px;
+}
+tr.normal {
+  height: 20px;
+}
+th {
+  text-align: left;
+}
+img {
+  float: left;
+}
+br {
+  clear: both;
+}
+    </style>
+  </head>
+  <body>
+    <h1><TMPL_VAR NAME=TITLE></h1>
+
+    <h2>Architectures with missing build</h2>
+    <p>
+      <TMPL_LOOP NAME=MISSING_ARCHS>
+        <a href="#<TMPL_VAR NAME=ARCH>"><TMPL_VAR NAME=ARCH></a>
+      </TMPL_LOOP>
+    </p>
+
+    <h2>Architectures with failed build</h2>
+    <p>
+      <TMPL_LOOP NAME=FAILING_ARCHS>
+        <a href="#<TMPL_VAR NAME=ARCH>"><TMPL_VAR NAME=ARCH></a>
+      </TMPL_LOOP>
+    </p>
+
+    <h2>Per-architecture details</h2>
+
+    <table>
+      <TMPL_LOOP NAME=ARCH_DETAILS>
+        <!-- Title row for this architecture -->
+        <tr class="title">
+          <td colspan="6">
+            <a name="<TMPL_VAR NAME=ARCH>"><span><TMPL_VAR NAME=ARCH></span></a>
+          </td>
+        </tr>
+        <!-- Row with the graph and headers for this architecture -->
+        <tr class="normal">
+          <td rowspan="<TMPL_VAR NAME=ROWSPAN>"><img src="<TMPL_VAR NAME=FILE>" /></td>
+          <th>Arch</th>
+          <th>Timestamp</th>
+          <th>Buildd</th>
+          <th>Target</th>
+          <th>Status</th>
+        </tr>
+        <!-- Rows with the actual details -->
+        <TMPL_VAR NAME="INNER_HTML">
+        <!-- Row acting like a spacer on the right column -->
+        <tr>
+          <td colspan="5"><br /></td>
+        </tr>
+        <!-- Row acting like a separator -->
+        <tr>
+          <td colspan="6"><br /></td>
+        </tr>
+      </TMPL_LOOP>
+    </table>
+  </body>
+</html>
