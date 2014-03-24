@@ -41,6 +41,9 @@ ul, li {
   text-indent: 0;
   padding-left: 0;
 }
+td {
+  vertical-align: top;
+}
     </style>
   </head>
   <body>
@@ -88,7 +91,11 @@ ul, li {
         <!-- Row with the graph and headers for this architecture -->
         <tr class="normal">
           <td rowspan="<TMPL_VAR NAME=ROWSPAN>">
-            <TMPL_IF NAME=FILE><img src="<TMPL_VAR NAME=FILE>" /></TMPL_IF>
+            <TMPL_IF NAME=FILE>
+              <img src="<TMPL_VAR NAME=FILE>" />
+            <TMPL_ELSE>
+              No graph available for this architecture
+            </TMPL_IF>
           </td>
           <th>Arch</th>
           <th>Timestamp</th>
