@@ -14,6 +14,7 @@ use List::MoreUtils qw(uniq);
 
 my $logdir = '../daily-build-logs.git';
 my $max = 90;
+my $pseudo_arch = 'cdimage';
 
 
 # Generate a graph for the given architecture and data, and return the
@@ -72,10 +73,14 @@ sub get_percentage {
 # Get last log directory for a given architecture
 sub last_log_dir {
   my $arch = shift;
-  my $log = (<$logdir/$arch/*>) [-1];
-  return "$log";
-}
 
+  if ($arch ne $pseudo_arch) {
+    return (<$logdir/$arch/*>) [-1];
+  }
+  else {
+    return $pseudo_arch;
+  }
+}
 
 
 # Get all architectures
@@ -119,10 +124,13 @@ my $date = new Date::Manip::Date;
 my $now  = new Date::Manip::Date;
 $now->parse("now");
 
-for my $arch (get_archs()) {
-  # Get data and draw the graph for this arch:
-  my @data = gather_data($arch);
-  my $file = compute_graph($arch, @data);
+for my $arch (get_archs(), $pseudo_arch) {
+  my $file;
+  if ($arch ne $pseudo_arch) {
+    # Get data and draw the graph for this arch:
+    my @data = gather_data($arch);
+    $file = compute_graph($arch, @data);
+  }
 
   # Get the last log, and analyze it:
   my $inner_html;
@@ -139,7 +147,7 @@ for my $arch (get_archs()) {
       my $delta = $date->calc($now);
       my $deltahours = $delta->printf("%hv");
       my $date_style = '';
-      if ($deltahours > 36) {
+      if ($deltahours > 36 and $arch ne $pseudo_arch) {
         $date_style = 'color: red;';
         push @missing_archs, $arch;
       }
