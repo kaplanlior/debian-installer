@@ -132,7 +132,7 @@ for my $arch (get_archs()) {
   for my $line (read_file("$last_log_dir/overview.log")) {
     $i++;
     if ($line =~ /^(\S+)\s\((.+)\) (\S+)\s(\S+)\s(\S+)$/) {
-      my ($arch, $ts, $buildd, $target, $status) = ($1, $2, $3, $4, $5);
+      my ($reported_arch, $ts, $buildd, $target, $status) = ($1, $2, $3, $4, $5);
 
       # Check whether there's a missing build:
       $date->parse($ts);
