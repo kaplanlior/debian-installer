@@ -4,6 +4,7 @@
 use strict;
 use warnings;
 
+use Date::Manip qw(ParseDate UnixDate);
 use Date::Manip::Date;
 use File::Basename;
 use File::Slurp;
@@ -182,9 +183,12 @@ for my $arch (get_archs()) {
 }
 
 # Load the template, fill the parameters, and output the results:
+my $rfc822_format = "%a, %d %b %Y %H:%M %Z";
+my $rfc822_now = UnixDate(ParseDate("Now"), $rfc822_format);
 my $template = HTML::Template->new(filename => 'daily-build-overview.tmpl');
 $template->param(TITLE => 'D-I daily build overview');
 $template->param(MISSING_ARCHS => [ map { 'ARCH' => $_ }, (uniq sort @missing_archs)]);
 $template->param(FAILING_ARCHS => [ map { 'ARCH' => $_ }, (uniq sort @failing_archs)]);
 $template->param(ARCH_DETAILS  => [ @arch_details ]);
+$template->param(NOW => $rfc822_now);
 print $template->output;
