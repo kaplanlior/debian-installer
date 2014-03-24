@@ -35,24 +35,45 @@ img {
 br {
   clear: both;
 }
+ul, li {
+  display: inline;
+  margin: 0;
+  text-indent: 0;
+  padding-left: 0;
+}
     </style>
   </head>
   <body>
     <h1><TMPL_VAR NAME=TITLE></h1>
 
-    <h2>Architectures with missing build</h2>
-    <p>
-      <TMPL_LOOP NAME=MISSING_ARCHS>
-        <a href="#<TMPL_VAR NAME=ARCH>"><TMPL_VAR NAME=ARCH></a>
-      </TMPL_LOOP>
-    </p>
+    <h2>Summary</h2>
 
-    <h2>Architectures with failed build</h2>
-    <p>
-      <TMPL_LOOP NAME=FAILING_ARCHS>
-        <a href="#<TMPL_VAR NAME=ARCH>"><TMPL_VAR NAME=ARCH></a>
-      </TMPL_LOOP>
-    </p>
+    <TMPL_IF NAME=MISSING_ARCHS>
+      <div>Architectures with missing build:
+        <ul id="missingarchs">
+          <TMPL_LOOP NAME=MISSING_ARCHS>
+            <li><a href="#<TMPL_VAR NAME=ARCH>"><TMPL_VAR NAME=ARCH></a></li>
+          </TMPL_LOOP>
+        </ul>
+      </div>
+    <TMPL_ELSE>
+      <div>No architectures with missing build</div>
+    </TMPL_IF>
+
+    <br />
+
+    <TMPL_IF NAME=FAILING_ARCHS>
+      <div>Architectures with failing build:
+        <ul id="failingarchs">
+          <TMPL_LOOP NAME=FAILING_ARCHS>
+            <li><a href="#<TMPL_VAR NAME=ARCH>"><TMPL_VAR NAME=ARCH></a></li>
+          </TMPL_LOOP>
+        </ul>
+      </div>
+    <TMPL_ELSE>
+      <div>No architectures with failing build</div>
+    </TMPL_IF>
+
 
     <h2>Per-architecture details</h2>
 
