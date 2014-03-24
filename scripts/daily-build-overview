@@ -147,7 +147,8 @@ for my $arch (get_archs(), $pseudo_arch) {
       my $delta = $date->calc($now);
       my $deltahours = $delta->printf("%hv");
       my $date_style = '';
-      if ($deltahours > 36 and $arch ne $pseudo_arch) {
+      # Yell after more than 1 day (or 7 for cdimage's weekly builds):
+      if ($deltahours > 24 * ($arch eq $pseudo_arch ? 7.5 : 1.5)) {
         $date_style = 'color: red;';
         push @missing_archs, $arch;
       }
