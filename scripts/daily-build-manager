@@ -10,6 +10,9 @@ use File::Basename;
 use File::Path;
 use List::MoreUtils qw(uniq);
 
+# Our own limits:
+my $log_max_days = 90;
+my $image_max_days = 30;
 
 # Output usage:
 sub usage {
@@ -148,7 +151,7 @@ elsif ($action eq 'clean-old-logs') {
     usage();
     die "E: no directory specified";
   }
-  clean_old_logs($log_dir, 90);
+  clean_old_logs($log_dir, $log_max_days);
 }
 elsif ($action eq 'clean-old-images') {
   die "not implemented yet";
