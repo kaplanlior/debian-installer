@@ -6,9 +6,12 @@
 MAILTO=bubulle,kibi
 DI=/home/d-i/trunk
 
-#@daily cd $DI/scripts; ./bin/trim-dailies
+DAILY_IMAGES_DIR=/srv/d-i.debian.org/www/daily-images
+DAILY_LOGS_DIR=/home/d-i/daily-build-logs.git
 
 00 1 * * * cd $DI/scripts; svn -q up; ./daily-build-aggregator /srv/d-i.debian.org/www/daily-images/build-logs ; ~/bin/push-www
+05 * * * * cd $DI/scripts; svn -q up; ./daily-build-manager sync-logs $DAILY_IMAGES_DIR $DAILY_LOGS_DIR; cd $DAILY_LOGS_DIR; git push origin HEAD
+10 0 */10 * * cd $DI/scripts; svn -q up; ./daily-build-manager clean-old-logs $DAILY_LOGS_DIR
 
 18 1 * * * nice -n 19 $HOME/bin/generate_l10n-stats ; ~/bin/push-www
 
