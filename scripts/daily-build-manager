@@ -148,11 +148,13 @@ sub clean_old_images {
   chdir $image_dir
     or die "Unable to chdir($image_dir)";
 
-  # Let's do some work:
+  # Let's prepare some work:
   my @to_remove;
   my %sizes;
+  my $canary;
   for my $arch_dir (<*/>) {
     my $arch = basename($arch_dir);
+    $canary ||= $arch;
     for my $build_dir (<$arch_dir/*/>) {
       if (basename($build_dir) lt $limit_ts) {
         # Too old: remove and keep on
@@ -167,7 +169,21 @@ sub clean_old_images {
     }
   }
 
-  print "Got to remove " . scalar @to_remove . " directories\n";
+  # Make sure to bail out early if that doesn't seem to be a proper directory:
+  my $expected_canary = 'alpha';
+  if ($canary ne $expected_canary) {
+    print "E: strange first subdirectory (got: $canary, expected: $expected_canary), not deleting anything!\n";
+    die "Probable wrong image directory parameter";
+  }
+
+  # Proceed to removal:
+  for my $dir (@to_remove) {
+    File::Path::rmtree($dir)
+      or die "Unable to remove tree: $dir";
+  }
+
+  # Stats:
+  print "Removed " . scalar @to_remove . " directories\n\n";
   print "Per-arch space savings:\n";
   my $total = 0;
   for my $arch (sort keys %sizes) {
