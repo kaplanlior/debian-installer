@@ -10,7 +10,7 @@ DAILY_IMAGES_DIR=/srv/d-i.debian.org/www/daily-images
 DAILY_LOGS_DIR=/home/d-i/daily-build-logs.git
 
 00 1 * * * cd $DI/scripts; svn -q up; ./daily-build-aggregator /srv/d-i.debian.org/www/daily-images/build-logs ; ~/bin/push-www
-05 * * * * cd $DI/scripts; svn -q up; ./daily-build-manager sync-logs $DAILY_IMAGES_DIR $DAILY_LOGS_DIR; cd $DAILY_LOGS_DIR; git push origin HEAD >/dev/null
+05 * * * * cd $DI/scripts; svn -q up; ./daily-build-manager sync-logs $DAILY_IMAGES_DIR $DAILY_LOGS_DIR; cd $DAILY_LOGS_DIR; git push -q origin HEAD
 10 0 */10 * * cd $DI/scripts; svn -q up; ./daily-build-manager clean-old-logs   $DAILY_LOGS_DIR
 40 0 *    * * cd $DI/scripts; svn -q up; ./daily-build-manager clean-old-images $DAILY_IMAGES_DIR
 
