@@ -46,7 +46,6 @@ sub sync_logs {
     my $ts = $date->printf("%Y%m%d");
     push @dates, $ts;
   }
-  print "Looking at: @dates\n";
   for my $arch_dir (<$image_dir/*/>) {
     my $arch = basename($arch_dir);
 
@@ -60,7 +59,6 @@ sub sync_logs {
     for my $date (@dates) {
       for my $ts_dir (<$arch_dir$date*/>) {
         my $ts = basename($ts_dir);
-        print " -> $ts\n";
         # First pick what we want then exclude all other files:
         my @includes = map { "--include \'/$_\'" } qw(*.log *SUMS MANIFEST* *.txt *.list);
         `rsync -av @includes --exclude '/*' $ts_dir $log_dir/$arch/$ts/`;
