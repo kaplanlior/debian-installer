@@ -88,7 +88,7 @@ sub last_log_dir {
 sub get_archs {
   my @archs = (<$logdir/*/>);
   # Filter empty directories (architectures going away):
-  @archs = grep { defined scalar <$logdir/$_/*> } @archs;
+  @archs = grep { defined scalar <$_/*> } @archs;
   return map { basename($_) } @archs;
 }
 
