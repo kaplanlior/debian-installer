@@ -12,7 +12,8 @@ use GD::Graph::bars;
 use HTML::Template;
 use List::MoreUtils qw(uniq);
 
-my $logdir = '../daily-build-logs.git';
+my $logdir;
+my $outdir;
 my $max = 90;
 my $pseudo_arch = 'cdimage';
 
@@ -41,7 +42,7 @@ sub compute_graph {
     or die $mygraph->error;
 
   my $output = "${arch}.png";
-  write_file($output, { binmode => ':raw' }, $myimage->png);
+  write_file("$outdir/$output", { binmode => ':raw' }, $myimage->png);
   return $output;
 }
 
@@ -115,6 +116,11 @@ sub gather_data {
   return \@xs, \@oks, \@noks, \@missings;
 }
 
+# Check usage:
+($logdir, $outdir) = @ARGV;
+die "Usage: $0 daily-build-log-dir output-dir (both must exist)"
+  if not defined $logdir or not -d $logdir
+  or not defined $outdir or not -d $outdir;
 
 # Hold results until they are passed on to the html template:
 my @failing_archs;
@@ -202,4 +208,4 @@ $template->param(MISSING_ARCHS => [ map { 'ARCH' => $_ }, (uniq @missing_archs)]
 $template->param(FAILING_ARCHS => [ map { 'ARCH' => $_ }, (uniq @failing_archs)]);
 $template->param(ARCH_DETAILS  => [ @arch_details ]);
 $template->param(NOW => $rfc822_now);
-print $template->output;
+write_file("$outdir/daily-build-overview.html", $template->output);
