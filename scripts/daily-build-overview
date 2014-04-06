@@ -41,7 +41,7 @@ sub compute_graph {
   my $myimage = $mygraph->plot(\@data)
     or die $mygraph->error;
 
-  my $output = "${arch}.png";
+  my $output = "daily-build-overview.${arch}.png";
   write_file("$outdir/$output", { binmode => ':raw' }, $myimage->png);
   return $output;
 }
