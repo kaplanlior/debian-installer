@@ -56,7 +56,7 @@ create_profiled () {
     fi
 
     if [ -z "$manual_release" ]; then
-        manual_release="wheezy"
+        manual_release="jessie"
     fi
     if [ -z "$manual_target" ]; then
         manual_target="for_cd"
