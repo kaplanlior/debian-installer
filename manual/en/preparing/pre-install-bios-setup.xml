@@ -20,6 +20,100 @@ hardware; it is most critically invoked during the bootstrap process
 &bios-setup-s390.xml;
 &bios-setup-arm.xml;
 
+  <sect2 arch="x86" id="UEFI">
+    <title>Systems with UEFI firmware</title>
+    <para>
+      UEFI (<quote>Unified Extensible Firmware Interface</quote>) is
+      a new kind of system firmware that is used on many modern
+      systems and is - among other uses - intended to replace the
+      classic PC BIOS.
+    </para>
+    <para>
+      Currently most PC systems that use UEFI also have a so-called
+      <quote>Compatibility Support Module</quote> (CSM) in the firmware,
+      which provides excatly the same interfaces to an operating system as a
+      classic PC BIOS, so that software written for the classic PC BIOS
+      can be used unchanged.  Nonetheless UEFI is intended to one day
+      completely replace the old PC BIOS without being fully
+      backwards-compatible and there are already a few systems with UEFI but
+      without CSM.
+    </para>
+    <para>
+      On systems with UEFI there are a few things to take into consideration
+      when installing an operating system.  The way the firmware loads an
+      operating system is fundamentally different between the classic BIOS
+      (or UEFI in CSM mode) and native UEFI.  One major difference is the
+      way the harddisk partitions get recorded on the harddisk.  While the
+      classic BIOS and UEFI in CSM mode use a DOS partition table,
+      native UEFI uses a different partitioning scheme called <quote>GUID
+      Partition Table</quote> (GPT).  On a single disk, for all practical
+      purposes only one of the two can be used and in case of a multi-boot
+      setup with different operating systems on one disk, all of them must
+      therefore use the same type of partition table.  Booting from a disk
+      with GPT is only possible in native UEFI mode, but using GPT becomes
+      more and more common as hard disk sizes grow, because the classic DOS
+      partition table cannot address disks larger than about 2 Terabytes
+      while GPT allows for by far larger disks.  The other major difference
+      between BIOS (or UEFI in CSM mode) and native UEFI is from where boot
+      code is loaded and in which format it has to be, so that different
+      bootloaders are needed for both systems.
+    </para>
+    <para>
+      The latter becomes important when booting &d-i; on a UEFI system with
+      CSM because &d-i; checks whether it was started on a BIOS- or on a
+      native UEFI system and installs the corresponding bootloader. 
+      Normally this simply works but there can be a problem in multi-boot
+      environments.  On some UEFI systems with CSM the default boot mode for
+      removable devices can be different from what is actually used when
+      booting from hard disk, so when booting the installer from a USB stick
+      in a different mode from what is used when booting another already
+      installed operating system from the hard disk, the wrong bootloader
+      might be installed and the system might be unbootable after finishing
+      the installation.  When choosing the boot device from a firmware boot
+      menu, some systems offer two seperate choices for each device, so that
+      the user can select whether booting shall happen in CSM or in native
+      UEFI mode.
+    </para>
+    <para>
+      Another UEFI-related topic is the so-called <quote>secure boot</quote>
+      mechanism.  Secure boot means a function of UEFI implementations that
+      allows the firmware to only load and execute code that is
+      cryptographically signed with certain keys and thereby blocking any
+      (potentially malicious) boot code that is unsigned or signed with
+      unknown keys.  In practice the only key accepted by default on most
+      UEFI systems with secure boot is a key from Microsoft used for signing
+      the Windows bootloader.  As the boot code used by &d-i; is not signed
+      by Microsoft, booting the installer requires prior deactivation of
+      secure boot in case it is enabled.  Secure boot is often enabled by
+      default on systems that come preinstalled with a 64Bit version of
+      Windows 8 and there is unfortunately no standard where in the UEFI
+      setup it can be disabled.  On some systems, the option to disable
+      secure boot is only made visible when a BIOS password has been set by
+      the user, so if you have a system with secure boot enabled, but cannot
+      find an option to disable it, try setting a BIOS password, powercycle
+      the machine and look again for an appropriate option.
+    </para>
+  </sect2>
+
+  <sect2 arch="x86" id="disable-fast-boot">
+    <title>Disabling the Windows 8 <quote>fast boot</quote> feature</title>
+    <para>
+      Windows 8 offers a feature called "fast boot" to cut down the time
+      needed to boot itself.  Technically, when this feature is enabled,
+      Windows 8 does not do a real shutdown and a real cold boot afterwards
+      when ordered to shut down, but instead does something resembling a
+      partial suspend to disk to reduce the "boot" time.  As long as Windows
+      8 is the only operating system on the machine, this is unproblematic,
+      but it can result in problems and data loss when you have a dual boot
+      setup in which another operating system accesses the same filesystems
+      as Windows 8 does.  In that case the real state of the filesystem can
+      be different from what Windows 8 believes it to be after the "boot"
+      and this could cause filesystem corruption upon further write accesses
+      to the filesystem.  Therefore in a dual boot setup, to avoid
+      filesystem corruption the "fast boot" feature has to be disabled
+      within Windows.
+    </para>
+  </sect2>  
   <sect2 arch="x86;powerpc" id="hardware-issues">
   <title>Hardware Issues to Watch Out For</title>
 
