@@ -27,3 +27,44 @@
       product-independend instructions for ARM-based systems.
     </para>
   </sect2>
+
+  <sect2 arch="arm" id="uboot-macsetting">
+    <title>Setting the ethernet MAC address in u-boot</title>
+    <para>
+      The MAC address of every ethernet interface should normally be
+      globally unique, and it technically has to be unique within its
+      ethernet broadcast domain.  To achieve this, the manufacturer usually
+      allocates a block of MAC addresses from a centrally-administered
+      pool (for which a fee has to be paid) and preconfigures one of these
+      addresses on each item sold.
+    </para>
+    <para>
+      In the case of development boards, sometimes the manufacturer wants to
+      avoid paying these fees and therefore provides no globally unique
+      addresses.  In these cases the users themselves have to define MAC
+      addresses for their systems.  When no MAC address is defined for an
+      ethernet interface, some network drivers generate a random MAC address
+      that can change on every boot, and if this happens, network access
+      would be possible even when the user has not manually set an address,
+      but e.g. assigning semi-static IP addresses by DHCP based on the MAC
+      address of the requesting client would obviously not work reliably.
+    </para>
+    <para>
+      To avoid conflicts with existing officially-assigned MAC addresses,
+      there is an address pool which is reserved for so-called
+      <quote>locally administered</quote> addresses. It is defined by
+      the value of two specific bits in the first byte of the address (the
+      article "MAC address" in the English language Wikipedia gives a 
+      good explanation). In practice this means that e.g. any address starting
+      with hexadecimal ca (such as caffee123456) can be used as a locally
+      administered address. 
+    </para>
+    <para>
+      On systems using u-boot as system firmware, the ethernet MAC address
+      is placed in the <quote>ethaddr</quote> environment variable.
+      It can be checked at the u-boot command prompt with the command
+      <quote>printenv ethaddr</quote> and can be set with the command
+      <quote>setenv ethaddr caffee123456</quote>.  After setting the value,
+      the command <quote>saveenv</quote> makes the assignment permanent.
+    </para>
+  </sect2>
