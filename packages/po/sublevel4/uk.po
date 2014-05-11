@@ -8,20 +8,21 @@
 # Borys Yanovych <borys@yanovy.ch>, 2010.
 # Anton Gladky <gladky.anton@gmail.com>, 2011.
 # Yuri Chornoivan <yurchor@ukr.net>, 2012.
+# Anton Gladky <gladk@debian.org>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: uk\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-21 10:58+0100\n"
-"PO-Revision-Date: 2012-10-08 10:46+0300\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"PO-Revision-Date: 2014-05-11 20:19+0100\n"
+"Last-Translator: Anton Gladky <gladk@debian.org>\n"
 "Language-Team: Ukrainian <translation-team-uk@lists.sourceforge.net>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.4\n"
-"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"X-Generator: Poedit 1.5.4\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #. Type: text
@@ -1182,10 +1183,9 @@ msgstr "Видалити пул ZFS"
 #. Menu entry
 #. Use infinitive form
 #: ../partman-zfs.templates:14001
-#, fuzzy
 #| msgid "Create %s file system"
 msgid "Create root file system"
-msgstr "Створити файлову систему %s"
+msgstr "Створити кореневу файлову систему"
 
 #. Type: boolean
 #. Description
@@ -1258,7 +1258,6 @@ msgstr "Огляд поточних налаштувань ZFS:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 #| msgid ""
 #| " Free physical volumes:  ${FREE_PVS}\n"
 #| " Used physical volumes:  ${USED_PVS}\n"
@@ -1274,7 +1273,7 @@ msgstr ""
 " Вільні фізичні томи:      ${FREE_PVS}\n"
 " Використані фізичні томи: ${USED_PVS}\n"
 " Пули ZFS:                 ${VGS}\n"
-" Логічні томи ZFS:         ${LVS}"
+" Логічні томи ZFS:         ${LVS} ${BOOTFS}"
 
 #. Type: note
 #. Description
@@ -1555,16 +1554,14 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 #| msgid "Invalid logical volume or ZFS pool name"
 msgid "Invalid logical volume, ZFS pool name or ZFS file system name"
-msgstr "Недозволена назва логічного тому або пулу ZFS"
+msgstr "Недозволена назва логічного тому, ZFS пулу або файлової системи ZFS"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 #| msgid ""
 #| "Logical volume or ZFS pool names may only contain alphanumeric "
 #| "characters, hyphen, colon, period, and underscore. They must be 255 "
@@ -1576,10 +1573,10 @@ msgid ""
 "255 characters or less and must begin with an alphanumeric character. The "
 "names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"Назви томів або пулів ZFS можуть складатися тільки з букв та цифр, дефісу, "
-"двокрапки, крапки і підкреслювання. Вони не повинні містити більше 255 "
-"знаків і повинні починатися за букви або цифри. Імена \"mirror\", \"raidz\", "
-"\"spare\" та \"log\" не дозволені."
+"Логічні томи, назви пулів ZFS та файлові системи ZFS можуть складатися "
+"тільки з букв та цифр, дефісу, двокрапки, крапки і підкреслювання. Вони не "
+"повинні містити більше 255 знаків і повинні починатися за букви або цифри. "
+"Імена \"mirror\", \"raidz\", \"spare\" та \"log\" не дозволені."
 
 #. Type: boolean
 #. Description
@@ -1665,25 +1662,23 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:51001
 msgid "Pool to modify:"
-msgstr ""
+msgstr "Змінюваний пул:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 #| msgid "ZFS pool name:"
 msgid "ZFS boot file system name:"
-msgstr "Назва пулу ZFS:"
+msgstr "Назва завантажувальної файлової системи ZFS:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 #| msgid "Please enter the hostname for this system."
 msgid "Please enter the name of the boot file system among the following:"
-msgstr "Введіть назву цього комп'ютера:"
+msgstr "Введіть назву завантажувальної файлової системи з нижчеприведених:"
 
 #. Type: string
 #. Description
@@ -1692,42 +1687,39 @@ msgstr "Введіть назву цього комп'ютера:"
 msgid ""
 "This will be prefixed by ${VG}/ROOT and mounted as the root file system."
 msgstr ""
+"Перед ним буде додано ${VG}/ROOT і змонтовано як коренева файлова система."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 #| msgid "No file system mounted on /target"
 msgid "No file system name entered"
-msgstr "Файлова система не змонтована у /target."
+msgstr "Назва файлової системи не введено"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 #| msgid "No name for the ZFS pool has been entered. Please enter a name."
 msgid "No name has been entered for the root file system. Please enter a name."
-msgstr "Назва для пулу ZFS не була введена. Введіть назву."
+msgstr "Назва для кореневої файлової системи не була введена. Введіть назву."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:54001
-#, fuzzy
 #| msgid "ZFS pool:"
 msgid "ZFS boot"
-msgstr "ZFS пул:"
+msgstr "Завантаження ZFS"
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:55001
-#, fuzzy
 #| msgid "Registering modules..."
 msgid "Loading ZFS module..."
-msgstr "Реєстрація модулів..."
+msgstr "Завантаження ZFS модуля..."
 
 #. Type: boolean
 #. Description
