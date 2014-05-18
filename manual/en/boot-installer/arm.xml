@@ -1,13 +1,123 @@
 <!-- retain these comments for translator revision tracking -->
 <!-- $Id$ -->
 
-  <sect2 arch="arm" id="boot-tftp"><title>Booting from TFTP</title>
+  <sect2 arch="arm" id="boot-image-formats">
+    <title>Boot image formats</title>
+    <para>
+      On ARM-based systems in most cases one of two formats for boot images
+      is used: a) standard Linux zImage-format kernels
+      (<quote>vmlinuz</quote>) in conjunction with standard Linux initial
+      ramdisks (<quote>initrd.gz</quote>) or b) uImage-format kernels
+      (<quote>uImage</quote>) in conjunction with corresponding initial
+      ramdisks (<quote>uInitrd</quote>).
+    </para>
+    <para>
+      uImage/uInitrd are image formats designed for the u-boot firmware that
+      is used on many ARM-based systems. Older u-boot versions can only
+      boot files in uImage/uInitrd format, so these are often used on
+      older armel systems. Newer u-boot versions can - besides booting
+      uImages/uInitrds - also boot standard Linux kernels and ramdisk images,
+      but the command syntax to do that is slightly different from that
+      for booting uImages.
+    </para>
+    <para>
+      For systems using a multiplatform kernel, besides kernel and initial
+      ramdisk a so-called device-tree file (or device-tree blob,
+      <quote>dtb</quote>) is needed. It is specific to each supported system
+      and contains a description of the particular hardware.
+    </para>
+  </sect2>
+
+  <sect2 arch="arm" id="boot-tftp"><title>Booting by TFTP</title>
 
 &boot-installer-intro-net.xml;
 
-  </sect2>
-
-
+    <sect3 arch="arm" id="boot-tftp-uboot">
+      <title>TFTP-booting in u-boot</title>
+      <para>
+        Network booting on systems using the u-boot firmware consists of
+        three steps: a) configuring the network, b) loading the images
+        (kernel/initial ramdisk/dtb) into memory and c) actually executing
+        the previosly loaded code.
+      </para>
+      <para>
+        First you have to configure the network, either automatically via
+        DHCP by running
+<informalexample><screen>
+setenv autoload no
+dhcp
+</screen></informalexample>
+        or manually by setting several environment variables
+<informalexample><screen>
+setenv ipaddr &lt;ip address of the client&gt;
+setenv netmask &lt;netmask&gt;
+setenv serverip &lt;ip address of the tftp server&gt;
+setenv dnsip &lt;ip address of the nameserver&gt;
+setenv gatewayip &lt;ip address of the default gateway&gt;
+</screen></informalexample>
+        If you prefer, you can make these settings permanent by running
+<informalexample><screen>
+saveenv
+</screen></informalexample>
+      </para>
+      <para>
+        Afterwards you need to load the the images (kernel/initial
+        ramdisk/dtb) into memory. This is done with the tftpboot command,
+        which has to be provided with the address at which the image
+        shall be stored in memory. Unfortunately the memory map can vary
+        from system to system, so there is no general rule which addresses
+        can be used for this.                           
+      </para>
+      <para>
+        On some systems, u-boot predefines a set of environment variables
+        with suitable load addresses: kernel_addr_r, ramdisk_addr_r and
+        fdt_addr_r. You can check whether they are defined by running
+<informalexample><screen>
+printenv kernel_addr_r ramdisk_addr_r fdt_addr_r
+</screen></informalexample>
+        If they are not defined, you have to check your system's
+        documentation for appropriate values and set them manually.  For
+        systems based on Allwinner SunXi SOCs (e.g.  the Allwinner A10,
+        architecture name <quote>sun4i</quote> or the Allwinner A20,
+        architecture name <quote>sun7i</quote>), you can e.g.  use the
+        follwing values:
+<informalexample><screen>
+setenv kernel_addr_r 0x46000000
+setenv fdt_addr_r 0x47000000
+setenv ramdisk_addr_r 0x48000000
+</screen></informalexample>
+      </para>
+      <para>
+        When the load addresses are defined, you can load the images
+        into memory from the previously defined tftp server with
+<informalexample><screen>
+tftpboot ${kernel_addr_r} &lt;filename of the kernel image&gt;
+tftpboot ${fdt_addr_r} &lt;filename of the dtb&gt;
+tftpboot ${ramdisk_addr_r} &lt;filename of the initial ramdisk image&gt;
+</screen></informalexample>
+      </para>
+      <para>
+        The third part is actually executing the loaded code, for which the
+        exact command depends on the image format used.  With uImage/uInitrd,
+        the command is
+<informalexample><screen>
+bootm ${kernel_addr_r} ${ramdisk_addr_r} ${fdt_addr_r}
+</screen></informalexample>
+       and with native Linux images it is
+<informalexample><screen>
+bootz ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}
+</screen></informalexample>
+      </para>
+      <para>
+        Note: When booting standard linux images, it is important to load
+        the initial ramdisk image after the kernel and the dtb as u-boot
+        sets the filesize variable to the size of the last file loaded and
+        the bootz command requires the size of the ramdisk image to work
+        correctly.  In case of booting a platform-specific kernel, i.e.  a
+        kernel without device-tree, simply omit the ${fdt_addr_r} parameter. 
+        </para>
+    </sect3>
+  </sect2> 
   <sect2 arch="arm"><title>Booting from CD-ROM</title>
 
 &boot-installer-intro-cd.xml;
