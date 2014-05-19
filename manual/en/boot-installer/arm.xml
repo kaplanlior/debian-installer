@@ -97,9 +97,18 @@ tftpboot ${ramdisk_addr_r} &lt;filename of the initial ramdisk image&gt;
 </screen></informalexample>
       </para>
       <para>
-        The third part is actually executing the loaded code, for which the
-        exact command depends on the image format used.  With uImage/uInitrd,
-        the command is
+        The third part is setting the kernel commandline and actually
+        executing the loaded code.  U-boot passes the content of the
+        <quote>bootargs</quote> environment variable as commandline to the
+        kernel, so any parameters for the kernel and the installer - such as
+        the console device (see <xref linkend="boot-console"/>) or
+        preseeding options (see <xref linkend="installer-args"/> and <xref
+        linkend="appendix-preseed"/>) - can be set with a command like
+<informalexample><screen>
+setenv bootargs console=ttyS0,115200 rootwait panic=10
+</screen></informalexample>
+        The exact command to execute the previously loaded code depends on
+        the image format used.  With uImage/uInitrd, the command is
 <informalexample><screen>
 bootm ${kernel_addr_r} ${ramdisk_addr_r} ${fdt_addr_r}
 </screen></informalexample>
