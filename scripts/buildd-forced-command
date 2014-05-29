@@ -16,7 +16,7 @@ cd $WWW/${arch}
 
 set -- $SSH_ORIGINAL_COMMAND
 
-if echo "$*" | egrep -q '^rsync --server -logDtpre.iL(sf)? . [0-9:-]*$'; then
+if echo "$*" | egrep -q '^rsync --server -logDtpre.iL(s)?(f)? . [0-9:-]*$'; then
     echo "EXEC: rsync --server -logDtpre.iL . $WWW/${arch}/.$5" >> $LOG
     rsync --server -logDtpre.iL . $WWW/${arch}/.$5
     exit 0
