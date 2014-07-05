@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 68675 -->
+<!-- original version: 69198 -->
 
  <sect1 id="hardware-supported">
  <!-- <title>Supported Hardware</title> -->
@@ -48,11 +48,11 @@ possibile trovare delle informazioni aggiuntive.
 <para>
 
 <!--
-&debian; GNU/Linux &release; supports eleven major architectures and several
+&debian; GNU/Linux &release; supports eight major architectures and several
 variations of each architecture known as <quote>flavors</quote>.
 -->
 
-&debian; GNU/Linux &release; supporta undici architetture principali e diverse varianti
+&debian; GNU/Linux &release; supporta otto architetture principali e diverse varianti
 di ogni architettura, che vanno sotto il nome di <quote>flavor</quote>.
 
 </para><para>
@@ -84,29 +84,38 @@ di ogni architettura, che vanno sotto il nome di <quote>flavor</quote>.
 </row>
 
 <row>
-  <entry morerows="4">ARM</entry>
-  <entry morerows="4">armel</entry>
-  <entry>Intel IOP32x</entry>
-  <entry>iop32x</entry>
-</row><row>
+  <entry morerows="3">ARM</entry>
+  <entry morerows="3">armel</entry>
+<!--
   <entry>Intel IXP4xx</entry>
   <entry>ixp4xx</entry>
 </row><row>
+-->
   <entry>Marvell Kirkwood</entry>
   <entry>kirkwood</entry>
 </row><row>
   <entry>Marvell Orion</entry>
   <entry>orion5x</entry>
 </row><row>
+  <entry>Marvell MV78xx0</entry>
+  <entry>mv78xx0</entry>
+</row><row>
   <entry>Versatile</entry>
   <entry>versatile</entry>
 </row>
 
 <row>
-  <entry><!-- ARM with hardware FPU -->ARM con FPU hardware</entry>
-  <entry>armhf</entry>
+  <entry morerows="1"><!-- ARM with hardware FPU -->ARM con FPU hardware</entry>
+  <entry morerows="1">armhf</entry>
+<!--
   <entry>Freescale</entry>
   <entry>mx5</entry>
+-->
+  <entry><!-- multiplatform -->multipiattaforma</entry>
+  <entry>armmp</entry>
+</row><row>
+  <entry><!-- multiplatform for LPAE-capable systems -->multipiattaforma per sistemi con LPAE</entry>
+  <entry>armmp-lpae</entry>
 </row>
 
 <row>
@@ -133,11 +142,8 @@ di ogni architettura, che vanno sotto il nome di <quote>flavor</quote>.
 </row>
 
 <row>
-  <entry morerows="2">MIPS (little endian)</entry>
-  <entry morerows="2">mipsel</entry>
-  <entry>Cobalt</entry>
-  <entry>cobalt</entry>
-</row><row>
+  <entry morerows="1">MIPS (little endian)</entry>
+  <entry morerows="1">mipsel</entry>
   <entry>MIPS Malta (32 bit)</entry>
   <entry>4kc-malta</entry>
 </row><row>
@@ -155,6 +161,7 @@ di ogni architettura, che vanno sotto il nome di <quote>flavor</quote>.
   <entry>prep</entry>
 </row>
 
+<!--
 <row>
   <entry morerows="1">Sun SPARC</entry>
   <entry morerows="1">sparc</entry>
@@ -163,13 +170,16 @@ di ogni architettura, che vanno sotto il nome di <quote>flavor</quote>.
 </row><row>
   <entry>sun4v</entry>
 </row>
+-->
 
+<!--
 <row>
   <entry>IBM S/390</entry>
   <entry>s390</entry>
-  <entry><!-- IPL from VM-reader and DASD -->IPL da VM-reader e DASD</entry>
-  <entry><!-- generic -->generico</entry>
+  <entry>IPL from VM-reader and DASD IPL da VM-reader e DASD</entry>
+  <entry>generic generico</entry>
 </row>
+-->
 
 <row>
   <entry>64bit IBM S/390</entry>
@@ -334,8 +344,8 @@ Laptop</ulink>.
 Multiprocessor support &mdash; also called <quote>symmetric
 multiprocessing</quote> or SMP &mdash; is available for this
 architecture.  Having multiple processors in a computer was originally
-only an issue for high-end server systems but has become quite common in
-recent years even for rather low-end desktop computers and laptops with
+only an issue for high-end server systems but has become common in
+recent years nearly everywhere with
 the introduction of so called <quote>multi-core</quote> processors.  These contain
 two or more processor units, called <quote>cores</quote>, in one physical chip.
 -->
@@ -345,8 +355,7 @@ multiprocessing</quote> o SMP &mdash; è disponibile per questa
 architettura.
 In origine la presenza più processori in un computer era una
 caratteristica solo dei sistemi server di alto livello, negli
-ultimi anni questa caratteristica è diventata sempre più comune anche
-nei sistemi desktop di basso livello e nei portatili grazie ai
+ultimi anni questa caratteristica è diventata molto comune grazie ai
 cosiddetti processori <quote>multi-core</quote>. Tali processori
 contengono due o più unità di elaborazione, chiamate <quote>core</quote>,
 all'interno di un solo chip.
@@ -390,16 +399,15 @@ di core) e disattiva automaticamente l'SMP sui sistemi monoprocessore.
 
 <!--
 Having multiple processors in a computer was originally
-only an issue for high-end server systems but has become quite common in
-recent years even for rather low-end desktop computers and laptops with
+only an issue for high-end server systems but has become common in
+recent years nearly everywhere with
 the introduction of so called <quote>multi-core</quote> processors.  These contain
 two or more processor units, called <quote>cores</quote>, in one physical chip.
 -->
 
 In origine la presenza più processori in un computer era una
 caratteristica solo dei sistemi server di alto livello, negli
-ultimi anni questa caratteristica è diventata sempre più comune anche
-nei sistemi desktop di basso livello e nei portatili grazie ai
+ultimi anni questa caratteristica è diventata molto comune grazie ai
 cosiddetti processori <quote>multi-core</quote>. Tali processori
 contengono due o più unità di elaborazione, chiamate <quote>core</quote>,
 all'interno di un solo chip.
@@ -544,7 +552,7 @@ installato nel sistema e in alcuni casi potrebbe essere necessario
 installare delle immagini aggiuntive con il <quote>firmware</quote>
 (consultare  <xref linkend="hardware-firmware"/>). In pochissimi casi
 è stata segnalata la presenza di schede grafiche che richiedono
-l'installazione di firware aggiuntivo persino per effettuare le
+l'installazione di firmware aggiuntivo persino per effettuare le
 funzionalità di base, comunque queste sono delle eccezioni molto rare.
 
 </para><para>
@@ -649,7 +657,7 @@ che sia completamente operativo. Questo è molto comune per le schede
 di rete (in particolare i NIC wireless) ma anche alcuni dispositivi
 USB e alcuni controller per dischi fissi richiedono un firmware.
 Su molte schede grafiche le funzionalità di base sono disponibili senza
-firmware agguntivi ma per usare le funzionalità avanzate è necessario
+firmware aggiuntivi ma per usare le funzionalità avanzate è necessario
 che un appropriato file con firmware sia installato nel sistema.
 
 </para><para>

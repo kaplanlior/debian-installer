@@ -1,0 +1,212 @@
+<!-- retain these comments for translator revision tracking -->
+<!-- original version: 69182 -->
+
+  <sect2 arch="arm" id="arm-firmware-overview">
+  <!-- <title>ARM firmware</title> -->
+  <title>ARM firmware</title>
+<para>
+
+<!--
+As already mentioned before, there is unfortunately no standard for
+system firmware on ARM systems.  Even the behaviour of different
+systems which use nominally the same firmware can be quite different. 
+This results from the fact that a large part of the devices using the
+ARM architecture are embedded systems, for which the manufacturers
+usually build heavily customized firmware versions and include
+device-specific patches.  Unfortunately the manufacturers often do not
+submit their changes and extensions back to the mainline firmware
+developers, so their changes are not integrated into newer versions of
+the original firmware.
+-->
+
+Come già menzionato in precedenza, sui sistemi ARM non esiste un firmware
+standard, persino il comportamento di sistemi che nominalmente usano lo
+stesso firmware può essere abbastanza differente. Ciò dipende dal fatto
+che gran parte dei dispositivi che utilizzano l'architettura ARM sono
+sistemi embedded per i quali il produttori realizzano versioni del
+firmware pesantemente personalizzate con patch specifiche per il
+dispositivo. Purtroppo è molto raro che i produttori inviino le proprie
+modifiche a chi sviluppa il firmware originale e quindi le modifiche
+fatte dai produttori non sono integrate nelle nuove versioni ufficiali
+del firmware.
+
+</para><para>
+
+<!--
+As a result even newly sold systems often use a firmware that is based
+on a years-old manufacturer-modified version of a firmware whose
+mainline codebase has evolved a lot further in the meantime and offers
+additional features or shows different behaviour in certain aspects. 
+In addition to that, the naming of onboard devices is not consistent
+between different manufacturer-modified versions of the same firmware,
+therefore it is nearly impossible to provide usable
+product-independend instructions for ARM-based systems.
+-->
+
+Di conseguenza persino i sistemi appena usciti sul mercato utilizzano
+del firmware basato su una versione vecchia e personalizzata dal
+produttore del firmware originale che nel frattempo è stato migliorato
+dagli sviluppatori: aggiungendo funzionalità o cambiandone alcuni
+aspetti. Inoltre, anche il nome dei dispositivi montati non è
+consistente tra le versioni modificate dai produttori dello stesso
+firmware e quindi per i sistemi ARM è impossibile fornire istruzioni
+d'uso indipendenti dal prodotto.
+
+</para>
+  </sect2>
+
+
+  <sect2 arch="arm" id="uboot-macsetting">
+  <!-- <title>Setting the ethernet MAC address in u-boot</title> -->
+  <title>Impostazione dell'indirizzo MAC in u-boot</title>
+<para>
+
+<!--
+The MAC address of every ethernet interface should normally be
+globally unique, and it technically has to be unique within its
+ethernet broadcast domain.  To achieve this, the manufacturer usually
+allocates a block of MAC addresses from a centrally-administered
+pool (for which a fee has to be paid) and preconfigures one of these
+addresses on each item sold.
+-->
+
+L'indirizzo MAC di ogni dispositivo Ethernet normalmente dovrebbe
+essere unico a livello mondiale e tecnicamente deve essere unico
+all'interno del dominio di broadcast ethernet. Per ottere questo
+risultato chi produce i dispositivi si fa assegnare un blocco di
+indirizzi MAC (e per questo paga una tassa) e preimposta uno di
+questi indirizzi su ogni dispositivo.
+
+</para><para>
+
+<!--
+In the case of development boards, sometimes the manufacturer wants to
+avoid paying these fees and therefore provides no globally unique
+addresses.  In these cases the users themselves have to define MAC
+addresses for their systems.  When no MAC address is defined for an
+ethernet interface, some network drivers generate a random MAC address
+that can change on every boot, and if this happens, network access
+would be possible even when the user has not manually set an address,
+but e.g. assigning semi-static IP addresses by DHCP based on the MAC
+address of the requesting client would obviously not work reliably.
+-->
+
+Nel caso delle schede di sviluppo, alcuni produttori vogliono non
+pagare questa tassa e quindi forniscono dispositivi che non hanno
+un indirizzo MAC univoco. In questo caso devono essere gli utenti a
+definire gli indirizzi MAC dei propri sistemi. Quando non è definito
+un indirizzo MAC, alcuni driver di rete ne generano uno casuale che
+cambia a ogni riavvio, in questo caso l'accesso alla rete funziona
+anche senza che l'utente abbia impostato un indirizzo MAC ma, per
+esempio, l'assegnazione semi-statica di indirizzi IP su DHCP in base
+all'indirizzo MAC del client che fa la richiesta non funziona in modo
+affidabile.
+
+</para><para>
+
+<!--
+To avoid conflicts with existing officially-assigned MAC addresses,
+there is an address pool which is reserved for so-called
+<quote>locally administered</quote> addresses. It is defined by
+the value of two specific bits in the first byte of the address (the
+article "MAC address" in the English language Wikipedia gives a 
+good explanation). In practice this means that e.g. any address starting
+with hexadecimal ca (such as ca:ff:ee:12:34:56) can be used as a locally
+administered address. 
+-->
+
+Per evitare conflitti con gli indirizzi MAC assegnati ufficialmente, c'è
+un insieme di indirizzi che è riservato agli indirizzi <quote>locally
+administered</quote> (amministrati localmente). È definito dal valore di
+due bit del primo byte dell'indirizzo (l'articolo in lungua inglese
+<quote>MAC Address</quote> su Wikipedia dà una buona spiegazione). In
+pratica vuol dire che, per esempio, tutti gli indirizzi che iniziano con
+il valore esadecimale ca (come ca:ff:ee:12:34:56) può essere usato come
+un indirizzo amministrato localmente.
+
+</para><para>
+
+<!--
+On systems using u-boot as system firmware, the ethernet MAC address
+is placed in the <quote>ethaddr</quote> environment variable.
+It can be checked at the u-boot command prompt with the command
+<quote>printenv ethaddr</quote> and can be set with the command
+<quote>setenv ethaddr ca:ff:ee:12:34:56</quote>.  After setting the value,
+the command <quote>saveenv</quote> makes the assignment permanent.
+-->
+
+Per i sistemi che utilizzano u-boot come firmware di sistema, l'indirizzo
+MAC ethernet è salvato nella variabile d'ambiente <quote>ethaddr</quote>;
+è possibile controllarne il valore dal prompt di u-boot con il comando
+<quote>printenv ethaddr</quote> e può essere cambiato con il comando
+<quote>setenv ethaddr ca:ff:ee:12:34:56</quote>. Dopo aver impostato il
+nuovo valore, usare il comando <quote>saveenv</quote> per rendere
+permanente la modifica.
+
+</para>
+  </sect2>
+
+
+  <sect2 arch="arm" id="uboot-relocation-issues">
+  <!-- <title>Kernel/Initrd/Device-Tree relocation issues in u-boot</title> -->
+  <title>Problemi di rilocazione del Kernel/Initrd/Device-Tree con u-boot</title>
+<para>
+
+<!--
+On some systems with older u-boot versions there can be problems with
+properly relocating the Linux kernel, the initial ramdisk and the
+device-tree blob in memory during the boot process.  In this case,
+u-boot shows the message "Starting kernel ...", but the system freezes
+afterwards without further output.  These issues have been solved with
+newer u-boot versions from v2014.07 onwards.
+-->
+
+È possibile che su alcuni sistemi con vecchie versioni di u-boot si
+verifichino durante il processo d'avvio dei problemi con la rilocazione
+in memoria del kernel Linux, del ramdisk iniziale e del device-tree
+blob. In questo caso, u-boot mostra il messaggio <quote>Starting kernel
+...</quote> e poi il sistema si blocca senza altri messaggi. Questi
+problemi sono stati risolti nelle versioni di u-boot successive alla
+v2014.07.
+
+</para><para>
+
+<!--
+If the system has originally used a u-boot version older than
+v2014.07 and has been upgraded to a newer version later, the problem
+might still occur even after upgrading u-boot.  Upgrading u-boot
+usually does not modify the existing u-boot environment variables and
+the fix requires an additional environment variable (bootm_size) to be
+set, which u-boot does automatically only on fresh installations
+without existing environment data.  It is possible to manually set
+bootm_size to the new u-boot's default value by running the command
+"env default bootm_size; saveenv" at the u-boot prompt.
+-->
+
+Questo problema potrebbe comunque verificarsi anche se il sistema era
+originariamente equipaggiato con una versione di u-boot precedente alla
+v2014.07 e, in seguito, è stato aggiornato a una versione più recente.
+Infatti l'aggiornamento di u-boot solitamente non modifica le variabili
+d'ambiente esistenti ma la correzione richiede l'impostazione della nuova
+variabile d'ambiente (bootm_size) che viene creata automticamente solo
+sulle nuove installazioni quindi senza variabili d'ambiente esistenti.
+È possibile impostare manualmente bootm_size al suo valore predefinito
+eseguendo il comando <quote>env default bootm_size; saveenv</quote> dal
+promnpt di u-boot.
+
+</para><para>
+
+<!--
+Another possibility to circumvent relocation-related problems is to
+run the command "setenv fdt_high ffffffff; setenv initrd_high
+0xffffffff; saveenv" at the u-boot prompt to completely disable
+the relocation of the initial ramdisk and the device-tree blob.          
+-->
+
+Un'altra possibilità per prevenire problemi legati alla rilocazione è
+eseguire il comando <quote>setenv fdt_high ffffffff; setenv initrd_high
+0xffffffff; saveenv</quote> dal prompt di u-boot per disattivare
+completamente la rilocazione del ramdisk iniziale e del device-tree blob.
+
+</para>
+  </sect2>

@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 67993 -->
+<!-- original version: 69170 -->
 
  <sect1 id="pre-install-bios-setup">
  <!-- <title>Pre-Installation Hardware and Operating System Setup</title> -->
@@ -15,13 +15,13 @@ hardware; it is most critically invoked during the bootstrap process
 (after power-up).
 -->
 
-Questa sezione guida il lettore attraverso la riconfigurazione dell'hardware
-che in alcuni casi potrebbe essere necessaria prima di installare &debian;.
+In alcuni casi, prima di installare &debian;, potrebbe essere necessario
+riconfigurare dell'hardware, in questa sezione è descritto cosa fare.
 Generalmente si tratta di controllare e, nel caso, di modificare le
 impostazioni del BIOS/firmware di sistema. Il <quote>BIOS</quote> o
-<quote>firmware di sistema</quote>
-è il software essenziale usato dall'hardware. Ne viene fatto un utilizzo
-critico durante il processo di bootstrap (che segue l'accensione).
+<quote>firmware di sistema</quote> è il software essenziale per il
+funzionamento dell'hardware, il suo utilizzo è critico durante il
+processo di bootstrap (che segue l'accensione).
 
 </para>
 
@@ -29,6 +29,208 @@ critico durante il processo di bootstrap (che segue l'accensione).
 &bios-setup-powerpc.xml;
 &bios-setup-sparc.xml;
 &bios-setup-s390.xml;
+&bios-setup-arm.xml;
+
+  <sect2 arch="x86" id="UEFI">
+  <!-- <title>Systems with UEFI firmware</title> -->
+  <title>Sistemi con firmware UEFI</title>
+<para>
+
+<!--
+UEFI (<quote>Unified Extensible Firmware Interface</quote>) is
+a new kind of system firmware that is used on many modern
+systems and is - among other uses - intended to replace the
+classic PC BIOS.
+-->
+
+UEFI (<quote>Unified Extensible Firmware Interface</quote>) è un nuovo
+tipo di firmware di sistema utilizzato su molti sistemi recenti ed è,
+tra le altre cose, pensato per rimpiazzare il BIOS classico dei PC.
+
+</para><para>
+
+<!--
+Currently most PC systems that use UEFI also have a so-called
+<quote>Compatibility Support Module</quote> (CSM) in the firmware,
+which provides excatly the same interfaces to an operating system as a
+classic PC BIOS, so that software written for the classic PC BIOS
+can be used unchanged.  Nonetheless UEFI is intended to one day
+completely replace the old PC BIOS without being fully
+backwards-compatible and there are already a few systems with UEFI but
+without CSM.
+-->
+
+Attualmente la maggior parte dei sistemi PC che utilizzano UEFI hanno nel
+firmware il così detto CSM (<quote>Compatibility Support Module</quote>)
+che fornisce al sistema operativo esattamente le stesse interfacce del
+BIOS di un PC, in questo modo è possibile usare su sistemi UEFI il
+software scritto per il BIOS classico senza alcuna modifica. Ciononostante
+UEFI è pensato per rimpiazzare completamente il vecchio BIOS senza la
+completa compatibilità all'indietro ed esistono già alcuni sistemi UEFI
+senza CSM.
+
+</para><para>
+
+<!--
+On systems with UEFI there are a few things to take into consideration
+when installing an operating system.  The way the firmware loads an
+operating system is fundamentally different between the classic BIOS
+(or UEFI in CSM mode) and native UEFI.  One major difference is the
+way the harddisk partitions get recorded on the harddisk.  While the
+classic BIOS and UEFI in CSM mode use a DOS partition table,
+native UEFI uses a different partitioning scheme called <quote>GUID
+Partition Table</quote> (GPT).  On a single disk, for all practical
+purposes only one of the two can be used and in case of a multi-boot
+setup with different operating systems on one disk, all of them must
+therefore use the same type of partition table.  Booting from a disk
+with GPT is only possible in native UEFI mode, but using GPT becomes
+more and more common as hard disk sizes grow, because the classic DOS
+partition table cannot address disks larger than about 2 Terabytes
+while GPT allows for by far larger disks.  The other major difference
+between BIOS (or UEFI in CSM mode) and native UEFI is from where boot
+code is loaded and in which format it has to be, so that different
+bootloaders are needed for both systems.
+-->
+
+Sui sistemi UEFI è necessario prendere alcuni accorgimenti per
+l'installazione del sistema operativo. Il firmware di sistema carica il
+sistema operativo in modi notevolmente diversi tra il classico BIOS (o
+UEFI in modalità CSM) e UEFI in modalità nativa. La differenza principale
+è come le partizioni del disco sono scritte sul disco. Il BIOS classico e
+UEFI in modalità CSM usano una tabella della partizioni DOS, la modalità
+UEFI nativa utilizza uno schema di partizionamento diverso chiamato GPT
+(<quote>GUID Partition Table</quote>). Su un singolo disco è possibile
+usare solo una delle due e, nel caso di sistemi con più sistemi operativi
+installati su un unico disco, tutti i sistemi operativi devono
+obbligatoriamente utilizzare lo stesso tipo di tabella delle partizioni.
+L'avvio da un disco con GPT è possibile solo usando UEFI in modalità
+nativa; l'uso di GPT diventa sempre più comune con il crescere della
+dimensione dei dischi poiché la tabella delle partizioni DOS non supporta
+dischi più grandi di circa 2 Terabyte invece GPT gestisce dischi molto
+più grandi. Un'altra importante differenza tra BIOS (o UEFI in modalità
+CSM) e UEFI in modalità nativa è da dove viene caricato il programma di
+avvio e in quale formato deve essere, quindi è necessario usare un
+bootloader specifico per ciascun sistema.
+
+</para><para>
+
+<!--
+The latter becomes important when booting &d-i; on a UEFI system with
+CSM because &d-i; checks whether it was started on a BIOS- or on a
+native UEFI system and installs the corresponding bootloader. 
+Normally this simply works but there can be a problem in multi-boot
+environments.  On some UEFI systems with CSM the default boot mode for
+removable devices can be different from what is actually used when
+booting from hard disk, so when booting the installer from a USB stick
+in a different mode from what is used when booting another already
+installed operating system from the hard disk, the wrong bootloader
+might be installed and the system might be unbootable after finishing
+the installation.  When choosing the boot device from a firmware boot
+menu, some systems offer two seperate choices for each device, so that
+the user can select whether booting shall happen in CSM or in native
+UEFI mode.
+-->
+
+Quest'ultima differenza è molto importante per avviare &d-i; su un
+sistema UEFI con CSM perché &d-i; sceglie se installare il bootloader
+per BIOS oppure per UEFI nativa in base alla modalità con la quale è
+stato avviato. Solitamente questo semplice controllo funziona ma può
+creare dei problemi quando ci sono più sistemi operativi. Inoltre su
+alcuni sistemi UEFI con CSM la modalità di avvio usata per i supporti
+removibili può essere diversa da quella usata per i dischi fissi e
+quindi può accadere che quando si avvia l'installatore da una chiavetta
+USB sia eseguito in una modalità diversa da quella con cui sono avviati
+i sistemi operativi presenti sul disco fisso. Ciò potrebbe comportare
+l'installazione di un bootloader non adatto e di conseguenza al termine
+dell'installazione il sistema potrebbe non essere più avviabile. Al
+momento di scegliere il dispositivo da cui fare l'avvio nel menu proposto
+dal firmware, alcuni sistemi offrono due opzioni separate per ciascun
+dispositivo in modo da lasciar decidere all'utente se l'avvio deve
+avvenire in modalità CSM oppure in modalità UEFI nativa.
+
+</para><para>
+
+<!--
+Another UEFI-related topic is the so-called <quote>secure boot</quote>
+mechanism.  Secure boot means a function of UEFI implementations that
+allows the firmware to only load and execute code that is
+cryptographically signed with certain keys and thereby blocking any
+(potentially malicious) boot code that is unsigned or signed with
+unknown keys.  In practice the only key accepted by default on most
+UEFI systems with secure boot is a key from Microsoft used for signing
+the Windows bootloader.  As the boot code used by &d-i; is not signed
+by Microsoft, booting the installer requires prior deactivation of
+secure boot in case it is enabled.  Secure boot is often enabled by
+default on systems that come preinstalled with a 64Bit version of
+Windows 8 and there is unfortunately no standard where in the UEFI
+setup it can be disabled.  On some systems, the option to disable
+secure boot is only made visible when a BIOS password has been set by
+the user, so if you have a system with secure boot enabled, but cannot
+find an option to disable it, try setting a BIOS password, powercycle
+the machine and look again for an appropriate option.
+-->
+
+Un altro aspetto di UEFI è il così detto <quote>secure boot</quote>
+(avvio sicuro). Il secure boot è una funzionalità offerta da UEFI che
+consente al firmware di caricare ed eseguire solo il codice che è stato
+firmato crittograficamente con determinate chiavi e di conseguenza blocca
+qualsiasi altro codice (potenzialmente pericoloso) non firmato o firmato
+con una chiave non riconosciuta. In pratica l'unica chiave accettata
+dalla maggior parte dei sistemi UEFI con secure boot è una chiave di
+Microsoft usata per firmare il bootloader di Windows. Dato che il codice
+di avvio utilizzato da &d-i; non è firmato da Microsoft, per avviare
+l'installatore è necessario disattivare preventivamente, se è attivo,
+il secure boot. Il secure boot è spesso attivo sui sistemi su i quali è
+preinstallato Windows 8 a 64Bit, purtroppo non c'è un modo standardizzato
+nella configurazione UEFI per disabilitarlo. Su alcuni sistemi la
+possibilità di disattivare il secure boot è visibile solo dopo aver
+impostato una password per il BIOS, quindi se il secure boot è attivo e
+non si riesce a trovare l'opzione per disattivarlo, provare a impostare
+la password del BIOS, spegnere e riaccendere la macchina e ripetere la
+ricerca dell'opzione.
+
+</para>
+  </sect2>
+
+  <sect2 arch="x86" id="disable-fast-boot">
+  <!-- <title>Disabling the Windows 8 <quote>fast boot</quote> feature</title> -->
+  <title>Disattivare la funzione <quote>fast boot</quote> di Windows 8</title>
+<para>
+
+<!--
+Windows 8 offers a feature called "fast boot" to cut down the time
+needed to boot itself.  Technically, when this feature is enabled,
+Windows 8 does not do a real shutdown and a real cold boot afterwards
+when ordered to shut down, but instead does something resembling a
+partial suspend to disk to reduce the "boot" time.  As long as Windows
+8 is the only operating system on the machine, this is unproblematic,
+but it can result in problems and data loss when you have a dual boot
+setup in which another operating system accesses the same filesystems
+as Windows 8 does.  In that case the real state of the filesystem can
+be different from what Windows 8 believes it to be after the "boot"
+and this could cause filesystem corruption upon further write accesses
+to the filesystem.  Therefore in a dual boot setup, to avoid
+filesystem corruption the "fast boot" feature has to be disabled
+within Windows.
+-->
+
+Windows 8 dispone di una funzionalità per ridurre il tempo necessario
+all'avvio chiamata <quote>fast boot</quote>. Tecnicamente, quando questa
+funzione è attiva, Windows 8 non esegue un vero spegnimento né l'avvio
+successivo riparte da freddo, ciò che accade assomiglia a una sospensione
+parziale sul disco, questo riduce il tempo di avvio. Se Windows 8 è
+l'unico sistema presente sul disco, non ci sono problemi, invece se sono
+installati altri sistemi operativi che accedono agli stessi filesystem a
+cui accede Windows 8 potrebbe verificarsi dei problemi e delle perdite di
+dati. Infatti potrebbe accadere che lo stato reale del filesystem potrebbe
+essere diverso da quello che Windows 8 si aspetta che sia al riavvio e
+questo potrebbe causare la corruzione del filesystem al successivo accesso
+in scrittura al filesystem. Quindi in configurazioni dual boot per evitare
+corruzioni del filesystem è necessario disattivare da Windows la
+funzionalità <quote>fast boot</quote>.
+
+</para>
+  </sect2>
 
   <sect2 arch="x86;powerpc" id="hardware-issues">
   <!-- <title>Hardware Issues to Watch Out For</title> -->
@@ -77,14 +279,14 @@ colors instead of <quote>thousands</quote> or <quote>millions</quote>.
 
 Alcuni Powermac OldWorld, principalmente quelli con il <quote>control
 display driver</quote>, potrebbero non essere in grado di riprodurre
-correttamente la mappa dei colori sotto Linux quando si richiede una
+correttamente la mappa dei colori sotto Linux quando è richiesta una
 visualizzazione con più di 256 colori. Se si verificano problemi di
 visualizzazione dopo il riavvio (si vedono degli strani caratteri o
 non si vede nulla) oppure se dopo l'avvio lo schermo diventa nero anziché
-mostrare l'interfaccia utente del sistema d'installazione, si può provare
-a modificare le impostazioni di visualizzazione sotto MacOS in modo da
-usare 256 colori al posto di <quote>migliaia</quote> o addirittura
-<quote>milioni</quote> di colori.
+mostrare l'interfaccia utente del sistema d'installazione, è possibile
+provare a modificare le impostazioni di visualizzazione sotto MacOS in
+modo da usare 256 colori al posto di <quote>migliaia</quote> o
+addirittura <quote>milioni</quote> di colori.
 
 </para>
    </formalpara>
