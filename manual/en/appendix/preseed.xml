@@ -123,17 +123,18 @@ even asked. For file preseeding this is after the CD or CD image has been
 loaded. For network preseeding it is only after the network has been
 configured.
 
-</para><para>
+</para><important><para>
 
 Obviously, any questions that have been processed before the
 preconfiguration file is loaded cannot be preseeded (this will include
 questions that are only displayed at medium or low priority, like the
-first hardware detection run). <xref linkend="preseed-bootparms"/>
-offers a way to avoid these questions being asked.
+first hardware detection run). A not so convenient way to avoid these
+question from being asked is to preseed them through the boot parameters,
+as described in <xref linkend="preseed-bootparms"/>.
 
 </para><para>
 
-In order to avoid the questions that would normally appear before the
+In order to easily avoid the questions that would normally appear before the
 preseeding occurs, you can start the installer in <quote>auto</quote>
 mode. This delays questions that would normally be asked too early for
 preseeding (i.e. language, country and keyboard selection) until after
@@ -141,7 +142,7 @@ the network comes up, thus allowing them to be preseeded. It also runs
 the installation at critical priority, which avoids many unimportant
 questions. See <xref linkend="preseed-auto"/> for details.
 
-</para>
+</para></important>
   </sect2>
 
   <sect2 id="preseed-limitations">
