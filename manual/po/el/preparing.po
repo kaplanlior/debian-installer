@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: preparing\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2013-05-27 08:42+0000\n"
+"POT-Creation-Date: 2014-08-03 08:11+0000\n"
 "PO-Revision-Date: 2013-05-01 17:07+0300\n"
 "Last-Translator: galaxico <galaxico@quad-nrg.net>\n"
 "Language-Team: Greek <debian-l10n-greek@lists.debian.org>\n"
@@ -2364,19 +2364,270 @@ msgstr ""
 "ΔΙΟΡΘΩΣΕ ΜΕ: χρειάζονται περισσότερες πληροφορίες &mdash; από ένα Redbook?"
 
 #. Tag: title
-#: preparing.xml:1463
+#: preparing.xml:1466
+#, no-c-format
+msgid "ARM firmware"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1468
+#, no-c-format
+msgid ""
+"As already mentioned before, there is unfortunately no standard for system "
+"firmware on ARM systems. Even the behaviour of different systems which use "
+"nominally the same firmware can be quite different. This results from the "
+"fact that a large part of the devices using the ARM architecture are "
+"embedded systems, for which the manufacturers usually build heavily "
+"customized firmware versions and include device-specific patches. "
+"Unfortunately the manufacturers often do not submit their changes and "
+"extensions back to the mainline firmware developers, so their changes are "
+"not integrated into newer versions of the original firmware."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1480
+#, no-c-format
+msgid ""
+"As a result even newly sold systems often use a firmware that is based on a "
+"years-old manufacturer-modified version of a firmware whose mainline "
+"codebase has evolved a lot further in the meantime and offers additional "
+"features or shows different behaviour in certain aspects. In addition to "
+"that, the naming of onboard devices is not consistent between different "
+"manufacturer-modified versions of the same firmware, therefore it is nearly "
+"impossible to provide usable product-independend instructions for ARM-based "
+"systems."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1493
+#, no-c-format
+msgid "Setting the ethernet MAC address in u-boot"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1494
+#, no-c-format
+msgid ""
+"The MAC address of every ethernet interface should normally be globally "
+"unique, and it technically has to be unique within its ethernet broadcast "
+"domain. To achieve this, the manufacturer usually allocates a block of MAC "
+"addresses from a centrally-administered pool (for which a fee has to be "
+"paid) and preconfigures one of these addresses on each item sold."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1502
+#, no-c-format
+msgid ""
+"In the case of development boards, sometimes the manufacturer wants to avoid "
+"paying these fees and therefore provides no globally unique addresses. In "
+"these cases the users themselves have to define MAC addresses for their "
+"systems. When no MAC address is defined for an ethernet interface, some "
+"network drivers generate a random MAC address that can change on every boot, "
+"and if this happens, network access would be possible even when the user has "
+"not manually set an address, but e.g. assigning semi-static IP addresses by "
+"DHCP based on the MAC address of the requesting client would obviously not "
+"work reliably."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1513
+#, no-c-format
+msgid ""
+"To avoid conflicts with existing officially-assigned MAC addresses, there is "
+"an address pool which is reserved for so-called <quote>locally administered</"
+"quote> addresses. It is defined by the value of two specific bits in the "
+"first byte of the address (the article \"MAC address\" in the English "
+"language Wikipedia gives a good explanation). In practice this means that e."
+"g. any address starting with hexadecimal ca (such as ca:ff:ee:12:34:56) can "
+"be used as a locally administered address."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1523
+#, no-c-format
+msgid ""
+"On systems using u-boot as system firmware, the ethernet MAC address is "
+"placed in the <quote>ethaddr</quote> environment variable. It can be checked "
+"at the u-boot command prompt with the command <quote>printenv ethaddr</"
+"quote> and can be set with the command <quote>setenv ethaddr ca:ff:"
+"ee:12:34:56</quote>. After setting the value, the command <quote>saveenv</"
+"quote> makes the assignment permanent."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1534
+#, no-c-format
+msgid "Kernel/Initrd/Device-Tree relocation issues in u-boot"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1535
+#, no-c-format
+msgid ""
+"On some systems with older u-boot versions there can be problems with "
+"properly relocating the Linux kernel, the initial ramdisk and the device-"
+"tree blob in memory during the boot process. In this case, u-boot shows the "
+"message \"Starting kernel ...\", but the system freezes afterwards without "
+"further output. These issues have been solved with newer u-boot versions "
+"from v2014.07 onwards."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1543
+#, no-c-format
+msgid ""
+"If the system has originally used a u-boot version older than v2014.07 and "
+"has been upgraded to a newer version later, the problem might still occur "
+"even after upgrading u-boot. Upgrading u-boot usually does not modify the "
+"existing u-boot environment variables and the fix requires an additional "
+"environment variable (bootm_size) to be set, which u-boot does automatically "
+"only on fresh installations without existing environment data. It is "
+"possible to manually set bootm_size to the new u-boot's default value by "
+"running the command \"env default bootm_size; saveenv\" at the u-boot prompt."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1554
+#, no-c-format
+msgid ""
+"Another possibility to circumvent relocation-related problems is to run the "
+"command \"setenv fdt_high ffffffff; setenv initrd_high 0xffffffff; saveenv\" "
+"at the u-boot prompt to completely disable the relocation of the initial "
+"ramdisk and the device-tree blob."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1564
+#, no-c-format
+msgid "Systems with UEFI firmware"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1565
+#, no-c-format
+msgid ""
+"UEFI (<quote>Unified Extensible Firmware Interface</quote>) is a new kind of "
+"system firmware that is used on many modern systems and is - among other "
+"uses - intended to replace the classic PC BIOS."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1571
+#, no-c-format
+msgid ""
+"Currently most PC systems that use UEFI also have a so-called "
+"<quote>Compatibility Support Module</quote> (CSM) in the firmware, which "
+"provides excatly the same interfaces to an operating system as a classic PC "
+"BIOS, so that software written for the classic PC BIOS can be used "
+"unchanged. Nonetheless UEFI is intended to one day completely replace the "
+"old PC BIOS without being fully backwards-compatible and there are already a "
+"few systems with UEFI but without CSM."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1581
+#, no-c-format
+msgid ""
+"On systems with UEFI there are a few things to take into consideration when "
+"installing an operating system. The way the firmware loads an operating "
+"system is fundamentally different between the classic BIOS (or UEFI in CSM "
+"mode) and native UEFI. One major difference is the way the harddisk "
+"partitions get recorded on the harddisk. While the classic BIOS and UEFI in "
+"CSM mode use a DOS partition table, native UEFI uses a different "
+"partitioning scheme called <quote>GUID Partition Table</quote> (GPT). On a "
+"single disk, for all practical purposes only one of the two can be used and "
+"in case of a multi-boot setup with different operating systems on one disk, "
+"all of them must therefore use the same type of partition table. Booting "
+"from a disk with GPT is only possible in native UEFI mode, but using GPT "
+"becomes more and more common as hard disk sizes grow, because the classic "
+"DOS partition table cannot address disks larger than about 2 Terabytes while "
+"GPT allows for by far larger disks. The other major difference between BIOS "
+"(or UEFI in CSM mode) and native UEFI is from where boot code is loaded and "
+"in which format it has to be, so that different bootloaders are needed for "
+"both systems."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1601
+#, no-c-format
+msgid ""
+"The latter becomes important when booting &d-i; on a UEFI system with CSM "
+"because &d-i; checks whether it was started on a BIOS- or on a native UEFI "
+"system and installs the corresponding bootloader. Normally this simply works "
+"but there can be a problem in multi-boot environments. On some UEFI systems "
+"with CSM the default boot mode for removable devices can be different from "
+"what is actually used when booting from hard disk, so when booting the "
+"installer from a USB stick in a different mode from what is used when "
+"booting another already installed operating system from the hard disk, the "
+"wrong bootloader might be installed and the system might be unbootable after "
+"finishing the installation. When choosing the boot device from a firmware "
+"boot menu, some systems offer two seperate choices for each device, so that "
+"the user can select whether booting shall happen in CSM or in native UEFI "
+"mode."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1617
+#, no-c-format
+msgid ""
+"Another UEFI-related topic is the so-called <quote>secure boot</quote> "
+"mechanism. Secure boot means a function of UEFI implementations that allows "
+"the firmware to only load and execute code that is cryptographically signed "
+"with certain keys and thereby blocking any (potentially malicious) boot code "
+"that is unsigned or signed with unknown keys. In practice the only key "
+"accepted by default on most UEFI systems with secure boot is a key from "
+"Microsoft used for signing the Windows bootloader. As the boot code used by "
+"&d-i; is not signed by Microsoft, booting the installer requires prior "
+"deactivation of secure boot in case it is enabled. Secure boot is often "
+"enabled by default on systems that come preinstalled with a 64Bit version of "
+"Windows 8 and there is unfortunately no standard where in the UEFI setup it "
+"can be disabled. On some systems, the option to disable secure boot is only "
+"made visible when a BIOS password has been set by the user, so if you have a "
+"system with secure boot enabled, but cannot find an option to disable it, "
+"try setting a BIOS password, powercycle the machine and look again for an "
+"appropriate option."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1639
+#, no-c-format
+msgid "Disabling the Windows 8 <quote>fast boot</quote> feature"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1640
+#, no-c-format
+msgid ""
+"Windows 8 offers a feature called \"fast boot\" to cut down the time needed "
+"to boot itself. Technically, when this feature is enabled, Windows 8 does "
+"not do a real shutdown and a real cold boot afterwards when ordered to shut "
+"down, but instead does something resembling a partial suspend to disk to "
+"reduce the \"boot\" time. As long as Windows 8 is the only operating system "
+"on the machine, this is unproblematic, but it can result in problems and "
+"data loss when you have a dual boot setup in which another operating system "
+"accesses the same filesystems as Windows 8 does. In that case the real state "
+"of the filesystem can be different from what Windows 8 believes it to be "
+"after the \"boot\" and this could cause filesystem corruption upon further "
+"write accesses to the filesystem. Therefore in a dual boot setup, to avoid "
+"filesystem corruption the \"fast boot\" feature has to be disabled within "
+"Windows."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1658
 #, no-c-format
 msgid "Hardware Issues to Watch Out For"
 msgstr "Ζητήματα που θα πρέπει να προσέξετε για το υλικό"
 
 #. Tag: title
-#: preparing.xml:1466
+#: preparing.xml:1661
 #, no-c-format
 msgid "USB BIOS support and keyboards"
 msgstr "Υποστήριξη USB στο BIOS και πληκτρολόγια"
 
 #. Tag: para
-#: preparing.xml:1467
+#: preparing.xml:1662
 #, no-c-format
 msgid ""
 "If you have no PS/2-style keyboard, but only a USB model, on some very old "
@@ -2396,13 +2647,13 @@ msgstr ""
 "keyboard support</quote>."
 
 #. Tag: title
-#: preparing.xml:1480
+#: preparing.xml:1675
 #, no-c-format
 msgid "Display-visibility on OldWorld Powermacs"
 msgstr "Ορατότητα οθόνης σε μηχανήματα OldWorld Powermac"
 
 #. Tag: para
-#: preparing.xml:1482
+#: preparing.xml:1677
 #, no-c-format
 msgid ""
 "Some OldWorld Powermacs, most notably those with the <quote>control</quote> "
