@@ -1,46 +1,96 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 67982 -->
+<!-- original version: 69198 -->
 
   <sect2 arch="arm"><title>CPUs, Mainboards und Grafikunterstützung</title>
 
 <para>
 
-Jede unterschiedliche ARM-Architektur benötigt einen eigenen Kernel.
-Daher unterstützt die Standard-&debian;-Distribution die Installation nur
-auf einigen der weit verbreiteten Plattformen. Die &debian;-Arbeitsumgebung
-sollte jedoch auf <emphasis>jeder</emphasis> ARM-CPU verwendet werden können.
+ARM-Systeme sind viel verschiedenartiger als die i386-/amd64-basierte
+PC-Architektur, bei der sich alle Systeme eine allgemeine System-Firmware
+(BIOS und/oder UEFI) teilen, die die grundlegende board-spezifische
+Hardware-Initialisierung auf eine standardisierte Art erledigt.
+
+</para><para> 
+
+Die ARM-Architektur wird hauptsächlich in sogenannten
+<quote>Systems-on-Chip</quote> (SoCs) verwendet. Diese SoCs werden von
+vielen verschiedenen Herstellern mit sich erheblich unterscheidenden
+Hardware-Komponenten (und dies sogar bei den grundlegendsten
+Funktionalitäten, die benötigt werden, um das System zu starten) entwickelt.
+Diese Systeme haben normalerweise keine gemeinsame Schnittstelle für die
+System-Firmware und deshalb muss sich der Linux-Kernel bei ARM-Systemen
+um viele systemspezifische Themen auf der niedrigsten Hardware-Ebene
+kümmern, die in der PC-Welt vom BIOS des Mainboards abgewickelt werden.
 
 </para>
 
 <para>
 
-Die meisten ARM-CPUs müssen in einem der beiden Endian-Modi laufen
-(Little-Endian oder Big-Endian), wobei die Mehrzahl der aktuellen
-System-Implementationen den Little-Endian-Modus verwenden.
-&debian; unterstützt momentan nur Little-Endian-ARM-Systeme.
+Zu Beginn der ARM-Unterstützung im Linux-Kernel führte dies dazu, dass ein
+separater Kernel für jedes ARM-System benötigt wurde, im Gegensatz zu dem
+<quote>einer-passt-für-alles</quote>-Kernel bei PC-Systemen.
+Da dieser Ansatz nicht mit einer großen Anzahl verschiedener Systeme
+funktioniert, wurde damit begonnen, einen einzigen ARM-Kernel zu entwickeln,
+der auf verschiedenen ARM-Systemen laufen kann. Unterstützung für neue
+ARM-Systeme wird auf eine Art implementiert, die die Nutzung eines
+solchen Multiplattform-Kernels erlaubt, aber für mehrere ältere Systeme
+ist trotzdem noch ein spezifischer Kernel erforderlich.
+
+Daher unterstützt die Standard-&debian;-Distribution nur die
+Installation einer ausgewählten Zahl von älteren ARM-Systemen,
+zusätzlich zu den neuen Systemen, die vom ARM-Multiplattform-Kernel
+(armmp) bedient werden.
 
 </para>
 
 <para>
 
-Die unterstützten Plattformen sind:
+Die ARM-Architektur hat sich über die Zeit weiterentwickelt und
+moderne ARM-Prozessoren bieten Funktionalitäten, die in älteren Modellen
+nicht verfügbar sind. &debian; bietet daher zwei ARM-Portierungen an:
+&debian;/armel und &debian;/armhf.
+&debian;/armel zielt auf ältere ARM-Prozessoren ohne eigene
+Hardware-Fließkommaeinheit (FPU) ab, während &debian;/armhf nur auf
+neueren ARM-Prozessoren läuft, die mindestens die ARMv7-Architektur
+mit Version 3 der ARM-Vektor-Fließkomma-Spezifikation (VFPv3)
+implementieren. &debian;/armhf nutzt die erweiterten Funktionalitäten
+und Performance-Steigerungen, die bei diesen Modellen verfügbar sind.
+
+</para>
+
+<!--
+<para>
+
+Obwohl es technisch möglich ist, die &debian;/armel Userland-Programme
+auf modernen ARM-Prozessoren laufen zu lassen, können sie dann nicht die
+verschiedenen Funktionalitäten zur Performance-Steigerung nutzen, die
+solche neueren Prozessoren anbieten, daher sollten Sie statt &debian;/armel
+die &debian;/armhf-Portierung verwenden, wenn Ihre Hardware die Anforderungen
+dafür erfüllt. Das Mischen von armel- und armhf-Paketen auf einem System
+ist nicht möglich, daher müssen Sie sich vor der Installation entscheiden,
+welche Portierung Sie nutzen möchten.
+
+</para>
+-->
+
+<para>
+
+Technisch gesehen können viele ARM-CPUs in einem der beiden Endian-Modi
+(big-endian oder little-endian) betrieben werden, in der Praxis verwendet
+aber die große Mehrheit der derzeit verfügbaren System den little-Endian-Modus.
+Sowohl &debian;/armhf wie auch &debian;/armel unterstützen nur
+little-Endian-Systeme.
+
+</para>
+
+<sect3 arch="arm"><title>Plattformen, die von Debian/armel unterstützt werden</title>
+
+<para>
+
+Folgende Plattformen werden von &debian;/armel unterstützt: (Sie
+erfordern plattform-spezifische Kernel.)
 
 <variablelist>
-
-<varlistentry>
-<term>IOP32x</term>
-<listitem><para>
-
-Intels I/O-Prozessor-Serie (IOP) findet sich in einer Reihe von Produkten
-für Datenspeicherung und -verarbeitung. &debian; unterstützt derzeit
-die IOP32x-Plattform, von der die IOP 80219- und 32x-Chips derzeit in
-netzwerk-gebundenen Speichergeräten (Network Attached Storage/NAS-Devices)
-zu finden sind. &debian; unterstützt explizit zwei solche Geräte:
-den <ulink url="&url-arm-cyrius-glantank;">GLAN Tank</ulink> von IO-Data
-und den <ulink url="&url-arm-cyrius-n2100;">Thecus N2100</ulink>.
-
-</para></listitem>
-</varlistentry>
 
 <varlistentry>
 <term>Kirkwood</term>
@@ -79,6 +129,16 @@ url="&url-arm-cyrius-mv2120;">HP mv2120</ulink>.
 </varlistentry>
 
 <varlistentry>
+<term>MV78xx0</term>
+<listitem><para>
+
+Die MV78xx0-Plattform wird auf dem Marvell DB-78xx0-BP Development-Board
+verwendet.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
 <term>Versatile</term>
 <listitem><para>
 
@@ -92,4 +152,192 @@ Hardware nicht zur Verfügung steht.
 </variablelist>
 
 </para>
-  </sect2>
+</sect3>
+
+<sect3 arch="arm"><title>Plattformen, die nicht mehr von Debian/armel unterstützt werden</title>
+
+<variablelist>
+<varlistentry>
+<term>IOP32x</term>
+<listitem><para>
+
+Intels I/O-Prozessor-Serie (IOP) ist in einer Reihe von Produkten für
+Datenspeicherung und -verarbeitung zu finden, wie z.B. in dem <ulink
+url="&url-arm-cyrius-glantank;">GLAN Tank</ulink> von IO-Data und dem
+<ulink url="&url-arm-cyrius-n2100;">Thecus N2100</ulink>.
+&debian; hat die IOP32x-Plattform in &debian; 7 unterstützt, aber ab
+Version 8 wird sie aufgrund von Hardware-Einschränkungen der Plattform,
+die sie für die Installation neuerer &debian;-Veröffentlichungen
+ungeeignet machen, nicht mehr unterstützt.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>IXP4xx</term>
+<listitem><para>
+
+Intel-Prozessoren der IXP4xx-Serie wurden in Netzwerk-Speichergeräten
+wie dem Linksys NSLU2 eingesetzt. &debian; hat die IXP4xx-Plattform in
+&debian; 7 unterstützt, jedoch wird sie aber der Version 8 nicht
+mehr unterstützt, da die früher unterstützten Geräte nicht genug
+Flash-Speicher für die in Version 8 enthaltenen Kernel bereitstellen.
+
+</para></listitem>
+</varlistentry>   
+
+</variablelist>
+
+</sect3>
+
+<sect3 arch="arm" id="armhf-armmp-supported-platforms"><title>Plattformen, 
+die von Debian/armhf unterstützt werden</title>
+
+  <para>
+Folgende Systeme funktionieren bekanntermaßen mit &debian;/armhf unter
+Verwendung des Multiplattform-Kernels (armmp):
+
+  <variablelist>
+
+      <varlistentry>
+        <term>Freescale MX53 Quick Start Board</term>
+        <listitem>
+          <para>   
+            Das IMX53QSB ist ein Development-Board basierend auf dem i.MX53 SoC.
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Versatile Express</term>
+        <listitem>
+          <para>   
+             Das Versatile Express ist eine Development-Board-Serie
+             von ARM, bestehend aus einer Basisplatine, die mit
+             verschiedenen CPU-Tochterplatinen ausgestattet werden kann.
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>Certain Allwinner sunXi-basierende Development-Boards und
+              eingebettete (embedded) Systeme</term>
+        <listitem>
+          <para>
+             Der armmp-Kernel unterstützt verschiedene Development-Boards
+             und Embedded-Systeme, die auf den SoCs Allwinner A10
+             (Architektur-Codename <quote>sun4i</quote>) und A20
+             (Architektur-Codename <quote>sun7i</quote>) aufbauen.
+             Vollständige Unterstützung durch den Installer ist derzeit
+             für folgende sunXi-basierte Systeme verfügbar:
+            <itemizedlist>
+             <listitem><para>
+               Cubietech Cubieboard 1 + 2 / Cubietruck
+             </para></listitem>
+             <listitem><para>
+               LinkSprite pcDuino
+             </para></listitem>
+             <listitem><para>
+               Mele A1000
+             </para></listitem>
+             <listitem><para>
+               Miniand Hackberry
+             </para></listitem>
+             <listitem><para>
+               Olimex A10-Olinuxino-LIME / A10s-Olinuxino Micro /
+               A13-Olinuxino / A13-Olinuxino Micro / A20-Olinuxino Micro           
+             </para></listitem>
+             <listitem><para>
+               PineRiver Mini X-Plus
+             </para></listitem>
+
+            </itemizedlist>  
+          </para> 
+          <para>
+             Die Systemunterstützung für Allwinner sunXi-basierte Systeme
+             ist auf Treiber und Informationen aus dem Gerätedatei-Baum
+             beschränkt, welche im Mainline-Linux-Kernel enthalten sind.
+             Die 3.4-Kernel-Serie des Android-Derivates linux-sunxi.org
+             wird von Debian nicht unterstützt.
+          </para> 
+          <para>
+             Der Mainline-Linux-Kernel unterstützt auf Allwinner A10- und
+             A20-SOCs grundsätzlich die serielle Konsole, Ethernet, SATA,
+             USB und MMC-/SD-Karten, enthält aber keinen Support für
+             lokale Grafik (HDMI/VGA/LVDS) und Audioausgabe.
+             Der NAND-Flash-Speicher, der in einige sunXi-basierte Systeme
+             eingebaut ist, wird nicht unterstützt.
+          </para>
+        </listitem>
+      </varlistentry>
+
+      <varlistentry>
+        <term>SolidRun Cubox-i2eX / Cubox-i4Pro</term>
+        <listitem>
+          <para>
+              Die Serie der Cubox-i ist eine Sammlung kleiner würfelförmiger
+              Systeme, die auf der Freescale i.MX6-SoC-Familie aufbauen.
+              Die Systemunterstützung für die Cubox-i-Serie ist auf
+              Treiber und Informationen aus dem Gerätedatei-Baum
+              beschränkt, welche im Mainline-Linux-Kernel enthalten sind.
+              Die Freescale 3.0-Kernel-Serie für die Cubox-i wird von
+              Debian nicht unterstützt.
+              Verfügbare Treiber im Mainline-Kernel inkludieren
+              die serielle Konsole, Ethernet, USB und MMC-/SD-Karten und
+              grundlegende lokale Grafik über HDMI.
+          </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </para>
+
+  <para>
+     Grundsätzlich erlaubt die ARM-Multiplattform-Unterstützung im
+     Linux-Kernel, den &d-i; auch auf Systemen laufen zu lassen, die
+     hier nicht explizit aufgeführt sind, solange der vom &d-i;
+     genutzte Kernel Unterstützung für die Systemkomponenten des
+     Zielsystems hat und eine Gerätebaum-Datei dafür vorhanden ist.
+     In diesen Fällen kann der Installer normalerweise eine
+     funktionierende Userland-Installation erstellen, aber möglicherweise
+     kann das System nicht automatisch boot-fähig gemacht werden,
+     da dies in vielen Fällen gerätespezifische Informationen erfordert.
+  </para>
+  <para>
+     Wenn Sie den &d-i; auf solchen Systemen einsetzen, müssen Sie
+     das System am Ende der Installation von Hand boot-fähig machen,
+     z.B. indem Sie die erforderlichen Befehle in einer innerhalb des
+     &d-i;s gestarteten Shell ausführen.
+  </para>
+
+</sect3>
+
+
+<sect3 arch="arm"><title>Platfformen, die nicht mehr von Debian/armhf unterstützt werden</title>
+
+<variablelist>
+<varlistentry>
+<term>EfikaMX</term>
+<listitem><para>
+
+Die EfikaMX-Plattform (Genesi Efika Smartbook und Genesi EfikaMX Nettop)
+wurde in &debian; 7 mit einem plattformspezifischen Kernel unterstützt,
+wird aber ab &debian; 8 aufwärts nicht mehr unterstützt. Der Code, der
+zum Bau des forher verwendeten plattformspezifischen Kernels erforderlich
+ist, wurde aus dem Quellcode des Upstream-Linux-Kernels in 2012 entfernt,
+daher kann Debian keine neueren Kernel mehr bereitstellen.
+
+</para><para>
+
+Die Nutzung des armmp-Multiplattform-Kernels auf der EfikaMX-Plattform
+würde Gerätebaum-Unterstützung dafür erfordern, was derzeit nicht
+der Fall ist.
+
+</para>
+</listitem>
+
+</varlistentry>
+
+</variablelist>
+
+  </sect3>
+   </sect2>

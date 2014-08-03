@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 68675 -->
+<!-- original version: 69211 -->
 
 <!--
 Be carefull with the format of this file as it is parsed to generate
@@ -121,23 +121,27 @@ verschiedenen Installationsarten nutzen können.
 Ein wichtiger Unterschied zwischen den Voreinstellungsmethoden ist der
 Zeitpunkt, zu dem die Voreinstellungsdatei geladen und bearbeitet wird. Beim
 Voreinstellen per initrd ist dies direkt bei Start der Installation, noch
-bevor die erste Frage gestellt wird. Beim Voreinstellen mittels file passiert
+bevor die erste Frage gestellt wird. Beim Voreinstellen über
+eine Voreinstellungsdatei (file) passiert
 dies, nachdem die CD oder das CD-Image geladen wurde. Beim Voreinstellen
-per network kann die Datei erst geladen werden, nachdem das Netzwerk
+per Netzwerk kann die Datei erst geladen werden, nachdem das Netzwerk
 konfiguriert wurde.
 
-</para><para>
+</para><important><para>
 
-Natürlich können Voreinstellungswerte für solche Fragen nicht greifen
+Natürlich können Voreinstellungswerte für Fragen, die verarbeitet
+werden, bevor die Voreinstellungsdatei geladen wird, nicht greifen
 (dies beinhaltet Fragen, die nur bei mittlerer oder niedriger Priorität
 gestellt werden, wie der erste Hardware-Erkennungslauf).
-<xref linkend="preseed-bootparms"/> zeigt aber einen Weg, trotzdem zu
-vermeiden, dass diese Fragen gestellt werden.
-
+Ein etwas unkomfortabler Weg, trotzdem zu vermeiden, dass
+diese Fragen gestellt werden ist, die Werte mittels
+Boot-Parametern anzugeben, wie in <xref linkend="preseed-bootparms"/>
+beschrieben.
 
 </para><para>
 
-Um Fragen zu vermeiden, die normalerweise erscheinen, bevor die Voreinstellung
+Um auf einfache Art Fragen zu vermeiden, die normalerweise erscheinen, 
+bevor die Voreinstellung
 greift, können Sie den Installer im <quote>auto</quote>-Modus starten.
 Dadurch werden Fragen, die eigentlich für Voreinstellung zu früh gestellt
 werden (wie Land, Sprache und Tastaturbelegung), aufgeschoben bis das Netzwerk
@@ -145,7 +149,7 @@ aktiv ist und dann voreingestellt werden können. Außerdem wird die
 Installation mit Priorität kritisch durchgeführt, um unwichtige Fragen zu
 unterdrücken. Siehe <xref linkend="preseed-auto"/> für Details.
 
-</para>
+</para></important>
   </sect2>
 
   <sect2 id="preseed-limitations">
@@ -1676,6 +1680,13 @@ d-i finish-install/reboot_in_progress note
 Eine sehr kraftvolle und flexible Funktion, die das Voreinstellungswerkzeug
 bietet, ist die Möglichkeit, Kommandos oder Scripte an bestimmten Stellen
 während der Installation auszuführen.
+
+</para><para>
+
+Wenn das Dateisystem des Zielsystems eingebunden ist, ist es unter
+<filename>/target</filename> verfügbar. Falls eine Installations-CD
+benutzt wird und diese eingebunden ist, finden Sie sie unter
+<filename>/cdrom</filename>.
 
 </para>
 
