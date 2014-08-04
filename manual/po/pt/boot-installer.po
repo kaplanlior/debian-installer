@@ -1,13 +1,13 @@
 # Portuguese translation of the Debian Installation Manual.
 #
 # Daniel Costa, Miguel Figueiredo e Etur, 2005.
-# Miguel Figueiredo <elmig@debianpt.org>, 2006-2013.
+# Miguel Figueiredo <elmig@debianpt.org>, 2006-2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: boot-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2014-08-03 08:11+0000\n"
-"PO-Revision-Date: 2014-03-05 22:33+0000\n"
+"PO-Revision-Date: 2014-08-04 21:16+0100\n"
 "Last-Translator: Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
 "Language: pt\n"
@@ -60,10 +60,10 @@ msgstr ""
 
 #. Tag: title
 #: boot-installer.xml:38
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "Booting from Firmware"
 msgid "Boot image formats"
-msgstr "Arrancar a partir de Firmware"
+msgstr "Formatos de imagens de arranque"
 
 #. Tag: para
 #: boot-installer.xml:39
@@ -75,6 +75,12 @@ msgid ""
 "or b) uImage-format kernels (<quote>uImage</quote>) in conjunction with "
 "corresponding initial ramdisks (<quote>uInitrd</quote>)."
 msgstr ""
+"Em sistemas baseados em ARM na maioria dos casos é utilizado um de dois "
+"formatos de imagens de arranque: a) kernels Linux standard de formato zImage "
+"(<quote>vmlinuz</quote>) em conjunto com os ramdisk iniciais standard de "
+"Linux (<quote>initrd.gz</quote>) ou b) kernels de formato uImage "
+"(<quote>uImage</quote>) em conjunto com os correspondentes ramdisks iniciais "
+"(<quote>uInitrd</quote>)."
 
 #. Tag: para
 #: boot-installer.xml:47
@@ -87,6 +93,13 @@ msgid ""
 "Linux kernels and ramdisk images, but the command syntax to do that is "
 "slightly different from that for booting uImages."
 msgstr ""
+"uImage/uInitrd são formatos de imagens desenhados para o firmware u-boot que "
+"é utilizado em muitos sistemas ARM. As versões mais antigas de u-boot apenas "
+"podem arrancar com o formato uImage/uInitrd, por isso estes são vulgarmente "
+"utilizados em sistemas armel antigos. As novas versões u-boot podem - além "
+"de arrancar uImages/uInitrds - também arrancar kernels Linux standard e "
+"imagens ramdisk, mas a sintaxe de comando para o fazer é ligeiramente "
+"diferente da para arrancar a partir de uImages."
 
 #. Tag: para
 #: boot-installer.xml:56
@@ -97,18 +110,22 @@ msgid ""
 "needed. It is specific to each supported system and contains a description "
 "of the particular hardware."
 msgstr ""
+"Para sistemas que utilizem um kernel multi-plataforma, além do kernel e um "
+"ramdisk inicial, é necessário um chamado ficheiro device-tree, <quote>dtb"
+"</quote>. É especifico de cada sistema suportado e contém uma descrição do "
+"hardware próprio."
 
 #. Tag: title
 #: boot-installer.xml:64
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "Booting from TFTP"
 msgid "Booting by TFTP"
-msgstr "Arrancar de TFTP"
+msgstr "Arrancar por TFTP"
 
 #. Tag: para
 #: boot-installer.xml:70 boot-installer.xml:630 boot-installer.xml:1172
 #: boot-installer.xml:1356 boot-installer.xml:1679 boot-installer.xml:1789
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Booting from the network requires that you have a network connection and "
 #| "a TFTP network boot server (DHCP, RARP, or BOOTP)."
@@ -117,8 +134,9 @@ msgid ""
 "TFTP network boot server (and probably also a DHCP, RARP, or BOOTP server "
 "for automatic network configuration)."
 msgstr ""
-"Arrancar pela rede, requer que tenha uma ligação de rede configurada e um "
-"servidor de arranque de rede TFTP (DHCP, RARP ou BOOTP)."
+"Arrancar pela rede requer que tenha uma ligação de rede e um servidor TFTP "
+"de arranque por rede (e provavelmente também um servidor de DHCP, RARP ou "
+"BOOTP para a configuração automática de rede)."
 
 #. Tag: para
 #: boot-installer.xml:76 boot-installer.xml:636 boot-installer.xml:1178
@@ -134,7 +152,7 @@ msgstr ""
 #. Tag: para
 #: boot-installer.xml:81 boot-installer.xml:641 boot-installer.xml:1183
 #: boot-installer.xml:1367 boot-installer.xml:1690 boot-installer.xml:1800
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "The installation method to support network booting is described in <xref "
 #| "linkend=\"install-tftp\"/>."
@@ -142,14 +160,14 @@ msgid ""
 "The server-side setup to support network booting is described in <xref "
 "linkend=\"install-tftp\"/>."
 msgstr ""
-"O método de instalação para suportar o arranque pela rede é descrito na "
+"A configuração do servidor para suportar arranque pela rede é descrita em "
 "<xref linkend=\"install-tftp\"/>."
 
 #. Tag: title
 #: boot-installer.xml:90
 #, no-c-format
 msgid "TFTP-booting in u-boot"
-msgstr ""
+msgstr "Arranque por TFTP em u-boot"
 
 #. Tag: para
 #: boot-installer.xml:91
@@ -159,6 +177,9 @@ msgid ""
 "steps: a) configuring the network, b) loading the images (kernel/initial "
 "ramdisk/dtb) into memory and c) actually executing the previosly loaded code."
 msgstr ""
+"O arranque pela rede em sistemas que utilizam o firmware u-boot consiste em "
+"três passos: a) configurar a rede, b) carregar as imagens (kernel/ramdisk "
+"inicial/dtb) para a memória e c) efectivamente executar o código carregado."
 
 #. Tag: para
 #: boot-installer.xml:97
@@ -178,12 +199,24 @@ msgid ""
 "</screen></informalexample> If you prefer, you can make these settings "
 "permanent by running"
 msgstr ""
+"Primeiro tem de configurar a rede, quer automaticamente por DHCP ou correndo "
+"<informalexample><screen>\n"
+"setenv autoload no\n"
+"dhcp\n"
+"</screen></informalexample> ou manualmente definindo várias variáveis de "
+"ambiente <informalexample><screen>\n"
+"setenv ipaddr &lt;endereço ip do cliente&gt;\n"
+"setenv netmask &lt;máscara de rede&gt;\n"
+"setenv serverip &lt;endereço ip do servidor de tftp&gt;\n"
+"setenv dnsip &lt;endereço ip do servidor de nomes (dns)&gt;\n"
+"setenv gatewayip &lt;endereço ip da gateway predefinida&gt;\n"
+"</screen></informalexample>"
 
 #. Tag: screen
 #: boot-installer.xml:104
 #, no-c-format
 msgid "saveenv"
-msgstr ""
+msgstr "saveenv"
 
 #. Tag: para
 #: boot-installer.xml:106
@@ -195,6 +228,11 @@ msgid ""
 "the memory map can vary from system to system, so there is no general rule "
 "which addresses can be used for this."
 msgstr ""
+"Depois tem de carregar as imagens (kernel/ramdisk inicial) para a memória. "
+"Isto é feito com o comando tftpboot, ao qual tem de ser passado o endereço a "
+"partir de onde é guardada na memória a imagem. Infelizmente o mapa de "
+"memória pode variar entre sistemas, por isso não há uma regra genérica com "
+"os endereços que possam ser utilizados para isto."
 
 #. Tag: para
 #: boot-installer.xml:114
@@ -210,6 +248,16 @@ msgid ""
 "name <quote>sun4i</quote> or the Allwinner A20, architecture name "
 "<quote>sun7i</quote>), you can e.g. use the follwing values:"
 msgstr ""
+"Em alguns sistemas, u-boot pré-define um conjunto de variáveis de ambiente "
+"com endereços de carregamento apropriados: kernel_addr_r, ramdisk_addr_r e "
+"fdt_addr_r. Pode verificar se estão definidos ao correr <informalexample>"
+"<screen>\n"
+"printenv kernel_addr_r ramdisk_addr_r fdt_addr_r\n</screen></informalexample> "
+"Se não estiverem definidos, tem que verificar a documentação do seu sistema "
+"por valores apropriados e defini-los manualmente. Para sistemas baseados em "
+"Allwinner SunXi SOCs (e.g. o Allwinner A10, nome de arquitectura <quote>sun4i"
+"</quote> ou o Allwinner A20, nome de arquitectura <quote>sun7i</quote>), "
+"pode por exemplo utilizar os seguintes valores:"
 
 #. Tag: screen
 #: boot-installer.xml:125
@@ -219,6 +267,9 @@ msgid ""
 "setenv fdt_addr_r 0x47000000\n"
 "setenv ramdisk_addr_r 0x48000000"
 msgstr ""
+"setenv kernel_addr_r 0x46000000\n"
+"setenv fdt_addr_r 0x47000000\n"
+"setenv ramdisk_addr_r 0x48000000"
 
 #. Tag: para
 #: boot-installer.xml:127
@@ -227,6 +278,8 @@ msgid ""
 "When the load addresses are defined, you can load the images into memory "
 "from the previously defined tftp server with"
 msgstr ""
+"Quando estiverem definidos os endereços de carregamento, pode assim carregar "
+"as imagens para a memória a partir do servidor tftp anteriormente definido:"
 
 #. Tag: screen
 #: boot-installer.xml:130
@@ -236,6 +289,9 @@ msgid ""
 "tftpboot ${fdt_addr_r} &lt;filename of the dtb&gt;\n"
 "tftpboot ${ramdisk_addr_r} &lt;filename of the initial ramdisk image&gt;"
 msgstr ""
+"tftpboot ${kernel_addr_r} &lt;nome de ficheiro da imagem do kernel&gt;\n"
+"tftpboot ${fdt_addr_r} &lt;nome de ficheiro de dtb&gt;\n"
+"tftpboot ${ramdisk_addr_r} &lt;nome de ficheiro da imagem inicial de ramdisk&gt;"
 
 #. Tag: para
 #: boot-installer.xml:132
@@ -255,12 +311,25 @@ msgid ""
 "bootm ${kernel_addr_r} ${ramdisk_addr_r} ${fdt_addr_r}\n"
 "</screen></informalexample> and with native Linux images it is"
 msgstr ""
+"A terceira parte é definir a linha de comandos do kernel e executar o "
+"código carregado. U-boot passa o conteúdo da variável de ambiente <quote>"
+"bootargs</quote> como linha de comandos do kernel, por isso quaisquer "
+"parâmetros para o kernel e instalador - tais como dispositivo de consola "
+"(veja <xref linkend=\"boot-console\"/>) ou opções de preseeding (seja "
+"<xref linkend=\"installer-args\"/> e <xref linkend=\"appendix-preseed\"/>) "
+"- pode ser definido com um comando como <informalexample><screen>\n"
+"setenv bootargs console=ttyS0,115200 rootwait panic=10\n"
+"</screen></informalexample> O comando exato a executar o código carregado "
+"anteriormente depende do formato de imagem utilizado. Com uImage/uInitrd "
+"o comando é <informalexample><screen>\n"
+"bootm ${kernel_addr_r} ${ramdisk_addr_r} ${fdt_addr_r}\n"
+"</screen></informalexample> e com imagens nativas de Linux é"
 
 #. Tag: screen
 #: boot-installer.xml:145
 #, no-c-format
 msgid "bootz ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}"
-msgstr ""
+msgstr "bootz ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}"
 
 #. Tag: para
 #: boot-installer.xml:147
@@ -273,6 +342,12 @@ msgid ""
 "a platform-specific kernel, i.e. a kernel without device-tree, simply omit "
 "the ${fdt_addr_r} parameter."
 msgstr ""
+"Nota: Quando arrancar imagens standard de linux, é importante carregar a "
+"imagem ramdisk inicial após o kernel e o dtb já que u-boot define a variável "
+"de tamanho de ficheiro ao tamanho do último ficheiro carregado e o comando "
+"bootz necessita o tamanho da imagem ramdisk para funcionar correctamente. "
+"Em caso de arrancar um kernel específico da plataforma, i.e. um kernel sem "
+"device-tree, simplesmente omita o parâmetro ${fdt_addr_r}."
 
 #. Tag: title
 #: boot-installer.xml:286 boot-installer.xml:785 boot-installer.xml:1442
@@ -319,7 +394,7 @@ msgstr ""
 #. Tag: para
 #: boot-installer.xml:311 boot-installer.xml:810 boot-installer.xml:1467
 #: boot-installer.xml:1848
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Even if you cannot boot from CD-ROM, you can probably install the "
 #| "&debian; system components and any packages you want from CD-ROM. Simply "
@@ -333,12 +408,12 @@ msgid ""
 "system, and any additional packages, point the installation system at the CD-"
 "ROM drive."
 msgstr ""
-"Mesmo se não conseguir iniciar a partir do CD-ROM, poderá provavelmente "
-"instalar os componentes do &debian; e qualquer pacote que deseje a partir do "
-"CD-ROM. Simplesmente arranque utilizando uma media diferente, tal como "
-"disquetes. Quando for altura de instalar o sistema operativo, sistema base, "
-"e qualquer pacote adicional, aponte o sistema de instalação para a drive de "
-"CD-ROM."
+"Mesmo que não consiga arrancar a partir do CD-ROM, poderá provavelmente "
+"instalar os componentes do sistema &debian; e quaisquer pacotes que deseje a "
+"partir de CD-ROM. Simplesmente arranque utilizando um meio diferente e "
+"quando for altura de instalar o sistema operativo, sistema base, e "
+"quaisquer pacotes adicionais, aponte o sistema de instalação para a drive "
+"de CD-ROM."
 
 #. Tag: para
 #: boot-installer.xml:319 boot-installer.xml:818 boot-installer.xml:1475
@@ -2431,7 +2506,7 @@ msgstr ""
 #: boot-installer.xml:1913
 #, no-c-format
 msgid "Installer front-end"
-msgstr ""
+msgstr "Front-end do Instalador"
 
 #. Tag: para
 #: boot-installer.xml:1914
@@ -2444,6 +2519,12 @@ msgid ""
 "documentation for <userinput>DEBIAN_FRONTEND</userinput> in <xref linkend="
 "\"installer-args\"/>."
 msgstr ""
+"O instaldor &debian; suporta vários front-ends para colocar questões, com "
+"várias conveniências para acessibilidade: notavelmente, <userinput>text"
+"</userinput> utiliza texto simples enquanto que <userinput>newt</userinput> "
+"utiliza caixas de diálogo baseadas em texto. A escolha pode ser feita na "
+"prompt de arranque, veja a documentação para <userinput>DEBIAN_FRONTEND"
+"</userinput> em <xref linkend=\"installer-args\"/>."
 
 #. Tag: title
 #: boot-installer.xml:1926
