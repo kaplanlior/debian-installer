@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 67993 -->
+<!-- original version: 69217 -->
 
  <sect1 id="pre-install-bios-setup">
  <title>Hardware- und Betriebssystem-Setup vor der Installation</title>
@@ -19,6 +19,127 @@ interne Software; sie ist meistens höchst kritisch in den Boot-Prozess involvie
 &bios-setup-powerpc.xml; 
 &bios-setup-sparc.xml; 
 &bios-setup-s390.xml; 
+&bios-setup-arm.xml; 
+
+  <sect2 arch="x86" id="UEFI">
+    <title>Systeme mit UEFI-Firmware</title>
+    <para>
+       UEFI (<quote>Unified Extensible Firmware Interface</quote>)
+       ist eine neue Art von System-Firmware, die auf vielen modernen
+       Systemen genutzt wird und - unter anderem - das klassische
+       PC-BIOS ersetzen soll.
+    </para>
+    <para>
+       Derzeit haben die meisten PC-Systeme, die UEFI verwenden,
+       ein sogenanntes <quote>Compatibility Support Module</quote>
+       (CSM, Kompatibilitätsmodul) in der Firmware, das exakt die
+       gleichen Schnittstellen an ein Betriebssystem zur Verfügung
+       stellt wie ein klassiches PC-BIOS, so dass Software, die für
+       das klassische BIOS geschrieben wurde, unverändert weiter
+       genutzt werden kann. Nichtsdestotrotz soll UEFI eines Tages
+       das alte PC-BIOS ganz ersetzen, ohne dabei vollständig
+       rückwärtskompatibel zu sein; es gibt sogar bereits jetzt Systeme
+       mit UEFI, die kein CSM haben.
+    </para>
+    <para>
+       Auf Systemen mit UEFI gibt es ein paar Dinge, die in Betracht
+       gezogen werden sollten, wenn ein Betriebssystem installiert
+       werden soll. Der Weg, wie die Firmware ein Betriebssystem lädt,
+       ist fundamental unterschiedlich zwischen dem klassischen BIOS
+       (oder UEFI im CSM-Modus) und nativem UEFI. Ein wesentlicher
+       Unterschied ist die Art, wie Festplattenpartitionen auf der
+       Platte gespeichert werden. Während das klassische BIOS und
+       UEFI im CSM-Modus eine DOS-Partitionstabelle verwenden, nutzt
+       UEFI ein anderes Partitionierungsschema namens <quote>GUID
+       Partition Table</quote> (GPT). Auf jeweils einer Festplatte
+       kann aus praktischen Gründen immer nur eine der beiden eingesetzt
+       werden, daher müssen bei einem Multi-Boot-Setup (System mit
+       mehreren verschiedenen installierten Betriebssystemen) alle
+       Systeme den gleichen Partitionstabellentyp nutzen. Das Booten
+       von einer Festplatte mit GPT ist nur im nativen UEFI-Modus
+       möglich, aber GPT ist mehr und mehr im Kommen, da die Festplatten
+       immer größer werden und die klassische DOS-Partitionstabelle
+       keine Platten größer als 2 Terabyte adressieren kann; GPT jedoch
+       erlaubt erheblich größere Festplatten. Der andere große
+       Unterschied zwischen BIOS (oder UEFI im CSM-Modus) und nativem
+       UEFI ist, von wo der Boot-Code geladen wird und welches Format
+       er haben muss, so dass für beide Systeme unterschiedliche
+       Bootloader erforderlich sind.
+    </para>
+    <para>
+       Letzteres ist wichtig, wenn der &d-i; auf einem UEFI-System
+       mit CSM gebootet wird, weil der &d-i; überprüft, ob er auf
+       einem BIOS- oder einem nativen UEFI-System gestartet wurde
+       und danach den entsprechenden Bootloader installiert.
+       Normalerweise funktioniert dies, aber in Multi-Boot-Umgebungen
+       kann es ein Problem geben. Bei einigen UEFI-Systemen mit CSM
+       kann der Standard-Boot-Modus für das Booten von Wechseldatenträgern
+       ein anderer sein als beim Booten von fest eingebauter Festplatte;
+       wenn also der Installer von einem USB-Stick in einem anderen
+       Modus gebootet wird, als wenn ein anderes, bereits installiertes
+       Betriebssystem von Festplatte startet, könnte der falsche
+       Bootloader installiert werden und das System nach Abschluß der
+       Installation nicht mehr boot-fähig sein.
+       Bei der Auswahl eines Boot-Gerätes in einem Menü in der
+       Firmware bieten einige Systeme zwei separate Auswahlen für
+       jedes Gerät an, so dass der Benutzer auswählen kann, ob im
+       CSM- oder im nativen UEFI-Modus gebootet werden soll.
+    </para>
+    <para>
+       Ein anderes Problem mit Bezug zu UEFI ist der sogenannte
+       <quote>Secure Boot</quote>-Mechanismus. Secure Boot ist eine
+       Funktion in UEFI-Implementationen, die es der Firmware nur
+       erlaubt, Code zu laden und auszuführen, wenn dieser kryptografisch
+       mit bestimmten Schlüsseln signiert ist; so wird jeglicher
+       (möglicherweise bösartiger) Boot-Code, der nicht oder mit
+       unbekannten Schlüsseln signiert ist, blockiert.
+       In der Praxis ist der einzige Schlüssel, der auf den meisten
+       UEFI-Systemen mit Secure Boot standardmäßig akzeptiert wird,
+       ein Schlüssel von Microsoft, der genutzt wird, um den
+       Windows-Bootloader zu signieren. Da der vom &d-i; genutzte
+       Boot-Code nicht von Microsoft signiert ist, erfordert der
+       Installer die vorherige Deaktivierung von Secure Boot, sollte
+       dies aktiv sein. Secure Boot ist auf Systemen, auf denen
+       eine 64-Bit-Version von Windows 8 vorinstalliert ist, oftmals
+       standardmäßig aktiviert und es gibt unglücklicherweise keinen
+       Standard, wo in der UEFI-Setup-Maske Secure Boot
+       deaktiviert werden kann. Auf einigen Systemen wird die Option
+       zur Deaktivierung von Secure Boot nur angezeigt, wenn der
+       Benutzer ein BIOS-Passwort gesetzt hat; wenn Sie also ein
+       System mit aktiviertem Secure Boot haben und keine Option finden
+       können, um es zu deaktivieren, versuchen Sie, ein BIOS-Passwort
+       zu setzen, machen Sie den Rechner stromlos und suchen Sie dann
+       erneut nach einer entsprechenden Option.
+    </para>
+  </sect2>
+
+  <sect2 arch="x86" id="disable-fast-boot">
+    <title>Deaktivieren der <quote>Fast Boot</quote>-Funktionalität in Windows 8</title>
+    <para>
+       Windows 8 bietet eine Funktionalität namens <quote>Fast Boot</quote>,
+       um die für das Booten des Systems benötigte Zeit zu verkürzen.
+       Windows 8 fährt dabei das System nicht wirklich vollständig
+       herunter, wenn Sie ein Herunterfahren anweisen, und aufgrunddessen
+       findet beim nächsten Start natürlich auch kein echter
+       System-Kaltstart statt. Stattdessen wird etwas ähnliches wie
+       ein partielles Suspend-to-disk durchgeführt (der Systemzustand wird
+       eingefroren und in einem speziellen Bereich der Festplatte
+       gespeichert; in früheren Windows-Versionen bot
+       <quote>Ruhezustand</quote> eine ähnliche Funktionalität), um die
+       <quote>Boot</quote>-Zeit zu reduzieren.
+       Solange Windows 8 das einzige Betriebssystem auf der Maschine ist,
+       ist dies unproblematisch, aber es kann zu Problemen und Datenverlust
+       führen, wenn Sie ein Dual-Boot-System haben, bei dem ein anderes
+       Betriebssystem auf die gleichen Dateisysteme zugreift wie Windows 8.
+       In diesem Fall kann sich der echte Status des Dateisystems von dem
+       unterscheiden, den Windows 8 nach seinem nächsten <quote>Booten</quote>
+       vermutet; dies kann bei weiteren Schreibzugriffen zu einer
+       Beschädigung des Dateisystems führen. Um in einem
+       Dual-Boot-System eine Beschädigung der Dateisysteme zu vermeiden,
+       muss daher die <quote>Fast Boot</quote>-Funktionalität in Windows
+       deaktiviert werden.
+    </para>
+  </sect2>
 
   <sect2 arch="x86;powerpc" id="hardware-issues">
   <title>Hardware-Probleme, auf die Sie achten sollten</title>

@@ -1,19 +1,157 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 67373 -->
+<!-- original version: 69213 -->
+
+  <sect2 arch="arm" id="boot-image-formats">
+    <title>Boot-Image-Formate</title>
+    <para>
+      Auf ARM-basierten Systemen wird in den meisten Fällen eines
+      dieser beiden Formate für die Boot-Images verwendet: a)
+      Standard-Linux-Kernel im zImage-Format (<quote>vmlinuz</quote>)
+      zusammen mit einer Standard-Linux-Initial-Ramdisk
+      (<quote>initrd.gz</quote>) oder b) Kernel im uImage-Format
+      (<quote>uImage</quote>) zusammen mit dazu zugehöriger
+      Initial-Ramdisk (<quote>uInitrd</quote>).
+    </para>
+    <para>
+      uImage/uInitrd sind Image-Formate, die für die u-boot-Firmware
+      ausgelegt wurden, welche auf vielen ARM-basierten Systemen
+      eingesetzt ist. Ältere u-boot-Versionen können nur Dateien
+      im uImage-/uInitrd-Format booten, daher werden diese Formate oft
+      auf älteren armel-Systemen genutzt. Neuere u-boot-Versionen können -
+      neben uImage/uInitrd - auch Standard-Linux-Kernel- und Ramdisk-Images
+      booten, aber die Befehlssyntax dafür ist etwas anders als beim
+      Booten von uImages.
+    </para>
+    <para>
+      Für Systeme, die einen Multiplattform-Kernel verwenden, ist
+      zusätzlich zu Kernel- und Initial-Ramdisk-Image noch eine
+      sogenannte Gerätebaum-Datei (auch Gerätebaum-Abbild /
+      device-tree blob, <quote>dtb</quote>) erforderlich. Diese ist
+      spezifisch für jedes unterstützte System und enthält eine
+      Beschreibung der jeweiligen Hardware.
+    </para>
+  </sect2>
 
   <sect2 arch="arm" id="boot-tftp"><title>Booten per TFTP</title>
 
 &boot-installer-intro-net.xml;
 
-  </sect2>
+    <sect3 arch="arm" id="boot-tftp-uboot">
+      <title>TFTP-Boot in u-boot</title>
+      <para>
+       Das Booten von Systemen über das Netzwerk mittels der u-boot-Firmware
+       erfordert drei Schritte: a) Konfigurieren des Netzwerks, b) Laden
+       der Images (Kernel/Initial-Ramdisk/dtb) in den Speicher und c)
+       das eigentliche Ausführen des vorher geladenen Codes.
+      </para>
+      <para>
+       Als erstes müssen Sie das Netzwerk konfigurieren, entweder
+       automatisch über DHCP, indem Sie dies ausführen:
+<informalexample><screen>
+setenv autoload no
+dhcp
+</screen></informalexample>
+       oder manuell, indem Sie verschiedene Umgebungsvariablen setzen:
+<informalexample><screen>
+setenv ipaddr &lt;ip-adresse des clients&gt;
+setenv netmask &lt;netmask&gt;
+setenv serverip &lt;ip-adresse des tftp-servers&gt;
+setenv dnsip &lt;ip-adresse des nameservers&gt;
+setenv gatewayip &lt;ip-adresse des standard-gateways&gt;
+</screen></informalexample>
+       Falls Sie möchten, können Sie diese Einstellungen auch
+       fest einrichten mit:
+<informalexample><screen>
+saveenv
+</screen></informalexample>
+      </para>
+      <para>
+       Danach müssen Sie die Images (Kernel/Initial-Ramdisk/dtb)
+       in den Speicher laden. Dies wird mit dem tftpboot-Befehl
+       erledigt, der zusammen mit der Adresse, an der das Image
+       im Speicher abgelegt werden soll, angegeben werden muss.
+       Unglücklicherweise kann die Lücke im Speicher von
+       System zu System variieren, daher gibt es keine grundsätzliche
+       Regel, welche Adresse hierfür verwendet werden muss.                     
+      </para>
+      <para>
+       Auf einigen Systemen legt u-boot einige Umgebungsvariablen mit
+       passenden Ladeadressen an: kernel_addr_r, ramdisk_addr_r und
+       fdt_addr_r. Sie können überprüfen, ob diese definiert sind,
+       indem Sie dies ausführen:
+<informalexample><screen>
+printenv kernel_addr_r ramdisk_addr_r fdt_addr_r
+</screen></informalexample>
+       Falls sie nicht definiert sind, müssen Sie die Dokumentation
+       des Systems konsultieren bezüglich näherer Angaben zu passenden
+       Werten und diese händisch setzen. Für Systeme, die auf
+       Allwinner SunXi-SoCs (z.B. dem Allwinner A10,
+       Architekturname <quote>sun4i</quote> oder dem Allwinner A20,
+       Architekturname <quote>sun7i</quote>) basieren, können Sie
+       z.B. folgende Werte nutzen:
+<informalexample><screen>
+setenv kernel_addr_r 0x46000000
+setenv fdt_addr_r 0x47000000
+setenv ramdisk_addr_r 0x48000000
+</screen></informalexample>
+      </para>
+      <para>
+       Sind die Ladeadressen bereits definiert, können Sie die
+       Images von dem vorher definierten TFTP-Server in den Speicher
+       laden mit:
+<informalexample><screen>
+tftpboot ${kernel_addr_r} &lt;dateiname des kernel-images&gt;
+tftpboot ${fdt_addr_r} &lt;dateiname des dtb&gt;
+tftpboot ${ramdisk_addr_r} &lt;dateiname des initial-ramdisk-images&gt;
+</screen></informalexample>
+      </para>
+      <para>
+       Der dritte Schritt ist das Setzen der Kernel-Befehlszeile
+       und das eigentliche Ausführen des geladenen Codes. u-boot
+       übergibt den Inhalt der Umgebungsvariable <quote>bootargs</quote>
+       als Befehlszeile an den Kernel; also können alle Parameter für
+       den Kernel und den Installer - wie z.B. die Konsolen-Gerätedatei
+       (lesen Sie dazu <xref linkend="boot-console"/>) oder eventuelle
+       Voreinstellungsoptionen (Näheres in <xref 
+       linkend="installer-args"/> und <xref linkend="appendix-preseed"/>) -
+       mit einem Befehl wie dem folgenden gesetzt werden:
+<informalexample><screen>
+setenv bootargs console=ttyS0,115200 rootwait panic=10
+</screen></informalexample>
+       Der exakte Befehl zur Ausführung des vorher geladenen Codes hängt
+       vom verwendeten Image-Format ab. Bei uImage/uInitrd lautet der Befehl:
+<informalexample><screen>
+bootm ${kernel_addr_r} ${ramdisk_addr_r} ${fdt_addr_r}
+</screen></informalexample>
+       Bei nativen Linux-Image ist es:
+<informalexample><screen>
+bootz ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}
+</screen></informalexample>
+      </para>
+      <para>
+       Beachten Sie: wenn Sie Standard-Linux-Images booten, ist es
+       wichtig, dass das Initial-Ramdisk-Image nach dem Kernel und der
+       DTB geladen wird, da u-boot die filesize-Variable (Dateigröße)
+       auf die Größe der letzten geladenen Datei setzt und der
+       bootz-Befehl benötigt die Größe des Ramdisk-Images, um korrekt
+       zu arbeiten. Beim Booten eines plattformspezifischen Kernels, also
+       eines Kernels ohne Gerätebaum-Abbild (DTB), lassen Sie den
+       ${fdt_addr_r}-Parameter einfach weg.
+      </para>
+    </sect3>
+  </sect2> 
 
-
+<!-- # None of the arm systems supported in Jessie is able to boot from
+     # CD/DVD -> commenting out the "Booting from CD-ROM section" for arm
+     
   <sect2 arch="arm"><title>Booten von CD-ROM</title>
 
 &boot-installer-intro-cd.xml;
 
   </sect2>
+-->
 
+<!--
 
   <sect2 arch="arm" id="boot-firmware"><title>Booten von Firmware</title>
 
@@ -151,3 +289,5 @@ Der Installer wird nun wie gewöhnlich starten.
 </para>
    </sect3>
   </sect2>
+
+-->
