@@ -1,99 +1,114 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 43641 untranslated -->
+<!-- original version: 43641 -->
 
 
-  <sect2 arch="arm" id="arm-firmware-overview"><title>ARM firmware</title>
+  <sect2 arch="arm" id="arm-firmware-overview"><title>ARM-Firmware</title>
 
     <para>
-      As already mentioned before, there is unfortunately no standard for
-      system firmware on ARM systems.  Even the behaviour of different
-      systems which use nominally the same firmware can be quite different. 
-      This results from the fact that a large part of the devices using the
-      ARM architecture are embedded systems, for which the manufacturers
-      usually build heavily customized firmware versions and include
-      device-specific patches.  Unfortunately the manufacturers often do not
-      submit their changes and extensions back to the mainline firmware
-      developers, so their changes are not integrated into newer versions of
-      the original firmware.
+      Wie bereits vorher erwähnt, gibt es unglücklicherweise keinen
+      Standard für System-Firmware auf ARM-Systemen. Sogar das Verhalten
+      verschiedener Systeme, die nominal die gleiche Firmware verwenden,
+      kann ziemlich unterschiedlich sein. Dies liegt an der Tatsache,
+      dass ein großer Teil der Geräte, die die ARM-Architektur nutzen,
+      eingebettete (embedded) Systeme sind, für die die Hersteller
+      üblicherweise stark angepasste Firmware-Versionen erstellen
+      und gerätespezifische Patches integrieren.
+      Unglücklicherweise melden die Hersteller oft ihre Änderungen
+      nicht zurück an die ursprünglichen Firmware-Entwickler, so dass
+      die Änderungen nicht in neuere Versionen der Original-Firmware
+      einfließen.
     </para>
     <para>
-      As a result even newly sold systems often use a firmware that is based
-      on a years-old manufacturer-modified version of a firmware whose
-      mainline codebase has evolved a lot further in the meantime and offers
-      additional features or shows different behaviour in certain aspects. 
-      In addition to that, the naming of onboard devices is not consistent
-      between different manufacturer-modified versions of the same firmware,
-      therefore it is nearly impossible to provide usable
-      product-independend instructions for ARM-based systems.
+      Als Ergebnis daraus verwenden sogar neu verkaufte Systeme oft eine
+      Firmware, die auf einer mehrere Jahre alten, durch den Hersteller
+      angepassten Version einer Firmware basiert, deren Original-Codebasis
+      sich in der Zwischenzeit erheblich weiterentwickelt hat und
+      zusätzliche Funktionalitäten enthält oder bei bestimmten Aspekten
+      ein verändertes Verhalten zeigt.
+      Zusätzlich dazu ist die Benamung von Onboard-Geräten nicht
+      konsistent zwischen hersteller-modifizierten Versionen der gleichen
+      Firmware, daher ist es nahezu unmöglich, nützliche geräteunabhängige
+      Dokumentation für ARM-basierte Systeme bereitzustellen.
     </para>
   </sect2>
 
   <sect2 arch="arm" id="uboot-macsetting">
-    <title>Setting the ethernet MAC address in u-boot</title>
+    <title>Setzen der Ethernet-MAC-Adresse in u-boot</title>
     <para>
-      The MAC address of every ethernet interface should normally be
-      globally unique, and it technically has to be unique within its
-      ethernet broadcast domain.  To achieve this, the manufacturer usually
-      allocates a block of MAC addresses from a centrally-administered
-      pool (for which a fee has to be paid) and preconfigures one of these
-      addresses on each item sold.
+      Die MAC-Adresse jeder Ethernet-Schnittstelle sollte eigentlich
+      global eindeutig sein, und technisch muss sie innerhalb ihrer 
+      Ethernet-Broadcast-Domain eindeutig sein.
+      Um dies zu erreichen, reserviert der Hersteller normalerweise
+      einen Block von MAC-Adressen aus einem zentral administrierten
+      Pool (für den eine Gebühr gezahlt werden muss) und vergibt dann
+      eine dieser Adressen an jedes verkaufte Gerät.
     </para>
     <para>
-      In the case of development boards, sometimes the manufacturer wants to
-      avoid paying these fees and therefore provides no globally unique
-      addresses.  In these cases the users themselves have to define MAC
-      addresses for their systems.  When no MAC address is defined for an
-      ethernet interface, some network drivers generate a random MAC address
-      that can change on every boot, and if this happens, network access
-      would be possible even when the user has not manually set an address,
-      but e.g. assigning semi-static IP addresses by DHCP based on the MAC
-      address of the requesting client would obviously not work reliably.
+      Im Falle von Development-Boards wollen Hersteller manchmal
+      die Zahlung der Gebühr vermeiden und stellen daher keine global
+      eindeutigen Adressen bereit. In diesen Fällen muss der Benutzer
+      selbst MAC-Adressen für seine Systeme vergeben. Wenn für eine
+      Ethernet-Schnittstelle keine MAC-Adresse festgelegt ist, generieren
+      einige Netzwerktreiber eine zufällige MAC-Adresse, die sich dann
+      bei jedem Neustart ändern kann, und dabei wäre ein Netzwerkzugriff
+      möglich, ohne dass der Benutzer händisch eine Adresse festgelegt
+      hat; wenn jedoch z.B. die IP-Adressen über DHCP aus der MAC-Adresse
+      des anfordernden Clients abgeleitet werden, würde dies
+      natürlich nicht zuverlässig funktionieren.
     </para>
     <para>
-      To avoid conflicts with existing officially-assigned MAC addresses,
-      there is an address pool which is reserved for so-called
-      <quote>locally administered</quote> addresses. It is defined by
-      the value of two specific bits in the first byte of the address (the
-      article "MAC address" in the English language Wikipedia gives a 
-      good explanation). In practice this means that e.g. any address starting
-      with hexadecimal ca (such as ca:ff:ee:12:34:56) can be used as a locally
-      administered address. 
+      Um Konflikte mit vorhandenen offiziell vergebenen MAC-Adressen
+      zu vermeiden, gibt es einen Adress-Pool, der für sogenannte
+      <quote>lokal administrierte</quote> Adressen reserviert ist.
+      Er wird über den Wert von zwei speziellen Bits im ersten Byte
+      der Adresse definiert (der Artikel <quote>MAC address</quote>
+      in der englisch-sprachigen Wikipedia enthält hierzu eine gute
+      Beschreibung). In der Praxis bedeutet dies, dass z.B. jede
+      Adresse, die mit dem hexadezimalen Wert ca beginnt (wie
+      ca:ff:ee:12:34:56), als lokal administrierte Adresse
+      verwendet werden kann.
     </para>
     <para>
-      On systems using u-boot as system firmware, the ethernet MAC address
-      is placed in the <quote>ethaddr</quote> environment variable.
-      It can be checked at the u-boot command prompt with the command
-      <quote>printenv ethaddr</quote> and can be set with the command
-      <quote>setenv ethaddr ca:ff:ee:12:34:56</quote>.  After setting the value,
-      the command <quote>saveenv</quote> makes the assignment permanent.
+      Auf Systemen, die u-boot als System-Firmware nutzen, ist die
+      Ethernet-MAC-Adresse in der Umgebungsvariablen <quote>ethaddr</quote>
+      abgelegt. Sie kann über den u-boot-Befehlsprompt mit dem
+      Befehl <quote>printenv ethaddr</quote> überprüft und mit
+      <quote>setenv ethaddr ca:ff:ee:12:34:56</quote> gesetzt werden.
+      Nach dem Ändern des Wertes wird mit dem Befehl
+      <quote>saveenv</quote> diese Einstellung fest abgespeichert.
     </para>
   </sect2>
 
   <sect2 arch="arm" id="uboot-relocation-issues">
-    <title>Kernel/Initrd/Device-Tree relocation issues in u-boot</title>
+    <title>Probleme mit der Speicherzuweisung für Kernel/Initrd/Gerätebaum in u-boot</title>
     <para>
-      On some systems with older u-boot versions there can be problems with
-      properly relocating the Linux kernel, the initial ramdisk and the
-      device-tree blob in memory during the boot process.  In this case,
-      u-boot shows the message "Starting kernel ...", but the system freezes
-      afterwards without further output.  These issues have been solved with
-      newer u-boot versions from v2014.07 onwards.
+      Auf einigen Systemen mit älteren u-boot-Versionen können Probleme
+      mit der korrekten Speicherzuweisung für Linux-Kernel, Initial-Ramdisk
+      und Gerätebaum-Abbild während des Boot-Prozesses
+      auftreten. In diesem Fall zeigt u-boot die Meldung <quote>Starting
+      kernel ...</quote> an, aber das System friert danach ohne weitere
+      Ausgabe ein. Diese Probleme wurden in neueren u-boot-Versionen
+      ab v2014.07 aufwärts behoben.
     </para>
     <para>
-      If the system has originally used a u-boot version older than
-      v2014.07 and has been upgraded to a newer version later, the problem
-      might still occur even after upgrading u-boot.  Upgrading u-boot
-      usually does not modify the existing u-boot environment variables and
-      the fix requires an additional environment variable (bootm_size) to be
-      set, which u-boot does automatically only on fresh installations
-      without existing environment data.  It is possible to manually set
-      bootm_size to the new u-boot's default value by running the command
-      "env default bootm_size; saveenv" at the u-boot prompt.
+      Falls das System im Originalzustand eine u-boot-Version älter als
+      v2014.07 genutzt hat und dann auf eine neuere Version aktualisiert
+      wurde, könnte das Problem auch nach dem Upgrade von u-boot noch
+      auftreten. Das Aktualisieren von u-boot modifiziert üblicherweise
+      nicht die vorhandenen Umgebungsvariablen und der Fix zur Fehlerbehebung
+      erfordert das Setzen einer zusätzlichen Umgebungsvariable (bootm_size),
+      was jedoch nur bei frischen Neuinstallationen ohne vorhandene
+      Umgebungsdaten von u-boot automatisch erledigt wird. Es ist
+      möglich, bootm_size händisch auf den neuen u-boot-Standardwert
+      zu setzen, indem <quote>env default bootm_size; saveenv</quote>
+      am u-boot-Prompt ausgeführt wird.
     </para>
     <para>
-      Another possibility to circumvent relocation-related problems is to
-      run the command "setenv fdt_high ffffffff; setenv initrd_high
-      0xffffffff; saveenv" at the u-boot prompt to completely disable
-      the relocation of the initial ramdisk and the device-tree blob.          
+      Eine andere Möglichkeit, solche Probleme mit Speicherzuweisungen
+      zu verhindern ist, den Befehl
+      <quote>setenv fdt_high ffffffff; setenv initrd_high 0xffffffff;
+      saveenv</quote> am u-boot-Prompt auszuführen; damit wird die
+      dynamische Speicherzuweisung von Initial-Ramdisk und 
+      Gerätebaum-Abbild vollständig deaktiviert.         
     </para>
   </sect2>
