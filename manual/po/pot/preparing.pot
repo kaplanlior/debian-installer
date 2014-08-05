@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2014-08-04 07:59+0000\n"
+"POT-Creation-Date: 2014-08-05 21:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -725,7 +725,7 @@ msgstr ""
 #. Tag: entry
 #: preparing.xml:764
 #, no-c-format
-msgid "RAM (minimal)"
+msgid "RAM (minimum)"
 msgstr ""
 
 #. Tag: entry
@@ -749,19 +749,19 @@ msgstr ""
 #. Tag: entry
 #: preparing.xml:773
 #, no-c-format
-msgid "64 megabytes"
+msgid "128 megabytes"
 msgstr ""
 
 #. Tag: entry
 #: preparing.xml:774
 #, no-c-format
-msgid "256 megabytes"
+msgid "512 megabytes"
 msgstr ""
 
 #. Tag: entry
 #: preparing.xml:775
 #, no-c-format
-msgid "1 gigabyte"
+msgid "2 gigabytes"
 msgstr ""
 
 #. Tag: entry
@@ -773,19 +773,19 @@ msgstr ""
 #. Tag: entry
 #: preparing.xml:778
 #, no-c-format
-msgid "128 megabytes"
+msgid "256 megabytes"
 msgstr ""
 
 #. Tag: entry
 #: preparing.xml:779
 #, no-c-format
-msgid "512 megabytes"
+msgid "1 gigabyte"
 msgstr ""
 
 #. Tag: entry
 #: preparing.xml:780
 #, no-c-format
-msgid "5 gigabytes"
+msgid "10 gigabytes"
 msgstr ""
 
 #. Tag: para
@@ -1229,7 +1229,7 @@ msgstr ""
 #. Tag: para
 #: preparing.xml:1513
 #, no-c-format
-msgid "To avoid conflicts with existing officially-assigned MAC addresses, there is an address pool which is reserved for so-called <quote>locally administered</quote> addresses. It is defined by the value of two specific bits in the first byte of the address (the article \"MAC address\" in the English language Wikipedia gives a good explanation). In practice this means that e.g. any address starting with hexadecimal ca (such as ca:ff:ee:12:34:56) can be used as a locally administered address."
+msgid "To avoid conflicts with existing officially-assigned MAC addresses, there is an address pool which is reserved for so-called <quote>locally administered</quote> addresses. It is defined by the value of two specific bits in the first byte of the address (the article <quote>MAC address</quote> in the English language Wikipedia gives a good explanation). In practice this means that e.g. any address starting with hexadecimal ca (such as ca:ff:ee:12:34:56) can be used as a locally administered address."
 msgstr ""
 
 #. Tag: para
@@ -1247,95 +1247,95 @@ msgstr ""
 #. Tag: para
 #: preparing.xml:1535
 #, no-c-format
-msgid "On some systems with older u-boot versions there can be problems with properly relocating the Linux kernel, the initial ramdisk and the device-tree blob in memory during the boot process. In this case, u-boot shows the message \"Starting kernel ...\", but the system freezes afterwards without further output. These issues have been solved with newer u-boot versions from v2014.07 onwards."
+msgid "On some systems with older u-boot versions there can be problems with properly relocating the Linux kernel, the initial ramdisk and the device-tree blob in memory during the boot process. In this case, u-boot shows the message <quote>Starting kernel ...</quote>, but the system freezes afterwards without further output. These issues have been solved with newer u-boot versions from v2014.07 onwards."
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1543
+#: preparing.xml:1544
 #, no-c-format
-msgid "If the system has originally used a u-boot version older than v2014.07 and has been upgraded to a newer version later, the problem might still occur even after upgrading u-boot. Upgrading u-boot usually does not modify the existing u-boot environment variables and the fix requires an additional environment variable (bootm_size) to be set, which u-boot does automatically only on fresh installations without existing environment data. It is possible to manually set bootm_size to the new u-boot's default value by running the command \"env default bootm_size; saveenv\" at the u-boot prompt."
+msgid "If the system has originally used a u-boot version older than v2014.07 and has been upgraded to a newer version later, the problem might still occur even after upgrading u-boot. Upgrading u-boot usually does not modify the existing u-boot environment variables and the fix requires an additional environment variable (bootm_size) to be set, which u-boot does automatically only on fresh installations without existing environment data. It is possible to manually set bootm_size to the new u-boot's default value by running the command <quote>env default bootm_size; saveenv</quote> at the u-boot prompt."
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1554
+#: preparing.xml:1555
 #, no-c-format
-msgid "Another possibility to circumvent relocation-related problems is to run the command \"setenv fdt_high ffffffff; setenv initrd_high 0xffffffff; saveenv\" at the u-boot prompt to completely disable the relocation of the initial ramdisk and the device-tree blob."
+msgid "Another possibility to circumvent relocation-related problems is to run the command <quote>setenv fdt_high ffffffff; setenv initrd_high 0xffffffff; saveenv</quote> at the u-boot prompt to completely disable the relocation of the initial ramdisk and the device-tree blob."
 msgstr ""
 
 #. Tag: title
-#: preparing.xml:1564
+#: preparing.xml:1565
 #, no-c-format
 msgid "Systems with UEFI firmware"
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1565
+#: preparing.xml:1566
 #, no-c-format
 msgid "UEFI (<quote>Unified Extensible Firmware Interface</quote>) is a new kind of system firmware that is used on many modern systems and is - among other uses - intended to replace the classic PC BIOS."
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1571
+#: preparing.xml:1572
 #, no-c-format
 msgid "Currently most PC systems that use UEFI also have a so-called <quote>Compatibility Support Module</quote> (CSM) in the firmware, which provides excatly the same interfaces to an operating system as a classic PC BIOS, so that software written for the classic PC BIOS can be used unchanged. Nonetheless UEFI is intended to one day completely replace the old PC BIOS without being fully backwards-compatible and there are already a few systems with UEFI but without CSM."
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1581
+#: preparing.xml:1582
 #, no-c-format
 msgid "On systems with UEFI there are a few things to take into consideration when installing an operating system. The way the firmware loads an operating system is fundamentally different between the classic BIOS (or UEFI in CSM mode) and native UEFI. One major difference is the way the harddisk partitions get recorded on the harddisk. While the classic BIOS and UEFI in CSM mode use a DOS partition table, native UEFI uses a different partitioning scheme called <quote>GUID Partition Table</quote> (GPT). On a single disk, for all practical purposes only one of the two can be used and in case of a multi-boot setup with different operating systems on one disk, all of them must therefore use the same type of partition table. Booting from a disk with GPT is only possible in native UEFI mode, but using GPT becomes more and more common as hard disk sizes grow, because the classic DOS partition table cannot address disks larger than about 2 Terabytes while GPT allows for by far larger disks. The other major difference between BIOS (or UEFI in CSM mode) and native UEFI is from where boot code is loaded and in which format it has to be, so that different bootloaders are needed for both systems."
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1601
+#: preparing.xml:1602
 #, no-c-format
 msgid "The latter becomes important when booting &d-i; on a UEFI system with CSM because &d-i; checks whether it was started on a BIOS- or on a native UEFI system and installs the corresponding bootloader. Normally this simply works but there can be a problem in multi-boot environments. On some UEFI systems with CSM the default boot mode for removable devices can be different from what is actually used when booting from hard disk, so when booting the installer from a USB stick in a different mode from what is used when booting another already installed operating system from the hard disk, the wrong bootloader might be installed and the system might be unbootable after finishing the installation. When choosing the boot device from a firmware boot menu, some systems offer two seperate choices for each device, so that the user can select whether booting shall happen in CSM or in native UEFI mode."
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1617
+#: preparing.xml:1618
 #, no-c-format
 msgid "Another UEFI-related topic is the so-called <quote>secure boot</quote> mechanism. Secure boot means a function of UEFI implementations that allows the firmware to only load and execute code that is cryptographically signed with certain keys and thereby blocking any (potentially malicious) boot code that is unsigned or signed with unknown keys. In practice the only key accepted by default on most UEFI systems with secure boot is a key from Microsoft used for signing the Windows bootloader. As the boot code used by &d-i; is not signed by Microsoft, booting the installer requires prior deactivation of secure boot in case it is enabled. Secure boot is often enabled by default on systems that come preinstalled with a 64Bit version of Windows 8 and there is unfortunately no standard where in the UEFI setup it can be disabled. On some systems, the option to disable secure boot is only made visible when a BIOS password has been set by the user, so if you have a system with secure boot enabled, but cannot find an option to disable it, try setting a BIOS password, powercycle the machine and look again for an appropriate option."
 msgstr ""
 
 #. Tag: title
-#: preparing.xml:1639
+#: preparing.xml:1640
 #, no-c-format
 msgid "Disabling the Windows 8 <quote>fast boot</quote> feature"
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1640
+#: preparing.xml:1641
 #, no-c-format
 msgid "Windows 8 offers a feature called <quote>fast boot</quote> to cut down the time needed to boot itself. Technically, when this feature is enabled, Windows 8 does not do a real shutdown and a real cold boot afterwards when ordered to shut down, but instead does something resembling a partial suspend to disk to reduce the <quote>boot</quote> time. As long as Windows 8 is the only operating system on the machine, this is unproblematic, but it can result in problems and data loss when you have a dual boot setup in which another operating system accesses the same filesystems as Windows 8 does. In that case the real state of the filesystem can be different from what Windows 8 believes it to be after the <quote>boot</quote> and this could cause filesystem corruption upon further write accesses to the filesystem. Therefore in a dual boot setup, to avoid filesystem corruption the <quote>fast boot</quote> feature has to be disabled within Windows."
 msgstr ""
 
 #. Tag: title
-#: preparing.xml:1658
+#: preparing.xml:1659
 #, no-c-format
 msgid "Hardware Issues to Watch Out For"
 msgstr ""
 
 #. Tag: title
-#: preparing.xml:1661
+#: preparing.xml:1662
 #, no-c-format
 msgid "USB BIOS support and keyboards"
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1662
+#: preparing.xml:1663
 #, no-c-format
 msgid "If you have no PS/2-style keyboard, but only a USB model, on some very old PCs you may need to enable legacy keyboard emulation in your BIOS setup to be able to use your keyboard in the bootloader menu, but this is not an issue for modern systems. If your keyboard does not work in the bootloader menu, consult your mainboard manual and look in the BIOS for <quote>Legacy keyboard emulation</quote> or <quote>USB keyboard support</quote> options."
 msgstr ""
 
 #. Tag: title
-#: preparing.xml:1675
+#: preparing.xml:1676
 #, no-c-format
 msgid "Display-visibility on OldWorld Powermacs"
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1677
+#: preparing.xml:1678
 #, no-c-format
 msgid "Some OldWorld Powermacs, most notably those with the <quote>control</quote> display driver, may not reliably produce a colormap under Linux when the display is configured for more than 256 colors. If you are experiencing such issues with your display after rebooting (you can sometimes see data on the monitor, but on other occasions cannot see anything) or, if the screen turns black after booting the installer instead of showing you the user interface, try changing your display settings under MacOS to use 256 colors instead of <quote>thousands</quote> or <quote>millions</quote>."
 msgstr ""

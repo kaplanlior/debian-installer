@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Debian Installation Guide preparing\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2014-08-04 07:59+0000\n"
+"POT-Creation-Date: 2014-08-05 21:38+0000\n"
 "PO-Revision-Date: 2010-05-05 06:23+0300\n"
 "Last-Translator: Tapio Lehtonen <tale@debian.org>\n"
 "Language-Team: Finnish <debian-l10n-finnish@lists.debian.org>\n"
@@ -1126,8 +1126,9 @@ msgstr "Asennustapa"
 
 #. Tag: entry
 #: preparing.xml:764
-#, no-c-format
-msgid "RAM (minimal)"
+#, fuzzy, no-c-format
+#| msgid "RAM (minimal)"
+msgid "RAM (minimum)"
 msgstr "Muisti (vähintään)"
 
 #. Tag: entry
@@ -1150,21 +1151,23 @@ msgstr "Ei työpöytää"
 
 #. Tag: entry
 #: preparing.xml:773
-#, no-c-format
-msgid "64 megabytes"
-msgstr "64 Mt"
+#, fuzzy, no-c-format
+#| msgid "512 megabytes"
+msgid "128 megabytes"
+msgstr "512 Mt"
 
 #. Tag: entry
 #: preparing.xml:774
 #, no-c-format
-msgid "256 megabytes"
-msgstr "256 Mt"
+msgid "512 megabytes"
+msgstr "512 Mt"
 
 #. Tag: entry
 #: preparing.xml:775
-#, no-c-format
-msgid "1 gigabyte"
-msgstr "1 Gt"
+#, fuzzy, no-c-format
+#| msgid "5 gigabytes"
+msgid "2 gigabytes"
+msgstr "5 gigatavua"
 
 #. Tag: entry
 #: preparing.xml:777
@@ -1174,22 +1177,22 @@ msgstr "Työpöytäympäristö"
 
 #. Tag: entry
 #: preparing.xml:778
-#, fuzzy, no-c-format
-#| msgid "512 megabytes"
-msgid "128 megabytes"
-msgstr "512 Mt"
+#, no-c-format
+msgid "256 megabytes"
+msgstr "256 Mt"
 
 #. Tag: entry
 #: preparing.xml:779
 #, no-c-format
-msgid "512 megabytes"
-msgstr "512 Mt"
+msgid "1 gigabyte"
+msgstr "1 Gt"
 
 #. Tag: entry
 #: preparing.xml:780
-#, no-c-format
-msgid "5 gigabytes"
-msgstr "5 gigatavua"
+#, fuzzy, no-c-format
+#| msgid "1 gigabyte"
+msgid "10 gigabytes"
+msgstr "1 Gt"
 
 #. Tag: para
 #: preparing.xml:785
@@ -2283,10 +2286,10 @@ msgid ""
 "To avoid conflicts with existing officially-assigned MAC addresses, there is "
 "an address pool which is reserved for so-called <quote>locally administered</"
 "quote> addresses. It is defined by the value of two specific bits in the "
-"first byte of the address (the article \"MAC address\" in the English "
-"language Wikipedia gives a good explanation). In practice this means that e."
-"g. any address starting with hexadecimal ca (such as ca:ff:ee:12:34:56) can "
-"be used as a locally administered address."
+"first byte of the address (the article <quote>MAC address</quote> in the "
+"English language Wikipedia gives a good explanation). In practice this means "
+"that e.g. any address starting with hexadecimal ca (such as ca:ff:"
+"ee:12:34:56) can be used as a locally administered address."
 msgstr ""
 
 #. Tag: para
@@ -2314,13 +2317,13 @@ msgid ""
 "On some systems with older u-boot versions there can be problems with "
 "properly relocating the Linux kernel, the initial ramdisk and the device-"
 "tree blob in memory during the boot process. In this case, u-boot shows the "
-"message \"Starting kernel ...\", but the system freezes afterwards without "
-"further output. These issues have been solved with newer u-boot versions "
-"from v2014.07 onwards."
+"message <quote>Starting kernel ...</quote>, but the system freezes "
+"afterwards without further output. These issues have been solved with newer "
+"u-boot versions from v2014.07 onwards."
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1543
+#: preparing.xml:1544
 #, no-c-format
 msgid ""
 "If the system has originally used a u-boot version older than v2014.07 and "
@@ -2330,27 +2333,28 @@ msgid ""
 "environment variable (bootm_size) to be set, which u-boot does automatically "
 "only on fresh installations without existing environment data. It is "
 "possible to manually set bootm_size to the new u-boot's default value by "
-"running the command \"env default bootm_size; saveenv\" at the u-boot prompt."
+"running the command <quote>env default bootm_size; saveenv</quote> at the u-"
+"boot prompt."
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1554
+#: preparing.xml:1555
 #, no-c-format
 msgid ""
 "Another possibility to circumvent relocation-related problems is to run the "
-"command \"setenv fdt_high ffffffff; setenv initrd_high 0xffffffff; saveenv\" "
-"at the u-boot prompt to completely disable the relocation of the initial "
-"ramdisk and the device-tree blob."
+"command <quote>setenv fdt_high ffffffff; setenv initrd_high 0xffffffff; "
+"saveenv</quote> at the u-boot prompt to completely disable the relocation of "
+"the initial ramdisk and the device-tree blob."
 msgstr ""
 
 #. Tag: title
-#: preparing.xml:1564
+#: preparing.xml:1565
 #, no-c-format
 msgid "Systems with UEFI firmware"
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1565
+#: preparing.xml:1566
 #, no-c-format
 msgid ""
 "UEFI (<quote>Unified Extensible Firmware Interface</quote>) is a new kind of "
@@ -2359,7 +2363,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1571
+#: preparing.xml:1572
 #, no-c-format
 msgid ""
 "Currently most PC systems that use UEFI also have a so-called "
@@ -2372,7 +2376,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1581
+#: preparing.xml:1582
 #, no-c-format
 msgid ""
 "On systems with UEFI there are a few things to take into consideration when "
@@ -2395,7 +2399,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1601
+#: preparing.xml:1602
 #, no-c-format
 msgid ""
 "The latter becomes important when booting &d-i; on a UEFI system with CSM "
@@ -2414,7 +2418,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1617
+#: preparing.xml:1618
 #, no-c-format
 msgid ""
 "Another UEFI-related topic is the so-called <quote>secure boot</quote> "
@@ -2436,13 +2440,13 @@ msgid ""
 msgstr ""
 
 #. Tag: title
-#: preparing.xml:1639
+#: preparing.xml:1640
 #, no-c-format
 msgid "Disabling the Windows 8 <quote>fast boot</quote> feature"
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1640
+#: preparing.xml:1641
 #, no-c-format
 msgid ""
 "Windows 8 offers a feature called <quote>fast boot</quote> to cut down the "
@@ -2461,19 +2465,19 @@ msgid ""
 msgstr ""
 
 #. Tag: title
-#: preparing.xml:1658
+#: preparing.xml:1659
 #, no-c-format
 msgid "Hardware Issues to Watch Out For"
 msgstr "Varottavia laitetason ilmiöitä"
 
 #. Tag: title
-#: preparing.xml:1661
+#: preparing.xml:1662
 #, no-c-format
 msgid "USB BIOS support and keyboards"
 msgstr "Tuki USB BIOS:lle ja näppäimistöille"
 
 #. Tag: para
-#: preparing.xml:1662
+#: preparing.xml:1663
 #, fuzzy, no-c-format
 #| msgid ""
 #| "If you have no AT-style keyboard and only a USB model, you may need to "
@@ -2500,13 +2504,13 @@ msgstr ""
 "keyboard emulation</quote> tai <quote>USB keyboard support</quote>."
 
 #. Tag: title
-#: preparing.xml:1675
+#: preparing.xml:1676
 #, no-c-format
 msgid "Display-visibility on OldWorld Powermacs"
 msgstr "Näytön pimeneminen OldWorld Powermaceissa"
 
 #. Tag: para
-#: preparing.xml:1677
+#: preparing.xml:1678
 #, no-c-format
 msgid ""
 "Some OldWorld Powermacs, most notably those with the <quote>control</quote> "
@@ -2526,6 +2530,9 @@ msgstr ""
 "käynnistyksen jälkeen eikä käyttöliittymää näy, yritä muuttaa näytön "
 "värisyvyydeksi 256 väriä eikä <quote>tuhansia</quote> tai <quote>miljoonia</"
 "quote>."
+
+#~ msgid "64 megabytes"
+#~ msgstr "64 Mt"
 
 #~ msgid ""
 #~ "If you are planning to install both MacOS 9 and OS X, it is best to "

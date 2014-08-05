@@ -61,7 +61,6 @@ msgstr ""
 #. Tag: title
 #: boot-installer.xml:38
 #, no-c-format
-#| msgid "Booting from Firmware"
 msgid "Boot image formats"
 msgstr "Formatos de imagens de arranque"
 
@@ -111,14 +110,13 @@ msgid ""
 "of the particular hardware."
 msgstr ""
 "Para sistemas que utilizem um kernel multi-plataforma, além do kernel e um "
-"ramdisk inicial, é necessário um chamado ficheiro device-tree, <quote>dtb"
-"</quote>. É especifico de cada sistema suportado e contém uma descrição do "
+"ramdisk inicial, é necessário um chamado ficheiro device-tree, <quote>dtb</"
+"quote>. É especifico de cada sistema suportado e contém uma descrição do "
 "hardware próprio."
 
 #. Tag: title
 #: boot-installer.xml:64
 #, no-c-format
-#| msgid "Booting from TFTP"
 msgid "Booting by TFTP"
 msgstr "Arrancar por TFTP"
 
@@ -126,9 +124,6 @@ msgstr "Arrancar por TFTP"
 #: boot-installer.xml:70 boot-installer.xml:630 boot-installer.xml:1172
 #: boot-installer.xml:1356 boot-installer.xml:1679 boot-installer.xml:1789
 #, no-c-format
-#| msgid ""
-#| "Booting from the network requires that you have a network connection and "
-#| "a TFTP network boot server (DHCP, RARP, or BOOTP)."
 msgid ""
 "Booting from the network requires that you have a network connection and a "
 "TFTP network boot server (and probably also a DHCP, RARP, or BOOTP server "
@@ -153,9 +148,6 @@ msgstr ""
 #: boot-installer.xml:81 boot-installer.xml:641 boot-installer.xml:1183
 #: boot-installer.xml:1367 boot-installer.xml:1690 boot-installer.xml:1800
 #, no-c-format
-#| msgid ""
-#| "The installation method to support network booting is described in <xref "
-#| "linkend=\"install-tftp\"/>."
 msgid ""
 "The server-side setup to support network booting is described in <xref "
 "linkend=\"install-tftp\"/>."
@@ -250,14 +242,15 @@ msgid ""
 msgstr ""
 "Em alguns sistemas, u-boot pré-define um conjunto de variáveis de ambiente "
 "com endereços de carregamento apropriados: kernel_addr_r, ramdisk_addr_r e "
-"fdt_addr_r. Pode verificar se estão definidos ao correr <informalexample>"
-"<screen>\n"
-"printenv kernel_addr_r ramdisk_addr_r fdt_addr_r\n</screen></informalexample> "
-"Se não estiverem definidos, tem que verificar a documentação do seu sistema "
-"por valores apropriados e defini-los manualmente. Para sistemas baseados em "
-"Allwinner SunXi SOCs (e.g. o Allwinner A10, nome de arquitectura <quote>sun4i"
-"</quote> ou o Allwinner A20, nome de arquitectura <quote>sun7i</quote>), "
-"pode por exemplo utilizar os seguintes valores:"
+"fdt_addr_r. Pode verificar se estão definidos ao correr "
+"<informalexample><screen>\n"
+"printenv kernel_addr_r ramdisk_addr_r fdt_addr_r\n"
+"</screen></informalexample> Se não estiverem definidos, tem que verificar a "
+"documentação do seu sistema por valores apropriados e defini-los "
+"manualmente. Para sistemas baseados em Allwinner SunXi SOCs (e.g. o "
+"Allwinner A10, nome de arquitectura <quote>sun4i</quote> ou o Allwinner A20, "
+"nome de arquitectura <quote>sun7i</quote>), pode por exemplo utilizar os "
+"seguintes valores:"
 
 #. Tag: screen
 #: boot-installer.xml:125
@@ -291,7 +284,8 @@ msgid ""
 msgstr ""
 "tftpboot ${kernel_addr_r} &lt;nome de ficheiro da imagem do kernel&gt;\n"
 "tftpboot ${fdt_addr_r} &lt;nome de ficheiro de dtb&gt;\n"
-"tftpboot ${ramdisk_addr_r} &lt;nome de ficheiro da imagem inicial de ramdisk&gt;"
+"tftpboot ${ramdisk_addr_r} &lt;nome de ficheiro da imagem inicial de "
+"ramdisk&gt;"
 
 #. Tag: para
 #: boot-installer.xml:132
@@ -311,17 +305,17 @@ msgid ""
 "bootm ${kernel_addr_r} ${ramdisk_addr_r} ${fdt_addr_r}\n"
 "</screen></informalexample> and with native Linux images it is"
 msgstr ""
-"A terceira parte é definir a linha de comandos do kernel e executar o "
-"código carregado. U-boot passa o conteúdo da variável de ambiente <quote>"
-"bootargs</quote> como linha de comandos do kernel, por isso quaisquer "
-"parâmetros para o kernel e instalador - tais como dispositivo de consola "
-"(veja <xref linkend=\"boot-console\"/>) ou opções de preseeding (seja "
-"<xref linkend=\"installer-args\"/> e <xref linkend=\"appendix-preseed\"/>) "
-"- pode ser definido com um comando como <informalexample><screen>\n"
+"A terceira parte é definir a linha de comandos do kernel e executar o código "
+"carregado. U-boot passa o conteúdo da variável de ambiente <quote>bootargs</"
+"quote> como linha de comandos do kernel, por isso quaisquer parâmetros para "
+"o kernel e instalador - tais como dispositivo de consola (veja <xref linkend="
+"\"boot-console\"/>) ou opções de preseeding (seja <xref linkend=\"installer-"
+"args\"/> e <xref linkend=\"appendix-preseed\"/>) - pode ser definido com um "
+"comando como <informalexample><screen>\n"
 "setenv bootargs console=ttyS0,115200 rootwait panic=10\n"
 "</screen></informalexample> O comando exato a executar o código carregado "
-"anteriormente depende do formato de imagem utilizado. Com uImage/uInitrd "
-"o comando é <informalexample><screen>\n"
+"anteriormente depende do formato de imagem utilizado. Com uImage/uInitrd o "
+"comando é <informalexample><screen>\n"
 "bootm ${kernel_addr_r} ${ramdisk_addr_r} ${fdt_addr_r}\n"
 "</screen></informalexample> e com imagens nativas de Linux é"
 
@@ -345,8 +339,8 @@ msgstr ""
 "Nota: Quando arrancar imagens standard de linux, é importante carregar a "
 "imagem ramdisk inicial após o kernel e o dtb já que u-boot define a variável "
 "de tamanho de ficheiro ao tamanho do último ficheiro carregado e o comando "
-"bootz necessita o tamanho da imagem ramdisk para funcionar correctamente. "
-"Em caso de arrancar um kernel específico da plataforma, i.e. um kernel sem "
+"bootz necessita o tamanho da imagem ramdisk para funcionar correctamente. Em "
+"caso de arrancar um kernel específico da plataforma, i.e. um kernel sem "
 "device-tree, simplesmente omita o parâmetro ${fdt_addr_r}."
 
 #. Tag: title
@@ -395,12 +389,6 @@ msgstr ""
 #: boot-installer.xml:311 boot-installer.xml:810 boot-installer.xml:1467
 #: boot-installer.xml:1848
 #, no-c-format
-#| msgid ""
-#| "Even if you cannot boot from CD-ROM, you can probably install the "
-#| "&debian; system components and any packages you want from CD-ROM. Simply "
-#| "boot using a different media, such as floppies. When it's time to install "
-#| "the operating system, base system, and any additional packages, point the "
-#| "installation system at the CD-ROM drive."
 msgid ""
 "Even if you cannot boot from CD-ROM, you can probably install the &debian; "
 "system components and any packages you want from CD-ROM. Simply boot using a "
@@ -411,9 +399,8 @@ msgstr ""
 "Mesmo que não consiga arrancar a partir do CD-ROM, poderá provavelmente "
 "instalar os componentes do sistema &debian; e quaisquer pacotes que deseje a "
 "partir de CD-ROM. Simplesmente arranque utilizando um meio diferente e "
-"quando for altura de instalar o sistema operativo, sistema base, e "
-"quaisquer pacotes adicionais, aponte o sistema de instalação para a drive "
-"de CD-ROM."
+"quando for altura de instalar o sistema operativo, sistema base, e quaisquer "
+"pacotes adicionais, aponte o sistema de instalação para a drive de CD-ROM."
 
 #. Tag: para
 #: boot-installer.xml:319 boot-installer.xml:818 boot-installer.xml:1475
@@ -2520,11 +2507,11 @@ msgid ""
 "\"installer-args\"/>."
 msgstr ""
 "O instaldor &debian; suporta vários front-ends para colocar questões, com "
-"várias conveniências para acessibilidade: notavelmente, <userinput>text"
-"</userinput> utiliza texto simples enquanto que <userinput>newt</userinput> "
+"várias conveniências para acessibilidade: notavelmente, <userinput>text</"
+"userinput> utiliza texto simples enquanto que <userinput>newt</userinput> "
 "utiliza caixas de diálogo baseadas em texto. A escolha pode ser feita na "
-"prompt de arranque, veja a documentação para <userinput>DEBIAN_FRONTEND"
-"</userinput> em <xref linkend=\"installer-args\"/>."
+"prompt de arranque, veja a documentação para <userinput>DEBIAN_FRONTEND</"
+"userinput> em <xref linkend=\"installer-args\"/>."
 
 #. Tag: title
 #: boot-installer.xml:1926
