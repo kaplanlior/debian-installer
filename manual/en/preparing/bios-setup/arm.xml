@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- $Id: sparc.xml 43641 2006-12-29 05:23:38Z fjp $ -->
+<!-- $Id: arm.xml 43641 2014-08-05 00:05:38Z holger-guest $ -->
 
 
   <sect2 arch="arm" id="arm-firmware-overview"><title>ARM firmware</title>
@@ -54,7 +54,7 @@
       there is an address pool which is reserved for so-called
       <quote>locally administered</quote> addresses. It is defined by
       the value of two specific bits in the first byte of the address (the
-      article "MAC address" in the English language Wikipedia gives a 
+      article <quote>MAC address</quote> in the English language Wikipedia gives a 
       good explanation). In practice this means that e.g. any address starting
       with hexadecimal ca (such as ca:ff:ee:12:34:56) can be used as a locally
       administered address. 
@@ -75,7 +75,8 @@
       On some systems with older u-boot versions there can be problems with
       properly relocating the Linux kernel, the initial ramdisk and the
       device-tree blob in memory during the boot process.  In this case,
-      u-boot shows the message "Starting kernel ...", but the system freezes
+      u-boot shows the message <quote>Starting kernel ...</quote>,
+      but the system freezes
       afterwards without further output.  These issues have been solved with
       newer u-boot versions from v2014.07 onwards.
     </para>
@@ -88,12 +89,12 @@
       set, which u-boot does automatically only on fresh installations
       without existing environment data.  It is possible to manually set
       bootm_size to the new u-boot's default value by running the command
-      "env default bootm_size; saveenv" at the u-boot prompt.
+      <quote>env default bootm_size; saveenv</quote> at the u-boot prompt.
     </para>
     <para>
       Another possibility to circumvent relocation-related problems is to
-      run the command "setenv fdt_high ffffffff; setenv initrd_high
-      0xffffffff; saveenv" at the u-boot prompt to completely disable
+      run the command <quote>setenv fdt_high ffffffff; setenv initrd_high
+      0xffffffff; saveenv</quote> at the u-boot prompt to completely disable
       the relocation of the initial ramdisk and the device-tree blob.          
     </para>
   </sect2>
