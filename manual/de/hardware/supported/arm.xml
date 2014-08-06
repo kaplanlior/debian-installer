@@ -8,12 +8,13 @@
 ARM-Systeme sind viel verschiedenartiger als die i386-/amd64-basierte
 PC-Architektur, bei der sich alle Systeme eine allgemeine System-Firmware
 (BIOS und/oder UEFI) teilen, die die grundlegende board-spezifische
-Hardware-Initialisierung auf eine standardisierte Art erledigt.
+Hardware-Initialisierung auf eine standardisierte Art und Weise erledigt.
 
 </para><para> 
 
 Die ARM-Architektur wird hauptsächlich in sogenannten
-<quote>Systems-on-Chip</quote> (SoCs) verwendet. Diese SoCs werden von
+<quote>Systems-on-Chip</quote> (SoC - ein komplettes System
+auf einem einzigen Chip) verwendet. Diese SoCs werden von
 vielen verschiedenen Herstellern mit sich erheblich unterscheidenden
 Hardware-Komponenten (und dies sogar bei den grundlegendsten
 Funktionalitäten, die benötigt werden, um das System zu starten) entwickelt.
@@ -35,6 +36,8 @@ der auf verschiedenen ARM-Systemen laufen kann. Unterstützung für neue
 ARM-Systeme wird auf eine Art implementiert, die die Nutzung eines
 solchen Multiplattform-Kernels erlaubt, aber für mehrere ältere Systeme
 ist trotzdem noch ein spezifischer Kernel erforderlich.
+
+</para><para>
 
 Daher unterstützt die Standard-&debian;-Distribution nur die
 Installation einer ausgewählten Zahl von älteren ARM-Systemen,
@@ -76,10 +79,10 @@ welche Portierung Sie nutzen möchten.
 <para>
 
 Technisch gesehen können viele ARM-CPUs in einem der beiden Endian-Modi
-(big-endian oder little-endian) betrieben werden, in der Praxis verwendet
-aber die große Mehrheit der derzeit verfügbaren System den little-Endian-Modus.
+(Big-Endian oder Little-Endian) betrieben werden, in der Praxis verwendet
+aber die große Mehrheit der derzeit verfügbaren System den Little-Endian-Modus.
 Sowohl &debian;/armhf wie auch &debian;/armel unterstützen nur
-little-Endian-Systeme.
+Little-Endian-Systeme.
 
 </para>
 
@@ -96,8 +99,8 @@ erfordern plattform-spezifische Kernel.)
 <term>Kirkwood</term>
 <listitem><para>
 
-Kirkwood ist ein <quote>System on a Chip</quote> (SoC - ein komplettes System
-auf einem einzigen Chip) von Marvell, das eine ARM-CPU, Ethernet,
+Kirkwood ist ein <quote>System-on-Chip</quote>
+von Marvell, das eine ARM-CPU, Ethernet,
 SATA, USB sowie weitere Funktionalitäten in einem Chip vereint. Wir
 unterstützen derzeit folgende Kirkwood-basierte Geräte: OpenRD
 (OpenRD-Base, OpenRD-Client und OpenRD-Ultimate), <ulink
@@ -114,10 +117,9 @@ Network v2, 2Big Network v2 und 5Big Network v2).
 <term>Orion5x</term>
 <listitem><para>
 
-Orion ist ein <quote>System on a Chip</quote> (SoC - ein komplettes System
-auf einem einzigen Chip) von
+Orion ist ein <quote>System-on-Chip</quote> von
 Marvell, das eine ARM-CPU, Ethernet, SATA, USB sowie weitere Funktionalität
-in einem Chip vereint. Es gibt viele Network-Attached-Storage-Geräte (NAS -
+in einem Chip vereint. Es gibt viele Network-Attached-Storage-Geräte (NAS-Systeme -
 Geräte, die Speicherplatz im Netzwerk zur Verfügung stellen) auf dem Markt,
 die auf dem Orion-Chip basieren. Wir unterstützen derzeit die folgenden
 Orion-basierten Geräte: <ulink
@@ -179,7 +181,7 @@ ungeeignet machen, nicht mehr unterstützt.
 
 Intel-Prozessoren der IXP4xx-Serie wurden in Netzwerk-Speichergeräten
 wie dem Linksys NSLU2 eingesetzt. &debian; hat die IXP4xx-Plattform in
-&debian; 7 unterstützt, jedoch wird sie aber der Version 8 nicht
+&debian; 7 unterstützt, jedoch wird sie ab der Version 8 nicht
 mehr unterstützt, da die früher unterstützten Geräte nicht genug
 Flash-Speicher für die in Version 8 enthaltenen Kernel bereitstellen.
 
@@ -220,7 +222,7 @@ Verwendung des Multiplattform-Kernels (armmp):
       </varlistentry>
 
       <varlistentry>
-        <term>Certain Allwinner sunXi-basierende Development-Boards und
+        <term>Certain Allwinner sunXi-basierte Development-Boards und
               eingebettete (embedded) Systeme</term>
         <listitem>
           <para>
@@ -280,10 +282,10 @@ Verwendung des Multiplattform-Kernels (armmp):
               Die Systemunterstützung für die Cubox-i-Serie ist auf
               Treiber und Informationen aus dem Gerätedatei-Baum
               beschränkt, welche im Mainline-Linux-Kernel enthalten sind.
-              Die Freescale 3.0-Kernel-Serie für die Cubox-i wird von
+              Die 3.0-Kernel-Serie von Freescale für Cubox-i wird von
               Debian nicht unterstützt.
               Verfügbare Treiber im Mainline-Kernel inkludieren
-              die serielle Konsole, Ethernet, USB und MMC-/SD-Karten und
+              die serielle Konsole, Ethernet, USB und MMC-/SD-Karten sowie
               grundlegende lokale Grafik über HDMI.
           </para>
         </listitem>
@@ -322,8 +324,8 @@ Verwendung des Multiplattform-Kernels (armmp):
 Die EfikaMX-Plattform (Genesi Efika Smartbook und Genesi EfikaMX Nettop)
 wurde in &debian; 7 mit einem plattformspezifischen Kernel unterstützt,
 wird aber ab &debian; 8 aufwärts nicht mehr unterstützt. Der Code, der
-zum Bau des forher verwendeten plattformspezifischen Kernels erforderlich
-ist, wurde aus dem Quellcode des Upstream-Linux-Kernels in 2012 entfernt,
+zum Bau des vorher verwendeten plattformspezifischen Kernels erforderlich
+ist, wurde in 2012 aus dem Quellcode des Upstream-Linux-Kernels entfernt,
 daher kann Debian keine neueren Kernel mehr bereitstellen.
 
 </para><para>

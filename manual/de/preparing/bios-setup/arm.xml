@@ -80,10 +80,10 @@
   </sect2>
 
   <sect2 arch="arm" id="uboot-relocation-issues">
-    <title>Probleme mit der Speicherzuweisung für Kernel/Initrd/Gerätebaum in u-boot</title>
+    <title>Probleme bei der Speicherzuweisung für Kernel/Initrd/Gerätebaum in u-boot</title>
     <para>
       Auf einigen Systemen mit älteren u-boot-Versionen können Probleme
-      mit der korrekten Speicherzuweisung für Linux-Kernel, Initial-Ramdisk
+      bei der korrekten Speicherzuweisung für Linux-Kernel, Initial-Ramdisk
       und Gerätebaum-Abbild während des Boot-Prozesses
       auftreten. In diesem Fall zeigt u-boot die Meldung <quote>Starting
       kernel ...</quote> an, aber das System friert danach ohne weitere
@@ -104,11 +104,11 @@
       am u-boot-Prompt ausgeführt wird.
     </para>
     <para>
-      Eine andere Möglichkeit, solche Probleme mit Speicherzuweisungen
-      zu verhindern ist, den Befehl
+      Eine andere Möglichkeit, solche Probleme bei Speicherzuweisungen
+      zu verhindern, wäre die Ausführung von
       <quote>setenv fdt_high ffffffff; setenv initrd_high 0xffffffff;
-      saveenv</quote> am u-boot-Prompt auszuführen; damit wird die
-      dynamische Speicherzuweisung von Initial-Ramdisk und 
+      saveenv</quote> am u-boot-Prompt; damit wird die
+      dynamische Speicherzuweisung für Initial-Ramdisk und 
       Gerätebaum-Abbild vollständig deaktiviert.         
     </para>
   </sect2>
