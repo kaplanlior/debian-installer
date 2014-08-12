@@ -1,18 +1,179 @@
 <!-- $Id$ -->
-<!-- original version: 67373 -->
+<!-- original version: 69213 -->
+
+  <sect2 arch="arm" id="boot-image-formats">
+  <title>Formáty zaváděcích obrazů</title>
+<para>
+
+Systémy založené na architektuře ARM většinou používají dva formáty
+zaváděcích obrazů:
+
+<itemizedlist>
+<listitem><para>
+
+Standardní linuxové jádro ve formátu zImage (<quote>vmlinuz</quote>)
+spolu se standardním linuxovým ramdiskem (<quote>initrd.gz</quote>).
+
+</para></listitem>
+<listitem><para>
+
+Jádro ve formátu uImage (<quote>uImage</quote>) ve spojení
+s odpovídajícím ramdiskem (<quote>uInitrd</quote>).
+
+</para></listitem>
+</itemizedlist>
+
+</para><para>
+
+Formáty uImage/uInitrd jsou speciálně navrženy pro firmware u-boot,
+který se používá na mnoha ARMových systémech. Starší verze u-bootu
+uměly zavádět pouze soubory ve formátu uImage/uInitrd, proto se
+používají hlavně na starších systémech armel. Novější verze u-bootu
+již umí kromě uImage/uInitrd zavádět také standardní linuxová jádra
+a initrd, ale syntaxe se trošku liší.
+
+</para><para>
+
+Na systémech používajících multiplatformní jádro je kromě jádra
+a initrd ještě zapotřebí soubor se stromem zařízení (device-tree blob,
+<quote>dtb</quote>), který je specifický pro každý systém a obsahuje
+popis toho konkrétního hardwaru.
+
+</para>
+  </sect2>
 
   <sect2 arch="arm" id="boot-tftp"><title>Zavedení z TFTP</title>
 
 &boot-installer-intro-net.xml;
 
+   <sect3 arch="arm" id="boot-tftp-uboot">
+   <title>Zavedení z TFTP přes u-boot</title>
+<para>
+
+Zavedení ze sítě přes firmware u-boot se skládá ze tří kroků:
+nastavení sítě, zavedení obrazů jádra, initrd a dtb do paměti
+a konečně spuštění nahraného jádra.
+
+</para><para>
+
+Síť můžete nastavit buď automaticky pomocí DHCP:
+
+<informalexample><screen>
+<userinput>setenv autoload no</userinput>
+<userinput>dhcp</userinput>
+</screen></informalexample>
+
+nebo ručně nastavením několika proměnných:
+
+<informalexample><screen>
+<userinput>setenv ipaddr <replaceable>ip_adresa_klienta</replaceable></userinput>
+<userinput>setenv netmask <replaceable>maska</replaceable></userinput>
+<userinput>setenv serverip <replaceable>ip_adresa_TFTF_serveru</replaceable></userinput>
+<userinput>setenv dnsip <replaceable>ip_adresa_DNS_serveru</replaceable></userinput>
+<userinput>setenv gatewayip <replaceable>ip_adresa_výchozí_brány</replaceable></userinput>
+</screen></informalexample>
+
+Budete-li chtít toto nastavení uložit trvale, použijte příkaz
+
+<informalexample><screen>
+<userinput>saveenv</userinput>
+</screen></informalexample>
+
+</para><para>
+
+Nyní musíte nahrát obrazy jádra, initrd a dtb do paměti, což se
+provádí příkazem <command>tftpboot</command>. jako parametr příkazu
+musíte zadat adresu v paměti, na kterou se má obraz nahrát. Bohužel,
+mapa paměti se liší systém od systému a proto zde nemůžeme vypsat
+pevné adresy platné pro všechny.
+
+</para><para>
+
+Na některých systémech si u-boot předdefinovává proměnné prostředí
+s vhodnými adresami. Jsou to proměnné
+<literal>kernel_addr_r</literal>, <literal>ramdisk_addr_r</literal>
+a <literal>fdt_addr_r</literal>. Zda jsou ve vašem případě nastaveny,
+a připraveny k použití, si můžete ověřit příkazem
+
+<informalexample><screen>
+<userinput>printenv kernel_addr_r ramdisk_addr_r fdt_addr_r</userinput>
+</screen></informalexample>
+
+Nejsou-li definovány, budete si muset konkrétní hodnoty zjistit
+v dokumentaci k vašemu systému a nastavit je ručně. Například na
+systémech založených na SOC Allwinner SunXi (třeba Allwinner A10,
+architektura <quote>sun4i</quote> nebo Allwinner A20, architektura
+<quote>sun7i</quote>) můžete použít následující hodnoty:
+
+<informalexample><screen>
+<userinput>setenv kernel_addr_r 0x46000000</userinput>
+<userinput>setenv fdt_addr_r 0x47000000</userinput>
+<userinput>setenv ramdisk_addr_r 0x48000000</userinput>
+</screen></informalexample>
+
+</para><para>
+
+Po nastavení adres můžete stáhnout obrazy z dříve definovaného TFTP
+serveru a nahrát je do paměti příkazy:
+
+<informalexample><screen>
+<userinput>tftpboot ${kernel_addr_r} <replaceable>název_souboru_s_obrazem_jádra</replaceable></userinput>
+<userinput>tftpboot ${fdt_addr_r} <replaceable>název_souboru_s_dtb</replaceable></userinput>
+<userinput>tftpboot ${ramdisk_addr_r} <replaceable>název_souboru_s_obrazem_initrd</replaceable></userinput>
+</screen></informalexample>
+
+</para><para>
+
+Nyní zbývá nastavit parametry jádra a spustit ho. U-boot předá jádru
+parametry přes proměnnou prostředí <literal>bootargs</literal>, takže
+do ní nastavte veškeré potřebné parametry jádra a instalačního
+systému, jako je třeba konzole (<xref linkend="boot-console"/>) nebo
+přednastavení (<xref linkend="installer-args"/> a <xref
+linkend="appendix-preseed"/>). Například:
+
+<informalexample><screen>
+<userinput>setenv bootargs console=ttyS0,115200 rootwait panic=10</userinput>
+</screen></informalexample>
+
+Samotné spuštění jádra závisí na použitém formátu. Pro uImage/uInitrd
+vypadá příkaz následovně:
+
+<informalexample><screen>
+<userinput>bootm ${kernel_addr_r} ${ramdisk_addr_r} ${fdt_addr_r}</userinput>
+</screen></informalexample>
+
+a pro nativní linuxový formát takto:
+
+<informalexample><screen>
+<userinput>bootz ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}</userinput>
+</screen></informalexample>
+
+</para><note><para>
+
+Při zavádění standardních linuxových obrazů je důležité nahrát obraz
+úvodního ramdisku až po jádru a dtb, jelikož u-boot automaticky uloží
+do proměnné <literal>filesize</literal> velikost posledně nahraného
+souboru. Aby příkaz <command>bootz</command> fungoval správně,
+potřebuje znát velikost ramdisku, kterou mu předáte právě z proměnné
+<literal>filesize</literal>. Jestliže zavádíte jádro sestavené pro
+konkrétní platformu (tj. bez stromu zařízení), jednoduše vynechte
+parametr <literal>${fdt_addr_r}</literal>.
+
+</para></note>
+   </sect3>
   </sect2>
+
+<!-- # None of the arm systems supported in Jessie is able to boot from
+     # CD/DVD -> commenting out the "Booting from CD-ROM section" for arm
 
   <sect2 arch="arm"><title>Zavedení z CD-ROM</title>
 
 &boot-installer-intro-cd.xml;
 
   </sect2>
+-->
 
+<!--
   <sect2 arch="arm" id="boot-firmware">
   <title>Zavedení z firmwaru</title>
 
@@ -142,3 +303,4 @@ Instalace nyní bude pokračovat jako obvykle.
 </para>
    </sect3>
   </sect2>
+-->

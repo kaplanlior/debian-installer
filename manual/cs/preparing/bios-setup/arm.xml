@@ -1,0 +1,110 @@
+<!-- $Id$ -->
+<!-- original version: 43641 -->
+
+  <sect2 arch="arm" id="arm-firmware-overview">
+  <title>ARM firmware</title>
+<para>
+
+Jak jsme již zmínili dříve, na systémech ARM bohužel neexistuje
+standard pro systémový firmware a proto se různé systémy, které
+nominálně používají stejný firmware, mohou chovat zcela odlišně.
+
+To pramení z faktu, že se ARM architektura používá hlavně v embeded
+zařízeních, pro které výrobci vytváří vlastní upravené firmwary
+a přidávají záplaty pro konkrétní zařízení. Výrobci bohužel často
+zapomenou zaslat své úpravy zpět vývojářům původního firmwaru, takže
+se jejich změny neobjeví v novějších verzích daného firmwaru.
+
+</para><para>
+
+Výsledkem je, že i nové systémy často používají firmware, který je
+založený na nějaké prehistorické verzi firmwaru, kterou si výrobce
+kdysi upravil, přičemž vývoj původního firmwaru mezitím pokračoval
+a nyní nabízí nové vlastnosti, nebo v některých ohledech jiné chování.
+Výrobci upravených firmwarů navíc nepojmenovávají integrovaná zařízení
+konzistentně, takže i když se jedná o stejný základní firmware, je na
+platformě ARM téměř nemožné poskytnout obecně platné informace.
+
+</para>
+  </sect2>
+
+  <sect2 arch="arm" id="uboot-macsetting">
+  <title>Nastavení ethernetové MAC adresy v u-bootu</title>
+<para>
+
+MAC adresa každého ethernetového rozhraní by měla být celosvětově
+unikátní, resp. musí být unikátní minimálně v rámci dané ethernetové
+broadcastovací domény. Výrobce si pro sebe obvykle alokuje blok MAC
+adres z centrálně spravované zásoby (za což zaplatí nějaký poplatek)
+a pak příslušně nakonfiguruje každé vyrobené zařízení tak, aby mělo
+unikátní adresu.
+
+</para><para>
+
+V případě vývojářských desek se chce někdy výrobce vyhnout placení
+poplatků a proto unikátní MAC adresu na ethernetové zařízení
+nenastaví. V takových případech musí MAC adresu nastavit uživatel.
+Některé ovladače síťových karet, když zjistí, že MAC adresa není
+přiřazena, vygenerují náhodnou MAC adresu, která se může při každém
+restartu měnit. Pro uživatele to pak vypadá, že síťování v zásadě
+funguje, ale některé služby nemusí být zrovna spolehlivé, jako třeba
+přiřazování semi-statických IP adres pomocí DHCP na základě MAC adresy.
+
+</para><para>
+
+Aby se předešlo konfliktům se stávajícími, oficiálně přiřazenými MAC
+adresami, existuje blok adres, které je rezervován pro takzvaně
+<quote>místně spravované</quote> adresy. Blok je definován hodnotou
+dvou konkrétních bitů v prvním bajtu adresy. V praxi to znamená, že se
+jako lokálně spravovaná adresa dá použít například libovolná adresa
+začínající hexadecimálním <literal>ca</literal> (jako třeba
+<literal>ca:ff:ee:12:34:56</literal>.
+
+</para><para>
+
+Na systémech používajících jako firmware u-boot je ethernetová MAC
+adresa umístěna v proměnné prostředí <literal>ethaddr</literal>.
+Adresu můžete zkontrolovat v promptu u-bootu příkazem
+<command>printenv ethaddr</command> a nastavit příkazem
+<command>setenv ethaddr <replaceable>ca:ff:ee:12:34:56</replaceable></command>.
+Po nastavení proměnné můžete hodnotu trvale uložit příkazem
+<command>saveenv</command>.
+
+</para>
+  </sect2>
+
+  <sect2 arch="arm" id="uboot-relocation-issues">
+  <title>Problémy s přesunem jádra/initrd/stromu zařízení v u-bootu</title>
+<para>
+
+Na některých systémech se starší verzí u-bootu se mohou objevit
+problémy s korektním přesunem linuxového jádra, úvodního ramdisku
+a binárky se stromem zařízení během zavádění. Projevuje se to tak, že
+u-boot vypíše hlášku
+<computeroutput>Starting kernel ...</computeroutput>, ale systém
+dál zamrzne bez jakéhokoliv výstupu. Problém byl vyřešen v novějších
+verzích u-bootu, tj. od verze v2014.07 dále.
+
+</para><para>
+
+Problém se může projevit i v případě, že systém původně používal verzi
+u-bootu starší než v2014.07 a teprv následně byl aktualizován.
+Aktualizace u-bootu totiž obvykle nemění stávající proměnné prostředí
+a oprava problému vyžaduje, aby se nastavila nová proměnná prostředí
+<literal>bootm_size</literal>, což u-boot provádí automaticky pouze
+u nových instalací v čistém prostředí. Ručně tuto novou proměnnou
+nastavíte v promptu u-bootu příkazem
+<command>env default bootm_size; saveenv</command>.
+
+</para><para>
+
+Jinou možností, jak obejít problém s přesunem, je v promptu u-bootu
+spustit příkaz
+
+<command>setenv fdt_high ffffffff; setenv initrd_high 0xffffffff; saveenv</command>,
+
+kterým zcela zakážete přesun úvodního ramdisku a binárky se stromem
+zařízení.
+
+</para>
+  </sect2>

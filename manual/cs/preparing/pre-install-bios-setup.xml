@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 67993 -->
+<!-- original version: 69217 -->
 
  <sect1 id="pre-install-bios-setup">
  <title>Než začnete s instalací &hellip;</title>
@@ -19,6 +19,103 @@ start počítače po jeho zapnutí.
 &bios-setup-powerpc.xml;
 &bios-setup-sparc.xml;
 &bios-setup-s390.xml;
+&bios-setup-arm.xml;
+
+  <sect2 arch="x86" id="UEFI">
+  <title>Systémy s firmwarem UEFI</title>
+<para>
+
+UEFI (<quote>Unified Extensible Firmware Interface</quote>) je nový
+typ systémového firmwaru, který se používá na mnoha moderních
+systémech a, mimo jiné, by měl v počítačích nahradit klasický BIOS.
+
+</para><para>
+
+Většina počítačů s UEFI zatím ve firmwaru používá CSM
+(<quote>Compatibility Support Module</quote>), který operačnímu systému
+poskytuje stejná rozhraní, jako poskytoval tradiční BIOS, tudíž je
+zatím možno používat software napsaný přímo pro BIOS beze změn. To
+však jednou skončí, protože UEFI nebude tuto kompatibilní vrstvu
+podporovat navždy. Již nyní existují systémy s UEFI bez CSM.
+
+</para><para>
+
+Při instalaci operačního systému na počítačích s UEFI je potřeba vzít
+v úvahu několik věcí, protože systém zavádění se mezi BIOSem
+(resp. UEFI v režimu CSM) a nativním UEFI zásadně liší. Jednou
+významnou změnou je způsob dělení pevného disku na oblasti. Tradiční
+BIOS a UEFI v režimu CSM používají DOSovou tabulku oddílů, nativní
+UEFI používá systém GPT (<quote>GUID Partition Table</quote>). Na
+jednom disku může být použita pouze jedna z nich, a v případě, že
+používáte více operačních systémů na jednom disku, znamená to, že
+všechny systémy musí podporovat zvolený typ rozdělení disku. Zavádění
+z disku s GPT je možné pouze v nativním režimu UEFI, což se může zdát
+jako nevýhoda, ale s tím, jak rostou velikosti disků, se používání GPT
+rozšiřuje, jelikož tradiční DOSová tabulka oddílů neumí adresovat
+disky větší než 2 TB.
+
+</para><para>
+
+Dalším zásadním rozdílem mezi BIOSem (resp. UEFI v režimu CSM)
+a nativním UEFI je v tom, odkud se načítá zavaděč a jaký používá
+formát, což znamená, že se v obou případech jedná o různé zavaděče.
+
+To je důležité pro &d-i; na systémech s UEFI v režimu CSM, jelikož
+&d-i; si zjistí, zda byl spuštěn na počítači s BIOSem nebo na počítači
+s nativním UEFI a podle toho nainstaluje příslušný zavaděč. To obvykle
+funguje k plné spokojenosti, ale přesto může nastat problém na
+systémech, které mají více možností zavádění. Na některých UEFI
+systémech v režimu CSM se totiž způsob zavádění může lišit mezi
+zaváděním z pevného disku a zaváděním z výměnných médií. To může
+způsobit, že instalační systém zavedený z USB klíčenky používá jiný
+režim, než systém nainstalovaný na pevném disku, čímž dojde
+k instalaci špatného zavaděče a po dokončení instalace se pak systém
+nemusí spustit.
+
+Některé systémy nabízí při volbě zaváděcího zařízení dvě samostatné
+položky pro každé zařízení, takže si uživatel může vybrat, zda se má
+zavádění provést v kompatibilním režimu CSM, nebo v nativním UEFI.
+
+</para><para>
+
+Dalším tématem spojeným s UEFI je takzvaný <quote>secure boot</quote>.
+Secure boot je mechanismus některých UEFI implementací, které umí
+uzamknout zavádění a umožňují pak spouštět pouze kód, který byl
+kryptograficky podepsán určitými klíči a tím pádem blokovat
+(potenciálně škodlivý) software, který není podepsaný, nebo je
+podepsaný neznámými klíči. V praxi to znamená, že na většině UEFI
+systémů se secure bootem je akceptován pouze klíč od Microsoftu,
+kterým je podepsán zavaděč Windows. Jelikož zavaděč používaný &d-i;em
+není podepsaný Microsoftem, je nutno před zavedením instalace secure
+boot vypnout. Často se to týká počítačů, na kterých je předinstalovaná
+64 bitová verze Windows 8. Bohužel neexistuje unifikovaný postup,
+kterým by se dal secure boot vypnout. Na některých systémech se tato
+možnost objeví až po té, co uživatel nastaví heslo do BIOSu.  Pokud je
+tedy secure boot zapnutý a nikde nevidíte možnost jeho vypnutí, zkuste
+nastavit heslo do BIOSu, restartovat počítač a podívat se znovu, zda
+se možnost neobjevila.
+
+</para>
+  </sect2>
+
+  <sect2 arch="x86" id="disable-fast-boot">
+  <title>Vypnutí <quote>rychlého spuštění</quote> u Windows 8</title>
+<para>
+
+Windows 8 nabízí možnost nazvanou rychlé spuštění, které zkracuje dobu
+k nastartování Windows. Je-li tato možnost povolena, Windows se při
+vypínání nevypnou zcela, ale provedou něco, jako částečné uspání, aby
+tím urychlily následný start. To samo o sobě ničemu nevadí, ale pokud
+máte na počítači i jiný operační systém, který může přistupovat ke
+stejným oblastem, jako Windows, může dojít k porušení a ztrátě dat,
+jelikož se může skutečný stav souborového systému lišit od toho, jak
+si jej Windows pamatují a zápisy na takový souborový systém mohou vést
+k jeho porušení. V případě zavádění různých operačních systémů je tedy
+vhodné <quote>rychlé spuštění</quote> ve Windows vypnout, aby
+k porušení souborového systému nedocházelo.
+
+</para>
+  </sect2>
 
   <sect2 arch="x86;powerpc" id="hardware-issues">
   <title>Různé hardwarové problémy</title>

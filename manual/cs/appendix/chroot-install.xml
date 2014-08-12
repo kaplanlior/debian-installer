@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 68562 -->
+<!-- original version: 68948 -->
 
  <sect1 id="linux-upgrade">
  <title>Jak nainstalovat &debian-gnu; ze stávajícího unixového/linuxového systému</title>
@@ -206,6 +206,9 @@ základním systémem &debian;u:
 <prompt>#</prompt> <userinput>export TERM=<replaceable>xterm-color</replaceable></userinput>
 </screen></informalexample>
 
+Abyste mohli použít některé hodnoty proměnné TERM, budete možná muset
+nainstalovat balík <classname>ncurses-term</classname>.
+
 </para>
 
    <sect3>
@@ -229,10 +232,10 @@ Několik možných postupů:
 V chrootu vytvořte základní sadu statických souborů zařízení příkazy:
 
 <informalexample><screen>
-# apt-get install makedev
-# mount none /proc -t proc
-# cd /dev
-# MAKEDEV generic
+<prompt>#</prompt> <userinput>apt-get install makedev</userinput>
+<prompt>#</prompt> <userinput>mount none /proc -t proc</userinput>
+<prompt>#</prompt> <userinput>cd /dev</userinput>
+<prompt>#</prompt> <userinput>MAKEDEV generic</userinput>
 </screen></informalexample>
 
 </para></listitem>

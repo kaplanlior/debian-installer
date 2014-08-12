@@ -1,44 +1,82 @@
 <!-- $Id$ -->
-<!-- original version: 67982 -->
+<!-- original version: 69216 -->
 
   <sect2 arch="arm">
   <title>Procesory, základní desky a grafické karty</title>
 <para>
 
-Protože každá ARM podarchitektura vyžaduje speciální jádro, podporuje
-&debian; instalaci pouze na nejběžnější platformy. Mimo jádra jsou všechny
-ostatní balíky společné a můžete je používat na
-<emphasis>libovolném</emphasis> ARM procesoru včetně
-<firstterm>xscale</firstterm>.
+Systémy ARM jsou mnohem různorodější, než systémy založené na
+architektuře i386/amd64, kde se o základní inicializaci hardwaru stará
+unifikovaný BIOS nebo UEFI. Architektura ARM se používá hlavně
+v řešeních vše v jednom, tzv. SoC (<quote>system-on-chip</quote>).
+Tyto SoC navrhuje spousta společností z nejrůznějších hardwarových
+součástí, které se liší i v tak základní funkcionalitě, jako je
+zavedení systému. Systémy využívající tyto čipy obvykle postrádají
+jednotné rozhraní v podobě systémového firmwaru a ve výsledku se
+linuxové jádro na architektuře ARM musí starat o spousty
+nízkoúrovňových detailů specifických pro konkrétní systém, o což by se
+ve světě PC postaral BIOS.
 
 </para><para>
 
-Většina ARM procesorů může běžet v obou režimech adresování
+To znamenalo, že když Linux získal podporu architektury ARM, muselo se
+pro každý systém sestavovat speciální jádro, na rozdíl od architektury
+i386/amd64, kde jedno jádro běží na téměř libovolném hardwaru. Tento
+přístup samozřejmě nebyl s ohromným počtem různých systémů udržitelný
+a vývojáři začali pracovat na tom, aby se podobně jako u PC dalo jedno
+jádro použít na různých ARM systémech. Toto jádro se pak nazývá
+multiplatformní a podporuje většinu novějších systémů. V &debian;u je
+označeno jako <literal>armmp</literal>.
+
+Stále však existují starší systémy, které vyžadují speciální jádro.
+Z tohoto důvodu podporuje standardní &debian; instalaci jen na několik
+vybraných starších systémů.
+
+</para><para>
+
+Architektura ARM se vyvíjí a moderní ARM procesory nabízí možnosti,
+které nejsou na starších modelech dostupné. &debian; proto nabízí dva
+základní ARM porty: &debian;/armel a &debian;/armhf. &debian;/armel
+cílí na starší ARM procesory bez hardwarové podpory výpočtů s plovoucí
+desetinnou čárkou (nemají FPU), zatímco &debian;/armhf běží jen na
+novějších ARMech, které implementují alespoň architekturu ARMv7
+s 3. verzí ARM specifikace pro vektorové výpočty s plovoucí desetinnou
+čárkou (VFPv3). &debian;/armhf využívá tyto rozšířené možnosti a vyšší
+výkon nových modelů.
+
+</para><para>
+
+<!--
+
+While it is technically possible to run the &debian;/armel userland programs
+on modern ARM processors, they cannot make use of several
+performance-enhancing features of the newer processors, so if your hardware
+fulfills the requirements of running the &debian;/armhf port, you should use
+it instead of the &debian;/armel port.  Mixing of armel and armhf packages
+on the same system is not possible, so you have to decide which port to use
+before installing the system.
+
+</para><para>
+
+-->
+
+Technicky mohou některé ARM procesory běžet v obou režimech adresování
 (<quote>little-endian</quote> i <quote>big-endian</quote>), avšak
-&debian; podporuje pouze  ARM  procesory používající adresování
+v praxi používá drtivá většina aktuálně dostupných ARM systémů
+adresování <quote>little-endian</quote>. V tomto duchu podporuje
+&debian;/armhf i &debian;/armel pouze systémy
 <quote>little-endian</quote>.
 
-</para><para>
+</para>
 
-Podporované platformy jsou
+   <sect3 arch="arm">
+   <title>Platformy podporované v Debian/armel</title>
+<para>
+
+&debian;/armel podporuje následující platformy. Tyto platformy
+vyžadují specifická jádra.
 
 <variablelist>
-<varlistentry>
-<term>IOP32x</term>
-<listitem><para>
-
-Intelovskou řadu I/O procesorů (IOP) můžete nalézt v řadě produktů
-spojených s ukládáním a zpracováváním dat. &debian; momentálně podporuje
-platformu IOP32x zahrnující čipy IOP 80219 a 32x běžně používané v
-síťově připojených úložných zařízeních (NAS). debian momentálně
-podporuje dvě taková zařízení:
-<ulink url="&url-arm-cyrius-glantank;">GLAN Tank</ulink>
-od IO-Data a
-<ulink url="&url-arm-cyrius-n2100;">Thecus N2100</ulink>.
-
-</para></listitem>
-</varlistentry>
-
 <varlistentry>
 <term>Kirkwood</term>
 <listitem><para>
@@ -74,6 +112,15 @@ době podporujeme
 </varlistentry>
 
 <varlistentry>
+<term>MV78xx0</term>
+<listitem><para>
+
+Platforma MV78xx0 se používá na vývojářské desce Marvell DB-78xx0-BP.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
 <term>Versatile</term>
 <listitem><para>
 
@@ -86,5 +133,174 @@ nedisponujete příslušným hardwarem.
 </variablelist>
 
 </para>
+   </sect3>
+
+   <sect3 arch="arm">
+   <title>Platformy dále nepodporované v Debian/armel</title>
+
+<variablelist>
+<varlistentry>
+<term>IOP32x</term>
+<listitem><para>
+
+Intelovskou řadu I/O procesorů (IOP) můžete nalézt v řadě produktů
+spojených s ukládáním a zpracováváním dat, jako <ulink
+url="&url-arm-cyrius-glantank;">GLAN Tank</ulink> od IO-Data a <ulink
+url="&url-arm-cyrius-n2100;">Thecus N2100</ulink>. &debian; podporoval
+platformu IOP32x v &debian;u 7, ale kvůli hardwarovým omezením této
+platformy není vhodné instalovat novější vydání.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>IXP4xx</term>
+<listitem><para>   
+
+Intelovský procesor IXP4xx se používal v síťových úložištích jako
+Linksys NSLU2. &debian; podporoval platformu IXP4xx ještě v &debian;u
+7, ale protože tato zařízení nemají dostatek flash paměti pro uložení
+jádra z &debian;u 8, nemohou být nadále podporována.
+
+</para></listitem>
+</varlistentry>   
+</variablelist>
+
+   </sect3>
+
+   <sect3 arch="arm" id="armhf-armmp-supported-platforms">
+   <title>Platformy podporované v Debian/armhf</title>
+<para>
+
+O následujících systémech je známo, že fungují s &debian;/armhf
+používajícím multiplatformní jádro <literal>armmp</literal>:
+
+<variablelist>
+
+<varlistentry>
+<term>Freescale MX53 Quick Start Board</term>
+<listitem><para>   
+
+IMX53QSB je vývojářská deska založená na SoC i.MX53.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Versatile Express</term>
+<listitem><para>   
+
+Versatile Express je série vývojářských desek od ARMu skládající se ze
+základní desky, která se dá osadit různými dceřinnými CPU.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Některé vývojářské desky a embeded systémy Allwinner založené na sun<replaceable>X</replaceable>i</term>
+<listitem><para>   
+
+Jádro armmp podporuje několik vývojářských desek a embeded systémů
+založených na SoC Allwinner A10 (architektura <quote>sun4i</quote>)
+a A20 (architektura <quote>sun7i</quote>). Instalační systém plně
+podporuje následující systémy:
+
+  <itemizedlist>
+  <listitem><para>
+             Cubietech Cubieboard 1 + 2 / Cubietruck
+  </para></listitem>
+  <listitem><para>
+             LinkSprite pcDuino
+  </para></listitem>
+  <listitem><para>
+             Mele A1000
+  </para></listitem>
+  <listitem><para>
+             Miniand Hackberry
+  </para></listitem>
+  <listitem><para>
+             Olimex A10-Olinuxino-LIME / A10s-Olinuxino Micro /
+             A13-Olinuxino / A13-Olinuxino Micro / A20-Olinuxino Micro
+  </para></listitem>
+  <listitem><para>
+             PineRiver Mini X-Plus
+  </para></listitem>
+  </itemizedlist>
+
+ </para><para>
+
+Podpora pro zařízení Allwinner založená na architektuře
+sun<replaceable>X</replaceable>i je daná ovladači a stromy zařízení
+dostupnými v oficiálním linuxovém jádře. Jádra linux-sunxi.org 3.4
+odvozená z Androidu nejsou v Debianu podporována.
+
+ </para><para>
+
+Oficiální linuxové jádro na SoC Allwinner A10 a A20 obvykle podporuje
+sériovou konzoli, ethernet, SATA, USB a karty MMC/SD, nicméně chybí
+podpora lokálního displeje (HDMI/VGA/LVDS) a audia. Také není
+podporována NAND flash paměť, která se nachází v některých systémech
+založených na sun<replaceable>X</replaceable>i.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>SolidRun Cubox-i2eX / Cubox-i4Pro</term>
+<listitem><para>
+
+Řada Cubox-i jsou malé systémy ve tvaru kostky založené na rodině SoC
+Freescale i.MX6. Podpora pro řadu Cubox-i je daná ovladači a stromy
+zařízení dostupnými v oficiálním linuxovém jádře. Jádra Freescale 3.0
+pro Cubox-i nejsou v Debianu podporována.  Oficiální linuxové jádro
+podporuje sériovou konzoli, ethernet, USB, karty MMC/SD a základní
+podporu zobrazování přes HDMI.
+
+</para></listitem>
+</varlistentry>
+</variablelist>
+
+</para><para>
+    
+Pokud má jádro použité v &d-i;u podporu daných systémových komponent
+a je dostupný soubor se stromem zařízení, umožňuje multiplatformní
+linuxové jádro spustit &d-i; i na armhf systémech výše explicitně
+neuvedených.
+
+</para><para>
+
+Na takových systémech obvykle instalace funguje, nicméně se asi
+nepodaří automaticky nastavit zavádění, jelikož to často vyžaduje
+konkrétní informace přesně pro dané zařízení. V takovém případě je
+nutno před dokončením instalace nastavit zavádění ručně, například
+spuštěním požadovaných příkazů v shellu spuštěném z prostředí &d-i;u.
+
+</para>
+   </sect3>
+
+   <sect3 arch="arm">
+   <title>Platformy dále nepodporované v Debian/armhf</title>
+
+<variablelist>
+<varlistentry>
+<term>EfikaMX</term>
+<listitem><para>
+
+Platforma EfikaMX (Genesi Efika Smartbook a Genesi EfikaMX nettop)
+byla podporovaná v &debian;u 7 specifickým jádrem, ale jelikož byla
+v roce 2012 podpora této platformy z oficiálního linuxového jádra
+odstraněna, nemůže ani Debian dále pokračovat v podpoře.
+
+</para><para>
+
+Řešením by bylo použití multiplatformního jádra armmp, ale pro
+platformu EfikaMX v současnosti není dostupný příslušný strom
+zařízení.
+
+</para></listitem>
+</varlistentry>
+</variablelist>
+
+   </sect3>
   </sect2>
 
