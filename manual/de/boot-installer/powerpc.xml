@@ -8,24 +8,24 @@
 <para>
 
 Im Moment unterstützen lediglich die &arch-title;-Unterarchitekturen PReP/CHRP
-(jedoch auch nicht alle Systeme) und NewWorld PowerMac das Booten von CD-ROM.
+(jedoch auch nicht alle Systeme) und NewWorld-PowerMac das Booten von CD-ROM.
 Bei PowerMacs drücken Sie die Taste <keycap>c</keycap> oder sonst die
-Kombination <keycap>Command</keycap>, <keycap>Option</keycap>,
-<keycap>Shift</keycap> und <keycap>Delete</keycap>, um von
-dem standardmäßig ab Werk eingebauten CD-/DVD-Laufwerk zu starten.
+Kombination <keycap>Command</keycap> - <keycap>Option</keycap> -
+<keycap>Shift</keycap> - <keycap>Delete</keycap>, um von
+dem standardmäßig ab Werk eingebauten CD/DVD-Laufwerk zu starten.
 
 </para><para>
 
-Um einen PowerMac von einem externen Firewire CD-/DVD-Laufwerk zu booten,
+Um einen PowerMac von einem externen Firewire-CD/DVD-Laufwerk zu booten,
 rufen Sie zunächst den OpenFirmware-Prompt auf (Details unter
-<xref linkend="invoking-openfirmware"/>), tippen Sie dann ein:
+<xref linkend="invoking-openfirmware"/>); tippen Sie dann ein:
 
 <informalexample><screen>
 0 &gt; boot fw/node/sbp-2/disk:,\install\yaboot
 </screen></informalexample>
 
 Um alternativ vom internen, standardmäßig ab Werk eingebauten
-CD-/DVD-Laufwerk zu starten, tippen Sie ein:
+CD/DVD-Laufwerk zu starten, tippen Sie ein:
 
 <informalexample><screen>
 0 &gt; boot cd:,\install\yaboot
@@ -33,17 +33,17 @@ CD-/DVD-Laufwerk zu starten, tippen Sie ein:
 
 </para><para>
 
-OldWorld PowerMacs werden nicht von einer &debian;-CD booten, weil
+OldWorld-PowerMacs werden nicht von einer &debian;-CD booten, weil
 OldWorld-Maschinen einen MacOS-ROM-CD-Boot-Treiber auf der CD-ROM
 benötigen und eine freie Version dieses Treibers nicht verfügbar ist.
-Alle OldWorld-Systeme haben aber ein Floppy-Laufwerk, also benutzen
+Alle OldWorld-Systeme haben aber ein Diskettenlaufwerk, also benutzen
 Sie dieses, um den Installer zu starten und verweisen Sie ihn auf die
 CD, wenn er weitere Dateien benötigt.
 
 </para><para>
 
 Um eine &debian;-CD/-DVD auf einer Pegasos II-Maschine zu starten,
-halten Sie die <keycap>Esc</keycap>-Taste gedrückt unmittelbar nachdem Sie
+halten Sie die <keycap>Esc</keycap>-Taste gedrückt, unmittelbar nachdem Sie
 den Einschaltknopf betätigt haben; wenn der SmartFirmware-Prompt erscheint,
 tippen Sie ein:
 
@@ -81,7 +81,7 @@ auf dem SLOF-Prompt tippen Sie dies ein:
    </sect3>
 -->
 
-   <sect3><title>OldWorld PowerMacs von MacOS aus booten</title>
+   <sect3><title>OldWorld-PowerMacs von MacOS aus booten</title>
 <para>
 
 Wenn Sie BootX passend einrichten (siehe auch
@@ -178,7 +178,7 @@ diesen, um den Installer zu booten:
 boot <replaceable>usb0/disk</replaceable>:<replaceable>2</replaceable>,\\:tbxi
 </screen></informalexample>
 
-Die <replaceable>2</replaceable> passt für die Apple_HFS- oder Apple_Bootstrap-Partition,
+Die <replaceable>2</replaceable> ist passend für die Apple_HFS- oder Apple_Bootstrap-Partition,
 auf die Sie das Boot-Image vorher kopiert haben, und der Teil <userinput>,\\:tbxi</userinput>
 weist OpenFirmware an, von der Datei mit dem HFS-Dateityp <quote>tbxi</quote> in diesem
 Verzeichnis zu booten, das Sie zuvor mit <command>hattrib -b</command>
@@ -242,37 +242,37 @@ verfügbare Optionen aus.
 
 
   <sect2 arch="powerpc" condition="supports-floppy-boot">
-  <title>Booten von Floppy</title>
+  <title>Booten von Diskette</title>
 <para>
 
-Booten von Floppy wird unterstützt für &arch-title;, obwohl es
+Booten von Diskette wird für &arch-title; unterstützt, obwohl es
 eigentlich nur für OldWorld-Systeme relevant ist. NewWorld-Systeme
-sind nicht mit Floppy-Laufwerken ausgerüstet und per USB angeschlossene
-Floppy-Laufwerke werden für das Booten nicht unterstützt.
+sind nicht mit Diskettenlaufwerken ausgerüstet und per USB angeschlossene
+Diskettenlaufwerke werden für das Booten nicht unterstützt.
 
 </para><para>
 
-Sie sollten die Floppy-Images, die Sie benötigen, bereits heruntergeladen
-und damit Floppy-Disks erstellt haben (in <xref linkend="create-floppy"/>
+Sie sollten die Images, die Sie benötigen, bereits heruntergeladen
+und damit Diskette erstellt haben (in <xref linkend="create-floppy"/>
 erläutert).
 
 </para><para>
 
-Um von dem <filename>boot-floppy-hfs.img</filename> Floppy-Image zu
-booten, legen Sie es in das Floppy-Laufwerk ein, nachdem der Rechner
+Um von dem <filename>boot-floppy-hfs.img</filename> Disketten-Image zu
+booten, legen Sie es in das Diskettenlaufwerk ein, nachdem der Rechner
 heruntergefahren ist und bevor Sie den Power-Knopf drücken!
 
 </para><note><para>
-Für alle, die sich mit dem Macintosh-Floppy-Prozedere nicht so
-auskennen: eine Floppy, die im Laufwerk liegt, bevor der Rechner
+Für alle, die sich mit dem Macintosh-Diskette-Prozedere nicht so
+auskennen: eine Diskette, die im Laufwerk liegt, bevor der Rechner
 bootet, ist die erste Möglichkeit für das System, davon zu starten.
-Eine Floppy ohne gültiges Boot-System wird ausgeworfen und die Maschine
+Eine Diskette ohne gültiges Boot-System wird ausgeworfen und die Maschine
 überprüft dann die Festplatten-Partitionen auf bootfähige Betriebssysteme.
 
 </para></note><para>
 
-Nach dem Booten wird die <filename>root.bin</filename>-Floppy
-verlangt. Legen Sie die Root-Floppy ein und drücken Sie &enterkey;.
+Nach dem Booten wird die <filename>root.bin</filename>-Diskette
+verlangt. Legen Sie die Root-Diskette ein und drücken Sie &enterkey;.
 Der Installer wird automatisch gestartet, nachdem das Root-System in den
 Speicher geladen wurde.
 

@@ -18,7 +18,7 @@ unterstützt.</phrase>
 </para><para arch="sparc">
 
 Dies beinhaltet viele generische PCI-Karten (für Systeme, die PCI haben)
-und die folgenden Netzwerkkarten (NIC) von Sun:
+und die folgenden Netzwerkkarten von Sun:
 
 <itemizedlist>
 <listitem><para>
@@ -55,7 +55,7 @@ Die derzeit unterstützten Netzwerkkarten sind:
 <itemizedlist>
 <listitem><para>
 
-Channel-to-Channel (CTC) oder ESCON-Verbindung (real oder emuliert)
+Channel-to-Channel- (CTC) oder ESCON-Verbindung (real oder emuliert)
 
 </para></listitem>
 <listitem><para>
@@ -112,15 +112,15 @@ Netzwerkschnittstelle zur Verfügung steht, ist es trotzdem noch möglich,
 &debian-gnu; von einer Komplett-CD-ROM oder -DVD zu installieren. Wählen Sie
 die Möglichkeit, das Netzwerk unkonfiguriert zu belassen und installieren Sie
 nur die Pakete, die auf der CD oder DVD verfügbar sind. Nachdem die Installation
-abgeschlossen ist (nach dem Neustart), können Sie den Treiber und die Firmware,
-die benötigt werden, installieren und das Netzwerk manuell konfigurieren.
+abgeschlossen ist (nach dem Neustart), können Sie den Treiber und die benötigte
+Firmware installieren und das Netzwerk manuell konfigurieren.
 
 </para><para>
 
 In einigen Fällen könnte der Treiber, den Sie benötigen, nicht als
 &debian;-Paket verfügbar sein. Sie müssen dann prüfen, ob Quellcode für solch
-einen Treiber im Internet bereitgestellt wird und den Treiber selbst
-kompilieren. Wie Sie das erledigen, ist allerdings nicht Thema dieses Handbuchs.
+einen Treiber im Internet bereitgestellt wird und Sie den Treiber selbst
+kompilieren können. Wie Sie das erledigen, ist allerdings nicht Thema dieses Handbuchs.
 <phrase arch="x86">Falls überhaupt kein Linux-Treiber für Ihr Gerät zur
 Verfügung steht, ist die Nutzung des
 <classname>ndiswrapper</classname>-Pakets Ihre letzte Rettung. Dies erlaubt
@@ -142,8 +142,7 @@ werden sollten.
 <!-- BTS: #334104; may also affect other arches, but most common on sparc -->
 <para>
 
-<!-- BTS: #334104; may also affect other arches, but most common on sparc -->
-Es gibt viele PCI-Netzwerkkarten (NIC), die zwar die gleiche PCI-Identifikation
+Es gibt viele PCI-Netzwerkkarten, die zwar die gleiche PCI-Identifikation
 haben, aber von unterschiedlichen (wenn auch verwandten) Treibern unterstützt
 werden. Einige Karten funktionieren mit dem <literal>tulip</literal>-Treiber,
 andere mit dem <literal>dfme</literal>-Treiber. Weil die Karten die gleiche
@@ -159,19 +158,20 @@ Dies ist allgemein ein Problem auf Netra-Systemen mit einer Davicom-
 
 </para><para>
 
-Sie können dies Problem vermeiden, indem Sie das falsche Treibermodul als
-gesperrt markieren (siehe <xref linkend="module-blacklist"/>).
+Sie können dies Problem vermeiden, indem Sie das falsche Treibermodul auf
+die Blacklist setzen (als gesperrt markieren), näheres dazu in
+<xref linkend="module-blacklist"/>.
 
 </para><para>
 
-Eine alternative Möglichkeit dies zu lösen ist, auf eine Shell zu
+Eine alternative Möglichkeit, dies zu lösen ist, auf eine Shell zu
 wechseln und das falsche Treibermodul mit
 <userinput>modprobe -r <replaceable>Modul</replaceable></userinput> zu
 entladen (falls beide geladen sind, müssen Sie beide entladen). Danach
 können Sie das richtige Modul mit
 <userinput>modprobe <replaceable>Modul</replaceable></userinput> neu laden.
-Beachten Sie, dass das falsche Modul trotzdem geladen werden könnte, wenn
-das System neu startet.
+Beachten Sie, dass das falsche Modul beim nächsten Systemneustart
+trotzdem geladen werden könnte.
 
 </para>
    </sect4>

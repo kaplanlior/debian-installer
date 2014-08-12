@@ -21,10 +21,10 @@ ausprobieren, die den Kernel über Ihre Hardware informieren.
 </para><para arch="linux-any">
 
 Informationen über viele Boot-Parameter finden Sie im
-<ulink url="http://www.tldp.org/HOWTO/BootPrompt-HOWTO.html"> Linux
+<ulink url="http://www.tldp.org/HOWTO/BootPrompt-HOWTO.html">Linux
 BootPrompt-HowTo</ulink>, inklusive Tipps für problematische Hardware.
 Dieses Kapitel enthält nur einen Abriss der wichtigsten Parameter.
-Einige häufig vorkommenden Problemfälle sind in
+Einige häufig vorkommende Problemfälle sind in
 <xref linkend="boot-troubleshooting"/> beschrieben.
 
 </para>
@@ -36,11 +36,11 @@ Einige häufig vorkommenden Problemfälle sind in
 
 Wenn Sie mit einer seriellen Konsole booten, wird der Kernel dies
 normalerweise automatisch erkennen.
-Wenn der Rechner, den Sie per serieller Konsole installieren wollen,
+Falls der Rechner, den Sie per serieller Konsole installieren wollen,
 auch eine Grafikkarte (für Framebuffer) und eine Tastatur hat, müssen
 Sie dem Kernel das Boot-Argument
 <userinput>console=<replaceable>device</replaceable></userinput>
-mitgeben, wobei <replaceable>device</replaceable> Ihrer seriellen
+angeben, wobei <replaceable>device</replaceable> Ihrer seriellen
 Schnittstelle entspricht, also normalerweise etwas wie
 <filename>ttyS0</filename>.
 
@@ -88,7 +88,7 @@ Das Installationssystem kennt ein paar zusätzliche Boot-Parameter<footnote>
 
 <para>
 
-Mit aktuellen Kernels (2.6.9 und neuer) können Sie 32
+Mit aktuellen Kernel (2.6.9 und neuer) können Sie 32
 Kommandozeilenoptionen und 32 Umgebungsoptionen benutzen. Werden diese Grenzen
 überschritten, meldet der Kernel eine Panic (stürzt ab).
 
@@ -101,8 +101,8 @@ Kommandozeilenoptionen und 32 Umgebungsoptionen benutzen. Werden diese Grenzen
 Einige Parameter haben eine <quote>Kurzform</quote>, die dabei hilft, die
 Einschränkungen für die Kernel-Kommandozeilenoptionen zu umgehen und
 außerdem wird die Eingabe des Parameters vereinfacht. Wenn eine Kurzform
-für einen Parameter existiert, wird sie in Klammern hinter der (normalen)
-langen Form angegeben. Beispiele in diesem Kapitel benutzen normalerweise
+für einen Parameter existiert, wird sie in Klammern hinter der normalen
+(langen) Form angegeben. Beispiele in diesem Kapitel benutzen normalerweise
 auch die Kurzform.
 
 </para>
@@ -142,7 +142,7 @@ Klamauk das Richtige zu tun.
 <term>DEBIAN_FRONTEND</term>
 <listitem><para>
 
-Dieser Boot-Parameter kontrolliert die Art der Benutzer-Schnittstelle,
+Dieser Boot-Parameter kontrolliert die Art der Bedienoberfläche,
 die für den Installer benutzt wird. Mögliche Einstellungen sind:
 
 <itemizedlist>
@@ -157,15 +157,15 @@ die für den Installer benutzt wird. Mögliche Einstellungen sind:
 </listitem>
 </itemizedlist>
 
-<userinput>DEBIAN_FRONTEND=newt</userinput> ist das Standard-Frontend.
+<userinput>DEBIAN_FRONTEND=newt</userinput> ist die Standardoberfläche.
 <userinput>DEBIAN_FRONTEND=text</userinput> könnte man bevorzugt für
 Installationen per serieller Konsole nutzen. Einige spezialisierte
 Arten von Installationsmedien bieten möglicherweise nur eine eingeschränkte
-Auswahl an Frontends an, aber die <userinput>newt</userinput>- und
+Auswahl von Oberflächen an, aber die <userinput>newt</userinput>- und
 <userinput>text</userinput>-Frontends sind auf den gängigsten
 Installationsmedien verfügbar.
 Auf Architekturen, auf denen der grafische Installer unterstützt
-wird, benutzt er das <userinput>gtk</userinput>-Frontend.
+wird, benutzt er die <userinput>gtk</userinput>-Oberfläche.
 
 </para></listitem>
 </varlistentry>
@@ -220,8 +220,8 @@ Installer geladen wird. Ein Beispiel:
 
 </para><para>
 
-Die Boot-Floppy scannt normalerweise alle verfügbaren
-Floppy-Laufwerke, um die Root-Floppy zu finden; der Parameter
+Die Boot-Diskette scannt normalerweise alle verfügbaren
+Diskettenlaufwerke, um die Root-Diskette zu finden; der Parameter
 kann dies überschreiben, so dass nur dieses eine Gerät durchsucht wird.
 
 </para></listitem>
@@ -246,8 +246,8 @@ der Standard-Syslog-Port 514 verwendet.
 
 Kann verwendet werden, um den Installer zu zwingen, eine höhere lowmem-Stufe
 zu verwenden als die, die standardmäßig basierend auf dem verfügbaren
-physikalischen Speicher gewählt wird. Mögliche Werte sind »1« und »2«. Siehe
-auch <xref linkend="lowmem"/>.
+physikalischen Speicher gewählt wird. Mögliche Werte sind <quote>1</quote>
+und <quote>2</quote>. Siehe auch <xref linkend="lowmem"/>.
 
 </para></listitem>
 </varlistentry>
@@ -299,11 +299,11 @@ kurz <userinput>fb=true</userinput> zu booten.
 <term>debian-installer/theme (theme)</term>
 <listitem><para>
 
-Ein Theme legt fest, wie die Benutzerschnittstelle des Installers aussieht
-(Farben, Icons etc.) Welche Themes verfügbar sind, ist je nach Frontend
-verschieden. Derzeit haben sowohl das Newt- wie auch das Gtk-Frontend nur
+Ein Theme legt fest, wie die Bedienoberfläche des Installers aussieht
+(Farben, Icons etc.). Welche Themes verfügbar sind, ist je nach Oberfläche
+verschieden. Derzeit haben sowohl die Newt- wie auch die Gtk-Oberfläche nur
 ein, <quote>dark</quote> genanntes Theme, das für visuell beeinträchtigte
-Benutzer erstellt wurde. Sie verwenden dieses Theme, indem Sie mit dem
+Benutzer erstellt wurde. Sie können dieses Theme verwenden, indem Sie mit dem
 Parameter <userinput>theme=<replaceable>dark</replaceable></userinput> booten.
 
 </para></listitem>
@@ -317,7 +317,7 @@ Standardmäßig versucht der &d-i;, die Netzwerkkonfiguration per
 automatischer IPv6-Konfiguration und DHCP
 zu beziehen. Wenn dies erfolgreich ist, haben Sie keine Chance mehr,
 sich anders zu entscheiden und die Einstellungen manuell zu ändern.
-Das manuelle Netzwerksetup kann man nur erreichen, wenn die automatische
+Das manuelle Netzwerk-Setup kann man nur erreichen, wenn die automatische
 Konfiguration fehlschlägt.
 
 </para><para>
@@ -383,8 +383,8 @@ um die Installation zu automatisieren. Siehe auch
 <term>preseed/interactive</term>
 <listitem><para>
 
-Setzen Sie diesen Parameter auf <userinput>true</userinput>, um auch Fragen
-anzuzeigen, obwohl Sie voreingestellt werden. Dies kann zum Testen oder zur
+Setzen Sie diesen Parameter auf <userinput>true</userinput>, um Fragen auch
+anzuzeigen, obwohl Sie voreingestellt sind. Dies kann zum Testen oder zur
 Fehlersuche an der Voreinstellungsdatei nützlich sein. Beachten Sie, dass dies
 bei solchen Parametern, die als Boot-Parameter angegeben werden, keinen Effekt
 haben wird; für solche kann aber eine spezielle Syntax genutzt werden. Siehe
@@ -425,7 +425,7 @@ Standardmäßig wirft der &d-i; automatisch das optische Installationsmedium
 aus, bevor er den Rechner neu startet. Dies kann jedoch unnötig sein, falls
 das System eh nicht automatisch von CD bootet. In einigen Fällen könnte es
 sogar unerwünscht sein, wenn z.B. das optische Laufwerk das Medium nicht selbst
-wieder einlegen kann und der Benutzer nicht vor Ort ist, um dies manuell zu
+wieder einziehen kann und der Benutzer nicht vor Ort ist, um dies manuell zu
 erledigen. Viele Slot-In-, Slim-Line- und Cartridge-Laufwerke können Medien
 nicht automatisch neu einlegen/einziehen.
 
@@ -575,7 +575,7 @@ und stattdessen statische Netzwerkkonfiguration erzwingen möchten.
 <term>mirror/protocol (protocol)</term>
 <listitem><para>
 
-Standardmässig nutzt der Installer das http-Protokoll, um Dateien von
+Standardmäßig nutzt der Installer das http-Protokoll, um Dateien von
 &debian;-Spiegel-Servern herunterzuladen und es ist während einer Installation
 in normaler Priorität nicht möglich, dies auf ftp zu ändern. Indem dieser
 Parameter auf <userinput>ftp</userinput> gesetzt wird, kann der Installer
@@ -609,9 +609,9 @@ Siehe <xref linkend="pkgsel"/> für zusätzliche Informationen.
 Wenn Treiber in den Kernel einkompiliert sind, können Sie Parameter für
 sie angeben wie in der Kerneldokumentation beschrieben. Wenn allerdings
 die Treiber als Module kompiliert sind und weil Kernelmodule während einer
-Installation ein wenig anders geladen werden wie beim Booten eines
-installierten System, ist es nicht möglich, Parameter für die Module
-auf die gleiche Art anzugeben wie gewöhnlich. Statt dessen müssen Sie eine
+Installation ein wenig anders geladen werden als beim Booten eines
+installierten Systems, ist es nicht möglich, Parameter für die Module
+auf die gleiche Art anzugeben wie gewöhnlich. Stattdessen müssen Sie eine
 spezielle Syntax einhalten, die vom Installer erkannt wird und sicherstellt,
 dass die Parameter in den passenden Konfigurationsdateien gespeichert werden
 und beim eigentlichen Laden der Module genutzt werden. Außerdem werden
@@ -650,18 +650,19 @@ verwendet wird, nutzen Sie dies:
   <title>Kernel-Module als gesperrt markieren</title>
 <para>
 
-Manchmal könnte es nötig sein, ein Modul als gesperrt zu markieren, um zu
+Manchmal könnte es nötig sein, ein Modul als gesperrt zu markieren
+(auf die Blacklist zu setzen), um zu
 verhindern, dass es automatisch vom Kernel und von udev geladen wird. Ein
 Grund dafür könnte sein, dass ein spezielles Modul Probleme mit Ihrer Hardware
 verursacht. Außerdem listet der Kernel manchmal zwei verschiedene Treiber für
-das gleiche Gerät. Dies könnte zu inkorrekter Funktion des Gerätes führen,
+das gleiche Gerät auf. Dies könnte zu inkorrekter Funktion des Gerätes führen,
 falls der Treiber zu einem Konflikt führt oder der falsche Treiber zuerst
 geladen wird.
 
 </para><para>
 
 Sie können mit der folgenden Syntax ein Modul als gesperrt markieren:
-<userinput><replaceable>Modul-Name</replaceable>.blacklist=yes</userinput>.
+<userinput><replaceable>Modulname</replaceable>.blacklist=yes</userinput>.
 Das führt dazu, dass das Modul in
 <filename>/etc/modprobe.d/blacklist.local</filename> eingetragen wird; es
 wird sowohl für die Installation wie auch später für das installierte System

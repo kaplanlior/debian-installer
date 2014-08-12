@@ -13,7 +13,7 @@
 Manchmal schlägt der Start des Installers von CD-ROM fehl, speziell bei
 älteren CD-ROM-Laufwerken. Auch könnte es möglich sein &ndash; sogar wenn
 erfolgreich von CD-ROM gebootet wurde &ndash; dass der Installer die CD-ROM
-nicht mehr erkennt oder Fehler ausgibt, wenn er während der Installation
+später nicht mehr erkennt oder Fehler ausgibt, wenn er während der Installation
 von der CD liest.
 
 </para><para>
@@ -237,16 +237,16 @@ um zu testen, ob die CD-ROM zuverlässig gelesen werden kann.
   </sect2>
 
   <sect2 condition="supports-floppy-boot" id="unreliable-floppies">
-  <title>(Un-)Zuverlässigkeit von Floppy-Disks</title>
+  <title>(Un-)Zuverlässigkeit von Disketten</title>
 
 <para>
 
 Das größte Problem für Leute, die Disketten für die Installation von
-&debian; benutzen, scheint die (Un-)Zuverlässigkeit der Floppy-Disks zu sein.
+&debian; benutzen, scheint die (Un-)Zuverlässigkeit dieser Disketten zu sein.
 
 </para><para>
 
-Die Boot-Floppy ist die Floppy, die die größten Probleme macht,
+Die Boot-Diskette ist die Floppy, die die größten Probleme macht,
 weil sie direkt von der Hardware gelesen wird, bevor Linux bootet.
 Oft liest der Hardware-Treiber nicht so zuverlässig wie der
 Linux Floppy-Disk-Treiber und könnte einfach ohne jede Fehlermeldung
@@ -256,24 +256,24 @@ zeigt.
 
 </para><para>
 
-Wenn Sie mit einer bestimmten Floppy einen Abbruch der Installation
-haben, sollten Sie als erstes das Floppy-Disk-Image auf eine
+Wenn Sie mit einer bestimmten Diskette einen Abbruch der Installation
+haben, sollten Sie als erstes das Disketten-Image auf eine
 <emphasis>andere</emphasis> Diskette schreiben und schauen, ob dies
 das Problem löst. Die alte
 Disk einfach nur neu zu formatieren, könnte nicht ausreichend sein,
 selbst wenn das Neuformatieren und Beschreiben scheinbar ohne Fehler
-funktioniert. Manchmal kann es auch sinnvoll sein, die Floppy
+funktioniert. Manchmal kann es auch sinnvoll sein, die Diskette
 testweise auf einem anderen System zu beschreiben.
 
 </para><para>
 
 Jemand hat uns berichtet, dass er die Images <emphasis>dreimal</emphasis>
 auf Diskette schreiben musste, bis eine funktionierte, und
-mit der dritten Floppy war dann alles in Ordnung.
+mit der dritten Diskette war dann alles in Ordnung.
 
 </para><para>
 
-Normalerweise sollte es nicht nötig sein, das Floppy-Image neu herunterzuladen,
+Normalerweise sollte es nicht nötig sein, das Disketten-Image neu herunterzuladen,
 wenn Sie aber Probleme feststellen, ist es immer nützlich, über die
 md5sum-Prüfsummen zu kontrollieren, ob die Images korrekt heruntergeladen
 wurden.
@@ -281,9 +281,9 @@ wurden.
 </para><para>
 
 Andere Benutzer berichteten, dass einfach das mehrmalige Rebooten
-mit derselben Floppy im Laufwerk zu einem erfolgreichen Boot-Vorgang
+mit derselben Diskette im Laufwerk zu einem erfolgreichen Boot-Vorgang
 geführt hat. Dies alles ist auf fehlerhafte Hardware oder
-Firmware-Floppy-Driver zurückzuführen.
+Firmware-Disketten-Driver zurückzuführen.
 
 </para>
   </sect2>
@@ -340,15 +340,15 @@ bekanntermaßen funktioniert (z.B. einer Live-CD)):
 <para>
 
 Es gibt einige bekannte Installationsprobleme, die gelöst oder vermieden
-werden können, indem man dem Installer entsprechende Boot-Parameter mit gibt.
+werden können, indem man dem Installer entsprechende Boot-Parameter angibt.
 
 </para>
  
 <!-- outdated
 <para>
 
-Einige Systeme haben Floppy-Laufwerke mit <quote>invertierten DCLs</quote>.
-Wenn Sie Probleme haben, von der Floppy-Disk zu lesen, obwohl Sie wissen,
+Einige Systeme haben Diskettenlaufwerke mit <quote>invertierten DCLs</quote>.
+Wenn Sie Probleme haben, von einer Diskette zu lesen, obwohl Sie wissen,
 dass die Disk in Ordnung ist, versuchen Sie den Parameter
 <userinput>floppy=thinkpad</userinput>.
 
@@ -367,7 +367,7 @@ und nutzen Sie das Boot-Argument
 Wenn Sie eine sehr alte Maschine haben und der Kernel nach der Meldung
 <computeroutput>Checking 'hlt' instruction...</computeroutput> hängt,
 versuchen Sie es mit dem Boot-Argument <userinput>no-hlt</userinput>,
-das diesen Test deaktiviert.
+was diesen Test deaktiviert.
 
 </para><para>
 
@@ -400,7 +400,7 @@ ordnungsgemäß in den Framebuffer-Modus schaltet. Sie können dann den
 Boot-Parameter <userinput>fb=false</userinput> benutzen,
 um den Framebuffer auf der Konsole zu deaktivieren.
 In diesem Fall steht aufgrund von eingeschränkter Konsolenfunktionalität
-nur eine reduzierte Anzahl Sprachen zur Verfügung. <xref linkend="boot-parms"/>
+nur eine reduzierte Anzahl an Sprachen zur Verfügung. <xref linkend="boot-parms"/>
 enthält Details zu diesem Thema.
 
 </para>
@@ -537,8 +537,9 @@ Peripherie sucht, die Sie nicht besitzen. Sie werden vielleicht auch
 feststellen, dass das System für eine Weile pausiert. Dies kommt vor, wenn
 es auf die Antwort eines Gerätes wartet, das in Ihrem System nicht vorhanden
 ist. Wenn Sie meinen, dass die Zeit zum Booten des Systems unakzeptabel lang
-ist, können Sie später einen eigenen, maßgeschneiderten Kernel erstellen
-<phrase arch="linux-any">(siehe auch <xref linkend="kernel-baking"/>)</phrase>.
+ist, können Sie später einen eigenen, maßgeschneiderten Kernel
+erstellen<phrase arch="linux-any"> (siehe auch <xref 
+linkend="kernel-baking"/>)</phrase>.
 
 </para>
   </sect2>
@@ -549,9 +550,9 @@ ist, können Sie später einen eigenen, maßgeschneiderten Kernel erstellen
 <para>
 Wenn Sie zwar die anfängliche Boot-Phase hinter sich bringen, aber
 die Installation nicht abschließen können, kann die Auswahl des
-Eintrags <quote>Debug-Logs speichern</quote> hilfreich sein.
+Eintrags <quote>Installationsprotokolle speichern</quote> hilfreich sein.
 Dabei können System-Fehlermeldungen und Konfigurationsdaten vom Installer
-auf eine Floppy-Disk gespeichert oder mittels eines Webbrowsers heruntergeladen
+auf eine Diskette gespeichert oder mittels eines Webbrowsers heruntergeladen
 werden.
 
 Diese Informationen können Hinweise darauf geben, was schief gelaufen ist
@@ -599,8 +600,8 @@ beschrieben und führen Sie dann den Befehl
 
 Sie können alternativ diese Vorlage benutzen, um Installationsberichte zu
 verfassen, und schicken Sie ihn dann als Fehlerbericht gegen das Pseudo-Paket
-<classname>installation-reports</classname> ein, indem Sie ihn an
-<email>submit@bugs.debian.org</email> senden.
+<classname>installation-reports</classname> an
+<email>submit@bugs.debian.org</email>.
 
 <informalexample><screen>
 Package: installation-reports

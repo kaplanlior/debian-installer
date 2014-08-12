@@ -35,7 +35,7 @@ DHCP konfiguriert werden.
 
 </para><para arch="powerpc">
 
-Auf PowerPCs, wenn Sie einen NewWorld-PowerMac haben, ist es eine
+Auf PowerPCs &ndash; wenn Sie einen NewWorld-PowerMac haben &ndash; ist es eine
 gute Idee, DHCP statt BOOTP zu benutzen. Einige der Maschinen der letzten
 Generationen können nicht per BOOTP starten.
 
@@ -49,7 +49,7 @@ mit RBOOTD als mit BOOTP. Ein <classname>rbootd</classname>-Paket ist in
 
 Das Trivial-File-Transfer-Protocol (TFTP) wird benutzt, um dem Client
 das Boot-Image zur Verfügung zu stellen. Theoretisch könnte jeder Server
-auf jeder Plattform benutzt werden, der diese Protokolle implementiert hat.
+auf jeder Plattform benutzt werden, der diese Protokolle implementiert.
 In den Beispielen in diesem Abschnitt geben wir Kommandos für
 SunOS 4.x, SunOS 5.x (a.k.a. Solaris) und GNU/Linux an.
 
@@ -78,12 +78,12 @@ dass <command>tftpd</command> aktiv ist.
 
 </para><para>
 
-Im Falle von <classname>tftpd-hpa</classname> gibt es zwei Wege, auf dem
+Im Falle von <classname>tftpd-hpa</classname> gibt es zwei Wege, wie
 der Dienst zum Laufen gebracht werden kann. Er kann bei Bedarf vom
 <classname>inetd</classname>-Daemon des Systems gestartet werden oder er
 kann eingerichtet werden, als eigenständiger Daemon zu laufen. Welche der
 beiden Methoden verwendet wird, wird bei der Installation des Pakets ausgewählt
-und kann später geändert werden, indem das Paket rekonfiguriert wird.
+und kann auch später geändert werden, indem das Paket rekonfiguriert wird.
 
 </para>
 <note><para>
@@ -112,16 +112,16 @@ auf die Spur zu kommen.
 </para><para arch="mips">
 
 Wenn Sie vorhaben, &debian; auf einer SGI-Maschine zu installieren, und Ihr
-TFTP-Server ist ein GNU/Linux-Rechner mit Linux 2.4, müssen Sie auf dem
-Server Folgendes ausführen
+TFTP-Server ist ein GNU/Linux-Rechner mit Linux 2.4, müssen Sie
 
 <informalexample><screen>
 # echo 1 &gt; /proc/sys/net/ipv4/ip_no_pmtu_disc
 </screen></informalexample>
 
-um <quote>Path MTU discovery</quote> auszuschalten, andernfalls kann der PROM
+auf dem Server ausführen,
+um <quote>Path MTU Discovery</quote> auszuschalten, andernfalls kann der PROM
 des SGI den Kernel nicht herunterladen. Außerdem müssen Sie sicherstellen, dass
-TFTP-Pakete von einem Quellport nicht größer als 32767 verschickt werden,
+TFTP-Pakete von einem Quellport nicht höher als 32767 verschickt werden,
 sonst wird der Download nach dem ersten Paket stoppen. Es ist wieder der
 Linux-Kernel 2.4.x, der diesen Fehler im PROM auslöst, aber Sie können dies
 vermeiden, indem Sie
@@ -142,7 +142,7 @@ Linux-TFTP-Server benutzt.
 
 Als nächstes legen Sie die TFTP-Boot-Images, die Sie benötigen und die Sie
 wie in <xref linkend="where-files"/> beschrieben bekommen können, im
-<command>tftpd</command>-Boot-Image-Verzeichnis ab. Sie müssen unter Umständen
+<command>tftpd</command>-Bootimage-Verzeichnis ab. Sie müssen unter Umständen
 einen Link von diesem Image auf die Datei anlegen, die
 <command>tftpd</command> benutzt, um einen speziellen Client zu booten.
 Bedauerlicherweise hängt der Name dieser Datei von dem TFTP-Client ab und es
@@ -151,7 +151,7 @@ gibt dabei keine festen Standards.
 </para><para arch="powerpc">
 
 Auf NewWorld-PowerMacs müssen Sie den <command>yaboot</command>-Bootloader
-als TFTP-Boot-Image einstellen. <command>Yaboot</command> wird dann
+als TFTP-Bootimage einstellen. <command>yaboot</command> wird dann
 selbst das Kernel- und RAM-Disk-Image per TFTP abrufen. Sie müssen die
 folgenden Dateien aus dem <filename>netboot/</filename>-Verzeichnis
 herunterladen:
@@ -189,7 +189,7 @@ herunterladen:
 Alles was Sie benötigen, um per PXE zu booten, ist bereits in dem
 <filename>netboot/netboot.tar.gz</filename>-Tarball eingerichtet.
 Entpacken Sie den Tarball einfach in das
-<command>tftpd</command>-Boot-Image-Verzeichnis. Stellen Sie sicher, dass
+<command>tftpd</command>-Bootimage-Verzeichnis. Stellen Sie sicher, dass
 der DHCP-Server konfiguriert ist, <filename>pxelinux.0</filename> als
 zu bootende Datei zum <command>tftpd</command> weiterzuleiten.
 
@@ -198,7 +198,7 @@ zu bootende Datei zum <command>tftpd</command> weiterzuleiten.
 Um per PXE zu booten, müssen Sie nur den
 <filename>netboot/netboot.tar.gz</filename>-Tarball einrichten.
 Entpacken Sie den Tarball einfach in das
-<command>tftpd</command>-Boot-Image-Verzeichnis. Stellen Sie sicher, dass
+<command>tftpd</command>-Bootimage-Verzeichnis. Stellen Sie sicher, dass
 der DHCP-Server konfiguriert ist, <filename>/debian-installer/ia64/elilo.efi</filename>
 als zu bootende Datei zum <command>tftpd</command> weiterzuleiten.
 
@@ -210,7 +210,7 @@ als zu bootende Datei zum <command>tftpd</command> weiterzuleiten.
 
 Einige SPARC-Architekturen fügen die Namen der Unterarchitekturen
 wie <quote>SUN4M</quote> oder <quote>SUN4C</quote> zum Dateinamen hinzu;
-Wenn Sie also ein System der Unterarchitektur SUN4C haben und die IP-Adresse
+wenn Sie also ein System der Unterarchitektur SUN4C haben und die IP-Adresse
 ist 192.168.1.3, wäre der Dateiname <filename>C0A80103.SUN4C</filename>.
 Allerdings gibt es auch Unterarchitekturen, wo die Datei, nach der der
 Client sucht, einfach <filename>client-ip-in-hex</filename> ist. Ein
@@ -248,8 +248,8 @@ in dem Verzeichnis liegen, in dem der TFTP-Server sucht.
    <title>TFTP-Boot von SGI-Systemen</title>
 <para>
 
-Auf SGI-Maschinen können Sie sich auf den <command>bootpd</command>-Dienst
-verlassen, um den Namen der TFTP-Datei festzulegen. Er wird entweder als
+Auf SGI-Maschinen können Sie den <command>bootpd</command>-Dienst
+verwenden, um den Namen der TFTP-Datei festzulegen. Er wird entweder als
 Wert für <userinput>bf=</userinput> in <filename>/etc/bootptab</filename>
 oder als Angabe für <userinput>filename=</userinput> in
 <filename>/etc/dhcpd.conf</filename> angegeben.

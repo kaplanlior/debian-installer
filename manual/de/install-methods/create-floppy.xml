@@ -2,10 +2,10 @@
 <!-- original version: 64916 -->
 
  <sect1 condition="supports-floppy-boot" id="create-floppy">
- <title>Floppys erstellen aus den Disk-Images</title>
+ <title>Disketten erstellen aus den Disk-Images</title>
 <para>
 
-Boot-fähige Floppy-Disks sind generell der letzte Ausweg, den Installer
+Boot-fähige Disketten sind generell der letzte Ausweg, den Installer
 auf Hardware zu starten, auf der er nicht von CD oder auf anderem Wege
 gebootet werden kann.
 
@@ -16,43 +16,43 @@ berichtet.
 
 </para><para>
 
-Disk-Images sind Dateien, die den kompletten Inhalt einer Floppy-Disk
+Disk-Images sind Dateien, die den kompletten Inhalt einer Diskette (Floppy)
 in <emphasis>roher</emphasis> Form enthalten. Disk-Images wie
-<filename>boot.img</filename> können nicht einfach auf eine Floppy
+<filename>boot.img</filename> können nicht einfach auf eine Diskette
 kopiert werden. Es wird ein spezielles Programm benutzt, um die
-Image-Datei in <emphasis>roher</emphasis> Form auf die Floppy
+Image-Datei in <emphasis>roher</emphasis> Form auf die Diskette
 zu schreiben, da es erforderlich ist, eine
 <emphasis>Sektor-Kopie (sector copy)</emphasis>
-der Daten aus der Datei auf die Floppy-Disk zu machen.
+der Daten aus der Datei auf die Diskette zu machen.
 
 </para><para>
 
-Es gibt unterschiedliche Techniken, Floppys aus Disk-Images zu erzeugen.
+Es gibt unterschiedliche Techniken, Disketten aus Disk-Images zu erzeugen.
 Dieses Kapitel beschreibt für verschiedene Plattformen, wie man aus
-Disk-Images Floppys erstellt.
+Disk-Images Disketten erstellt.
 
 </para><para>
 
-Bevor Sie die Floppys erstellen können, müssen Sie die Images von einem der
+Bevor Sie die Disketten erstellen können, müssen Sie die Images von einem der
 &debian;-Spiegel-Server herunterladen, wie in <xref linkend="downloading-files"/>
 beschrieben. <phrase arch="i386">Falls Sie bereits eine Installations-CD-ROM
-oder -DVD vorliegen haben, könnten die Floppy-Images bereits auf dieser
+oder -DVD vorliegen haben, könnten die Disketten-Images bereits auf dieser
 CD/DVD enthalten sein.</phrase>
 
 </para><para>
 
 Unabhängig davon, welche Methode Sie benutzen: sobald das Image
 auf die Disk geschrieben wurde, sollten Sie den Schreibschutz der
-Disk aktivieren, um ein unbeabsichtigtes Überschreiben zu vermeiden.
+Diskette aktivieren, um ein unbeabsichtigtes Überschreiben zu vermeiden.
 
 </para>
 
   <sect2><title>Disk-Images mittels eines Linux- oder Unix-Systems schreiben</title>
 <para>
 
-Um ein Floppy-Disk-Image auf die Floppy zu schreiben, benötigen Sie
+Um ein Floppy-Disk-Image auf die Diskette zu schreiben, benötigen Sie
 unter Umständen root-Rechte auf dem System. Legen Sie eine unbeschädigte,
-leere Floppy in das Laufwerk ein. Nutzen Sie dann den Befehl
+leere Diskette in das Laufwerk ein. Nutzen Sie dann den Befehl
 
 <informalexample><screen>
 $ dd if=<replaceable>filename</replaceable> of=/dev/fd0 bs=1024 conv=sync ; sync
@@ -61,13 +61,13 @@ $ dd if=<replaceable>filename</replaceable> of=/dev/fd0 bs=1024 conv=sync ; sync
 wobei <replaceable>filename</replaceable> eine der Floppy-Disk-Imagedateien ist.
 
 <filename>/dev/fd0</filename> ist eine allgemein benutzte Bezeichnung für
-das Floppy-Laufwerk; auf Ihrem Rechner könnte Sie sich jedoch
-unterscheiden<phrase arch="sparc">
-(auf Solaris-Maschinen ist es <filename>/dev/fd/0</filename>)</phrase>.
+das Diskettenlaufwerk; auf Ihrem Rechner könnte sie sich jedoch
+unterscheiden<phrase
+arch="sparc"> (auf Solaris-Maschinen ist es <filename>/dev/fd/0</filename>)</phrase>.
 Das Kommando könnte bereits auf den Prompt zurückkehren, bevor der
 Schreibvorgang abgeschlossen ist, also achten Sie auf die
 Laufwerkszugriffs-Leuchte am Gerät und entfernen Sie die Disk erst,
-wenn die Lampe aus ist und nicht mehr auf die Floppy zugegriffen wird/
+wenn die Lampe aus ist und nicht mehr auf die Diskette zugegriffen wird/
 wenn sie sich nicht mehr dreht.
 Auf einigen Systemen müssen Sie einen Befehl ausführen, um die Disk
 auszuwerfen<phrase arch="sparc"> (auf Solaris-Maschinen benutzen Sie
@@ -76,30 +76,30 @@ Handbuchseite)</phrase>.
 
 </para><para>
 
-Einige Systeme versuchen automatisch, die Floppy-Disk
+Einige Systeme versuchen automatisch, die Diskette
 einzubinden, wenn sie eingelegt wird. Sie müssen diese Funktion
 unter Umständen deaktivieren, bevor der Rechner Ihnen erlaubt, eine
-Floppy im <emphasis>Roh-Modus</emphasis> zu beschreiben.
+Diskette im <emphasis>Roh-Modus</emphasis> zu beschreiben.
 Bedauerlicherweise hängt es von Ihrem Betriebssystem ab, wie Sie
-dies bewältigen.
+dies erledigen.
 <phrase arch="sparc">
 Auf Solaris-Maschinen können Sie das Volume Management
-umgehen, um Roh-Zugriff zur Floppy zu bekommen. Stellen Sie dazu zunächst
-sicher, dass die Floppy automatisch eingebunden wurde (benutzen Sie dafür
+umgehen, um Roh-Zugriff auf die Diskette zu bekommen. Stellen Sie dazu zunächst
+sicher, dass die Diskette automatisch eingebunden wurde (benutzen Sie dafür
 den Befehl <command>volcheck</command> oder das entsprechende
 Äquivalent im Dateimanager). Führen Sie dann einen
 <command>dd</command>-Befehl wie oben angegeben aus; ersetzen Sie dabei
 <filename>/dev/fd0</filename> durch
-<filename>/vol/rdsk/<replaceable>floppy_name</replaceable></filename>,
-wobei <replaceable>floppy_name</replaceable> der Name der Floppy ist,
-der beim Formatieren festgelegt wurde (unbenannte Floppys haben den
+<filename>/vol/rdsk/<replaceable>diskettenname</replaceable></filename>,
+wobei <replaceable>diskettenname</replaceable> der Name der Diskette ist,
+der beim Formatieren festgelegt wurde (unbenannte Disketten haben den
 Standardnamen <filename>unnamed_floppy</filename>).
 Auf anderen Systemen fragen Sie Ihren Systemadministrator.
 </phrase>
 
 </para><para arch="powerpc">
 
-Wenn Sie eine Floppy auf einem PowerPC-Linux beschreiben, müssen Sie
+Wenn Sie eine Diskette auf einem PowerPC-Linux beschreiben, müssen Sie
 sie danach aus dem Laufwerk auswerfen. Dies erledigt der Befehl
 <command>eject</command> vortrefflich; möglicherweise müssen Sie Ihn
 erst installieren.
