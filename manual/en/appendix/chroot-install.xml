@@ -614,16 +614,46 @@ instead of <userinput>hd:</userinput>.
   </sect2>
 
   <sect2>
-<title>Remote access: Installing SSH and setting a password</title>
+<title>Remote access: Installing SSH and setting up access</title>
 <para>
 
 In case you can login to the system via console, you can skip this section. If
 the system should be accessible via the network later on, you need to install
-SSH and set a password for root:
+SSH and set up access.
 
 <informalexample><screen>
 # aptitude install ssh
+</screen></informalexample>
+
+
+Root login with password is disabled by default, so setting up access can be
+done by setting a password and re-enable root login with password:
+
+<informalexample><screen>
 # passwd
+# editor /etc/ssh/sshd_config
+</screen></informalexample>
+
+This is the option to be enabled:
+
+<informalexample><screen>
+PermitRootLogin yes
+</screen></informalexample>
+
+Access can also be set up by adding an ssh key to the root account:
+
+<informalexample><screen>
+# mkdir /root/.ssh
+# cat &lt;&lt; EOF &gt; /root/.ssh/authorized_keys
+ssh-rsa ....
+EOF
+</screen></informalexample>
+
+Lastly, access can be set up by adding a non-root user and setting a password:
+
+<informalexample><screen>
+# adduser joe
+# passwd joe
 </screen></informalexample>
 </para>
   </sect2>
