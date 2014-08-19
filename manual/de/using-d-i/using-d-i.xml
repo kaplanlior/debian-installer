@@ -14,13 +14,13 @@ Fragen, die gestellt werden, kann beim Start des Installers festgelegt werden.
 
 </para><para>
 
-Wenn eine Standard-Installation durchgeführt wird, werden nur wichtige Fragen
+Wenn eine Standardinstallation durchgeführt wird, werden nur wichtige Fragen
 (mit hoher Priorität) gestellt. Dies führt zu einem stark automatisierten
 Installationsprozess, der wenig Eingriffe seitens des Benutzers erfordert.
 Die Komponenten werden automatisch der Reihe nach abgearbeitet; welche
 Komponenten gestartet werden, hängt hauptsächlich von der Installationsmethode,
 die Sie gewählt haben, und von Ihrer Hardware ab. Der Installer wird für Fragen,
-die nicht gestellt werden, Standard-Werte eintragen.
+die nicht gestellt werden, Standardwerte eintragen.
 
 </para><para>
 
@@ -33,19 +33,20 @@ so dass der Benutzer hierüber immer informiert wird.
 
 </para><para>
 
-Einige der Standard-Werte, die der Installer für Fragen benutzt, die nicht
-gestellt werden, können beeinflusst werden, indem dem &d-i; Boot-Parameter beim
-Start übergeben werden. Wenn Sie zum Beispiel eine statische Netzwerkkonfiguration
+Einige der Standardwerte, welche der Installer für Fragen benutzt, die
+unterdrückt werden, können beeinflusst werden, indem dem &d-i; beim Start
+Boot-Parameter übergeben werden. Wenn Sie zum Beispiel eine statische 
+Netzwerkkonfiguration
 erzwingen möchten (standardmäßig und falls verfügbar werden automatische
-IPv6-Konfiguration und DHCP verwendet),
+IPv6-Konfiguration und/oder DHCP verwendet),
 können Sie den Boot-Parameter <userinput>netcfg/disable_autoconfig=true</userinput>
 benutzen; <xref linkend="installer-args"/> informiert über die verfügbaren Optionen.
 
 </para><para>
 
 Fortgeschrittene Benutzer werden vielleicht mit einer menü-basierten Oberfläche
-besser zurecht kommen, wo jeder Schritt mehr vom Benutzer kontrolliert
-wird, als dass der Installer diese Schritte automatisch der Reihe nach
+besser zurecht kommen, wo sie jeden Schritt besser kontrollieren
+können, statt dass der Installer diese Schritte der Reihe nach automatisch
 ausführt. Um den Installer auf manuelle, menü-basierte Art zu verwenden,
 fügen Sie den Boot-Parameter <userinput>priority=medium</userinput>
 hinzu.
@@ -54,23 +55,23 @@ hinzu.
 
 Falls Ihre Hardware es erforderlich macht, Optionen für Kernel-Module
 anzugeben, die bei deren Installation angewendet werden, müssen Sie den Installer
-im <quote>Experten</quote>-Modus starten. Dies ist entweder möglich, indem Sie
+im <quote>Experten-Modus</quote> starten. Dies ist entweder möglich, indem Sie
 den Installer durch den Befehl <command>expert</command> starten, oder indem
-Sie den Boot-Parameter <userinput>priority=low</userinput> anhängen.
+Sie den Boot-Parameter <userinput>priority=low</userinput> angeben.
 Der Experten-Modus erlaubt die volle Kontrolle über den &d-i;.
 
 </para><para condition="gtk">
 
 Für diese Architektur unterstützt der &d-i; zwei verschiedene
 Benutzeroberflächen: eine zeichenbasierte und eine grafische. Standardmäßig
-wird die zeichenbasierte Oberfläche verwendet, außer Sie wählen den
-Eintrag <quote>Graphical install</quote> im ersten Boot-Menü. Mehr Informationen
+wird die zeichenbasierte Oberfläche verwendet, außer Sie wählen einen
+<quote>Graphical install</quote>-Eintrag im Boot-Menü. Mehr Informationen
 über den grafischen Installer finden Sie im <xref linkend="graphical"/>.
 
 </para><para condition="not-gtk">
 
 Für diese Architektur verwendet der Installer eine zeichenbasierte
-Benutzeroberfläche. Eine grafische Oberfläche ist derzeit nicht verfügbar.
+Benutzeroberfläche. Die grafische Oberfläche ist derzeit nicht verfügbar.
 
 </para><para>
 
@@ -82,7 +83,7 @@ die verschiedenen Dialoge benutzt werden: Der Pfeil nach
 <keycombo> <keycap>Shift</keycap> <keycap>Tab</keycap> </keycombo> springen
 <quote>rückwärts</quote> zwischen den angezeigten Schaltflächen und Auswahlfeldern.
 Die Pfeile nach <keycap>oben</keycap> und <keycap>unten</keycap> wählen
-verschiedene Elemente in scrollbaren Listen aus und scrollen auch die Liste
+verschiedene Elemente in Listen aus und scrollen auch die Liste
 selbst. Zusätzlich können Sie einen Buchstaben eintippen, um direkt zu den
 Elementen zu springen, die mit diesem Buchstaben beginnen oder Sie nutzen
 <keycap>Bild hoch</keycap> und <keycap>Bild runter</keycap> zum seitenweisen
@@ -107,8 +108,8 @@ werden.
 Fehlermeldungen und Logdaten werden auf die vierte Konsole umgeleitet.
 Sie können durch Drücken von
 <keycombo><keycap>Alt</keycap><keycap>F4</keycap></keycombo> auf diese
-Konsole wechseln (halten Sie die linke <keycap>Alt</keycap>-Taste gedrückt,
-während Sie die Funktionstaste <keycap>F4</keycap> drücken); zurück zum
+Konsole wechseln (halten Sie die linke <keycap>Alt</keycap>-Taste gedrückt
+und drücken Sie die Funktionstaste <keycap>F4</keycap>); zurück zum
 Installer-Hauptprogramm gelangen Sie mit
 <keycombo><keycap>Alt</keycap><keycap>F1</keycap></keycombo>.
 
@@ -117,9 +118,9 @@ Installer-Hauptprogramm gelangen Sie mit
 Diese Meldungen finden Sie auch unter <filename>/var/log/syslog</filename>.
 Nach der Installation wird diese Datei nach
 <filename>/var/log/installer/syslog</filename> auf dem neuen System
-kopiert. Weitere Installationsmeldungen können während der Installation unter
+kopiert. Weitere Installationsmeldungen finden Sie während der Installation unter
 <filename>/var/log/</filename> und nach dem Start des neuen Systems unter
-<filename>/var/log/installer/</filename> gefunden werden.
+<filename>/var/log/installer/</filename>.
 
 </para>
  </sect1>
@@ -144,7 +145,7 @@ Zeigt die Liste der Komponenten während des Installationsvorgangs an
 und startet eine ausgewählte Komponente, wenn diese aktiviert wird.
 Die Fragen des Hauptmenüs sind auf die Prioritätsstufe <quote>medium</quote>
 gesetzt, so dass Sie dieses Menü nicht sehen, wenn die Prioritätsstufe auf
-<quote>high</quote> oder <quote>critical</quote> steht
+<quote>high</quote> oder <quote>critical</quote> gesetzt ist
 (<quote>high</quote> ist der Standard). Wenn andererseits ein Fehler auftritt,
 der einen Eingriff von Ihnen verlangt, kann die Prioritätsstufe vorübergehend
 herabgesetzt werden, um Ihnen zu ermöglichen, das Problem zu lösen; in
@@ -152,7 +153,7 @@ diesem Fall kann das Menü erscheinen.
 
 </para><para>
 
-Sie können zum Hauptmenü gelangen, indem Sie wiederholt den &BTN-GOBACK;-Button
+Sie können zum Hauptmenü gelangen, indem Sie wiederholt &BTN-GOBACK;
 drücken, um die derzeit laufende Komponente abzubrechen.
 
 </para></listitem>
@@ -161,10 +162,10 @@ drücken, um die derzeit laufende Komponente abzubrechen.
 
 <term>localechooser</term><listitem><para>
 
-Erlaubt dem Benutzer, Lokalisierungs-Optionen für die Installation und
+Erlaubt dem Benutzer, Lokalisierungsoptionen für die Installation und
 das zu installierende System auszuwählen: Sprache, Land und Gebietsschema. Der
 Installer wird Meldungen in der gewählten Sprache anzeigen (außer die
-Übersetzung für diese Sprache ist nicht komplett; in diesem Fall könnten
+Übersetzung für diese Sprache ist nicht vollständig; in diesem Fall könnten
 einige Meldungen in Englisch angezeigt werden).
  
 </para></listitem>
@@ -183,7 +184,7 @@ auswählt.
 <term>hw-detect</term><listitem><para>
 
 Erkennt automatisch den überwiegenden Teil der System-Hardware inklusive
-Netzwerkkarten, Laufwerken und PCMCIA.
+Netzwerkkarten, Laufwerken und PCMCIA-Karten.
 
 </para></listitem>
 </varlistentry>
@@ -237,7 +238,7 @@ wurde.
 <term>lowmem</term><listitem><para>
 
 Lowmem versucht, Systeme mit zu wenig Arbeitsspeicher zu erkennen und vollführt
-einige Kunststücke, um unnötige Teile des &d-i; aus dem Speicher zu entfernen
+einige Kunststücke, um unnötige Teile des &d-i;s aus dem Speicher zu entfernen
 (allerdings auf Kosten einiger Funktionen).
 
 </para></listitem>
@@ -247,7 +248,7 @@ einige Kunststücke, um unnötige Teile des &d-i; aus dem Speicher zu entfernen
 
 <term>anna</term><listitem><para>
 
-Anna's Not Nearly APT (<quote>Anna ist nicht wirklich APT</quote>, ein APT-Ersatz
+Anna's Not Nearly APT (<quote>Anna ist nicht annähernd APT</quote>, ein APT-Ersatz
 für die Installation). Installiert Pakete, die von dem ausgewählten
 Spiegel-Server oder von der CD geholt wurden.
 
@@ -257,7 +258,7 @@ Spiegel-Server oder von der CD geholt wurden.
 
 <term>user-setup</term><listitem><para>
 
-Legt das root-Passwort fest und fügt dem System einen normale Benutzer
+Legt das root-Passwort fest und fügt dem System einen normalen Benutzer
 hinzu.
 
 </para></listitem>
@@ -287,7 +288,7 @@ Ermöglicht dem Benutzer, die am System angeschlossenen Festplatten zu
 partitionieren, Dateisysteme darauf zu erstellen und sie an den Einbindungspunkten
 einzuklinken. Es sind interessante Features enthalten, wie ein komplett
 automatischer Modus oder LVM-Unterstützung. Dies ist das bevorzugte
-Partitionierungsprogramm unter &debian;.
+Partitionierungsprogramm in &debian;.
 
 </para></listitem>
 </varlistentry>
@@ -305,8 +306,8 @@ Partitionierungsprogramm wird verwendet.
 
 <term>partconf</term><listitem><para>
 
-Zeigt eine Liste von Partitionen an und erzeugt Dateisysteme auf den
-ausgewählten Partitionen entsprechend den Benutzereingaben.
+Zeigt eine Liste von Partitionen an und erzeugt entsprechend den
+Benutzereingaben Dateisysteme auf den ausgewählten Partitionen .
 
 </para></listitem>
 </varlistentry>
@@ -344,7 +345,7 @@ Neustart den Betrieb unter &debian-gnu; ermöglichen.
 <term>apt-setup</term><listitem><para>
 
 Konfiguriert apt überwiegend automatisch, basierend darauf, von welchem
-Medium der Installer läuft.
+Medium der Installer gestartet wurde.
 
 </para></listitem>
 </varlistentry>
@@ -375,9 +376,8 @@ Booten auswählen, welches Betriebssystem gestartet werden soll.
 
 Die verschiedenen Bootloader-Installer (diese unterscheiden sich
 architekturabhängig geringfügig) installieren alle ein Bootloader-Programm
-auf der Festplatte, welches zum Starten des Computers unter &arch-kernel;
-ohne Verwendung
-einer Diskette oder CD-ROM notwendig ist. Viele Bootloader erlauben
+auf der Festplatte, welches notwendig ist, um den Computer unter &arch-kernel;
+ohne Verwendung einer Diskette oder CD-ROM zu starten. Viele Bootloader erlauben
 dem Benutzer die Auswahl eines alternativen Betriebssystems bei jedem
 Start des Computers.
 
