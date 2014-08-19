@@ -50,6 +50,8 @@ die "Must specify XML file to parse!\n" if ! $xmlfile;
 die "Specified XML file \"$xmlfile\" not found.\n" if ! -f $xmlfile;
 
 my $arch = $opt_a ? "$opt_a" : "i386";
+my $arch_os = $arch =~ "-" ? ($arch =~ s/-.*//r) : "linux";
+my $arch_cpu = $arch =~ "-" ? ($arch =~ s/.*-//r) : $arch;
 my $release = $opt_r;
 
 
@@ -105,8 +107,14 @@ sub start_rtn {
 				}
 			}
 			if ( exists $attr->{arch} ) {
-				print STDERR "Architecture: $attr->{arch}\n" if $opt_d;
-				if ( $attr->{arch} ne $arch ) {
+				my $req_arch = $attr->{arch};
+				print STDERR "Architecture: $req_arch\n" if $opt_d;
+				# x86 is an alias for i386 or amd64
+				if ( $req_arch =~ "x86" and ($arch_cpu eq "i386" or $arch_cpu eq "amd64") ) {
+					# replace with the one we prefer
+					$req_arch =~ s/x86/$arch_cpu/;
+				}
+				if ( $req_arch ne $arch and $req_arch ne "any-".$arch_cpu and $req_arch ne $arch_os."-any" ) {
 					$ignore{'tag'} = $tagname;
 					$ignore{'depth'} = $tagstatus{$tagname}{'count'};
 					print STDERR "Start ignore because of architecture" if $opt_d;
