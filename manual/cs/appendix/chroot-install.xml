@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 68948 -->
+<!-- original version: 69237 -->
 
  <sect1 id="linux-upgrade">
  <title>Jak nainstalovat &debian-gnu; ze stávajícího unixového/linuxového systému</title>
@@ -617,16 +617,48 @@ Na některých počítačích musíte místo <userinput>hd:</userinput> použít
   </sect2>
 
   <sect2>
-  <title>Vzdálený přístup: Instalace SSH a nastavení hesla</title>
+  <title>Vzdálený přístup: Instalace SSH a nastavení přístupu</title>
 <para>
 
 Pokud se do systému můžete přihlásit přes konzoli, můžete tento krok
 přeskočit. Jestliže však má být počítač dostupný přes síť, měli byste
-nainstalovat SSH a nastavit heslo uživateli root:
+nainstalovat SSH a nastavit přístup.
 
 <informalexample><screen>
 <prompt>#</prompt> <userinput>aptitude install ssh</userinput>
+</screen></informalexample>
+
+Uživatel root má implicitně zakázané přihlášení pomocí hesla. Pokud mu
+chcete povolit přístup pomocí hesla tak, jako to bývalo běžné dříve,
+musíte mu nastavit heslo a povolit přihlášení pomocí hesla:
+
+<informalexample><screen>
 <prompt>#</prompt> <userinput>passwd</userinput>
+<prompt>#</prompt> <userinput>editor /etc/ssh/sshd_config</userinput>
+</screen></informalexample>
+
+kde musíte povolit volbu
+
+<informalexample><screen>
+PermitRootLogin yes
+</screen></informalexample>
+
+Přístup můžete moderněji nastavit také přidáním ssh klíče do seznamu
+autorizovaných klíčů uživatele root:
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>mkdir /root/.ssh</userinput>
+<prompt>#</prompt> <userinput>chmod 700 /root/.ssh</userinput>
+<prompt>#</prompt> <userinput>cat &lt;&lt; EOF &gt; /root/.ssh/authorized_keys</userinput>
+<userinput>ssh-rsa ....</userinput>
+<userinput>EOF</userinput>
+</screen></informalexample>
+
+Poslední možností je dát přístup běžnému uživateli:
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>adduser franta</userinput>
+<prompt>#</prompt> <userinput>passwd franta</userinput>
 </screen></informalexample>
 
 </para>
