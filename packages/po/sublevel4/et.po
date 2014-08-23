@@ -3,21 +3,22 @@
 # This translation is released under the same licence as the debian-installer.
 #
 # Siim Põder <siim@p6drad-teel.net>, 2007.
-# Mattias Põldaru <mahfiaz@gmail.com>, 2009-2011, 2012.
+# Mattias Põldaru <mahfiaz@gmail.com>, 2009-2012, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-21 10:58+0100\n"
-"PO-Revision-Date: 2012-02-17 22:38+0200\n"
+"PO-Revision-Date: 2014-08-23 09:38+0300\n"
 "Last-Translator: Mattias Põldaru <mahfiaz@gmail.com>\n"
 "Language-Team: Estonian <>\n"
 "Language: et\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bits\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #. Type: text
 #. Description
@@ -1170,10 +1171,9 @@ msgstr "Kustuta ZFS tsoon"
 #. Menu entry
 #. Use infinitive form
 #: ../partman-zfs.templates:14001
-#, fuzzy
 #| msgid "Create %s file system"
 msgid "Create root file system"
-msgstr "Loo %s failisüsteem"
+msgstr "Loo juurfailisüsteem"
 
 #. Type: boolean
 #. Description
@@ -1246,7 +1246,6 @@ msgstr "Praeguse ZFS-i seadistuse kokkuvõte:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 #| msgid ""
 #| " Free physical volumes:  ${FREE_PVS}\n"
 #| " Used physical volumes:  ${USED_PVS}\n"
@@ -1262,7 +1261,8 @@ msgstr ""
 " Vabad füüsilised köited:     ${FREE_PVS}\n"
 " Kasutatud füüsilised köited: ${USED_PVS}\n"
 " ZFS tsoonid:                 ${VGS}\n"
-" ZFS loogilised köited:       ${LVS}"
+" ZFS loogilised köited:       ${LVS}\n"
+"${BOOTFS}"
 
 #. Type: note
 #. Description
@@ -1540,16 +1540,14 @@ msgstr "Käesolev tuum ei toeta ZFS-i. Tõenäoliselt pead laadima mooduli zfs."
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 #| msgid "Invalid logical volume or ZFS pool name"
 msgid "Invalid logical volume, ZFS pool name or ZFS file system name"
-msgstr "Sobimatu loogilise köite või ZFS tsooni nimi"
+msgstr "Sobimatu loogilise köite, ZFS tsooni või ZFS failisüsteemi nimi"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 #| msgid ""
 #| "Logical volume or ZFS pool names may only contain alphanumeric "
 #| "characters, hyphen, colon, period, and underscore. They must be 255 "
@@ -1561,11 +1559,10 @@ msgid ""
 "255 characters or less and must begin with an alphanumeric character. The "
 "names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"Loogilise köite või ZFS tsooni nimed võivad sisaldada vaid alfanumbrilisi "
-"märgendeid, sidekriipsu, plussi, punkti ning alakriipsu. Nad peavad olema "
-"128 või vähem märki pikad ega tohi alata sidekriipsuga. Nimed \".\" ja \".."
-"\" pole lubatud. Lisaks sellele, ei tohi loogiliste köidete nimed alata "
-"tähejadaga \"snapshot\"."
+"Loogilise köite, ZFS tsooni ja ZFS failisüsteemi nimed võivad sisaldada vaid "
+"tähti, numbreid, sidekriipsu, koolonit, punkti ning alakriipsu. Need ei tohi "
+"olla pikemad kui 255 märki ning peavad algama tähe või numbriga. Nimed "
+"\"mirror\", \"raidz\", \"spare\" ja \"log\" pole lubatud."
 
 #. Type: boolean
 #. Description
@@ -1651,25 +1648,23 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:51001
 msgid "Pool to modify:"
-msgstr ""
+msgstr "Muudetav tsoon:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 #| msgid "ZFS pool name:"
 msgid "ZFS boot file system name:"
-msgstr "ZFS tsooni nimi:"
+msgstr "ZFS alglaaduri failisüsteemi nimi:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 #| msgid "Please enter the hostname for this system."
 msgid "Please enter the name of the boot file system among the following:"
-msgstr "Palun sisesta selle arvuti võrgunimi."
+msgstr "Palun sisesta selle alglaaditava failisüsteemi nimi koos järgnevaga:"
 
 #. Type: string
 #. Description
@@ -1677,43 +1672,39 @@ msgstr "Palun sisesta selle arvuti võrgunimi."
 #: ../partman-zfs.templates:52001
 msgid ""
 "This will be prefixed by ${VG}/ROOT and mounted as the root file system."
-msgstr ""
+msgstr "Selle ette lisatakse ${VG}/ROOT ning haagitakse juurfailisüsteemina."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 #| msgid "No file system mounted on /target"
 msgid "No file system name entered"
-msgstr "/target külge pole failisüsteemi haagitud."
+msgstr "Failisüsteemi nimi pole sisestatud"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 #| msgid "No name for the ZFS pool has been entered. Please enter a name."
 msgid "No name has been entered for the root file system. Please enter a name."
-msgstr "ZFS tsoonile ei ole sisestatud nime. Palun sisesta nimi."
+msgstr "Juurfailisüsteemi nime pole sisestatud. Palun sisesta nimi."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:54001
-#, fuzzy
 #| msgid "ZFS pool:"
 msgid "ZFS boot"
-msgstr "ZFS tsoon:"
+msgstr "ZFS alglaadur"
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:55001
-#, fuzzy
 #| msgid "Registering modules..."
 msgid "Loading ZFS module..."
-msgstr "Moodulite registreerimine..."
+msgstr "ZFS mooduli laadimine..."
 
 #. Type: boolean
 #. Description
