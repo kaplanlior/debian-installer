@@ -12,20 +12,20 @@ einen großen Teil der Installation über das Netzwerk via SSH zu erledigen.
 Die Nutzung des Netzwerks bedeutet, dass Sie die ersten Schritte der
 Installation auf der Konsole durchführen müssen, zumindest bis zu dem Punkt,
 wo das Netzwerk eingerichtet wird (obwohl Sie auch diesen Teil automatisieren
-können; siehe <xref linkend="automatic-install"/>).
+können; lesen Sie dazu <xref linkend="automatic-install"/>).
 
 </para><para arch="not-s390">
 
 Die Komponente <firstterm>network-console</firstterm> wird nicht
-standardmäßig in das Installer-Hauptmenü geladen, Sie müssen also
-explizit danach fragen.
+standardmäßig in das Installer-Hauptmenü geladen, Sie müssen sie also
+explizit aufrufen.
 
-Wenn Sie von CD installieren, müssen Sie mit Priorität medium booten oder
+Wenn Sie von CD installieren, booten Sie mit Priorität medium oder
 aber Sie rufen das Installer-Hauptmenü auf und starten
 <guimenuitem>Installer-Komponenten von CD laden</guimenuitem>; aus der
 angezeigten Liste zusätzlicher Komponenten wählen Sie 
-<guimenuitem>network-console: Installation über Fernzugriff (SSH)
-fortsetzen</guimenuitem> aus. Wenn Sie einen neuen Menüeintrag namens
+<guimenuitem>network-console: Continue installation remotely using
+SSH</guimenuitem> aus. Wenn Sie einen neuen Menüeintrag namens
 <guimenuitem>Installation über Fernzugriff (SSH) fortsetzen</guimenuitem> im
 Hauptmenü sehen, wurde die Komponente erfolgreich geladen.
 
@@ -37,14 +37,14 @@ nach der Einrichtung des Netzwerks.
 </para><para>
 
 <phrase arch="not-s390">Nachdem Sie diesen neuen Eintrag gewählt haben,
-werden Sie</phrase>
-<phrase arch="s390">Sie werden</phrase> nach einem neuen Passwort gefragt,
-das Sie dafür verwenden müssen, um sich mit dem Installationssystem zu
-verbinden. Anschließend müssen Sie das Passwort noch einmal bestätigen.
-Das wars. Sie sollten jetzt einen Bildschirm sehen, der Sie anweist, sich
+werden Sie</phrase><phrase
+arch="s390">Sie werden</phrase> nach einem neuen Passwort gefragt,
+das für die Verbindung zum Installationssystem verwendet wird.
+Anschließend müssen Sie das Passwort noch einmal bestätigen.
+Das war's. Sie sollten jetzt einen Bildschirm sehen, der Sie anweist, sich
 per Fernzugriff als Nutzer <emphasis>installer</emphasis> anzumelden (mit dem
-Passwort, das Sie gerade festgelegt haben). Ein weiteres wichtiges Detail
-an diesem Bild, dass Sie beachten sollten, ist der <quote>Fingerabdruck</quote>
+Passwort, das Sie gerade festgelegt haben). Ein weiteres wichtiges Detail,
+dass Sie hier beachten sollten, ist der <quote>Fingerabdruck</quote>
 des Systems. Sie müssen den Fingerabdruck auf sicherem Wege zu der
 Person übertragen, die die Installation per Fernzugriff fortsetzt.
 
@@ -52,17 +52,17 @@ Person übertragen, die die Installation per Fernzugriff fortsetzt.
 
 Sollten Sie sich entscheiden, die Installation lokal fortzuführen, können
 Sie &enterkey; drücken; dies bringt Sie zurück zum Hauptmenü,
-wo Sie eine andere Installationskomponente auswählen können.
+wo Sie einen anderen Installationsschritt auswählen können.
 
 </para><para>
 
 Lassen Sie uns jetzt auf die andere Seite der Leitung wechseln. Als
 Grundvoraussetzung müssen Sie Ihr Terminal auf UTF8-Zeichenkodierung
-konfigurieren, weil das Installationssystem dies benutzt. Falls Sie dies
+konfigurieren, weil das Installationssystem diese nutzt. Falls Sie dies
 nicht tun, ist eine Installation per Fernzugriff zwar trotzdem möglich, Sie werden
 aber möglicherweise befremdende Artefakte in der Anzeige feststellen, wie
 nicht vorhandene Ränder an Dialogfenstern oder unlesbare nicht-ASCII-Zeichen.
-Eine Verbindung zum Installationssystem aufzubauen, ist einfach. Geben
+Eine Verbindung zum Installationssystem aufzubauen ist einfach. Geben
 Sie ein:
 
 <informalexample><screen>
@@ -71,22 +71,22 @@ Sie ein:
 
 Dabei ist <replaceable>install_host</replaceable> entweder der Name oder
 die IP-Adresse des Rechners, auf dem &debian-gnu; installiert werden soll.
-Vor der eigentlichen Anmeldung wird der Fingerabdruck des entfernten Systems
+Vor der eigentlichen Anmeldung wird der Fingerabdruck des fernen Systems
 angezeigt und Sie müssen ihn vergleichen und bestätigen, dass er korrekt ist.
 
 </para><note><para>
 
 Der <command>ssh</command>-Server im Installer nutzt eine
-Standard-Konfiguration, in der keine <quote>keep-alive</quote>-Pakete
+Standardkonfiguration, bei der keine <quote>keep-alive</quote>-Pakete
 gesendet werden. Prinzipiell sollte die Verbindung zu dem zu installierenden
 System unbegrenzt offen gehalten werden. Allerdings könnte es &ndash;
 abhängig von Ihrer Netzwerkkonfiguration vor Ort &ndash; passieren,
 dass nach einiger Zeit der Inaktivität die Verbindung verloren geht.
 Ein üblicher Fall, in dem dies vorkommen könnte, ist, wenn eine Form
-von NAT (Network Address Translation) irgendwo zwischen dem Klient und
+von NAT (Network Address Translation) irgendwo zwischen dem Client und
 dem zu installierenden System existiert. Abhängig davon, an welchem Punkt
 der Installation die Verbindung abgebrochen ist, ist es möglich oder
-unmöglich, die Installation fortsetzen, wenn die Verbindung wieder
+auch nicht möglich, die Installation fortsetzen, nachdem die Verbindung wieder
 aufgebaut wurde.
 
 </para><para>
@@ -98,9 +98,9 @@ hinzufügen, wenn Sie die <command>ssh</command>-Verbindung aufbauen,
 oder indem Sie diese Option zu Ihrer <command>ssh</command>-Konfigurationsdatei
 hinzufügen. Beachten Sie aber, dass gerade das Hinzufügen dieser Option
 einen Verbindungsabbruch <emphasis>verursachen</emphasis> kann (z.B. wenn
-<quote>keep-alive</quote>-Pakete während eines kurzem Netzwerk-Ausfalls
+<quote>keep-alive</quote>-Pakete während eines kurzen Netzwerkausfalls
 gesendet werden, von dem <command>ssh</command> sonst nichts mitbekommen
-hätte), deshalb sollte sie nur genutzt werden, falls dies nötig ist.
+hätte), deshalb sollte sie nur wenn nötig genutzt werden.
 
 </para></note>
 
@@ -127,14 +127,15 @@ Nach der Anmeldung wird Ihnen ein Startbildschirm präsentiert und Sie
 haben zwei Möglichkeiten: <guimenuitem>Menü öffnen</guimenuitem> und
 <guimenuitem>Shell starten</guimenuitem>. Die erste bringt Sie zum
 Installer-Hauptmenü und Sie können die Installation wie gewohnt fortsetzen.
-Die zweite Möglichkeit startet eine Shell, über die Sie das entfernte
+Die zweite Möglichkeit startet eine Shell, über die Sie das ferne
 System untersuchen und möglicherweise reparieren können, falls es Probleme
-gibt. Sie sollten nur eine SSH-Sitzung für das Installer-Menü öffnen,
-können jedoch mehrere Sitzungen mit Shell-Eingabeaufforderungen starten.
+gibt. Für das Installer-Menü sollten Sie nur eine einzige SSH-Sitzung öffnen,
+Sie können jedoch mehrere weitere Sitzungen mit Shell-Eingabeaufforderungen
+starten.
 
 </para><warning><para>
 
-Sobald Sie die Installation per Fernzugriff (SSH) gestartet
+Sobald Sie die Installation per Fernzugriff über SSH gestartet
 haben, sollten Sie nicht zur Installation auf der lokalen Konsole zurück
 wechseln. Dies könnte die Datenbank beschädigen, die die Konfiguration des
 neuen Systems verwaltet. Und das wiederum kann zu einer fehlgeschlagenen

@@ -4,13 +4,13 @@
 <para>
 
 Wenn Sie sich mit Partitionierung nicht auskennen oder einfach mehr Details
-benötigen, lesen Sie <xref linkend="partitioning"/>.
+benötigen lesen Sie <xref linkend="partitioning"/>.
 
 </para>
 <warning arch="sparc"><para>
 <!-- BTS: #384653 -->
 
-Wenn eine Festplatte früher bereits unter Solaris genutzt wurde, könnte es sein,
+Wurde eine Festplatte früher bereits unter Solaris genutzt, könnte es sein,
 dass der Partitionierer die Größe der Platte nicht korrekt erkennt. Auch das
 Erzeugen einer neuen Partitionstabelle löst dieses Problem nicht. Was aber hilft
 ist, die ersten paar Sektoren der Festplatte mit Nullen zu überschreiben:
@@ -19,8 +19,8 @@ ist, die ersten paar Sektoren der Festplatte mit Nullen zu überschreiben:
 # dd if=/dev/zero of=/dev/hd<replaceable>X</replaceable> bs=512 count=2; sync
 </screen></informalexample>
 
-Beachten Sie, dass Sie durch diese Aktion auf alle vorhandenen Daten auf der
-Platte nicht mehr zugreifen können!
+Beachten Sie, dass durch diese Aktion alle auf der
+Platte vorhandenen Daten nicht mehr erreichbar sind!
 
 </para></warning>
 <para>
@@ -46,7 +46,7 @@ blockorientierten Geräten.
 
 Welche Optionen genau verfügbar sind, hängt hauptsächlich von der
 Systemarchitektur ab, aber auch von einigen weiteren Faktoren. Auf Systemen mit
-begrenztem internem Speicher könnten zum Beispiel einige Optionen nicht
+begrenztem Arbeitsspeicher könnten zum Beispiel einige Optionen nicht
 verfügbar sein. Auch die Standardwerte können variieren. So kann zum Beispiel
 der Typ der verwendeten Partitionstabelle bei einer Festplatte mit sehr großer
 Kapazität ein anderer sein als bei kleinen Festplatten. Einige Optionen können
@@ -75,10 +75,10 @@ Fällen auch kombiniert genutzt werden können.
     <emphasis>Serial ATA-RAID</emphasis> (unter Verwendung von
     <classname>dmraid</classname>)
   </para><para>
-    Auch <quote>fake RAID</quote> oder <quote>BIOS RAID</quote> genannt.
+    auch <quote>fake RAID</quote> oder <quote>BIOS RAID</quote> genannt.
     Unterstützung für Serial ATA-RAID ist derzeit nur verfügbar, wenn
     es bereits beim Booten des Installers aktiviert wird. Weitere Informationen
-    finden Sie in unserem <ulink url="&url-d-i-sataraid;">Wiki</ulink>.
+    dazu finden Sie in unserem <ulink url="&url-d-i-sataraid;">Wiki</ulink>.
   </para></listitem>
   <listitem><para>
     <emphasis>Multipath</emphasis> (experimentell)
@@ -223,7 +223,7 @@ lesbar und bietet deshalb zusätzliche Sicherheit Ihrer (persönlichen) Daten.
 
 Wenn Sie verschlüsseltes LVM verwenden, wird der Installer auch automatisch
 die Festplatte löschen, indem Zufallsdaten darauf geschrieben werden. Dies
-verbessert zusätzlich die Sicherheit (da es so unmöglich ist, zu erkennen,
+verbessert zusätzlich die Sicherheit (da es so unmöglich ist zu erkennen,
 welche Teile der Platte genutzt werden und außerdem alle Spuren von
 früheren Installationen gelöscht werden), könnte aber einiges an Zeit
 benötigen, abhängig von der Größe der Festplatte.
@@ -259,8 +259,8 @@ sie auf die Festplatte geschrieben werden.
 <phrase arch="linux-any">
 Wenn Sie die klassische
 Partitionierungsmethode gewählt haben, können Sie bis zuletzt alle Änderungen
-rückgängig machen; bei der Verwendung von LVM (Standard oder LVM) ist dies
-nicht möglich.
+rückgängig machen; bei der Verwendung von LVM (Standard oder verschlüsselt)
+ist dies nicht möglich.
 </phrase>
 
 </para><para>
@@ -312,7 +312,7 @@ wird die automatische Partitionierung fehlschlagen.
 
 <para arch="linux-any">
 
-Wenn Sie Geführte Partitionierung mit LVM (Standard oder LVM) wählen,
+Wenn Sie Geführte Partitionierung mit LVM (Standard oder verschlüsselt) wählen,
 wird der Installer zusätzlich eine separate
 <filename>/boot</filename>-Partition erzeugen.
 Alle anderen Partitionen (inklusive Swap) werden innerhalb der LVM-Partition
@@ -373,7 +373,7 @@ um die neue Partitionstabelle zu aktivieren (wie am Ende dieses Kapitels
 beschrieben). Sind Sie nicht zufrieden, können Sie <guimenuitem>Änderungen an
 den Partitionen rückgängig machen</guimenuitem> wählen, um die automatische
 Partitionierung erneut zu starten, oder Sie nehmen die Vorschläge als Basis und
-führen daran noch manuelle Änderungen durch, wie weiter unten für das manuelle
+führen daran noch manuelle Änderungen durch, wie unten für das manuelle
 Partitionieren erläutert.
 
 </para>
@@ -385,7 +385,7 @@ Partitionieren erläutert.
 
 Ein ähnliches Bild wie oben wird Ihnen angezeigt, wenn Sie
 <quote>Manuell</quote> wählen, mit dem Unterschied, dass Ihre derzeit
-existierende Partitionstabelle angezeigt wird und die Einbindungspunkte fehlen.
+existierende Partitionstabelle angezeigt wird, aber die Einbindungspunkte fehlen.
 Wie Sie die Partitionstabelle manuell einrichten (sowie einiges über die
 Nutzung der Partitionen durch Ihr neues &debian;-System) wird im Rest dieses
 Kapitels beschrieben.
@@ -408,7 +408,7 @@ des freien Speicherbereichs) beantworten. Danach wird eine detaillierte
 <guimenuitem>Benutzen als:</guimenuitem>, welche festlegt, ob die Partition
 ein Dateisystem enthalten soll oder als Swap<phrase
 arch="linux-any">, Software-RAID, LVM,
-verschlüsseltem LVM </phrase>bzw. überhaupt nicht verwendet werden soll.
+verschlüsseltem LVM </phrase>oder überhaupt nicht verwendet werden soll.
 Andere Einträge
 enthalten den Einbindungspunkt im zukünftigen Dateisystem, Optionen zum Einbinden
 und die <quote>Boot-Flag</quote>-Markierung (ob die Partition bootfähig ist
@@ -454,7 +454,7 @@ fortfahren, ehe Sie eine zugewiesen haben.
 
 Die Fähigkeiten von <command>partman</command> können mittels zusätzlicher
 Installer-Module noch ausgebaut werden, dies ist allerdings abhängig von Ihrer
-System-Architektur. Falls also nicht alle angekündigten Optionen sichtbar sind,
+Systemarchitektur. Falls also nicht alle angekündigten Optionen sichtbar sind,
 stellen Sie sicher, dass die erforderlichen Module geladen sind (wie z.B.
 <filename>partman-ext3</filename>, <filename>partman-xfs</filename>
 oder <filename>partman-lvm</filename>).
@@ -464,7 +464,7 @@ oder <filename>partman-lvm</filename>).
 Wenn Sie mit der Partitionierung zufrieden sind, wählen Sie
 <guimenuitem>Partitionierung beenden und Änderungen übernehmen</guimenuitem>
 aus dem Partitionierungsmenü. Es wird eine Zusammenfassung aller Änderungen,
-die gemacht wurden, angezeigt und Sie werden aufgefordert, die Erstellung der
+die vorgenommen wurden, angezeigt und Sie werden aufgefordert, die Erstellung der
 Dateisysteme zu bestätigen.
 
 </para>
