@@ -1,13 +1,13 @@
 # Portuguese translation of the Debian Installation Manual.
 #
 # Hugo Monteiro, 2005.
-# Miguel Figueiredo <elmig@debianpt.org>, 2005-2013.
+# Miguel Figueiredo <elmig@debianpt.org>, 2005-2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: preparing\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2014-08-05 21:38+0000\n"
-"PO-Revision-Date: 2013-05-25 09:12+0100\n"
+"PO-Revision-Date: 2014-08-24 22:17+0100\n"
 "Last-Translator: Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team: Portuguese <kde-i18n-doc@kde.org>\n"
 "Language: pt\n"
@@ -1180,7 +1180,7 @@ msgstr "Tipo de Instalação"
 
 #. Tag: entry
 #: preparing.xml:764
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "RAM (minimal)"
 msgid "RAM (minimum)"
 msgstr "RAM (mínimo)"
@@ -1217,10 +1217,10 @@ msgstr "512 megabytes"
 
 #. Tag: entry
 #: preparing.xml:775
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "5 gigabytes"
 msgid "2 gigabytes"
-msgstr "5 gigabytes"
+msgstr "2 gigabytes"
 
 #. Tag: entry
 #: preparing.xml:777
@@ -1242,10 +1242,10 @@ msgstr "1 gigabyte"
 
 #. Tag: entry
 #: preparing.xml:780
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "1 gigabyte"
 msgid "10 gigabytes"
-msgstr "1 gigabyte"
+msgstr "10 gigabytes"
 
 #. Tag: para
 #: preparing.xml:785
@@ -2288,7 +2288,7 @@ msgstr "FIXME: mais informação necessária &mdash; de um Redbook?"
 #: preparing.xml:1466
 #, no-c-format
 msgid "ARM firmware"
-msgstr ""
+msgstr "Firmware ARM"
 
 #. Tag: para
 #: preparing.xml:1468
@@ -2304,6 +2304,16 @@ msgid ""
 "extensions back to the mainline firmware developers, so their changes are "
 "not integrated into newer versions of the original firmware."
 msgstr ""
+"Conforme já mencionado anteriormente, infelizmente não existe standard para "
+"o firmware de sistema nos sistemas ARM. Mesmo o comportamento de diferentes "
+"sistemas que normalmente utilizem o mesmo firmware pode ser bastante "
+"diferente. Isto resulta do facto que uma grande parte dos dispositivos que "
+"utilizam a arquitectura ARM são sistemas embebidos, para os quais os "
+"fabricantes utilizam versões de firmware altamente customizadas e que "
+"incluem patches específicos de dispositivos. Infelizmente os fabricantes "
+"muitas vezes não submetem as suas alterações e extensões de volta aos "
+"desenvolvedores de firmware mainline, por isso as suas alterações não são "
+"integradas em novas versões do firmware original."
 
 #. Tag: para
 #: preparing.xml:1480
@@ -2318,12 +2328,20 @@ msgid ""
 "impossible to provide usable product-independend instructions for ARM-based "
 "systems."
 msgstr ""
+"Como resultado disso mesmo sistemas recentemente vendidos muitas vezes "
+"utilizam um firmware que é baseado numa versão com anos modificada pelo "
+"fabricante cujo código mainline do firmware entretanto evoluiu imenso e "
+"oferece funcionalidades adicionais ou apresenta comportamento diferente em "
+"certos aspectos. Além disso, o nome de dispositivos onboard não é "
+"consistente entre diferentes versões modificadas pelo fabricante do mesmo "
+"firmware, e por isso é quase impossível disponibilizar instruções "
+"utilizáveis que sejam independentes de produto para sistemas baseados em ARM."
 
 #. Tag: title
 #: preparing.xml:1493
 #, no-c-format
 msgid "Setting the ethernet MAC address in u-boot"
-msgstr ""
+msgstr "Definir o endereço MAC de ethernet em u-boot"
 
 #. Tag: para
 #: preparing.xml:1494
@@ -2335,6 +2353,11 @@ msgid ""
 "addresses from a centrally-administered pool (for which a fee has to be "
 "paid) and preconfigures one of these addresses on each item sold."
 msgstr ""
+"O endereço MAC de cada interface ethernet deve ser globalmente único, e "
+"tecnicamente tem que ser único dentro do domínio de broadcast ethernet. Para "
+"alcançar isto, o fabricante geralmente aloca um bloco de endereços MAC e "
+"partir de um conjunto administrado centralmente (para o qual é pago um valor) "
+"e preconfigura um destes endereços em cada item vendido."
 
 #. Tag: para
 #: preparing.xml:1502
@@ -2350,6 +2373,16 @@ msgid ""
 "DHCP based on the MAC address of the requesting client would obviously not "
 "work reliably."
 msgstr ""
+"No caso de placas de desenvolvimento, por vezes o fabricante quer evitar "
+"pagar esses valores e por isso não disponibiliza um endereço globalmente "
+"único. Nesses casos os próprios utilizadores têm de definir os endereços MAC "
+"para os seus sistemas. Quando não está definido um endereço MAC para um "
+"interface ethernet, alguns controladores de rede geram um endereço MAC "
+"aleatório que pode ser alterado em cada arranque, mas se isso acontecer, o "
+"acesso à rede será possível mesmo que o utilizador não defina manualmente o "
+"endereço, mas e.g. atribuir endereços IP semi-estáticos por DHCP baseados em "
+"endereços MAC do cliente que requisita obviamente não irá funcionar "
+"correctamente."
 
 #. Tag: para
 #: preparing.xml:1513
