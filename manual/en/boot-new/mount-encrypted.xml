@@ -8,13 +8,9 @@
 
 If you created encrypted volumes during the installation and assigned
 them mount points, you will be asked to enter the passphrase for each
-of these volumes during the boot. The actual procedure differs
-slightly between dm-crypt and loop-AES.
+of these volumes during the boot.
 
 </para>
-
-  <sect2 id="mount-dm-crypt">
-  <title>dm-crypt</title>
 
 <para>
 
@@ -68,36 +64,6 @@ for further information.
 After entering all passphrases the boot should continue as usual.
 
 </para>
-  </sect2>
-
-  <sect2 id="mount-loop-aes">
-  <title>loop-AES</title>
-
-<para>
-
-For partitions encrypted using loop-AES you will be shown the following
-prompt during the boot:
-
-<informalexample><screen>
-Checking loop-encrypted file systems.
-Setting up /dev/loop<replaceable>X</replaceable> (/<replaceable>mountpoint</replaceable>)
-Password:
-</screen></informalexample>
-
-</para><para>
-
-No characters (even asterisks) will be shown while entering the passphrase.
-If you enter the wrong passphrase, you have two more tries to correct it.
-After the third try the boot process will skip this volume and continue to
-mount the next filesystem. Please see <xref linkend="crypto-troubleshooting"/>
-for further information.
-
-</para><para>
-
-After entering all passphrases the boot should continue as usual.
-
-</para>
-  </sect2>
 
   <sect2 id="crypto-troubleshooting">
   <title>Troubleshooting</title>
@@ -122,22 +88,11 @@ computer to try again.
 
 The easiest case is for encrypted volumes holding data like
 <filename>/home</filename> or <filename>/srv</filename>. You can
-simply mount them manually after the boot. For loop-AES this is
-a one-step operation:
-
-<informalexample><screen>
-<prompt>#</prompt> <userinput>mount <replaceable>/mount_point</replaceable></userinput>
-<prompt>Password:</prompt>
-</screen></informalexample>
-
-where <replaceable>/mount_point</replaceable> should be replaced by
-the particular directory (e.g. <filename>/home</filename>). The only
-difference from an ordinary mount is that you will be asked to enter
-the passphrase for this volume.
+simply mount them manually after the boot.
 
 </para><para>
 
-For dm-crypt this is a bit trickier. First you need to register the
+However for dm-crypt this is a bit tricky. First you need to register the
 volumes with <application>device mapper</application> by running:
 
 <informalexample><screen>
