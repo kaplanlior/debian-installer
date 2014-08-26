@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: random-bits\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2014-08-05 21:38+0000\n"
+"POT-Creation-Date: 2014-08-26 20:40+0000\n"
 "PO-Revision-Date: 2013-05-01 16:59+0300\n"
 "Last-Translator: galaxico <galaxico@quad-nrg.net>\n"
 "Language-Team: Greek <debian-l10n-greek@lists.debian.org>\n"
@@ -1875,8 +1875,9 @@ msgstr ""
 
 #. Tag: title
 #: random-bits.xml:826
-#, no-c-format
-msgid "Remote access: Installing SSH and setting a password"
+#, fuzzy, no-c-format
+#| msgid "Remote access: Installing SSH and setting a password"
+msgid "Remote access: Installing SSH and setting up access"
 msgstr ""
 "Απομακρυσμένη πρόσβαση: Εγκαθιστώντας με SSH και καθορίζοντας έναν κωδικό "
 "πρόσβασης"
@@ -1887,31 +1888,42 @@ msgstr ""
 msgid ""
 "In case you can login to the system via console, you can skip this section. "
 "If the system should be accessible via the network later on, you need to "
-"install SSH and set a password for root:"
+"install SSH and set up access. <informalexample><screen>\n"
+"# aptitude install ssh\n"
+"</screen></informalexample> Root login with password is disabled by default, "
+"so setting up access can be done by setting a password and re-enable root "
+"login with password: <informalexample><screen>\n"
+"# passwd\n"
+"# editor /etc/ssh/sshd_config\n"
+"</screen></informalexample> This is the option to be enabled: "
+"<informalexample><screen>\n"
+"PermitRootLogin yes\n"
+"</screen></informalexample> Access can also be set up by adding an ssh key "
+"to the root account: <informalexample><screen>\n"
+"# mkdir /root/.ssh\n"
+"# cat &lt;&lt; EOF &gt; /root/.ssh/authorized_keys\n"
+"ssh-rsa ....\n"
+"EOF\n"
+"</screen></informalexample> Lastly, access can be set up by adding a non-"
+"root user and setting a password:"
 msgstr ""
-"Σε περίπτωση που μπορείτε να μπείτε σε ένα σύστημα μέσω μιας κονσόλας, "
-"μπορείτε να παραλείψετε αυτή την ενότητα. Αν το σύστημα μπορεί να είναι "
-"προσβάσιμο μέσω του δικτύου αργότερα, θα πρέπει να εγκαταστήσετε το SSH και "
-"να ορίσετε έναν κωδικό πρόσβασης για τον χρήστη root:"
 
 #. Tag: screen
-#: random-bits.xml:833
+#: random-bits.xml:851
 #, no-c-format
 msgid ""
-"# aptitude install ssh\n"
-"# passwd"
+"# adduser joe\n"
+"# passwd joe"
 msgstr ""
-"# aptitude install ssh\n"
-"# passwd"
 
 #. Tag: title
-#: random-bits.xml:838
+#: random-bits.xml:856
 #, no-c-format
 msgid "Finishing touches"
 msgstr "Τελευταίες πινελιές"
 
 #. Tag: para
-#: random-bits.xml:839
+#: random-bits.xml:857
 #, no-c-format
 msgid ""
 "As mentioned earlier, the installed system will be very basic. If you would "
@@ -1931,7 +1943,7 @@ msgstr ""
 "<command>aptitude</command> για να εγκαταστήσετε μεμονωμένα πακέτα."
 
 #. Tag: para
-#: random-bits.xml:850
+#: random-bits.xml:868
 #, no-c-format
 msgid ""
 "After the installation there will be a lot of downloaded packages in "
@@ -1943,19 +1955,19 @@ msgstr ""
 "ελευθερώσετε λίγο χώρο στον δίσκο τρέχοντας την εντολή:"
 
 #. Tag: screen
-#: random-bits.xml:856
+#: random-bits.xml:874
 #, no-c-format
 msgid "# aptitude clean"
 msgstr "# aptitude clean "
 
 #. Tag: title
-#: random-bits.xml:867
+#: random-bits.xml:885
 #, no-c-format
 msgid "Installing &debian-gnu; over Parallel Line IP (PLIP)"
 msgstr "Εγκαθιστώντας το &debian-gnu; πάνω από Parallel Line IP (PLIP)"
 
 #. Tag: para
-#: random-bits.xml:869
+#: random-bits.xml:887
 #, no-c-format
 msgid ""
 "This section explains how to install &debian-gnu; on a computer without an "
@@ -1972,7 +1984,7 @@ msgstr ""
 "στο Διαδίκτυο)."
 
 #. Tag: para
-#: random-bits.xml:877
+#: random-bits.xml:895
 #, no-c-format
 msgid ""
 "In the example in this appendix we will set up a PLIP connection using a "
@@ -1989,7 +2001,7 @@ msgstr ""
 "χώρο διευθύνσεων του δικτύου σας)."
 
 #. Tag: para
-#: random-bits.xml:885
+#: random-bits.xml:903
 #, no-c-format
 msgid ""
 "The PLIP connection set up during the installation will also be available "
@@ -2001,7 +2013,7 @@ msgstr ""
 "\"boot-new\"/>)."
 
 #. Tag: para
-#: random-bits.xml:890
+#: random-bits.xml:908
 #, no-c-format
 msgid ""
 "Before you start, you will need to check the BIOS configuration (IO base "
@@ -2015,13 +2027,13 @@ msgstr ""
 "<literal>io=0x378</literal>, <literal>irq=7</literal>."
 
 #. Tag: title
-#: random-bits.xml:900
+#: random-bits.xml:918
 #, no-c-format
 msgid "Requirements"
 msgstr "Απαιτήσεις"
 
 #. Tag: para
-#: random-bits.xml:903
+#: random-bits.xml:921
 #, no-c-format
 msgid ""
 "A target computer, called <emphasis>target</emphasis>, where &debian; will "
@@ -2031,13 +2043,13 @@ msgstr ""
 "οποίον θα εγκατασταθεί το &debian;."
 
 #. Tag: para
-#: random-bits.xml:909
+#: random-bits.xml:927
 #, no-c-format
 msgid "System installation media; see <xref linkend=\"installation-media\"/>."
 msgstr "Μέσα εγκατάστασης; δείτε <xref linkend=\"installation-media\"/>."
 
 #. Tag: para
-#: random-bits.xml:914
+#: random-bits.xml:932
 #, no-c-format
 msgid ""
 "Another computer connected to the Internet, called <emphasis>source</"
@@ -2047,7 +2059,7 @@ msgstr ""
 "<emphasis>αφετηρία</emphasis>, που θα λειτουργήσει σαν πύλη."
 
 #. Tag: para
-#: random-bits.xml:920
+#: random-bits.xml:938
 #, no-c-format
 msgid ""
 "A DB-25 Null-Modem cable. See the <ulink url=\"&url-plip-install-howto;"
@@ -2059,13 +2071,13 @@ msgstr ""
 "το καλώδιο και οδηγίες για το πώς να το φτιάξετε οι ίδιοι."
 
 #. Tag: title
-#: random-bits.xml:932
+#: random-bits.xml:950
 #, no-c-format
 msgid "Setting up source"
 msgstr "Ρύθμιση της αφετηρίας"
 
 #. Tag: para
-#: random-bits.xml:933
+#: random-bits.xml:951
 #, no-c-format
 msgid ""
 "The following shell script is a simple example of how to configure the "
@@ -2075,7 +2087,7 @@ msgstr ""
 "αφετηρίας σαν πύλη στο Διαδίκτυο χρησιμοποιώντας ppp0."
 
 #. Tag: screen
-#: random-bits.xml:938
+#: random-bits.xml:956
 #, no-c-format
 msgid ""
 "#!/bin/sh\n"
@@ -2117,13 +2129,13 @@ msgstr ""
 "echo 1 > /proc/sys/net/ipv4/ip_forward"
 
 #. Tag: title
-#: random-bits.xml:944
+#: random-bits.xml:962
 #, no-c-format
 msgid "Installing target"
 msgstr "Εγκατάσταση στο σύστημα προορισμού"
 
 #. Tag: para
-#: random-bits.xml:945
+#: random-bits.xml:963
 #, no-c-format
 msgid ""
 "Boot the installation media. The installation needs to be run in expert "
@@ -2150,13 +2162,13 @@ msgstr ""
 "κατά τα διάφορα στάδια της εγκατάστασης."
 
 #. Tag: guimenuitem
-#: random-bits.xml:964
+#: random-bits.xml:982
 #, no-c-format
 msgid "Load installer components from CD"
 msgstr "Φόρτωση συνιστωσών του εγκαταστάτη από το CD"
 
 #. Tag: para
-#: random-bits.xml:966
+#: random-bits.xml:984
 #, no-c-format
 msgid ""
 "Select the <userinput>plip-modules</userinput> option from the list; this "
@@ -2166,13 +2178,13 @@ msgstr ""
 "καταστήσει διαθέσιμους τους οδηγούς PLIP στο σύστημα εγκατάστασης."
 
 #. Tag: guimenuitem
-#: random-bits.xml:974
+#: random-bits.xml:992
 #, no-c-format
 msgid "Detect network hardware"
 msgstr "Ανίχνευση υλικού δικτύου"
 
 #. Tag: para
-#: random-bits.xml:979
+#: random-bits.xml:997
 #, no-c-format
 msgid ""
 "If target <emphasis>does</emphasis> have a network card, a list of driver "
@@ -2188,7 +2200,7 @@ msgstr ""
 "δικτύου, ο εγκαταστάτης δεν θα εμφανίσει αυτή τη λίστα."
 
 #. Tag: para
-#: random-bits.xml:988
+#: random-bits.xml:1006
 #, no-c-format
 msgid ""
 "Because no network card was detected/selected earlier, the installer will "
@@ -2200,19 +2212,19 @@ msgstr ""
 "λίστα. Επιλέξτε τον οδηγό του αρθρώματος <userinput>plip</userinput>."
 
 #. Tag: guimenuitem
-#: random-bits.xml:1000
+#: random-bits.xml:1018
 #, no-c-format
 msgid "Configure the network"
 msgstr "Ρύθμιση του Δικτύου "
 
 #. Tag: para
-#: random-bits.xml:1003
+#: random-bits.xml:1021
 #, no-c-format
 msgid "Auto-configure network with DHCP: No"
 msgstr "Αυτόματη ρύθμιση του δικτύου με DHCP: Όχι"
 
 #. Tag: para
-#: random-bits.xml:1008
+#: random-bits.xml:1026
 #, no-c-format
 msgid ""
 "IP address: <userinput><replaceable>192.168.0.1</replaceable></userinput>"
@@ -2220,7 +2232,7 @@ msgstr ""
 "Διεύθυνση IP: <userinput><replaceable>192.168.0.1</replaceable></userinput>"
 
 #. Tag: para
-#: random-bits.xml:1013
+#: random-bits.xml:1031
 #, no-c-format
 msgid ""
 "Point-to-point address: <userinput><replaceable>192.168.0.2</replaceable></"
@@ -2230,7 +2242,7 @@ msgstr ""
 "userinput>"
 
 #. Tag: para
-#: random-bits.xml:1019
+#: random-bits.xml:1037
 #, no-c-format
 msgid ""
 "Name server addresses: you can enter the same addresses used on source (see "
@@ -2241,14 +2253,14 @@ msgstr ""
 "<filename>/etc/resolv.conf</filename>). "
 
 #. Tag: title
-#: random-bits.xml:1038
+#: random-bits.xml:1056
 #, no-c-format
 msgid "Installing &debian-gnu; using PPP over Ethernet (PPPoE)"
 msgstr ""
 "Εγκαθιστώντας το &debian-gnu; χρησιμοποιώντας PPP over Ethernet (PPPoE)"
 
 #. Tag: para
-#: random-bits.xml:1040
+#: random-bits.xml:1058
 #, no-c-format
 msgid ""
 "In some countries PPP over Ethernet (PPPoE) is a common protocol for "
@@ -2264,7 +2276,7 @@ msgstr ""
 "πετύχετε πολύ απλά. Η ενότητα αυτή εξηγεί το πώς."
 
 #. Tag: para
-#: random-bits.xml:1048
+#: random-bits.xml:1066
 #, no-c-format
 msgid ""
 "The PPPoE connection set up during the installation will also be available "
@@ -2276,7 +2288,7 @@ msgstr ""
 "(δείτε το <xref linkend=\"boot-new\"/>)."
 
 #. Tag: para
-#: random-bits.xml:1053
+#: random-bits.xml:1071
 #, no-c-format
 msgid ""
 "To have the option of setting up and using PPPoE during the installation, "
@@ -2291,7 +2303,7 @@ msgstr ""
 "\"> ή δισκέττες</phrase>)."
 
 #. Tag: para
-#: random-bits.xml:1060
+#: random-bits.xml:1078
 #, no-c-format
 msgid ""
 "Installing over PPPoE is mostly the same as any other installation. The "
@@ -2301,7 +2313,7 @@ msgstr ""
 "εγκατάσταση. Τα επόμενα βήματα εξηγούν τις διαφορές."
 
 #. Tag: para
-#: random-bits.xml:1068
+#: random-bits.xml:1086
 #, no-c-format
 msgid ""
 "Boot the installer with the boot parameter <userinput>modules=ppp-udeb</"
@@ -2318,7 +2330,7 @@ msgstr ""
 "φορτωθεί και θα εκτελεστεί αυτόματα."
 
 #. Tag: para
-#: random-bits.xml:1083
+#: random-bits.xml:1101
 #, no-c-format
 msgid ""
 "Follow the regular initial steps of the installation (language, country and "
@@ -2339,7 +2351,7 @@ msgstr ""
 "στο προτρεπτικό εκκίνησης. </para> </footnote>)."
 
 #. Tag: para
-#: random-bits.xml:1102
+#: random-bits.xml:1120
 #, no-c-format
 msgid ""
 "The next step is the detection of network hardware, in order to identify any "
@@ -2349,7 +2361,7 @@ msgstr ""
 "αναγνωριστούν οποιεσδήποτε κάρτες Ethernet υπάρχουν στο σύστημα."
 
 #. Tag: para
-#: random-bits.xml:1108
+#: random-bits.xml:1126
 #, no-c-format
 msgid ""
 "After this the actual setup of PPPoE is started. The installer will probe "
@@ -2362,7 +2374,7 @@ msgstr ""
 "συνδέσεις PPPoE)."
 
 #. Tag: para
-#: random-bits.xml:1114
+#: random-bits.xml:1132
 #, no-c-format
 msgid ""
 "It is possible that the concentrator will not to be found at the first "
@@ -2379,7 +2391,7 @@ msgstr ""
 "PPPoE</guimenuitem> από το κύριο μενού του εγκαταστάτη."
 
 #. Tag: para
-#: random-bits.xml:1123
+#: random-bits.xml:1141
 #, no-c-format
 msgid ""
 "After a concentrator is found, the user will be prompted to type the login "
@@ -2390,7 +2402,7 @@ msgstr ""
 "για την σύνδεση PPPoE)."
 
 #. Tag: para
-#: random-bits.xml:1129
+#: random-bits.xml:1147
 #, no-c-format
 msgid ""
 "At this point the installer will use the provided information to establish "
@@ -2411,220 +2423,200 @@ msgstr ""
 "<guimenuitem>Ρύθμιση και εκκίνηση μιας σύνδεσης PPPoE</guimenuitem> από το "
 "μενού."
 
-#. Tag: title
-#: random-bits.xml:1149
-#, no-c-format
-msgid "The Graphical Installer"
-msgstr "Ο γραφικός εγκαταστάτης"
+#~ msgid ""
+#~ "In case you can login to the system via console, you can skip this "
+#~ "section. If the system should be accessible via the network later on, you "
+#~ "need to install SSH and set a password for root:"
+#~ msgstr ""
+#~ "Σε περίπτωση που μπορείτε να μπείτε σε ένα σύστημα μέσω μιας κονσόλας, "
+#~ "μπορείτε να παραλείψετε αυτή την ενότητα. Αν το σύστημα μπορεί να είναι "
+#~ "προσβάσιμο μέσω του δικτύου αργότερα, θα πρέπει να εγκαταστήσετε το SSH "
+#~ "και να ορίσετε έναν κωδικό πρόσβασης για τον χρήστη root:"
 
-#. Tag: para
-#: random-bits.xml:1150
-#, no-c-format
-msgid ""
-"The graphical version of the installer is only available for a limited "
-"number of architectures, including &arch-title;. The functionality of the "
-"graphical installer is essentially the same as that of the regular installer "
-"as it basically uses the same programs, but with a different frontend."
-msgstr ""
-"Η γραφική έκδοση του εγκαταστάτη είναι διαθέσιμη μόνο σε έναν περιορισμένο "
-"αριθμό αρχιτεκτονικών, συμπεριλαμβανομένης της &arch-title;. Η "
-"λειτουργικότητα του γραφικού εγκαταστάτη είναι ουσιαστικά η ίδια με αυτήν "
-"του συνηθισμένου εγκαταστάτη καθώς χρησιμοποιεί βασικά τα ίδια προγράμματα, "
-"αλλά με ένα διαφορετικό frontend."
+#~ msgid ""
+#~ "# aptitude install ssh\n"
+#~ "# passwd"
+#~ msgstr ""
+#~ "# aptitude install ssh\n"
+#~ "# passwd"
 
-#. Tag: para
-#: random-bits.xml:1158
-#, no-c-format
-msgid ""
-"Although the functionality is identical, the graphical installer still has a "
-"few significant advantages. The main advantage is that it supports more "
-"languages, namely those that use a character set that cannot be displayed "
-"with the regular <quote>newt</quote> frontend. It also has a few usability "
-"advantages such as the option to use a mouse, and in some cases several "
-"questions can be displayed on a single screen."
-msgstr ""
-"Αν και η λειτουργικότητα είναι ταυτόσημη, ο γραφικός εγκαταστάτης έχει παρ' "
-"όλα αυτά μερικά αξιοσημείωτα πλεονεκτήματα. Το κυριότερο είναι ότι "
-"υποστηρίζει περισσότερες γλώσσες, δηλαδή εκείνες που χρησιμοποιούν ένα "
-"σύνολο χαρακτήρων που δεν μπορούν να εμφανιστούν με το συνηθισμένο frontend "
-"<quote>newt</quote>. Έχει επίσης μερικά πλεονεκτήματα χρηστικότητας όπως την "
-"επιλογή χρήσης ενός ποντικιού, και σε μερικές περιπτώσεις αρκετές ερωτήσεις "
-"μπορούν να εμφανιστούν σε μια και μόνο οθόνη."
+#~ msgid "The Graphical Installer"
+#~ msgstr "Ο γραφικός εγκαταστάτης"
 
-#. Tag: para
-#: random-bits.xml:1167
-#, no-c-format
-msgid ""
-"The graphical installer is available with all CD images and with the hd-"
-"media installation method. To boot the graphical installer simply select the "
-"relevant option from the boot menu. Expert and rescue mode for the graphical "
-"installer can be selected from the <quote>Advanced options</quote> menu. The "
-"previously used boot methods <userinput>installgui</userinput>, "
-"<userinput>expertgui</userinput> and <userinput>rescuegui</userinput> can "
-"still be used from the boot prompt which is shown after selecting the "
-"<quote>Help</quote> option in the boot menu."
-msgstr ""
-"Ο γραφικός εγκαταστάτης είναι διαθέσιμος με όλες τις εικόνες CD καθώς και με "
-"τα μέσα της μεθόδου εγκατάστασης από σκληρό δίσκο. Για να ξεκινήσετε τον "
-"γραφικό εγκαταστάτη απλά κάνετε την σχετική επιλογή από το μενού εκκίνησης. "
-"Στην κατάσταση \"έμπειρου\" χρήστη και \"διάσωσης\" ο γραφικός εγκαταστάτης "
-"είναι επιλέξιμος από το μενού <quote>Προχωρημένες επιλογές</quote>. Οι "
-"επιλογές <userinput>installgui</userinput>, <userinput>expertgui</userinput> "
-"και <userinput>rescuegui</userinput> που υπήρχαν παλιότερα μπορούν ακόμα να "
-"χρησιμοποιηθούν από το προτρεπτικό εκκίνησης που εμφανίζεται μετά την "
-"επιλογή <quote>Βοήθεια</quote> από το μενού εκκίνησης."
+#~ msgid ""
+#~ "The graphical version of the installer is only available for a limited "
+#~ "number of architectures, including &arch-title;. The functionality of the "
+#~ "graphical installer is essentially the same as that of the regular "
+#~ "installer as it basically uses the same programs, but with a different "
+#~ "frontend."
+#~ msgstr ""
+#~ "Η γραφική έκδοση του εγκαταστάτη είναι διαθέσιμη μόνο σε έναν "
+#~ "περιορισμένο αριθμό αρχιτεκτονικών, συμπεριλαμβανομένης της &arch-title;. "
+#~ "Η λειτουργικότητα του γραφικού εγκαταστάτη είναι ουσιαστικά η ίδια με "
+#~ "αυτήν του συνηθισμένου εγκαταστάτη καθώς χρησιμοποιεί βασικά τα ίδια "
+#~ "προγράμματα, αλλά με ένα διαφορετικό frontend."
 
-#. Tag: para
-#: random-bits.xml:1178
-#, no-c-format
-msgid ""
-"There is also a graphical installer image that can be netbooted. And there "
-"is a special <quote>mini</quote> ISO image<footnote id=\"gtk-miniiso\"> "
-"<para> The mini ISO image can be downloaded from a &debian; mirror as "
-"described in <xref linkend=\"downloading-files\"/>. Look for "
-"<filename>netboot/gtk/mini.iso</filename>. </para> </footnote>, which is "
-"mainly useful for testing."
-msgstr ""
-"Υπάρχει ακόμα μια εικόνα του γραφικού εγκαταστάτη που μπορεί να εκκινηθεί "
-"δικτυακά (nteboot). Υπάρχει δε ακόμα μια ειδική <quote>mini</quote> εικόνα "
-"ISO <footnote id=\"gtk-miniiso\"> <para> Την εικόνα mini ISO μπορεί να "
-"κατεβάσει κανείς από έναν καθρέφτη του &debian; όπως περιγράφεται στην "
-"ενότητα  <xref linkend=\"downloading-files\"/>. Κοιτάξτε για το αρχείο "
-"<quote>gtk-miniiso</quote>. </para> </footnote>, που είναι κυρίως χρήσιμο "
-"για δοκιμές."
+#~ msgid ""
+#~ "Although the functionality is identical, the graphical installer still "
+#~ "has a few significant advantages. The main advantage is that it supports "
+#~ "more languages, namely those that use a character set that cannot be "
+#~ "displayed with the regular <quote>newt</quote> frontend. It also has a "
+#~ "few usability advantages such as the option to use a mouse, and in some "
+#~ "cases several questions can be displayed on a single screen."
+#~ msgstr ""
+#~ "Αν και η λειτουργικότητα είναι ταυτόσημη, ο γραφικός εγκαταστάτης έχει "
+#~ "παρ' όλα αυτά μερικά αξιοσημείωτα πλεονεκτήματα. Το κυριότερο είναι ότι "
+#~ "υποστηρίζει περισσότερες γλώσσες, δηλαδή εκείνες που χρησιμοποιούν ένα "
+#~ "σύνολο χαρακτήρων που δεν μπορούν να εμφανιστούν με το συνηθισμένο "
+#~ "frontend <quote>newt</quote>. Έχει επίσης μερικά πλεονεκτήματα "
+#~ "χρηστικότητας όπως την επιλογή χρήσης ενός ποντικιού, και σε μερικές "
+#~ "περιπτώσεις αρκετές ερωτήσεις μπορούν να εμφανιστούν σε μια και μόνο "
+#~ "οθόνη."
 
-#. Tag: para
-#: random-bits.xml:1191
-#, no-c-format
-msgid ""
-"For &arch-title;, currently only an experimental <quote>mini</quote> ISO "
-"image is available<footnote id=\"gtk-miniiso\"> <para> The mini ISO image "
-"can be downloaded from a &debian; mirror as described in <xref linkend="
-"\"downloading-files\"/>. Look for <filename>netboot/gtk/mini.iso</filename>. "
-"</para> </footnote>. It should work on almost all PowerPC systems that have "
-"an ATI graphical card, but is unlikely to work on other systems."
-msgstr ""
-"Για την αρχιτεκτονική &arch-title;, υπάρχει προς το παρόν διαθέσιμη μόνο μια "
-"πειραματική εικόνα ISO <quote>mini</quote> <footnote id=\"gtk-miniiso\"> του "
-"γραφικού εγκαταστάτη.<para> Η εικόνα ISO mini μπορεί να μεταφορτωθεί από "
-"έναν καθρέφτη του &debian; όπως περιγράφεται στην ενότητα <xref linkend="
-"\"downloading-files\"/>. Κοιτάξτε για το αρχείο <quote>gtk-miniiso</quote>. "
-"</para> </footnote>. Θα πρέπει να δουλεύει σε όλα σχεδόν τα συστήματα "
-"PowerPC με κάρτα γραφικών ATI, αλλά είναι μάλλον απίθανο να δουλεύει σε άλλα "
-"συστήματα."
+#~ msgid ""
+#~ "The graphical installer is available with all CD images and with the hd-"
+#~ "media installation method. To boot the graphical installer simply select "
+#~ "the relevant option from the boot menu. Expert and rescue mode for the "
+#~ "graphical installer can be selected from the <quote>Advanced options</"
+#~ "quote> menu. The previously used boot methods <userinput>installgui</"
+#~ "userinput>, <userinput>expertgui</userinput> and <userinput>rescuegui</"
+#~ "userinput> can still be used from the boot prompt which is shown after "
+#~ "selecting the <quote>Help</quote> option in the boot menu."
+#~ msgstr ""
+#~ "Ο γραφικός εγκαταστάτης είναι διαθέσιμος με όλες τις εικόνες CD καθώς και "
+#~ "με τα μέσα της μεθόδου εγκατάστασης από σκληρό δίσκο. Για να ξεκινήσετε "
+#~ "τον γραφικό εγκαταστάτη απλά κάνετε την σχετική επιλογή από το μενού "
+#~ "εκκίνησης. Στην κατάσταση \"έμπειρου\" χρήστη και \"διάσωσης\" ο γραφικός "
+#~ "εγκαταστάτης είναι επιλέξιμος από το μενού <quote>Προχωρημένες επιλογές</"
+#~ "quote>. Οι επιλογές <userinput>installgui</userinput>, "
+#~ "<userinput>expertgui</userinput> και <userinput>rescuegui</userinput> που "
+#~ "υπήρχαν παλιότερα μπορούν ακόμα να χρησιμοποιηθούν από το προτρεπτικό "
+#~ "εκκίνησης που εμφανίζεται μετά την επιλογή <quote>Βοήθεια</quote> από το "
+#~ "μενού εκκίνησης."
 
-#. Tag: para
-#: random-bits.xml:1205
-#, no-c-format
-msgid ""
-"Just as with the regular installer it is possible to add boot parameters "
-"when starting the graphical installer."
-msgstr ""
-"Όπως ακριβώς συμβαίνει με τον συνηθισμένο εγκαταστάτη, είναι δυνατόν να "
-"εισάγετε παραμέτρους εκκίνησης όταν ξεκινάτε τον γραφικό εγκαταστάτη."
+#~ msgid ""
+#~ "There is also a graphical installer image that can be netbooted. And "
+#~ "there is a special <quote>mini</quote> ISO image<footnote id=\"gtk-miniiso"
+#~ "\"> <para> The mini ISO image can be downloaded from a &debian; mirror as "
+#~ "described in <xref linkend=\"downloading-files\"/>. Look for "
+#~ "<filename>netboot/gtk/mini.iso</filename>. </para> </footnote>, which is "
+#~ "mainly useful for testing."
+#~ msgstr ""
+#~ "Υπάρχει ακόμα μια εικόνα του γραφικού εγκαταστάτη που μπορεί να εκκινηθεί "
+#~ "δικτυακά (nteboot). Υπάρχει δε ακόμα μια ειδική <quote>mini</quote> "
+#~ "εικόνα ISO <footnote id=\"gtk-miniiso\"> <para> Την εικόνα mini ISO "
+#~ "μπορεί να κατεβάσει κανείς από έναν καθρέφτη του &debian; όπως "
+#~ "περιγράφεται στην ενότητα  <xref linkend=\"downloading-files\"/>. "
+#~ "Κοιτάξτε για το αρχείο <quote>gtk-miniiso</quote>. </para> </footnote>, "
+#~ "που είναι κυρίως χρήσιμο για δοκιμές."
 
-#. Tag: para
-#: random-bits.xml:1211
-#, no-c-format
-msgid ""
-"The graphical installer requires significantly more memory to run than the "
-"regular installer: &minimum-memory-gtk;. If insufficient memory is "
-"available, it will automatically fall back to the regular <quote>newt</"
-"quote> frontend."
-msgstr ""
-"Ο γραφικός εγκαταστάτης απαιτεί σημαντικά περισσότερη μνήμη για να τρέξει "
-"από τον συνηθισμένο εγκαταστάτη:&minimum-memory-gtk;. Αν δεν υπάρχει επαρκής "
-"μνήμη διαθέσιμη θα περάσει αυτόματα στο συνηθισμένο frontend.<quote>newt</"
-"quote>."
+#~ msgid ""
+#~ "For &arch-title;, currently only an experimental <quote>mini</quote> ISO "
+#~ "image is available<footnote id=\"gtk-miniiso\"> <para> The mini ISO image "
+#~ "can be downloaded from a &debian; mirror as described in <xref linkend="
+#~ "\"downloading-files\"/>. Look for <filename>netboot/gtk/mini.iso</"
+#~ "filename>. </para> </footnote>. It should work on almost all PowerPC "
+#~ "systems that have an ATI graphical card, but is unlikely to work on other "
+#~ "systems."
+#~ msgstr ""
+#~ "Για την αρχιτεκτονική &arch-title;, υπάρχει προς το παρόν διαθέσιμη μόνο "
+#~ "μια πειραματική εικόνα ISO <quote>mini</quote> <footnote id=\"gtk-miniiso"
+#~ "\"> του γραφικού εγκαταστάτη.<para> Η εικόνα ISO mini μπορεί να "
+#~ "μεταφορτωθεί από έναν καθρέφτη του &debian; όπως περιγράφεται στην "
+#~ "ενότητα <xref linkend=\"downloading-files\"/>. Κοιτάξτε για το αρχείο "
+#~ "<quote>gtk-miniiso</quote>. </para> </footnote>. Θα πρέπει να δουλεύει σε "
+#~ "όλα σχεδόν τα συστήματα PowerPC με κάρτα γραφικών ATI, αλλά είναι μάλλον "
+#~ "απίθανο να δουλεύει σε άλλα συστήματα."
 
-#. Tag: para
-#: random-bits.xml:1218
-#, no-c-format
-msgid ""
-"If the amount of memory in your system is below &minimum-memory;, the "
-"graphical installer may fail to boot at all while booting the regular "
-"installer would still work. Using the regular installer is recommended for "
-"systems with little available memory."
-msgstr ""
-"Αν το μέγεθος της μνήμης στο σύστημά σας είναι κάτω από &minimum-memory; "
-"υπάρχει η πιθανότητα να μην μπορεί καν να εκκινηθεί ο γραφικός εγκαταστάτης, "
-"ενώ η εκκίνηση του συνηθισμένου εγκαταστάτη μπορεί να γίνεται κανονικά. Η "
-"χρήση του τελευταίου είναι η ενδεδειγμένη για συστήματα με λίγη διαθέσιμη "
-"μνήμη."
+#~ msgid ""
+#~ "Just as with the regular installer it is possible to add boot parameters "
+#~ "when starting the graphical installer."
+#~ msgstr ""
+#~ "Όπως ακριβώς συμβαίνει με τον συνηθισμένο εγκαταστάτη, είναι δυνατόν να "
+#~ "εισάγετε παραμέτρους εκκίνησης όταν ξεκινάτε τον γραφικό εγκαταστάτη."
 
-#. Tag: title
-#: random-bits.xml:1228
-#, no-c-format
-msgid "Using the graphical installer"
-msgstr "Χρησιμοποιώντας τον γραφικό εγκαταστάτη"
+#~ msgid ""
+#~ "The graphical installer requires significantly more memory to run than "
+#~ "the regular installer: &minimum-memory-gtk;. If insufficient memory is "
+#~ "available, it will automatically fall back to the regular <quote>newt</"
+#~ "quote> frontend."
+#~ msgstr ""
+#~ "Ο γραφικός εγκαταστάτης απαιτεί σημαντικά περισσότερη μνήμη για να τρέξει "
+#~ "από τον συνηθισμένο εγκαταστάτη:&minimum-memory-gtk;. Αν δεν υπάρχει "
+#~ "επαρκής μνήμη διαθέσιμη θα περάσει αυτόματα στο συνηθισμένο frontend."
+#~ "<quote>newt</quote>."
 
-#. Tag: para
-#: random-bits.xml:1229
-#, no-c-format
-msgid ""
-"As already mentioned, the graphical installer basically works the same as "
-"the regular installer and thus the rest of this manual can be used to guide "
-"you through the installation process."
-msgstr ""
-"Όπως αναφέρθηκε ήδη, ο γραφικός εγκαταστάτης δουλεύει βασικά όπως ο "
-"συνηθισμένος εγκαταστάτης και συνεπώς το υπόλοιπο αυτού του εγχειριδίου "
-"μπορεί να χρησιμοποιηθεί για να σας καθοδηγήσει στην διαδικασία εγκατάστασης."
-"<keycap>+</keycap> and <keycap>-</keycap>"
+#~ msgid ""
+#~ "If the amount of memory in your system is below &minimum-memory;, the "
+#~ "graphical installer may fail to boot at all while booting the regular "
+#~ "installer would still work. Using the regular installer is recommended "
+#~ "for systems with little available memory."
+#~ msgstr ""
+#~ "Αν το μέγεθος της μνήμης στο σύστημά σας είναι κάτω από &minimum-memory; "
+#~ "υπάρχει η πιθανότητα να μην μπορεί καν να εκκινηθεί ο γραφικός "
+#~ "εγκαταστάτης, ενώ η εκκίνηση του συνηθισμένου εγκαταστάτη μπορεί να "
+#~ "γίνεται κανονικά. Η χρήση του τελευταίου είναι η ενδεδειγμένη για "
+#~ "συστήματα με λίγη διαθέσιμη μνήμη."
 
-#. Tag: para
-#: random-bits.xml:1235
-#, no-c-format
-msgid ""
-"If you prefer using the keyboard over the mouse, there are two things you "
-"need to know. To expand a collapsed list (used for example for the selection "
-"of countries within continents), you can use the <keycap>+</keycap> and "
-"<keycap>-</keycap> keys. For questions where more than one item can be "
-"selected (e.g. task selection), you first need to tab to the &BTN-CONT; "
-"button after making your selections; hitting enter will toggle a selection, "
-"not activate &BTN-CONT;."
-msgstr ""
-"Αν προτιμάτε να χρησιμοποιήσετε το πληκτρολόγιο αντί για το ποντίκι, "
-"υπάρχουν δυο πράγματα που θα πρέπει να γνωρίζετε. Για να αναπτύξετε μια "
-"συνεπτυγμένη λίστα (που χρησιμοποιείται για παράδειγμα για την επιλογή χωρών "
-"από τις ηπείρους) μπορείτε να χρησιμοποιήσετε τα πλήκτρα <keycap>+</keycap> "
-"και <keycap>-</keycap>. Για ερωτήσεις στις οποίες μπορείτε να επιλέξετε "
-"περισσότερα από ένα αντικείμενα (πχ. επιλογή ομάδων πακέτων) θα πρέπει πρώτα "
-"να φτάσετε με το tab στο κουμπί &BTN-CONT; αφού κάνετε τις επιλογές σας. Το "
-"πάτημα του enter θα προκαλέσει την εναλλαγή της επιλογής και όχι την "
-"ενεργοποίηση του πλήκτρου για τη συνέχεια &BTN-CONT;."
+#~ msgid "Using the graphical installer"
+#~ msgstr "Χρησιμοποιώντας τον γραφικό εγκαταστάτη"
 
-#. Tag: para
-#: random-bits.xml:1245
-#, no-c-format
-msgid ""
-"If a dialog offers additional help information, a <guibutton>Help</"
-"guibutton> button will be displayed. The help information can be accessed "
-"either by activating the button or by pressing the <keycap>F1</keycap> key."
-msgstr ""
-"Αν ένας διάλογος προσφέρει επιπρόσθετες πληροφορίας βοήθειας, θα εμφανιστεί "
-"ένα κουμπί <guibutton>Help</guibutton>. Οι πληροφορίες βοήθειας μπορούν "
-"είναι προσβάσιμες είτε ενεργοποιώντας το κουμπί αυτό είτε πατώντας το "
-"πλήκτρο <keycap>F1</keycap>."
+#~ msgid ""
+#~ "As already mentioned, the graphical installer basically works the same as "
+#~ "the regular installer and thus the rest of this manual can be used to "
+#~ "guide you through the installation process."
+#~ msgstr ""
+#~ "Όπως αναφέρθηκε ήδη, ο γραφικός εγκαταστάτης δουλεύει βασικά όπως ο "
+#~ "συνηθισμένος εγκαταστάτης και συνεπώς το υπόλοιπο αυτού του εγχειριδίου "
+#~ "μπορεί να χρησιμοποιηθεί για να σας καθοδηγήσει στην διαδικασία "
+#~ "εγκατάστασης.<keycap>+</keycap> and <keycap>-</keycap>"
 
-#. Tag: para
-#: random-bits.xml:1251
-#, no-c-format
-msgid ""
-"To switch to another console, you will also need to use the <keycap>Ctrl</"
-"keycap> key, just as with the X Window System. For example, to switch to VT2 "
-"(the first debug shell) you would use: <keycombo> <keycap>Ctrl</keycap> "
-"<keycap>Left Alt</keycap> <keycap>F2</keycap> </keycombo>. The graphical "
-"installer itself runs on VT5, so you can use <keycombo> <keycap>Left Alt</"
-"keycap> <keycap>F5</keycap> </keycombo> to switch back."
-msgstr ""
-"Για να πάτε σε μια άλλη κονσόλα, θα πρέπει επίσης να χρησιμοποιήσετε το "
-"πλήκτρο <keycap>Ctrl</keycap> ακριβώς όπως και με το παραθυρικό σύστημα Χ. "
-"Για παράδειγμα, για να πάτε στην κονσόλα VT2 (όπου και το πρώτο κέλυφος για "
-"εκσφαλμάτωση) θα πρέπει να χρησιμοποιήσετε:<keycombo> <keycap>Ctrl</keycap> "
-"<keycap>Left Alt</keycap> <keycap>F2</keycap> </keycombo>. Ο γραφικός "
-"εγκαταστάτης τρέχει στην κονσόλα VT5, συνεπώς μπορείτε να χρησιμοποιήσετε "
-"τον συνδυασμό <keycombo> <keycap>Left Alt</keycap> <keycap>F5</keycap> </"
-"keycombo> για να επιστρέψετε σ' αυτόν."
+#~ msgid ""
+#~ "If you prefer using the keyboard over the mouse, there are two things you "
+#~ "need to know. To expand a collapsed list (used for example for the "
+#~ "selection of countries within continents), you can use the <keycap>+</"
+#~ "keycap> and <keycap>-</keycap> keys. For questions where more than one "
+#~ "item can be selected (e.g. task selection), you first need to tab to the "
+#~ "&BTN-CONT; button after making your selections; hitting enter will toggle "
+#~ "a selection, not activate &BTN-CONT;."
+#~ msgstr ""
+#~ "Αν προτιμάτε να χρησιμοποιήσετε το πληκτρολόγιο αντί για το ποντίκι, "
+#~ "υπάρχουν δυο πράγματα που θα πρέπει να γνωρίζετε. Για να αναπτύξετε μια "
+#~ "συνεπτυγμένη λίστα (που χρησιμοποιείται για παράδειγμα για την επιλογή "
+#~ "χωρών από τις ηπείρους) μπορείτε να χρησιμοποιήσετε τα πλήκτρα <keycap>+</"
+#~ "keycap> και <keycap>-</keycap>. Για ερωτήσεις στις οποίες μπορείτε να "
+#~ "επιλέξετε περισσότερα από ένα αντικείμενα (πχ. επιλογή ομάδων πακέτων) θα "
+#~ "πρέπει πρώτα να φτάσετε με το tab στο κουμπί &BTN-CONT; αφού κάνετε τις "
+#~ "επιλογές σας. Το πάτημα του enter θα προκαλέσει την εναλλαγή της επιλογής "
+#~ "και όχι την ενεργοποίηση του πλήκτρου για τη συνέχεια &BTN-CONT;."
+
+#~ msgid ""
+#~ "If a dialog offers additional help information, a <guibutton>Help</"
+#~ "guibutton> button will be displayed. The help information can be accessed "
+#~ "either by activating the button or by pressing the <keycap>F1</keycap> "
+#~ "key."
+#~ msgstr ""
+#~ "Αν ένας διάλογος προσφέρει επιπρόσθετες πληροφορίας βοήθειας, θα "
+#~ "εμφανιστεί ένα κουμπί <guibutton>Help</guibutton>. Οι πληροφορίες "
+#~ "βοήθειας μπορούν είναι προσβάσιμες είτε ενεργοποιώντας το κουμπί αυτό "
+#~ "είτε πατώντας το πλήκτρο <keycap>F1</keycap>."
+
+#~ msgid ""
+#~ "To switch to another console, you will also need to use the <keycap>Ctrl</"
+#~ "keycap> key, just as with the X Window System. For example, to switch to "
+#~ "VT2 (the first debug shell) you would use: <keycombo> <keycap>Ctrl</"
+#~ "keycap> <keycap>Left Alt</keycap> <keycap>F2</keycap> </keycombo>. The "
+#~ "graphical installer itself runs on VT5, so you can use <keycombo> "
+#~ "<keycap>Left Alt</keycap> <keycap>F5</keycap> </keycombo> to switch back."
+#~ msgstr ""
+#~ "Για να πάτε σε μια άλλη κονσόλα, θα πρέπει επίσης να χρησιμοποιήσετε το "
+#~ "πλήκτρο <keycap>Ctrl</keycap> ακριβώς όπως και με το παραθυρικό σύστημα "
+#~ "Χ. Για παράδειγμα, για να πάτε στην κονσόλα VT2 (όπου και το πρώτο "
+#~ "κέλυφος για εκσφαλμάτωση) θα πρέπει να χρησιμοποιήσετε:<keycombo> "
+#~ "<keycap>Ctrl</keycap> <keycap>Left Alt</keycap> <keycap>F2</keycap> </"
+#~ "keycombo>. Ο γραφικός εγκαταστάτης τρέχει στην κονσόλα VT5, συνεπώς "
+#~ "μπορείτε να χρησιμοποιήσετε τον συνδυασμό <keycombo> <keycap>Left Alt</"
+#~ "keycap> <keycap>F5</keycap> </keycombo> για να επιστρέψετε σ' αυτόν."
 
 #~ msgid "# export TERM=<replaceable>xterm-color</replaceable>"
 #~ msgstr "# export TERM=<replaceable>xterm-color</replaceable> "

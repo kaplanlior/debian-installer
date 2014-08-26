@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: boot-new.xml\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2013-05-22 19:06+0000\n"
+"POT-Creation-Date: 2014-08-26 20:40+0000\n"
 "PO-Revision-Date: 2014-04-06 04:51+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: Korean <debian-l10n-korean@lists.debian.org>\n"
@@ -91,7 +91,17 @@ msgid ""
 "linkend=\"submit-bug\"/>. Please make sure that you describe your problem "
 "clearly and include any messages that are displayed and may help others to "
 "diagnose the issue."
-msgstr "만약 &debian; 및 &arch-kernel;에 생소한 경우에, 경험있는 사용자의 도움이 필요 할지도 모릅니다. <phrase arch=\"x86\">직접적인 온라인 도움말로 OFTC 네트워크의 IRC 채널 (#debian 또는 #debian-boot)을 시도하십시오. 또는 <ulink url=\"&url-list-subscribe;\">debian-user 메일링 리스트</ulink>에 문의하여보세요.</phrase> <phrase arch=\"not-x86\">&arch-title;처럼 많이 사용하지 않는 아키텍처의 경우는 <ulink url=\"&url-list-subscribe;\"> debian-&arch-listname; 메일링 리스트 </ulink>를 이용하는 게 가장 좋은 방법입니다. </phrase> <xref linkend=\"submit-bug\"/>를 따라 설치 보고서를 제출할 수도 있습니다. 보고서는 문제를 명확하게 설명 표시된 모든 메시지를 넣어 다른 사람이 문제의 원인을 파악되도록 하십시오."
+msgstr ""
+"만약 &debian; 및 &arch-kernel;에 생소한 경우에, 경험있는 사용자의 도움이 필"
+"요 할지도 모릅니다. <phrase arch=\"x86\">직접적인 온라인 도움말로 OFTC 네트워"
+"크의 IRC 채널 (#debian 또는 #debian-boot)을 시도하십시오. 또는 <ulink url="
+"\"&url-list-subscribe;\">debian-user 메일링 리스트</ulink>에 문의하여보세요."
+"</phrase> <phrase arch=\"not-x86\">&arch-title;처럼 많이 사용하지 않는 아키텍"
+"처의 경우는 <ulink url=\"&url-list-subscribe;\"> debian-&arch-listname; 메일"
+"링 리스트 </ulink>를 이용하는 게 가장 좋은 방법입니다. </phrase> <xref "
+"linkend=\"submit-bug\"/>를 따라 설치 보고서를 제출할 수도 있습니다. 보고서는 "
+"문제를 명확하게 설명 표시된 모든 메시지를 넣어 다른 사람이 문제의 원인을 파악"
+"되도록 하십시오."
 
 #. Tag: para
 #: boot-new.xml:48
@@ -260,25 +270,23 @@ msgstr "암호화 볼륨 마운트하기"
 
 #. Tag: para
 #: boot-new.xml:147
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "If you created encrypted volumes during the installation and assigned "
+#| "them mount points, you will be asked to enter the passphrase for each of "
+#| "these volumes during the boot. The actual procedure differs slightly "
+#| "between dm-crypt and loop-AES."
 msgid ""
 "If you created encrypted volumes during the installation and assigned them "
 "mount points, you will be asked to enter the passphrase for each of these "
-"volumes during the boot. The actual procedure differs slightly between dm-"
-"crypt and loop-AES."
+"volumes during the boot."
 msgstr ""
 "설치할 때 암호화 볼륨을 만들고 마운트 위치를 지정했다면, 부팅할 때 각각의 볼"
 "륨에 대해 암호를 입력하게 됩니다. 실제 절차는 dm-crypt와 loop-AES가 약간 다릅"
 "니다."
 
-#. Tag: title
-#: boot-new.xml:157
-#, no-c-format
-msgid "dm-crypt"
-msgstr "dm-crypt"
-
 #. Tag: para
-#: boot-new.xml:159
+#: boot-new.xml:155
 #, no-c-format
 msgid ""
 "For partitions encrypted using dm-crypt you will be shown the following "
@@ -318,7 +326,7 @@ msgstr ""
 "아 볼 수도 있습니다."
 
 #. Tag: para
-#: boot-new.xml:182
+#: boot-new.xml:178
 #, no-c-format
 msgid ""
 "The prompt may look somewhat different when an encrypted root file system is "
@@ -332,7 +340,7 @@ msgstr ""
 "로 initrd를 만들 경우에 대한 예제입니다:"
 
 #. Tag: screen
-#: boot-new.xml:189
+#: boot-new.xml:185
 #, no-c-format
 msgid ""
 "Begin: Mounting <emphasis>root file system</emphasis>... ...\n"
@@ -344,7 +352,7 @@ msgstr ""
 "Enter LUKS passphrase:"
 
 #. Tag: para
-#: boot-new.xml:191 boot-new.xml:216
+#: boot-new.xml:187
 #, no-c-format
 msgid ""
 "No characters (even asterisks) will be shown while entering the passphrase. "
@@ -359,48 +367,19 @@ msgstr ""
 "linkend=\"crypto-troubleshooting\"/> 부분을 보십시오."
 
 #. Tag: para
-#: boot-new.xml:199 boot-new.xml:224
+#: boot-new.xml:195
 #, no-c-format
 msgid "After entering all passphrases the boot should continue as usual."
 msgstr "암호를 모두 입력하면 부팅은 평소처럼 계속 진행합니다."
 
 #. Tag: title
-#: boot-new.xml:207
-#, no-c-format
-msgid "loop-AES"
-msgstr "loop-AES"
-
-#. Tag: para
-#: boot-new.xml:209
-#, no-c-format
-msgid ""
-"For partitions encrypted using loop-AES you will be shown the following "
-"prompt during the boot:"
-msgstr ""
-"loop-AES를 사용해 암호화한 파티션의 경우 부팅할 때 다음 프롬프트가 나옵니다:"
-
-#. Tag: screen
-#: boot-new.xml:214
-#, no-c-format
-msgid ""
-"Checking loop-encrypted file systems.\n"
-"Setting up /dev/loop<replaceable>X</replaceable> (/<replaceable>mountpoint</"
-"replaceable>)\n"
-"Password:"
-msgstr ""
-"Checking loop-encrypted file systems.\n"
-"Setting up /dev/loop<replaceable>X</replaceable> (/<replaceable>mountpoint</"
-"replaceable>)\n"
-"Password:"
-
-#. Tag: title
-#: boot-new.xml:232
+#: boot-new.xml:202
 #, no-c-format
 msgid "Troubleshooting"
 msgstr "문제 해결"
 
 #. Tag: para
-#: boot-new.xml:234
+#: boot-new.xml:204
 #, no-c-format
 msgid ""
 "If some of the encrypted volumes could not be mounted because a wrong "
@@ -411,7 +390,7 @@ msgstr ""
 "트해야 합니다. 여러가지 경우가 있습니다."
 
 #. Tag: para
-#: boot-new.xml:243
+#: boot-new.xml:213
 #, no-c-format
 msgid ""
 "The first case concerns the root partition. When it is not mounted "
@@ -422,37 +401,31 @@ msgstr ""
 "게 되고 컴퓨터를 다시 시작해서 암호를 다시 입력해야 합니다."
 
 #. Tag: para
-#: boot-new.xml:250
+#: boot-new.xml:220
 #, no-c-format
 msgid ""
 "The easiest case is for encrypted volumes holding data like <filename>/home</"
 "filename> or <filename>/srv</filename>. You can simply mount them manually "
-"after the boot. For loop-AES this is a one-step operation: "
-"<informalexample><screen>\n"
-"<prompt>#</prompt> <userinput>mount <replaceable>/mount_point</replaceable></"
-"userinput>\n"
-"<prompt>Password:</prompt>\n"
-"</screen></informalexample> where <replaceable>/mount_point</replaceable> "
-"should be replaced by the particular directory (e.g. <filename>/home</"
-"filename>). The only difference from an ordinary mount is that you will be "
-"asked to enter the passphrase for this volume."
+"after the boot."
 msgstr ""
-"가장 쉬운 경우는 암호화 볼륨에 <filename>/home</filename>이나 <filename>/"
-"srv</filename>처럼 데이터가 들어 있는 경우입니다. 부팅한 다음에 이 볼륨을 수"
-"동으로 마운트하기만 하면 됩니다. loop-AES의 경우 한 번에 끝나는 작업입니다: "
-"<informalexample><screen> <prompt>#</prompt> <userinput>mount <replaceable>/"
-"마운트_위치</replaceable></userinput>\n"
-"<prompt>Password:</prompt>\n"
-"</screen></informalexample> 여기서 <replaceable>/마운트_위치</replaceable>는 "
-"해당 디렉터리를(예를 들어 <filename>/home</filename>) 씁니다. 일반적인 마운트"
-"와 다른 부분은 이 볼륨의 암호를 입력하는 것 뿐입니다."
 
 #. Tag: para
-#: boot-new.xml:264
-#, no-c-format
+#: boot-new.xml:226
+#, fuzzy, no-c-format
+#| msgid ""
+#| "For dm-crypt this is a bit trickier. First you need to register the "
+#| "volumes with <application>device mapper</application> by running: "
+#| "<informalexample><screen>\n"
+#| "<prompt>#</prompt> <userinput>/etc/init.d/cryptdisks start</userinput>\n"
+#| "</screen></informalexample> This will scan all volumes mentioned in "
+#| "<filename>/etc/crypttab</filename> and will create appropriate devices "
+#| "under the <filename>/dev</filename> directory after entering the correct "
+#| "passphrases. (Already registered volumes will be skipped, so you can "
+#| "repeat this command several times without worrying.) After successful "
+#| "registration you can simply mount the volumes the usual way:"
 msgid ""
-"For dm-crypt this is a bit trickier. First you need to register the volumes "
-"with <application>device mapper</application> by running: "
+"However for dm-crypt this is a bit tricky. First you need to register the "
+"volumes with <application>device mapper</application> by running: "
 "<informalexample><screen>\n"
 "<prompt>#</prompt> <userinput>/etc/init.d/cryptdisks start</userinput>\n"
 "</screen></informalexample> This will scan all volumes mentioned in "
@@ -473,7 +446,7 @@ msgstr ""
 "면 해당 볼륨을 평소와 다름없이 마운트할 수 있습니다:"
 
 #. Tag: screen
-#: boot-new.xml:279
+#: boot-new.xml:241
 #, no-c-format
 msgid ""
 "<prompt>#</prompt> <userinput>mount <replaceable>/mount_point</replaceable></"
@@ -483,7 +456,7 @@ msgstr ""
 "userinput>"
 
 #. Tag: para
-#: boot-new.xml:282
+#: boot-new.xml:244
 #, no-c-format
 msgid ""
 "If any volume holding noncritical system files could not be mounted "
@@ -492,16 +465,21 @@ msgid ""
 "previous case. However, you will also need to (re)start any services usually "
 "running in your default runlevel because it is very likely that they were "
 "not started. The easiest way is to just reboot the computer."
-msgstr "꼭 필요하지는 않은 시스템 파일이 들어 있는 볼륨중에 하나라도(<filename>/usr</filename> 혹은 <filename>/var</filename>) 마운트할 수 없는 경우, 그래도 시스템이 부팅하고 수동으로 볼륨을 마운트할 수 있습니다. 하지만 현재 런레벨의 각종 서비스를(다시) 시작해야 할 수도 있습니다. 서비스가 제대로 시작하지 않았을 가능성이 높기 때문입니다. 가장 쉬운 방법은 컴퓨터를 다시 시작하는 것입니다."
+msgstr ""
+"꼭 필요하지는 않은 시스템 파일이 들어 있는 볼륨중에 하나라도(<filename>/usr</"
+"filename> 혹은 <filename>/var</filename>) 마운트할 수 없는 경우, 그래도 시스"
+"템이 부팅하고 수동으로 볼륨을 마운트할 수 있습니다. 하지만 현재 런레벨의 각"
+"종 서비스를(다시) 시작해야 할 수도 있습니다. 서비스가 제대로 시작하지 않았을 "
+"가능성이 높기 때문입니다. 가장 쉬운 방법은 컴퓨터를 다시 시작하는 것입니다."
 
 #. Tag: title
-#: boot-new.xml:300
+#: boot-new.xml:262
 #, no-c-format
 msgid "Log In"
 msgstr "로그인"
 
 #. Tag: para
-#: boot-new.xml:302
+#: boot-new.xml:264
 #, no-c-format
 msgid ""
 "Once your system boots, you'll be presented with the login prompt. Log in "
@@ -513,7 +491,7 @@ msgstr ""
 "습니다."
 
 #. Tag: para
-#: boot-new.xml:308
+#: boot-new.xml:270
 #, no-c-format
 msgid ""
 "If you are a new user, you may want to explore the documentation which is "
@@ -527,7 +505,7 @@ msgstr ""
 "로 문서 보기를 시작할 수 있습니다."
 
 #. Tag: para
-#: boot-new.xml:316
+#: boot-new.xml:278
 #, no-c-format
 msgid ""
 "Documentation accompanying programs you have installed can be found in "
@@ -547,7 +525,7 @@ msgstr ""
 "doc</classname> 혹은 <classname>apt-howto</classname> 패키지에 들어 있습니다."
 
 #. Tag: para
-#: boot-new.xml:327
+#: boot-new.xml:289
 #, no-c-format
 msgid ""
 "In addition, there are some special folders within the <filename>/usr/share/"
@@ -564,7 +542,7 @@ msgstr ""
 "일에 브라우저로 볼 수 있는 문서 목록이 있습니다."
 
 #. Tag: para
-#: boot-new.xml:336
+#: boot-new.xml:298
 #, no-c-format
 msgid ""
 "One easy way to view these documents using a text based browser is to enter "
@@ -582,7 +560,7 @@ msgstr ""
 "재 디렉터리의 내용을 표시한다는 뜻입니다."
 
 #. Tag: para
-#: boot-new.xml:346
+#: boot-new.xml:308
 #, no-c-format
 msgid ""
 "If you have a graphical desktop environment installed, you can also use its "
@@ -594,7 +572,7 @@ msgstr ""
 "doc/</userinput>을 입력하고 Enter를 누르십시오."
 
 #. Tag: para
-#: boot-new.xml:352
+#: boot-new.xml:314
 #, no-c-format
 msgid ""
 "You can also type <userinput>info <replaceable>command</replaceable></"
@@ -617,3 +595,50 @@ msgstr ""
 "&nbsp;more</userinput>를 명령 뒤에 붙이면 화면 위로 스크롤되 지나가기 전에 출"
 "력을 일시 정지할 수 있습니다. 어떤 글자로 시작하는 명령어의 목록을 보려면 그 "
 "글자를 입력하고 탭을 두번 누릅니다."
+
+#~ msgid "dm-crypt"
+#~ msgstr "dm-crypt"
+
+#~ msgid "loop-AES"
+#~ msgstr "loop-AES"
+
+#~ msgid ""
+#~ "For partitions encrypted using loop-AES you will be shown the following "
+#~ "prompt during the boot:"
+#~ msgstr ""
+#~ "loop-AES를 사용해 암호화한 파티션의 경우 부팅할 때 다음 프롬프트가 나옵니"
+#~ "다:"
+
+#~ msgid ""
+#~ "Checking loop-encrypted file systems.\n"
+#~ "Setting up /dev/loop<replaceable>X</replaceable> (/"
+#~ "<replaceable>mountpoint</replaceable>)\n"
+#~ "Password:"
+#~ msgstr ""
+#~ "Checking loop-encrypted file systems.\n"
+#~ "Setting up /dev/loop<replaceable>X</replaceable> (/"
+#~ "<replaceable>mountpoint</replaceable>)\n"
+#~ "Password:"
+
+#~ msgid ""
+#~ "The easiest case is for encrypted volumes holding data like <filename>/"
+#~ "home</filename> or <filename>/srv</filename>. You can simply mount them "
+#~ "manually after the boot. For loop-AES this is a one-step operation: "
+#~ "<informalexample><screen>\n"
+#~ "<prompt>#</prompt> <userinput>mount <replaceable>/mount_point</"
+#~ "replaceable></userinput>\n"
+#~ "<prompt>Password:</prompt>\n"
+#~ "</screen></informalexample> where <replaceable>/mount_point</replaceable> "
+#~ "should be replaced by the particular directory (e.g. <filename>/home</"
+#~ "filename>). The only difference from an ordinary mount is that you will "
+#~ "be asked to enter the passphrase for this volume."
+#~ msgstr ""
+#~ "가장 쉬운 경우는 암호화 볼륨에 <filename>/home</filename>이나 <filename>/"
+#~ "srv</filename>처럼 데이터가 들어 있는 경우입니다. 부팅한 다음에 이 볼륨을 "
+#~ "수동으로 마운트하기만 하면 됩니다. loop-AES의 경우 한 번에 끝나는 작업입니"
+#~ "다: <informalexample><screen> <prompt>#</prompt> <userinput>mount "
+#~ "<replaceable>/마운트_위치</replaceable></userinput>\n"
+#~ "<prompt>Password:</prompt>\n"
+#~ "</screen></informalexample> 여기서 <replaceable>/마운트_위치</replaceable>"
+#~ "는 해당 디렉터리를(예를 들어 <filename>/home</filename>) 씁니다. 일반적인 "
+#~ "마운트와 다른 부분은 이 볼륨의 암호를 입력하는 것 뿐입니다."
