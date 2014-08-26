@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 69213 -->
+<!-- original version: 69266 -->
 
    <sect3 id="partman-crypto">
    <title>Verschlüsselte Dateisysteme konfigurieren</title>
@@ -55,20 +55,17 @@ für die Partition enthält.
 
 </para><para>
 
-&d-i; unterstützt mehrere Verschlüsselungsmethoden. Die Standardmethode
-ist <firstterm>dm-crypt</firstterm> (in neueren Linux-Kernel enthalten;
+Der &d-i; unterstützt die Verschlüsselungsmethode
+<firstterm>dm-crypt</firstterm> (in neueren Linux-Kernel enthalten;
 hat die Fähigkeit, physikalische Volumes für LVM beherbergen zu können).
-Die ältere Methode ist <firstterm>loop-AES</firstterm> (älter; wird getrennt
-vom Linux-Kernel betreut/entwickelt). Wenn Sie keine zwingenden
-Gründe dagegen haben, wird empfohlen, den Standard zu verwenden.
 
 <!-- TODO: link to the "Debian block device encryption guide"
      once Max writes it :-) -->
 
 </para><para>
 
-Als erstes wollen wir die Optionen betrachten, die verfügbar sind,
-wenn Sie als Verschlüsselungsmethode <userinput>Device-mapper
+Wir wollen jetzt die Optionen betrachten, die verfügbar sind,
+wenn Sie Verschlüsselung via <userinput>Device-mapper
 (dm-crypt)</userinput> wählen. Generell gilt: wenn Sie nicht sicher
 sind, verwenden Sie die Standardwerte, da sie unter
 Berücksichtigung von Sicherheitsaspekten sorgfältig ausgewählt wurden.
@@ -110,7 +107,7 @@ möglichen Schlüssellängen variieren abhängig vom gewählten Algorithmus.
 </varlistentry>
 
 <varlistentry>
-<term>IV-Algorithmus: <userinput>cbc-essiv:sha256</userinput></term>
+<term>IV-Algorithmus: <userinput>xts-plain64</userinput></term>
 
 <listitem><para>
 
@@ -124,7 +121,7 @@ zu schützenden Informationen schließen kann.
 
 </para><para>
 
-Der Standardwert <userinput>cbc-essiv:sha256</userinput> ist unter den
+Der Standardwert <userinput>xts-plain64</userinput> ist unter den
 auszuwählenden Möglichkeiten derzeit der gegen bekannte Angriffe am
 wenigsten verwundbare. Sie sollten die anderen Alternativen nur verwenden,
 wenn Sie Kompatibilität zu früher installierten Systemen gewährleisten
@@ -212,74 +209,8 @@ können.
 
 </variablelist>
 
-</para><para>
-
-Wenn Sie <menuchoice> <guimenu>Verschlüsselungsmethode:</guimenu>
-<guimenuitem>Loopback (loop-AES)</guimenuitem> </menuchoice> wählen,
-werden im Menü andere Optionen angeboten, und zwar:
-
-<variablelist>
-<varlistentry>
-<term>Verschlüsselung: <userinput>AES256</userinput></term>
-
-<listitem><para>
-
-Bei loop-AES werden, anders als bei dm-crypt, die Optionen für den
-Algorithmus (<firstterm>cipher</firstterm>) und die Schlüssellänge
-kombiniert, das heißt, Sie können beide Optionen gleichzeitig angeben.
-Lesen Sie die vorherigen Abschnitte über Verschlüsselungsalgorithmen
-und Schlüssellängen für weitere Infos.
-
-</para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term>Schlüssel: <userinput>Schlüsseldatei (GnuPG)</userinput></term>
-
-<listitem><para>
-
-Hier können Sie den Typ des Schlüssels für diese Partition auswählen.
-
- <variablelist>
- <varlistentry>
- <term>Schlüsseldatei (GnuPG)</term>
- <listitem><para>
-
-Der Schlüssel wird während der Installation aus Zufallsdaten erzeugt.
-Ferner wird dieser Schlüssel mit <application>GnuPG</application>
-verschlüsselt, Sie müssen also die korrekte Passphrase eingeben, um
-ihn nutzen zu können (Sie werden später aufgefordert, eine Passphrase
-einzugeben).
-
- </para></listitem>
- </varlistentry>
-
- <varlistentry>
- <term>Zufälliger Schlüssel</term>
- <listitem><para>
-
-Lesen Sie bitte den Abschnitt weiter oben über zufällige Schlüssel.
-
- </para></listitem>
- </varlistentry>
- </variablelist>
-
-</para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term>Daten löschen: <userinput>ja</userinput></term>
-
-<listitem><para>
-
-Lesen Sie bitte den Abschnitt weiter oben über das Löschen der Daten.
-
-</para></listitem>
-</varlistentry>
-
-</variablelist>
-
-</para><para>
+</para>
+<para>
 
 Nachdem Sie die gewünschten Parameter für Ihre verschlüsselten
 Partitionen festgelegt haben, kehren Sie in das Haupt-Partitionierungsmenü
@@ -337,15 +268,12 @@ Dies wird für jede zu verschlüsselnde Partition wiederholt.
 Nachdem Sie zum Partitionierungsmenü zurückgekehrt sind, werden Ihnen
 alle verschlüsselten Dateisysteme als zusätzliche Partitionen angezeigt,
 die auf die gleiche Art konfiguriert werden können wie gewöhnliche Partitionen.
-Im folgenden Beispiel sehen Sie zwei verschlüsselte Dateisysteme. Das
-erste ist mit dm-crypt verschlüsselt, das zweite mit loop-AES.
+Im folgenden Beispiel sehen Sie ein mit dm-crypt verschlüsseltes
+Dateisystem.
 
 <informalexample><screen>
 Verschlüsseltes Volume (<replaceable>sda2_crypt</replaceable>) - 115.1 GB Linux device-mapper
      #1 115.1 GB  F ext3
-
-Loopback (<replaceable>loop0</replaceable>) - 515.2 MB AES256 keyfile
-     #1 515.2 MB  F ext3
 </screen></informalexample>
 
 Jetzt ist es Zeit, den Dateisystemen Einbindungspunkte zuzuweisen und
@@ -355,8 +283,8 @@ Standardwerte Ihnen nicht zusagen.
 </para><para>
 
 Achten Sie auf die Identifikationskennungen, die in Klammern
-stehen (in diesem Fall <replaceable>sda2_crypt</replaceable>
-und <replaceable>loop0</replaceable>) sowie auf die Einbindungspunkte, die Sie
+stehen (in diesem Fall <replaceable>sda2_crypt</replaceable>)
+sowie auf die Einbindungspunkte, die Sie
 ihnen zugeordnet haben. Sie benötigen diese Informationen später, wenn Sie
 das neue System starten. Die Unterschiede zwischen einem normalen Boot-Prozess
 und einem Boot-Prozess mit beteiligten verschlüsselten Dateisystemen wird

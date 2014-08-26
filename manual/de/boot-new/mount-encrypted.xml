@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 68621 -->
+<!-- original version: 69266 -->
 
  <sect1 id="mount-encrypted-volumes">
  <title>Verschlüsselte Dateisysteme einbinden</title>
@@ -9,18 +9,13 @@
 Wenn Sie während der Installation verschlüsselte Dateisysteme erstellt
 haben und diesen Einbindungspunkte zugewiesen haben, werden Sie während des
 Startvorgangs aufgefordert, für jedes der Dateisysteme die korrekte Passphrase
-einzugeben. Die aktuelle Vorgehensweise unterscheidet sich geringfügig
-zwischen dm-crypt und loop-AES.
+einzugeben.
 
 </para>
-
-  <sect2 id="mount-dm-crypt">
-  <title>dm-crypt</title>
-
 <para>
 
-Für Partitionen, die mittels dm-crypt verschlüsselt sind, wird der
-folgende Prompt während des Bootens angezeigt:
+Für Partitionen, die mittels dm-crypt verschlüsselt sind, wird
+während des Bootens der folgende Prompt angezeigt:
 
 <informalexample><screen>
 Starting early crypto disks... <replaceable>part</replaceable>_crypt(starting)
@@ -73,38 +68,6 @@ Nachdem Sie alle Passphrasen eingegeben haben, sollte der
 Boot-Prozess wie üblich fortgesetzt werden.
 
 </para>
-  </sect2>
-
-  <sect2 id="mount-loop-aes">
-  <title>loop-AES</title>
-
-<para>
-
-Für Partitionen, die via loop-AES verschlüsselt sind, wird der
-folgende Prompt während des Bootens angezeigt:
-
-<informalexample><screen>
-Checking loop-encrypted file systems.
-Setting up /dev/loop<replaceable>X</replaceable> (/<replaceable>mountpoint</replaceable>)
-Password:
-</screen></informalexample>
-
-</para><para>
-
-Es werden keinerlei Zeichen (nicht einmal Sternchen) angezeigt, während
-Sie die Passphrase eingeben. Wenn Sie eine falsche Passphrase
-eingeben, haben Sie noch zwei weitere Versuche, dies zu korrigieren. Nach
-dem dritten Versuch überspringt der Boot-Prozess den Schritt und fährt
-mit dem Einbinden des nächsten Dateisystems fort. Weitere Informationen
-hierzu finden Sie im <xref linkend="crypto-troubleshooting"/>.
-
-</para><para>
-
-Nachdem Sie alle Passphrasen eingegeben haben, sollte der
-Boot-Prozess wie üblich fortgesetzt werden.
-
-</para>
-  </sect2>
 
   <sect2 id="crypto-troubleshooting">
   <title>Fehlersuche und -behebung</title>
@@ -130,21 +93,10 @@ starten, um den nächsten Versuch machen zu können.
 Der einfachste Fall ist der, wenn verschlüsselte Dateisysteme
 <filename>/home</filename> oder <filename>/srv</filename>
 beherbergen. Diese können Sie nach dem Systemstart manuell einbinden.
-Bei loop-AES ist dies mit einem Schritt erledigt:
-
-<informalexample><screen>
-<prompt>#</prompt> <userinput>mount <replaceable>/mount_point</replaceable></userinput>
-<prompt>Password:</prompt>
-</screen></informalexample>
-
-... wobei <replaceable>/mount_point</replaceable> durch den entsprechenden
-Verzeichnisnamen (z.B. <filename>/home</filename>) ersetzt werden muss. 
-Der einzige Unterschied zu einer normalen mount-Aktion ist, dass Sie
-nach der Passphrase für das Dateisystem gefragt werden.
 
 </para><para>
 
-Bei dm-crypt ist dies ein bisschen verzwickter. Sie müssen zunächst
+Bei dm-crypt ist dies allerdings ein bisschen verzwickt. Sie müssen zunächst
 die Dateisysteme mit dem <application>device mapper</application>
 registrieren, indem Sie Folgendes ausführen:
 

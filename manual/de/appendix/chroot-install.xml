@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 68948 -->
+<!-- original version: 69237 -->
 
  <sect1 id="linux-upgrade">
  <title>&debian-gnu; von einem anderen Unix/Linux-System aus installieren</title>
@@ -652,17 +652,49 @@ benutzen statt <userinput>hd:</userinput>.
   </sect2>
 
   <sect2>
-<title>Fernzugriff: Installation von SSH und Setzen eines Passworts</title>
+<title>Fernzugriff: Installation von SSH und Einrichten eines Zugangs</title>
 <para>
 
 Für den Fall, dass Sie sich auf dem System über die Konsole anmelden können,
 kann dieser Abschnitt übersprungen werden. Falls das System später über
-das Netzwerk erreichbar sein soll, müssen Sie SSH installieren und ein
-Passwort für root setzen:
+das Netzwerk erreichbar sein soll, müssen Sie SSH installieren und einen
+Zugang einrichten:
 
 <informalexample><screen>
 # aptitude install ssh
+</screen></informalexample>
+
+Das Login als root ist standardmäßig deaktiviert, daher können Sie
+einen Zugang einrichten, indem Sie ein Passwort setzen und das Login
+für root mit Passwort wieder aktivieren:
+
+<informalexample><screen>
 # passwd
+# editor /etc/ssh/sshd_config
+</screen></informalexample>
+
+Dies ist die Option, die aktiviert werden muss:
+
+<informalexample><screen>
+PermitRootLogin yes
+</screen></informalexample>
+
+Es kann ebenfalls ein Zugang eingerichtet werden, indem ein SSH-Schlüssel
+für root hinzugefügt wird:
+
+<informalexample><screen>
+# mkdir /root/.ssh
+# cat &lt;&lt; EOF &gt; /root/.ssh/authorized_keys
+ssh-rsa ....
+EOF
+</screen></informalexample>
+
+Und zu guter Letzt können Sie einen Zugang einrichten, indem
+Sie einen nicht-root-Benutzer anlegen und für diesen ein Passwort setzen:
+
+<informalexample><screen>
+# adduser joe
+# passwd joe
 </screen></informalexample>
 </para>
   </sect2>
