@@ -57,8 +57,8 @@ Enter LUKS passphrase:
 
 Es werden keinerlei Zeichen (nicht einmal Sternchen) angezeigt, während
 Sie die Passphrase eingeben. Wenn Sie eine falsche Passphrase
-eingeben, haben Sie noch zwei weitere Versuche, dies zu korrigieren. Nach
-dem dritten Versuch überspringt der Boot-Prozess den Schritt und fährt
+eingeben, haben Sie noch zwei weitere Versuche, es erneut zu versuchen. Nach
+dem dritten Fehlversuch überspringt der Boot-Prozess den Schritt und fährt
 mit dem Einbinden des nächsten Dateisystems fort. Weitere Informationen
 hierzu finden Sie im <xref linkend="crypto-troubleshooting"/>.
 
@@ -84,8 +84,8 @@ manuell einbinden. Es gibt unterschiedliche Situationen:
 <listitem><para>
 
 Die erste betrifft die Root-Partition. Wenn diese nicht korrekt eingebunden
-werden konnte, stoppt der Boot-Prozess und Sie müssen den Rechner neu
-starten, um den nächsten Versuch machen zu können.
+werden konnte, stoppt der Boot-Prozess und Sie müssen für einen neuen
+Versuch den Rechner neu starten.
 
 </para></listitem>
 <listitem><para>
@@ -107,14 +107,14 @@ registrieren, indem Sie Folgendes ausführen:
 Dadurch werden alle Dateisysteme überprüft, die in
 <filename>/etc/crypttab</filename> aufgeführt sind, und es werden
 entsprechende Gerätedateien im <filename>/dev</filename>-Verzeichnis
-erzeugt, wenn die korrekte Passphrase eingegeben wurde. (Bereits
+erzeugt, nachdem die korrekte Passphrase eingegeben wurde. (Bereits
 eingebundene Dateisysteme werden übersprungen, so dass Sie diesen
 Befehl ohne Sorge mehrfach hintereinander ausführen können.) Nach
 erfolgreicher Registrierung können Sie die Dateisysteme ganz normal
 einbinden:
 
 <informalexample><screen>
-<prompt>#</prompt> <userinput>mount <replaceable>/mount_point</replaceable></userinput>
+<prompt>#</prompt> <userinput>mount <replaceable>/einbindungspunkt</replaceable></userinput>
 </screen></informalexample>
 
 </para></listitem>

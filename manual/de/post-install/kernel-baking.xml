@@ -5,7 +5,7 @@
 <para>
 
 Warum sollte jemand einen neuen, eigenen Kernel kompilieren wollen?
-Dies ist oft nicht nötig, da der Standardkernel in &debian; die meisten
+Dies ist oft nicht nötig, da der &debian;-Standardkernel die meisten
 Konfigurationen bedient. Auch bietet &debian; häufig verschiedene 
 alternative Kernel an. Sie sollten also vielleicht erst prüfen, ob ein
 alternatives Kernel-Image verfügbar ist, das besser zu Ihrer Hardware
@@ -21,7 +21,7 @@ vorkompilierten Kernel
 </para></listitem>
 <listitem><para>
 
-Kerneloptionen nutzen, die im Standardkernel nicht unterstützt werden,
+Kernel-Optionen nutzen, die im Standard-Kernel nicht unterstützt werden,
 wie z.B. Unterstützung für extrem viel Arbeitsspeicher
 (high memory support)
 
@@ -39,7 +39,7 @@ einen monolithischen Kernel erstellen statt eines modularen
 </para></listitem>
 <listitem><para>
 
-einen aktualisierten oder Entwicklerkernel verwenden
+einen aktualisierten oder Entwickler-Kernel verwenden
 
 </para></listitem>
 <listitem><para>
@@ -54,7 +54,7 @@ mehr über Linux-Kernel lernen
   <sect2><title>Kernel-Image-Verwaltung</title>
 <para>
 
-Sie müssen keine Angst davor haben, auszuprobieren, einen eigenen Kernel
+Sie müssen keine Angst davor haben auszuprobieren, einen eigenen Kernel
 zu kompilieren. Es macht Spaß und lohnt sich.
 
 </para><para>
@@ -69,20 +69,21 @@ die komplette Liste).
 
 </para><para>
 
-Diese Methode erstellt ein .deb-Paket aus den Kernelquellen und, falls
-Sie Nicht-Standard-Module verwenden, auch ein synchrones abhängiges .deb für diese
-Module. Dies ist ein besserer Weg, um die Kernel-Images zu verwalten
-(verglichen mit der Nicht-&debian;-Methode, einen Kernel zu erzeugen);
+Diese Methode erstellt ein .deb-Paket aus den Kernel-Quellen und, falls
+Sie Nicht-Standard-Module verwenden, auch ein synchrones, vom Kernel-Paket
+abhängiges .deb-Paket für diese
+Module. Dies ist ein besserer Weg, die Kernel-Images zu verwalten,
+verglichen mit der Nicht-&debian;-Methode, einen Kernel zu erzeugen;
 <filename>/boot</filename> enthält den Kernel, die dazugehörige
 System.map und ein Log der aktiven Konfigurationsdatei für den Bau des
-Kernels.
+Kernel.
 
 </para><para>
 
 Beachten Sie, dass Sie Ihren Kernel nicht auf <quote>&debian;-Art</quote> kompilieren
 <emphasis>müssen</emphasis>, aber wir meinen, dass es erheblich sicherer
 und einfacher ist, das Paketsystem zur Verwaltung der Kernel zu verwenden.
-Sie können Ihre Kernelquellen auch direkt von Linus beziehen statt aus
+Sie können Ihre Kernel-Quellen auch direkt von Linus beziehen statt aus
 dem Paket <classname>linux-source-2.6</classname>
 und trotzdem die <classname>kernel-package</classname>-Methode zum
 Kompilieren nutzen.
@@ -97,7 +98,7 @@ Installationshandbuch geben wir nur eine kurze Einführung.
 </para><para>
 
 Wir gehen davon aus, dass Sie freien Zugriff auf Ihren Rechner haben
-und die Kernelquellen irgendwo in Ihr Home-Verzeichnis entpacken werden<footnote>
+und die Kernel-Quellen irgendwo in Ihr Home-Verzeichnis entpacken werden<footnote>
 
 <para>
 
@@ -109,7 +110,7 @@ da er keine speziellen Berechtigungen erfordert.
 
 </footnote>. Ebenso gehen wird davon aus, dass Ihre zu bauende Kernel-Version
 &kernelversion; ist. Vergewissern Sie sich, dass Sie sich in dem Verzeichnis
-befinden, in das Sie die Kernelquellen entpacken möchten und extrahieren Sie
+befinden, in das Sie die Kernel-Quellen entpacken möchten und extrahieren Sie
 sie mittels
 <userinput>tar xjf /usr/src/linux-source-&kernelversion;.tar.bz2</userinput>.
 Wechseln Sie in das neu erstellte Verzeichnis
@@ -134,7 +135,7 @@ Ihr &debian;-System Probleme machen.
 
 </para><para>
 
-Säubern Sie den Kernelquellen-Baum und setzen Sie die
+Säubern Sie den Kernel-Quellbaum und setzen Sie die
 <classname>kernel-package</classname>-Parameter zurück. Dies erledigen Sie mit
 <userinput>make-kpkg clean</userinput>.
 
@@ -145,7 +146,7 @@ Kompilieren Sie jetzt den Kernel mit:
 Die Versionsnummer <quote>1.0</quote> können Sie nach Belieben ändern. Sie wird nur
 von Ihnen selbst verwendet, um Ihre verschiedenen Kernel zu verwalten.
 Ebenso können Sie jedes andere Wort statt <quote>custom</quote> verwenden (z.B. den
-Host-Namen des Rechners). Die Kernelkompilierung könnte eine ganze Weile dauern,
+Host-Namen des Rechners). Die Kernel-Kompilierung könnte eine ganze Weile dauern,
 abhängig von der Leistungsfähigkeit Ihres Rechners.
 
 </para><para>
@@ -155,15 +156,15 @@ jedes andere Paket installieren. Tippen Sie als root ein:
 <userinput>dpkg -i
 ../&kernelpackage;-&kernelversion;-<replaceable>subarchitecture</replaceable>_custom.1.0_&architecture;.deb</userinput>.
 Der Teil <replaceable>subarchitecture</replaceable> im Dateinamen ist eine
-optionale Bezeichnung für die Unterarchitektur, <phrase arch="i386"> wie
-z.B. <quote>686</quote>, </phrase>
-abhängig davon, welche Kerneloptionen Sie gesetzt haben.
+optionale Bezeichnung für die Unterarchitektur,<phrase arch="i386"> wie
+z.B. <quote>686</quote>,</phrase> abhängig
+davon, welche Kernel-Optionen Sie gesetzt haben.
 <userinput>dpkg -i ...</userinput> installiert den Kernel
 zusammen mit ein paar anderen dazugehörigen Dateien. Zum Beispiel wird
 die <filename>System.map</filename> korrekt installiert
-(dies ist nützlich für die Fehlersuche bei Kernelproblemen) und
+(dies ist nützlich für die Fehlersuche bei Kernel-Problemen) und auch
 <filename>/boot/config-&kernelversion;</filename> wird installiert,
-sie enthält Ihre aktuelle Konfiguration. Ihr neues Kernelpaket ist
+sie enthält Ihre aktuelle Konfiguration. Ihr neues Kernel-Paket ist
 ebenfalls clever genug, automatisch Ihren Bootloader zu aktualisieren,
 so dass der neue Kernel benutzt wird. Falls Sie auch ein Modul-Paket
 erstellt haben, müssen Sie auch dieses Paket noch installieren.
