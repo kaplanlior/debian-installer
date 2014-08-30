@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: random-bits\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2014-08-26 20:40+0000\n"
-"PO-Revision-Date: 2014-03-09 09:28+0000\n"
+"PO-Revision-Date: 2014-08-30 11:36+0100\n"
 "Last-Translator: Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team: Portuguese <kde-i18n-doc@kde.org>\n"
 "Language: pt\n"
@@ -1819,10 +1819,10 @@ msgstr ""
 
 #. Tag: title
 #: random-bits.xml:826
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "Remote access: Installing SSH and setting a password"
 msgid "Remote access: Installing SSH and setting up access"
-msgstr "Acesso remoto: Instalar SSH e definiar a palavra-passe"
+msgstr "Acesso remoto: Instalar SSH e definir o acesso"
 
 #. Tag: para
 #: random-bits.xml:827
@@ -1849,6 +1849,28 @@ msgid ""
 "</screen></informalexample> Lastly, access can be set up by adding a non-"
 "root user and setting a password:"
 msgstr ""
+"Caso consiga fazer login no sistema através de consola, pode saltar esta "
+"secção. Se o sistema deve posteriormente ser acessível através da rede, "
+"então necessita instalar SSH e definir o seu acesso. "
+"<informalexample><screen>\n"
+"# aptitude install ssh\n"
+"</screen></informalexample>Por predefinição o login de root com palavra-passe "
+"está inactivo, por isso configurar o acesso pode ser feito definindo uma "
+"palavra-passe e activando o login de root com palavra-passe: "
+"<informalexample><screen>\n"
+"# passwd\n"
+"# editor /etc/ssh/sshd_config\n"
+"</screen></informalexample> Esta é a opção a activar: "
+"<informalexample></screen>\n"
+"PermitRootLogin yes\n"
+"</screen></informalexample> O acesso também pode ser configurado ao "
+"acrescentar uma chave ssh á conta de root: <informalexample><screen>\n"
+"# mkdir /root/.ssh\n"
+"# cat &lt;&lt; EOF &gt; /root/.ssh/authorized_keys\n"
+"ssh-rsa ....\n"
+"EOF\n"
+"</screen></informalexample> Por fim, o acesso pode ser definido ao "
+"acrescentar um utilizador que não seja o root e definir uma palavra-passe:"
 
 #. Tag: screen
 #: random-bits.xml:851
@@ -1857,6 +1879,8 @@ msgid ""
 "# adduser joe\n"
 "# passwd joe"
 msgstr ""
+"# adduser ze\n"
+"# passwd ze"
 
 #. Tag: title
 #: random-bits.xml:856
