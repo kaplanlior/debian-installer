@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-30 22:04+0000\n"
+"POT-Creation-Date: 2014-08-30 03:16+0000\n"
 "PO-Revision-Date: 2013-11-26 16:08+0600\n"
 "Last-Translator: Abduqadir Abliz <sahran.ug@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
@@ -2112,54 +2112,34 @@ msgstr ""
 msgid "Please reboot with the correct kernel (${DI_KERNEL})."
 msgstr "توغرا نەشرى (${DI_KERNEL})نى ئىشلىتىپ قايتا قوزغىتىڭ."
 
-#. #-#-#-#-#  templates.pot (partman-zfs)  #-#-#-#-#
-#. Type: text
-#. Description
-#. :sl4:
-#. Menu entry
-#. Use infinitive form
-#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
 #. Type: text
 #. Description
 #. :sl3:
-#. Menu entry
-#. Use infinitive form
-#: ../partman-zfs.templates:10001 ../partman-lvm.templates:10001
-msgid "Display configuration details"
-msgstr "سەپلىمە تەپسىلاتىنى كۆرسەت"
+#: ../partman-iscsi.templates:1001
+#, fuzzy
+#| msgid "Configure encrypted volumes"
+msgid "Configure iSCSI volumes"
+msgstr "شىفىرلىق دىسكىنى سەپلەش"
 
-#. #-#-#-#-#  templates.pot (partman-zfs)  #-#-#-#-#
-#. Type: text
-#. Description
-#. :sl4:
-#. Menu entry
-#. Use infinitive form
-#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
-#. Type: text
-#. Description
+#. Type: select
+#. Choices
 #. :sl3:
-#. Menu entry
-#. Use infinitive form
-#: ../partman-zfs.templates:13001 ../partman-lvm.templates:15001
-msgid "Create logical volume"
-msgstr "لوگىكىلىق دىسكا قۇر"
-
-#. #-#-#-#-#  templates.pot (partman-zfs)  #-#-#-#-#
-#. Type: text
-#. Description
-#. :sl4:
-#. Menu entry
-#. Use infinitive form
-#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
-#. Type: text
-#. Description
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages)
 #. :sl3:
-#. Menu entry
-#. Use infinitive form
-#: ../partman-zfs.templates:15001 ../partman-lvm.templates:16001
-msgid "Delete logical volume"
-msgstr "لوگىكىلىق دىسكىنى ئۆچۈر"
+#: ../partman-iscsi.templates:2001
+msgid "Log into iSCSI targets"
+msgstr ""
 
+#. #-#-#-#-#  templates.pot (partman-iscsi)  #-#-#-#-#
+#. Type: select
+#. Choices
+#. :sl3:
+#. Note to translators : Please keep your translations of the choices
+#. below a 65 columns limit (which means 65 characters
+#. in single-byte languages)
+#. :sl3:
 #. #-#-#-#-#  templates.pot (partman-zfs)  #-#-#-#-#
 #. Type: text
 #. Description
@@ -2207,12 +2187,200 @@ msgstr "لوگىكىلىق دىسكىنى ئۆچۈر"
 #. :sl5:
 #. TRANSLATORS, please translate "Finish" the same way you translate it in
 #. the 'Select "Finish" at the bottom of the list when you are done' string
-#: ../partman-zfs.templates:16001 ../mdcfg-utils.templates:3001
-#: ../partman-md.templates:5001 ../partman-lvm.templates:17001
-#: ../partman-crypto.templates:59001 ../partconf.templates:3001
-#: ../partitioner.templates:1001 ../s390-dasd.templates:1001
+#: ../partman-iscsi.templates:2001 ../partman-zfs.templates:16001
+#: ../mdcfg-utils.templates:3001 ../partman-md.templates:5001
+#: ../partman-lvm.templates:17001 ../partman-crypto.templates:59001
+#: ../partconf.templates:3001 ../partitioner.templates:1001
+#: ../s390-dasd.templates:1001
 msgid "Finish"
 msgstr "تامام"
+
+#. Type: string
+#. Description
+#. :sl3:
+#: ../partman-iscsi.templates:3001
+msgid "iSCSI target portal address:"
+msgstr ""
+
+#. Type: string
+#. Description
+#. :sl3:
+#: ../partman-iscsi.templates:3001
+msgid ""
+"Enter an IP address to scan for iSCSI targets. To use a port other than the "
+"default of 3260, use \"IP:port\" notation, for example \"1.2.3.4:3261\"."
+msgstr ""
+
+#. Type: string
+#. Description
+#. :sl3:
+#. Translators : do NOT translate the variable name (PORTAL)
+#: ../partman-iscsi.templates:4001
+msgid "iSCSI initiator username for ${PORTAL}:"
+msgstr ""
+
+#. Type: string
+#. Description
+#. :sl3:
+#. Translators : do NOT translate the variable name (PORTAL)
+#: ../partman-iscsi.templates:4001
+msgid ""
+"Some iSCSI targets require the initiator (client) to authenticate using a "
+"username and password. If that is the case for this target, enter the "
+"username here. Otherwise, leave this blank."
+msgstr ""
+
+#. Type: password
+#. Description
+#. :sl3:
+#. Translators : do NOT translate the variable name (PORTAL)
+#: ../partman-iscsi.templates:5001
+msgid "iSCSI initiator password for ${PORTAL}:"
+msgstr ""
+
+#. Type: password
+#. Description
+#. :sl3:
+#. Translators : do NOT translate the variable name (PORTAL)
+#: ../partman-iscsi.templates:5001
+msgid ""
+"Enter the initiator password needed to authenticate to this iSCSI target."
+msgstr ""
+
+#. Type: string
+#. Description
+#. :sl3:
+#. Translators : do NOT translate the variable name (PORTAL)
+#: ../partman-iscsi.templates:6001
+msgid "iSCSI target username for ${PORTAL}:"
+msgstr ""
+
+#. Type: string
+#. Description
+#. :sl3:
+#. Translators : do NOT translate the variable name (PORTAL)
+#: ../partman-iscsi.templates:6001
+msgid ""
+"In some environments, the iSCSI target needs to authenticate to the "
+"initiator as well as the other way round. If that is the case here, enter "
+"the incoming username which the target is expected to supply. Otherwise, "
+"leave this blank."
+msgstr ""
+
+#. Type: password
+#. Description
+#. :sl3:
+#. Translators : do NOT translate the variable name (PORTAL)
+#: ../partman-iscsi.templates:7001
+msgid "iSCSI target password for ${PORTAL}:"
+msgstr ""
+
+#. Type: password
+#. Description
+#. :sl3:
+#. Translators : do NOT translate the variable name (PORTAL)
+#: ../partman-iscsi.templates:7001
+msgid ""
+"Enter the incoming password which the iSCSI target is expected to supply."
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl3:
+#: ../partman-iscsi.templates:9001
+msgid "No iSCSI targets discovered"
+msgstr ""
+
+#. Type: error
+#. Description
+#. :sl3:
+#. Translators : do NOT translate the variable name (PORTAL)
+#: ../partman-iscsi.templates:9001
+msgid "No iSCSI targets were discovered on ${PORTAL}."
+msgstr ""
+
+#. Type: multiselect
+#. Description
+#. :sl3:
+#. Translators : do NOT translate the variable name (PORTAL)
+#: ../partman-iscsi.templates:11001
+msgid "iSCSI targets on ${PORTAL}:"
+msgstr ""
+
+#. Type: multiselect
+#. Description
+#. :sl3:
+#. Translators : do NOT translate the variable name (PORTAL)
+#: ../partman-iscsi.templates:11001
+#, fuzzy
+#| msgid "Please select the ZFS pool you wish to delete."
+msgid "Select the iSCSI targets you wish to use."
+msgstr "ئۆچۈرىدىغان ZFS كۆلچىكىنى تاللاڭ."
+
+#. Type: error
+#. Description
+#. :sl3:
+#: ../partman-iscsi.templates:12001
+#, fuzzy
+#| msgid "SILO installation failed"
+msgid "iSCSI login failed"
+msgstr "SILO ئورنىتىش مەغلۇپ بولدى"
+
+#. Type: error
+#. Description
+#. :sl3:
+#. Translators : do NOT translate the variable names (PORTAL and TARGET)
+#: ../partman-iscsi.templates:12001
+msgid "Logging into the iSCSI target ${TARGET} on ${PORTAL} failed."
+msgstr ""
+
+#. #-#-#-#-#  templates.pot (partman-zfs)  #-#-#-#-#
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: text
+#. Description
+#. :sl3:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:10001 ../partman-lvm.templates:10001
+msgid "Display configuration details"
+msgstr "سەپلىمە تەپسىلاتىنى كۆرسەت"
+
+#. #-#-#-#-#  templates.pot (partman-zfs)  #-#-#-#-#
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: text
+#. Description
+#. :sl3:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:13001 ../partman-lvm.templates:15001
+msgid "Create logical volume"
+msgstr "لوگىكىلىق دىسكا قۇر"
+
+#. #-#-#-#-#  templates.pot (partman-zfs)  #-#-#-#-#
+#. Type: text
+#. Description
+#. :sl4:
+#. Menu entry
+#. Use infinitive form
+#. #-#-#-#-#  templates.pot (PACKAGE VERSION)  #-#-#-#-#
+#. Type: text
+#. Description
+#. :sl3:
+#. Menu entry
+#. Use infinitive form
+#: ../partman-zfs.templates:15001 ../partman-lvm.templates:16001
+msgid "Delete logical volume"
+msgstr "لوگىكىلىق دىسكىنى ئۆچۈر"
 
 #. #-#-#-#-#  templates.pot (partman-zfs)  #-#-#-#-#
 #. Type: error
