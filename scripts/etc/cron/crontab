@@ -24,9 +24,10 @@ DAILY_LOGS_DIR=/home/d-i/daily-build-logs.git
 
 0 23 * * * cd $DI/manual && svn -q up ; cd build && destination=/srv/d-i.debian.org/www/manual ./build.sh >/dev/null ; ~/bin/push-www
 
-10 */4 * * * cd $DI; mr -q up; cd scripts; ./git-summary > /srv/d-i.debian.org/www/git-summary.html ; ~/bin/push-www
-15 */4 * * * cd $DI; ./scripts/l10n/scan-trans > /srv/d-i.debian.org/www/translations.txt ; ~/bin/push-www
-30 */4 * * * cd $DI/scripts; mr -q up; ./kernel-summary /srv/d-i.debian.org/www/kernel-summary.html ; ~/bin/push-www
+# Let the last */4 entry call push-www:
+10 */4 * * * cd $DI; mr -q up; cd scripts; ./git-summary > /srv/d-i.debian.org/www/git-summary.html
+15 */4 * * * cd $DI; ./scripts/l10n/scan-trans > /srv/d-i.debian.org/www/translations.txt
+30 */4 * * * cd $DI/scripts; mr -q up; ./kernel-summary /srv/d-i.debian.org/www/kernel-summary.html
 55 */4 * * * cd $DI; mr -q up ; cd $DI/scripts/testing-summary; svn -q up; ./gen-summary /srv/mirrors/debian > /srv/d-i.debian.org/www/testing-summary.html ; ~/bin/push-www
 
 0 5,11,17,23 * * * cd $DI/scripts; mr -q up; ./edos4udebs-wrapper /srv/mirrors/debian edos.tmp /srv/d-i.debian.org/www/edos ; ~/bin/push-www
