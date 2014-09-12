@@ -135,6 +135,10 @@ foreach my $dist (@dists) {
 		my ($binary)  = m/Binary: (.*)\n/;
 		my ($version) = m/Version: (.*)\n/;
 		my ($bdeps)   = m/Build-Depends: (.*)\n/;
+		if (m/Extra-Source-Only: yes\n/) {
+			#print STDERR "Skipping $package/$version (extra-source-only)\n";
+			next;
+		}
 		for my $binary_item (split /, /, $binary) {
 			$sourceversions{$dist}{$binary_item}{source} = $package;
 			push @{$sourceversions{$dist}{$binary_item}{version}}, $version;
