@@ -1,0 +1,34 @@
+
+  <sect3 arch="arm">
+  <title>Making the system bootable with flash-kernel</title>
+<para>
+  
+As there is no common firmware interface on all ARM platforms, the
+steps required to make the system bootable on ARM devices are
+highly device-dependent. &debian; uses a tool called
+<command>flash-kernel </command> to take care of this.  Flash-kernel
+contains a database which describes the particular operations that are
+required to make the system bootable on various devices.  It detects
+whether the current device is supported, and if yes, performs the
+necessary operations.
+
+</para><para>
+
+On devices which boot from internal NOR- or NAND-flash memory,
+flash-kernel writes the kernel and the initial ramdisk to this internal
+memory.  This method is particularly common on older armel devices. 
+Please note that most of these devices do not allow having multiple
+kernels and ramdisks in their internal flash memory, i.e. running
+flash-kernel on them usually overwrites the previous contents of the flash
+memory!
+
+</para><para>
+
+For ARM systems that use u-boot as their system firmware and boot the
+kernel and the initial ramdisk from external storage media (such as
+MMC/SD-cards, USB mass storage devices or IDE/SATA harddisks),
+flash-kernel generates an appropriate boot script to allow autobooting
+without user interaction.
+
+</para>
+  </sect3>
