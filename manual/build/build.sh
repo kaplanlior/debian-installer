@@ -27,7 +27,10 @@ if [ -z "$formats" ]; then
     formats="html pdf txt"
 fi
 
-[ -e "$destination" ] || mkdir -p "$destination"
+for arch in $architectures; do
+    eval arch_destination=$destination
+    [ -e "$arch_destination" ] || mkdir -p "$arch_destination"
+done
 
 if [ "$official_build" ]; then
     # Propagate this to children.
@@ -50,11 +53,14 @@ for lang in $languages; do
     fi
 done
     
-make languages="$languages" architectures="$architectures" destination="$destination" formats="$formats"
+make languages="$languages" architectures="$architectures" destination="${destination//\$/\$\$}" formats="$formats"
 
 PRESEED="../en/appendix/preseed.xml"
 if [ -f $PRESEED ] && [ -f preseed.pl ] ; then
-    ./preseed.pl -r $manual_release $PRESEED >$destination/example-preseed.txt
+    for arch in $architectures; do
+	eval arch_destination=$destination
+	./preseed.pl -r $manual_release $PRESEED >$arch_destination/example-preseed.txt
+    done
 fi
 
 # Delete temporary PO files and generated XML files

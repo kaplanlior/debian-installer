@@ -60,13 +60,11 @@ build-stamp:
 	rm -f $@
 	-rm -rf $(MANTMP)
 	set -e && cd build && \
-	    for arch in $(ARCHS) ; do \
 		MAKEFLAGS="$(PARALLEL)" \
 		official_build=1 manual_release=$(SUITE) \
-		architectures="$$arch" languages="$(LANGS)" \
-		destination=$(MANTMP)/$$arch noarchdir=1 \
-		./build.sh ; \
-	    done
+		architectures="$(ARCHS)" languages="$(LANGS)" \
+		destination=$(MANTMP)/'$${arch}' noarchdir=1 \
+		./build.sh
 	touch $@
 
 install: build
