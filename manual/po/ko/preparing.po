@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: preparing.xml\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2014-08-05 21:38+0000\n"
-"PO-Revision-Date: 2014-04-24 02:55+0900\n"
+"PO-Revision-Date: 2014-09-21 00:49+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: Korean <debian-l10n-korean@lists.debian.org>\n"
 "Language: ko\n"
@@ -1122,8 +1122,7 @@ msgstr "설치 종류"
 
 #. Tag: entry
 #: preparing.xml:764
-#, fuzzy, no-c-format
-#| msgid "RAM (minimal)"
+#, no-c-format
 msgid "RAM (minimum)"
 msgstr "램(최소)"
 
@@ -1159,10 +1158,9 @@ msgstr "512메가바이트"
 
 #. Tag: entry
 #: preparing.xml:775
-#, fuzzy, no-c-format
-#| msgid "5 gigabytes"
+#, no-c-format
 msgid "2 gigabytes"
-msgstr "5기가바이트"
+msgstr "2기가바이트"
 
 #. Tag: entry
 #: preparing.xml:777
@@ -1184,10 +1182,9 @@ msgstr "1기가바이트"
 
 #. Tag: entry
 #: preparing.xml:780
-#, fuzzy, no-c-format
-#| msgid "1 gigabyte"
+#, no-c-format
 msgid "10 gigabytes"
-msgstr "1기가바이트"
+msgstr "10기가바이트"
 
 #. Tag: para
 #: preparing.xml:785
@@ -2213,7 +2210,7 @@ msgstr ""
 #: preparing.xml:1493
 #, no-c-format
 msgid "Setting the ethernet MAC address in u-boot"
-msgstr ""
+msgstr "u-boot에서 이더넷 MAC 주소 설정하기"
 
 #. Tag: para
 #: preparing.xml:1494
@@ -2224,7 +2221,7 @@ msgid ""
 "domain. To achieve this, the manufacturer usually allocates a block of MAC "
 "addresses from a centrally-administered pool (for which a fee has to be "
 "paid) and preconfigures one of these addresses on each item sold."
-msgstr ""
+msgstr "모든 이더넷 인터페이스의 MAC 주소는 보통은 전세계에서 유일해야 합니다. 그리고 기술적으로도 이더넷 브로드캐스트 범위 안에서는 주소가 유일해야 합니다. 이렇게 유일성을 보장하기 위해, 중앙에서 관리하는 모음에서 제조사마다 일정한 블럭의 MAC 주소 묶음을 배정받습니다. (그리고 일정한 사용료를 냅니다.) 그 다음에 판매하는 제품마다 주소를 하나씩 부여합니다."
 
 #. Tag: para
 #: preparing.xml:1502
@@ -2239,7 +2236,7 @@ msgid ""
 "not manually set an address, but e.g. assigning semi-static IP addresses by "
 "DHCP based on the MAC address of the requesting client would obviously not "
 "work reliably."
-msgstr ""
+msgstr "개발 보드의 경우에는, 제조사에서 이 사용료를 내지 않으려 하기도 해서 유일한 주소가 없을 수도 있습니다. 이 경우 사용자가 직접 MAC 주소를 설정해야 합니다. 이더넷 인터페이스에 MAC 주소가 지정되어 있지 않았을 때, 일부 드라이버는 부팅할 때마다 임의의 MAC 주소를 생성하기도 합니다. 이렇게 동작하는 경우 수동으로 주소를 지정하지 않아도 네트워크를 사용할 수 있습니다. 하지만 예를 들어 DHCP 서버가 클라이언트 MAC 주소에 따라 일정한 IP 주소를 할당하는 경우에는 제대로 동작하지 않습니다."
 
 #. Tag: para
 #: preparing.xml:1513
@@ -2252,7 +2249,7 @@ msgid ""
 "English language Wikipedia gives a good explanation). In practice this means "
 "that e.g. any address starting with hexadecimal ca (such as ca:ff:"
 "ee:12:34:56) can be used as a locally administered address."
-msgstr ""
+msgstr "공식적으로 배정된 MAC 주소와 충돌을 피하려면 <quote>사설(locally administered)</quote> 주소로 예약된 주소가 있습니다. 이 주소는 주소의 첫 바이트에서 두 비트로 정의됩니다. (영문 위키백과의 <quote>MAC address</quote> 글에 잘 설며오디어 있습니다.) 예를 들어, 16진수 \"ca\"로 시작하는 모든 주소는(예를 들어 ca:ff:ee:12:34:56) 사설 주소입니다."
 
 #. Tag: para
 #: preparing.xml:1523
@@ -2264,13 +2261,13 @@ msgid ""
 "quote> and can be set with the command <quote>setenv ethaddr ca:ff:"
 "ee:12:34:56</quote>. After setting the value, the command <quote>saveenv</"
 "quote> makes the assignment permanent."
-msgstr ""
+msgstr "u-boot를 시스템 펌웨어로 사용하는 시스템에서는, 이더넷 MAC 주소를 <quote>ethaddr</quote> 환경 변수에 저장합니다. 이 값은 u-boot 명령 프롬프트에서 <quote>printenv ethaddr</quote> 명령으로 확인해 볼 수 있고, <quote>setenv ethaddr ca:ff:ee:12:34:56</quote> 명령과 같이 설정할 수 있습니다. 값을 설정하면 <quote>saveenv</quote> 명령으로 값을 저장합니다."
 
 #. Tag: title
 #: preparing.xml:1534
 #, no-c-format
 msgid "Kernel/Initrd/Device-Tree relocation issues in u-boot"
-msgstr ""
+msgstr "u-boot의 커널/최초 램디스크/디바이스 트리 재배치 문제"
 
 #. Tag: para
 #: preparing.xml:1535
@@ -2282,7 +2279,7 @@ msgid ""
 "message <quote>Starting kernel ...</quote>, but the system freezes "
 "afterwards without further output. These issues have been solved with newer "
 "u-boot versions from v2014.07 onwards."
-msgstr ""
+msgstr "예전 버전의 u-boot를 사용하는 일부 시스템에서는, 부팅 과정에서 메모리에 있는 리눅스 커널, 최초 램디스크, 디바이스 트리를 재배치할 때 문제가 있을 수도 있습니다. 이 경우 u-boot에서 <quote>Starting kernel ...</quote> 메시지를 표시히지만, 그 뒤에 출력이 없이 시스템이 멈춰 있습니다. 이 문제는 u-boot v2014.07 버전 이후로 해결되었습니다."
 
 #. Tag: para
 #: preparing.xml:1544
@@ -2297,7 +2294,7 @@ msgid ""
 "possible to manually set bootm_size to the new u-boot's default value by "
 "running the command <quote>env default bootm_size; saveenv</quote> at the u-"
 "boot prompt."
-msgstr ""
+msgstr "만약 시스템에서 v2014.07보다 오래 된 u-boot 버전을 사용하고 나중에 그 보다 나중 버전으로 업그레이드했다면, u-boot 업그레이드 후에도 문제가 계속 발생할 수 있습니다. u-boot를 업그레이드해도 현재 u-boot 환경 변수를 수정하지는 않고, 추가 환경 변수를(bootm_size) 설정해야 합니다. u-boot는 환경 변수 데이터가 없이 새로 설치할 경우에만 자동으로 이 환경 변수를 설정합니다. u-boot 프롬프트에서 <quote>env default bootm_size; saveenv</quote> 명령으로 bootm_size 환경 변수를 u-boot의 기본값으로 수동 설정할 수도 있습니다."
 
 #. Tag: para
 #: preparing.xml:1555
@@ -2307,13 +2304,13 @@ msgid ""
 "command <quote>setenv fdt_high ffffffff; setenv initrd_high 0xffffffff; "
 "saveenv</quote> at the u-boot prompt to completely disable the relocation of "
 "the initial ramdisk and the device-tree blob."
-msgstr ""
+msgstr "재배치와 관련된 문제를 피해가는 한 가지 가능한 방법은 <quote>setenv fdt_high ffffffff; setenv initrd_high 0xffffffff; saveenv</quote> 명령을  u-boot 프롬프트에서 실행해서 최초 램디스크와 디바이스 트리 파일의 재배치를 완전히 막는 방법입니다."
 
 #. Tag: title
 #: preparing.xml:1565
 #, no-c-format
 msgid "Systems with UEFI firmware"
-msgstr ""
+msgstr "UEFI 펌웨어 시스템"
 
 #. Tag: para
 #: preparing.xml:1566
@@ -2322,7 +2319,7 @@ msgid ""
 "UEFI (<quote>Unified Extensible Firmware Interface</quote>) is a new kind of "
 "system firmware that is used on many modern systems and is - among other "
 "uses - intended to replace the classic PC BIOS."
-msgstr ""
+msgstr "UEFI(<quote>Unified Extensible Firmware Interface</quote>)는 현대적인 시스템에서 사용하는 시스템 펌웨어의 한 종류입니다. 특히 고전적인 PC BIOS를 대체할 목적으로 만들어졌습니다."
 
 #. Tag: para
 #: preparing.xml:1572
@@ -2335,7 +2332,7 @@ msgid ""
 "unchanged. Nonetheless UEFI is intended to one day completely replace the "
 "old PC BIOS without being fully backwards-compatible and there are already a "
 "few systems with UEFI but without CSM."
-msgstr ""
+msgstr "현재 UEFI를 사용하는 대부분의 PC 시스템은 펌웨어에 CSM(<quote>Compatibility Support Module</quote>)이 들어 있습니다. CSM은 고전적인 PC BIOS와 완전히 동일한 인터페이스를 제공하는 모듈입니다. 즉 고전적인 PC BIOS용으로 작성된 소프트웨어를 수정되지 않아도 사용할 수 있습니다. 그럼에도 불구하고 UEFI는 언젠가는 호환성 지원 없이 PC BIOS를 완전히 대체할 예정이고, 이미 CSM이 없는 UEFI 시스템도 있습니다."
 
 #. Tag: para
 #: preparing.xml:1582
@@ -2358,7 +2355,7 @@ msgid ""
 "(or UEFI in CSM mode) and native UEFI is from where boot code is loaded and "
 "in which format it has to be, so that different bootloaders are needed for "
 "both systems."
-msgstr ""
+msgstr "UEFI 시스템에서는 운영 체제를 설치할 때 고려할 점이 몇 가지 있습니다. UEFI에서는 펌웨어에서 운영 체제를 읽어들이는 방법이 전통적인 BIOS(또는 CSM 모드를 사용하는 UEFI)와는 근본적으로 다릅니다. 큰 차이점은 하드 디스크 파티션을 하드 디스크에 기록하는 방식입니다. 전통적인 BIOS와 CSM 모드의 UEFI는 DOS 파티션 테이블을 사용하지만, 네이티브 UEFI는 <quote>GUID 파티션 테이블</quote>(GPT)이라는 다른 파티션 방식을 사용합니다. 1개의 디스크에서는 이 두 가지 형식 중에 하나만 사용할 수 있고, 한 디스크에 여러가지 운영 체제를 사용하는 멀티 부팅의 경우는 모든 운영 체제가 같은 파티션 종류의 테이블을 사용해야 합니다. GPT를 사용한 디스크에서 부팅하려면 UEFI 모드에서만 가능합니다. 하지만 하드 디스크 크기가 늘어날 수록 GPT 사용이 더 늘어나고 있습니다. 전통적인 DOS 파티션은 2테라바이트가 넘어가는 섹터 주소를 처리할 수 없지만, GPT는 훨씬 더 큰 디스크도 지원하기 때문입니다. BIOS(또는 CSM모드 UEFI)와 네티이브 UEFI의 또 다른 주요 차이점은 부팅 코드를 읽어들이는 위치와 그 형식입니다. 즉 이 두 시스템은 다른 종류의 부트로더가 필요합니다."
 
 #. Tag: para
 #: preparing.xml:1602
@@ -2377,7 +2374,7 @@ msgid ""
 "boot menu, some systems offer two seperate choices for each device, so that "
 "the user can select whether booting shall happen in CSM or in native UEFI "
 "mode."
-msgstr ""
+msgstr "후자는 CSM 모드 UEFI 시스템에서 &d-i; 부팅할 때 중요합니다. &d-i;에서 BIOS에서 시작했는지 네이티브 UEFI 시스템에서 부팅했는지 검사해서 해당하는 부트로더를 설치하기 때문입니다.  통 잘 동작하지만, 멀티 부팅 환경에서는 문제가 될 수 있습니다. 일부 CSM이 있느 UEFI 시스템에서는 이동식 장치의 부팅 모드가 하드 디스크 부팅과 다르면, USB 메모리의 설치 프로그램을 하드디스크에 설치하는 운영 체제의 부팅 모드와 다른 모드로 부팅해서 잘못된 부트로더를 설치하고, 설치를 마친 다음에 시스템이 부팅 불가능 상태가 될 수도 있습니다. 펌웨어 부팅 메뉴에서 부팅 장치를 선택할 때 시스템에 따라서는 장치마다 두 가지 중 하나를 선택할 수도 있어서, 사용자가 CSM 모드나 네이티브 EFI 모드 중의 하나를 선택해서 부팅할 수도 있습니다."
 
 #. Tag: para
 #: preparing.xml:1618
@@ -2399,14 +2396,16 @@ msgid ""
 "system with secure boot enabled, but cannot find an option to disable it, "
 "try setting a BIOS password, powercycle the machine and look again for an "
 "appropriate option."
-msgstr ""
+msgstr "또 다른 UEFI 관련 문제는 <quote>보안 부팅</quote>(secure boot)이라고 하는 방식입니다. 보안 부팅은 UEFI의 한 가지 기능으로 특정 키로 디지털 서명된 코드만 읽어들이고 실행하고, 사인이 없거나 알 수 없는 키로 서명된 (아마도 악의적인) 코드를 막는 기능입니다. 실제로는 보안 부팅 기능이 있는 대부분의 UEFI 시스템은 기본값으로, 마이크로소프트가 마이크로소프트 부트로더를 서명할 때 사용하는 키만 허용합니다. &d-i;에서 사용하는 부팅 코드는 마이크로소프트에서 서명하지 않았으므로, 설치 프로그램을 부팅할 때 보안 부팅이 켜져 있으먼 꺼야 합니다. Windows 8의 64비트 버전이 미리 설치되어 있는 시스템에서 보안 부팅이 기본값으로 켜져 있으면서, UEFI 설정에서 보안 부팅을 끌 방법이 없는 경우가 있습니다. 이런 경우에는 보안 부팅을 해제하는 옵션은 사용자가 BIOS 암호를 설정한 경우에만 보입니다. 그러므로 보안 부팅을 사용하는 시스템에서 끄는 옵션이 없으면, BIOS 암호를 설정하고 컴퓨터를 켠 다음 다시 옵션을 찾아 보십시오."
 
+# "빠른 시작"
 #. Tag: title
 #: preparing.xml:1640
 #, no-c-format
 msgid "Disabling the Windows 8 <quote>fast boot</quote> feature"
-msgstr ""
+msgstr "윈도우 8 <quote>빠른 시작</quote> 기능 끄기"
 
+# "빠른 시작"
 #. Tag: para
 #: preparing.xml:1641
 #, no-c-format
@@ -2424,7 +2423,7 @@ msgid ""
 "could cause filesystem corruption upon further write accesses to the "
 "filesystem. Therefore in a dual boot setup, to avoid filesystem corruption "
 "the <quote>fast boot</quote> feature has to be disabled within Windows."
-msgstr ""
+msgstr "윈도우 8에는 부팅에 걸리는 시간을 줄이는 <quote>빠른 시작</quote>이라는 기능이 있습니다. 기술적으로는, 이 기능을 사용할 경우 Windows 8은 컴퓨터를 끌 때 셧다운을 한 후에 콜드 부팅을 하지 않고, 부분적인 최대 절전 기능과 비슷한 일을 해서 <quote>부팅</quote> 시간을 줄입니다. Windows 8이 컴퓨터의 유일한 운영 체제라면 이런 식의 동작은 문제가 되지 않습니다. 하지만 다른 운영 체제와 Windows 8이 이중 부팅해서 같은 파일 시스템에 접근한다면 문제가 되고 데이터 손실이 발생할 수 있습니다. 이 경우 파일 시스템의 상태가 <quote>부팅</quote>한 후의 Windows 8이 생각하는 상태와 달라서 파일 시스템에 다시 쓰기를 할 경우 파일 시스템의 손상이 발생할 수 있습니다. 그러므로 이중 부팅에서는 파일 시스템 소상을 막기 위해 <quote>빠른 시작</quote> 기능을 윈도우에서 꺼야 합니다."
 
 #. Tag: title
 #: preparing.xml:1659
@@ -2482,6 +2481,3 @@ msgstr ""
 "있습니다), 아니면 사용자 인터페이스가 나오기 전에 화면이 검은색으로 변하는 경"
 "우, 맥오에스에서 디스플레이 설정을 <quote>thousands</quote>나 "
 "<quote>millions</quote> 대신에 256색으로 맞추십시오."
-
-#~ msgid "64 megabytes"
-#~ msgstr "64메가바이트"
