@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: preparing\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2014-08-05 21:38+0000\n"
-"PO-Revision-Date: 2014-08-25 11:47+0100\n"
+"PO-Revision-Date: 2014-09-21 08:52+0100\n"
 "Last-Translator: Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team: Portuguese <kde-i18n-doc@kde.org>\n"
 "Language: pt\n"
@@ -2393,6 +2393,13 @@ msgid ""
 "that e.g. any address starting with hexadecimal ca (such as ca:ff:"
 "ee:12:34:56) can be used as a locally administered address."
 msgstr ""
+"Para evitar conflitos com endereços MAC atribuidos oficialmente, existe um "
+"conjunto de endereços que é reservado para os chamados endereços <quote>"
+"administrados localmente</quote>. É definido pelo valor de dois bits "
+"especificos no primeiro byte do endereço (o artigo <quote>MAC address</quote> "
+"na Wikipedia em idioma Inglês dá uma boa explicação). Na prática isto "
+"significa que qualquer endereço começado pelo hexadecimal ca (tal como "
+"ca:ff:ee:12:34:56) pode ser utilizado como endereço administrado localmente."
 
 #. Tag: para
 #: preparing.xml:1523
@@ -2405,12 +2412,18 @@ msgid ""
 "ee:12:34:56</quote>. After setting the value, the command <quote>saveenv</"
 "quote> makes the assignment permanent."
 msgstr ""
+"Em sistemas que utilizem u-boot como firmware de sistema, o endereço MAC é "
+"colocado na variável de ambiente <quote>ethaddr</quote>. Pode ser verificado "
+"na linha de comandos do u-boot com o comando <quote>printenv ethaddr</quote> "
+"e pode ser definido com o comando <quote>setenv ethaddr ca:ff:ee:12:34:56"
+"</quote>. Após definir o valor, o comando <quote>saveenv</quote> torna a "
+"atribuição permanente."
 
 #. Tag: title
 #: preparing.xml:1534
 #, no-c-format
 msgid "Kernel/Initrd/Device-Tree relocation issues in u-boot"
-msgstr ""
+msgstr "Problemas de relocação do Kernel/Initrd/Device-tree no u-boot"
 
 #. Tag: para
 #: preparing.xml:1535
@@ -2423,6 +2436,12 @@ msgid ""
 "afterwards without further output. These issues have been solved with newer "
 "u-boot versions from v2014.07 onwards."
 msgstr ""
+"Em alguns sistemas com versões mais antigas do u-boot podem haver problemas "
+"com a correcta relocação do kernel Linux, do ramdisk inicial e do blob de "
+"device-tree em memória durante o processo de arranque. Neste caso, o u-boot "
+"mostra a mensagem <quote>Starting kernel ...</quote>, mas o sistema congela "
+"de seguida sem mais qualquer saída. Estes problemas foram resolvidos com "
+"novas versões do u-boot a partir da v2014.07."
 
 #. Tag: para
 #: preparing.xml:1544
@@ -2438,6 +2457,15 @@ msgid ""
 "running the command <quote>env default bootm_size; saveenv</quote> at the u-"
 "boot prompt."
 msgstr ""
+"Se o sistema utilizou originalmente uma versão do u-boot anterior à v2014.7 "
+"e foi posteriormente actualizado para uma versão mais recente, o problema "
+"pode ainda assim ocorrer mesmo após actualizar o u-boot. A actualização do "
+"u-boot normalmente não altera as variáveis de ambiente existentes e a "
+"correção requer que seja definida uma variável de ambiente adicional "
+"(bootm_size), o que o u-boot faz automaticamente apenas em novas instalações "
+"sem dados de ambiente. É possível definir manualmente bootm_size para a nova "
+"predefinição do u-boot ao correr na linha de comandos o comando "
+"<quote>env default bootm_size; saveenv</quote>."
 
 #. Tag: para
 #: preparing.xml:1555
@@ -2448,6 +2476,11 @@ msgid ""
 "saveenv</quote> at the u-boot prompt to completely disable the relocation of "
 "the initial ramdisk and the device-tree blob."
 msgstr ""
+"Outra possibilidade de contornar os problemas relacionados com a relocação é "
+"correr o seguinte comando na linha de comandos do u-boot <quote>setenv "
+"fdt_high ffffffff; setenv iitrd_high 0xffffffff; saveenv</quote> para "
+"desabilitar completamente a relocação do ramdisk inicial e do blob "
+"device-tree."
 
 #. Tag: title
 #: preparing.xml:1565
