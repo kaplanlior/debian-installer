@@ -1,0 +1,34 @@
+<!-- $Id$ -->
+<!-- original version: 69371 -->
+
+  <sect3 arch="arm">
+  <title>Nastavit systém jako zaveditelný pomocí flash-kernel</title>
+<para>
+
+Jelikož na ARM platformě neexistuje jednotné rozhraní k firmwaru, liší
+se konkrétní kroky pro nastavení zavádění systému zařízení od
+zařízení. &debian; používá nástroj <command>flash-kernel</command>,
+který obsahuje databázi zařízení a seznam kroků, které je třeba na
+konkrétním zařízení vykonat, aby se z něj dal zavádět systém. Pokud
+flash-kernel zjistí, že je dané zařízení podporováno, automaticky na
+něm příslušné kroky provede.
+
+</para><para>
+
+Na zařízeních, které zavádí z interní NOR- nebo NAND- flash paměti,
+zapíše flash-kernel jádro a ramdisk do této interní paměti. Tento
+způsob je běžný obzvláště u starších zařízení armel. Většina těchto
+zařízení neumožňuje uchovávat v interní paměti více jader a ramdisků,
+což znamená, že spuštění flash-kernel obvykle přepíše předchozí obsah
+flash paměti!
+
+</para><para>
+
+Systémy ARM, které používají jako systémový firmware u-boot, zavádí
+jádro a ramdisk z externího média, jako jsou MMC/SD karty, zařízení
+USB mass storage nebo pevné disky IDE/SATA. V těchto případech
+vygeneruje flash-kernel příslušný zaváděcí skript, který umožní
+automatické zavádění bez zásahu uživatele.
+
+</para>
+  </sect3>

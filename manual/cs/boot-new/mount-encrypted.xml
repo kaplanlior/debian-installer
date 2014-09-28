@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 68621 -->
+<!-- original version: 69266 -->
 
  <sect1 id="mount-encrypted-volumes">
  <title>Připojení zašifrovaných svazků</title>
@@ -8,15 +8,9 @@
 
 Jestliže jste při instalaci vytvořili nějaké šifrované svazky a
 přiřadili jim přípojné body, budete během zavádění dotázáni na
-přístupovou frázi ke každému takovému svazku. Samotný postup se mezi
-dm-crypt a loop-AES mírně liší.
+přístupovou frázi ke každému takovému svazku.
 
-</para>
-
-  <sect2 id="mount-dm-crypt">
-  <title>dm-crypt</title>
-
-<para>
+</para><para>
 
 Pro oblasti zašifrované pomocí dm-crypt uvidíte při zavádění výzvu
 podobnou této:
@@ -67,37 +61,6 @@ Po zadání všech přístupových frází by mělo zavádění pokračovat jako
 obvykle.
 
 </para>
-  </sect2>
-
-  <sect2 id="mount-loop-aes">
-  <title>loop-AES</title>
-
-<para>
-
-Pro oblasti zašifrované pomocí loop-AES uvidíte při připojování výzvu
-podobnou této:
-
-<informalexample><screen>
-Checking loop-encrypted file systems.
-Setting up /dev/loop<replaceable>X</replaceable> (/<replaceable>pripojny_bod</replaceable>)
-Password:
-</screen></informalexample>
-
-Během zadávání přístupové fráze se nezobrazují žádné znaky (ani
-hvězdičky). Buďte opatrní, máte pouze <emphasis>jediný
-pokus</emphasis>. Zadáte-li i v třetím pokusu chybnou frázi, zobrazí
-se chybová hláška, zaváděcí proces tento svazek přeskočí a bude
-pokračovat připojením dalšího souborového systému. Přeskočený svazek
-můžete připojit později ručně, viz část <xref
-linkend="crypto-troubleshooting"/>.
-
-</para><para>
-
-Po zadání všech přístupových frází by mělo zavádění pokračovat jako
-obvykle.
-
-</para>
-  </sect2>
 
   <sect2 id="crypto-troubleshooting">
   <title>Řešení problémů</title>
@@ -122,23 +85,12 @@ restartovat.
 
 Nejjednodušší případ se týká datových oblastí typu
 <filename>/home</filename> nebo <filename>/srv</filename>.
-Po zavedení je stačí ručně připojit. Pro loop-AES stačí jediný krok:
-
-<informalexample><screen>
-<prompt>#</prompt> <userinput>mount <replaceable>/pripojny_bod</replaceable></userinput>
-<prompt>Password:</prompt>
-</screen></informalexample>
-
-kde <replaceable>/pripojny_bod</replaceable> byste měli nahradit za
-konkrétní adresář (např. <filename>/home</filename>). Jediný rozdíl
-oproti připojení běžné oblasti je, že budete dotázáni na přístupovou
-frázi.
+Po zavedení je stačí ručně připojit.
 
 </para><para>
 
-U dm-crypt je připojení trošku složitější. Nejprve musíte
-zaregistrovat svazky do části jádra nazvané <application>device
-mapper</application>. Slouží k tomu příkaz
+U dm-crypt nejprve musíte zaregistrovat svazky do části jádra nazvané
+<application>device mapper</application>. Slouží k tomu příkaz
 
 <informalexample><screen>
 <prompt>#</prompt> <userinput>/etc/init.d/cryptdisks start</userinput>
