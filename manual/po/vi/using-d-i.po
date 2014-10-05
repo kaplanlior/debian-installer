@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: using-d-i\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2014-08-26 20:40+0000\n"
+"POT-Creation-Date: 2014-10-05 18:15+0000\n"
 "PO-Revision-Date: 2012-08-05 14:03+0700\n"
 "Last-Translator: hailang <hailangvn@gmail.com>\n"
 "Language-Team: MOST Project <du-an-most@lists.hanoilug.org>\n"
@@ -5212,11 +5212,52 @@ msgstr ""
 #. Tag: title
 #: using-d-i.xml:3106
 #, no-c-format
+msgid "Making the system bootable with flash-kernel"
+msgstr ""
+
+#. Tag: para
+#: using-d-i.xml:3107
+#, no-c-format
+msgid ""
+"As there is no common firmware interface on all ARM platforms, the steps "
+"required to make the system bootable on ARM devices are highly device-"
+"dependent. &debian; uses a tool called <command>flash-kernel </command> to "
+"take care of this. Flash-kernel contains a database which describes the "
+"particular operations that are required to make the system bootable on "
+"various devices. It detects whether the current device is supported, and if "
+"yes, performs the necessary operations."
+msgstr ""
+
+#. Tag: para
+#: using-d-i.xml:3118
+#, no-c-format
+msgid ""
+"On devices which boot from internal NOR- or NAND-flash memory, flash-kernel "
+"writes the kernel and the initial ramdisk to this internal memory. This "
+"method is particularly common on older armel devices. Please note that most "
+"of these devices do not allow having multiple kernels and ramdisks in their "
+"internal flash memory, i.e. running flash-kernel on them usually overwrites "
+"the previous contents of the flash memory!"
+msgstr ""
+
+#. Tag: para
+#: using-d-i.xml:3128
+#, no-c-format
+msgid ""
+"For ARM systems that use u-boot as their system firmware and boot the kernel "
+"and the initial ramdisk from external storage media (such as MMC/SD-cards, "
+"USB mass storage devices or IDE/SATA harddisks), flash-kernel generates an "
+"appropriate boot script to allow autobooting without user interaction."
+msgstr ""
+
+#. Tag: title
+#: using-d-i.xml:3144
+#, no-c-format
 msgid "Continue Without Boot Loader"
 msgstr "Tiếp tục không có bộ nạp khởi động"
 
 #. Tag: para
-#: using-d-i.xml:3108
+#: using-d-i.xml:3146
 #, no-c-format
 msgid ""
 "This option can be used to complete the installation even when no boot "
@@ -5228,7 +5269,7 @@ msgstr ""
 "cung cấp, hoặc vì không muốn nó (v.d. bạn sẽ dùng bộ nạp khởi động đã có)."
 
 #. Tag: para
-#: using-d-i.xml:3115
+#: using-d-i.xml:3153
 #, no-c-format
 msgid ""
 "If you plan to manually configure your bootloader, you should check the name "
@@ -5249,13 +5290,13 @@ msgstr ""
 "vùng riêng, tên hệ thống tập tin <filename>/boot</filename>."
 
 #. Tag: title
-#: using-d-i.xml:3132
+#: using-d-i.xml:3170
 #, no-c-format
 msgid "Finishing the Installation"
 msgstr "Cài đặt xong"
 
 #. Tag: para
-#: using-d-i.xml:3133
+#: using-d-i.xml:3171
 #, no-c-format
 msgid ""
 "This is the last step in the &debian; installation process during which the "
@@ -5266,13 +5307,13 @@ msgstr ""
 "đặt sẽ làm bất cứ công việc nào còn lại. Phần lớn là làm sạch sau &d-i;."
 
 #. Tag: title
-#: using-d-i.xml:3146
+#: using-d-i.xml:3184
 #, no-c-format
 msgid "Setting the System Clock"
 msgstr "Đặt đồng hồ hệ thống"
 
 #. Tag: para
-#: using-d-i.xml:3148
+#: using-d-i.xml:3186
 #, no-c-format
 msgid ""
 "The installer may ask you if the computer's clock is set to UTC. Normally "
@@ -5286,7 +5327,7 @@ msgstr ""
 "dựa vào thứ như hệ điều hành khác đã được cài đặt."
 
 #. Tag: para
-#: using-d-i.xml:3155
+#: using-d-i.xml:3193
 #, no-c-format
 msgid ""
 "In expert mode you will always be able to choose whether or not the clock is "
@@ -5304,7 +5345,7 @@ msgstr ""
 "giờ cục bộ. Nếu bạn muốn khởi động đôi, hãy chọn giờ cục bộ hơn UTC.</phrase>"
 
 #. Tag: para
-#: using-d-i.xml:3166
+#: using-d-i.xml:3204
 #, no-c-format
 msgid ""
 "At this point &d-i; will also attempt to save the current time to the "
@@ -5316,13 +5357,13 @@ msgstr ""
 "thuộc vào sự chọn mới làm."
 
 #. Tag: title
-#: using-d-i.xml:3181
+#: using-d-i.xml:3219
 #, no-c-format
 msgid "Reboot the System"
 msgstr "Khởi động lại hệ thống"
 
 #. Tag: para
-#: using-d-i.xml:3183
+#: using-d-i.xml:3221
 #, no-c-format
 msgid ""
 "You will be prompted to remove the boot media (CD, floppy, etc) that you "
@@ -5334,7 +5375,7 @@ msgstr ""
 "thống &debian; mới."
 
 #. Tag: para
-#: using-d-i.xml:3189
+#: using-d-i.xml:3227
 #, no-c-format
 msgid ""
 "After a final prompt the system will be halted because rebooting is not "
@@ -5348,13 +5389,13 @@ msgstr ""
 "đầu của tiến trình cài đặt."
 
 #. Tag: title
-#: using-d-i.xml:3202
+#: using-d-i.xml:3240
 #, no-c-format
 msgid "Troubleshooting"
 msgstr "Khắc phục sự số"
 
 #. Tag: para
-#: using-d-i.xml:3203
+#: using-d-i.xml:3241
 #, no-c-format
 msgid ""
 "The components listed in this section are usually not involved in the "
@@ -5366,13 +5407,13 @@ msgstr ""
 "khó khăn."
 
 #. Tag: title
-#: using-d-i.xml:3216
+#: using-d-i.xml:3254
 #, no-c-format
 msgid "Saving the installation logs"
 msgstr "Lưu bản ghi cài đặt"
 
 #. Tag: para
-#: using-d-i.xml:3218
+#: using-d-i.xml:3256
 #, no-c-format
 msgid ""
 "If the installation is successful, the logfiles created during the "
@@ -5384,7 +5425,7 @@ msgstr ""
 "trong hệ thống &debian; mới."
 
 #. Tag: para
-#: using-d-i.xml:3225
+#: using-d-i.xml:3263
 #, no-c-format
 msgid ""
 "Choosing <guimenuitem>Save debug logs</guimenuitem> from the main menu "
@@ -5400,13 +5441,13 @@ msgstr ""
 "kèm báo cáo cài đặt."
 
 #. Tag: title
-#: using-d-i.xml:3245
+#: using-d-i.xml:3283
 #, no-c-format
 msgid "Using the Shell and Viewing the Logs"
 msgstr "Sử dụng trình bao và xem bản ghi"
 
 #. Tag: para
-#: using-d-i.xml:3247
+#: using-d-i.xml:3285
 #, no-c-format
 msgid ""
 "There are several methods you can use to get a shell while running an "
@@ -5433,13 +5474,13 @@ msgstr ""
 "trái</keycap> <keycap>F1</keycap></keycombo> để trở về bộ cài đặt chính nó."
 
 #. Tag: para
-#: using-d-i.xml:3265
+#: using-d-i.xml:3303
 #, no-c-format
 msgid "For the graphical installer see also <xref linkend=\"gtk-using\"/>."
 msgstr "Đối với trình cài đặt đồ họa, xem thêm <xref linkend=\"gtk-using\"/>."
 
 #. Tag: para
-#: using-d-i.xml:3269
+#: using-d-i.xml:3307
 #, no-c-format
 msgid ""
 "If you cannot switch consoles, there is also an <guimenuitem>Execute a "
@@ -5455,7 +5496,7 @@ msgstr ""
 "(thoát) để đóng trình bao, và trở về trình cài đặt."
 
 #. Tag: para
-#: using-d-i.xml:3277
+#: using-d-i.xml:3315
 #, no-c-format
 msgid ""
 "At this point you are booted from the RAM disk, and there is a limited set "
@@ -5473,7 +5514,7 @@ msgstr ""
 "tự động gõ và lược sử."
 
 #. Tag: para
-#: using-d-i.xml:3286
+#: using-d-i.xml:3324
 #, no-c-format
 msgid ""
 "To edit and view files, use the text editor <command>nano</command>. Log "
@@ -5485,7 +5526,7 @@ msgstr ""
 "<filename>/var/log</filename>."
 
 #. Tag: para
-#: using-d-i.xml:3293
+#: using-d-i.xml:3331
 #, no-c-format
 msgid ""
 "Although you can do basically anything in a shell that the available "
@@ -5496,7 +5537,7 @@ msgstr ""
 "trình bao chỉ sẵn sàng để giúp đỡ trong trường hợp bị lỗi hay gỡ lỗi."
 
 #. Tag: para
-#: using-d-i.xml:3299
+#: using-d-i.xml:3337
 #, no-c-format
 msgid ""
 "Doing things manually from the shell may interfere with the installation "
@@ -5510,13 +5551,13 @@ msgstr ""
 "bao."
 
 #. Tag: title
-#: using-d-i.xml:3315
+#: using-d-i.xml:3353
 #, no-c-format
 msgid "Installation Over the Network"
 msgstr "Cài đặt qua mạng"
 
 #. Tag: para
-#: using-d-i.xml:3317
+#: using-d-i.xml:3355
 #, no-c-format
 msgid ""
 "One of the more interesting components is <firstterm>network-console</"
@@ -5533,7 +5574,7 @@ msgstr ""
 "thể tự động hoá phần đó bằng phần <xref linkend=\"automatic-install\"/>.)"
 
 #. Tag: para
-#: using-d-i.xml:3327
+#: using-d-i.xml:3365
 #, no-c-format
 msgid ""
 "This component is not loaded into the main installation menu by default, so "
@@ -5555,7 +5596,7 @@ msgstr ""
 "tục lại cài đặt từ xa bằng SSH</guimenuitem>."
 
 #. Tag: para
-#: using-d-i.xml:3340
+#: using-d-i.xml:3378
 #, no-c-format
 msgid ""
 "For installations on &arch-title;, this is the default method after setting "
@@ -5565,7 +5606,7 @@ msgstr ""
 "mặc định sau khi thiết lập mạng."
 
 #. Tag: para
-#: using-d-i.xml:3345
+#: using-d-i.xml:3383
 #, no-c-format
 msgid ""
 "<phrase arch=\"not-s390\">After selecting this new entry, you</phrase> "
@@ -5587,7 +5628,7 @@ msgstr ""
 "tiếp tục cài đặt từ xa."
 
 #. Tag: para
-#: using-d-i.xml:3357
+#: using-d-i.xml:3395
 #, no-c-format
 msgid ""
 "Should you decide to continue with the installation locally, you can always "
@@ -5599,7 +5640,7 @@ msgstr ""
 "khác."
 
 #. Tag: para
-#: using-d-i.xml:3363
+#: using-d-i.xml:3401
 #, no-c-format
 msgid ""
 "Now let's switch to the other side of the wire. As a prerequisite, you need "
@@ -5629,7 +5670,7 @@ msgstr ""
 "nếu nó là đúng không."
 
 #. Tag: para
-#: using-d-i.xml:3380
+#: using-d-i.xml:3418
 #, no-c-format
 msgid ""
 "The <command>ssh</command> server in the installer uses a default "
@@ -5654,7 +5695,7 @@ msgstr ""
 "tái kết nối."
 
 #. Tag: para
-#: using-d-i.xml:3393
+#: using-d-i.xml:3431
 #, no-c-format
 msgid ""
 "You may be able to avoid the connection being dropped by adding the option "
@@ -5676,7 +5717,7 @@ msgstr ""
 "kết nối) vậy chỉ dùng nó khi cần thiết."
 
 #. Tag: para
-#: using-d-i.xml:3406
+#: using-d-i.xml:3444
 #, no-c-format
 msgid ""
 "If you install several computers in turn and they happen to have the same IP "
@@ -5700,7 +5741,7 @@ msgstr ""
 "thử lại."
 
 #. Tag: para
-#: using-d-i.xml:3422
+#: using-d-i.xml:3460
 #, no-c-format
 msgid ""
 "After the login you will be presented with an initial screen where you have "
@@ -5720,7 +5761,7 @@ msgstr ""
 "chạy cho các trình bao."
 
 #. Tag: para
-#: using-d-i.xml:3432
+#: using-d-i.xml:3470
 #, no-c-format
 msgid ""
 "After you have started the installation remotely over SSH, you should not go "
@@ -5736,13 +5777,13 @@ msgstr ""
 "cài đặt."
 
 #. Tag: title
-#: using-d-i.xml:3451
+#: using-d-i.xml:3489
 #, no-c-format
 msgid "Loading Missing Firmware"
 msgstr "Nạp phần vững bị thiếu"
 
 #. Tag: para
-#: using-d-i.xml:3452
+#: using-d-i.xml:3490
 #, no-c-format
 msgid ""
 "As described in <xref linkend=\"hardware-firmware\"/>, some devices require "
@@ -5756,7 +5797,7 @@ msgstr ""
 "chức năng cơ bản và yêu cầu phần vững để hiệu lực thêm tính năng."
 
 #. Tag: para
-#: using-d-i.xml:3460
+#: using-d-i.xml:3498
 #, no-c-format
 msgid ""
 "If a device driver requests firmware that is not available, &d-i; will "
@@ -5774,7 +5815,7 @@ msgstr ""
 "nạp lại."
 
 #. Tag: para
-#: using-d-i.xml:3470
+#: using-d-i.xml:3508
 #, no-c-format
 msgid ""
 "Which devices are scanned and which file systems are supported depends on "
@@ -5792,7 +5833,7 @@ msgstr ""
 "mạch MMC hay SD.</phrase>"
 
 #. Tag: para
-#: using-d-i.xml:3480
+#: using-d-i.xml:3518
 #, no-c-format
 msgid ""
 "Note that it is possible to skip loading the firmware if you know the device "
@@ -5803,7 +5844,7 @@ msgstr ""
 "năng, hoặc nếu thiết bị không cần trong khi cài đặt."
 
 #. Tag: para
-#: using-d-i.xml:3486
+#: using-d-i.xml:3524
 #, no-c-format
 msgid ""
 "&d-i; only prompts for firmware needed by kernel modules loaded during the "
@@ -5817,13 +5858,13 @@ msgid ""
 msgstr ""
 
 #. Tag: title
-#: using-d-i.xml:3500
+#: using-d-i.xml:3538
 #, no-c-format
 msgid "Preparing a medium"
 msgstr "Chuẩn bị vật chứa"
 
 #. Tag: para
-#: using-d-i.xml:3501
+#: using-d-i.xml:3539
 #, no-c-format
 msgid ""
 "Official CD images do not include non-free firmware. The most common method "
@@ -5847,7 +5888,7 @@ msgstr ""
 "đoạn đầu tiên của việc cài đặt."
 
 #. Tag: para
-#: using-d-i.xml:3514
+#: using-d-i.xml:3552
 #, no-c-format
 msgid ""
 "Tarballs and zip files containing current packages for the most common "
@@ -5862,7 +5903,7 @@ msgstr ""
 "bản phát hành hiện thời, và giải nén nó vào hệ thống tập tin trên vật chứa."
 
 #. Tag: para
-#: using-d-i.xml:3528
+#: using-d-i.xml:3566
 #, no-c-format
 msgid ""
 "If the firmware you need is not included in the tarball, you can also "
@@ -5877,7 +5918,7 @@ msgstr ""
 "cũng có thể chứa gói khác phần vững:"
 
 #. Tag: para
-#: using-d-i.xml:3542
+#: using-d-i.xml:3580
 #, no-c-format
 msgid ""
 "It is also possible to copy individual firmware files to the medium. Loose "
@@ -5889,13 +5930,13 @@ msgstr ""
 "phần cứng."
 
 #. Tag: title
-#: using-d-i.xml:3551
+#: using-d-i.xml:3589
 #, no-c-format
 msgid "Firmware and the Installed System"
 msgstr "Phần vững và Hệ thống đã Cài đặt"
 
 #. Tag: para
-#: using-d-i.xml:3552
+#: using-d-i.xml:3590
 #, no-c-format
 msgid ""
 "Any firmware loaded during the installation will be copied automatically to "
@@ -5913,7 +5954,7 @@ msgstr ""
 "là phần vững không nạp được do phiên bản bị đối xứng lệch."
 
 #. Tag: para
-#: using-d-i.xml:3561
+#: using-d-i.xml:3599
 #, no-c-format
 msgid ""
 "If the firmware was loaded from a firmware package, &d-i; will also install "
@@ -5929,7 +5970,7 @@ msgstr ""
 "phát hành."
 
 #. Tag: para
-#: using-d-i.xml:3569
+#: using-d-i.xml:3607
 #, no-c-format
 msgid ""
 "If loading the firmware was skipped during the installation, the relevant "
@@ -5941,7 +5982,7 @@ msgstr ""
 "cài đặt một cách thủ công."
 
 #. Tag: para
-#: using-d-i.xml:3576
+#: using-d-i.xml:3614
 #, no-c-format
 msgid ""
 "If the firmware was loaded from loose firmware files, the firmware copied to "

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: d-i-manual\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2014-08-26 20:40+0000\n"
+"POT-Creation-Date: 2014-10-05 18:15+0000\n"
 "PO-Revision-Date: 2012-11-26 15:04+0800\n"
 "Last-Translator: Ji YongGang <jungleji@gmail.com>\n"
 "Language-Team: debian-chinese-gb <debian-chinese-gb@lists.debian.org>\n"
@@ -4710,11 +4710,52 @@ msgstr ""
 #. Tag: title
 #: using-d-i.xml:3106
 #, no-c-format
+msgid "Making the system bootable with flash-kernel"
+msgstr ""
+
+#. Tag: para
+#: using-d-i.xml:3107
+#, no-c-format
+msgid ""
+"As there is no common firmware interface on all ARM platforms, the steps "
+"required to make the system bootable on ARM devices are highly device-"
+"dependent. &debian; uses a tool called <command>flash-kernel </command> to "
+"take care of this. Flash-kernel contains a database which describes the "
+"particular operations that are required to make the system bootable on "
+"various devices. It detects whether the current device is supported, and if "
+"yes, performs the necessary operations."
+msgstr ""
+
+#. Tag: para
+#: using-d-i.xml:3118
+#, no-c-format
+msgid ""
+"On devices which boot from internal NOR- or NAND-flash memory, flash-kernel "
+"writes the kernel and the initial ramdisk to this internal memory. This "
+"method is particularly common on older armel devices. Please note that most "
+"of these devices do not allow having multiple kernels and ramdisks in their "
+"internal flash memory, i.e. running flash-kernel on them usually overwrites "
+"the previous contents of the flash memory!"
+msgstr ""
+
+#. Tag: para
+#: using-d-i.xml:3128
+#, no-c-format
+msgid ""
+"For ARM systems that use u-boot as their system firmware and boot the kernel "
+"and the initial ramdisk from external storage media (such as MMC/SD-cards, "
+"USB mass storage devices or IDE/SATA harddisks), flash-kernel generates an "
+"appropriate boot script to allow autobooting without user interaction."
+msgstr ""
+
+#. Tag: title
+#: using-d-i.xml:3144
+#, no-c-format
 msgid "Continue Without Boot Loader"
 msgstr "不使用 boot loader 继续进行"
 
 #. Tag: para
-#: using-d-i.xml:3108
+#: using-d-i.xml:3146
 #, no-c-format
 msgid ""
 "This option can be used to complete the installation even when no boot "
@@ -4725,7 +4766,7 @@ msgstr ""
 "是因为不想要(比如，您想使用已经存在的 boot loader)"
 
 #. Tag: para
-#: using-d-i.xml:3115
+#: using-d-i.xml:3153
 #, no-c-format
 msgid ""
 "If you plan to manually configure your bootloader, you should check the name "
@@ -4744,13 +4785,13 @@ msgstr ""
 "filename> 到一个独立的分区，还需要 <filename>/boot</filename> 文件系统。"
 
 #. Tag: title
-#: using-d-i.xml:3132
+#: using-d-i.xml:3170
 #, no-c-format
 msgid "Finishing the Installation"
 msgstr "完成安装"
 
 #. Tag: para
-#: using-d-i.xml:3133
+#: using-d-i.xml:3171
 #, no-c-format
 msgid ""
 "This is the last step in the &debian; installation process during which the "
@@ -4761,13 +4802,13 @@ msgstr ""
 "&d-i; 之后的清理。"
 
 #. Tag: title
-#: using-d-i.xml:3146
+#: using-d-i.xml:3184
 #, no-c-format
 msgid "Setting the System Clock"
 msgstr "设置系统时钟"
 
 #. Tag: para
-#: using-d-i.xml:3148
+#: using-d-i.xml:3186
 #, no-c-format
 msgid ""
 "The installer may ask you if the computer's clock is set to UTC. Normally "
@@ -4779,7 +4820,7 @@ msgstr ""
 "装程序依据是否有其他系统已经安装这类事情，来决定时钟要不要设为 UTC。"
 
 #. Tag: para
-#: using-d-i.xml:3155
+#: using-d-i.xml:3193
 #, no-c-format
 msgid ""
 "In expert mode you will always be able to choose whether or not the clock is "
@@ -4795,7 +4836,7 @@ msgstr ""
 "常设为本地时间。如果您需要多重引导，请选择本地时间而不是 GMT。</phrase>"
 
 #. Tag: para
-#: using-d-i.xml:3166
+#: using-d-i.xml:3204
 #, no-c-format
 msgid ""
 "At this point &d-i; will also attempt to save the current time to the "
@@ -4806,13 +4847,13 @@ msgstr ""
 "决于刚才的选择。"
 
 #. Tag: title
-#: using-d-i.xml:3181
+#: using-d-i.xml:3219
 #, no-c-format
 msgid "Reboot the System"
 msgstr "重新启动系统"
 
 #. Tag: para
-#: using-d-i.xml:3183
+#: using-d-i.xml:3221
 #, no-c-format
 msgid ""
 "You will be prompted to remove the boot media (CD, floppy, etc) that you "
@@ -4823,7 +4864,7 @@ msgstr ""
 "&debian; 系统。"
 
 #. Tag: para
-#: using-d-i.xml:3189
+#: using-d-i.xml:3227
 #, no-c-format
 msgid ""
 "After a final prompt the system will be halted because rebooting is not "
@@ -4835,13 +4876,13 @@ msgstr ""
 "上的 IPL &debian-gnu;，它在安装步骤第一步里被选做根文件系统。"
 
 #. Tag: title
-#: using-d-i.xml:3202
+#: using-d-i.xml:3240
 #, no-c-format
 msgid "Troubleshooting"
 msgstr "排除故障"
 
 #. Tag: para
-#: using-d-i.xml:3203
+#: using-d-i.xml:3241
 #, no-c-format
 msgid ""
 "The components listed in this section are usually not involved in the "
@@ -4852,13 +4893,13 @@ msgstr ""
 "题。"
 
 #. Tag: title
-#: using-d-i.xml:3216
+#: using-d-i.xml:3254
 #, no-c-format
 msgid "Saving the installation logs"
 msgstr "保存安装记录"
 
 #. Tag: para
-#: using-d-i.xml:3218
+#: using-d-i.xml:3256
 #, no-c-format
 msgid ""
 "If the installation is successful, the logfiles created during the "
@@ -4869,7 +4910,7 @@ msgstr ""
 "的 <filename>/var/log/installer/</filename>。"
 
 #. Tag: para
-#: using-d-i.xml:3225
+#: using-d-i.xml:3263
 #, no-c-format
 msgid ""
 "Choosing <guimenuitem>Save debug logs</guimenuitem> from the main menu "
@@ -4883,13 +4924,13 @@ msgstr ""
 "其它系统上研究记录，或者用于报告的附件。"
 
 #. Tag: title
-#: using-d-i.xml:3245
+#: using-d-i.xml:3283
 #, no-c-format
 msgid "Using the Shell and Viewing the Logs"
 msgstr "使用 Shell 查看记录"
 
 #. Tag: para
-#: using-d-i.xml:3247
+#: using-d-i.xml:3285
 #, no-c-format
 msgid ""
 "There are several methods you can use to get a shell while running an "
@@ -4913,13 +4954,13 @@ msgstr ""
 "安装程序。"
 
 #. Tag: para
-#: using-d-i.xml:3265
+#: using-d-i.xml:3303
 #, no-c-format
 msgid "For the graphical installer see also <xref linkend=\"gtk-using\"/>."
 msgstr "对于图形安装程序，请参阅 <xref linkend=\"gtk-using\"/>。"
 
 #. Tag: para
-#: using-d-i.xml:3269
+#: using-d-i.xml:3307
 #, no-c-format
 msgid ""
 "If you cannot switch consoles, there is also an <guimenuitem>Execute a "
@@ -4934,7 +4975,7 @@ msgstr ""
 "到安装程序。"
 
 #. Tag: para
-#: using-d-i.xml:3277
+#: using-d-i.xml:3315
 #, no-c-format
 msgid ""
 "At this point you are booted from the RAM disk, and there is a limited set "
@@ -4950,7 +4991,7 @@ msgstr ""
 "Bourne shell 的克隆，有一些如自动完成与历史纪录这样的好特性。"
 
 #. Tag: para
-#: using-d-i.xml:3286
+#: using-d-i.xml:3324
 #, no-c-format
 msgid ""
 "To edit and view files, use the text editor <command>nano</command>. Log "
@@ -4961,7 +5002,7 @@ msgstr ""
 "以在 <filename>/var/log</filename> 目录找到。"
 
 #. Tag: para
-#: using-d-i.xml:3293
+#: using-d-i.xml:3331
 #, no-c-format
 msgid ""
 "Although you can do basically anything in a shell that the available "
@@ -4972,7 +5013,7 @@ msgstr ""
 "题时进行调试。"
 
 #. Tag: para
-#: using-d-i.xml:3299
+#: using-d-i.xml:3337
 #, no-c-format
 msgid ""
 "Doing things manually from the shell may interfere with the installation "
@@ -4984,13 +5025,13 @@ msgstr ""
 "该让安装程序激活交换分区，而不是在 shell 里面自己动手。"
 
 #. Tag: title
-#: using-d-i.xml:3315
+#: using-d-i.xml:3353
 #, no-c-format
 msgid "Installation Over the Network"
 msgstr "通过网络安装"
 
 #. Tag: para
-#: using-d-i.xml:3317
+#: using-d-i.xml:3355
 #, no-c-format
 msgid ""
 "One of the more interesting components is <firstterm>network-console</"
@@ -5005,7 +5046,7 @@ msgstr ""
 "先建立网络。(您可以使用 <xref linkend=\"automatic-install\"/> 做这部分工作。)"
 
 #. Tag: para
-#: using-d-i.xml:3327
+#: using-d-i.xml:3365
 #, no-c-format
 msgid ""
 "This component is not loaded into the main installation menu by default, so "
@@ -5025,7 +5066,7 @@ msgstr ""
 "SSH</guimenuitem>。"
 
 #. Tag: para
-#: using-d-i.xml:3340
+#: using-d-i.xml:3378
 #, no-c-format
 msgid ""
 "For installations on &arch-title;, this is the default method after setting "
@@ -5033,7 +5074,7 @@ msgid ""
 msgstr "在 &arch-title; 上安装，建立网络之后这是默认的方法。"
 
 #. Tag: para
-#: using-d-i.xml:3345
+#: using-d-i.xml:3383
 #, no-c-format
 msgid ""
 "<phrase arch=\"not-s390\">After selecting this new entry, you</phrase> "
@@ -5052,7 +5093,7 @@ msgstr ""
 "fingerprint。您需要安全地传输该 fingerprint 给那些要继续远程安装的人。"
 
 #. Tag: para
-#: using-d-i.xml:3357
+#: using-d-i.xml:3395
 #, no-c-format
 msgid ""
 "Should you decide to continue with the installation locally, you can always "
@@ -5063,7 +5104,7 @@ msgstr ""
 "他的组件。"
 
 #. Tag: para
-#: using-d-i.xml:3363
+#: using-d-i.xml:3401
 #, no-c-format
 msgid ""
 "Now let's switch to the other side of the wire. As a prerequisite, you need "
@@ -5091,7 +5132,7 @@ msgstr ""
 "确认是否正确。"
 
 #. Tag: para
-#: using-d-i.xml:3380
+#: using-d-i.xml:3418
 #, no-c-format
 msgid ""
 "The <command>ssh</command> server in the installer uses a default "
@@ -5112,7 +5153,7 @@ msgstr ""
 "接在安装过程中的哪一点断开，您在连接之后可能继续，也可能无法继续安装过程。"
 
 #. Tag: para
-#: using-d-i.xml:3393
+#: using-d-i.xml:3431
 #, no-c-format
 msgid ""
 "You may be able to avoid the connection being dropped by adding the option "
@@ -5132,7 +5173,7 @@ msgstr ""
 "需要的时候采用。"
 
 #. Tag: para
-#: using-d-i.xml:3406
+#: using-d-i.xml:3444
 #, no-c-format
 msgid ""
 "If you install several computers in turn and they happen to have the same IP "
@@ -5154,7 +5195,7 @@ msgstr ""
 "footnote>，再重新来过。"
 
 #. Tag: para
-#: using-d-i.xml:3422
+#: using-d-i.xml:3460
 #, no-c-format
 msgid ""
 "After the login you will be presented with an initial screen where you have "
@@ -5171,7 +5212,7 @@ msgstr ""
 "的系统。在安装菜单只能打开一个 SSH 会话，但 shell 可以打开多个。"
 
 #. Tag: para
-#: using-d-i.xml:3432
+#: using-d-i.xml:3470
 #, no-c-format
 msgid ""
 "After you have started the installation remotely over SSH, you should not go "
@@ -5184,13 +5225,13 @@ msgstr ""
 "配置的数据库。结果可能导致安装失败或者安装完成的系统出现问题。"
 
 #. Tag: title
-#: using-d-i.xml:3451
+#: using-d-i.xml:3489
 #, no-c-format
 msgid "Loading Missing Firmware"
 msgstr "加载缺失的固件"
 
 #. Tag: para
-#: using-d-i.xml:3452
+#: using-d-i.xml:3490
 #, no-c-format
 msgid ""
 "As described in <xref linkend=\"hardware-firmware\"/>, some devices require "
@@ -5203,7 +5244,7 @@ msgstr ""
 "强功能就无法使用。"
 
 #. Tag: para
-#: using-d-i.xml:3460
+#: using-d-i.xml:3498
 #, no-c-format
 msgid ""
 "If a device driver requests firmware that is not available, &d-i; will "
@@ -5219,7 +5260,7 @@ msgstr ""
 "序模块。"
 
 #. Tag: para
-#: using-d-i.xml:3470
+#: using-d-i.xml:3508
 #, no-c-format
 msgid ""
 "Which devices are scanned and which file systems are supported depends on "
@@ -5235,7 +5276,7 @@ msgstr ""
 "phrase>"
 
 #. Tag: para
-#: using-d-i.xml:3480
+#: using-d-i.xml:3518
 #, no-c-format
 msgid ""
 "Note that it is possible to skip loading the firmware if you know the device "
@@ -5246,7 +5287,7 @@ msgstr ""
 "固件。"
 
 #. Tag: para
-#: using-d-i.xml:3486
+#: using-d-i.xml:3524
 #, no-c-format
 msgid ""
 "&d-i; only prompts for firmware needed by kernel modules loaded during the "
@@ -5260,13 +5301,13 @@ msgid ""
 msgstr ""
 
 #. Tag: title
-#: using-d-i.xml:3500
+#: using-d-i.xml:3538
 #, no-c-format
 msgid "Preparing a medium"
 msgstr "准备介质"
 
 #. Tag: para
-#: using-d-i.xml:3501
+#: using-d-i.xml:3539
 #, no-c-format
 msgid ""
 "Official CD images do not include non-free firmware. The most common method "
@@ -5286,7 +5327,7 @@ msgstr ""
 "下。推荐使用 FAT 文件系统，因为在安装过程的早期阶段它肯定能被支持。"
 
 #. Tag: para
-#: using-d-i.xml:3514
+#: using-d-i.xml:3552
 #, no-c-format
 msgid ""
 "Tarballs and zip files containing current packages for the most common "
@@ -5301,7 +5342,7 @@ msgstr ""
 "件系统里面。"
 
 #. Tag: para
-#: using-d-i.xml:3528
+#: using-d-i.xml:3566
 #, no-c-format
 msgid ""
 "If the firmware you need is not included in the tarball, you can also "
@@ -5314,7 +5355,7 @@ msgstr ""
 "件。以下概要列出大多数固件软件包，但不保证完整，有些还是非固件软件包："
 
 #. Tag: para
-#: using-d-i.xml:3542
+#: using-d-i.xml:3580
 #, no-c-format
 msgid ""
 "It is also possible to copy individual firmware files to the medium. Loose "
@@ -5325,13 +5366,13 @@ msgstr ""
 "造商那里获得。"
 
 #. Tag: title
-#: using-d-i.xml:3551
+#: using-d-i.xml:3589
 #, no-c-format
 msgid "Firmware and the Installed System"
 msgstr "固件和安装好的系统"
 
 #. Tag: para
-#: using-d-i.xml:3552
+#: using-d-i.xml:3590
 #, no-c-format
 msgid ""
 "Any firmware loaded during the installation will be copied automatically to "
@@ -5346,7 +5387,7 @@ msgstr ""
 "序不同的内核版本，有可能由于版本的偏差造成固件不能加载。"
 
 #. Tag: para
-#: using-d-i.xml:3561
+#: using-d-i.xml:3599
 #, no-c-format
 msgid ""
 "If the firmware was loaded from a firmware package, &d-i; will also install "
@@ -5360,7 +5401,7 @@ msgstr ""
 "做的优点在于如果有固件的新版本存在会自动更新。"
 
 #. Tag: para
-#: using-d-i.xml:3569
+#: using-d-i.xml:3607
 #, no-c-format
 msgid ""
 "If loading the firmware was skipped during the installation, the relevant "
@@ -5371,7 +5412,7 @@ msgstr ""
 "安装好固件或软件包。"
 
 #. Tag: para
-#: using-d-i.xml:3576
+#: using-d-i.xml:3614
 #, no-c-format
 msgid ""
 "If the firmware was loaded from loose firmware files, the firmware copied to "

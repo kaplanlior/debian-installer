@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: using-d-i\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2014-08-26 20:40+0000\n"
+"POT-Creation-Date: 2014-10-05 18:15+0000\n"
 "PO-Revision-Date: 2013-05-05 13:45+0300\n"
 "Last-Translator: galaxico <galaxico@quad-nrg.net>\n"
 "Language-Team: Greek <debian-l10n-greek@lists.debian.org>\n"
@@ -5455,11 +5455,52 @@ msgstr ""
 #. Tag: title
 #: using-d-i.xml:3106
 #, no-c-format
+msgid "Making the system bootable with flash-kernel"
+msgstr ""
+
+#. Tag: para
+#: using-d-i.xml:3107
+#, no-c-format
+msgid ""
+"As there is no common firmware interface on all ARM platforms, the steps "
+"required to make the system bootable on ARM devices are highly device-"
+"dependent. &debian; uses a tool called <command>flash-kernel </command> to "
+"take care of this. Flash-kernel contains a database which describes the "
+"particular operations that are required to make the system bootable on "
+"various devices. It detects whether the current device is supported, and if "
+"yes, performs the necessary operations."
+msgstr ""
+
+#. Tag: para
+#: using-d-i.xml:3118
+#, no-c-format
+msgid ""
+"On devices which boot from internal NOR- or NAND-flash memory, flash-kernel "
+"writes the kernel and the initial ramdisk to this internal memory. This "
+"method is particularly common on older armel devices. Please note that most "
+"of these devices do not allow having multiple kernels and ramdisks in their "
+"internal flash memory, i.e. running flash-kernel on them usually overwrites "
+"the previous contents of the flash memory!"
+msgstr ""
+
+#. Tag: para
+#: using-d-i.xml:3128
+#, no-c-format
+msgid ""
+"For ARM systems that use u-boot as their system firmware and boot the kernel "
+"and the initial ramdisk from external storage media (such as MMC/SD-cards, "
+"USB mass storage devices or IDE/SATA harddisks), flash-kernel generates an "
+"appropriate boot script to allow autobooting without user interaction."
+msgstr ""
+
+#. Tag: title
+#: using-d-i.xml:3144
+#, no-c-format
 msgid "Continue Without Boot Loader"
 msgstr "Συνεχίστε Χωρίς Φορτωτή Εκκίνησης"
 
 #. Tag: para
-#: using-d-i.xml:3108
+#: using-d-i.xml:3146
 #, no-c-format
 msgid ""
 "This option can be used to complete the installation even when no boot "
@@ -5473,7 +5514,7 @@ msgstr ""
 "χρησιμοποιήσετε κάποιον φορτωτή εκκίνησης που ήδη υπάρχει)."
 
 #. Tag: para
-#: using-d-i.xml:3115
+#: using-d-i.xml:3153
 #, no-c-format
 msgid ""
 "If you plan to manually configure your bootloader, you should check the name "
@@ -5496,13 +5537,13 @@ msgstr ""
 "επίσης να γνωρίζετε το σύστημα αρχείων του <filename>/boot</filename>. "
 
 #. Tag: title
-#: using-d-i.xml:3132
+#: using-d-i.xml:3170
 #, no-c-format
 msgid "Finishing the Installation"
 msgstr "Τελειώνοντας την Εγκατάσταση"
 
 #. Tag: para
-#: using-d-i.xml:3133
+#: using-d-i.xml:3171
 #, no-c-format
 msgid ""
 "This is the last step in the &debian; installation process during which the "
@@ -5514,13 +5555,13 @@ msgstr ""
 "Συνίσταται κυρίως σε ένα \"σιγύρισμα\" μετά τη χρήση του &d-i;."
 
 #. Tag: title
-#: using-d-i.xml:3146
+#: using-d-i.xml:3184
 #, no-c-format
 msgid "Setting the System Clock"
 msgstr "Ρύθμιση του Ρολογιού του Συστήματος"
 
 #. Tag: para
-#: using-d-i.xml:3148
+#: using-d-i.xml:3186
 #, no-c-format
 msgid ""
 "The installer may ask you if the computer's clock is set to UTC. Normally "
@@ -5534,7 +5575,7 @@ msgstr ""
 "στοιχεία όπως το ποια άλλα λειτουργικά συστήματα είναι εγκατεστημμένα."
 
 #. Tag: para
-#: using-d-i.xml:3155
+#: using-d-i.xml:3193
 #, no-c-format
 msgid ""
 "In expert mode you will always be able to choose whether or not the clock is "
@@ -5553,7 +5594,7 @@ msgstr ""
 "διπλής εκκίνησης επιλέξτε τοπική ώρα αντί για ώρα UTC.</phrase>"
 
 #. Tag: para
-#: using-d-i.xml:3166
+#: using-d-i.xml:3204
 #, no-c-format
 msgid ""
 "At this point &d-i; will also attempt to save the current time to the "
@@ -5565,13 +5606,13 @@ msgstr ""
 "χρόνο, ανάλογα με την επιλογή που μόλις κάνατε."
 
 #. Tag: title
-#: using-d-i.xml:3181
+#: using-d-i.xml:3219
 #, no-c-format
 msgid "Reboot the System"
 msgstr "Επανεκκίνηση του Συστήματος"
 
 #. Tag: para
-#: using-d-i.xml:3183
+#: using-d-i.xml:3221
 #, no-c-format
 msgid ""
 "You will be prompted to remove the boot media (CD, floppy, etc) that you "
@@ -5583,7 +5624,7 @@ msgstr ""
 "σύστημα θα επανεκκινήσει στο καινούριο σας σύστημα &debian;."
 
 #. Tag: para
-#: using-d-i.xml:3189
+#: using-d-i.xml:3227
 #, no-c-format
 msgid ""
 "After a final prompt the system will be halted because rebooting is not "
@@ -5597,13 +5638,13 @@ msgstr ""
 "επιλέξατε σαν ριζικό σύστημα αρχείων στα πρώτα βήματα της εγκατάστασης."
 
 #. Tag: title
-#: using-d-i.xml:3202
+#: using-d-i.xml:3240
 #, no-c-format
 msgid "Troubleshooting"
 msgstr "Επίλυση προβλημάτων"
 
 #. Tag: para
-#: using-d-i.xml:3203
+#: using-d-i.xml:3241
 #, no-c-format
 msgid ""
 "The components listed in this section are usually not involved in the "
@@ -5615,13 +5656,13 @@ msgstr ""
 "για να βοηθήσουν τον χρήστη σε περίπτωση που κάτι δεν πάει καλά."
 
 #. Tag: title
-#: using-d-i.xml:3216
+#: using-d-i.xml:3254
 #, no-c-format
 msgid "Saving the installation logs"
 msgstr "Αποθήκευση αρχείων ημερολογίου εγκατάστασης"
 
 #. Tag: para
-#: using-d-i.xml:3218
+#: using-d-i.xml:3256
 #, no-c-format
 msgid ""
 "If the installation is successful, the logfiles created during the "
@@ -5634,7 +5675,7 @@ msgstr ""
 "&debian;."
 
 #. Tag: para
-#: using-d-i.xml:3225
+#: using-d-i.xml:3263
 #, no-c-format
 msgid ""
 "Choosing <guimenuitem>Save debug logs</guimenuitem> from the main menu "
@@ -5651,13 +5692,13 @@ msgstr ""
 "σε ένα άλλο σύστημα ή να τα επισυνάψετε σε μια αναφορά εγκατάστασης."
 
 #. Tag: title
-#: using-d-i.xml:3245
+#: using-d-i.xml:3283
 #, no-c-format
 msgid "Using the Shell and Viewing the Logs"
 msgstr "Χρήση του Κελύφους και Παρακολούθηση των Καταγραφών Εγκατάστασης"
 
 #. Tag: para
-#: using-d-i.xml:3247
+#: using-d-i.xml:3285
 #, no-c-format
 msgid ""
 "There are several methods you can use to get a shell while running an "
@@ -5684,7 +5725,7 @@ msgstr ""
 "keycombo> για να αλλάξετε και πάλι πίσω στον ίδιο τον εγκαταστάτη."
 
 #. Tag: para
-#: using-d-i.xml:3265
+#: using-d-i.xml:3303
 #, no-c-format
 msgid "For the graphical installer see also <xref linkend=\"gtk-using\"/>."
 msgstr ""
@@ -5692,7 +5733,7 @@ msgstr ""
 "using\"/>."
 
 #. Tag: para
-#: using-d-i.xml:3269
+#: using-d-i.xml:3307
 #, no-c-format
 msgid ""
 "If you cannot switch consoles, there is also an <guimenuitem>Execute a "
@@ -5709,7 +5750,7 @@ msgstr ""
 "για να κλείσετε το κέλυφος και να επιστρέψετε στον εγκαταστάτη."
 
 #. Tag: para
-#: using-d-i.xml:3277
+#: using-d-i.xml:3315
 #, no-c-format
 msgid ""
 "At this point you are booted from the RAM disk, and there is a limited set "
@@ -5727,7 +5768,7 @@ msgstr ""
 "με μερικά ωραία χαρακτηριστικά όπως αυτόματη συμπλήρωση και ιστορικό."
 
 #. Tag: para
-#: using-d-i.xml:3286
+#: using-d-i.xml:3324
 #, no-c-format
 msgid ""
 "To edit and view files, use the text editor <command>nano</command>. Log "
@@ -5739,7 +5780,7 @@ msgstr ""
 "εγκατάστασης μπορούν να βρεθούν στον κατάλογο <filename>/var/log</filename>."
 
 #. Tag: para
-#: using-d-i.xml:3293
+#: using-d-i.xml:3331
 #, no-c-format
 msgid ""
 "Although you can do basically anything in a shell that the available "
@@ -5752,7 +5793,7 @@ msgstr ""
 "λογους εκσφαλμάτωσης (debugging)."
 
 #. Tag: para
-#: using-d-i.xml:3299
+#: using-d-i.xml:3337
 #, no-c-format
 msgid ""
 "Doing things manually from the shell may interfere with the installation "
@@ -5767,13 +5808,13 @@ msgstr ""
 "το κέλυφος."
 
 #. Tag: title
-#: using-d-i.xml:3315
+#: using-d-i.xml:3353
 #, no-c-format
 msgid "Installation Over the Network"
 msgstr "Εγκατάσταση μέσω δικτύου"
 
 #. Tag: para
-#: using-d-i.xml:3317
+#: using-d-i.xml:3355
 #, no-c-format
 msgid ""
 "One of the more interesting components is <firstterm>network-console</"
@@ -5792,7 +5833,7 @@ msgstr ""
 "<xref linkend=\"automatic-install\"/>)."
 
 #. Tag: para
-#: using-d-i.xml:3327
+#: using-d-i.xml:3365
 #, no-c-format
 msgid ""
 "This component is not loaded into the main installation menu by default, so "
@@ -5817,7 +5858,7 @@ msgstr ""
 "guimenuitem>."
 
 #. Tag: para
-#: using-d-i.xml:3340
+#: using-d-i.xml:3378
 #, no-c-format
 msgid ""
 "For installations on &arch-title;, this is the default method after setting "
@@ -5827,7 +5868,7 @@ msgstr ""
 "μέθοδος μετά την ρύθμιση του δικτύου."
 
 #. Tag: para
-#: using-d-i.xml:3345
+#: using-d-i.xml:3383
 #, no-c-format
 msgid ""
 "<phrase arch=\"not-s390\">After selecting this new entry, you</phrase> "
@@ -5851,7 +5892,7 @@ msgstr ""
 "εγκατάσταση από μακριά."
 
 #. Tag: para
-#: using-d-i.xml:3357
+#: using-d-i.xml:3395
 #, no-c-format
 msgid ""
 "Should you decide to continue with the installation locally, you can always "
@@ -5863,7 +5904,7 @@ msgstr ""
 "μπορείτε να διαλέξετε ένα άλλο συστατικό του εγκαταστάτη."
 
 #. Tag: para
-#: using-d-i.xml:3363
+#: using-d-i.xml:3401
 #, no-c-format
 msgid ""
 "Now let's switch to the other side of the wire. As a prerequisite, you need "
@@ -5897,7 +5938,7 @@ msgstr ""
 "επιβεβαιώσετε ότι είναι σωστό."
 
 #. Tag: para
-#: using-d-i.xml:3380
+#: using-d-i.xml:3418
 #, no-c-format
 msgid ""
 "The <command>ssh</command> server in the installer uses a default "
@@ -5923,7 +5964,7 @@ msgstr ""
 "τη δυνατότητα να συνεχίσετε την εγκατάσταση μετά την επανασύνδεση."
 
 #. Tag: para
-#: using-d-i.xml:3393
+#: using-d-i.xml:3431
 #, no-c-format
 msgid ""
 "You may be able to avoid the connection being dropped by adding the option "
@@ -5947,7 +5988,7 @@ msgstr ""
 "συνέπεια θα πρέπει να χρησιμοποιείται μόνο αν είναι αναγκαία."
 
 #. Tag: para
-#: using-d-i.xml:3406
+#: using-d-i.xml:3444
 #, no-c-format
 msgid ""
 "If you install several computers in turn and they happen to have the same IP "
@@ -5972,7 +6013,7 @@ msgstr ""
 "para> </footnote> και να ξαναπροσπαθήσετε."
 
 #. Tag: para
-#: using-d-i.xml:3422
+#: using-d-i.xml:3460
 #, no-c-format
 msgid ""
 "After the login you will be presented with an initial screen where you have "
@@ -5993,7 +6034,7 @@ msgstr ""
 "μπορείτε να ξεκινήσετε πολλαπλά κελύφη."
 
 #. Tag: para
-#: using-d-i.xml:3432
+#: using-d-i.xml:3470
 #, no-c-format
 msgid ""
 "After you have started the installation remotely over SSH, you should not go "
@@ -6010,13 +6051,13 @@ msgstr ""
 "εγκατεστημένο σύστημα."
 
 #. Tag: title
-#: using-d-i.xml:3451
+#: using-d-i.xml:3489
 #, no-c-format
 msgid "Loading Missing Firmware"
 msgstr "Φόρτωση λογισμικού firmware που απουσιάζει"
 
 #. Tag: para
-#: using-d-i.xml:3452
+#: using-d-i.xml:3490
 #, no-c-format
 msgid ""
 "As described in <xref linkend=\"hardware-firmware\"/>, some devices require "
@@ -6032,7 +6073,7 @@ msgstr ""
 "firmwareχρειάζεται μόνο για την ενεργοποίηση επιπρόσθετων χαρακτηριστικών."
 
 #. Tag: para
-#: using-d-i.xml:3460
+#: using-d-i.xml:3498
 #, no-c-format
 msgid ""
 "If a device driver requests firmware that is not available, &d-i; will "
@@ -6051,7 +6092,7 @@ msgstr ""
 "filename>) και το άρθρωμα του οδηγού της συσκευής θα ξαναφορτωθεί."
 
 #. Tag: para
-#: using-d-i.xml:3470
+#: using-d-i.xml:3508
 #, no-c-format
 msgid ""
 "Which devices are scanned and which file systems are supported depends on "
@@ -6069,7 +6110,7 @@ msgstr ""
 "και amd64 firmware μπορεί επίσης να φορτωθεί από μια κάρτα MMC ή SD.</phrase>"
 
 #. Tag: para
-#: using-d-i.xml:3480
+#: using-d-i.xml:3518
 #, no-c-format
 msgid ""
 "Note that it is possible to skip loading the firmware if you know the device "
@@ -6081,7 +6122,7 @@ msgstr ""
 "κατά την εγκατάσταση."
 
 #. Tag: para
-#: using-d-i.xml:3486
+#: using-d-i.xml:3524
 #, no-c-format
 msgid ""
 "&d-i; only prompts for firmware needed by kernel modules loaded during the "
@@ -6105,13 +6146,13 @@ msgstr ""
 "και να αναζητήσετε για το <quote>firmware</quote>."
 
 #. Tag: title
-#: using-d-i.xml:3500
+#: using-d-i.xml:3538
 #, no-c-format
 msgid "Preparing a medium"
 msgstr "Προετοιμασία ενός μέσου"
 
 #. Tag: para
-#: using-d-i.xml:3501
+#: using-d-i.xml:3539
 #, no-c-format
 msgid ""
 "Official CD images do not include non-free firmware. The most common method "
@@ -6138,7 +6179,7 @@ msgstr ""
 "εγκατάστασης."
 
 #. Tag: para
-#: using-d-i.xml:3514
+#: using-d-i.xml:3552
 #, no-c-format
 msgid ""
 "Tarballs and zip files containing current packages for the most common "
@@ -6154,7 +6195,7 @@ msgstr ""
 "αποσυμπιέστε τα στο σύστημα αρχείων του μέσου."
 
 #. Tag: para
-#: using-d-i.xml:3528
+#: using-d-i.xml:3566
 #, no-c-format
 msgid ""
 "If the firmware you need is not included in the tarball, you can also "
@@ -6171,7 +6212,7 @@ msgstr ""
 "λογισμικού που δεν αφορούν firmware:"
 
 #. Tag: para
-#: using-d-i.xml:3542
+#: using-d-i.xml:3580
 #, no-c-format
 msgid ""
 "It is also possible to copy individual firmware files to the medium. Loose "
@@ -6183,13 +6224,13 @@ msgstr ""
 "παράδειγμα από ένα ήδη εγκατεστημένο σύστημα ή από έναν κατασκευαστή."
 
 #. Tag: title
-#: using-d-i.xml:3551
+#: using-d-i.xml:3589
 #, no-c-format
 msgid "Firmware and the Installed System"
 msgstr "Λογισμικό firmware και το Εγκατεστημένο Σύστημα"
 
 #. Tag: para
-#: using-d-i.xml:3552
+#: using-d-i.xml:3590
 #, no-c-format
 msgid ""
 "Any firmware loaded during the installation will be copied automatically to "
@@ -6208,7 +6249,7 @@ msgstr ""
 "φορτωθεί εξαιτίας της αλλαγής (skew) του πυρήνα."
 
 #. Tag: para
-#: using-d-i.xml:3561
+#: using-d-i.xml:3599
 #, no-c-format
 msgid ""
 "If the firmware was loaded from a firmware package, &d-i; will also install "
@@ -6225,7 +6266,7 @@ msgstr ""
 "του."
 
 #. Tag: para
-#: using-d-i.xml:3569
+#: using-d-i.xml:3607
 #, no-c-format
 msgid ""
 "If loading the firmware was skipped during the installation, the relevant "
@@ -6237,7 +6278,7 @@ msgstr ""
 "μέχρι το πακέτο (του λογισμικού) εγκατασταθεί με το χέρι."
 
 #. Tag: para
-#: using-d-i.xml:3576
+#: using-d-i.xml:3614
 #, no-c-format
 msgid ""
 "If the firmware was loaded from loose firmware files, the firmware copied to "
