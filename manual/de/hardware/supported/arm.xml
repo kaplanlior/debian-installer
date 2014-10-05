@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 69216 -->
+<!-- original version: 69348 -->
 
   <sect2 arch="arm"><title>CPUs, Mainboards und Grafikunterstützung</title>
 
@@ -10,7 +10,7 @@ PC-Architektur, bei der sich alle Systeme eine allgemeine System-Firmware
 (BIOS und/oder UEFI) teilen, die die grundlegende board-spezifische
 Hardware-Initialisierung auf eine standardisierte Art und Weise erledigt.
 
-</para><para> 
+</para><para>
 
 Die ARM-Architektur wird hauptsächlich in sogenannten
 <quote>Systems-on-Chip</quote> (SoC - ein komplettes System
@@ -96,6 +96,17 @@ erfordern plattform-spezifische Kernel.)
 <variablelist>
 
 <varlistentry>
+<term>IXP4xx</term>
+<listitem><para>
+
+Die Intel-IXP4xx-Prozessor-Serie wird in NAS-Geräten
+(Network-Attached-Storage-Systeme &ndash; Geräte, die Speicherplatz im 
+Netzwerk zur Verfügung stellen) wie dem Linksys NSLU2 eingesetzt.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
 <term>Kirkwood</term>
 <listitem><para>
 
@@ -126,16 +137,6 @@ Orion-basierten Geräte: <ulink
 url="&url-arm-cyrius-kuroboxpro;">Buffalo Kurobox</ulink>, <ulink
 url="&url-arm-cyrius-dns323;">D-Link DNS-323</ulink> und <ulink
 url="&url-arm-cyrius-mv2120;">HP mv2120</ulink>.
-
-</para></listitem>
-</varlistentry>
-
-<varlistentry>
-<term>MV78xx0</term>
-<listitem><para>
-
-Die MV78xx0-Plattform wird auf dem Marvell DB-78xx0-BP Development-Board
-verwendet.
 
 </para></listitem>
 </varlistentry>
@@ -176,17 +177,16 @@ ungeeignet machen, nicht mehr unterstützt.
 </varlistentry>
 
 <varlistentry>
-<term>IXP4xx</term>
+<term>MV78xx0</term>
 <listitem><para>
 
-Intel-Prozessoren der IXP4xx-Serie wurden in Netzwerk-Speichergeräten
-wie dem Linksys NSLU2 eingesetzt. &debian; hat die IXP4xx-Plattform in
-&debian; 7 unterstützt, jedoch wird sie ab der Version 8 nicht
-mehr unterstützt, da die früher unterstützten Geräte nicht genug
-Flash-Speicher für die in Version 8 enthaltenen Kernel bereitstellen.
+Die MV78xx0-Plattform wurde auf dem Marvell DB-78xx0-BP
+Development-Board eingesetzt. Sie war in Debian 7 mit einem
+plattform-spezifischen Kernel (basierend auf dem Linux-Kernel Version 3.2)
+unterstützt, wird jedoch ab Debian 8 nicht mehr unterstützt.
 
 </para></listitem>
-</varlistentry>   
+</varlistentry>
 
 </variablelist>
 
@@ -204,7 +204,7 @@ Verwendung des Multiplattform-Kernels (armmp):
       <varlistentry>
         <term>Freescale MX53 Quick Start Board</term>
         <listitem>
-          <para>   
+          <para>
             Das IMX53QSB ist ein Development-Board basierend auf dem i.MX53 SoC.
           </para>
         </listitem>
@@ -213,7 +213,7 @@ Verwendung des Multiplattform-Kernels (armmp):
       <varlistentry>
         <term>Versatile Express</term>
         <listitem>
-          <para>   
+          <para>
              Das Versatile Express ist eine Development-Board-Serie
              von ARM, bestehend aus einer Basisplatine, die mit
              verschiedenen CPU-Tochterplatinen ausgestattet werden kann.
@@ -253,15 +253,15 @@ Verwendung des Multiplattform-Kernels (armmp):
                PineRiver Mini X-Plus
              </para></listitem>
 
-            </itemizedlist>  
-          </para> 
+            </itemizedlist>
+          </para>
           <para>
              Die Systemunterstützung für Allwinner sunXi-basierte Systeme
              ist auf Treiber und Informationen aus dem Gerätedatei-Baum
              beschränkt, welche im Mainline-Linux-Kernel enthalten sind.
              Die 3.4-Kernel-Serie des Android-Derivates linux-sunxi.org
              wird von Debian nicht unterstützt.
-          </para> 
+          </para>
           <para>
              Der Mainline-Linux-Kernel unterstützt auf Allwinner A10- und
              A20-SOCs grundsätzlich die serielle Konsole, Ethernet, SATA,
