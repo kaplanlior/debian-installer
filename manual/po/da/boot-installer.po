@@ -1,13 +1,13 @@
 # Danish translation of boot-installer.
-# Copyright (C) 2012 Free Software Foundation, Inc.
-# Joe Hansen <joedalton2@yahoo.dk>, 2012.
+# Copyright (C) 2014 Free Software Foundation, Inc.
+# Joe Hansen <joedalton2@yahoo.dk>, 2012, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: boot-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2014-08-26 20:40+0000\n"
-"PO-Revision-Date: 2012-11-25 21:24+0100\n"
+"PO-Revision-Date: 2014-10-06 21:24+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -58,10 +58,9 @@ msgstr ""
 
 #. Tag: title
 #: boot-installer.xml:38
-#, fuzzy, no-c-format
-#| msgid "Booting from Firmware"
+#, no-c-format
 msgid "Boot image formats"
-msgstr "Opstart fra firmware"
+msgstr "Formater for opstartsaftryk"
 
 #. Tag: para
 #: boot-installer.xml:39
@@ -73,6 +72,11 @@ msgid ""
 "or b) uImage-format kernels (<quote>uImage</quote>) in conjunction with "
 "corresponding initial ramdisks (<quote>uInitrd</quote>)."
 msgstr ""
+"På ARM-baserede systemer bruges i de fleste tilfælde et af to formater "
+"for opstartsaftryk: a) gængse Linux zImage-formatkerner "
+"(<quote>vmlinuz</quote>) i samarbejde med gængse  Linux initial-ramdisk "
+"(<quote>initrd.gz</quote>) eller b) uImage-formatkerner (<quote>uImage</quote>) "
+"i samarbejde med tilsvarende initial ramdisk (<quote>uInitrd</quote>)."
 
 #. Tag: para
 #: boot-installer.xml:47
@@ -85,6 +89,12 @@ msgid ""
 "Linux kernels and ramdisk images, but the command syntax to do that is "
 "slightly different from that for booting uImages."
 msgstr ""
+"uImage/uInitrd er aftryksformater designet for firmwaren u-boot, som bruges "
+"på mange ARM-baserede systemer. Ældre versioner af u-boot kan kun opstarte "
+"filer i uImage/uInitrd-formatet, så de bruges ofte på ældre armel-systemer. "
+"Nyere versioner af u-boot kan - udover opstarte uImages/uInitrds - også "
+"opstarte standardkerner med Linux og ramdisk-aftryk, men kommandosyntaksen "
+"til dette er en smule anderledes end at starte fra uImages."
 
 #. Tag: para
 #: boot-installer.xml:56
@@ -95,28 +105,29 @@ msgid ""
 "needed. It is specific to each supported system and contains a description "
 "of the particular hardware."
 msgstr ""
+"For systemer der bruger en kerne for flere platforme, udover kerne og initiel "
+"ramdisk, er en såkaldt enhedstræfil krævet (eller enhedstræ blob, <quote>dtb"
+"</quote>. Den er specifik for hvert understøttet system og indeholder en "
+"beskrivelse af det specifikke udstyr."
 
 #. Tag: title
 #: boot-installer.xml:64
-#, fuzzy, no-c-format
-#| msgid "Booting from TFTP"
+#, no-c-format
 msgid "Booting by TFTP"
-msgstr "Opstart fra TFTP"
+msgstr "Opstart med TFTP"
 
 #. Tag: para
 #: boot-installer.xml:70 boot-installer.xml:630 boot-installer.xml:1252
 #: boot-installer.xml:1436 boot-installer.xml:1759 boot-installer.xml:1869
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Booting from the network requires that you have a network connection and "
-#| "a TFTP network boot server (DHCP, RARP, or BOOTP)."
+#, no-c-format
 msgid ""
 "Booting from the network requires that you have a network connection and a "
 "TFTP network boot server (and probably also a DHCP, RARP, or BOOTP server "
 "for automatic network configuration)."
 msgstr ""
-"Opstart fra netværket kræver at du har en netværksforbindelse og en TFTP-"
-"netværksopstartsserver (DHCP, RARP eller BOOTP)."
+"Opstart fra netværket kræver, at du har en netværksforbindelse og en TFTP-"
+"netværksopstartsserver (og sandsynligvis også en DHCP-, RARP- eller "
+"BOOTP-server for automatisk netværkskonfiguration)."
 
 #. Tag: para
 #: boot-installer.xml:76 boot-installer.xml:636 boot-installer.xml:1258
@@ -132,22 +143,19 @@ msgstr ""
 #. Tag: para
 #: boot-installer.xml:81 boot-installer.xml:641 boot-installer.xml:1263
 #: boot-installer.xml:1447 boot-installer.xml:1770 boot-installer.xml:1880
-#, fuzzy, no-c-format
-#| msgid ""
-#| "The installation method to support network booting is described in <xref "
-#| "linkend=\"install-tftp\"/>."
+#, no-c-format
 msgid ""
 "The server-side setup to support network booting is described in <xref "
 "linkend=\"install-tftp\"/>."
 msgstr ""
-"Installationsmetoden for understøttelse af netværksopstart er beskrevet i "
+"Opsætningen på serversiden for understøttelse af netværksopstart er beskrevet i "
 "<xref linkend=\"install-tftp\"/>."
 
 #. Tag: title
 #: boot-installer.xml:90
 #, no-c-format
 msgid "TFTP-booting in u-boot"
-msgstr ""
+msgstr "TFTP-opstart i u-boot"
 
 #. Tag: para
 #: boot-installer.xml:91
@@ -157,6 +165,10 @@ msgid ""
 "steps: a) configuring the network, b) loading the images (kernel/initial "
 "ramdisk/dtb) into memory and c) actually executing the previosly loaded code."
 msgstr ""
+"Netværksopstart på systemer, der bruger firmwaren u-boot, består af tre "
+"trin: a) konfiguration af netværket, b) indlæsning af aftrykket (kerne/"
+"initiel ramdisk/dtb) i hukommelsen og c) faktisk kørsel af den tidligere "
+"indlæste kode."
 
 #. Tag: para
 #: boot-installer.xml:97
@@ -176,12 +188,25 @@ msgid ""
 "</screen></informalexample> If you prefer, you can make these settings "
 "permanent by running"
 msgstr ""
+"Først skal du konfigurere netværket, enten automatisk via DHCP ved at "
+"køre <informalexample><screen>\n"
+"setenv autoload no\n"
+"dhcp\n"
+"</screen></informalexample> eller manuelt ved at indstille flere miljø"
+"parametre <informalexample><screen>\n"
+"setenv ipaddr &lt;ip-adresse for klienten&gt;\n"
+"setenv netmask &lt;netmaske&gt;\n"
+"setenv serverip &lt;ip-adresse for tftp-serveren&gt;\n"
+"setenv dnsip &lt;ip-adresse for navneserveren&gt;\n"
+"setenv gatewayip &lt;ip-adresse for standardadgangspunktet&gt;\n"
+"</screen></informalexample> Hvis du foretrækker det kan du foretage disse "
+"indstillinger ved at køre"
 
 #. Tag: screen
 #: boot-installer.xml:104
 #, no-c-format
 msgid "saveenv"
-msgstr ""
+msgstr "saveenv"
 
 #. Tag: para
 #: boot-installer.xml:106
@@ -193,6 +218,11 @@ msgid ""
 "the memory map can vary from system to system, so there is no general rule "
 "which addresses can be used for this."
 msgstr ""
+"Efterfølgende skal du indlæse aftrykkene (kerne/intiel ramdisk/dtb) i "
+"hukommelsen. Dette gøres med kommandoen tftpboot, som skal have adressen "
+"hvor aftrykket skal lagres i hukommelsen. Desværre kan hukommelseskortet "
+"variere fra system til system, så der er ingen generel regel om, hvilke "
+"adresser som kan bruges."
 
 #. Tag: para
 #: boot-installer.xml:114
@@ -208,6 +238,15 @@ msgid ""
 "name <quote>sun4i</quote> or the Allwinner A20, architecture name "
 "<quote>sun7i</quote>), you can e.g. use the follwing values:"
 msgstr ""
+"På nogle systemer, prædefinerer u-boot et sæt af miljøparametre med egnede "
+"indlæsningsadresser: kernel_addr_r, ramdisk_addr_r og fdt_addr_r. Du "
+"kan kontrollere om de er defineret ved at køre <informalexample><screen>\n"
+"printenv kernel_addr_r ramdisk_addr_r fdt_addr_r\n"
+"</screen></informalexample> Hvis de ikke er defineret, så skal du kontrollere "
+"dit systems dokumentation for passende værdier og angive dem manuelt. For "
+"systemer baseret på Allwinner SunXi SOC'er (f.eks. Allwinnner A10, "
+"arkitekturnavn <quote>sun4i</quote> eller Allwinner A20, arkitekturnavn "
+"<quote>sun7i</quote>), du kan f.eks. bruge de følgende værdier:"
 
 #. Tag: screen
 #: boot-installer.xml:125
@@ -217,6 +256,9 @@ msgid ""
 "setenv fdt_addr_r 0x47000000\n"
 "setenv ramdisk_addr_r 0x48000000"
 msgstr ""
+"setenv kernel_addr_r 0x46000000\n"
+"setenv fdt_addr_r 0x47000000\n"
+"setenv ramdisk_addr_r 0x48000000"
 
 #. Tag: para
 #: boot-installer.xml:127
@@ -225,6 +267,8 @@ msgid ""
 "When the load addresses are defined, you can load the images into memory "
 "from the previously defined tftp server with"
 msgstr ""
+"Når indlæsningsadresserne er defineret, så kan du indlæse aftrykket i "
+"hukommelsen fra den tidligere definerede tftp-server med"
 
 #. Tag: screen
 #: boot-installer.xml:130
@@ -234,6 +278,9 @@ msgid ""
 "tftpboot ${fdt_addr_r} &lt;filename of the dtb&gt;\n"
 "tftpboot ${ramdisk_addr_r} &lt;filename of the initial ramdisk image&gt;"
 msgstr ""
+"tftpboot ${kernel_addr_r} &lt;filnavn for kerneaftrykket&gt;\n"
+"tftpboot ${fdt_addr_r} &lt;filnavn for dtb'en&gt;\n"
+"tftpboot ${ramdisk_addr_r} &lt;filnavn for det initielle ramdisk-aftryk&gt;"
 
 #. Tag: para
 #: boot-installer.xml:132
@@ -253,12 +300,25 @@ msgid ""
 "bootm ${kernel_addr_r} ${ramdisk_addr_r} ${fdt_addr_r}\n"
 "</screen></informalexample> and with native Linux images it is"
 msgstr ""
+"Tredjeparten indstiller kernens kommandolinje og kører den indlæste kode. "
+"U-boot videresender indholdet af miljøvariablen <quote>bootargs</quote> som "
+"kommandolinje til kernen, så eventuelle parametre for kernen og "
+"installationsprogrammet - såsom konsolenheden (se <xref linkend="
+"\"boot-console\"/>) eller forudfyldte indstillinger (se <xref "
+"linkend=\"installer-args\"/> og <xref linkend=\"appendix-preseed\"/>) - "
+"kan sættes med en kommando som <informalexample><screen>\n"
+"setenv bootargs console=ttyS0,115200 rootwait panic=10\n"
+"</screen></informalexample> Den præcise kommando til at køre den tidligere "
+"indlæste kode afhænger af det anvendte aftryksformat. Med uImage/uInitrd "
+"er kommandoen <informalexample><screen>\n"
+"bootm ${kernel_addr_r} ${ramdisk_addr_r} ${fdt_addr_r}\n"
+"</screen></informalexample> og med standardaftryk for Linux er det"
 
 #. Tag: screen
 #: boot-installer.xml:145
 #, no-c-format
 msgid "bootz ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}"
-msgstr ""
+msgstr "bootz ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}"
 
 #. Tag: para
 #: boot-installer.xml:147
@@ -271,6 +331,12 @@ msgid ""
 "a platform-specific kernel, i.e. a kernel without device-tree, simply omit "
 "the ${fdt_addr_r} parameter."
 msgstr ""
+"Bemærk: Når der opstartes standardaftryk for Linux, så er det vigtigt "
+"at indlæse det oprindelige ramdisk-aftryk efter kernen og dtb'en, da u-boot "
+"angiver filstørrelsesvariablen til størrelsen på den sidst indlæste fil og "
+"kommandoen bootz kræver størrelsen af ramdisk-aftrykket for at fungere "
+"korrekt. I tilfælde hvor der opstartes en platformspecifik kerne, d.v.s. en "
+"kerne uden enhedstræ, udelades parameteren ${fdt_addr_r}."
 
 #. Tag: title
 #: boot-installer.xml:286 boot-installer.xml:865 boot-installer.xml:1522
@@ -316,13 +382,7 @@ msgstr ""
 #. Tag: para
 #: boot-installer.xml:311 boot-installer.xml:890 boot-installer.xml:1547
 #: boot-installer.xml:1928
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Even if you cannot boot from CD-ROM, you can probably install the "
-#| "&debian; system components and any packages you want from CD-ROM. Simply "
-#| "boot using a different media, such as floppies. When it's time to install "
-#| "the operating system, base system, and any additional packages, point the "
-#| "installation system at the CD-ROM drive."
+#, no-c-format
 msgid ""
 "Even if you cannot boot from CD-ROM, you can probably install the &debian; "
 "system components and any packages you want from CD-ROM. Simply boot using a "
@@ -331,10 +391,10 @@ msgid ""
 "ROM drive."
 msgstr ""
 "Selv om du ikke kan starte op fra cd-rom kan du antagelig installere &debian;"
-"s systemkomponenter og de pakker du ønsker fra cd-rom. Start helt enkelt op "
-"på et andet medie, såsom disketter. Når du når til installation af "
-"operativsystemet, grundsystemet og eventuelle ekstra pakker, så peg "
-"installationssystemet til cd-rom-drevet."
+"s systemkomponenter og de pakker du ønsker fra cd-rom. Start op "
+"på et andet medie, og når det er tid at intallere operativsystemet, "
+"basissystemet og eventuelle ekstra pakker, så peg installationssystemet til "
+"cd-rom-drevet."
 
 #. Tag: para
 #: boot-installer.xml:319 boot-installer.xml:898 boot-installer.xml:1555
@@ -360,20 +420,17 @@ msgstr "For at starte installationsprogrammet fra Windows kan du enten"
 
 #. Tag: para
 #: boot-installer.xml:399
-#, fuzzy, no-c-format
-#| msgid ""
-#| "obtain CD-ROM/DVD-ROM or USB memory stick installation media as described "
-#| "in <xref linkend=\"official-cdrom\"/> and <xref linkend=\"boot-usb-files"
-#| "\"/>, or"
+#, no-c-format
 msgid ""
 "obtain CD-ROM/DVD-ROM<phrase condition=\"bootable-usb\"> or USB memory "
 "stick</phrase> installation media as described in <xref linkend=\"official-"
 "cdrom\"/><phrase condition=\"bootable-usb\"> respective <xref linkend=\"boot-"
 "usb-files\"/></phrase> or"
 msgstr ""
-"hente et installationsmedie for cd-rom/dvd-rom eller USB-drev som beskrevet "
-"i <xref linkend=\"official-cdrom\"/> og <xref linkend=\"boot-usb-files\"/>, "
-"eller"
+"hente cd-rom/dvd-rom-<phrase condition=\"bootable-usb\"> eller USB- "
+"</phrase> installationsmedie, som beskrevet i <xref linkend=\"official-"
+"cdrom\"/><phrase condition=\"bootable-usb\"> respektiv <xref linkend=\"boot-"
+"usb-files\"/></phrase> eller"
 
 #. Tag: para
 #: boot-installer.xml:407
@@ -415,10 +472,9 @@ msgstr ""
 
 #. Tag: title
 #: boot-installer.xml:433
-#, fuzzy, no-c-format
-#| msgid "Booting from DOS"
+#, no-c-format
 msgid "Booting from DOS using loadlin"
-msgstr "Opstart fra DOS"
+msgstr "Opstart fra DOS med loadlin"
 
 #. Tag: para
 #: boot-installer.xml:434
@@ -473,10 +529,7 @@ msgstr ""
 
 #. Tag: title
 #: boot-installer.xml:467
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Booting from Linux Using <command>LILO</command> or <command>GRUB</"
-#| "command>"
+#, no-c-format
 msgid ""
 "Booting from Linux using <command>LILO</command> or <command>GRUB</command>"
 msgstr ""
@@ -892,13 +945,7 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:705
-#, fuzzy, no-c-format
-#| msgid ""
-#| "For a normal installation, select either the <quote>Install</quote> or "
-#| "the <quote>Graphical install</quote> entry &mdash; using either the arrow "
-#| "keys on your keyboard or by typing the first (highlighted) letter, the "
-#| "<quote>Install</quote> entry is already selected by default &mdash; and "
-#| "press &enterkey; to boot the installer."
+#, no-c-format
 msgid ""
 "For a normal installation, select either the <quote>Graphical install</"
 "quote> or the <quote>Install</quote> entry &mdash; using either the arrow "
@@ -906,11 +953,11 @@ msgid ""
 "and press &enterkey; to boot the installer. The <quote>Graphical install</"
 "quote> entry is already selected by default."
 msgstr ""
-"For en normal installation, vælg enten punktet <quote>Installer</quote> "
-"eller <quote>Grafisk installation</quote> &mdash; med brug af enten "
+"For en normal installation, vælg enten punktet <quote>Grafisk installation"
+"</quote> eller <quote>Installer</quote> &mdash; med brug af enten "
 "piletasterne på dit tastatur eller ved at indtaste det første (fremhævede) "
-"bogstav, punktet <quote>Installer</quote> er allerede valgt som standard "
-"&mdash; og tryk på &enterkey; for at opstarte installationsprogrammet."
+"bogstav &mdash; og tryk på &enterkey; for at starte installationen. Punktet "
+"<quote>Grafisk installation</quote> er allerede valgt som standard."
 
 #. Tag: para
 #: boot-installer.xml:713
@@ -1945,12 +1992,7 @@ msgstr "s390-opstartsparametre"
 
 #. Tag: para
 #: boot-installer.xml:1480
-#, fuzzy, no-c-format
-#| msgid ""
-#| "On S/390 you can append boot parameters in the parm file. This file can "
-#| "either be in ASCII or EBCDIC format. A sample parm file "
-#| "<filename>parmfile.debian</filename> is provided with the installation "
-#| "images."
+#, no-c-format
 msgid ""
 "On S/390 you can append boot parameters in the parm file. This file can "
 "either be in ASCII or EBCDIC format. It needs to be fixed-width with 80 "
@@ -1961,8 +2003,12 @@ msgid ""
 "passed to the kernel."
 msgstr ""
 "På S/390 kan du tilføje opstartsparametre i parm-filen. Denne fil kan enten "
-"være i ASCII- eller EBCDIC-format. Et eksempel på en sådan parm-fil "
-"<filename>parmfile.debian</filename> følger med installationsaftrykket."
+"være i ASCII- eller EBCDIC-format. Den skal have en fast bredde på 80 tegn "
+"per linje. Et eksempel på en sådan parm-fil <filename>parmfile.debian"
+"</filename> følger med installationsaftrykket. Hvis en parameter er for lang "
+"til 80-tegnsbegrænsningen, så kan den fortsættes i den første kolonne på den "
+"næste linje. Alle linjerne sammenkædes uden mellemrum når de sendes til "
+"kernen."
 
 #. Tag: para
 #: boot-installer.xml:1497
@@ -2066,25 +2112,21 @@ msgstr "boot cd install/pegasos"
 
 #. Tag: para
 #: boot-installer.xml:1601
-#, fuzzy, no-c-format
-#| msgid ""
-#| "To boot &debian; CD/DVD on Pegasos II machine, hold <keycap>Esc</keycap> "
-#| "key immediately after pressing the power-on button, when SmartFirmware "
-#| "prompt appears, type"
+#, no-c-format
 msgid ""
 "On YDL Powerstation machine, pres <keycap>s</keycap> immediately after "
 "<quote>Press 's' to enter Open Firmware</quote> message, when SLOF prompt "
 "appears type"
 msgstr ""
-"For at starte &debian;-cd eller -dvd på Pegasos II-maskiner, så hold tasten "
-"<keycap>Esc</keycap> nede umiddelbart efter at du har trykket på "
-"tændknappen, når SmartFirmware-prompten fremkommer, så tast"
+"På YDL Powerstation-maskiner trykkes <keycap>s</keycap> umiddelbart efter "
+"beskeden <quote>Press 's' to enter Open Firmware</quote>, når SLOF-prompten "
+"fremkommer"
 
 #. Tag: screen
 #: boot-installer.xml:1606
 #, no-c-format
 msgid "0 > boot cdrom"
-msgstr ""
+msgstr "0 > boot cdrom"
 
 #. Tag: title
 #: boot-installer.xml:1612
@@ -2613,22 +2655,15 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:2056
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Support for software speech synthesis can be activated by selecting it in "
-#| "the boot menu by typing <userinput>s</userinput> &enterkey;. The first "
-#| "question (language) is spoken in english, and the remainder of "
-#| "installation is spoken in the selected language (if available in "
-#| "<classname>espeak</classname>)."
+#, no-c-format
 msgid ""
 "The first question (language) is spoken in english, and the remainder of "
 "installation is spoken in the selected language (if available in "
 "<classname>espeak</classname>)."
 msgstr ""
-"Understøttelse af talesyntes via programmer kan aktiveres ved at taste "
-"<userinput>s</userinput> &enterkey; i opstartsmenuen. Det første spørgsmål "
-"(sprog) stilles på engelsk, resten af installationen udtales med det valgte "
-"sprog (hvis tilgængelig i <classname>espeak</classname>)."
+"Det første spørgsmål (sprog) stilles på engelsk, resten af installationen "
+"udtales med det valgte sprog (hvis tilgængelig i <classname>espeak"
+"</classname>)."
 
 #. Tag: para
 #: boot-installer.xml:2062
@@ -2652,20 +2687,17 @@ msgstr "Understøttelse af talesyntese via udstyr"
 
 #. Tag: para
 #: boot-installer.xml:2082
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Support for hardware speech synthesis devices is available only alongside "
-#| "support for graphical installer. You thus need to select a "
-#| "<quote>Graphical install</quote> entry in the boot menu."
+#, no-c-format
 msgid ""
 "Support for hardware speech synthesis devices is available on all installer "
 "images which have the graphical installer, i.e. all netinst, CD and DVD "
 "images, and the netboot gtk variant. You thus need to select a "
 "<quote>Graphical install</quote> entry in the boot menu."
 msgstr ""
-"Understøttelse for talesyntese via udstyrsenheder er kun tilgængelig sammen "
-"med understøttelse for et grafisk installationsprogram. Du skal derfor vælge "
-"et punkt med <quote>Grafisk installation</quote> i opstartsmenuen."
+"Understøttelse for talesyntese via udstyrsenheder er tilgængelig på alle "
+"installationsaftryk, som har det grafiske installationsprogram, d.v.s. "
+"alle netinst, cd- og dvd-aftryk, og netboot gtk-varianten. Du skal derfor "
+"vælge et punkt med <quote>Grafisk installation</quote> i opstartsmenuen."
 
 #. Tag: para
 #: boot-installer.xml:2089
@@ -2732,18 +2764,14 @@ msgstr "Tema med høj kontrast"
 
 #. Tag: para
 #: boot-installer.xml:2122
-#, fuzzy, no-c-format
-#| msgid ""
-#| "For users with low vision, the installer can use a high-contrast theme "
-#| "that makes it more readable. To enable it, append the "
-#| "<userinput>theme=dark</userinput> boot parameter."
+#, no-c-format
 msgid ""
 "For users with low vision, the installer can use a high-contrast color theme "
 "that makes it more readable. To enable it, append the <userinput>theme=dark</"
 "userinput> boot parameter."
 msgstr ""
-"For brugere med nedsat syn, kan installationsprogrammet bruge et tema med "
-"høj kontrast, hvilket gør det nemmere at læse. For at atkivere tilføjes "
+"For brugere med nedsat syn, kan installationsprogrammet bruge et farvetema med "
+"høj kontrast, hvilket gør det nemmere at læse. For at aktivere tilføjes "
 "<userinput>theme=dark</userinput> til opstartsparameteren."
 
 #. Tag: title
@@ -2767,7 +2795,7 @@ msgstr ""
 #: boot-installer.xml:2140
 #, no-c-format
 msgid "Accessibility of the installed system"
-msgstr ""
+msgstr "Tilgængelighed for det installerede system"
 
 #. Tag: para
 #: boot-installer.xml:2141
@@ -2777,6 +2805,9 @@ msgid ""
 "<ulink url=\"&url-debian-wiki-accessibility;\">Debian Accessibility wiki "
 "page</ulink>."
 msgstr ""
+"Dokumentation vedrørende tilgængelighed for det installerede system er "
+"tilgængelig på <ulink url=\"&url-debian-wiki-accessibility;\">Debians wikiside "
+"om tilgængelighed</ulink>."
 
 #. Tag: para
 #: boot-installer.xml:2156
@@ -2827,7 +2858,7 @@ msgstr ""
 #: boot-installer.xml:2182
 #, no-c-format
 msgid "Boot console"
-msgstr ""
+msgstr "Opstartskonsol"
 
 #. Tag: para
 #: boot-installer.xml:2184
@@ -3269,31 +3300,21 @@ msgstr "netcfg/disable_autoconfig"
 
 #. Tag: para
 #: boot-installer.xml:2448
-#, fuzzy, no-c-format
-#| msgid ""
-#| "By default, the &d-i; automatically probes for network configuration via "
-#| "DHCP. If the probe succeeds, you won't have a chance to review and change "
-#| "the obtained settings. You can get to the manual network setup only in "
-#| "case the DHCP probe fails."
+#, no-c-format
 msgid ""
 "By default, the &d-i; automatically probes for network configuration via "
 "IPv6 autoconfiguration and DHCP. If the probe succeeds, you won't have a "
 "chance to review and change the obtained settings. You can get to the manual "
 "network setup only in case the automatic configuration fails."
 msgstr ""
-"Som standard vil &d-i; automatisk søge efter netværkskonfiguration via DHCP. "
-"Hvis søgningen lykkes, vil du ikke få mulighed for at gennemse eller ændre "
-"de indhentede indstillinger. Du kan kun komme til manuel netværksopsætning "
-"hvis DHCP-søgningen mislykkes."
+"Som standard vil &d-i; automatisk søge efter netværkskonfiguration via "
+"automatisk IPv6-konfiguration og DHCP. Hvis søgningen lykkes, vil du ikke "
+"få mulighed for at gennemse eller ændre de indhentede indstillinger. Du kan "
+"kun komme til manuel netværksopsætning den automatiske konfiguration mislykkes."
 
 #. Tag: para
 #: boot-installer.xml:2455
-#, fuzzy, no-c-format
-#| msgid ""
-#| "If you have a DHCP server on your local network, but want to avoid it "
-#| "because e.g. it gives wrong answers, you can use the parameter "
-#| "<userinput>netcfg/disable_autoconfig=true</userinput> to prevent "
-#| "configuring the network with DHCP and to enter the information manually."
+#, no-c-format
 msgid ""
 "If you have an IPv6 router or a DHCP server on your local network, but want "
 "to avoid them because e.g. they give wrong answers, you can use the "
@@ -3301,10 +3322,11 @@ msgid ""
 "any automatic configuration of the network (neither v4 nor v6) and to enter "
 "the information manually."
 msgstr ""
-"Hvis du har en DHCP-server på dit lokale netværk, men ønsker at undgå den "
-"fordi den f.eks. giver forkerte svar, så kan du bruge parameteren "
-"<userinput>netcfg/disable_autoconfig=true</userinput> til at forhindre "
-"konfiguration af netværket med DHCP og indtaste informationen manuelt."
+"Hvis du har en IPv6-router eller en DHCP-server på dit lokale netværk, men "
+"ønsker at undgå den fordi den f.eks. giver forkerte svar, så kan du bruge "
+"parameteren <userinput>netcfg/disable_autoconfig=true</userinput> til at forhindre "
+"automatisk konfiguration af netværket (hverken v4 eller v6) og indtaste "
+"informationen manuelt."
 
 #. Tag: term
 #: boot-installer.xml:2466
@@ -3671,16 +3693,14 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:2681
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Set to <userinput>true</userinput> if you want to disable DHCP and "
-#| "instead force static network configuration."
+#, no-c-format
 msgid ""
 "Set to <userinput>true</userinput> if you want to disable IPv6 "
 "autoconfiguration and DHCP and instead force static network configuration."
 msgstr ""
 "Angiv som <userinput>true (sand)</userinput> hvis du ønsker at deaktivere "
-"DHCP og i stedet for fremtvinger statisk netværkskonfiguration."
+"automatisk IPv6-konfiguration og DHCP og i stedet for fremtvinge statisk "
+"netværkskonfiguration."
 
 #. Tag: term
 #: boot-installer.xml:2690
