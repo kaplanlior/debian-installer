@@ -1,13 +1,13 @@
 # Danish translation of boot-new.
-# Copyright (C) 2012 Free Software Foundation, Inc.
-# Joe Hansen <joedalton2@yahoo.dk>, 2012.
+# Copyright (C) 2014 Free Software Foundation, Inc.
+# Joe Hansen <joedalton2@yahoo.dk>, 2012, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: boot-new\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2014-08-26 20:40+0000\n"
-"PO-Revision-Date: 2012-11-25 21:25+0100\n"
+"PO-Revision-Date: 2014-10-09 21:25+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -271,12 +271,7 @@ msgstr "Montering af krypterede diskenheder"
 
 #. Tag: para
 #: boot-new.xml:147
-#, fuzzy, no-c-format
-#| msgid ""
-#| "If you created encrypted volumes during the installation and assigned "
-#| "them mount points, you will be asked to enter the passphrase for each of "
-#| "these volumes during the boot. The actual procedure differs slightly "
-#| "between dm-crypt and loop-AES."
+#, no-c-format
 msgid ""
 "If you created encrypted volumes during the installation and assigned them "
 "mount points, you will be asked to enter the passphrase for each of these "
@@ -284,8 +279,7 @@ msgid ""
 msgstr ""
 "Hvis du oprettede krypterede diskenheder under installationen og tildelte "
 "dem monteringspunkter, så vil du blive anmodt om en adgangsfrase for hver af "
-"disse diskenheder under opstarten. Den aktuelle procedure er en smule "
-"anderledes mellem dm-crypt og loop-AES."
+"disse diskenheder under opstarten."
 
 #. Tag: para
 #: boot-new.xml:155
@@ -417,21 +411,13 @@ msgid ""
 "filename> or <filename>/srv</filename>. You can simply mount them manually "
 "after the boot."
 msgstr ""
+"Det nemmeste tilfælde er for krypterede diskenheder, der indeholder data "
+"som <filename>/home</filename> eller <filename>/srv</filename>. Du kan "
+"bare montere dem manuelt efter genstarten."
 
 #. Tag: para
 #: boot-new.xml:226
-#, fuzzy, no-c-format
-#| msgid ""
-#| "For dm-crypt this is a bit trickier. First you need to register the "
-#| "volumes with <application>device mapper</application> by running: "
-#| "<informalexample><screen>\n"
-#| "<prompt>#</prompt> <userinput>/etc/init.d/cryptdisks start</userinput>\n"
-#| "</screen></informalexample> This will scan all volumes mentioned in "
-#| "<filename>/etc/crypttab</filename> and will create appropriate devices "
-#| "under the <filename>/dev</filename> directory after entering the correct "
-#| "passphrases. (Already registered volumes will be skipped, so you can "
-#| "repeat this command several times without worrying.) After successful "
-#| "registration you can simply mount the volumes the usual way:"
+#, no-c-format
 msgid ""
 "However for dm-crypt this is a bit tricky. First you need to register the "
 "volumes with <application>device mapper</application> by running: "
@@ -467,20 +453,7 @@ msgstr ""
 
 #. Tag: para
 #: boot-new.xml:244
-#, fuzzy, no-c-format
-#| msgid ""
-#| "If any volume holding noncritical system files could not be mounted "
-#| "(<filename>/usr</filename> or <filename>/var</filename>), the system "
-#| "should still boot and you should be able to mount the volumes manually "
-#| "like in the previous case. However, you will also need to (re)start any "
-#| "services usually running in your default runlevel because it is very "
-#| "likely that they were not started. The easiest way to achieve this is by "
-#| "switching to the first runlevel and back by entering "
-#| "<informalexample><screen>\n"
-#| "<prompt>#</prompt> <userinput>init 1</userinput>\n"
-#| "</screen></informalexample> at the shell prompt and pressing <keycombo> "
-#| "<keycap>Control</keycap> <keycap>D</keycap> </keycombo> when asked for "
-#| "the root password."
+#, no-c-format
 msgid ""
 "If any volume holding noncritical system files could not be mounted "
 "(<filename>/usr</filename> or <filename>/var</filename>), the system should "
@@ -494,12 +467,7 @@ msgstr ""
 "stadig kunne montere diskenhederne manuelt ligesom i det forrige tilfælde. "
 "Du skal dog også (gen)starte alle tjenester der normalt kører i dit normale "
 "kørselsniveau, da det er meget sandsynligt, at de ikke blev startet. Den "
-"nemmeste måde at opnå dette på er at skifte til det første kørselsniveau og "
-"tilbage igen ved at taste <informalexample><screen>\n"
-"<prompt>#</prompt> <userinput>init 1</userinput>\n"
-"</screen></informalexample> ved skalprompten og trykke på <keycombo> "
-"<keycap>Control</keycap> <keycap>D</keycap> </keycombo> når du bliver anmodt "
-"om root-adgangskoden."
+"nemmeste måde er bare at genstarte computeren."
 
 #. Tag: title
 #: boot-new.xml:262
@@ -628,51 +596,4 @@ msgstr ""
 "tilgængelige kommandoer, som begynder med et bestemt bogstav, så tast "
 "bogstavet efterfulgt af to indryk (tabs)."
 
-#~ msgid "dm-crypt"
-#~ msgstr "dm-crypt"
 
-#~ msgid "loop-AES"
-#~ msgstr "loop-AES"
-
-#~ msgid ""
-#~ "For partitions encrypted using loop-AES you will be shown the following "
-#~ "prompt during the boot:"
-#~ msgstr ""
-#~ "For partitioner krypteret med loop-AES vil du blive vist den følgende "
-#~ "prompt under opstarten:"
-
-#~ msgid ""
-#~ "Checking loop-encrypted file systems.\n"
-#~ "Setting up /dev/loop<replaceable>X</replaceable> (/"
-#~ "<replaceable>mountpoint</replaceable>)\n"
-#~ "Password:"
-#~ msgstr ""
-#~ "Checking loop-encrypted file systems.\n"
-#~ "Setting up /dev/loop<replaceable>X</replaceable> (/"
-#~ "<replaceable>mountpoint</replaceable>)\n"
-#~ "Password:"
-
-#~ msgid ""
-#~ "The easiest case is for encrypted volumes holding data like <filename>/"
-#~ "home</filename> or <filename>/srv</filename>. You can simply mount them "
-#~ "manually after the boot. For loop-AES this is a one-step operation: "
-#~ "<informalexample><screen>\n"
-#~ "<prompt>#</prompt> <userinput>mount <replaceable>/mount_point</"
-#~ "replaceable></userinput>\n"
-#~ "<prompt>Password:</prompt>\n"
-#~ "</screen></informalexample> where <replaceable>/mount_point</replaceable> "
-#~ "should be replaced by the particular directory (e.g. <filename>/home</"
-#~ "filename>). The only difference from an ordinary mount is that you will "
-#~ "be asked to enter the passphrase for this volume."
-#~ msgstr ""
-#~ "Det nemmeste tilfælde er for krypterede diskenheder, der indeholder data "
-#~ "såsom <filename>/home</filename> eller <filename>/srv</filename>. Du kan "
-#~ "montere dem manuelt efter opstarten. For loop-AES er dette en et-trins "
-#~ "operation: <informalexample><screen>\n"
-#~ "<prompt>#</prompt> <userinput>mount <replaceable>/mount_point</"
-#~ "replaceable></userinput>\n"
-#~ "<prompt>Adgangskode:</prompt>\n"
-#~ "</screen></informalexample> hvor <replaceable>/mount_point</replaceable> "
-#~ "skal erstattes med den specifikke mappe (f.eks. <filename>/home</"
-#~ "filename>). Den eneste forskel fra en normal montering er at du vil blive "
-#~ "anmodt om at indtaste adgangsfrasen for denne diskenhed."
