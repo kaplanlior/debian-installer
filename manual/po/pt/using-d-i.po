@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: using-d-i\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2014-10-05 18:15+0000\n"
-"PO-Revision-Date: 2014-08-30 22:58+0100\n"
+"PO-Revision-Date: 2014-10-10 22:12+0100\n"
 "Last-Translator: Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team: Portuguese <kde-i18n-doc@kde.org>\n"
 "Language: pt\n"
@@ -3352,6 +3352,9 @@ msgid ""
 "The encryption method supported by &d-i; is <firstterm>dm-crypt</firstterm> "
 "(included in newer Linux kernels, able to host LVM physical volumes)."
 msgstr ""
+"O método de encriptação suportado pelo &d-i; é o <firstterm>dm-crypt"
+"</firstterm> (incluido nos kernels Linux recentes, capaz de alojar volumes "
+"físicos de LVM)."
 
 #. Tag: para
 #: using-d-i.xml:1971
@@ -4313,7 +4316,7 @@ msgstr ""
 
 #. Tag: para
 #: using-d-i.xml:2561
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "It is not possible to interactively select a different desktop during the "
 #| "installation. However, it <emphasis>is</emphasis> possible to get &d-i; "
@@ -4334,18 +4337,19 @@ msgid ""
 "<literal>desktop=gnome</literal>, <literal>desktop=kde</literal>, "
 "<literal>desktop=lxde</literal> or <literal>desktop=xfce</literal>."
 msgstr ""
-"Não é possível escolher interactivamente um ambiente de trabalho diferente "
-"durante a instalação. No entanto, <emphasis>é</emphasis> possível obter o &d-"
-"i;, instalar um ambiente de trabalho KDE em vez do GNOME utilizando "
-"'preseeding' (veja <xref linkend=\"preseed-pkgsel\"/> ou acrescentando o "
-"parâmetro <literal>desktop=kde</literal> à linha de comandos do arranque "
-"quando o instalador iniciar. Em alternativa podem ser escolhidos os "
-"ambientes de trabalho Xfce e LXDE, mais leves, utilizando "
-"<literal>desktop=xfce</literal> ou <literal>desktop=lxde</literal>."
+"Por predefinição o &d-i; instala o ambiente de trabalho Xfce. Não é "
+"possível escolher interativamente um ambiente de trabalho diferente durante "
+"a instalação. No entanto, <emphasis>é</emphasis> possível o instalador "
+"instalar um ambiente de trabalho diferente utilizando preseeding (veja <xref "
+"linkend=\"preseed-pkgsel\"/> ou acrescentando o parâmetro <literal>desktop="
+"nome_do_ambiente_de_trabalho</literal> à linha de comandos do arranque "
+"quando o instalador iniciar. As variantes possíveis neste caso são <literal>"
+"desktop=gnome</literal>, <literal>desktop=kde</literal>, "
+"<literal>desktop=lxde</literal> ou <literal>desktop=xfce</literal>."
 
 #. Tag: para
 #: using-d-i.xml:2575
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Some CD images (netinst and DVD) also allow selection of the desired "
 #| "desktop environment from the graphical boot menu. Select the "
@@ -4359,10 +4363,12 @@ msgid ""
 "Select the <quote>Advanced options</quote> option in the main menu and look "
 "for <quote>Alternative desktop environments</quote>."
 msgstr ""
-"Algumas imagens de CD (netinst e DVD) também permitem a escolha do ambiente "
-"de trabalho desejado a partir do menu gráfico de arranque. Escolha no menu "
-"principal a opção <quote>Opções avançadas</quote> e procure por "
-"<quote>Ambientes de trabalho alternativos</quote>."
+"Se utilizar alguma variante GNOME-, KDE- ou LXDE- do primeiro CD do conjunto "
+"dos CDs completos, o instalador instala o respectivo ambiente de trabalho em "
+"vez da predefinição. Algumas imagens de CD (netinst e DVD) também permitem a "
+"escolha do ambiente de trabalho desejado a partir do menu gráfico de "
+"arranque. Escolha no menu principal a opção <quote>Opções avançadas</quote> e "
+"procure por <quote>Ambientes de trabalho alternativos</quote>."
 
 #. Tag: para
 #: using-d-i.xml:2586
@@ -5179,7 +5185,7 @@ msgstr ""
 #: using-d-i.xml:3106
 #, no-c-format
 msgid "Making the system bootable with flash-kernel"
-msgstr ""
+msgstr "Tornar o sistema de arranque com flash-kernel"
 
 #. Tag: para
 #: using-d-i.xml:3107
@@ -5193,6 +5199,14 @@ msgid ""
 "various devices. It detects whether the current device is supported, and if "
 "yes, performs the necessary operations."
 msgstr ""
+"Como não existe um interface de firmware comum em todas as plataformas ARM, "
+"os passos necessários para tornar o sistema de arranque nos dispositivos ARM "
+"é altamente dependente do dispositivo. &debian; utiliza uma ferramenta "
+"chamada <command>flash-kernel</command> para tomar conta disto. Flash-kernel "
+"contém uma base de dados que descreve as operações particulares que são "
+"necessárias para tornar o sistema de arranque em vários dispositivos. "
+"Detecta se o actual dispositivo é suportado, e se for, executa as operações "
+"necessárias."
 
 #. Tag: para
 #: using-d-i.xml:3118
@@ -5205,6 +5219,12 @@ msgid ""
 "internal flash memory, i.e. running flash-kernel on them usually overwrites "
 "the previous contents of the flash memory!"
 msgstr ""
+"Em dispositivos que arrancam a partir de memória flash NOR- ou NAND-, o "
+"flash-kernel escreve o kernel na ramdisk inicial para a sua memória interna. "
+"Este método é particularmente comum em dispositovos armel mais antigos. Por "
+"favor note que a maioria destes dispositivos não permite vários kernels e "
+"ramdisks na sua memória flash interna, i.e. correr o flash-kernel neles "
+"normalmente sobreescreve o conteúdo anterior da memória flash."
 
 #. Tag: para
 #: using-d-i.xml:3128
