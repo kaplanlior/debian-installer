@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: using-d-i\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2014-10-05 18:15+0000\n"
-"PO-Revision-Date: 2014-09-04 22:03+0100\n"
+"PO-Revision-Date: 2014-10-10 19:54+0100\n"
 "Last-Translator: Baptiste Jammet <baptiste@mailoo.org>\n"
 "Language-Team: debian-l10n-french <debian-l10n-french@lists.debian.org>\n"
 "Language: fr\n"
@@ -274,7 +274,7 @@ msgstr "Utilisation de l'installateur graphique"
 
 #. Tag: para
 #: using-d-i.xml:133
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "The graphical installer basically works the same as the regular installer "
 #| "and thus the rest of this manual can be used to guide you through the "
@@ -1484,7 +1484,7 @@ msgstr ""
 #, no-c-format
 msgid "The installer does not modify the system clock on the s390 platform."
 msgstr ""
-"L'installateur ne modifie pas l'horloge système sur les plateformes s390."
+"L'installateur ne modifie pas l'horloge système sur les plates-formes s390."
 
 #. Tag: para
 #: using-d-i.xml:906
@@ -3338,6 +3338,9 @@ msgid ""
 "The encryption method supported by &d-i; is <firstterm>dm-crypt</firstterm> "
 "(included in newer Linux kernels, able to host LVM physical volumes)."
 msgstr ""
+"La méthode de chiffrement prise en charge par l'installateur Debian est "
+"<firstterm>dm-crypt</firstterm> (incluse dans les noyaux Linux récents "
+"capables de prendre en charge les volumes physiques avec LVM)"
 
 #. Tag: para
 #: using-d-i.xml:1971
@@ -3415,7 +3418,7 @@ msgstr ""
 #, fuzzy, no-c-format
 #| msgid "IV algorithm: <userinput>cbc-essiv:sha256</userinput>"
 msgid "IV algorithm: <userinput>xts-plain64</userinput>"
-msgstr "Algorithme IV&nbsp;: <userinput>cbc-essiv:sha256</userinput>"
+msgstr "Algorithme IV&nbsp;: <userinput>xts-plain64</userinput>"
 
 #. Tag: para
 #: using-d-i.xml:2017
@@ -3449,7 +3452,7 @@ msgid ""
 "alternatives only when you need to ensure compatibility with some previously "
 "installed system that is not able to use newer algorithms."
 msgstr ""
-"De toutes ces possibilités, l'option par défaut <userinput>cbc-essiv:sha256</"
+"De toutes ces possibilités, l'option par défaut <userinput>xts-plain64</"
 "userinput> est actuellement la moins vulnérable aux attaques connues. Ne "
 "choisissez les autres options que pour assurer la compatibilité avec des "
 "systèmes déjà installés qui ne reconnaissent pas les nouveaux algorithmes."
@@ -3643,7 +3646,7 @@ msgstr ""
 
 #. Tag: para
 #: using-d-i.xml:2163
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "After returning to the main partitioning menu, you will see all encrypted "
 #| "volumes as additional partitions which can be configured in the same way "
@@ -3674,21 +3677,18 @@ msgstr ""
 "De retour dans le menu principal de partitionnement, vous pourrez voir tous "
 "les volumes chiffrés listés comme partitions supplémentaires que vous pouvez "
 "configurer de la même façon que des partitions ordinaires. L'exemple suivant "
-"montre deux volumes différents, l'un chiffré avec dm-crypt, l'autre avec "
-"loop-AES. <informalexample><screen>\n"
+"montre un volumes chiffré avec dm-crypt. <informalexample><screen>\n"
 "Volume chiffré (<replaceable>sda2_crypt</replaceable>) - 115.1 Go Linux "
 "device-mapper\n"
 "        #1 115.1 Go  F ext3\n"
 "\n"
-"Loopback (<replaceable>loop0</replaceable>) - 515.2 Mo AES256 keyfile\n"
-"        #1 515.2 Mo  F ext3\n"
 "</screen></informalexample> C'est le moment d'affecter des points de montage "
 "aux volumes et de modifier les types de système de fichiers si les types par "
 "défaut ne vous conviennent pas."
 
 #. Tag: para
 #: using-d-i.xml:2175
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Pay attention to the identifiers in parentheses (<replaceable>sda2_crypt</"
 #| "replaceable> and <replaceable>loop0</replaceable> in this case) and the "
@@ -3705,12 +3705,11 @@ msgid ""
 "\"mount-encrypted-volumes\"/>."
 msgstr ""
 "Notez bien les identifiants entre parenthèses (<replaceable>sda2_crypt</"
-"replaceable> et <replaceable>loop0</replaceable> dans ce cas) et le point de "
-"montage affecté à chaque volume chiffré. Vous aurez besoin de ces "
-"informations quand vous amorcerez le nouveau système. Les différences entre "
-"un processus de démarrage ordinaire et un processus impliquant des questions "
-"de chiffrement seront abordées dans la <xref linkend=\"mount-encrypted-"
-"volumes\"/>."
+"replaceable> dans ce cas) et le point de montage affecté à chaque volume "
+"chiffré. Vous aurez besoin de ces informations quand vous amorcerez le "
+"nouveau système. Les différences entre un processus de démarrage ordinaire "
+"et un processus impliquant des questions de chiffrement seront abordées dans "
+"la <xref linkend=\"mount-encrypted-volumes\"/>."
 
 #. Tag: para
 #: using-d-i.xml:2185
@@ -5180,7 +5179,7 @@ msgstr ""
 #: using-d-i.xml:3106
 #, no-c-format
 msgid "Making the system bootable with flash-kernel"
-msgstr ""
+msgstr "Rendre un système amorçable avec flash-kernel"
 
 #. Tag: para
 #: using-d-i.xml:3107
@@ -5194,6 +5193,14 @@ msgid ""
 "various devices. It detects whether the current device is supported, and if "
 "yes, performs the necessary operations."
 msgstr ""
+"Comme il n'y a pas d'interface de microprogramme commune à toutes les plates-"
+"formes ARM, les étapes nécessaires pour rendre les périphériques ARM "
+"amorçables sont fortement liées au périphérique. &debian; utilise un outil "
+"appelé <command>flash-kernel </command> pour s'occuper de cela. Flash-kernel "
+"contient une base de données qui décrit les opérations particulières "
+"requises pour rendre le système amorçable sur différents périphériques. Il "
+"détecte si le périphérique est pris en charge et, si c'est le cas, effectue "
+"les opérations nécessaires."
 
 #. Tag: para
 #: using-d-i.xml:3118
@@ -5206,6 +5213,13 @@ msgid ""
 "internal flash memory, i.e. running flash-kernel on them usually overwrites "
 "the previous contents of the flash memory!"
 msgstr ""
+"Sur les périphériques qui amorcent depuis une mémoire flash interne NOR ou "
+"NAND, flash-kernel écrit le noyau et l'image mémoire initiale dans cette "
+"mémoire. Cette méthode est particulièrement utilisée sur les anciens "
+"périphériques armel. Remarquez que la plupart de ces périphériques "
+"n'acceptent pas d'avoir plusieurs noyaux et images mémoires dans leur "
+"mémoire interne, c'est à dire que l'exécution de flash-kernel écrasera "
+"généralement le contenu de la mémoire flash !"
 
 #. Tag: para
 #: using-d-i.xml:3128
@@ -5216,6 +5230,11 @@ msgid ""
 "USB mass storage devices or IDE/SATA harddisks), flash-kernel generates an "
 "appropriate boot script to allow autobooting without user interaction."
 msgstr ""
+"Pour les systèmes ARM qui utilisent u-boot comme microprogramme, et qui "
+"amorcent le noyau et la mémoire initiale depuis un périphérique de stockage "
+"externe (comme une carte MMC/SD, un périphérique de stockage de masse USB ou "
+"un disque dur IDE/SATA), flash-kernel génère un script d'amorçage approprié "
+"qui autorise l'amorçage automatique sans interaction avec l'utilisateur."
 
 #. Tag: title
 #: using-d-i.xml:3144
