@@ -1138,6 +1138,14 @@ msgid ""
 "still be used from the boot prompt which is shown after selecting the "
 "<quote>Help</quote> option in the boot menu."
 msgstr ""
+"Det grafiske installationsprogram er tilgængelig med alle cd-aftryk og med "
+"hd-medie-installationsmetoden. For at starte det grafiske installationsprogram "
+"vælges den relevante indstilling fra opstartsmenuen. Ekspert- og redningstilstand "
+"for det grafiske installationsprogram kan vælges fra menuen <quote>Avancerede "
+"indstillinger</quote>. De tidligere anvendte opstartsmetoder <userinput>"
+"installgui</userinput>, <userinput>expertgui</userinput> og <userinput>"
+"rescuegui</userinput> kan stadig bruges fra opstartsprompten, som vises efter "
+"valg af indstillingen <quote>Hjælp</quote> i opstartsmenuen."
 
 #. Tag: para
 #: boot-installer.xml:811
@@ -1150,6 +1158,12 @@ msgid ""
 "<filename>netboot/gtk/mini.iso</filename>. </para> </footnote>, which is "
 "mainly useful for testing."
 msgstr ""
+"Der er også et grafisk installationsaftryk, som kan netstartes. Og der "
+"er et specielt <quote>mini</quote> ISo-aftryk<footnote id=\"gtk-miniiso\"> "
+"<para> Mini-ISO-aftrykket kan hentes fra et &debian;-spejl som beskrevet "
+"i <xref linkend=\"downloading-files\"/>. Kig efter <filename>"
+"netboot/gtk/mini.iso</filename>. </para> </footnote>, som hovedsagelig "
+"er nyttig for test."
 
 #. Tag: para
 #: boot-installer.xml:824
@@ -1162,6 +1176,13 @@ msgid ""
 "</para> </footnote>. It should work on almost all PowerPC systems that have "
 "an ATI graphical card, but is unlikely to work on other systems."
 msgstr ""
+"For &arch-title;, er i øjeblikket kun et eksperimentelt <quote>mini</quote>-"
+"ISO-aftryk tilgængeligt<footnote id=\"gtk-miniiso\"> <para> Mini-ISO-"
+"aftrykket kan hentes fra et &debian;-spejl som beskrevet i <xref linkend="
+"\"downloading-files\"/>. Kig efter <filename>netboot/gtk/mini.iso</filename>. "
+"</para> </footnote>. Den bør fungere på næsten alle PowerPC-systemer, som "
+"har et ATI-grafikkort, men vil sandsynligvis ikke fungere på andre "
+"systemer."
 
 #. Tag: para
 #: boot-installer.xml:838
@@ -1182,6 +1203,10 @@ msgid ""
 "available, it will automatically fall back to the text-based <quote>newt</"
 "quote> frontend."
 msgstr ""
+"Det grafiske installationsprogram kræver signifikant mere hukommelse for "
+"at køre end det tekstbaserede installationsprogram: &minimum-memory-gtk;. "
+"Hvis utilstrækkelig hukommelse er tilgængelig, vil den automatisk gå "
+"tilbage til den tekstbaserede <quote>newt</quote> brugerflade."
 
 #. Tag: para
 #: boot-installer.xml:851
@@ -1192,6 +1217,11 @@ msgid ""
 "installer would still work. Using the text-based installer is recommended "
 "for systems with little available memory."
 msgstr ""
+"Hvis hukommelsesmængden i dit system er under &minimum-memory;, så vil "
+"det grafiske installationsprogram fejle fuldstændig i at starte, mens "
+"opstart med det tekstbaserede installationsprogram stadig vil fungere. "
+"Brug af det tekstbaserede installationsprogram anbefales for systemer "
+"med små mængder tilgængelig hukommelse."
 
 #. Tag: title
 #: boot-installer.xml:906
@@ -2045,6 +2075,24 @@ msgid ""
 "process the above option needs to be added to <filename>parmfile.debian</"
 "filename>."
 msgstr ""
+"Hvis du igangsætter installationsprogrammet i en logisk partition (LPAR) "
+"eller virtuel maskine (VM) hvor en masse enheder er synlige, så kan du "
+"instruere kernen til at begrænse listen til et bestemt sæt af enheder. "
+"Dette anbefales for installationsprogrammets opstartsproces, hvis en "
+"masse diske er synlige, højst sandsynlig i LPAR-tilstand. Tilvalget "
+"<quote>cio_ignore</quote> understøtter både en sortliste (for kun at "
+"deaktivere nogle få enheder) og en hvidliste (for kun at tillade "
+"specifikke enheder): <informalexample role=\"example\"><screen>\n"
+" # blacklist: ignorer de to enheder 300 og 301\n"
+" cio_ignore=0.0.0300-0.0.0301\n"
+" # whitelist: ignorer alt undtagen 1150, FD00, FD01 og FD02\n"
+" cio_ignore=all,!0.0.1150,!0.0.fd00-0.0.fd02\n"
+"</screen></informalexample> Bemærk venligst at alle enhedsnumres hex-numre "
+"skal angives med små bogstaver. Derudover skal alle enheder vises, såfremt "
+"opstartsparameteren bruges: Dette inkluderer mindst diske, netværksenheder "
+"og konsollen. For at blive overvejet under installationsprogrammets "
+"opstartsproces skal den ovenstående indstilling tilføjes til <filename>"
+"parmfile.debian</filename>."
 
 #. Tag: para
 #: boot-installer.xml:1562
@@ -2553,7 +2601,7 @@ msgstr ""
 #: boot-installer.xml:1993
 #, no-c-format
 msgid "Installer front-end"
-msgstr ""
+msgstr "Installationsprogrammets brugerflade"
 
 #. Tag: para
 #: boot-installer.xml:1994
@@ -2566,6 +2614,12 @@ msgid ""
 "documentation for <userinput>DEBIAN_FRONTEND</userinput> in <xref linkend="
 "\"installer-args\"/>."
 msgstr ""
+"&debian;-installationsprogrammet understøtter flere brugerflader til "
+"spørgsmål, med varierende tilgængelighed: <userinput>text</"
+"userinput> bruger ren tekst mens  <userinput>newt</userinput> bruger "
+"tekstbaserede dialogbokse. Valget kan foretages på opstartsprompten, se "
+"dokumentationen for <userinput>DEBIAN_FRONTEND</userinput> i <xref linkend="
+"\"installer-args\"/>."
 
 #. Tag: title
 #: boot-installer.xml:2006
@@ -2691,6 +2745,14 @@ msgid ""
 "keycombo>. To get more details on the browsing shortcuts, see the <ulink url="
 "\"&url-speakup-guide;\">Speakup guide</ulink>."
 msgstr ""
+"Talehastigheden er som standard ret så langsom. For at gøre den "
+"hurtigere trykkes på <keycombo><keycap>CapsLock</keycap><keycap>6</keycap>"
+"</keycombo>. For at gøre den langsommere <keycombo><keycap>CapsLock</keycap>"
+"<keycap>5</keycap></keycombo>. Standardlydstyrken bør være mellem. For at "
+"gøre den højere <keycombo><keycap>CapsLock</keycap><keycap>2</keycap></keycombo>. "
+"For at gøre den lavere <keycombo><keycap>CapsLock</keycap><keycap>1</keycap></"
+"keycombo>. for at få flere detaljer om genvejstaster så se <ulink url="
+"\"&url-speakup-guide;\">Opsætningsvejledningen</ulink>."
 
 #. Tag: title
 #: boot-installer.xml:2081
@@ -2901,6 +2963,9 @@ msgid ""
 "parity, for instance <userinput>console=ttyS0,9600n8</userinput>; other "
 "typical speeds may be 57600 or 115200."
 msgstr ""
+"Det kan være nødvendigt at angive parametre for den serielle port, såsom "
+"hastighed og paritet, for eksempel <userinput>console=ttyS0,9600n8</userinput>; "
+"andre typiske hastigheder kan være 57600 eller 115200."
 
 #. Tag: para
 #: boot-installer.xml:2202
