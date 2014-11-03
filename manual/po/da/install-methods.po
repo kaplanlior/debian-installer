@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: d-i-manual_install-methods\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2014-10-05 18:15+0000\n"
-"PO-Revision-Date: 2014-11-03 09:40+0100\n"
+"PO-Revision-Date: 2014-11-03 09:41+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -127,7 +127,7 @@ msgid ""
 "\"bootable-usb\">usb stick or</phrase> <phrase condition=\"supports-tftp\">a "
 "connected computer</phrase> so they can be used to boot the installer."
 msgstr ""
-"Hvis du ikke har et cd-sæt, så skal du hente hente installationsprogrammets "
+"Hvis du ikke har et cd-sæt, så skal du hente installationsprogrammets "
 "systemfiler og placere dem på <phrase arch=\"s390\">VM-minidisk</"
 "phrase> <phrase condition=\"supports-floppy-boot\">diskettedrev eller</phrase> "
 "<phrase condition=\"bootable-disk\">harddisk eller</phrase> <phrase condition="
@@ -421,7 +421,7 @@ msgid ""
 msgstr ""
 "For at skrive disketteaftryksfiler til disketter, så skal du sandsynligvis "
 "have administratoradgang til systemet. Placer en god, tom diskette i "
-"diskettedrevet. Brug kommandoen informalexample><screen>\n"
+"diskettedrevet. Brug kommandoen <informalexample><screen>\n"
 "$ dd if=<replaceable>filename</replaceable> of=/dev/fd0 bs=1024 conv=sync ; "
 "sync\n"
 "</screen></informalexample> hvor <replaceable>filnavn</replaceable> er "
@@ -457,7 +457,10 @@ msgstr ""
 "Nogle systemer forsøger automatisk at montere et diskettedrev, når du "
 "placerer den i drevet. Du skal måske deaktivere denne funktion, før "
 "arbejdsstationen vil give dig rettighed til at skrive en diskette i "
-"<emphasis>rå tilstand</emphasis>. Først skal du sikre dig, at disketten "
+"<emphasis>rå tilstand</emphasis>. Desværre vil metoden til at opnå "
+"dette variere med dit operativsystem. <phrase arch=\"sparc\"> På "
+"Solaris kan du arbejde dig omkring diskenhedshåndtering for at få "
+"rå adgang til disketten. Først skal du sikre dig, at disketten "
 "er automatisk monteret (via <command>volcheck</command> eller den "
 "tilsvarende kommando i filhåndteringen). Brug så kommandoen "
 "<command>dd</command> i formen angivet ovenfor, bare erstat <filename>"
@@ -706,9 +709,10 @@ msgid ""
 "there are any errors writing the floppy, simply toss that floppy and try "
 "another."
 msgstr ""
-"Efter disketten er blevet oprettet vælges <guimenu>Fil</guimenu> "
-"<guimenuitem>Skub ud</guimenuitem> </menuchoice>. Hvis der opstod "
-"fejl ved skrivning af disketten, så smid den ud og prøv på en anden."
+"Efter disketten er blevet oprettet vælges <menuchoice> <guimenu>Fil"
+"</guimenu> <guimenuitem>Skub ud</guimenuitem> </menuchoice>. Hvis der "
+"opstod fejl ved skrivning af disketten, så smid den ud og prøv på en "
+"anden."
 
 #. Tag: para
 #: install-methods.xml:511
@@ -975,7 +979,7 @@ msgid ""
 "the image directly to that:"
 msgstr ""
 "Opret en partition af typen »Apple_Bootstrap« på dit USB-drev via "
-"command>mac-fdisk</command>s <userinput>C</userinput>-kommando og udtræk "
+"<command>mac-fdisk</command>s <userinput>C</userinput>-kommando og udtræk "
 "aftrykket direkte til denne:"
 
 #. Tag: screen
@@ -1116,7 +1120,7 @@ msgstr ""
 #: install-methods.xml:750 install-methods.xml:862
 #, no-c-format
 msgid "Adding the installer image"
-msgstr ""
+msgstr "Tilføjelse af installationsprogrammets aftryk"
 
 #. Tag: para
 #: install-methods.xml:751
@@ -1233,25 +1237,25 @@ msgstr ""
 #: install-methods.xml:870
 #, no-c-format
 msgid "<filename>vmlinux</filename> (kernel binary)"
-msgstr ""
+msgstr "<filename>vmlinux</filename> (kernens binære fil)"
 
 #. Tag: para
 #: install-methods.xml:875
 #, no-c-format
 msgid "<filename>initrd.gz</filename> (initial ramdisk image)"
-msgstr ""
+msgstr "<filename>initrd.gz</filename> (oprindelig ramdisk-aftryk)"
 
 #. Tag: para
 #: install-methods.xml:880
 #, no-c-format
 msgid "<filename>yaboot.conf</filename> (yaboot configuration file)"
-msgstr ""
+msgstr "<filename>yaboot.conf</filename> (yaboot-konfigurationsfil)"
 
 #. Tag: para
 #: install-methods.xml:885
 #, no-c-format
 msgid "<filename>boot.msg</filename> (optional boot message)"
-msgstr ""
+msgstr "<filename>boot.msg</filename> (valgfri opstartsbesked)"
 
 #. Tag: para
 #: install-methods.xml:892
@@ -1278,7 +1282,7 @@ msgstr ""
 #: install-methods.xml:930
 #, no-c-format
 msgid "Preparing Files for Hard Disk Booting"
-msgstr ""
+msgstr "Forberedelse af filer for harddiskopstart"
 
 #. Tag: para
 #: install-methods.xml:931
@@ -1329,6 +1333,8 @@ msgid ""
 "Hard disk installer booting from Linux using <command>LILO</command> or "
 "<command>GRUB</command>"
 msgstr ""
+"Installationsprogrammets opstart fra harddisk fra Linux med brug af "
+"<command>LILO</command> eller <command>GRUB</command>"
 
 #. Tag: para
 #: install-methods.xml:966
@@ -1360,13 +1366,13 @@ msgstr ""
 #: install-methods.xml:986
 #, no-c-format
 msgid "<filename>vmlinuz</filename> (kernel binary)"
-msgstr ""
+msgstr "<filename>vmlinuz</filename> (kernens binære fil)"
 
 #. Tag: para
 #: install-methods.xml:991
 #, no-c-format
 msgid "<filename>initrd.gz</filename> (ramdisk image)"
-msgstr ""
+msgstr "<filename>initrd.gz</filename> (ramdisk-aftryk)"
 
 #. Tag: para
 #: install-methods.xml:998
@@ -1375,6 +1381,8 @@ msgid ""
 "Finally, to configure the bootloader proceed to <xref linkend=\"boot-initrd"
 "\"/>."
 msgstr ""
+"Endelig, for at konfigure opstartsindllæseren fortsættes til "
+"<xref linkend=\"boot-initrd\"/>."
 
 #. Tag: title
 #: install-methods.xml:1008
