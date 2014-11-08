@@ -6,19 +6,21 @@
 # Frans Pop <elendil@planet.nl>, 2007, 2008, 2009, 2010.
 # Eric Spreen <erispre@gmail.com>, 2010.
 # Jeroen Schot <schot@a-eskwadraat.nl>, 2011, 2012.
+# Frans Spiesschaert <Frans.Spiesschaert@yucom.be>, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer/sublevel4\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-15 22:01+0000\n"
-"PO-Revision-Date: 2012-01-02 17:49+0100\n"
-"Last-Translator: Jeroen Schot <schot@a-eskwadraat.nl>\n"
-"Language-Team: Debian l10n Dutch <debian-l10n-dutch@lists.debian.org>\n"
+"PO-Revision-Date: 2014-10-13 12:39+0200\n"
+"Last-Translator: Frans Spiesschaert <Frans.Spiesschaert@yucom.be>\n"
+"Language-Team: Debian Dutch l10n Team <debian-l10n-dutch@lists.debian.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. Type: text
 #. Description
@@ -1176,10 +1178,9 @@ msgstr "ZFS-pool verwijderen"
 #. Menu entry
 #. Use infinitive form
 #: ../partman-zfs.templates:14001
-#, fuzzy
 #| msgid "Create %s file system"
 msgid "Create root file system"
-msgstr "Bestandssysteem %s aanmaken"
+msgstr "Basisbestandssysteem aanmaken"
 
 #. Type: boolean
 #. Description
@@ -1254,7 +1255,6 @@ msgstr "Samenvatting van de huidige ZFS-configuratie:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
 #| msgid ""
 #| " Free physical volumes:  ${FREE_PVS}\n"
 #| " Used physical volumes:  ${USED_PVS}\n"
@@ -1270,7 +1270,8 @@ msgstr ""
 " Vrije fysieke volumes:      ${FREE_PVS}\n"
 " Gebruikte fysieke volumes:  ${USED_PVS}\n"
 " ZFS-pools:                  ${VGS}\n"
-" ZFS-logische volumes:       ${LVS}"
+" ZFS-logische volumes:       ${LVS}\n"
+" ${BOOTFS}"
 
 #. Type: note
 #. Description
@@ -1557,16 +1558,16 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 #| msgid "Invalid logical volume or ZFS pool name"
 msgid "Invalid logical volume, ZFS pool name or ZFS file system name"
-msgstr "Ongeldige naam voor logische volume of ZFS-pool"
+msgstr ""
+"Ongeldige naam voor het logische volume, de ZFS-pool of het ZFS-"
+"bestandssysteem"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
 #| msgid ""
 #| "Logical volume or ZFS pool names may only contain alphanumeric "
 #| "characters, hyphen, colon, period, and underscore. They must be 255 "
@@ -1578,11 +1579,11 @@ msgid ""
 "255 characters or less and must begin with an alphanumeric character. The "
 "names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
 msgstr ""
-"Namen voor logische volumes of ZFS-pools mogen enkel bestaan uit een "
-"combinatie van alfanumerieke karakters, liggend streepje, plusteken, en '_'. "
-"Verder mogen ze maximaal 255 karakters lang zijn en moeten ze beginnen met "
-"een alfanumeriek karakter. De namen 'mirror', 'raidz', 'spare' en 'log' zijn "
-"niet toegestaan."
+"Namen voor logische volumes, ZFS-pools of ZFS-bestandssystemen mogen enkel "
+"bestaan uit een combinatie van alfanumerieke karakters, liggend streepje, "
+"plusteken, en '_'. Verder mogen ze maximaal 255 karakters lang zijn en "
+"moeten ze beginnen met een alfanumeriek karakter. De namen 'mirror', "
+"'raidz', 'spare' en 'log' zijn niet toegestaan."
 
 #. Type: boolean
 #. Description
@@ -1670,25 +1671,24 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:51001
 msgid "Pool to modify:"
-msgstr ""
+msgstr "Te wijzigen pool:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 #| msgid "ZFS pool name:"
 msgid "ZFS boot file system name:"
-msgstr "Naam van de ZFS-pool:"
+msgstr "Naam van het ZFS-opstartbestandssysteem:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
 #| msgid "Please enter the hostname for this system."
 msgid "Please enter the name of the boot file system among the following:"
-msgstr "Wat is de computernaam van dit systeem?"
+msgstr ""
+"Kies uit de volgende mogelijkheden de naam van het opstartbestandssysteem:"
 
 #. Type: string
 #. Description
@@ -1697,43 +1697,42 @@ msgstr "Wat is de computernaam van dit systeem?"
 msgid ""
 "This will be prefixed by ${VG}/ROOT and mounted as the root file system."
 msgstr ""
+"Dit zal voorafgegaan worden door ${VG}/ROOT en aangekoppeld worden als het "
+"basisbestandssysteem."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 #| msgid "No file system mounted on /target"
 msgid "No file system name entered"
-msgstr "Er is geen bestandssysteem aangekoppeld op '/target'"
+msgstr "Er werd geen naam voor het bestandssysteem ingegeven"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
 #| msgid "No name for the ZFS pool has been entered. Please enter a name."
 msgid "No name has been entered for the root file system. Please enter a name."
 msgstr ""
-"Er is geen naam voor de ZFS-pool ingegeven. Gelieve een naam op te geven."
+"Er werd geen naam ingegeven voor het basisbestandssysteem. Gelieve een naam "
+"op te geven."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:54001
-#, fuzzy
 #| msgid "ZFS pool:"
 msgid "ZFS boot"
-msgstr "ZFS-pool:"
+msgstr "ZFS boot"
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:55001
-#, fuzzy
 #| msgid "Registering modules..."
 msgid "Loading ZFS module..."
-msgstr "Modules worden geregistreerd..."
+msgstr "Bezig met ZFS-module te laden..."
 
 #. Type: boolean
 #. Description
