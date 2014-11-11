@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: installation-guide using d-i\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2014-10-05 18:15+0000\n"
-"PO-Revision-Date: 2014-10-15 09:40+0100\n"
+"PO-Revision-Date: 2014-11-11 09:40+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -3354,7 +3354,7 @@ msgstr ""
 #: using-d-i.xml:2092
 #, no-c-format
 msgid "Erase data: <userinput>yes</userinput>"
-msgstr ""
+msgstr "Slet data: <userinput>ja</userinput>"
 
 #. Tag: para
 #: using-d-i.xml:2094
@@ -3369,6 +3369,14 @@ msgid ""
 "agencies can restore the data even after several rewrites of the "
 "magnetooptical media, though. </para></footnote>."
 msgstr ""
+"Bestemmer om indholdet af denne partition skal overskrives med vilkårlige "
+"data før opsætning af krypteringen. Dette anbefales, fordi det ellers kan "
+"være muligt for en angriber at udlede hvilke dele af en partition, der er "
+"i brug og hvilke der ikke er. Derudover vil det være sværere at gendanne "
+"eventuelle overskydende data fra tidligere installationer <footnote><para> "
+"Det antages dog at fyrene fra institutionerne med tre bogstaver kan gendanne "
+"data selv efter flere overskrivninger af det magnetoptiske medie. </para>"
+"</footnote>."
 
 #. Tag: para
 #: using-d-i.xml:2115
@@ -3381,6 +3389,13 @@ msgid ""
 "partitions marked to be erased and possibly other actions such as writing a "
 "new partition table. For large partitions this might take some time."
 msgstr ""
+"Efter du har valgt de ønskede parametre for dine krypterede partitioner, "
+"returner tilbage til hovedpartitioneringsmenuen. Der bør nu være et nyt "
+"menupunkt kaldt <guimenu>Konfigurer krypterede diskenheder</guimenu>. Efter "
+"valg af denne vil du blive bedt om at bekræfte sletningen af data på "
+"partitioner markeret for sletning og muligvis andre handlinger såsom "
+"skrivning af en ny partitionstabel. For store partitioner kan dette "
+"tage noget tid."
 
 #. Tag: para
 #: using-d-i.xml:2125
@@ -3392,6 +3407,12 @@ msgid ""
 "common dictionary words or information easily associable with you (such as "
 "birthdates, hobbies, pet names, names of family members or relatives, etc.)."
 msgstr ""
+"Derefter vil du blive anmodt om at indtaste en adgangsfrase for partitioner "
+"konfigureret til at bruge en. Gode adgangsfraser bør være længere end 8 "
+"tegn, være en blanding af bogstaver, tal og andre tegn og bør ikke indeholde "
+"gængse ord fra ordbøger eller information nemt associeret med dig (såsom "
+"fødselsdatoer, hobbyer, kælenavne, navne på familiemedlemmer eller pårørende "
+"etc.)."
 
 #. Tag: para
 #: using-d-i.xml:2134
@@ -3407,6 +3428,15 @@ msgid ""
 "installation, or the selected keyboard layout might not have been set up yet "
 "when entering the passphrase for the root file system."
 msgstr ""
+"Før du indtaster en adgangsfrase skal du sikre dig, at dit tastatur er "
+"konfigureret korrekt og opretter de forventede tegn. Hvis du er usikker, så "
+"kan du skifte til den anden virtuelle konsol og indtaste lidt tekst på "
+"prompten. Dette sikrer, at du ikke bliver overrasket senere, f.eks. ved at "
+"forsøge at indtaste en adgangsfrase med et qwerty-tastaturlayout, når du "
+"brugte et azerty-layout under installationen. Denne situation kan skyldes "
+"flere ting. Måske skiftede du til et andet tastaturlayout under installationen, "
+"eller det valgte tastaturlayout er måske endnu ikke opsat når du indtaster "
+"adgangsfrasen for root-filsystemet."
 
 #. Tag: para
 #: using-d-i.xml:2147
@@ -3421,6 +3451,15 @@ msgid ""
 "traffic (downloading some files, feeding big files into <filename>/dev/null</"
 "filename>, etc.). This will be repeated for each partition to be encrypted."
 msgstr ""
+"Hvis du valgte at bruge metoder udover en adgangsfrase til at oprette "
+"krypteringsnøgler, så vil de blive oprettet nu. Da kernen måske ikke har "
+"indsamlet en tilstrækkelig mængde entropi på dette tidlige stadie af "
+"installationen, kan processen tage længere tid. Du kan øge processen ved "
+"at oprette entropi: f.eks. ved at trykke på tilfældige taster, eller "
+"ved at skifte til skallen på den virtuelle konsol og oprette lidt netværk "
+"og disktrafik (hente nogle filer, føde store filer til <filename>/dev/null</"
+"filename>, etc.). Dette vil blive gentaget for hver partition der skal "
+"krypteres."
 
 #. Tag: para
 #: using-d-i.xml:2163
@@ -3437,6 +3476,16 @@ msgid ""
 "volumes and optionally change the file system types if the defaults do not "
 "suit you."
 msgstr ""
+"Efter returnering til hovedpartitionsmenuen, så vil du se alle krypterede "
+"diskenheder som yderligere partitioner, som kan konfigureres på samme måde "
+"som ordinære partitioner. Det følgende eksempel viser en diskenhed krypteret "
+"via dm-crypt. <informalexample><screen>\n"
+"Encrypted volume (<replaceable>sda2_crypt</replaceable>) - 115.1 GB Linux "
+"device-mapper\n"
+"     #1 115.1 GB  F ext3\n"
+"</screen></informalexample> Nu er det tid til at tildele monteringspunkter "
+"til diskenhederne og valgfrit ændre filsystemtyperne, hvis standarderne "
+"ikke passer dig."
 
 #. Tag: para
 #: using-d-i.xml:2175
@@ -3449,6 +3498,12 @@ msgid ""
 "process with encryption involved will be covered later in <xref linkend="
 "\"mount-encrypted-volumes\"/>."
 msgstr ""
+"Vær opmærksom på identifikationerne i parentes (replaceable>sda2_crypt</"
+"replaceable> i dette tilfælde) og monteringspunkterne du tildelte til hver "
+"krypteret diskenhed. Du skal bruge denne information senere, når du "
+"opstarter det nye system. Forskellene mellem den ordinære opstartsproces "
+"og opstartsprocessen med kryptering involveret vil blive dækket senere "
+"i <xref linkend=\"mount-encrypted-volumes\"/>."
 
 #. Tag: para
 #: using-d-i.xml:2185
@@ -3457,12 +3512,13 @@ msgid ""
 "Once you are satisfied with the partitioning scheme, continue with the "
 "installation."
 msgstr ""
+"Når du er tilfreds med partitionsplanen, så fortsæt med installationen."
 
 #. Tag: title
 #: using-d-i.xml:2196
 #, no-c-format
 msgid "Installing the Base System"
-msgstr ""
+msgstr "Installation af basissystemet"
 
 #. Tag: para
 #: using-d-i.xml:2197
@@ -3473,6 +3529,10 @@ msgid ""
 "base system. If you have a slow computer or network connection, this could "
 "take some time."
 msgstr ""
+"Selvom dette trin er det mindst problematiske, så forbruger det en signifikant "
+"del af installationen fordi den henter, verificerer og udpakker hele "
+"basissystemet. Hvis du har en langsom computer eller netværksforbindelse, "
+"så kan det tage noget tid."
 
 #. Tag: para
 #: using-d-i.xml:2210
@@ -3484,6 +3544,11 @@ msgid ""
 "keycombo>; get back to the main installer process with "
 "<keycombo><keycap>Left Alt</keycap><keycap>F1</keycap></keycombo>."
 msgstr ""
+"Under installation af basissystemet bliver udpakning af pakkerne og opsætning "
+"af beskeder videresendt til <userinput>tty4</userinput>. Du kan tilgå "
+"denne terminal ved at trykke på <keycombo><keycap>Venstre Alt</keycap><keycap>"
+"F4</keycap></keycombo>; gå tilbage til installationsprocessen med "
+"<keycombo><keycap>Left Alt</keycap><keycap>F1</keycap></keycombo>."
 
 #. Tag: para
 #: using-d-i.xml:2219
@@ -3493,6 +3558,9 @@ msgid ""
 "<filename>/var/log/syslog</filename>. You can check them there if the "
 "installation is performed over a serial console."
 msgstr ""
+"Udpaknings- og opsætningsbeskederne oprettet under denne fase gemmes også "
+"i <filename>/var/log/syslog</filename>. Du kan kontrollere dem der, hvis "
+"installationen udføres over en seriel konsol."
 
 #. Tag: para
 #: using-d-i.xml:2225
@@ -3503,6 +3571,10 @@ msgid ""
 "matches your hardware. In lower priority modes, you will be able to choose "
 "from a list of available kernels."
 msgstr ""
+"Som en del af installationen vil en &arch-kernel;-kerne blive installeret. "
+"På standardprioritet vil installationsprogrammet vælge en som bedst matcher "
+"dit udstyr. I lavere prioritetstilstande vil du kunne vælge fra en liste "
+"over tilgængelige kerner."
 
 #. Tag: para
 #: using-d-i.xml:2232
@@ -3515,6 +3587,11 @@ msgid ""
 "view of the package maintainers, normally be installed together with that "
 "software."
 msgstr ""
+"Når pakker installeres via pakkehåndteringssystemet, så vil det også som "
+"standard installere pakker som anbefales af disse pakker. "
+"Anbefalede pakker er ikke krævet for den grundlæggende funktionalitet "
+"for de valgte programmer, men de forbedrer de programmer og bør, ifølge "
+"pakkevedligeholderne, normalt installeres sammen med programmet."
 
 #. Tag: para
 #: using-d-i.xml:2242
@@ -3525,12 +3602,15 @@ msgid ""
 "described above only takes effect after this point in the installation "
 "process."
 msgstr ""
+"Af tekniske årsager bliver pakker installeret under installationen af "
+"grundsystemet installeret uden deres <quote>Recommends</quote>. Regel "
+"ovenfor træder kun i kraft efter dette punkt i installationsprocessen."
 
 #. Tag: title
 #: using-d-i.xml:2254
 #, no-c-format
 msgid "Installing Additional Software"
-msgstr ""
+msgstr "Installation af yderligere programmer"
 
 #. Tag: para
 #: using-d-i.xml:2255
@@ -3541,6 +3621,12 @@ msgid ""
 "installer allows you do so. This step can take even longer than installing "
 "the base system if you have a slow computer or network connection."
 msgstr ""
+"På dette tidspunkt har du et brugbart, men begrænset system. De fleste "
+"brugere ønsker at installere yderligere programmer på deres system, så det "
+"passer til deres behov, og installationsprogrammet giver dig mulighed for "
+"dette. Dette trin kan tage længere tid end installation af det "
+"grundlæggende system, hvis du har en langsom computer eller "
+"netværksforbindelse."
 
 #. Tag: title
 #: using-d-i.xml:2270
@@ -3566,6 +3652,20 @@ msgid ""
 "recommended for new users, since they integrate some additional features "
 "(package searching and status checks) in a nice user interface."
 msgstr ""
+"Et af værktøjerne brugt til at installere pakker på et &debian-gnu;-"
+"system er et program kaldt <command>apt-get</command>, fra <classname>apt</"
+"classname>-pakken<footnote> <para> Bemærk at programmet som rent faktisk "
+"installerer pakkerne kaldes <command>dpkg</command>. Dette program "
+"er dog et værktøj på lavt niveau. <command>apt-get</command> er et "
+"værktøj på et højere niveau, som vil igangsætte <command>dpkg</command> "
+"hvor det er passende. Det ved hvordan pakker skal hentes fra din cd, "
+"netværket eller andre steder. Det kan også automatisk installere "
+"andre pakker som er krævet for at den pakke du ønsker installeret "
+"fungerer korrekt. </para> </footnote>. Andre brugerflader til "
+"pakkehåndtering, såsom <command>aptitude</command> og <command>synaptic"
+"</command>, er også i brug. Disse brugerflader anbefales for nye "
+"brugere, da de integerer nogle yderligere funktioner (pakkesøgning "
+"og statuskontrol) i en pæn brugerflade."
 
 #. Tag: para
 #: using-d-i.xml:2295
@@ -3576,6 +3676,10 @@ msgid ""
 "<filename>/etc/apt/sources.list</filename>. You can examine and edit this "
 "file to your liking after the installation is complete."
 msgstr ""
+"<command>apt</command> skal konfigureres så at den ved hvorfra den "
+"skal hente pakker. Resultaterne af denne konfiguration skrives til filen "
+"<filename>/etc/apt/sources.list</filename>. Du kan undersøge og redigere "
+"denne fil efter behag når installationen er færdig."
 
 #. Tag: para
 #: using-d-i.xml:2302
@@ -3588,6 +3692,12 @@ msgid ""
 "you are installing the stable distribution, a mirror for the <quote>stable-"
 "updates</quote> service."
 msgstr ""
+"Hvis du installerer med standardprioritet, så vil installationsprogrammet "
+"håndtere konfigurationen automatisk, baseret på installationsmetoden "
+"du anvender og muligvis andre valg foretaget tidligere i installationen. "
+"I de fleste tilfælde vil installationsprogrammet automatisk tilføje "
+"et sikkerhedsspejl og, hvis du installerer en stabil distribution, et spejl "
+"for tjenesten <quote>stable-updates</quote>."
 
 #. Tag: para
 #: using-d-i.xml:2311
@@ -3599,12 +3709,17 @@ msgid ""
 "packages from the <quote>contrib</quote> and <quote>non-free</quote> "
 "sections of the archive."
 msgstr ""
+"Hvis du installerer med en lavere prioritet (f.eks. i eksperttilstand), så "
+"vil du selv kunne foretage flere beslutninger. Du kan vælge hvorvidt "
+"tjenesterne sikkerhed og/eller stable-updates skal anvendes, og du kan "
+"vælge at tilføje pakker fra afsnittene <quote>contrib</quote> og "
+"<quote>non-free</quote> i arkivet."
 
 #. Tag: title
 #: using-d-i.xml:2322
 #, no-c-format
 msgid "Installing from more than one CD or DVD"
-msgstr ""
+msgstr "Installation fra mere end en cd eller dvd"
 
 #. Tag: para
 #: using-d-i.xml:2324
@@ -3615,6 +3730,11 @@ msgid ""
 "additional CDs or DVDs available, you probably want to do this so the "
 "installer can use the packages included on them."
 msgstr ""
+"Hvis du installerer fre en cd eller en dvd, som er del af et større sæt, så "
+"vil installationsprogramemt spørge dig, om du ønsker at skanne yderligere "
+"cd'er eller dvd'er. Hvis du har yderligere cd'er eller dvd'er tilgængelige, "
+"vil du sandsynligvis ønske dette, så installationsprogrammet kan bruge "
+"pakkerne inkluderet på disse."
 
 #. Tag: para
 #: using-d-i.xml:2331
@@ -3625,6 +3745,11 @@ msgid ""
 "in the next section), it can mean that not all packages belonging to the "
 "tasks you select in the next step of the installation can be installed."
 msgstr ""
+"Hvis du ikke har ydereligere cd'er eller dvd'er, er det ikke et problem: "
+"Brug af dem er ikke et krav. Hvis du heller ikke anvendet et netværksspejl "
+"(som forklaret i det næste afsnit), kan det betyde, at ikke alle pakker "
+"tilhørende opgaverne, du vælger i det næste trin af installationen, kan "
+"installeres."
 
 #. Tag: para
 #: using-d-i.xml:2339
@@ -3635,6 +3760,10 @@ msgid ""
 "that only very few people actually use any of the packages included on the "
 "last CDs in a set."
 msgstr ""
+"Pakker er inkluderet på cd'er (og dvd'er) efter deres popularitet. "
+"Det betyder at de fleste brugere kun bruger den første cd i et sæt og "
+"at kun meget få rent faktisk anvender pakker inkluderet på den sidste "
+"cd i et sæt."
 
 #. Tag: para
 #: using-d-i.xml:2346
@@ -3646,6 +3775,12 @@ msgid ""
 "packages you may need from the Internet by using a mirror. The same goes for "
 "DVD sets: the first DVD, or maybe the first two DVDs will cover most needs."
 msgstr ""
+"Det betyder også at køb af eller overførsel og brænding af et fuldt "
+"cd-sæt bare er spild af penge, da du aldrig bruger dem. I de fleste tilfælde "
+"er du bedre stillet ved kun at hente de første 3-8 cd'er og installere "
+"eventuelle yderligere pakker fra internettet via et spejl. Det samme "
+"gælder for dvd-sæt: Den første dvd, eller måske de to første dvd'er "
+"vil dække de fleste behov."
 
 #. Tag: para
 #: using-d-i.xml:2356
@@ -3658,12 +3793,18 @@ msgid ""
 "matter, but scanning them in ascending order will reduce the chance of "
 "mistakes."
 msgstr ""
+"Hvis du skanner flere cd'er eller dvd'er, så vil installationsprogrammet "
+"prompte dig for at udveksle dem, når det skal bruge pakker fra en anden "
+"cd/dvd end den aktuelle i drevet. Bemærk at kun cd'er eller dvd'er, som "
+"tilhører det samme sæt bør skannes. Rækkefølgen de skannes betyder reelt "
+"ikke noget, men skanning af dem i fortløbende rækkefølge vil reducere "
+"risikoen for fejl."
 
 #. Tag: title
 #: using-d-i.xml:2369
 #, no-c-format
 msgid "Using a network mirror"
-msgstr ""
+msgstr "Brug af et netværksspejl"
 
 #. Tag: para
 #: using-d-i.xml:2371
@@ -3673,6 +3814,10 @@ msgid ""
 "use a network mirror as a source for packages. In most cases the default "
 "answer should be fine, but there are some exceptions."
 msgstr ""
+"Et spørgsmål som vil blive stillet under de fleste installationer er "
+"hvorvidt du ønsker at bruge et netværksspejl som kilde for pakker. "
+"I de fleste tilfælde bør standardsvaret være okay, men der er nogle "
+"undtagelser."
 
 #. Tag: para
 #: using-d-i.xml:2377
@@ -3685,6 +3830,12 @@ msgid ""
 "select the <literal>desktop</literal> task in the next step of the "
 "installation."
 msgstr ""
+"Hvis du <emphasis>ikke</emphasis> installerer fra en fuld cd eller dvd "
+"eller bruger et fuldt cd/dvd-aftryk, så bør du bruge et netværksspejl "
+"da du ellers kun vil få et meget minimalt system installeret. Hvis du "
+"har en begrænset internetforbindelse er det bedst <emphasis>ikke</emphasis> "
+"at vælge opgaven <literal>desktop</literal> i det næste trin af "
+"installationen."
 
 #. Tag: para
 #: using-d-i.xml:2386
@@ -3698,6 +3849,13 @@ msgid ""
 "what's available on the CD and selectively install additional packages after "
 "the installation (i.e. after you have rebooted into the new system)."
 msgstr ""
+"Hvis du installerer fra en enkel fuld cd bruger et fuldt cd-aftrykssæt, så "
+"er et netværkspejl ikke krævet, men anbefales stadig da en enkel cd kun "
+"indeholder et begrænset antal pakker. Hvis du har en begrænset "
+"internetforbindelse, kan det stadig være bedst <emphasis>ikke</emphasis> "
+"at vælge et netværksspejl her, men at afslutte installationen med hvad der "
+"er tilgængelig på cd'en og selektivt installere yderligere pakker efter "
+"installationen (d.v.s. efter du har genstartet i det nye system)."
 
 #. Tag: para
 #: using-d-i.xml:2397
@@ -3708,6 +3866,10 @@ msgid ""
 "if you have scanned multiple CDs as explained in the previous section. Use "
 "of a network mirror is optional."
 msgstr ""
+"Hvis du installerer fra en dvd eller bruger et dvd-aftryk, bør alle pakker "
+"krævet under installatonen vær til stede på den første dvd. Det samme gælder "
+"hvis du har skannet flere cd'er som forklaret i det første afsnit. Brug af "
+"et netværksspejl er valgfrit."
 
 #. Tag: para
 #: using-d-i.xml:2404
@@ -3719,6 +3881,11 @@ msgid ""
 "DVD set without compromising the security or stability of the installed "
 "system."
 msgstr ""
+"En fordel ved at tilføje et netværksspejl er at opdateringer, som er sket "
+"siden cd/dvd-sættet først blev oprettet og er blevet inkluderet i en "
+"punktudgivelse, vil blive tilgængelig for installation, og dermed udvides "
+"livslængden for dit cd/dvd-sæt uden at gå på kompromis med sikkerheden "
+"eller stabiliteten for det installerede system."
 
 #. Tag: para
 #: using-d-i.xml:2411
@@ -3730,18 +3897,23 @@ msgid ""
 "amount of data that will be downloaded if you do select a mirror thus "
 "depends on"
 msgstr ""
+"Opsummeret: Valg af et netværksspejl er generelt en god ide, undtagen "
+"hvis du ikke har en god internetforbindelse. Hvis den nuværende version "
+"af en pakke er tilgængelig fra cd/dvd, så vil installationsprogrammet "
+"altid bruge den. Mængden af data som hentes, hvis du vælger et spejl, "
+"afhænger der af"
 
 #. Tag: para
 #: using-d-i.xml:2420
 #, no-c-format
 msgid "the tasks you select in the next step of the installation,"
-msgstr ""
+msgstr "opgaverne du vælger i det næste trin af installationen,"
 
 #. Tag: para
 #: using-d-i.xml:2425
 #, no-c-format
 msgid "which packages are needed for those tasks,"
-msgstr ""
+msgstr "hvilke pakker der kræves for disse opgaver,"
 
 #. Tag: para
 #: using-d-i.xml:2430
@@ -3749,6 +3921,8 @@ msgstr ""
 msgid ""
 "which of those packages are present on the CDs or DVDs you have scanned, and"
 msgstr ""
+"hvilke af disse pakker befinder sig på cd'erne eller dvd'erne du har "
+"skannet, og"
 
 #. Tag: para
 #: using-d-i.xml:2435
@@ -3758,6 +3932,9 @@ msgid ""
 "available from a mirror (either a regular package mirror, or a mirror for "
 "security or stable-updates)."
 msgstr ""
+"om opdaterede versioner af pakkerne inkluderet på cd'erne eller dvd'erne "
+"er tilgængelige fra et spejl (enten et normalt pakkespejl, eller et spejl "
+"for sikkerhed eller stable-updates)."
 
 #. Tag: para
 #: using-d-i.xml:2444
@@ -3768,6 +3945,10 @@ msgid ""
 "a security or stable-updates update available for them and those services "
 "have been configured."
 msgstr ""
+"Bemærk at det sidste punkt betyder at, selv hvis du vælger ikke at bruge "
+"et netværksspejl, nogle pakker stadig kan hentes fra internettet, hvis der "
+"er en sikkerhedsopdatering eller en opdatering fra stable-updates tilgængelig "
+"og disse tjenester er blevet konfigureret."
 
 #. Tag: title
 #: using-d-i.xml:2455
@@ -3785,6 +3966,12 @@ msgid ""
 "fast) network mirrors, based upon your country selection earlier in the "
 "installation process. Choosing the offered default is usually fine."
 msgstr ""
+"Hvis du har valgt at bruge et netværksspejl under installationen "
+"(valgfri for cd/dvd-installationer; krævet for netboot-aftryk), så vil "
+"du blive præsenteret med en liste over netværksspejl, der befinder sig "
+"tæt på geografisk (og derfor forhåbentlig er hurtige), baseret på dit "
+"landevalg tidligere i installationsprocessen. Valg af den tilbudte "
+"standard er normalt fint."
 
 #. Tag: para
 #: using-d-i.xml:2464
@@ -3796,6 +3983,11 @@ msgid ""
 "specifying an IPv6 address, one has to add square brackets around it, for "
 "instance <quote>[2001:db8::1]</quote>."
 msgstr ""
+"Et spejl kan også angives manuelt ved at vælge <quote>indtast information "
+"manuelt</quote>. Du kan så specificere et værtsnavn for spejlet og et valgfrit "
+"portnummer. Fra og med Wheezy skal dette være en URL-basis, d.v.s. når der "
+"specificeres en IPv6-adresse, så skal der firkantede parenteser omkring, for "
+"eksempel <quote>[2001:db8::1]</quote>."
 
 #. Tag: para
 #: using-d-i.xml:2472
@@ -3813,6 +4005,17 @@ msgid ""
 "a mirror available via IPv6, although it will probably not be the fastest "
 "possible one."
 msgstr ""
+"Hvis din computer befinder sig på et netværk kun med IPv6 (hvilket sandsynligvis "
+"ikke er tilfældet for den største del af brugerne), vil brug af standardspejlet "
+"for dit land måske ikke fungere. Alle spejlene i listen kan nås via IPv4, men kun "
+"nogle af dem kan bruges via IPv6. Da forbindelsen for individuelle spejl kan "
+"ændre sig over tid, er denne information ikke tilgængelig i installationsprogrammet. "
+"Hvis der ikke er IPv6-forbindelse for standardspejlet for dit land, så kan du "
+"enten prøve nogle af de andre spejl, du får tilbudt eller du kan vælge "
+"<quote>indtast information manuelt</quote>. Du kan så angive "
+"<quote>ftp.ipv6.debian.org</quote> som spejlnavn, som er et alias for "
+"et spejl tilgængelig via IPv6, selvom det sandsynligvis ikke vil være det "
+"hurtigste."
 
 #. Tag: para
 #: using-d-i.xml:2486
@@ -3825,12 +4028,19 @@ msgid ""
 "network topology. It takes into account by which protocol you connect to it, "
 "i.e. if you use IPv6, it will refer you to an IPv6-capable mirror near you."
 msgstr ""
+"En anden mulighed når du vælger at angive spejlet manuelt at at bruge "
+"<quote>http.debian.net</quote> som dit spejl. <quote>http.debian.net</"
+"quote> er ikke et fysisk spejl, men en tjeneste for spejltildeling, d.v.s. "
+"at det automatisk videresender dit sytsem til et rigtigt spejl tæt på dig "
+"i forhold til netværkstopologi. Det midlertidige spejl tager højde for "
+"hvilken protokol, du forbinder med, d.v.s. hvis du bruger IPv6, så bliver "
+"du sendt til et spejl med IPv6."
 
 #. Tag: title
 #: using-d-i.xml:2505
 #, no-c-format
 msgid "Selecting and Installing Software"
-msgstr ""
+msgstr "Valg af og installation af programmer"
 
 #. Tag: para
 #: using-d-i.xml:2507
@@ -3843,6 +4053,12 @@ msgid ""
 "collections of software to quickly set up your computer to perform various "
 "tasks."
 msgstr ""
+"Under installationsprocessen, får du mulighed for at vælge yderligere "
+"programmer, der skal installeres. Frem for at udvælge individuelle "
+"pakker fra  &num-of-distrib-pkgs; tilgængelige pakker, fokuserer dette "
+"trin af installationsprocessen på at vælge og installere prædefinerede "
+"samlinger af programmer til hurtigt at opsætte din computer, så den kan "
+"udføre forskellige opgaver."
 
 #. Tag: para
 #: using-d-i.xml:2516
@@ -3863,6 +4079,21 @@ msgid ""
 "looking for. </para> </footnote>. <xref linkend=\"tasksel-size-list\"/> "
 "lists the space requirements for the available tasks."
 msgstr ""
+"Så du har mulighed for at vælge <emphasis>tasks</emphasis> først, og "
+"så tilføje en eller flere individuelle pakke senere. Disse opgaver "
+"repræsenterer løst et antal forskellige job eller områder du ønsker at "
+"bruge din computer indenfor, såsom et quote>skrivebordsmiljø</quote>, "
+"<quote>netserver</quote>, eller <quote>udskrivningsserver</quote><footnote>"
+" <para> Du bør vide at for at præsentere denne liste så igangsætter "
+"installationsprogrammet programmet <command>tasksel</command>. Det kan "
+"køres på et senere tidspunkt efter installationen for at installere "
+"yderligere pakker (eller fjerne dem), eller du kan bruge et mere "
+"fintunet værktøj såsom <command>aptitude</command>. Hvis du er på "
+"udkig efter en specifik pakke, så kør <userinput>aptitude "
+"install <replaceable>pakke</replaceable></userinput>, efter installationen, "
+"hvor <replaceable>pakke</replaceable> er navnet på pakken du er på "
+"udkig efter. </para> </footnote>. <xref linkend=\"tasksel-size-list\"/> "
+"viser pladskravet for de tilgængelige opgaver."
 
 #. Tag: para
 #: using-d-i.xml:2543
@@ -3872,6 +4103,10 @@ msgid ""
 "you are installing. If you disagree with these selections you can deselect "
 "them. You can even opt to install no tasks at all at this point."
 msgstr ""
+"Nogle opgaver kan forhåndsvælges baseret på karakteristika i din computer, "
+"når du installerer. Hvis du er uening med disse valg, så kan du fravælge "
+"dem. Du kan også vælge slet ikke at installere nogle opgaver på dette "
+"tidspunkt."
 
 #. Tag: para
 #: using-d-i.xml:2550
@@ -3880,6 +4115,8 @@ msgid ""
 "In the standard user interface of the installer, you can use the space bar "
 "to toggle selection of a task."
 msgstr ""
+"I standardbrugerfladen for installationsprogrammet, kan du bruge mellemrum "
+"til at skifte mellem valg af en opgave."
 
 #. Tag: para
 #: using-d-i.xml:2556
@@ -3888,6 +4125,8 @@ msgid ""
 "The <quote>Desktop environment</quote> task will install a graphical desktop "
 "environment."
 msgstr ""
+"Opgaven <quote>skrivebordsmiljø</quote> vil installere et grafisk "
+"skrivebordsmiljø."
 
 #. Tag: para
 #: using-d-i.xml:2561
@@ -3903,6 +4142,15 @@ msgid ""
 "<literal>desktop=gnome</literal>, <literal>desktop=kde</literal>, "
 "<literal>desktop=lxde</literal> or <literal>desktop=xfce</literal>."
 msgstr ""
+"Som standard installerer &d-i; Xfce-skrivebordsmiljøet. Det er ikke muligt "
+"interaktivt at vælge et andet skrivebordsmiljø under installationen. Det "
+"<emphasis>er</emphasis> dog muligt at få installationsprogrammet til at "
+"installere et andet skrivebordmiljø ved at bruge preseeding (se "
+"<xref linkend=\"preseed-pkgsel\"/>) eller ved at tilføje parameteren "
+"<literal>desktop=navn_på_skrivebordsmiljøet</literal> ved opstartsprompten, "
+"når installationsprogrammet startes. Mulige varianter i dette tilfælde "
+"er <literal>desktop=gnome</literal>, <literal>desktop=kde</literal>, "
+"<literal>desktop=lxde</literal> eller <literal>desktop=xfce</literal>."
 
 #. Tag: para
 #: using-d-i.xml:2575
@@ -3915,6 +4163,13 @@ msgid ""
 "Select the <quote>Advanced options</quote> option in the main menu and look "
 "for <quote>Alternative desktop environments</quote>."
 msgstr ""
+"Hvis du bruger en af de specielle GNOME-, KDE- eller LXDE-varianter som "
+"første cd i det fulde cd-sæt, så installerer installationsprogrammet "
+"det respektive skrivebordsmiljø i stedet for standarden. Nogle cd-aftryk "
+"(netinst og dvd) tillader også valg af det ønskede skrivebordsmiljø fra "
+"den grafiske opstartsmenu. Vælg tilvalget <quote>Avancerede "
+"indstillinger</quote> i hovedmenuen og kig efter <quote>alternative "
+"skrivebordsmiljøer</quote>."
 
 #. Tag: para
 #: using-d-i.xml:2586
@@ -3928,6 +4183,13 @@ msgid ""
 "should work fine if you are using a DVD image or any other installation "
 "method."
 msgstr ""
+"Bemærk at dette kun vil fungere hvis pakkerne krævet for det ønskede "
+"skrivebordsmiljø er tilgængelige. Hvis du installerer fra et enkelt "
+"cd-aftryk, så vil miljøet sandsynligvis skulle hentes fra et netværksspejl, "
+"da nogle af de krævede pakker til dit valg kun er inkluderet på efterfølgende "
+"cd'er. Installation af alle de tilgængelige skrivebordsmiljøer på denne "
+"måde bør fungere fint, hvis du bruger et dvd-aftryk eller en anden "
+"installationsmetode."
 
 #. Tag: para
 #: using-d-i.xml:2596
@@ -3941,6 +4203,13 @@ msgid ""
 "<classname>postgresql</classname>; Web server: <classname>apache2</"
 "classname>."
 msgstr ""
+"De forskellige serveropgaver vil installere programmer omtrentlig således. "
+"DNS-server: <classname>bind9</classname>; filserver: <classname>samba</"
+"classname>, <classname>nfs</classname>; postserver: <classname>exim4</"
+"classname>, <classname>spamassassin</classname>, <classname>uw-imap</"
+"classname>; udskrivningsserver: <classname>cups</classname>; SQL-database: "
+"<classname>postgresql</classname>; netserver: <classname>apache2</"
+"classname>."
 
 #. Tag: para
 #: using-d-i.xml:2607
@@ -3952,6 +4221,11 @@ msgid ""
 "this task selected unless you know what you are doing and want a really "
 "minimal system."
 msgstr ""
+"Opgaven <quote>standardsystem</quote> vil installere alle pakker som har "
+"prioriteten <quote>standard</quote>. Dette inkluderer en masse fælles "
+"redskaber, som normalt er tilgængelige på alle Linx- eller Unix-systemer. "
+"Du bør efterlade denne opgave valgt med mindre du ved hvad du laver og "
+"ønsker et virkeligt minimalt system."
 
 #. Tag: para
 #: using-d-i.xml:2615
@@ -3965,6 +4239,13 @@ msgid ""
 "environment was selected, it will also install appropriate localization "
 "packages for that (if available)."
 msgstr ""
+"Hvis der under sprogvalget blev valgt et andet sprog end <quote>C</"
+"quote>, så vil <command>tasksel</command> kontrollere om der er "
+"oversættelsesopgaver defineret for det sprog og vil automatisk forsøge "
+"at installere relevante oversættelsespakker. Dette inkluderer for "
+"eksempel pakker, der indeholder ordlister eller specielle skrifttyper for "
+"dit sprog. Hvis et skrivebordsmiljø blev valgt, så vil de dertilhørende "
+"oversættelsespakker også blive installeret (hvis tilgængelige)."
 
 #. Tag: para
 #: using-d-i.xml:2625
@@ -3975,6 +4256,10 @@ msgid ""
 "selected tasks. If a particular program needs more information from the "
 "user, it will prompt you during this process."
 msgstr ""
+"Når du har valgt dine opgaver, så vælg &BTN-CONT;. På dette tidspunkt, "
+"vil <command>aptitude</command> installere pakkerne, som er en del af "
+"de valgte opgaver. Hvis et bestemt program kræver yderligere information "
+"fra brugeren, vil programmet spørge brugeren under denne proces."
 
 #. Tag: para
 #: using-d-i.xml:2632
@@ -3987,6 +4272,12 @@ msgid ""
 "connection, this can take a long time. There is no option to cancel the "
 "installation of packages once it has started."
 msgstr ""
+"Du skal være opmærksom på, at specielt skrivebordsopgaven er meget stor. "
+"Specielt når der installeres fra en normal cd-rom i kombination med et "
+"spejl for pakker, der ikke er på cd-rom'en, installationsprogrammet skal "
+"måske hente en masse pakker over netværket. Hvis du har en relativ langsom "
+"internetforbindelse, kan det tage lang tid. Der er ingen mulighed for at "
+"afbryde installationen af pakker, når først den er startet."
 
 #. Tag: para
 #: using-d-i.xml:2641
@@ -3999,12 +4290,18 @@ msgid ""
 "original stable release); if you are installing the testing distribution "
 "this will happen if you are using an older image."
 msgstr ""
+"Selv når pakker er inkluderet på cd-rom'en, så kan installationsprogrammet "
+"stadig finde på at hente fra spejlet, hvis versionen tilgængelig på spejlet "
+"er nyere end den inkluderet på cd'rom'en. Hvis du installerer den stabile "
+"distribution, kan dette ske efter en punktudgivelse (en opdatering af den "
+"oprindelige stabile udgivelse); hvis du installerer fra testdistributionen "
+"vil dette ske hvis du bruger et ældre aftryk."
 
 #. Tag: title
 #: using-d-i.xml:2656
 #, no-c-format
 msgid "Making Your System Bootable"
-msgstr ""
+msgstr "Sikring af at dit system kan startes op"
 
 #. Tag: para
 #: using-d-i.xml:2658
@@ -4015,12 +4312,17 @@ msgid ""
 "arch=\"sparc\">You may wish to set OpenBoot to boot from the network by "
 "default; see <xref linkend=\"boot-dev-select-sun\"/>.</phrase>"
 msgstr ""
+"Hvis du installerer en diskløs arbejdsstation, er opstart fra den lokale "
+"disk af indlysende årsager ikke en meningsfuld valgmulighed, og dette trin "
+"vil blive udeladt <phrase arch=\"sparc\">Du kan eventuelt angive at OpenBoot "
+"skal starte fra netværket som standard; se <xref "
+"linkend=\"boot-dev-select-sun\"/>.</phrase>"
 
 #. Tag: title
 #: using-d-i.xml:2673
 #, no-c-format
 msgid "Detecting other operating systems"
-msgstr ""
+msgstr "Detektering af andre operativsystemer"
 
 #. Tag: para
 #: using-d-i.xml:2675
@@ -4032,6 +4334,11 @@ msgid ""
 "loader installation step, and the computer will be configured to boot this "
 "other operating system in addition to &debian;."
 msgstr ""
+"Før en opstartsindlæser installeres, vil installationsprogrammet forsøge "
+"at kigge efter andre operativsystemer, som er installeret på maskinen. Hvis "
+"det finder et understøttet operativsystem, vil du blive informeret om dette "
+"under opstartsindlæserens installationstrin, og computeren vil blive "
+"konfigureret til at starte disse andre operativsystmer udover &debian;."
 
 #. Tag: para
 #: using-d-i.xml:2683
@@ -4043,12 +4350,18 @@ msgid ""
 "by subarchitecture. If it does not work you should consult your boot "
 "manager's documentation for more information."
 msgstr ""
+"Bemærk at flere opstartende operativsystemer på en enkel maskine stadig er "
+"lidt af en magisk kunstart. Den automatiske understøttelse for detektering "
+"og opsætning af opstartsindlæsere til at starte andre operativsystemer "
+"varierer per arkitektur og selv per underarkitektur. Hvis det ikke fungerer "
+"bør du konsultere din opstartshåndterings dokumentation for yderligere "
+"information."
 
 #. Tag: title
 #: using-d-i.xml:2701
 #, no-c-format
 msgid "<command>palo</command>-installer"
-msgstr ""
+msgstr "<command>palo</command>-installationsprogrammet"
 
 #. Tag: para
 #: using-d-i.xml:2702
@@ -4090,6 +4403,9 @@ msgid ""
 "it will take over complete control of the boot process. If you prefer, you "
 "can install it elsewhere. See the grub manual for complete information."
 msgstr ""
+"Som standard vil grub blive installeret i Master Boot Record (MBR), hvor "
+"det vil tage fuld kontrol over opstartsprocessen. Hvis du foretrækker det, "
+"kan du installere grub et andet sted. Se grubs manual for information."
 
 #. Tag: para
 #: using-d-i.xml:2737
@@ -4119,6 +4435,11 @@ msgid ""
 "the directory <filename>/usr/share/doc/lilo/</filename> if you have special "
 "needs; also see the <ulink url=\"&url-lilo-howto;\">LILO mini-HOWTO</ulink>."
 msgstr ""
+"Den anden &architecture;-opstartsindlæser kaldes for <quote>LILO</quote>. Det "
+"er et gammelt komplekst program, som tilbyder en masse funktionalitet, "
+"inklusive DOS-, Windows- og OS/2-opstartshåndtering. Læs venligst instruktionerne "
+"omhyggeligt i mappen <filename>/usr/share/doc/lilo/</filename> hvis du har "
+"specielle behov; se også <ulink url=\"&url-lilo-howto;\">LILO mini-HOWTO</ulink>."
 
 #. Tag: para
 #: using-d-i.xml:2762
