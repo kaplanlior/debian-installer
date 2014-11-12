@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: installation-guide using d-i\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2014-10-05 18:15+0000\n"
-"PO-Revision-Date: 2014-11-11 10:40+0100\n"
+"PO-Revision-Date: 2014-11-12 10:40+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -4487,6 +4487,9 @@ msgid ""
 "will install itself at the beginning of the new &debian; partition and it "
 "will serve as a secondary boot loader."
 msgstr ""
+"Vælg denne hvis du ønsker at bruge en anden opstartshåndtering. <command>LILO"
+"</command> vil installere sig selv i begyndelsen af den nye &debian;-partition "
+"og den vil fungere som en sekundær opstartsindlæser."
 
 #. Tag: term
 #: using-d-i.xml:2793
@@ -4503,6 +4506,10 @@ msgid ""
 "use traditional device names such as <filename>/dev/hda</filename> or "
 "<filename>/dev/sda</filename>."
 msgstr ""
+"Nyttig for avancerede brugere, som ønsker at installere <command>LILO</command> "
+"et andet sted. I dette tilfælde vil du blive spurgt om den ønskede placering. "
+"Du kan bruge traditionelle enhedsnavne såsom <filename>/dev/hda</filename> eller "
+"<filename>/dev/sda</filename>."
 
 #. Tag: para
 #: using-d-i.xml:2803
@@ -4514,6 +4521,11 @@ msgid ""
 "however, this means that you'll need to use some other way to get back into "
 "&debian;!"
 msgstr ""
+"Hvis du ikke længere kan starte op i Windows 9x (eller DOS) efter dette "
+"trin, så skal du bruge en Windows 9x (MS-DOS) opstartsdisk og bruge "
+"kommandoen <userinput>fdisk /mbr</userinput> til at geninstallere MS-DOS-"
+"masteropstartsposten &mdash; dette betyder dog at du skal bruge en anden "
+"måde at komme tilbage til &debian;!"
 
 #. Tag: title
 #: using-d-i.xml:2819
@@ -4537,6 +4549,17 @@ msgid ""
 "into the EFI partition and then run by the <quote>EFI Boot Manager</quote> "
 "to do the actual work of loading and starting the Linux kernel."
 msgstr ""
+"&architecture;-opstartsindlæseren kaldes for <quote>elilo</quote>. Den er "
+"modelleret efter <quote>lilo</quote>-opstartsindlæseren for x86-arkitekturen "
+"og bruger en lignende konfigurationsfil. I stedet for at skrive en MBR eller "
+"partitionsopstartspost til disken, så kopierer den de nødvendige filer til en "
+"separat FAT-formateret diskpartition og ændrer meuen <guimenuitem>EFI Boot "
+"Manager</guimenuitem> i formwaren til at pege på filerne i EFI-partitionen. "
+"Opstartsindlæseren <command>elilo</command> er reelt i to dele. Kommandoen "
+"<filename>/usr/sbin/elilo</filename> håndterer partitionen og kopier filer "
+"til den. Programmet <filename>elilo.efi</filename> kopieres til EFI-"
+"partitionen og køres så af <quote>EFI Boot Manager</quote> for at udføre "
+"det faktiske arbejde med at indlæse og starte Linux-kernen."
 
 #. Tag: para
 #: using-d-i.xml:2837
@@ -4549,6 +4572,12 @@ msgid ""
 "installation, typically a partition on the same disk that contains your "
 "<emphasis>root</emphasis> filesystem."
 msgstr ""
+"Konfigurationen og installationen af <quote>elilo</quote> udføres som det "
+"sidste trin i installationen af pakkerne for basisinstallationen. &d-i; "
+"vil præsentere dig for en liste med potentielle diskpartitioner, som den "
+"har fundet egent for en EFI-partition. Vælg partitionen du opsatte tidligere "
+"i installationen, typisk en partition på den samem disk, som indeholder dit "
+"<emphasis>root</emphasis>-filsystem."
 
 #. Tag: title
 #: using-d-i.xml:2849
@@ -4567,6 +4596,12 @@ msgid ""
 "diagnostic partitions. Remember, <command>elilo</command> may format the "
 "partition during the installation, erasing any previous contents!"
 msgstr ""
+"Kriteriet for valg af en partition er at den skal være et FAT-formateret "
+"filsystem med flaget <emphasis>boot</emphasis> angivet. &d-i; kan vise "
+"flere valg afhængig af hvad den finder fra skanningen af alle diskene "
+"i systemet inklusive EFT-partitioner for andre systemdiske og EFI-"
+"diagnostikpartitioner. Husk, <command>elilo</command> kan formatere "
+"partitionen under installationen, hvormed alt tidligere indhold slettes!"
 
 #. Tag: title
 #: using-d-i.xml:2866
@@ -4591,6 +4626,17 @@ msgid ""
 "be other files in this filesystem as well over time as the system is updated "
 "or re-configured."
 msgstr ""
+"EFI-partitionen er en formatpartition med FAT-filsystemet på en af harddiskene "
+"i systemet, normalt den samme disk som indeholder <emphasis>root</"
+"emphasis>-filsystemet. Det monteres normalt på et kørende system da det "
+"kun er krævet af <quote>EFI Boot Manager</quote> til at indlæse systemet og "
+"installatonsdelen af <command>elilo</command> skriver til filsystemet direkte. "
+"Redskabet <command>/usr/sbin/elilo</command> skriver de følgende filer til mappen "
+"<filename>efi/debian</filename> i EFI-partitionen under installationen. Bemærk "
+"at <quote>EFI Boot Manager</quote> finder disse filer via stien "
+"<filename>fs<replaceable>n</replaceable>:\\efi\\debian</filename>. Der kan også "
+"være andre fler i dette filsystem efterhånden som systemet opdateres eller "
+"konfigureres om."
 
 #. Tag: filename
 #: using-d-i.xml:2890
@@ -4606,6 +4652,9 @@ msgid ""
 "a copy of the <filename>/etc/elilo.conf</filename> with the filenames re-"
 "written to refer to files in the EFI partition."
 msgstr ""
+"Dette er konfigurationsfilen læst af opstartsindlæseren når den starter. Det "
+"er en kopi af <filename>/etc/elilo.conf</filename> med filnavnene omskrevet "
+"til at referere til filer i EFI-partitionen."
 
 #. Tag: filename
 #: using-d-i.xml:2900
@@ -4622,6 +4671,9 @@ msgid ""
 "GNU/Linux</guimenuitem> menu item of the <quote>EFI Boot Manager</quote> "
 "command menu."
 msgstr ""
+"Dette er opstartsindlæseren som  <quote>EFI Boot Manager</quote> kører "
+"for at starte systemet op. Det er et program bag menupunktet <guimenuitem>&debian; "
+"GNU/Linux</guimenuitem> for kommandomenuen <quote>EFI Boot Manager</quote>."
 
 #. Tag: filename
 #: using-d-i.xml:2911
@@ -4638,6 +4690,10 @@ msgid ""
 "standard &debian; installation it would be the file in <filename>/boot</"
 "filename> pointed to by the symbolic link <filename>/initrd.img</filename>."
 msgstr ""
+"Dette er det oprindelige root-filsystem brugt til at starte kernen op. Det er "
+"en kopi af filen refereret i <filename>/etc/elilo.conf</filename>. I en "
+"standardinstallation for &debian; vil det være filen i <filename>/boot</"
+"filename> der peger på den symbolske henvisning <filename>/initrd.img</filename>."
 
 #. Tag: filename
 #: using-d-i.xml:2924
@@ -4653,6 +4709,9 @@ msgid ""
 "managed by the <command>elilo</command> and that any local changes would be "
 "lost at the next time <filename>/usr/sbin/elilo</filename> is run."
 msgstr ""
+"Der er en lille tekstfil, der advarer dig om at indholdet af mappen "
+"håndteres af <command>elilo</command> og at alle lokale ændringer vil blive "
+"tabt næste gang <filename>/usr/sbin/elilo</filename> køres."
 
 #. Tag: filename
 #: using-d-i.xml:2935
@@ -4669,6 +4728,10 @@ msgid ""
 "installation it would be the file in <filename>/boot</filename> pointed to "
 "by the symbolic link <filename>/vmlinuz</filename>."
 msgstr ""
+"Dette er selve den komprimrede kerne. Det er en kopi af filen refereret i "
+"<filename>/etc/elilo.conf</filename>. I en standardinstallation af &debian; "
+"er det filen i <filename>/boot</filename> der peges mod af den symbolske "
+"henvisning <filename>/vmlinuz</filename>."
 
 #. Tag: title
 #: using-d-i.xml:2956
@@ -4702,6 +4765,27 @@ msgid ""
 "</screen></informalexample> on the firmware prompt, and then typing "
 "<command>boot</command>."
 msgstr ""
+"Opstartsindlæseren på SGI-maskiner er <command>arcboot</command>. Den skal "
+"installeres på den samme harddisk som kernen (dette gøres automatisk af "
+"installationsprogrammet). Arcboot understøtter forskellige konfigurationer "
+"som opsættes i <filename>/etc/arcboot.conf</filename>. Hver konfiguration "
+"har et unikt navn, standardopsætningen, som oprettet af installationsprogrammet, "
+"er <quote>linux</quote>. Efter arcboot er blevet installeret, kan systemet "
+"starte fra harddisken ved at opsætte nogle firmwaremiljøvariabler "
+"<informalexample><screen>\n"
+"<userinput> setenv SystemPartition scsi(<replaceable>scsi</"
+"replaceable>)disk(<replaceable>disk</replaceable>)rdisk(0)partition(0)</"
+"userinput>\n"
+"<userinput> setenv OSLoadPartition scsi(<replaceable>scsi</"
+"replaceable>)disk(<replaceable>disk</"
+"replaceable>)rdisk(0)partition(<replaceable>partnr</replaceable>)</"
+"userinput>\n"
+"<userinput> setenv OSLoader arcboot</userinput>\n"
+"<userinput> setenv OSLoadFilename <replaceable>config</replaceable></"
+"userinput>\n"
+"<userinput> setenv AutoLoad yes</userinput>\n"
+"</screen></informalexample> på firmwareprompten, og så taste "
+"<command>boot</command>."
 
 #. Tag: replaceable
 #: using-d-i.xml:2976
@@ -4716,6 +4800,8 @@ msgid ""
 "is the SCSI bus to be booted from, this is <userinput>0</userinput> for the "
 "onboard controllers"
 msgstr ""
+"er SCSI-bussen der skal startes fra, dette er <userinput>0</userinput> for "
+"onboard-controllerne"
 
 #. Tag: replaceable
 #: using-d-i.xml:2985
@@ -4783,6 +4869,14 @@ msgid ""
 "successfully then your disk should now be bootable and OpenFirmware will be "
 "set to boot &debian-gnu;."
 msgstr ""
+"Nyere (midten af 1998 og fremad) PowerMacs bruger <command>yaboot</command> "
+"som deres opstartsindlæser. Installationsprogrammet vil opsætte "
+"<command>yaboot</command> automatisk, så al du skal bruge er en lille "
+"820k partition navngivet <quote>bootstrap</quote> med typen "
+"<emphasis>Apple_Bootstrap</emphasis> oprettet tilbage i "
+"partitioneringskomponenten. Hvis dette trin afsluttes med succes, så kan der "
+"nu startes op fra din disk og OpenFirmware vil være sat til at starte "
+"&debian-gnu; op."
 
 #. Tag: title
 #: using-d-i.xml:3044
@@ -4799,6 +4893,11 @@ msgid ""
 "<command>quik</command> automatically. The setup has been known to work on "
 "7200, 7300, and 7600 Powermacs, and on some Power Computing clones."
 msgstr ""
+"Opstartsindlæseren for OldWorld Poser Macintosh-maskiner er <command>quik</"
+"command>. Du kan også bruge den på CHRP. Installationsprogrammet vil "
+"forsøge at opsætte <command>quik</command> automatisk. Opsætningen vides "
+"at fungere på 7200, 7300 og 7600 Powermacs, og på nogle Power Computing-"
+"kloner."
 
 #. Tag: title
 #: using-d-i.xml:3061
@@ -4816,6 +4915,11 @@ msgid ""
 "Device Drivers and Installation Commands</quote> from IBM's developerWorks "
 "web site if you want to know more about <command>ZIPL</command>."
 msgstr ""
+"Opstartsindlæseren på &arch-title; er <quote>zipl</quote>. <command>ZIPL</"
+"command> er ens i konfiguration og brug i forhold til <command>LILO</command>, "
+"med nogle få undtagelser. Tag venligst et blik på <quote>LINUX for &arch-title; "
+"Device Drivers and Installation Commands</quote> fra IBM's developerWorks-"
+"hjemmeside, hvis du ønsker at vide mere om <command>ZIPL</command>."
 
 #. Tag: title
 #: using-d-i.xml:3079
