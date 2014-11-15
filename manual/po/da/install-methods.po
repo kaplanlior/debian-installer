@@ -1095,6 +1095,13 @@ msgid ""
 "editing a text file. Any operating system which supports the FAT file system "
 "can be used to make changes to the configuration of the boot loader."
 msgstr ""
+"For at starte kernen efter opstart fra USB-drevet, vil vi placere en "
+"opstartsindlæser på drevet. Selvom enhver opstartsindlæser (f.eks. "
+"<classname>lilo</classname>) bør fungere, er det nemt at bruge "
+"<classname>syslinux</classname>, da den bruger en FAT16-partition og kan "
+"konfigureres om ved bare at redigere en tekstfil. Ethvert operativsystem "
+"som understøtter FAT-filsystemet kan bruges til at lave ændringer til "
+"konfigurationen af opstartsindlæseren."
 
 #. Tag: para
 #: install-methods.xml:733
@@ -1139,6 +1146,16 @@ msgid ""
 "please note that <classname>syslinux</classname> can only process DOS (8.3) "
 "file names."
 msgstr ""
+"Monter partitionen (<userinput>mount /dev/<replaceable>sdX1</replaceable> /"
+"mnt</userinput>) og kopier de følgende installationsaftryksfiler til drevet: "
+"<itemizedlist> <listitem><para> <filename>vmlinuz</filename> eller "
+"<filename>linux</filename> (kernel binary) </para></listitem> "
+"<listitem><para> <filename>initrd.gz</filename> (initial ramdisk image) </"
+"para></listitem> </itemizedlist> Du kan vælge mellem enten den tekstbaserede "
+"eller grafiske version af installationsprogrammet. Den sidste kan findes "
+"i undermappen <filename>gtk</filename>. Hvis du ønsker at omdøbe filerne, "
+"så bemærk venligst at <classname>syslinux</classname> kun kan behandle DOS-"
+"filnavne (8.3)."
 
 #. Tag: para
 #: install-methods.xml:775
@@ -1155,6 +1172,16 @@ msgid ""
 "<userinput>vga=788</userinput> to the second line. Other parameters can be "
 "appended as desired."
 msgstr ""
+"Derefter bør du oprette en konfigurationsfil <filename>syslinux.cfg</filename>, "
+"der som minimum skal indeholde de to følgende linjer (ændr navnet på kernens "
+"binær fil til <quote><filename>linux</filename></quote> hvis du brugte et "
+"<filename>netboot</filename>-aftryk: "
+"<informalexample><screen>\n"
+"default vmlinuz\n"
+"append initrd=initrd.gz\n"
+"</screen></informalexample> For det grafiske installationsprogram bør du "
+"tilføje <userinput>vga=788</userinput> til den anden linje. Andre parametre "
+"kan tilføjes som ønsket."
 
 #. Tag: para
 #: install-methods.xml:787
@@ -1163,6 +1190,8 @@ msgid ""
 "To enable the boot prompt to permit further parameter appending, add a "
 "<userinput>prompt 1</userinput> line."
 msgstr ""
+"For at aktivere opstartsprompten til at acceptere yderligere parametertilføjelse, "
+"tilføjes en linje <userinput>prompt 1</userinput>."
 
 #. Tag: para
 #: install-methods.xml:792 install-methods.xml:902
@@ -1176,6 +1205,13 @@ msgid ""
 "onto the stick. When you are done, unmount the USB memory stick "
 "(<userinput>umount /mnt</userinput>)."
 msgstr ""
+"Hvis du anvendte et <filename>hd-media</filename>-aftryk, så bør du kopiere "
+"ISO-filen for et &debian;-ISO-aftryk<footnote> <para> Du kan bruge enten en "
+"netinst eller et fuld cd-aftryk (se <xref linkend=\"official-cdrom\"/>). Vær "
+"sikker på at vælge et som passer. Bemærk at <quote>netboot <filename>mini.iso</"
+"filename></quote>-aftrykket ikke er brugbar til dette formål. </para> </footnote> "
+"ned på drevet. Når du er færdig, afmonter USB-drevet (<userinput>umount "
+"/mnt</userinput>)."
 
 #. Tag: para
 #: install-methods.xml:816
@@ -1194,6 +1230,18 @@ msgid ""
 "for your USB stick. The <command>hformat</command> command is contained in "
 "the <classname>hfsutils</classname> &debian; package."
 msgstr ""
+"De fleste USB-drev er ikke prækonfigurerede på en sådan måde at Open Firmware "
+"kan starte op fra dem, så du skal partitionere drevet om. På Mac-systemer, "
+"kør <userinput>mac-fdisk /dev/<replaceable>sdX</replaceable></"
+"userinput>, initialiser et nyt partitionskort via kommandoen <userinput>i</"
+"userinput>, og opret en ny partition af typen Apple_Bootstrap via kommandoen "
+"<userinput>C</userinput>. (Bemærk at den første »partition« altid vil være "
+"selve partitionskortet). Tast så "
+"<informalexample><screen>\n"
+"$ hformat /dev/<replaceable>sdX2</replaceable>\n"
+"</screen></informalexample> Sikr dig, at du bruger det korrekte enhedsnavn "
+"på dit USB-drev. Kommandoen <command>hformat</command> er indeholdt i "
+"&debian;-pakken <classname>hfsutils</classname>."
 
 #. Tag: para
 #: install-methods.xml:833
@@ -1205,6 +1253,11 @@ msgid ""
 "text file. Any operating system which supports the HFS file system can be "
 "used to make changes to the configuration of the boot loader."
 msgstr ""
+"For at starte kernen efter opstart fra USB-drevet, vil vi placere en "
+"opstartsindlæser på drevet. Opstartsindlæseren <command>yaboot</command> "
+"kan installeres på et HFS-filsystem og kan konfigureres om ved bare at "
+"redigere en tekstfil. Alle operativsystemer som understøtter HFS-filsystemet "
+"kan bruges til at udføre ændringer til konfigurationen af opstartsindlæseren."
 
 #. Tag: para
 #: install-methods.xml:842
@@ -1226,6 +1279,20 @@ msgid ""
 "done this, the rest of the USB stick may be prepared using the normal Unix "
 "utilities."
 msgstr ""
+"Det normale værktøj command>ybin</command>, som følger med <command>yaboot</"
+"command> forstår endnu ikke USB-lagerenheder, så du skal installere "
+"<command>yaboot</command> manuelt via <classname>hfsutils</"
+"classname>-værktøjerne. Tast <informalexample><screen>\n"
+"$ hmount /dev/<replaceable>sdX2</replaceable>\n"
+"$ hcopy -r /usr/lib/yaboot/yaboot :\n"
+"$ hattrib -c UNIX -t tbxi :yaboot\n"
+"$ hattrib -b :\n"
+"$ humount\n"
+"</screen></informalexample> Sikr dig, at du bruger det korrekte enhedsnavn. "
+"Partitionen må ikke på anden vis monteres under denne procedure. Denne "
+"procedure skriver opstartsindlæseren til partitionen, og bruger HFS-redskaberne "
+"til at markere den på en måde så at Open Firmware vil starte den op. Når dette "
+"er gjort kan resten af USB-drevet forberedes med normale UNIX-redskaber."
 
 #. Tag: para
 #: install-methods.xml:863
@@ -1234,6 +1301,8 @@ msgid ""
 "Mount the partition (<userinput>mount /dev/<replaceable>sdX2</replaceable> /"
 "mnt</userinput>) and copy the following installer image files to the stick:"
 msgstr ""
+"Monter partitionen (<userinput>mount /dev/<replaceable>sdX2</replaceable> /"
+"mnt</userinput>) og kopier de følgende installationsaftryksfiler til drevet:"
 
 #. Tag: para
 #: install-methods.xml:870
@@ -1279,6 +1348,21 @@ msgid ""
 "userinput> parameter may need to be increased, depending on the image you "
 "are booting."
 msgstr ""
+"Konfigurationsfilen <filename>yaboot.conf</filename> bør indeholder de "
+"følgende linjer: <informalexample><screen>\n"
+"default=install\n"
+"root=/dev/ram\n"
+"\n"
+"message=/boot.msg\n"
+"\n"
+"image=/vmlinux\n"
+"        label=install\n"
+"        initrd=/initrd.gz\n"
+"        initrd-size=10000\n"
+"        read-only\n"
+"</screen></informalexample> Bemærk venligst at parameteren <userinput>"
+"initrd-size</userinput> måske skal øges, afhængig af aftrykket du "
+"indlæser."
 
 #. Tag: title
 #: install-methods.xml:930
@@ -1294,6 +1378,10 @@ msgid ""
 "drive partition, either launched from another operating system or by "
 "invoking a boot loader directly from the BIOS."
 msgstr ""
+"Installationsprogrammet kan startes ved at bruges opstartsfiler placeret "
+"på en eksisterende harddiskpartition, enten startet fra et andet "
+"operativsystem eller ved at igangsætte en opstartsindlæser direkte "
+"fra BIOS'en."
 
 #. Tag: para
 #: install-methods.xml:937
@@ -1304,6 +1392,10 @@ msgid ""
 "burning CD images or struggling with too numerous and unreliable floppy "
 "disks."
 msgstr ""
+"En fuld, <quote>ren netværksinstallation</quote> kan opnås via denne "
+"teknik. Dette undgår alle problemerne forbundet med eksterne medier, såsom "
+"af finde og brænde cd-aftryk eller kæmpe med for mange og utroværdige "
+"disketter."
 
 #. Tag: para
 #: install-methods.xml:944
@@ -1318,6 +1410,14 @@ msgid ""
 "order to exchange files between MacOS and Linux, in particular the "
 "installation files you download."
 msgstr ""
+"Installationsprogrammet kan ikke starte op fra filer på et HFS+-filsystem. "
+"MacOS System 8.1 og senere kan bruge HFS+-filsystemer; NewWorld PowerMacs "
+"bruger alle HFS+. For at bestemme om dit eksisterende filsystem er HFS+, "
+"vælges <userinput>Hent information</userinput> for diskenheden. HFS-filsystemet "
+"fremstår som <userinput>Mac OS Standard</userinput>, mens HFS+-filsystemet "
+"er <userinput>Mac OS Extended</userinput>. Du skal have en HFS-partition "
+"for at udtrække filer mellem MacOS og Linux, specielt installationsfilerne "
+"du hentede."
 
 #. Tag: para
 #: install-methods.xml:955
@@ -1327,6 +1427,9 @@ msgid ""
 "depending on whether the system is a <quote>NewWorld</quote> or an "
 "<quote>OldWorld</quote> model."
 msgstr ""
+"Forskellige programmer bruges til systemopstart af installationen fra "
+"harddisk afhængig af om systemet er <quote>NewWorld</quote> eller "
+"<quote>OldWorld</quote>."
 
 #. Tag: title
 #: install-methods.xml:964
@@ -1345,6 +1448,9 @@ msgid ""
 "This section explains how to add to or even replace an existing linux "
 "installation using either <command>LILO</command> or <command>GRUB</command>."
 msgstr ""
+"Dette afsnit forklarer hvordan du tilføjer eller erstatter en eksisterende "
+"Linux-installation via enten <command>LILO</command> eller <command>GRUB"
+"</command>."
 
 #. Tag: para
 #: install-methods.xml:972
@@ -1354,6 +1460,9 @@ msgid ""
 "kernel, but also a disk image. This RAM disk can be used as the root file-"
 "system by the kernel."
 msgstr ""
+"Ved opstart, understøtter begge opstartsindlæsere indlæsning i hukommelse "
+"ikke kun af kernen, men også af et diskaftryk. Denne RAM-disk kan bruges "
+"som rodfilsystem af kernen."
 
 #. Tag: para
 #: install-methods.xml:978
@@ -1363,6 +1472,9 @@ msgid ""
 "on your hard drive (note that LILO can not boot from files on an NTFS file "
 "system), for instance to <filename>/boot/newinstall/</filename>."
 msgstr ""
+"Kopier de følgende filer fra &debian;-arkiverne til en passende placering "
+"på din harddisk (bemærk at LILO ikke kan starte op fra filer på et "
+"NFTS-filsystem), for eksempel <filename>/boot/newinstall/</filename>."
 
 #. Tag: para
 #: install-methods.xml:986
@@ -1390,7 +1502,7 @@ msgstr ""
 #: install-methods.xml:1008
 #, no-c-format
 msgid "Hard disk installer booting from DOS using <command>loadlin</command>"
-msgstr ""
+msgstr "Harddiskinstallationen starter op fra DOS med <command>loadlin</command>"
 
 #. Tag: para
 #: install-methods.xml:1009
@@ -1399,6 +1511,8 @@ msgid ""
 "This section explains how to prepare your hard drive for booting the "
 "installer from DOS using <command>loadlin</command>."
 msgstr ""
+"Dette afsnit forklarer hvordan du forbereder din harddisk til at starte "
+"installationsprogrammet op fra DOS med <command>loadlin</command>."
 
 #. Tag: para
 #: install-methods.xml:1014
@@ -1407,6 +1521,8 @@ msgid ""
 "Copy the following directories from a &debian; CD image to <filename>c:\\</"
 "filename>."
 msgstr ""
+"Kopier de følgende mapper fra et &debian;-cd-aftryk til <filename>c:\\</"
+"filename>."
 
 #. Tag: para
 #: install-methods.xml:1019
@@ -1414,18 +1530,19 @@ msgstr ""
 msgid ""
 "<filename>/&x86-install-dir;</filename> (kernel binary and ramdisk image)"
 msgstr ""
+"<filename>/&x86-install-dir;</filename> (kernens binære fil og ramdiskaftryk)"
 
 #. Tag: para
 #: install-methods.xml:1024
 #, no-c-format
 msgid "<filename>/tools</filename> (loadlin tool)"
-msgstr ""
+msgstr "<filename>/tools</filename> (loadlin-værktøj)"
 
 #. Tag: title
 #: install-methods.xml:1037
 #, no-c-format
 msgid "Hard Disk Installer Booting for OldWorld Macs"
-msgstr ""
+msgstr "Harddiskinstallation med opstart fra OldWorld Macs"
 
 #. Tag: para
 #: install-methods.xml:1038
@@ -1441,6 +1558,15 @@ msgid ""
 "cannot make the hard disk bootable. So <application>BootX</application> is "
 "required on that model."
 msgstr ""
+"Disketten <filename>boot-floppy-hfs</filename> bruger <application>miBoot</"
+"application> til at starte Linux-installation, men <application>miBoot</"
+"application> kan ikke nemt bruges for harddiskopstart. "
+"<application>BootX</application>, startet fra MacOS, understøtter opstart "
+"fra filer placeret på harddisken. <application>BootX</application> kan også "
+"bruges til dual-boot af MacOS og Linux efter din &debian;-installation er "
+"færdig. For Performa 6360 virker det som om, at <command>quik</command> "
+"ikke kan gøre harddisken opstartbar. Så application>BootX</application> "
+"er krævet på den model."
 
 #. Tag: para
 #: install-methods.xml:1051
@@ -1458,12 +1584,23 @@ msgid ""
 "folder. Then place the <filename>Linux Kernels</filename> folder in the "
 "active System Folder."
 msgstr ""
+"Hent og pak <application>BootX</application>-distributionen ud, som er "
+"tilgængelig fra <ulink url=\"&url-powerpc-bootx;\"></ulink>, eller i "
+"mappen <filename>dists/woody/main/disks-powerpc/current/powermac</filename>"
+"på &debian; http/ftp-spejl og officielle &debian;-cd'er. Brug "
+"<application>Stuffit Expander</application> til at udtrække den fra dens "
+"arkiv. Inden i pakken er der en tom mappe kaldt <filename>Linux Kernels</"
+"filename>. Hent <filename>linux.bin</filename> og <filename>ramdisk."
+"image.gz</filename> fra mappen <filename>disks-powerpc/current/powermac</"
+"filename> og placer dem i mappen <filename>Linux Kernels</filename>. "
+"Placer så mappen <filename>Linux Kernels</filename> i den aktive "
+"systemmappe."
 
 #. Tag: title
 #: install-methods.xml:1071
 #, no-c-format
 msgid "Hard Disk Installer Booting for NewWorld Macs"
-msgstr ""
+msgstr "Harddiskinstallation med opstart fra NewWorld Macs"
 
 #. Tag: para
 #: install-methods.xml:1072
@@ -1477,6 +1614,14 @@ msgid ""
 "appropriate for newer machines without floppy drives. <command>BootX</"
 "command> is not supported and must not be used on NewWorld PowerMacs."
 msgstr ""
+"NewWorld PowerMacs understøtter opstart fra et netværk eller en ISO9660-cd-"
+"rom, samt indlæsning af ELF's binære filer direkte fra harddisken. Disse "
+"maskiner vil starte Linux direkte via <command>yaboot</command>, som "
+"understøtter indlæsning af en kerne og RAMdisk direkte fra en ext2-"
+"partition, samt som dual-booting med MacOS. Harddiskopstart af "
+"installationsprogrammet er specielt passende for nyere maskiner uden "
+"diskettedrev. <command>BootX</command> er ikke understøttet og må ikke "
+"bruges på NewWorld PowerMacs."
 
 #. Tag: para
 #: install-methods.xml:1083
@@ -1487,30 +1632,34 @@ msgid ""
 "hard drive (this can be accomplished by <keycap>option</keycap>-dragging "
 "each file to the hard drive icon)."
 msgstr ""
+"<emphasis>Kopier</emphasis> (flyt ikke) de følgende fire filer, som du "
+"hentede fra &debian;-arkiverne, til rodniveauet for din harddisk (dette "
+"kan opnås ved <keycap>option</keycap>-trækning af hver fil til "
+"harddiskikonet)."
 
 #. Tag: filename
 #: install-methods.xml:1093 install-methods.xml:1419
 #, no-c-format
 msgid "vmlinux"
-msgstr ""
+msgstr "vmlinux"
 
 #. Tag: filename
 #: install-methods.xml:1098 install-methods.xml:1424
 #, no-c-format
 msgid "initrd.gz"
-msgstr ""
+msgstr "initrd.gz"
 
 #. Tag: filename
 #: install-methods.xml:1103 install-methods.xml:1429
 #, no-c-format
 msgid "yaboot"
-msgstr ""
+msgstr "yaboot"
 
 #. Tag: filename
 #: install-methods.xml:1108 install-methods.xml:1434
 #, no-c-format
 msgid "yaboot.conf"
-msgstr ""
+msgstr "yaboot.conf"
 
 #. Tag: para
 #: install-methods.xml:1113
@@ -1522,18 +1671,25 @@ msgid ""
 "will need this partition number for the command you type at the Open "
 "Firmware prompt when you boot the installer."
 msgstr ""
+"Lav en note om partitionsnummeret for MacOS-partitionen, hvor du placerer "
+"disse filer. Hvis du har MacOS-programmet <command>pdisk</command>, så kan "
+"du bruge kommandoen <command>L</command> til at kontrollere partitionsnummeret. "
+"Du skal bruge dette partitionsnummer i kommandoen du indtaster i Open Firmware-"
+"prompten når du starter installationsprogrammet op."
 
 #. Tag: para
 #: install-methods.xml:1121
 #, no-c-format
 msgid "To boot the installer, proceed to <xref linkend=\"boot-newworld\"/>."
 msgstr ""
+"For at starte installationsprogrammet op, fortsæt til "
+"<xref linkend=\"boot-newworld\"/>."
 
 #. Tag: title
 #: install-methods.xml:1134
 #, no-c-format
 msgid "Preparing Files for TFTP Net Booting"
-msgstr ""
+msgstr "Forberedelse af filer for TFTP-netopstart"
 
 #. Tag: para
 #: install-methods.xml:1135
@@ -1545,6 +1701,12 @@ msgid ""
 "to be placed in specific locations on that machine, and the machine "
 "configured to support booting of your specific machine."
 msgstr ""
+"Hvis din maskine er forbundet på et lokalt områdenetværk, så kan du måske "
+"starte den op over netværket fra en anden maskine, via TFTP. Hvis du har "
+"tænkt dig at starte installationssystemet op fra en anden maskine, så vil "
+"opstartsfilerne skulle placeres på specifikke placeringer på den maskine, "
+"og maskinen skal konfigureres til at understøtte opstart fra din specfikke "
+"maskine."
 
 #. Tag: para
 #: install-methods.xml:1143
@@ -1554,6 +1716,9 @@ msgid ""
 "condition=\"supports-rarp\">, or RARP server</phrase><phrase condition="
 "\"supports-bootp\">, or BOOTP server</phrase>."
 msgstr ""
+"Du skal opsætte en TFTP-server, og for mange maskiner en DHCP-server<phrase "
+"condition=\"supports-rarp\">, eller RARP-server</phrase><phrase condition="
+"\"supports-bootp\">, eller BOOTP-server</phrase>."
 
 #. Tag: para
 #: install-methods.xml:1150
@@ -1567,6 +1732,13 @@ msgid ""
 "(Dynamic Host Configuration Protocol) is a more flexible, backwards-"
 "compatible extension of BOOTP. Some systems can only be configured via DHCP."
 msgstr ""
+"<phrase condition=\"supports-rarp\">The Reverse Address Resolution Protocol "
+"(RARP) er en måde at fortælle din klient, hvilken IP-adresse der skal bruges "
+"internt. En anden måde er at bruge BOOTP-protokollen.</phrase> <phrase condition="
+"\"supports-bootp\">BOOTP er en IP-protokol, som informerer en computer om "
+"dens IP-adresse og hvor på netværket du kan finde et opstartsaftryk.</phrase> "
+"DHcP'en (Dynamic Host Configuration Protocol) er en mere fleksibel, bagud "
+"kompatibel udvidelse af BOOTP. Nogle systemer kan kun konfigureres via DHCP."
 
 #. Tag: para
 #: install-methods.xml:1164
@@ -1576,6 +1748,9 @@ msgid ""
 "idea to use DHCP instead of BOOTP. Some of the latest machines are unable to "
 "boot using BOOTP."
 msgstr ""
+"For PowerPC, hvis du har en NewWorld Power Macintosh-maskine, er det en god "
+"ide at bruge DHCP i stedet for BOOTP. Nogle af de seneste maskiner kan ikke "
+"starte op via BOOTP."
 
 #. Tag: para
 #: install-methods.xml:1170
@@ -1584,6 +1759,8 @@ msgid ""
 "Some older HPPA machines (e.g. 715/75) use RBOOTD rather than BOOTP. There "
 "is an <classname>rbootd</classname> package available in &debian;."
 msgstr ""
+"Nogle ældre HPPA-maskiner (f.eks. 715/75) bruger RBOOTD frem for BOOTP. Der "
+"er en <classname>rbootd</classname>-pakke tilgængelig i &debian;."
 
 #. Tag: para
 #: install-methods.xml:1175
@@ -1594,6 +1771,11 @@ msgid ""
 "these protocols, may be used. In the examples in this section, we shall "
 "provide commands for SunOS 4.x, SunOS 5.x (a.k.a. Solaris), and GNU/Linux."
 msgstr ""
+"Trivial File Transfer Protocol (TFTP) bruges til at levere opstartsaftrykket "
+"til klienten. Teoretisk kan enhver server på enhver platform, som "
+"implementerer disse protokoller, anvendes. I eksemplerne i dette afsnit "
+"angiver vi kommandoer for SunOS 4.x, SunOS 5.x (a.k.a. Solaris) og "
+"GNU/Linux."
 
 #. Tag: para
 #: install-methods.xml:1183
@@ -1604,12 +1786,16 @@ msgid ""
 "bootloader and is therefore least likely to cause issues. A good alternative "
 "is <classname>atftpd</classname>."
 msgstr ""
+"For en &debian-gnu;-server anbefaler vi <classname>tftpd-hpa</classname>. "
+"Den er skrevet af den samme forfatter som opstartsindlæseren "
+"<classname>syslinux</classname> og er derfor den mindst sandsynlige årsag "
+"til problemstillinger. Et godt alternativ er <classname>atftpd</classname>."
 
 #. Tag: title
 #: install-methods.xml:1199
 #, no-c-format
 msgid "Setting up RARP server"
-msgstr ""
+msgstr "Opsætning af en RARP-server"
 
 #. Tag: para
 #: install-methods.xml:1200
@@ -1623,6 +1809,13 @@ msgid ""
 "rescue floppy) and use the command <userinput>ip addr show dev eth0</"
 "userinput>."
 msgstr ""
+"For at opsætte RARP, så skal ud kende Ethernet-adressen (a.k.a. MAC-adressen) "
+"på klientcomputerne der skal installeres på. Hvis du ikke kender denne "
+"information, så kan du <phrase arch=\"sparc\"> samle den op fra de "
+"oprindelige OpenPROM-opstartsbeskeder, brug kommandoen OpenBoot "
+"<userinput>.enet-addr</userinput>, eller </phrase> start op i "
+"<quote>Redningstilstand</quote>(f.eks. fra redningsdisketten) og brug "
+"kommandoen <userinput>ip addr show dev eth0</userinput>."
 
 #. Tag: para
 #: install-methods.xml:1212
@@ -1638,12 +1831,21 @@ msgid ""
 "sbin/in.rarpd -a</userinput> on some other Linux systems, or <userinput>/usr/"
 "etc/rarpd -a</userinput> in SunOS 4 (Solaris 1)."
 msgstr ""
+"På et RARP-serversystem der bruger Linux-kernen eller Solaris/SunOS, skal "
+"du bruge programmet <command>rarpd</command>. Du skal sikre dig, at Ethernettets "
+"udstyrsadresse for klienten vises i databasen <quote>ethers</quote> (enten "
+"i filen <filename>/etc/ethers</filename>, eller via NIS/NIS+) og i databasen "
+"<quote>hosts</quote>. Så skal du starte RARP-dæmonen. Udsted kommandoen "
+"(som root): <userinput>/usr/sbin/rarpd -a</userinput> på de fleste Linux-"
+"systemer og SunOS 5 (Solaris 2), <userinput>/usr/"
+"sbin/in.rarpd -a</userinput> på nogle andre Linux-systemer, eller <userinput>/usr/"
+"etc/rarpd -a</userinput> i SunOS 4 (Solaris 1)."
 
 #. Tag: title
 #: install-methods.xml:1233
 #, no-c-format
 msgid "Setting up a DHCP server"
-msgstr ""
+msgstr "Opsætning af en DHCP-server"
 
 #. Tag: para
 #: install-methods.xml:1234
@@ -1654,6 +1856,10 @@ msgid ""
 "Here is a sample configuration file for it (see <filename>/etc/dhcp/dhcpd."
 "conf</filename>):"
 msgstr ""
+"En fri DHCP-server er ISC <command>dhcpd</command>. For &debian-"
+"gnu; anbefales pakken <classname>isc-dhcp-server</classname>. Her er et "
+"eksempel på en konfigurationsfil for den (se <filename>/etc/dhcp/dhcpd."
+"conf</filename>):"
 
 #. Tag: screen
 #: install-methods.xml:1241
@@ -1679,6 +1885,25 @@ msgid ""
 "  fixed-address 192.168.1.90;\n"
 "}"
 msgstr ""
+"option domain-name \"example.com\";\n"
+"option domain-name-servers ns1.example.com;\n"
+"option subnet-mask 255.255.255.0;\n"
+"default-lease-time 600;\n"
+"max-lease-time 7200;\n"
+"server-name \"servername\";\n"
+"\n"
+"subnet 192.168.1.0 netmask 255.255.255.0 {\n"
+"  range 192.168.1.200 192.168.1.253;\n"
+"  option routers 192.168.1.1;\n"
+"}\n"
+"\n"
+"host clientname {\n"
+"  filename \"/tftpboot.img\";\n"
+"  server-name \"servername\";\n"
+"  next-server servername;\n"
+"  hardware ethernet 01:23:45:67:89:AB;\n"
+"  fixed-address 192.168.1.90;\n"
+"}"
 
 #. Tag: para
 #: install-methods.xml:1243
@@ -1691,6 +1916,12 @@ msgid ""
 "<replaceable>filename</replaceable> option should be the name of the file "
 "which will be retrieved via TFTP."
 msgstr ""
+"I dette eksempel er der en server <replaceable>servername</replaceable> "
+"som udfører al arbejdet på DHCP-serveren, TFTP-serveren og "
+"netværksadgangspunktet. Du har med stor sandsynlighed behov for at ændre "
+"indstillinger for domænenavnet samt servernavnet og klientens udstyrsadresse. "
+"Indstillingen <replaceable>filename</replaceable> skal være navnet på "
+"filen, som hentes via TFTP."
 
 #. Tag: para
 #: install-methods.xml:1253
@@ -1699,6 +1930,8 @@ msgid ""
 "After you have edited the <command>dhcpd</command> configuration file, "
 "restart it with <userinput>/etc/init.d/isc-dhcp-server restart</userinput>."
 msgstr ""
+"Efter du har redigeret konfigurationsfilen <command>dhcpd</command>, så "
+"genstart den med <userinput>/etc/init.d/isc-dhcp-server restart</userinput>."
 
 #. Tag: title
 #: install-methods.xml:1261
@@ -1993,6 +2226,10 @@ msgid ""
 "in <filename>/etc/bootptab</filename> or as the <userinput>filename=</"
 "userinput> option in <filename>/etc/dhcpd.conf</filename>."
 msgstr ""
+"På SGI-maskiner kan du stole på <command>bootpd</command> for at levere "
+"navnet på TFTP-filen. Den angives enten som <userinput>bf=</userinput> "
+"i <filename>/etc/bootptab</filename> eller som <userinput>filename=</"
+"userinput>-tlvalget i <filename>/etc/dhcpd.conf</filename>."
 
 #. Tag: title
 #: install-methods.xml:1608
@@ -2010,6 +2247,11 @@ msgid ""
 "Installer itself. Have a look at the <ulink url=\"http://fai-project.org"
 "\">FAI home page</ulink> for detailed information."
 msgstr ""
+"For installation på flere computere er det muligt at udføre helt automatiske "
+"installationer. &debian;-pakker til dette formål inkluderer <classname>fai-"
+"quickstart</classname> (som kan bruge en installationsserver) og selve "
+"&debian;-installationsprogrammet. Kig på <ulink url=\"http://fai-project.org"
+"\">FAI's hjemmeside</ulink> for detaljeret information."
 
 #. Tag: title
 #: install-methods.xml:1621
@@ -2026,6 +2268,10 @@ msgid ""
 "removable media, and used to fill in answers to questions asked during the "
 "installation process."
 msgstr ""
+"&debian;-installationsprogrammet understøtter automatiske installationer via "
+"prækonfigurationsfiler. En prækonfigurationsfil kan indlæses fra netværket "
+"eller fra et eksternt medie, og bruges til at udfylde svar på spørgsmål stillet "
+"under installationsprocessen."
 
 #. Tag: para
 #: install-methods.xml:1629
