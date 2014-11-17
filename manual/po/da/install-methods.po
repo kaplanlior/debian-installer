@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: d-i-manual_install-methods\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2014-10-05 18:15+0000\n"
-"PO-Revision-Date: 2014-11-03 09:42+0100\n"
+"PO-Revision-Date: 2014-11-17 09:42+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -1937,7 +1937,7 @@ msgstr ""
 #: install-methods.xml:1261
 #, no-c-format
 msgid "Enabling PXE Booting in the DHCP configuration"
-msgstr ""
+msgstr "Aktivering af PXE-opstart i DHCP-konfigurationen"
 
 #. Tag: para
 #: install-methods.xml:1262
@@ -1976,12 +1976,44 @@ msgid ""
 "<filename>pxelinux.0</filename> is a boot loader, not a kernel image (see "
 "<xref linkend=\"tftp-images\"/> below)."
 msgstr ""
+"Her er et andet eksempel for <filename>dhcp.conf</filename>, der rbuger Pre-"
+"boot Execution Environment (PXE)-metoden for TFTP. <informalexample><screen>\n"
+"option domain-name \"example.com\";\n"
+"\n"
+"default-lease-time 600;\n"
+"max-lease-time 7200;\n"
+"\n"
+"allow booting;\n"
+"allow bootp;\n"
+"\n"
+"# The next paragraph needs to be modified to fit your case\n"
+"subnet 192.168.1.0 netmask 255.255.255.0 {\n"
+"  range 192.168.1.200 192.168.1.253;\n"
+"  option broadcast-address 192.168.1.255;\n"
+"# the gateway address which can be different\n"
+"# (access to the internet for instance)\n"
+"  option routers 192.168.1.1;\n"
+"# indicate the dns you want to use\n"
+"  option domain-name-servers 192.168.1.3;\n"
+"}\n"
+"\n"
+"group {\n"
+"  next-server 192.168.1.3;\n"
+"  host tftpclient {\n"
+"# tftp client hardware address\n"
+"  hardware ethernet  00:10:DC:27:6C:15;\n"
+"  filename \"pxelinux.0\";\n"
+" }\n"
+"}\n"
+"</screen></informalexample> Bemærk at for PXE-opstart, er klientfilnavnet "
+"<filename>pxelinux.0</filename> en opstartsindlæser, ikke et kerneaftryk (se "
+"<xref linkend=\"tftp-images\"/> below)."
 
 #. Tag: title
 #: install-methods.xml:1282
 #, no-c-format
 msgid "Setting up a BOOTP server"
-msgstr ""
+msgstr "Opsætning af en BOOTP-server"
 
 #. Tag: para
 #: install-methods.xml:1283
@@ -1993,6 +2025,11 @@ msgid ""
 "<classname>bootp</classname> and <classname>isc-dhcp-server</classname> "
 "packages respectively."
 msgstr ""
+"Der er to BOOTP-servere tilgængelige for GNU/Linux. Den første er CMU "
+"<command>bootpd</command>. Den anden er faktisk en DHCP-server: ISC "
+"<command>dhcpd</command>. I &debian-gnu; er disse indeholdt i pakkerne "
+"<classname>bootp</classname> og <classname>isc-dhcp-server</classname> "
+"respektivt."
 
 #. Tag: para
 #: install-methods.xml:1291
@@ -2028,6 +2065,37 @@ msgid ""
 "<userinput>printenv</userinput>. The value of the <userinput>eaddr</"
 "userinput> variable is the machine's MAC address. </phrase>"
 msgstr ""
+"For at bruge CMU <command>bootpd</command>, skal du først aktivere "
+"(eller tilføje) de relevante linjer i <filename>/etc/inetd.conf</filename>. "
+"På &debian-gnu; kan du køre <userinput>update-inetd --enable bootps</userinput>, "
+"og så <userinput>/etc/init.d/inetd reload</userinput> for at gøre det. Bare "
+"i tilfælde af, at din BOOTP-server ikke kører &debian;, skal den omtalte "
+"linje se således ud:"
+"<informalexample><screen>\n"
+"bootps  dgram  udp  wait  root  /usr/sbin/bootpd  bootpd -i -t 120\n"
+"</screen></informalexample> Nu skal du oprette en <filename>/etc/bootptab</"
+"filename>-fil. Den har samme slags kendte og kryptiske format som det gode "
+"gamle BSD <filename>printcap</filename>-, <filename>termcap</filename>-, "
+"og <filename>disktab</filename>-filer. Se manualsiden <filename>bootptab</"
+"filename> for yderligere information. For CMU <command>bootpd</"
+"command>, skal du bruge udstyrsadressen (MAC) for klienten. "
+"Her er en eksempel <filename>/etc/bootptab</filename>: "
+"<informalexample><screen>\n"
+"client:\\\n"
+"  hd=/tftpboot:\\\n"
+"  bf=tftpboot.img:\\\n"
+"  ip=192.168.1.90:\\\n"
+"  sm=255.255.255.0:\\\n"
+"  sa=192.168.1.1:\\\n"
+"  ha=0123456789AB:\n"
+"</screen></informalexample> Du skal mindst ændre <quote>ha</quote>-"
+"tilvalget, som angiver udstyrsadressen for klienten. Tilvalget "
+"<quote>bf</quote> specificerer filen en klient skal hente via "
+"TFTP; se <xref linkend=\"tftp-images\"/> for yderligere detaljer. "
+"<phrase arch=\"mips\"> På SGI-maskiner kan du bare gå i "
+"kommandoskærmen og indtaste <userinput>printenv</userinput>. "
+"Værdien for variablen <userinput>eaddr</userinput> er maskinens "
+"MAC-adresse. </phrase>"
 
 #. Tag: para
 #: install-methods.xml:1324
@@ -2043,12 +2111,21 @@ msgid ""
 "conf</filename>, and restart <command>dhcpd</command> with <userinput>/etc/"
 "init.d/isc-dhcp-server restart</userinput>."
 msgstr ""
+"Som kontrast er opsætning af BOOTP med ISC <command>dhcpd</command> virkelig "
+"nemt, da det opfatter BOOTP-klienter som et moderat specieltilfælde for "
+"DHCP-klienter. Nogle arkitekturer kræver en kompleks konfiguration for opstart "
+"af klienter via BOOTP. Hvis din er en af disse, så læs afsnittet <xref linkend="
+"\"dhcpd\"/>. Ellers vil du sandsynligvis kunne slippe af sted med at tilføje "
+"<userinput>allow bootp</userinput> direkte til konfigurationsblokken for "
+"undernettet, der indeholder klienten i <filename>/etc/dhcp/dhcpd."
+"conf</filename>, og genstarte <command>dhcpd</command> med <userinput>/etc/"
+"init.d/isc-dhcp-server restart</userinput>."
 
 #. Tag: title
 #: install-methods.xml:1343
 #, no-c-format
 msgid "Enabling the TFTP Server"
-msgstr ""
+msgstr "Aktivering af TFTP-serveren"
 
 #. Tag: para
 #: install-methods.xml:1344
@@ -2057,6 +2134,8 @@ msgid ""
 "To get the TFTP server ready to go, you should first make sure that "
 "<command>tftpd</command> is enabled."
 msgstr ""
+"For at få TFTP-serveren klar, skal du først sikre dig, at "
+"<command>tftpd</command> er aktiveret."
 
 #. Tag: para
 #: install-methods.xml:1349
@@ -2068,6 +2147,11 @@ msgid ""
 "independent daemon. Which of these methods is used is selected when the "
 "package is installed and can be changed by reconfiguring the package."
 msgstr ""
+"I tilfældet <classname>tftpd-hpa</classname> er der to måder at "
+"tjenesten kan køres. Den kan startes efter behov af systemets dæmon "
+"<classname>inetd</classname>, eller den kan opsættes til at blive kørt "
+"som en uafhængig dæmon. Hvilken af disse metoder der bruges vælges "
+"når pakke installeres og kan ændres ved at rekonfigurere pakken."
 
 #. Tag: para
 #: install-methods.xml:1358
@@ -2080,6 +2164,13 @@ msgid ""
 "default uses <filename>/srv/tftp</filename>. You may have to adjust the "
 "configuration examples in this section accordingly."
 msgstr ""
+"Historisk brugte TFTP-servere <filename>/tftpboot</filename> som "
+"mappe til at betjene aftryk fra. Pakkerne &debian-gnu; kan bruge andre "
+"mapper til at overholde <ulink url=\"&url-fhs-home;\">Filesystem "
+"Hierarchy Standard</ulink>. For eksempel bruger "
+"<classname>tftpd-hpa</classname> som standard <filename>/srv/tftp</filename>. "
+"Du skal måske justere konfigurationseksemplerne i dette afsnit jævnfør "
+"dette."
 
 #. Tag: para
 #: install-methods.xml:1368
@@ -2091,6 +2182,11 @@ msgid ""
 "to check these log messages in case of boot problems as they are a good "
 "starting point for diagnosing the cause of errors."
 msgstr ""
+"Alle <command>in.tftpd</command> alternativer tilgængelige i &debian; bør "
+"logge TFTP-forespørgsler til systemets logge som standard. Nogle af dem "
+"understøtter et <userinput>-v</userinput> argument for at øge uddybningen. "
+"Det anbefales at kontrollere disse logbeskeder i tilfælde at opstartsproblemer, "
+"da de er et godt udgangspunkt for diagnosticering af fejltilfælde."
 
 #. Tag: para
 #: install-methods.xml:1376
@@ -2109,6 +2205,19 @@ msgid ""
 "</screen></informalexample> to adjust the range of source ports the Linux "
 "TFTP server uses."
 msgstr ""
+"Hvis du planlægger at installere &debian; på en SGI-maskine og din TFTP-server "
+"er en GNU/Linux-boks, der kører Linux 2.4, så skal du angive det følgende på "
+"din server: nux box running Linux 2.4, you'll need to set the following on your "
+"server: <informalexample><screen>\n"
+"# echo 1 &gt; /proc/sys/net/ipv4/ip_no_pmtu_disc\n"
+"</screen></informalexample> for at deaktivere Path MTU-registrering, ellers "
+"kan SGI's PROM ikke hente kernen. Derudover skal du sikre dig, at TFTP-pakker "
+"sendes fra en kildeport, der ikke er højere end 32767, ellers vil overførslen "
+"stoppe efter den første pakke. Igen det er Linux 2.4.x der udløser denne fejl "
+"i PROM'en, og du kan undgå den ved at angive <informalexample><screen>\n"
+"# echo \"2048 32767\" &gt; /proc/sys/net/ipv4/ip_local_port_range\n"
+"</screen></informalexample> for at justere intervallet af kildeporte som "
+"Linux TFTP-serveren bruger."
 
 #. Tag: title
 #: install-methods.xml:1398
@@ -2126,6 +2235,11 @@ msgid ""
 "command> will use for booting a particular client. Unfortunately, the file "
 "name is determined by the TFTP client, and there are no strong standards."
 msgstr ""
+"Placer så TFTP-opstartsaftrykket du skal bruge som set i <xref linkend=\"where-"
+"files\"/>, i opstartsaftryksmappen <command>tftpd</command>. Du skal måske "
+"lave en henvisning fra den fil til filen som <command>tftpd</"
+"command> vil bruge til opstart af en bestemt klient. Desværre bestemmes "
+"filnavnet af TFTP-klienten, og der er ingen udbredte standarder."
 
 #. Tag: para
 #: install-methods.xml:1408
@@ -2137,6 +2251,11 @@ msgid ""
 "via TFTP itself. You will need to download the following files from the "
 "<filename>netboot/</filename> directory:"
 msgstr ""
+"På NewWorld Power Macintosh-maskiner skal du opsætte opstartsindlæseren "
+"<command>yaboot</command> som TFTP-opstartsaftryk. "
+"<command>Yaboot</command> vil selv hente kernen og RAMdisk-aftryk via "
+"TFTP. Du skal hente de følgende filer fra mappen "
+"<filename>netboot/</filename>:"
 
 #. Tag: filename
 #: install-methods.xml:1439
@@ -2210,6 +2329,10 @@ msgid ""
 "net my-sparc.image</userinput>. This must still reside in the directory that "
 "the TFTP server looks in."
 msgstr ""
+"Du kan også fremtvinge nogle sparc-systemer til at kigge efter et specifikt "
+"filnavn ved at tilføjet det til slutningen af OpenPROM-opstartskommandoen, "
+"såsom <userinput>boot net my-sparc.image</userinput>. Dette skal stadig "
+"befinde sig i mappen som TFTP-serveren kigger i."
 
 #. Tag: title
 #: install-methods.xml:1499
