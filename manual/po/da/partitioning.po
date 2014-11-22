@@ -47,6 +47,14 @@ msgid ""
 "is possible to force &arch-kernel; to use a regular file as swap, but it is "
 "not recommended."
 msgstr ""
+"Som minimum kræver GNU/&arch-kernel; en partition for sig selv. Du kan have "
+"en enkel partition, der indeholder hele operativsystemet, programmer og dine "
+"personlige filer. Manage mener også at en separat swap-partition er nødvendig, "
+"selvom det ikke helt er korrekt. quote>Swap</quote> er midlertidig plads "
+"for et operativsystem, hvor systemet kan bruge disklageret som <quote>virtuel "
+"hukommelse</quote>. Ved at placere swap på en separat partition kan "
+"&arch-kernel; gøre mere effektiv brug af den. Det er mulgit at tvinge "
+"&arch-kernel; til at bruge en normal fil som swap, men det anbefales ikke."
 
 #. Tag: para
 #: partitioning.xml:26
@@ -64,6 +72,17 @@ msgid ""
 "the system. This can save you the trouble of having to reinstall the system "
 "from scratch."
 msgstr ""
+"De fleste vælger dog at give GNU/&arch-kernel; mere end det minimale antal "
+"partitioner. Der er to årsager til at du måske ønsker at bryde filsystemet "
+"op i et antal mindre partitioner. Den første er sikkerhed. Hvis der "
+"sker noget, der ødelægger filsystemet, så bliver kun en partition påvirket. "
+"Du kan derfor erstattte (fra sikkerhedskopier som du omhyggeligt har "
+"opbevaret) en del af dit system. Som minimum bør du overveje at oprette "
+"hvad der kaldes for en <quote>rodpartition</quote>. Denne indeholder "
+"de væsentligste komponenter for dit system. Hvis andre partitioner bliver "
+"ødelagt, så kan du stadig starte op i GNU/&arch-kernel; for at rette "
+"systemet. Dette kan spare dig for problemerne ved at skulle geninstallere "
+"systemet fra bunden af."
 
 #. Tag: para
 #: partitioning.xml:40
@@ -75,6 +94,11 @@ msgid ""
 "<filename>/var/mail</filename> a separate partition on the mail server, most "
 "of the system will remain working even if you get spammed."
 msgstr ""
+"Den anden årsag er generelt mere vigtigt i en forretningsmæssig opsætning, "
+"men afhænger reelt af din brug af maskinen. For eksempel, kan en postserver "
+"der spammes med e-post nemt fylde en partition op. Hvis du har gjort "
+"<filename>/var/mail</filename> til en separat partition på postserveren, "
+"så vil de meste af systemet stadig fungere, selv om du bliver spammet."
 
 #. Tag: para
 #: partitioning.xml:48
@@ -88,6 +112,13 @@ msgid ""
 "wasting space that could be used elsewhere. Disk space is cheap nowadays, "
 "but why throw your money away?"
 msgstr ""
+"Den eneste ulempe ved at bruge flere partitioner er, at det ofte er "
+"svært at vide på forhånd, hvad dine behov bliver. Hvis du laver en "
+"partiion for lille, så skal du enten geninstallere systemet eller "
+"du må konstant flytte rundt på filer for at gøre plads ledig på den "
+"for lille partition. På den anden side, hvis du gør partitionen for "
+"stor, så spilder du plads, som kunne bruges andre steder. Diskplads "
+"er billig nu om dage, men hvorfor spilde sine penge?"
 
 #. Tag: title
 #: partitioning.xml:67
@@ -106,6 +137,12 @@ msgid ""
 "<filename>/</filename>. At the root level, all &debian; systems include "
 "these directories:"
 msgstr ""
+"&debian-gnu; overholder <ulink url=\"&url-fhs-home;\">Filesystem "
+"Hierarchy Standard</ulink> for mappe- og filnavngivning. Denne standard "
+"giver brugere og programmer mulighed for at forudsige placeringen af "
+"filer og mapper. Rodniveaumappen er repræsenteret af skråstreg "
+"<filename>/</filename>. På rodniveau inkluderer alle &debian;-"
+"systemer disse mapper:"
 
 #. Tag: entry
 #: partitioning.xml:82
@@ -129,7 +166,7 @@ msgstr "<filename>bin</filename>"
 #: partitioning.xml:89
 #, no-c-format
 msgid "Essential command binaries"
-msgstr ""
+msgstr "Essentielle binære filer for kommandoer"
 
 #. Tag: filename
 #: partitioning.xml:91
@@ -213,121 +250,121 @@ msgstr "<filename>mnt</filename>"
 #: partitioning.xml:110
 #, no-c-format
 msgid "Mount point for mounting a file system temporarily"
-msgstr ""
+msgstr "Monteringspunkt for monterin et filsytem midlertidigt"
 
 #. Tag: filename
 #: partitioning.xml:112
 #, no-c-format
 msgid "proc"
-msgstr ""
+msgstr "proc"
 
 #. Tag: entry
 #: partitioning.xml:113 partitioning.xml:125
 #, no-c-format
 msgid "Virtual directory for system information"
-msgstr ""
+msgstr "Virtuel mappe for systeminformation"
 
 #. Tag: filename
 #: partitioning.xml:115
 #, no-c-format
 msgid "root"
-msgstr ""
+msgstr "root"
 
 #. Tag: entry
 #: partitioning.xml:116
 #, no-c-format
 msgid "Home directory for the root user"
-msgstr ""
+msgstr "Hjemmemappe for root-brugeren"
 
 #. Tag: filename
 #: partitioning.xml:118
 #, no-c-format
 msgid "<filename>run</filename>"
-msgstr ""
+msgstr "<filename>run</filename>"
 
 #. Tag: entry
 #: partitioning.xml:119
 #, no-c-format
 msgid "Run-time variable data"
-msgstr ""
+msgstr "Variable data for kørselstid"
 
 #. Tag: filename
 #: partitioning.xml:121
 #, no-c-format
 msgid "sbin"
-msgstr ""
+msgstr "sbin"
 
 #. Tag: entry
 #: partitioning.xml:122
 #, no-c-format
 msgid "Essential system binaries"
-msgstr ""
+msgstr "Essentielle binære filer for systemet"
 
 #. Tag: filename
 #: partitioning.xml:124
 #, no-c-format
 msgid "<filename>sys</filename>"
-msgstr ""
+msgstr "<filename>sys</filename>"
 
 #. Tag: filename
 #: partitioning.xml:127
 #, no-c-format
 msgid "<filename>tmp</filename>"
-msgstr ""
+msgstr "<filename>tmp</filename>"
 
 #. Tag: entry
 #: partitioning.xml:128
 #, no-c-format
 msgid "Temporary files"
-msgstr ""
+msgstr "Midlertidige filer"
 
 #. Tag: filename
 #: partitioning.xml:130
 #, no-c-format
 msgid "<filename>usr</filename>"
-msgstr ""
+msgstr "<filename>usr</filename>"
 
 #. Tag: entry
 #: partitioning.xml:131
 #, no-c-format
 msgid "Secondary hierarchy"
-msgstr ""
+msgstr "Sekundært hierarki"
 
 #. Tag: filename
 #: partitioning.xml:133
 #, no-c-format
 msgid "<filename>var</filename>"
-msgstr ""
+msgstr "<filename>var</filename>"
 
 #. Tag: entry
 #: partitioning.xml:134
 #, no-c-format
 msgid "Variable data"
-msgstr ""
+msgstr "Variable data"
 
 #. Tag: filename
 #: partitioning.xml:136
 #, no-c-format
 msgid "<filename>srv</filename>"
-msgstr ""
+msgstr "<filename>srv</filename>"
 
 #. Tag: entry
 #: partitioning.xml:137
 #, no-c-format
 msgid "Data for services provided by the system"
-msgstr ""
+msgstr "Data for tjenester tilbudt af systemet"
 
 #. Tag: filename
 #: partitioning.xml:139
 #, no-c-format
 msgid "<filename>opt</filename>"
-msgstr ""
+msgstr "<filename>opt</filename>"
 
 #. Tag: entry
 #: partitioning.xml:140
 #, no-c-format
 msgid "Add-on application software packages"
-msgstr ""
+msgstr "Udvidelsesprogrampakker"
 
 #. Tag: para
 #: partitioning.xml:145
@@ -338,6 +375,10 @@ msgid ""
 "configuration and specific usage patterns. The recommendations here are "
 "general guidelines and provide a starting point for partitioning."
 msgstr ""
+"Det følgende er en list over vigtigte overvejesler jævnfør mapper og "
+"partitioner. Bemærk at diskforbruget varierer meget med systemkonfiguration "
+"og specifikke brugsmønstre. Anbefalingerne her er generelle "
+"vejledninger og tilbyder et udgangspunkt for partitionering."
 
 #. Tag: para
 #: partitioning.xml:155
@@ -349,6 +390,11 @@ msgid ""
 "otherwise you won't be able to boot. Typically 150&ndash;250MB is needed for "
 "the root partition."
 msgstr ""
+"Rodpartitionen <filename>/</filename> skal altid fysisk indeholde "
+"<filename>/etc</filename>, <filename>/bin</filename>, <filename>/sbin</"
+"filename>, <filename>/lib</filename> og <filename>/dev</filename>, "
+"ellers vil du ikke kunne starte op. Typiske er 150&ndash;250 MB krævet for "
+"rodpartitionen."
 
 #. Tag: para
 #: partitioning.xml:164
@@ -362,6 +408,12 @@ msgid ""
 "type of packages you plan to install. A generous workstation or server "
 "installation should allow 4&ndash;6GB."
 msgstr ""
+"<filename>/usr</filename>: indeholder alle brugerprogrammer (<filename>/usr/bin</"
+"filename>), biblioteker (<filename>/usr/lib</filename>), dokumentation "
+"(<filename>/usr/share/doc</filename>), etc. Dette er den del af filsystemet som "
+"generelt bruger mest plads. Du bør tildele mindst 500 MB i diskplads. Denne "
+"mængde bør øges afhængig af antallet og akketyperne du planlægger at installere. "
+"En generøs arbejdsstation eller serverinstallation bør indeholder 4&ndash;6 GB."
 
 #. Tag: para
 #: partitioning.xml:177
@@ -379,6 +431,17 @@ msgid ""
 "MB. If hard drive space is at a premium and you don't plan on doing major "
 "system updates, you can get by with as little as 30 or 40 MB."
 msgstr ""
+"<filename>/var</filename>: variable data såsom nyhedsartikler, e-post, "
+"netsider, databaser, pakkesystemets mellemlager etc. vil blive placeret "
+"under denne mappe. Størrelsen af denne mappe afhænger i høj grad på "
+"brugen af dit system, men for de fleste være dikteret af pakkehåndteringens "
+"ekstra forbrug. Hvis du udfører en fuld installation af så godt som alt "
+"&debian; kan tilbyde, i en session, bør 2-3 GB plads for <filename>/var</filename> "
+"være tilstrækkelig. Hvis du installerer stykvist (det vil sige, installere "
+"tjenester og redskaber efterfulgt tekststumper, så X, ...), så kan du nøjes "
+"med 300&ndash;500 MB. Hvis harddiskplads er dyrt og du planlægger at udføre "
+"væsentlige systemopdateringer, så kan du nøjes med så lidst som 30 eller "
+"40 MB."
 
 #. Tag: para
 #: partitioning.xml:193
@@ -391,6 +454,13 @@ msgid ""
 "temporarily store image files. If you plan to use such applications, you "
 "should adjust the space available in <filename>/tmp</filename> accordingly."
 msgstr ""
+"<filename>/tmp</filename>: midlertidige data oprettet af programmer vil "
+"højst sandsynlig blive placeret i denne mappe. 40&ndash;100 MB bør normalt "
+"være nok. Nogle programmer &mdash; inkluderer arkivmanipulatorer, cd/dvd-"
+"værktøjer og multimedieprogrammer &mdash; kan bruge <filename>/tmp</filename> "
+"til at lagre store billedfiler. Hvis du planlægger at bruge sådanne "
+"programmer, så skal du justere den tilgængelige plads i <filename>/tmp</filename> "
+"jævnfør dette."
 
 #. Tag: para
 #: partitioning.xml:204
@@ -409,7 +479,7 @@ msgstr ""
 #: partitioning.xml:225
 #, no-c-format
 msgid "Recommended Partitioning Scheme"
-msgstr ""
+msgstr "Anbefalet partitioneringsskema"
 
 #. Tag: para
 #: partitioning.xml:226
@@ -724,13 +794,13 @@ msgstr ""
 #: partitioning.xml:504
 #, no-c-format
 msgid "Amiga-aware version of <command>fdisk</command>."
-msgstr ""
+msgstr "Amiga-opmærksom version af <command>fdisk</command>."
 
 #. Tag: para
 #: partitioning.xml:513
 #, no-c-format
 msgid "Mac-aware version of <command>fdisk</command>."
-msgstr ""
+msgstr "Mac-opmærksom version af <command>fdisk</command>."
 
 #. Tag: para
 #: partitioning.xml:522
@@ -783,7 +853,7 @@ msgstr ""
 #: partitioning.xml:803 partitioning.xml:880
 #, no-c-format
 msgid "Partitioning for &arch-title;"
-msgstr ""
+msgstr "Partitionering for &arch-title;"
 
 #. Tag: para
 #: partitioning.xml:570
