@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: d-i-manual_random-bits\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2014-10-05 18:15+0000\n"
-"PO-Revision-Date: 2014-11-11 11:40+0100\n"
+"PO-Revision-Date: 2014-11-22 11:40+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -45,6 +45,13 @@ msgid ""
 "less common, type of device file is the named <firstterm>pipe</firstterm>. "
 "The most important device files are listed in the tables below."
 msgstr ""
+"I Linux kan diverse specielle filer findes i mappen <filename>/"
+"dev</filename>. Disse filer kaldes for enhedsfiler og opfører sig som "
+"ordinære filer. De mest gængse typer af enhedsfiler er for blokenehder "
+"og tegnenheder. disse filer er en grænseflade til den faktiske driver "
+"(del af Linux-kernen) som igen tilgår udstyret. En anden, mindre udbredt, "
+"type enhedsfil er navngivet <firstterm>pipe</firstterm>. De vigtigste "
+"enhedsfiler er vist i tabellerne nedenfor."
 
 #. Tag: filename
 #: random-bits.xml:27
@@ -341,6 +348,14 @@ msgid ""
 "are <filename>/etc/gpm.conf</filename> and <filename>/etc/X11/xorg.conf</"
 "filename>."
 msgstr ""
+"Musen kan bruges i både Linux-konsollen (med gpm) og X-vinduesmiljøet. "
+"Normalt sker dette ved installation af <filename>gpm</filename> og selve "
+"X-serveren. Begge skal konfigureres til at bruge "
+"<filename>/dev/input/mice</filename> som museenhed. Den korrekte museprotokol "
+"er navngivet <userinput>exps2</userinput> i gpm, og "
+"<userinput>ExplorerPS/2</userinput> i X. De respektive konfigurationsfiler "
+"er <filename>/etc/gpm.conf</filename> og <filename>/etc/X11/xorg.conf</"
+"filename>."
 
 #. Tag: para
 #: random-bits.xml:137
@@ -365,6 +380,25 @@ msgid ""
 "<command>modconf</command> command (from the package with the same name) and "
 "look in the category <userinput>kernel/drivers/input/mouse</userinput>."
 msgstr ""
+"Bestemte kernemoduler skal indlæses for at din mus fungerer. I de fleste "
+"tilfælde detekteres de korrekte moduler automatisk, men ikke altid for "
+"ældre serielle mus samt bus-mus<footnote> <para> Serielle mus har normalt "
+"et 9-huls D-formet stik; men mus ar et 8-pinds rundt stik, som ikke skal "
+"forveksles med det 6-pinds runde stik for en PS/2-mus eller det 4-pinds runde "
+"stik for en ADB-mus. </para> </footnote>, som er ret så sjældne undtaget "
+"på meget gamle computere. Overblik over Linux-kernemoduler krævet for "
+"forskellige musetyper: "
+"<informaltable><tgroup cols=\"2\"><thead> <row> <entry>Module</"
+"entry> <entry>Beskrivelse</entry> </row> </thead><tbody> <row> "
+"<entry>psmouse</entry> <entry>PS/2-mus (bør detekteres automatisk)</entry> </"
+"row> <row> <entry>usbhid</entry> <entry>USB-mus (bør detekteres automatisk)</"
+"entry> </row> <row> <entry>sermouse</entry> <entry>De fleste serielle mus</entry> "
+"</row> <row> <entry>logibm</entry> <entry>Bus-mus forbundet til Logitechs "
+"adapterkort</entry> </row> <row> <entry>inport</entry> <entry>Bus-mus "
+"forbundet til ATI- eller Microsoft InPort-kort</entry> </row> </tbody></tgroup></"
+"informaltable> For at indlæse et musedrivermodul, så kan du bruge kommandoen "
+"<command>modconf</command> (fra pakken med det samme navn) og "
+"se i kategorien <userinput>kernel/drivers/input/mouse</userinput>."
 
 #. Tag: para
 #: random-bits.xml:184
@@ -374,6 +408,9 @@ msgid ""
 "your mouse only has one button. Just add the following lines to <filename>/"
 "etc/sysctl.conf</filename> file."
 msgstr ""
+"Moderne kerner giver dig mulighed for at emulere en treknaps mus, når din mus "
+"kun har en knap. Bare tilføj de følgende linjer til filen <filename>/"
+"etc/sysctl.conf</filename>."
 
 #. Tag: screen
 #: random-bits.xml:191
@@ -388,12 +425,20 @@ msgid ""
 "/dev/mac_hid/mouse_button3_keycode = 88\n"
 "# For different keys, use showkey to tell you what the code is."
 msgstr ""
+"# 3-knaps museemulering\n"
+"# tænd emulering\n"
+"/dev/mac_hid/mouse_button_emulation = 1\n"
+"# Send midterste museknapsignal med F11-tasten\n"
+"/dev/mac_hid/mouse_button2_keycode = 87\n"
+"# Send højre museknapsignal med F12-tasten\n"
+"/dev/mac_hid/mouse_button3_keycode = 88\n"
+"# For forskellige taster, brug showkey for at se hvad koden er."
 
 #. Tag: title
 #: random-bits.xml:198
 #, no-c-format
 msgid "Disk Space Needed for Tasks"
-msgstr ""
+msgstr "Diskpladskrævet for opgaver"
 
 #. Tag: para
 #: random-bits.xml:199
@@ -404,6 +449,10 @@ msgid ""
 "space. A minimal base installation, without the <quote>Standard system</"
 "quote> task selected, will take &base-system-size;MB."
 msgstr ""
+"En standardinstallation for amd64-arkitekturen, inklusive alle "
+"standardpakker og brug af standardkernen, fylder &std-system-size;MB "
+"diskplads. En minimal basisinstallation, uden <quote>Standardsystem</"
+"quote>-opgaven valgt, vil benytte &base-system-size;MB."
 
 #. Tag: para
 #: random-bits.xml:207
@@ -415,6 +464,11 @@ msgid ""
 "journal files. This means that significantly more disk space is needed both "
 "<emphasis>during</emphasis> the installation and for normal system use."
 msgstr ""
+"I begge tilfælde er dette det faktiske diskforbrug brugt <emphasis>efter"
+"</emphasis> installationen er færidg og eventuelle midlertidige filer er "
+"slettet. Tallene medtager heller ikke pladsbehov for filsystemet, for eksempel "
+"for journalfiler. Dette betyder at signifikant mere diskplads er krævet "
+"både <emphasis>under</emphasis> installationen og under normal brug."
 
 #. Tag: para
 #: random-bits.xml:216
@@ -425,6 +479,10 @@ msgid ""
 "installed size for two tasks together may be less than the total obtained by "
 "adding up the numbers."
 msgstr ""
+"Den følgende tabel viser størrelser rapporteret af aptitude for opgaverne "
+"vist i tasksel. Bemærk at nogle opgaver har overlappende bestanddele, så at "
+"den samlede installerede størrelse for to opgaver sammenlagt kan være mindre "
+"end det samlede beløb indhentet ved at lægge tallene sammen."
 
 #. Tag: para
 #: random-bits.xml:223
@@ -435,6 +493,10 @@ msgid ""
 "special CD images, or by specifying the desired desktop environment when the "
 "installer is booted (see <xref linkend=\"pkgsel\"/>)."
 msgstr ""
+"Som standard vil installationsprogrammet intallere GNOME-skrivebordsmiljøet, "
+"men alternative skrivebordsmiljøer kan vælges ved enten at bruge en af de "
+"specielle cd-aftryk eller ved at specificere det ønskede skrivebordsmiljø "
+"når installationsprogrammet startes op (se <xref linkend=\"pkgsel\"/>)."
 
 #. Tag: para
 #: random-bits.xml:230
@@ -447,48 +509,54 @@ msgid ""
 "<quote>Download size</quote> is (temporarily) required in <filename>/var</"
 "filename>."
 msgstr ""
+"Bemærk at du skal tilføje størrelserne vist i tabellen til størrelsen for "
+"standardinstallationen når du skal bestemme størrelsen for partitionerne. "
+"Det meste af den angivne størrelse vist som <quote>Installeret størrelse"
+"</quote> vil blive lagt i <filename>/usr</filename> og i <filename>/lib"
+"</filename>; størrelsen vist som <quote>Overført størrelse</quote> er "
+"(midlertidigt) krævet i <filename>/var</filename>."
 
 #. Tag: entry
 #: random-bits.xml:244
 #, no-c-format
 msgid "Task"
-msgstr ""
+msgstr "Opgave"
 
 #. Tag: entry
 #: random-bits.xml:245
 #, no-c-format
 msgid "Installed size (MB)"
-msgstr ""
+msgstr "Installeret størrelse (MB)"
 
 #. Tag: entry
 #: random-bits.xml:246
 #, no-c-format
 msgid "Download size (MB)"
-msgstr ""
+msgstr "Størrelse at hente (MB)"
 
 #. Tag: entry
 #: random-bits.xml:247
 #, no-c-format
 msgid "Space needed to install (MB)"
-msgstr ""
+msgstr "Plads krævet for installation (MB)"
 
 #. Tag: entry
 #: random-bits.xml:253
 #, no-c-format
 msgid "Desktop environment"
-msgstr ""
+msgstr "Skrivebordsmiljø"
 
 #. Tag: entry
 #: random-bits.xml:254 random-bits.xml:255 random-bits.xml:256
 #, no-c-format
 msgid "&nbsp;"
-msgstr ""
+msgstr "&nbsp;"
 
 #. Tag: entry
 #: random-bits.xml:259
 #, no-c-format
 msgid "&nbsp;&nbsp;&bull;&nbsp;GNOME (default)"
-msgstr ""
+msgstr "&nbsp;&nbsp;&bull;&nbsp;GNOME (standard)"
 
 #. Tag: entry
 #: random-bits.xml:260
@@ -594,6 +662,9 @@ msgid ""
 "If you install both, the Laptop task will only require a few MB additional "
 "disk space."
 msgstr ""
+"Der er nogen overlap for opgaven Bærbar med miljøopgaven Skrivebord. "
+"Hvis du installerer begge vil opgaven Bærbar kun kræve nogle få yderligere "
+"MB diskplads."
 
 #. Tag: entry
 #: random-bits.xml:293
@@ -767,19 +838,19 @@ msgstr ""
 #: random-bits.xml:342
 #, no-c-format
 msgid "&task-ssh-inst;"
-msgstr ""
+msgstr "&task-ssh-inst;"
 
 #. Tag: entry
 #: random-bits.xml:343
 #, no-c-format
 msgid "&task-ssh-dl;"
-msgstr ""
+msgstr "&task-ssh-dl;"
 
 #. Tag: entry
 #: random-bits.xml:344
 #, no-c-format
 msgid "&task-ssh-tot;"
-msgstr ""
+msgstr "&task-ssh-tot;"
 
 #. Tag: para
 #: random-bits.xml:350
@@ -790,12 +861,17 @@ msgid ""
 "is available for your language. Space requirements differ per language; you "
 "should allow up to 350MB in total for download and installation."
 msgstr ""
+"Hvis du installerer på et sprog forskellig fra engelsk, kan "
+"<command>tasksel</command> selv installere en <firstterm>oversættelsesopgave"
+"</firstterm>, hvis en sådan findes for dit sprog. Pladskravet er forskelligt "
+"per sprog; du skal forvente op til 350 MB samlet set for overførslen og "
+"installationen."
 
 #. Tag: title
 #: random-bits.xml:365
 #, no-c-format
 msgid "Installing &debian-gnu; from a Unix/Linux System"
-msgstr ""
+msgstr "Installation af &debian-gnu; fra et Unix/Linux-system"
 
 #. Tag: para
 #: random-bits.xml:367
@@ -1288,6 +1364,8 @@ msgid ""
 "# aptitude install console-setup\n"
 "# dpkg-reconfigure keyboard-configuration"
 msgstr ""
+"# aptitude install console-setup\n"
+"# dpkg-reconfigure keyboard-configuration"
 
 #. Tag: para
 #: random-bits.xml:732
@@ -1301,7 +1379,7 @@ msgstr ""
 #: random-bits.xml:742
 #, no-c-format
 msgid "Install a Kernel"
-msgstr ""
+msgstr "Installer en kerne"
 
 #. Tag: para
 #: random-bits.xml:743
@@ -1389,6 +1467,8 @@ msgstr ""
 #, no-c-format
 msgid "Here is a basic <filename>/etc/lilo.conf</filename> as an example:"
 msgstr ""
+"Her er en grundlæggende <filename>/etc/lilo.conf</filename> som et "
+"eksempel:"
 
 #. Tag: screen
 #: random-bits.xml:800
@@ -1403,6 +1483,14 @@ msgid ""
 "initrd=/initrd.img\n"
 "label=Debian"
 msgstr ""
+"boot=/dev/<replaceable>hda6</replaceable>\n"
+"root=/dev/<replaceable>hda6</replaceable>\n"
+"install=menu\n"
+"delay=20\n"
+"lba32\n"
+"image=/vmlinuz\n"
+"initrd=/initrd.img\n"
+"label=Debian"
 
 #. Tag: para
 #: random-bits.xml:802
@@ -1559,7 +1647,7 @@ msgstr ""
 #: random-bits.xml:917
 #, no-c-format
 msgid "Requirements"
-msgstr ""
+msgstr "Krav"
 
 #. Tag: para
 #: random-bits.xml:920
