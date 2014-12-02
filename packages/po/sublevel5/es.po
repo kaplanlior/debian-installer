@@ -11,7 +11,7 @@
 # Steve Langasek <vorlon@debian.org>, 2004
 # Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>, 2005
 # Rubén Porras Campo <nahoo@inicia.es>, 2005
-# Javier Fernández-Sanguino <jfs@debian.org>, 2003-2012
+# Javier Fernández-Sanguino <jfs@debian.org>, 2003-2012, 2014
 #
 # Equipo de traducción al español, por favor lean antes de traducir
 # los siguientes documentos:
@@ -44,7 +44,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-13 22:01+0000\n"
-"PO-Revision-Date: 2012-01-02 01:35+0100\n"
+"PO-Revision-Date: 2014-12-03 00:47+0100\n"
 "Last-Translator: Javier Fernández-Sanguino Peña <jfs@debian.org>\n"
 "Language-Team:  Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
 "Language: es\n"
@@ -98,7 +98,7 @@ msgstr ""
 "X-POFile-SpellExtra: pointopoint RDSI DISC GRUBROOT nn crypt boot SGI\n"
 "X-POFile-SpellExtra: vmelilo Mac book OPERATION ERRCODE ESCON SRM\n"
 "X-POFile-SpellExtra: DISKLABEL nameservers Dispos VirtIO ZFS KVM virtio\n"
-"X-POFile-SpellExtra: linux biosgrub\n"
+"X-POFile-SpellExtra: linux biosgrub Ésto UEFI ESP\n"
 
 #. Type: text
 #. Description
@@ -146,38 +146,21 @@ msgstr "biosgrub"
 #. Description
 #. :sl5:
 #: ../partman-basicfilesystems.templates:60001
-#, fuzzy
-#| msgid ""
-#| "Your boot partition has not been configured with the ext2 or ext3 file "
-#| "system. This is needed by your machine in order to boot. Please go back "
-#| "and use either the ext2 or ext3 file system."
 msgid ""
 "Your boot partition has not been configured with the ext2 file system. This "
 "is needed by your machine in order to boot. Please go back and use the ext2 "
 "file system."
-msgstr ""
-"La partición de arranque no ha sido configurada con el sistema de ficheros "
-"ext2 o ext3. Esto es necesario para el arranque del sistema. Por favor, "
-"vuelva atrás y utilice el sistema de ficheros ext2 o ext3."
+msgstr "La partición de arranque no ha sido configurada con el sistema de ficheros ext2. Esto es necesario para el arranque del sistema. Por favor, vuelva atrás y utilice el sistema de ficheros ext2."
 
 #. Type: boolean
 #. Description
 #. :sl5:
 #: ../partman-basicfilesystems.templates:61001
-#, fuzzy
-#| msgid ""
-#| "Your boot partition is not located on the first primary partition of your "
-#| "hard disk. This is needed by your machine in order to boot.  Please go "
-#| "back and use your first primary partition as a boot partition."
 msgid ""
 "Your boot partition is not located on the first partition of your hard disk. "
 "This is needed by your machine in order to boot.  Please go back and use "
 "your first partition as a boot partition."
-msgstr ""
-"La partición de arranque no está ubicada en la primera partición primaria "
-"del disco duro. Esto es necesario para que el sistema arranque. Por favor, "
-"vuelva atrás y utilice la primera partición primaria como partición de "
-"arranque."
+msgstr "La partición de arranque no está ubicada en la primera partición de su disco duro. Esto es necesario para que el sistema arranque. Por favor, vuelva atrás y utilice la primera partición primaria como partición de arranque."
 
 #. Type: text
 #. Description
@@ -206,10 +189,8 @@ msgstr ""
 #. Description
 #. :sl5:
 #: ../partman-efi.templates:2001 ../partman-efi.templates:4001
-#, fuzzy
-#| msgid "EFI boot partition"
 msgid "EFI System Partition"
-msgstr "Partición de arranque «EFI»"
+msgstr "Partición del sistema «EFI»"
 
 #. Type: boolean
 #. Description
@@ -225,7 +206,7 @@ msgstr "No se encontró ninguna partición «EFI»."
 #. Up to 10 character positions
 #: ../partman-efi.templates:5001
 msgid "ESP"
-msgstr ""
+msgstr "ESP"
 
 #. Type: text
 #. Description
@@ -245,26 +226,17 @@ msgstr "Particiones EFI demasiado pequeñas:"
 #. Description
 #. :sl5:
 #: ../partman-efi.templates:8001
-#, fuzzy
-#| msgid ""
-#| "EFI boot partitions on this architecture cannot be created with a size "
-#| "less than 35 MB. Please make the EFI boot partition larger."
 msgid ""
 "EFI System Partitions on this architecture cannot be created with a size "
 "less than 35 MB. Please make the EFI System Partition larger."
-msgstr ""
-"Las particiones de arranque EFI en esta arquitectura no pueden crearse con "
-"un tamaño inferior a 35 MB. Incremente el tamaño de su partición de arranque "
-"EFI."
+msgstr "Las particiones del sistema EFI en esta arquitectura no pueden crearse con un tamaño inferior a 35 MB. Incremente el tamaño de su partición de sistema EFI."
 
 #. Type: boolean
 #. Description
 #. :sl5:
 #: ../partman-efi.templates:9001
-#, fuzzy
-#| msgid "Abort the installation"
 msgid "Force UEFI installation?"
-msgstr "Interrumpir la instalación"
+msgstr "¿Forzar la instalación UEFI?"
 
 #. Type: boolean
 #. Description
@@ -276,7 +248,7 @@ msgid ""
 "compatibility mode\". If you continue to install Debian in UEFI mode, it "
 "might be difficult to reboot the machine into any BIOS-mode operating "
 "systems later."
-msgstr ""
+msgstr "El firmware de esta máquina ha arrancado el instalador en modo UEFI pero parece que ya hay sistemas operativos instalados utilizando el «Modo de compatibilidad BIOS». Puede encontrarse con problemas para reiniciar el equipo y arrancar un sistema operativo que utilice este modo BIOS más adelante si continúa la instalación de Debian en modo UEFI."
 
 #. Type: boolean
 #. Description
@@ -287,7 +259,7 @@ msgid ""
 "to boot one of the existing systems, you have the option to force that here. "
 "If you wish to keep the option to boot an existing operating system, you "
 "should choose NOT to force UEFI installation here."
-msgstr ""
+msgstr "Tiene la opción de forzar esta operación ahora si desea instalar en el modo UEFI y no le importa perder la posibilidad de arrancar uno de los sistemas operativos ya instalados. Si desea poder arrancar otros sistemas operativos existentes, debería escoger NO forzar la instalación UEFI aquí."
 
 #. Type: error
 #. Description

@@ -12,7 +12,7 @@
 # Enrique Matias Sanchez (aka Quique) <cronopios@gmail.com>, 2005
 # Rubén Porras Campo <nahoo@inicia.es>, 2005
 # Omar Campagne Polaino <ocampagne@gmail.com>, 2010
-# Javier Fernández-Sanguino <jfs@debian.org>, 2003-2012
+# Javier Fernández-Sanguino <jfs@debian.org>, 2003-2012, 2014
 #
 # Equipo de traducción al español, por favor lean antes de traducir
 # los siguientes documentos:
@@ -45,7 +45,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-15 22:01+0000\n"
-"PO-Revision-Date: 2012-07-23 19:51+0200\n"
+"PO-Revision-Date: 2014-12-03 00:38+0100\n"
 "Last-Translator: Javier Fernández-Sanguino <jfs@debian.org>\n"
 "Language-Team:  Debian Spanish <debian-l10n-spanish@lists.debian.org>\n"
 "Language: es\n"
@@ -108,7 +108,7 @@ msgstr ""
 "X-POFile-SpellExtra: preseed CODENAME UTC Terminus XKBVARIANT syslinux\n"
 "X-POFile-SpellExtra: xorg XKBOPTIONS Fixed DESCRIPTION XKBLAYOUTVARIANT\n"
 "X-POFile-SpellExtra: default lenny Live url kiosko LIVEKERNEL UFS MMC SD\n"
-"X-POFile-SpellExtra: URL scripts\n"
+"X-POFile-SpellExtra: URL scripts iSCSI preconfiguración ésto Volúmen\n"
 
 #. Type: text
 #. Description
@@ -674,7 +674,7 @@ msgid ""
 "IPv6 addresses cannot be configured on point-to-point links.  Please use an "
 "IPv4 address, or go back and select a different network interface."
 msgstr ""
-"No se pueden configurar direcciónes IPv6 en enlaces punto a punto. Por "
+"No se pueden configurar direcciones IPv6 en enlaces punto a punto. Por "
 "favor, utilice una dirección IPv6. Puede volver atrás y seleccionar una "
 "interfaz de red distinta."
 
@@ -2239,10 +2239,8 @@ msgstr "Por favor, reinicie con el núcleo correcto (${DI_KERNEL})."
 #. Description
 #. :sl3:
 #: ../partman-iscsi.templates:1001
-#, fuzzy
-#| msgid "Configure encrypted volumes"
 msgid "Configure iSCSI volumes"
-msgstr "Configurar los volúmenes cifrados"
+msgstr "Configurar los volúmenes iSCSI"
 
 #. #-#-#-#-#  templates.pot (partman-iscsi)  #-#-#-#-#
 #. Type: select
@@ -2309,26 +2307,22 @@ msgstr "Terminar"
 #. Description
 #. :sl3:
 #: ../partman-iscsi.templates:2002
-#, fuzzy
-#| msgid "ZFS configuration action:"
 msgid "iSCSI configuration actions"
-msgstr "Acción de configuración ZFS:"
+msgstr "Acciones de configuración iSCSI:"
 
 #. Type: select
 #. Description
 #. :sl3:
 #: ../partman-iscsi.templates:2002
-#, fuzzy
-#| msgid "This menu allows you to configure encrypted volumes."
 msgid "This menu allows you to configure iSCSI volumes."
-msgstr "Este menú le permite configurar sus volúmenes cifrados."
+msgstr "Este menú le permite configurar sus volúmenes iSCSI."
 
 #. Type: string
 #. Description
 #. :sl3:
 #: ../partman-iscsi.templates:3001
 msgid "iSCSI target portal address:"
-msgstr ""
+msgstr "dirección del portal objetivo iSCSI:"
 
 #. Type: string
 #. Description
@@ -2337,7 +2331,7 @@ msgstr ""
 msgid ""
 "Enter an IP address to scan for iSCSI targets. To use a port other than the "
 "default of 3260, use \"IP:port\" notation, for example \"1.2.3.4:3261\"."
-msgstr ""
+msgstr "Introduzca una dirección IP para buscar objetivos iSCSI. Si desea utilizar un puerto distinto del predeterminado (3260) utilice la notación «IP:puerto». Por ejemplo: «1.2.3.4:3261»."
 
 #. Type: string
 #. Description
@@ -2345,7 +2339,7 @@ msgstr ""
 #. Translators : do NOT translate the variable name (PORTAL)
 #: ../partman-iscsi.templates:4001
 msgid "iSCSI initiator username for ${PORTAL}:"
-msgstr ""
+msgstr "Nombre de usuario del iniciador iSCSI para ${PORTAL}:"
 
 #. Type: string
 #. Description
@@ -2356,7 +2350,7 @@ msgid ""
 "Some iSCSI targets require the initiator (client) to authenticate using a "
 "username and password. If that is the case for this target, enter the "
 "username here. Otherwise, leave this blank."
-msgstr ""
+msgstr "En algunos objetivos iSCSI es necesario que el iniciador (el cliente) se autentique con un usuario y una contraseña. Introduzca el nombre de usuario aquí si es necesario para este objetivo. Si no lo es, deje este valor en blanco."
 
 #. Type: password
 #. Description
@@ -2364,7 +2358,7 @@ msgstr ""
 #. Translators : do NOT translate the variable name (PORTAL)
 #: ../partman-iscsi.templates:5001
 msgid "iSCSI initiator password for ${PORTAL}:"
-msgstr ""
+msgstr "Contraseña del iniciador iSCSI para ${PORTAL}:<"
 
 #. Type: password
 #. Description
@@ -2373,7 +2367,7 @@ msgstr ""
 #: ../partman-iscsi.templates:5001
 msgid ""
 "Enter the initiator password needed to authenticate to this iSCSI target."
-msgstr ""
+msgstr "Introduzca la contraseña del iniciador necesaria para autenticarse a este objetivo iSCSI."
 
 #. Type: string
 #. Description
@@ -2381,7 +2375,7 @@ msgstr ""
 #. Translators : do NOT translate the variable name (PORTAL)
 #: ../partman-iscsi.templates:6001
 msgid "iSCSI target username for ${PORTAL}:"
-msgstr ""
+msgstr "Nombre de usuario del objetivo iSCSI para ${PORTAL}:"
 
 #. Type: string
 #. Description
@@ -2393,7 +2387,7 @@ msgid ""
 "initiator as well as the other way round. If that is the case here, enter "
 "the incoming username which the target is expected to supply. Otherwise, "
 "leave this blank."
-msgstr ""
+msgstr "Los objetivos iSCSI, en algunos entornos, tienen que autenticarse con el iniciador (y viceversa). Introduzca aquí el nombre de usuario que debe proporcionar el objetivo si es su caso. Si no lo es, deje este valor en blanco."
 
 #. Type: password
 #. Description
@@ -2401,7 +2395,7 @@ msgstr ""
 #. Translators : do NOT translate the variable name (PORTAL)
 #: ../partman-iscsi.templates:7001
 msgid "iSCSI target password for ${PORTAL}:"
-msgstr ""
+msgstr "Contraseña del objetivo iSCSI para ${PORTAL}:"
 
 #. Type: password
 #. Description
@@ -2410,14 +2404,14 @@ msgstr ""
 #: ../partman-iscsi.templates:7001
 msgid ""
 "Enter the incoming password which the iSCSI target is expected to supply."
-msgstr ""
+msgstr "Introduzca la contraseña entrante para el objetivo iSCSI que éste debe proporcionar."
 
 #. Type: error
 #. Description
 #. :sl3:
 #: ../partman-iscsi.templates:9001
 msgid "No iSCSI targets discovered"
-msgstr ""
+msgstr "No se encontró ningún objetivo iSCSI"
 
 #. Type: error
 #. Description
@@ -2425,7 +2419,7 @@ msgstr ""
 #. Translators : do NOT translate the variable name (PORTAL)
 #: ../partman-iscsi.templates:9001
 msgid "No iSCSI targets were discovered on ${PORTAL}."
-msgstr ""
+msgstr "No se encontraron objetivos iSCSI en ${PORTAL}."
 
 #. Type: multiselect
 #. Description
@@ -2433,26 +2427,22 @@ msgstr ""
 #. Translators : do NOT translate the variable name (PORTAL)
 #: ../partman-iscsi.templates:11001
 msgid "iSCSI targets on ${PORTAL}:"
-msgstr ""
+msgstr "Objetivos iSCSI en ${PORTAL}:"
 
 #. Type: multiselect
 #. Description
 #. :sl3:
 #. Translators : do NOT translate the variable name (PORTAL)
 #: ../partman-iscsi.templates:11001
-#, fuzzy
-#| msgid "Please select the ZFS pool you wish to delete."
 msgid "Select the iSCSI targets you wish to use."
-msgstr "Escoja el grupo de volúmenes ZFS que desea borrar."
+msgstr "Escoja los objetivos iSCSI que quiere utilizar."
 
 #. Type: error
 #. Description
 #. :sl3:
 #: ../partman-iscsi.templates:12001
-#, fuzzy
-#| msgid "SILO installation failed"
 msgid "iSCSI login failed"
-msgstr "La instalación de SILO ha fallado"
+msgstr "Fallo en la conexión iSCSI"
 
 #. Type: error
 #. Description
@@ -2460,7 +2450,7 @@ msgstr "La instalación de SILO ha fallado"
 #. Translators : do NOT translate the variable names (PORTAL and TARGET)
 #: ../partman-iscsi.templates:12001
 msgid "Logging into the iSCSI target ${TARGET} on ${PORTAL} failed."
-msgstr ""
+msgstr "Falló la conexión al objetivo iSCSI ${TARGET} en ${PORTAL}."
 
 #. #-#-#-#-#  templates.pot (partman-zfs)  #-#-#-#-#
 #. Type: text
@@ -4004,7 +3994,7 @@ msgstr ""
 #. :sl3:
 #: ../partman-md.templates:5002
 msgid "Software RAID configuration actions"
-msgstr "Acción de configuración de RAID por software:"
+msgstr "Acciones de configuración de RAID por software:"
 
 #. Type: select
 #. Description
@@ -4576,10 +4566,8 @@ msgstr ""
 #. Description
 #. :sl3:
 #: ../partman-lvm.templates:32001
-#, fuzzy
-#| msgid "Error while deleting volume group"
 msgid "Error while creating volume group"
-msgstr "Se ha producido un error al borrar el grupo de volúmenes"
+msgstr "Se ha producido un error al crear el grupo de volúmenes"
 
 #. Type: error
 #. Description
@@ -5161,18 +5149,11 @@ msgstr "¿Desea realmente borrar los datos de ${DEVICE}?"
 #. Description
 #. :sl3:
 #: ../partman-crypto.templates:22001
-#, fuzzy
-#| msgid ""
-#| "The data on ${DEVICE} will be overwritten with random data. It can no "
-#| "longer be recovered after this step has completed. This is the last "
-#| "opportunity to abort the erase."
 msgid ""
 "The data on ${DEVICE} will be overwritten with zeroes. It can no longer be "
 "recovered after this step has completed. This is the last opportunity to "
 "abort the erase."
-msgstr ""
-"Se sobrescribirán los datos en ${DEVICE} con datos aleatorios. Este paso no "
-"es recuperable y es su última oportunidad para interrumpir el borrado."
+msgstr "Se sobrescribirán los datos en ${DEVICE} con ceros. Este paso no es recuperable una vez se haya completado. Es su última oportunidad para interrumpir el borrado."
 
 #. Type: text
 #. Description
@@ -5191,7 +5172,7 @@ msgstr "Borrando los datos en ${DEVICE}"
 msgid ""
 "The installer is now overwriting ${DEVICE} with zeroes to delete its "
 "previous contents. This step may be skipped by cancelling this action."
-msgstr ""
+msgstr "El instalador está sobre-escribiendo ahora ${DEVICE} con ceros para borrar los contenidos que tenía anteriormente. Este paso puede omitirse cancelando esta acción."
 
 #. Type: error
 #. Description
@@ -5207,16 +5188,10 @@ msgstr "Falló el borrado de datos en ${DEVICE}"
 #. Description
 #. :sl3:
 #: ../partman-crypto.templates:25001
-#, fuzzy
-#| msgid ""
-#| "An error occurred trying to erase the data on ${DEVICE}. The data has not "
-#| "been erased."
 msgid ""
 "An error occurred while trying to overwrite the data on ${DEVICE} with "
 "zeroes. The data has not been erased."
-msgstr ""
-"Se produjo un error cuando se intentaban borrar los datos en ${DEVICE}. No "
-"se han podido borrar los datos."
+msgstr "Se produjo un error cuando se intentaban sobre-escribir los datos en ${DEVICE} con ceros. No se han podido borrar los datos."
 
 #. Type: boolean
 #. Description
@@ -5239,7 +5214,7 @@ msgid ""
 "information leaks from the encrypted volume. This step may be skipped by "
 "cancelling this action, albeit at the expense of a slight reduction of the "
 "quality of the encryption."
-msgstr ""
+msgstr "El instalador está ahora sobre-escribiendo ${DEVICE} con datos aleatorios para prevenir que se pueda filtrar meta-información del volumen cifrado. Este paso puede omitirse cancelando esta acción. Si lo hace se producirá una ligera merma de la calidad del cifrado."
 
 #. Type: error
 #. Description
@@ -5249,7 +5224,7 @@ msgid ""
 "An error occurred while trying to overwrite ${DEVICE} with random data. "
 "Recovery of the device's previous contents is possible and meta-information "
 "of its new contents may be leaked."
-msgstr ""
+msgstr "Se produjo un error al intentar sobre-escribir ${DEVICE} con datos aleatorios. Es posible recuperar los contenidos previamente almacenados en el dispositivo y puede que se haya filtrado meta-información de los nuevos contenidos."
 
 #. Type: text
 #. Description
