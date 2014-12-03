@@ -128,6 +128,65 @@ bootz ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}
     </sect3>
   </sect2> 
 
+
+  <sect2 arch="arm" id="boot-hd-media">
+    <title>Booting from a USB stick in u-boot</title>
+    <para>
+    
+      Many modern u-boot versions have USB support and allow booting from
+      USB mass storage devices such as USB sticks.  Unfortunately the exact
+      steps required to do that can vary quite a bit from device to device.
+      
+    </para>
+    <para>
+    
+      U-Boot v2014.10 has introduced a common commandline handling and
+      autoboot framework.  This allows building generic boot images that
+      work on any system implementing this framework.  The &d-i; supports
+      installation from a USB stick on such systems, but unfortunately not
+      all platforms have adopted this new framework yet.
+
+    </para>
+    <para>
+    
+      To build a bootable USB stick for installing &debian;, unpack the
+      hd-media tarball (see <xref linkend="armmp-install-files"/>) onto a
+      USB stick formatted with a filesystem supported by the u-boot version
+      on your device.  For modern u-boot versions, any of FAT16 / FAT32 /
+      ext2 / ext3 / ext4 usually works. Then copy the ISO image file of the
+      first &debian; installation CD or DVD onto the stick.
+
+    </para>
+    <para>
+      The autoboot framework in modern u-boot versions works similar to the
+      boot ordering options in a PC BIOS, i.e.  it checks a list of possible
+      boot devices for a valid boot image and starts the first one it finds. 
+      If there is no operating system installed, plugging in the USB stick
+      and powering up the system should result in starting the installer. 
+      You can also initiate the USB-boot process any time from the u-boot
+      prompt by entering the <quote>run usb_boot</quote> command.
+    </para>
+    
+    <para>
+      One problem that can come up when booting from a USB stick while using
+      a serial console can be a console baudrate mismatch.  If a console
+      variable is defined in u-boot, the &d-i; boot script automatically
+      passes it to the kernel to set the primary console device and, if
+      applicable, the console baudrate.  Unfortunately the handling of the
+      console variable varies from platform to platform - on some platforms,
+      the console variable includes the baudrate (as in
+      <quote>console=ttyS0,115200</quote>), while on other platforms the
+      console variable contains only the device (as in
+      <quote>console=ttyS0</quote>).  The latter case leads to a garbled
+      console output when the default baudrate differs between u-boot and
+      the kernel.  Modern u-boot versions often use 115200 baud while the
+      kernel still defaults to the traditional 9600 baud. If this happens,
+      you should manually set the console variable to contain the correct
+      baudrate for your system and then start the installer with the
+      <quote>run usb_boot</quote> command.
+    </para>
+  </sect2>     
+    
 <!-- # None of the arm systems supported in Jessie is able to boot from
      # CD/DVD -> commenting out the "Booting from CD-ROM section" for arm
      
