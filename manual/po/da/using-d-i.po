@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: installation-guide using d-i\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2014-10-05 18:15+0000\n"
-"PO-Revision-Date: 2014-11-12 10:40+0100\n"
+"PO-Revision-Date: 2014-12-07 10:40+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -280,6 +280,9 @@ msgid ""
 "and thus the rest of this manual can be used to guide you through the "
 "installation process."
 msgstr ""
+"Det grafiske installationsprogram fungerer grundlæggende på samme måde som "
+"det tekstbaserede installationsprogram, og derfor kan resten af denne "
+"manual bruges til at vejlede dig igennem installationsprocessen."
 
 #. Tag: para
 #: using-d-i.xml:139
@@ -3229,7 +3232,7 @@ msgstr ""
 #: using-d-i.xml:1981
 #, no-c-format
 msgid "Encryption: <userinput>aes</userinput>"
-msgstr ""
+msgstr "Kryptering: <userinput>aes</userinput>"
 
 #. Tag: para
 #: using-d-i.xml:1983
@@ -3251,7 +3254,7 @@ msgstr ""
 #: using-d-i.xml:2001
 #, no-c-format
 msgid "Key size: <userinput>256</userinput>"
-msgstr ""
+msgstr "Nøglestørrelse: <userinput>256</userinput>"
 
 #. Tag: para
 #: using-d-i.xml:2003
@@ -3267,7 +3270,7 @@ msgstr ""
 #: using-d-i.xml:2015
 #, no-c-format
 msgid "IV algorithm: <userinput>xts-plain64</userinput>"
-msgstr ""
+msgstr "IV-algoritme: <userinput>xts-plain64</userinput>"
 
 #. Tag: para
 #: using-d-i.xml:2017
@@ -4944,12 +4947,25 @@ msgid ""
 "boot SunOS/Solaris partitions as well. This is useful if you want to install "
 "GNU/Linux alongside an existing SunOS/Solaris install."
 msgstr ""
+"Standardopstartsindlæseren for &architecture; kaldes for <quote>silo</quote>. "
+"Den er dokumenteret i <filename>/usr/share/doc/silo/</filename>. <command>SILO</"
+"command> svarer i konfiguration og brug til <command>LILO</command>, "
+"med nogle få undtagelser. For det første giver <command>SILO</command> dig "
+"mulighed for at igangsætte ethvert kerneaftryk på dit drev, selv hvis det "
+"ikke er angivet i  <filename>/etc/silo.conf</filename>. Dette skyldes, at "
+"<command>SILO</command> rent faktisk kan læse Linux-partitioner. "
+"<filename>/etc/silo.conf</filename> læses også på opstartstidspunktet, så "
+"der er ingen grund til at genkøre <command>silo</command> efter installation "
+"af en ny kerne som du ville med <command>LILO</command>. <command>SILO</command> "
+"kan også læse UFS-partitioner, hvilket betyder, at den også kan opstarte "
+"SunOS/Solaris-partitioner. Dette er nyttigt hvis du ønsker at installere "
+"GNU/Linux sammen med en eksisterende SunOS/Solaris-installation."
 
 #. Tag: title
 #: using-d-i.xml:3106
 #, no-c-format
 msgid "Making the system bootable with flash-kernel"
-msgstr ""
+msgstr "Gør systemet opstartsbart med flash-kernel"
 
 #. Tag: para
 #: using-d-i.xml:3107
@@ -4963,6 +4979,13 @@ msgid ""
 "various devices. It detects whether the current device is supported, and if "
 "yes, performs the necessary operations."
 msgstr ""
+"Da der ingen fælles firmware-grænseflade er på alle ARM-platforme, er de "
+"nødvendige trin for at gøre systemet opstartbart på ARM-enheder meget "
+"enhedsafhængige. &debian; bruger et værktøj kaldt <command>flash-kernel "
+"</command> til at håndtere dette. Flash-kernel indeholder en database, som "
+"beskriver de specifikke handlinger, som er krævet for at gøre systemet "
+"opstartbart på diverse enheder. Det detekerer om den nuværende enhed er "
+"understøttet, og hvis ja, udføres de nødvendige operationer."
 
 #. Tag: para
 #: using-d-i.xml:3118
@@ -4975,6 +4998,12 @@ msgid ""
 "internal flash memory, i.e. running flash-kernel on them usually overwrites "
 "the previous contents of the flash memory!"
 msgstr ""
+"På enheder som starter fra intern NOR- eller NAND-flash-hukommelse, "
+"så skriver flash-kernel kernen og den oprindelige ramdisk til denne interne "
+"hukommelse. Denne metode er specielt udbredt på ældre armel-enheder. Bemærk "
+"venligst at de fleste enheder ikke tillader at have flere kerner og ramdisk "
+"i deres interne flashhukommelse, d.v.s. kørsel af flash-kernel på dem overskriver "
+"normalt det tidligere indhold af flashhukommelsen!"
 
 #. Tag: para
 #: using-d-i.xml:3128
@@ -4985,6 +5014,10 @@ msgid ""
 "USB mass storage devices or IDE/SATA harddisks), flash-kernel generates an "
 "appropriate boot script to allow autobooting without user interaction."
 msgstr ""
+"For ARM-systemer som bruger u-boot som deres systemfirmware og starter "
+"kernen og den oprindelige ramdisk fra ekstern lagermedie (såsom MMC/SD-kort, "
+"USB-masselagerenheder eller IDE/SATA-harddiske), opretter flash-kernel et "
+"passende opstartsskript så der automatisk kan startes op uden brugerinteraktion."
 
 #. Tag: title
 #: using-d-i.xml:3144
@@ -5018,6 +5051,15 @@ msgid ""
 "you chose to install <filename>/boot</filename> on a separate partition, "
 "also your <filename>/boot</filename> filesystem."
 msgstr ""
+"Hvis du planlægger manuelt at konfigurere din opstartsindlæser, så skal "
+"du kontrollere navnet for den installerede kerne i <filename>/target/boot"
+"</filename>. Du bør også kontrollere i mappen for tilstedeværelsen af "
+"en <firstterm>initrd</firstterm>; hvis en er til stede, så skal du "
+"sandsynligvis instruere din opstartsindlæser i at bruge den. Anden "
+"information du skal bruge er disken og partitionen du valgte for dit "
+"<filename>/</filename>-filsystem og, hvis du vælger at installere "
+"<filename>/boot</filename> på en separat partition, også dit "
+" <filename>/boot</filename>-filsystem."
 
 #. Tag: title
 #: using-d-i.xml:3170
@@ -5052,6 +5094,10 @@ msgid ""
 "whether the clock is set to UTC based on things like what other operating "
 "systems are installed."
 msgstr ""
+"Installationsprogrammet spørger dig måske om computerens ur er sat til "
+"UTC. Normalt undgås dette spørgsmål om muligt og installationsprogrammet "
+"forsøger at finde ud af om uret er sat til UTC baseret på f.eks. hvilke "
+"andre operativsystemer som er installeret."
 
 #. Tag: para
 #: using-d-i.xml:3193
@@ -5064,6 +5110,12 @@ msgid ""
 "Windows are normally set to local time. If you want to dual-boot, select "
 "local time instead of UTC.</phrase>"
 msgstr ""
+"I eksperttilstand vil du altid kunne vælge hvorvidt uret er sat til UTC. "
+"<phrase arch=\"powerpc\">Macintoshs udstyrsur sættes normalt til lokal "
+"tid. Hvis du ønsker flere opstartssystemer, så vælg lokal tid i stedet for "
+"UTC.</phrase> <phrase arch=\"any-x86\">Systemer som (også) kører Dos eller "
+"Windows er normalt sat til lokal tid. Hvis du ønsker flere opstartssystemer, "
+"så vælg lokal tid i stedet for UTC.</phrase>"
 
 #. Tag: para
 #: using-d-i.xml:3204
@@ -5073,6 +5125,9 @@ msgid ""
 "system's hardware clock. This will be done either in UTC or local time, "
 "depending on the selection that was just made."
 msgstr ""
+"På dette tidspunkt vil &d-i; også forsøge at gemme den nuværende tid til "
+"systemets udstyrsur. Dette vil blive gjort i enten UTC eller lokal tid, "
+"afhængig af valget du lige har foretaget."
 
 #. Tag: title
 #: using-d-i.xml:3219
@@ -5088,6 +5143,9 @@ msgid ""
 "used to boot the installer. After that the system will be rebooted into your "
 "new &debian; system."
 msgstr ""
+"Du vil blive anmodt om at fjerne opstartsmediet (cd, diskettedrev etc.), "
+"som du brugte til at starte installationsprogrammet op med. Derefter vil "
+"systemet blive genstartet i dit nye &debian;-system."
 
 #. Tag: para
 #: using-d-i.xml:3227
@@ -5098,6 +5156,9 @@ msgid ""
 "which you selected for the root filesystem during the first steps of the "
 "installation."
 msgstr ""
+"Efter en endelig prompt vil systemet blive stoppet, da genstart ikke er "
+"understøttet på &arch-title;. Du skal så IPL &debian-gnu; fra DASD, som "
+"du valgte for rodfilsystemet under de første trin af installationen."
 
 #. Tag: title
 #: using-d-i.xml:3240
@@ -5131,6 +5192,9 @@ msgid ""
 "installation process will be automatically saved to <filename>/var/log/"
 "installer/</filename> on your new &debian; system."
 msgstr ""
+"Hvis installationen lykkedes, vil logfilerne oprettet under installationen "
+"automatisk blive gemt til <filename>/var/log/installer/</filename> på dit "
+"nye &debian;-system."
 
 #. Tag: para
 #: using-d-i.xml:3263
@@ -5142,6 +5206,11 @@ msgid ""
 "installation and wish to study the logs on another system or attach them to "
 "an installation report."
 msgstr ""
+"Valg af <guimenuitem>Gem fejlsøgningslogge</guimenuitem> fra hovedmenuen "
+"giver dig mulighed for at gemme logfilerne på en diskette, et netværk, "
+"en harddisk eller et andet medie. Dette kan være nyttigt, hvis du møder "
+"fatale problemer under installationen og ønsker at studere loggene på et "
+"andet system eller vedhæfte dem til en installationsrapport."
 
 #. Tag: title
 #: using-d-i.xml:3283
@@ -5164,12 +5233,23 @@ msgid ""
 "keycap></keycombo>). Use <keycombo><keycap>Left Alt</keycap> <keycap>F1</"
 "keycap></keycombo> to switch back to the installer itself."
 msgstr ""
+"Der er flere metoder, du kan anvende for at få en skal uden at køre "
+"en installation. På de fleste systemer, og hvis du ikke installerer over "
+"seriel konsol, er den nemmeste metode at skifte til den anden "
+"<emphasis>virtuelle konsol</emphasis> ved at trykke på <keycombo><keycap>"
+"Left Alt</keycap> <keycap>F2</keycap></keycombo><footnote> <para> "
+"Det vil sige: tryk på tasten <keycap>Alt</keycap> på den venstre side "
+"af <keycap>mellemrum</keycap> og funktionstasten <keycap>F2</keycap> på "
+"samme tid. </para> </footnote> (på et Mac-tastatur, <keycombo><keycap>"
+"Option</keycap> <keycap>F2</keycap></keycombo>). Brug <keycombo><keycap>"
+"Venstre Alt</keycap> <keycap>F1</keycap></keycombo> for at skifte "
+"tilbage til selve installationsprogrammet."
 
 #. Tag: para
 #: using-d-i.xml:3303
 #, no-c-format
 msgid "For the graphical installer see also <xref linkend=\"gtk-using\"/>."
-msgstr ""
+msgstr "For det grafiske installationsprogram, se også <xref linkend=\"gtk-using\"/>."
 
 #. Tag: para
 #: using-d-i.xml:3307
@@ -5181,6 +5261,11 @@ msgid ""
 "button one or more times. Type <userinput>exit</userinput> to close the "
 "shell and return to the installer."
 msgstr ""
+"Hvis du ikke kan skifte konsoller, så er der også et punkt <guimenuitem>"
+"Kør en skal</guimenuitem> på hovedmenuen, som kan bruges til at starte "
+"en skal. Du kan gå til hovedmenuen fra de fleste dialoger ved at bruge "
+"knappen &BTN-GOBACK; en eller flere gange. Tast <userinput>exit</userinput> "
+"for at lukke skallen og returnere til installationsprogrammet."
 
 #. Tag: para
 #: using-d-i.xml:3315
@@ -5193,6 +5278,12 @@ msgid ""
 "clone called <command>ash</command> and has some nice features like "
 "autocompletion and history."
 msgstr ""
+"På dette tidspunkt er du startet op fra RAM-disk, og der er et begrænset "
+"sæt af Unix-redskaber tilgængelige. Du kan se hvilke programmer, som er "
+"tilgængelige md kommandoen <command>ls /bin /sbin /usr/bin /usr/sbin</"
+"command> og ved at indtaste <command>help</command>. Skallen er en "
+"Bourne-skalklon kaldt <command>ash</command> og den har nogle gode "
+"funktioner såsom automatisk fuldførelse og historik."
 
 #. Tag: para
 #: using-d-i.xml:3324
@@ -5214,7 +5305,11 @@ msgid ""
 "commands allow you to do, the option to use a shell is really only there in "
 "case something goes wrong and for debugging."
 msgstr ""
+"Selvom du grundlæggende kan udføre alt i en skal, som de tilgængelige "
+"kommandoer tillader at du gør, så er muligheden for at bruge en skal der "
+"reelt kun i tilfælde at, at noget går galt og til at fejlsøge i."
 
+# engelsk fejl!!
 #. Tag: para
 #: using-d-i.xml:3337
 #, no-c-format
@@ -5224,6 +5319,10 @@ msgid ""
 "you should always use let the installer activate your swap partition and not "
 "do this yourself from a shell."
 msgstr ""
+"Udførsel af ting manuelt fra skallen kan komme i konflikt med "
+"installationsprocessen og medføre fejl eller en ufuldstændig installation. "
+"Du skal specielt være opmærksom på at lade installationsprogrammet aktivere "
+"din swappartition og ikke selv gøre dette fra en skal."
 
 #. Tag: title
 #: using-d-i.xml:3353
@@ -5242,6 +5341,12 @@ msgid ""
 "setting up the networking. (Although you can automate that part with <xref "
 "linkend=\"automatic-install\"/>.)"
 msgstr ""
+"En af de mere interessante komponenter er <firstterm>network-console</"
+"firstterm>. Det gør, at du kan udføre en stor del af installationen over "
+"netværket via SSH. Med brugen af netværket underforstås at du skal udføre "
+"de første trin af installationen fra konsollen, i det mindste til punktet "
+"for opsætning af netværket. (Du kan dog automatisere denne del med "
+"<xref linkend=\"automatic-install\"/>.)"
 
 #. Tag: para
 #: using-d-i.xml:3365
@@ -5256,6 +5361,14 @@ msgid ""
 "indicated by a new menu entry called <guimenuitem>Continue installation "
 "remotely using SSH</guimenuitem>."
 msgstr ""
+"Denne komponent indlæses ikke i hovedinstallationens menu som standard, "
+"så du skal eksplicit anmode om den. Hvis du installerer fra cd, så skal du "
+"starte op med mellem prioritet eller ellers starte hovedinstallationens "
+"menu og vælge <guimenuitem>Indlæs installationsprogrammets komponenter fra "
+"cd</guimenuitem> og fra listen over yderligere komponenter vælge "
+"<guimenuitem>network-console: Fortsæt installation eksternt med brug af SSH"
+"</guimenuitem>. Indlæsning indikeres med et nyt menupunkt kaldt "
+"<guimenuitem>Fortsæt installation eksternt med brug af SSH</guimenuitem>."
 
 #. Tag: para
 #: using-d-i.xml:3378
@@ -5280,6 +5393,14 @@ msgid ""
 "fingerprint of this system. You need to transfer the fingerprint securely to "
 "the person who will continue the installation remotely."
 msgstr ""
+"<phrase arch=\"not-s390\">Efter valg af dette nye punkt, vil</phrase> "
+"<phrase arch=\"s390\">Vil</phrase> du blive anmodt om en ny adgangskode "
+"for forbindelsen til installationssystemet og for dets bekræftelse. "
+"Det er det hele. Nu bør du se en skærm, som instruerer dig i at logge "
+"ind eksternt som brugeren <emphasis>installer</emphasis> med adgangskoden "
+"du netop angav. En anden vigtig detalje at bemærke på denne skærm er "
+"fingeraftrykket for dette system. Du skal overføre fingeraftrykket sikkert "
+"til personen, som vil fortsætte installationen eksternt."
 
 #. Tag: para
 #: using-d-i.xml:3395
@@ -5289,6 +5410,9 @@ msgid ""
 "press &enterkey;, which will bring you back to the main menu, where you can "
 "select another component."
 msgstr ""
+"Skulle du beslutte at fortsætte med installationen lokalt, så kan du altid "
+"trykke &enterkey;, som vil føre dig tilbage til hovedmenuen, hvor du kan "
+"vælge en anden komponent."
 
 #. Tag: para
 #: using-d-i.xml:3401
@@ -5308,6 +5432,19 @@ msgid ""
 "actual login the fingerprint of the remote system will be displayed and you "
 "will have to confirm that it is correct."
 msgstr ""
+"Skift nu til den anden side af linjen. Som et forhåndskrav skal du konfigurere "
+"din terminal for UTF-8-kodning, da det er hvad installationsssytemet "
+"anvender. Hvis du ikke gør dette, så vil ekstern installation stadig "
+"være mulig, men kan møde mærkelige skærmvisninger, såsom ødelagte "
+"dialogkanter eller ulæselige ikke-ascii tegn. Etablering af en forbindelse "
+"med installationssystemet er så simpel som at taste: "
+"<informalexample><screen>\n"
+"<prompt>$</prompt> <userinput>ssh -l installer <replaceable>install_host</"
+"replaceable></userinput>\n"
+"</screen></informalexample> hvor <replaceable>install_host</replaceable> "
+"enten er navnet eller IP-adressen for computeren som der installeres på. "
+"Før det faktiske logind vil fingeraftrykket for det ekserne system blive "
+"vist og du skal bekræfte, at det er korrekt."
 
 #. Tag: para
 #: using-d-i.xml:3418
@@ -5324,6 +5461,15 @@ msgid ""
 "was lost, you may or may not be able to resume the installation after "
 "reconnecting."
 msgstr ""
+"Serveren <command>ssh</command> i installationsprogrammet bruger en "
+"standardkonfiguration, som ikke sender hold i live-pakker. I princippet "
+"bør en forbindelse til systemet der installeres holdes åben uendeligt. "
+"I nogle tilfælde &mdash; afhængig af din lokale netværksopsætning &mdash; "
+"kan forbindelsen blive tabt efter en periode med inaktivitet. Et ofte "
+"set tilfælde er, når der er en form for Network Address Translation (NAT) "
+"et sted mellem klienten og systemet der installeres. Afhængig af på "
+"hvilket tidspunkt i installationen forbindelsen blev tabt, vil du eventuelt "
+"kunne genoptage installationen efter ny tilslutning."
 
 #. Tag: para
 #: using-d-i.xml:3431
@@ -5338,6 +5484,15 @@ msgid ""
 "a brief network outage, from which <command>ssh</command> would otherwise "
 "have recovered), so it should only be used when needed."
 msgstr ""
+"Du kan måske undgå at forbindelsen tabes ved at tilføje indstillingen "
+"<userinput>-o&nbsp;ServerAliveInterval=<replaceable>value</replaceable></"
+"userinput> når <command>ssh</command>-forbindelsen startes, eller ved at "
+"tilføje indstillingen i din <command>ssh</command>-konfigurationsfil. "
+"Bemærk dog at i nogle tilfælde vil tilføjelse af denne indstilling også "
+"<emphasis>medføre</emphasis> at forbindelsen bliver tabt (for eksempel "
+"hvis hold i live-pakker sendes under et kort netværksnedbrud, hvorfra "
+"<command>ssh</command> ellers ville have klaret skærene), så den bør "
+"kun bruges når krævet."
 
 #. Tag: para
 #: using-d-i.xml:3444
@@ -5353,6 +5508,16 @@ msgid ""
 "replaceable>|<replaceable>IP&nbsp;address</replaceable>&gt;</command>. </"
 "para> </footnote> and try again."
 msgstr ""
+"Hvis du installerer flere computere efter hinanden og de har den samme "
+"IP-adresse eller værtsnavn, så vil <command>ssh</command> nægte at "
+"forbinde til sådanne værter. Årsagen er, at de vil have forskellige "
+"fingeraftryk, hvilket normalt er et tegn på et spoofing-angreb. Hvis du "
+"er sikker på, at dette ikke er tilfældet, så skal du slette den relevante "
+"linje fra <filename>~/.ssh/known_hosts</filename><footnote> <para> Den "
+"følgende kommando vil fjerne en eksisterende post for en vært: "
+"<command>ssh-keygen -R &lt;<replaceable>værtsnavn</"
+"replaceable>|<replaceable>IP&nbsp;adresse</replaceable>&gt;</command>. </"
+"para> </footnote> og prøv igen."
 
 #. Tag: para
 #: using-d-i.xml:3460
@@ -5366,6 +5531,15 @@ msgid ""
 "system. You should only start one SSH session for the installation menu, but "
 "may start multiple sessions for shells."
 msgstr ""
+"Efter logind vil du blive præsenteret med en opstartsskærm, hvor du har "
+"to muligheder kaldt <guimenuitem>Startmenu</guimenuitem> og "
+"<guimenuitem>Startskal</guimenuitem>. Den første fører dig til hovedmenuen "
+"for installationsprogrammet, hvor du kan fortsætte med installationen som "
+"normalt. Den følgende starter en skal hvorfra du kan fortsætte med "
+"installationen som normalt. Den sidste starter en skal, hvorfra du kan "
+"undersøge og eventuelt rette det eksterne system. Du bør kun starte "
+"en SSH-session for installationsmenuen, men kan starte flere sessioner for "
+"skaller."
 
 #. Tag: para
 #: using-d-i.xml:3470
@@ -5377,6 +5551,11 @@ msgid ""
 "turn may result in a failed installation or problems with the installed "
 "system."
 msgstr ""
+"Efter du har startet installationen eksternt over SSH, skal du ikke gå tilbage "
+"til installationssessionen, der kører på den lokale konsol. Det kan ødelægge "
+"databasen som indeholder konfigurationen for det nye system. Dette kan igen "
+"medføre en mislykket installation eller problemer med det installerede "
+"system."
 
 #. Tag: title
 #: using-d-i.xml:3489
