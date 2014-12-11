@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 69213 -->
+<!-- original version: 69496 -->
 
   <sect2 arch="arm" id="boot-image-formats">
   <title>Formáty zaváděcích obrazů</title>
@@ -161,6 +161,60 @@ parametr <literal>${fdt_addr_r}</literal>.
 
 </para></note>
    </sect3>
+  </sect2>
+
+  <sect2 arch="arm" id="boot-hd-media">
+  <title>Zavedení z USB klíčenky in u-boot</title>
+<para>
+
+Mnohé moderní verze u-bootu podporují USB a umožňují zavádět
+z úložných USB zařízení, jako jsou třeba USB klíčenky. Přesný postup
+se ale bohužel liší systém od systému.
+
+</para><para>
+
+U-Boot v2014.10 přinesl sjednocené zpracování příkazové řádky
+a framework pro automatické zavádění. To umožňuje vytvářet obecné
+zaváděcí obrazy, které pracují na všech systémech implementujících
+tento framework. &d-i; na těchto systémech podporuje instalaci z USB
+zařízení.
+
+</para><para>
+
+Pro vytvoření USB klíčenky pro instalaci &debian;u musí USB klíčenka
+obsahovat souborový systém podporovaný u-bootem (novější verze obvykle
+podporují FAT16, FAT32, ext2, ext3 a ext4). Na tento souborový systém
+rozbalte archiv hd-media (viz <xref linkend="armmp-install-files"/>)
+a pak přikopírujte ISO obraz prvního instalačního CD/DVD &debian;u.
+
+</para><para>
+
+Framework pro automatické zavádění v novějších verzích u-bootu funguje
+podobně jako volby pro zavádění v BIOSu PC, tj. postupně prozkoumá
+seznam možných zaváděcích zařízení, zda na nich nenalezne platný
+zaveditelný obraz a spustí první, který nalezne. Pokud na zařízení
+není nainstalovaný žádný operační systém, mělo by zasunutí USB
+klíčenky a zapnutí systému způsobit zavedení instalačního systému.
+Zavedení z USB můžete také vyvolat ručně na výzvě u-bootu příkazem
+<userinput>run usb_boot</userinput>.
+
+</para><para>
+
+Jedním problémem, se kterým byste se mohli potkat při zavádění z USB
+a použití sériové konzole, je rozdílné nastavení přenosové rychlosti
+konzoly. Je-li v u-bootu nastavena proměnná console, předá ji zaváděcí
+skript jádru, aby ji použilo jako primární konzoli a případně
+nastavilo přenosovou rychlost. Na některých platformách specifikuje
+proměnná console i rychlost (např.
+<quote>console=ttyS0,115200</quote>), zatímco na jiných obsahuje pouze
+název zařízení (<quote>console=ttyS0</quote>). Pokud se výchozí
+přenosová rychlost u-bootu (často 115200) liší od výchozí přenosové
+rychlosti jádra (tradičních 9600), vede to ve druhém případě
+k nečitelnému výstupu. Pokud to nastane, měli byste ručně upravit
+proměnnou console, aby obsahovala správnou rychlost pro váš systém,
+a pak zavést instalátor příkazem <userinput>run usb_boot</userinput>.
+
+</para>
   </sect2>
 
 <!-- # None of the arm systems supported in Jessie is able to boot from
