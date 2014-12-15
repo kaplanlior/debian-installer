@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 69213 -->
+<!-- original version: 69496 -->
 
   <sect2 arch="arm" id="boot-image-formats">
     <title>Boot-Image-Formate</title>
@@ -140,6 +140,70 @@ bootz ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}
       </para>
     </sect3>
   </sect2> 
+
+  <sect2 arch="arm" id="boot-hd-media">
+    <title>Booten von USB-Stick in u-boot</title>
+    <para>
+       Viele moderne Versionen von u-boot haben USB-Unterstützung und
+       erlauben das Booten von USB-Massenspeicher-Geräten wie z.B.
+       USB-Sticks. Unglücklicherweise können sich die genauen Schritte, die
+       dazu nötig sind, von Gerät zu Gerät ein wenig unterscheiden.
+    </para>
+    <para>
+       In u-boot v2014.10 wurde das grundlegende Handling für eine
+       Kommandozeile sowie ein Rahmenwerk für automatisches Booten
+       (autoboot) eingeführt. Dies erlaubt die Erzeugung generischer
+       Boot-Images, die auf jedem System funktionieren, das dieses Rahmenwerk
+       implementiert hat. Der &d-i; unterstützt die Installation von
+       USB-Stick auf solchen Systemen, aber leider haben noch nicht alle
+       Plattformen dieses Rahmenwerk übernommen.
+    </para>
+    <para>
+       Um einen boot-fähigen USB-Stick zur Installation von &debian;
+       zu erstellen, entpacken Sie das hd-media-Tarball-Archiv (Näheres
+       in <xref linkend="armmp-install-files"/>) auf einen USB-Stick,
+       der mit einem Dateisystem formatiert ist, welches von der
+       u-boot-Version auf Ihrem Gerät unterstützt wird.
+       Bei neueren u-boot-Versionen sollten FAT16, FAT32, ext2, ext3
+       und ext4 normalerweise funktionieren. Kopieren Sie dann auch die
+       ISO-Image-Datei der ersten &debian;-Installations-CD oder -DVD
+       auf den Stick.
+    </para>
+    <para>
+      Das autoboot-Rahmenwerk in modernen u-boot-Versionen funktioniert
+      ähnlich wie die Optionen für die Bootreihenfolge in einem PC-Bios,
+      d.h. auf verschiedenen möglichen Boot-Geräten wird der Reihe nach
+      nach einem gültigen Boot-Image gesucht und das erste gefundene wird
+      gestartet. Wenn kein Betriebssystem installiert ist, sollte das
+      Starten des Systems mit eingestecktem USB-Stick den Installer booten.
+      Sie können den USB-Boot-Prozess auch zu jeder Zeit vom
+      u-boot-Prompt aus anstoßen, indem Sie den
+      <quote>run usb_boot</quote>-Befehl ausführen.
+    </para>
+
+    <para>
+       Ein Problem, das beim Booten von einem USB-Stick bei Nutzung der
+       seriellen Konsole auftreten könnte, ist eine nicht passende
+       Konsolenbaudrate. Wenn die console-Variable in u-boot definiert
+       ist, wird das Boot-Skript des &d-i; diese automatisch an den
+       Kernel weiterleiten, um das primäre Konsolengerät und - falls
+       anwendbar - die Baudrate einzustellen. Unglücklicherweise
+       variiert die Handhabung der console-Variable von Plattform zu
+       Plattform - auf einigen Plattformen enthält die console-Variable
+       die Baurate (wie in <quote>console=ttyS0,115200</quote>), auf
+       anderen hingegen lediglich den Gerätenamen (z.B.
+       <quote>console=ttyS0</quote>). 
+       In letzterem Fall kann es zu einer verstümmelten Konsolenausgabe
+       kommen, wenn die Standard-Baudrate bei u-boot und dem Kernel
+       nicht übereinstimmt. Moderne u-boot-Versionen verwenden oft
+       eine Geschwindigkeit von 115200 Baud, während beim Kernel noch
+       der alte traditionelle Wert von 9600 Baud voreingestellt ist.
+       Falls dies passiert, sollten Sie die console-Variable händisch
+       setzen, so dass Sie die korrekte Baudrate für Ihr System
+       enthält, und dann den Installer mit <quote>run usb_boot</quote>
+       starten.
+    </para>
+  </sect2>
 
 <!-- # None of the arm systems supported in Jessie is able to boot from
      # CD/DVD -> commenting out the "Booting from CD-ROM section" for arm
