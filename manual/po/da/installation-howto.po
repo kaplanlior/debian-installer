@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: d-i-manual_installation-howto\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2012-12-29 10:09+0000\n"
-"PO-Revision-Date: 2014-11-16 10:40+0100\n"
+"PO-Revision-Date: 2014-12-19 10:40+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -62,6 +62,12 @@ msgid ""
 "please direct them to the debian-boot mailing list (&email-debian-boot-"
 "list;) or ask on IRC (#debian-boot on the OFTC network)."
 msgstr ""
+"<phrase condition=\"unofficial-build\"> Debians installationsprogram er stadig "
+"i en betatilstand. </phrase> Hvis du møder fejl under installationen, så se "
+"venligst <xref linkend=\"submit-bug\"/> for instruktioner i hvordan de "
+"rapporteres. Hvis du har spørgsmål, som ikke kan besvaret af dette dokument, "
+"så send dem direkte til postlisten debian-boot (&email-debian-boot-list;) eller "
+"spørg på IRC (#debian-boot på OFTC-netværket)."
 
 #. Tag: title
 #: installation-howto.xml:36
@@ -79,6 +85,11 @@ msgid ""
 "url=\"&url-debian-cd;\">Debian CD page</ulink>. For more information on "
 "where to get CDs, see <xref linkend=\"official-cdrom\"/>."
 msgstr ""
+"<phrase condition=\"unofficial-build\"> For nogle hurtige henvisninger til "
+"cd-aftryk, se venligst <ulink url=\"&url-d-i;\"> &d-i;-hjemmesiden</ulink>. "
+"</phrase> Debian-cd-holdet tilbyder bygninger af cd-aftryk der bruger "
+"&d-i; på <ulink url=\"&url-debian-cd;\">Debians cd-side</ulink>. For yderligere "
+"information om hvor du kan få cd'er, se <xref linkend=\"official-cdrom\"/>."
 
 #. Tag: para
 #: installation-howto.xml:47
@@ -89,6 +100,10 @@ msgid ""
 "page</ulink> has links to other images. </phrase> <xref linkend=\"where-files"
 "\"/> explains how to find images on &debian; mirrors."
 msgstr ""
+"Nogle installationsmetoder kræver andre aftryk end cd-aftryk. <phrase "
+"condition=\"unofficial-build\"> <ulink url=\"&url-d-i;\">&d-i;-hjemmesiden"
+"</ulink> har henvisninger til andre aftryk. </phrase> <xref linkend=\"where-files"
+"\"/> forklarer hvordan du finder aftryk på &debian;-spejl."
 
 #. Tag: para
 #: installation-howto.xml:57
@@ -118,6 +133,13 @@ msgid ""
 "get a full size CD image which will not need the network to install. You "
 "only need the first CD of the set."
 msgstr ""
+"Netinst cd-aftrykket er et populært aftryk, som kan bruges til at installere "
+"&releasename; med &d-i;. Dette aftryk at lavet for at kunne starte op fra "
+"cd og installere yderligere pakker over et netværk; deraf navnet »netinst«. "
+"Aftrykket har programkomponenterne til at køre installationsprogrammet og "
+"de grundlæggende pakker for et minimalt &releasename;-system. Hvis du "
+"foretrækker det, så kan du hente et fuldt cd-aftryk, som ikke vil kræve "
+"netværket for installationen. Du skal kun bruge den første cd i sættet."
 
 #. Tag: para
 #: installation-howto.xml:77
@@ -130,6 +152,12 @@ msgid ""
 "booting. See <xref linkend=\"boot-cd\"/> for other ways to boot from CD. </"
 "phrase>"
 msgstr ""
+"Hent den type du foretrækker og brænd den til en cd. <phrase arch=\"any-"
+"x86\">For at starte cd'en op, skal du eventuelt ændre din BIOS-konfiguration, "
+"som forklaret i <xref linkend=\"bios-setup\"/>.</phrase> <phrase arch=\"powerpc"
+"\"> For at starte en PowerMac fra cd, trykkes på tasten <keycap>c</keycap> under "
+"opstarten. Se <xref linkend=\"boot-cd\"/> for andre måder at starte op fra cd. </"
+"phrase>"
 
 #. Tag: title
 #: installation-howto.xml:91
@@ -157,6 +185,9 @@ msgid ""
 "floppy, when booted, will prompt you to insert a second floppy &mdash; use "
 "the one with <filename>root.img</filename> on it."
 msgstr ""
+"Opstartsdisketten er den med <filename>boot.img</filename>. Denne diskette "
+"vil, når startet op, anmode dig om at indsætte endnu en diskette &mdash; "
+"brug den med <filename>root.img</filename>."
 
 #. Tag: para
 #: installation-howto.xml:104
@@ -167,6 +198,10 @@ msgid ""
 "and some less common network cards, you will also need a second driver "
 "floppy, <filename>floppy/net-drivers-2.img</filename>."
 msgstr ""
+"Hvis du planlægger at installere over netværket, så vil du normalt skulle "
+"bruge <filename>floppy/net-drivers-1.img</filename>. For PCMCIA eller USB-netværk, "
+"og nogle mindre gængse netværkskort, skal du også bruge endnu en driverdiskette, "
+"<filename>floppy/net-drivers-2.img</filename>."
 
 #. Tag: para
 #: installation-howto.xml:111
@@ -176,6 +211,9 @@ msgid ""
 "<filename>floppy/cd-drivers.img</filename> on a driver disk to complete the "
 "install using the CD."
 msgstr ""
+"Hvis du har en cd, men ikke kan starte op fra den, så start fra disketterne "
+"og brug <filename>floppy/cd-drivers.img</filename> på en driverdisk til at "
+"færdiggøre installationen med cd'en."
 
 #. Tag: para
 #: installation-howto.xml:117
@@ -188,6 +226,12 @@ msgid ""
 "<xref linkend=\"create-floppy\"/> for details). Since you'll have more than "
 "one floppy, it's a good idea to label them."
 msgstr ""
+"Diskettedrev er et af de mindst troværdige medier, så vær forberedt på "
+"eventuelle ugyldige diske (se <xref linkend=\"unreliable-floppies\"/>). "
+"Hver <filename>.img</filename>-fil du henter passer til en enkel diskette; "
+"du kan bruge kommandoen dd til at skrive den til /dev/fd0 eller en anden "
+"metode (se <xref linkend=\"create-floppy\"/> for detaljer). Da du skal "
+"bruge mere end en diskette, er det en god ide at navngive dem."
 
 #. Tag: title
 #: installation-howto.xml:130
@@ -203,6 +247,9 @@ msgid ""
 "example a USB keychain can make a handy &debian; install medium that you can "
 "take with you anywhere."
 msgstr ""
+"Det er også muligt at installere fra eksterne USB-lagerenheder. For eksempel "
+"et USB-drev være et smart &debian;-installationsmedie, som du kan medtage "
+"overalt."
 
 #. Tag: para
 #: installation-howto.xml:137
@@ -214,6 +261,12 @@ msgid ""
 "stick. This works because Debian CD images are \"isohybrid\" images that can "
 "boot both from CD and from USB drives."
 msgstr ""
+"Den nemmeste måde at forberede dit USB-hukommelsesdrev er at hente et "
+"cd- eller dvd-aftryk for Debian, som størrelsesmæssigt passer på drevet, og "
+"så skrive cd-aftrykket direkte til hukommelsesdrevet. Selvfølgelig vil "
+"dette ødelægge alt allerede på hukommelsesdrevet. Det fungerer fordi Debians "
+"cd-aftryk er »isohybrid«-aftryk, som kan starte op både fra cd og fra "
+"USB-drev."
 
 #. Tag: para
 #: installation-howto.xml:145
@@ -258,6 +311,8 @@ msgid ""
 "Booting Macintosh systems from USB storage devices involves manual use of "
 "Open Firmware. For directions, see <xref linkend=\"usb-boot\"/>."
 msgstr ""
+"Opstart af Macintosh-systemer fra USB-lagerenheder involverer manuel brug "
+"af Open Firmware. For retningslinjer, se <xref linkend=\"usb-boot\"/>."
 
 #. Tag: title
 #: installation-howto.xml:178
@@ -290,7 +345,7 @@ msgstr ""
 #: installation-howto.xml:199
 #, no-c-format
 msgid "Booting from hard disk"
-msgstr ""
+msgstr "Opstart fra harddisk"
 
 #. Tag: para
 #: installation-howto.xml:200
@@ -349,6 +404,8 @@ msgid ""
 "Now sit back while debian-installer detects some of your hardware, and loads "
 "the rest of itself from CD, floppy, USB, etc."
 msgstr ""
+"Læn dig nu tilbage mens debians installationsprogram registrerer dit udstyr, "
+"og indlæser resten det skal bruge fra cd, diskette, USB etc."
 
 #. Tag: para
 #: installation-howto.xml:242
@@ -426,6 +483,9 @@ msgid ""
 "Now &d-i; formats your partitions and starts to install the base system, "
 "which can take a while. That is followed by installing a kernel."
 msgstr ""
+"Nu formaterer &d-i; dine partitioner og starter med  at installere "
+"basissystemet, hvilket kan tage lidt tid. Dette følges af installationen "
+"af en kerne."
 
 #. Tag: para
 #: installation-howto.xml:297
