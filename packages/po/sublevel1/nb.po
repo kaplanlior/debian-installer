@@ -13,7 +13,7 @@
 #   Axel Bojer <axelb@skolelinux.no>, 2004.
 #   Bjørn Steensrud <bjornst@powertech.no>, 2006.
 #   Free Software Foundation, Inc., 2002,2004
-#   Hans Fredrik Nordhaug <hans@nordhaug.priv.no>, 2007-2014.
+#   Hans Fredrik Nordhaug <hans@nordhaug.priv.no>, 2007-2015.
 #   Håvard Korsvoll <korsvoll@skulelinux.no>, 2004.
 #   Knut Yrvin <knuty@skolelinux.no>, 2004.
 #   Tobias Toedter <t.toedter@gmx.net>, 2007.
@@ -27,7 +27,7 @@ msgstr ""
 "Project-Id-Version: nb\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-12-30 22:01+0000\n"
-"PO-Revision-Date: 2014-09-01 23:30+0200\n"
+"PO-Revision-Date: 2015-01-02 10:50+0100\n"
 "Last-Translator: Hans Fredrik Nordhaug <hans@nordhaug.priv.no>\n"
 "Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: nb\n"
@@ -5293,7 +5293,7 @@ msgstr "Fortsett uten oppstartslaster"
 #: ../grub-installer.templates:1001 ../grub-installer.templates:2001
 msgid "Install the GRUB boot loader to the master boot record?"
 msgstr ""
-"Vil du installere oppstartslasteren Grub på hovedoppstartssporet (MBR)?"
+"Vil du installere oppstartslasteren GRUB på hovedoppstartssporet (MBR)?"
 
 #. Type: boolean
 #. Description
@@ -5331,7 +5331,7 @@ msgid ""
 msgstr ""
 "Det ser ut til at denne Debian-installasjonen er det eneste operativsystemet "
 "på denne maskinen. Hvis det er riktig, skulle det være trygt å installere "
-"oppstartslasteren Grub på hovedoppstartssporet på den første harddisken."
+"oppstartslasteren GRUB på hovedoppstartssporet på den første harddisken."
 
 #. Type: boolean
 #. Description
@@ -5343,10 +5343,10 @@ msgid ""
 "operating system temporarily unbootable, though GRUB can be manually "
 "configured later to boot it."
 msgstr ""
-"Advarsel: Hvis installasjonsprogrammet ikke oppdaget et annet operativsystem "
-"som finnes på maskinen, så blir det midlertidig umulig å starte dette andre "
-"systemet hvis hovedoppstartssporet endres, men Grub kan senere settes opp "
-"manuelt slik at det andre systemet kan startes."
+"Advarsel: Hvis installasjonsprogrammet ikke klarte å oppdage et annet "
+"operativsystem som finnes på maskinen din, så blir det midlertidig umulig å "
+"starte dette andre systemet hvis hovedoppstartssporet endres, men GRUB kan "
+"senere settes opp manuelt slik at det andre systemet kan startes."
 
 #. Type: text
 #. Description
@@ -5402,23 +5402,21 @@ msgstr "Oppdaterer /etc/kernel-img.conf ..."
 #. :sl1:
 #: ../grub-installer.templates:25001
 msgid "Checking whether to force usage of the removable media path"
-msgstr ""
+msgstr "Sjekker om man skal tvinge bruk av stien for fjernbart media"
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../grub-installer.templates:26001
-#, fuzzy
-#| msgid "Unmounting file systems..."
 msgid "Mounting filesystems"
-msgstr "Avmonterer filsystemer ..."
+msgstr "Monterer filsystemer"
 
 #. Type: text
 #. Description
 #. :sl1:
 #: ../grub-installer.templates:27001
 msgid "Configuring grub-efi for future usage of the removable media path"
-msgstr ""
+msgstr "Setter opp grub-efi for fremtidig bruk av stien for fjernbart media"
 
 #. Type: text
 #. Description
@@ -5433,7 +5431,7 @@ msgstr "Installer oppstartssystemet GRUB på en harddisk"
 #. :sl1:
 #: ../grub-installer.templates:34001
 msgid "Force GRUB installation to the EFI removable media path?"
-msgstr ""
+msgstr "Tving GRUB-installasjon til stien for EFI fjernbart media?"
 
 #. Type: boolean
 #. Description
@@ -5446,6 +5444,10 @@ msgid ""
 "buggy!) and do not support proper configuration of boot options from system "
 "hard drives."
 msgstr ""
+"Det ser ut til at denne datamaskinen er satt opp til å starte opp via EFI, "
+"men kanskje dette oppsettet ikke vil virke for oppstart fra harddisken. "
+"Noen EFI-fastvare implementasjoner følger ikke EFI-spesifikasjonen og "
+"støtter ikke skikkelig oppsett av oppstartsvalg fra systemharddisker."
 
 #. Type: boolean
 #. Description
@@ -5456,27 +5458,26 @@ msgid ""
 "of the GRUB boot loader to a fallback location, the \"removable media path"
 "\". Almost all EFI systems, no matter how buggy, will boot GRUB that way."
 msgstr ""
+"En løsning for dette problemet er å installere en ekstra kopi av "
+"EFI-versjonen av GRUB-oppstartslasteren i en reserveplassering, "
+"«stien for fjernbart media». Nesten alle EFI-system, uansett hvor dårlig, "
+"vil starte opp GRUB på den måten."
 
 #. Type: boolean
 #. Description
 #. :sl1:
 #: ../grub-installer.templates:34001
-#, fuzzy
-#| msgid ""
-#| "Warning: If the installer failed to detect another operating system that "
-#| "is present on your computer, modifying the master boot record will make "
-#| "that operating system temporarily unbootable, though GRUB can be manually "
-#| "configured later to boot it."
 msgid ""
 "Warning: If the installer failed to detect another operating system that is "
 "present on your computer that also depends on this fallback, installing GRUB "
 "there will make that operating system temporarily unbootable. GRUB can be "
 "manually configured later to boot it if necessary."
 msgstr ""
-"Advarsel: Hvis installasjonsprogrammet ikke oppdaget et annet operativsystem "
-"som finnes på maskinen, så blir det midlertidig umulig å starte dette andre "
-"systemet hvis hovedoppstartssporet endres, men Grub kan senere settes opp "
-"manuelt slik at det andre systemet kan startes."
+"Advarsel: Hvis installasjonsprogrammet ikke klarte å oppdage et annet "
+"operativsystem som finnes på maskinen din, som også avhenger av denne "
+"reserveplasseringen, så blir det midlertidig umulig å starte dette andre "
+"systemet hvis GRUB installeres der. GRUB kan senere settes opp manuelt slik "
+"at det andre systemet kan startes."
 
 #. Type: text
 #. Description
@@ -6313,7 +6314,7 @@ msgstr "Veiledet - Slett hele disken og sett opp LVM"
 #~ "ISO-bildet."
 
 #~ msgid "Install the GRUB boot loader to XFS file system?"
-#~ msgstr "Installer oppstartssystemet Grub på et XFS-filsystem?"
+#~ msgstr "Installer oppstartssystemet GRUB på et XFS-filsystem?"
 
 #~ msgid ""
 #~ "The GRUB boot loader installation often fails or hangs when /boot is on a "
