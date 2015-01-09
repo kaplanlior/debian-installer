@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: preseed.xml\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2014-08-03 08:11+0000\n"
+"POT-Creation-Date: 2015-01-09 19:07+0000\n"
 "PO-Revision-Date: 2014-09-21 00:59+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: Korean <debian-i10n-korean@lists.debian.org>\n"
@@ -230,7 +230,12 @@ msgid ""
 "hardware detection run). A not so convenient way to avoid these questions "
 "from being asked is to preseed them through the boot parameters, as "
 "described in <xref linkend=\"preseed-bootparms\"/>."
-msgstr "당연히 미리 설정 파일을 읽어들이기도 전에 처리하는 질문은 미리 설정할 수 없습니다. (여기에는 중간 혹은 낮은 우선순위에서만 표시되는 질문까지 포함합니다. 예를 들어 첫번째 하드웨어 검색이 그렇습니다.) 약간 불편하지만 이 질문을 피하는 방법은 부팅 파라미터를 통해 전달하는 방법입니다.  <xref linkend=\"preseed-bootparms\"/> 부분에서 설명합니다."
+msgstr ""
+"당연히 미리 설정 파일을 읽어들이기도 전에 처리하는 질문은 미리 설정할 수 없습"
+"니다. (여기에는 중간 혹은 낮은 우선순위에서만 표시되는 질문까지 포함합니다. "
+"예를 들어 첫번째 하드웨어 검색이 그렇습니다.) 약간 불편하지만 이 질문을 피하"
+"는 방법은 부팅 파라미터를 통해 전달하는 방법입니다.  <xref linkend=\"preseed-"
+"bootparms\"/> 부분에서 설명합니다."
 
 #. Tag: para
 #: preseed.xml:135
@@ -243,7 +248,12 @@ msgid ""
 "comes up, thus allowing them to be preseeded. It also runs the installation "
 "at critical priority, which avoids many unimportant questions. See <xref "
 "linkend=\"preseed-auto\"/> for details."
-msgstr "미리 설정 기능이 시작하기 전에 나타나는 질문을 간단히 피하려면, 설치 프로그램을 <quote>자동</quote> 모드로 시작하면 됩니다. 이렇게 하면 미리 설정하기 전에 물어보는 질문을 네트워크 연결한 다음으로 늦춰서 미리 설정이 가능합니다. 자동 모드에서는 설치를 필수 우선순위로 진행해서 중요하지 않은 많은 질문을 건너 뜁니다. 자세한 정보는 <xref linkend=\"preseed-auto\"/> 부분을 참고하십시오."
+msgstr ""
+"미리 설정 기능이 시작하기 전에 나타나는 질문을 간단히 피하려면, 설치 프로그램"
+"을 <quote>자동</quote> 모드로 시작하면 됩니다. 이렇게 하면 미리 설정하기 전"
+"에 물어보는 질문을 네트워크 연결한 다음으로 늦춰서 미리 설정이 가능합니다. 자"
+"동 모드에서는 설치를 필수 우선순위로 진행해서 중요하지 않은 많은 질문을 건너 "
+"뜁니다. 자세한 정보는 <xref linkend=\"preseed-auto\"/> 부분을 참고하십시오."
 
 #. Tag: title
 #: preseed.xml:149
@@ -381,11 +391,29 @@ msgstr ""
 
 #. Tag: screen
 #: preseed.xml:284
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "Boot parameters to specify:\n"
+#| "- if you're netbooting:\n"
+#| "  preseed/url=http://host/path/to/preseed.cfg\n"
+#| "  preseed/url/checksum=5da499872becccfeda2c4872f9171c3d\n"
+#| "\n"
+#| "- if you're booting a remastered CD:\n"
+#| "  preseed/file=/cdrom/preseed.cfg\n"
+#| "  preseed/file/checksum=5da499872becccfeda2c4872f9171c3d\n"
+#| "\n"
+#| "- if you're installing from USB media (put the preconfiguration file in "
+#| "the\n"
+#| "  toplevel directory of the USB stick):\n"
+#| "  preseed/file=/hd-media/preseed.cfg\n"
+#| "  preseed/file/checksum=5da499872becccfeda2c4872f9171c3d"
 msgid ""
 "Boot parameters to specify:\n"
 "- if you're netbooting:\n"
 "  preseed/url=http://host/path/to/preseed.cfg\n"
+"  preseed/url/checksum=5da499872becccfeda2c4872f9171c3d\n"
+"- or\n"
+"  preseed/url=tftp://host/path/to/preseed.cfg\n"
 "  preseed/url/checksum=5da499872becccfeda2c4872f9171c3d\n"
 "\n"
 "- if you're booting a remastered CD:\n"
@@ -523,10 +551,16 @@ msgstr ""
 
 #. Tag: para
 #: preseed.xml:349
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "A <quote>--</quote> in the boot options has special meaning. Kernel "
+#| "parameters that appear after the last <quote>--</quote> may be copied "
+#| "into the bootloader configuration for the installed system (if supported "
+#| "by the installer for the bootloader). The installer will automatically "
+#| "filter out any options (like preconfiguration options) that it recognizes."
 msgid ""
-"A <quote>--</quote> in the boot options has special meaning. Kernel "
-"parameters that appear after the last <quote>--</quote> may be copied into "
+"A <quote>---</quote> in the boot options has special meaning. Kernel "
+"parameters that appear after the last <quote>---</quote> may be copied into "
 "the bootloader configuration for the installed system (if supported by the "
 "installer for the bootloader). The installer will automatically filter out "
 "any options (like preconfiguration options) that it recognizes."
@@ -1041,9 +1075,10 @@ msgstr "tasksel:tasksel/first"
 
 #. Tag: entry
 #: preseed.xml:548
-#, no-c-format
-msgid "<entry>desktop</entry>"
-msgstr "<entry>desktop</entry>"
+#, fuzzy, no-c-format
+#| msgid "kde-desktop"
+msgid "desktop"
+msgstr "kde-desktop"
 
 #. Tag: entry
 #: preseed.xml:548
@@ -2045,7 +2080,88 @@ msgstr "파티션 예제"
 # 주의: 메시지 번역과 통일
 #. Tag: screen
 #: preseed.xml:948
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "# If the system has free space you can choose to only partition that "
+#| "space.\n"
+#| "# This is only honoured if partman-auto/method (below) is not set.\n"
+#| "#d-i partman-auto/init_automatically_partition select biggest_free\n"
+#| "\n"
+#| "# Alternatively, you may specify a disk to partition. If the system has "
+#| "only\n"
+#| "# one disk the installer will default to using that, but otherwise the "
+#| "device\n"
+#| "# name must be given in traditional, non-devfs format (so e.g. /dev/hda "
+#| "or\n"
+#| "# /dev/sda, and not e.g. /dev/discs/disc0/disc).\n"
+#| "# For example, to use the first SCSI/SATA hard disk:\n"
+#| "#d-i partman-auto/disk string /dev/sda\n"
+#| "# In addition, you'll need to specify the method to use.\n"
+#| "# The presently available methods are:\n"
+#| "# - regular: use the usual partition types for your architecture\n"
+#| "# - lvm:     use LVM to partition the disk\n"
+#| "# - crypto:  use LVM within an encrypted partition\n"
+#| "d-i partman-auto/method string lvm\n"
+#| "\n"
+#| "# If one of the disks that are going to be automatically partitioned\n"
+#| "# contains an old LVM configuration, the user will normally receive a\n"
+#| "# warning. This can be preseeded away...\n"
+#| "d-i partman-lvm/device_remove_lvm boolean true\n"
+#| "# The same applies to pre-existing software RAID array:\n"
+#| "d-i partman-md/device_remove_md boolean true\n"
+#| "# And the same goes for the confirmation to write the lvm partitions.\n"
+#| "d-i partman-lvm/confirm boolean true\n"
+#| "d-i partman-lvm/confirm_nooverwrite boolean true\n"
+#| "\n"
+#| "# You can choose one of the three predefined partitioning recipes:\n"
+#| "# - atomic: all files in one partition\n"
+#| "# - home:   separate /home partition\n"
+#| "# - multi:  separate /home, /usr, /var, and /tmp partitions\n"
+#| "d-i partman-auto/choose_recipe select atomic\n"
+#| "\n"
+#| "# Or provide a recipe of your own...\n"
+#| "# If you have a way to get a recipe file into the d-i environment, you "
+#| "can\n"
+#| "# just point at it.\n"
+#| "#d-i partman-auto/expert_recipe_file string /hd-media/recipe\n"
+#| "\n"
+#| "# If not, you can put an entire recipe into the preconfiguration file in "
+#| "one\n"
+#| "# (logical) line. This example creates a small /boot partition, suitable\n"
+#| "# swap, and uses the rest of the space for the root partition:\n"
+#| "#d-i partman-auto/expert_recipe string                         \\\n"
+#| "#      boot-root ::                                            \\\n"
+#| "#              40 50 100 ext3                                  \\\n"
+#| "#                      $primary{ } $bootable{ }                \\\n"
+#| "#                      method{ format } format{ }              \\\n"
+#| "#                      use_filesystem{ } filesystem{ ext3 }    \\\n"
+#| "#                      mountpoint{ /boot }                     \\\n"
+#| "#              .                                               \\\n"
+#| "#              500 10000 1000000000 ext3                       \\\n"
+#| "#                      method{ format } format{ }              \\\n"
+#| "#                      use_filesystem{ } filesystem{ ext3 }    \\\n"
+#| "#                      mountpoint{ / }                         \\\n"
+#| "#              .                                               \\\n"
+#| "#              64 512 300% linux-swap                          \\\n"
+#| "#                      method{ swap } format{ }                \\\n"
+#| "#              .\n"
+#| "\n"
+#| "# The full recipe format is documented in the file partman-auto-recipe."
+#| "txt\n"
+#| "# included in the 'debian-installer' package or available from D-I "
+#| "source\n"
+#| "# repository. This also documents how to specify settings such as file\n"
+#| "# system labels, volume group names and which physical devices to "
+#| "include\n"
+#| "# in a volume group.\n"
+#| "\n"
+#| "# This makes partman automatically partition without confirmation, "
+#| "provided\n"
+#| "# that you told it what to do using one of the methods above.\n"
+#| "d-i partman-partitioning/confirm_write_new_label boolean true\n"
+#| "d-i partman/choose_partition select finish\n"
+#| "d-i partman/confirm boolean true\n"
+#| "d-i partman/confirm_nooverwrite boolean true"
 msgid ""
 "# If the system has free space you can choose to only partition that space.\n"
 "# This is only honoured if partman-auto/method (below) is not set.\n"
@@ -2079,7 +2195,7 @@ msgid ""
 "# You can choose one of the three predefined partitioning recipes:\n"
 "# - atomic: all files in one partition\n"
 "# - home:   separate /home partition\n"
-"# - multi:  separate /home, /usr, /var, and /tmp partitions\n"
+"# - multi:  separate /home, /var, and /tmp partitions\n"
 "d-i partman-auto/choose_recipe select atomic\n"
 "\n"
 "# Or provide a recipe of your own...\n"
@@ -2533,71 +2649,82 @@ msgstr ""
 "태스크는 원하는 대로 설치할 수 있습니다. 현재 이 문서를 쓰는 시점에 사용할 "
 "수 있는 태스크는 다음과 같습니다:"
 
-#. Tag: userinput
-#: preseed.xml:1051
-#, no-c-format
-msgid "standard"
-msgstr "표준 시스템"
-
-#. Tag: userinput
-#: preseed.xml:1054
-#, no-c-format
-msgid "<userinput>desktop</userinput>"
+#. Tag: para
+#: preseed.xml:1050
+#, fuzzy, no-c-format
+#| msgid "<userinput>desktop</userinput>"
+msgid "<userinput>standard</userinput> (standard tools)"
 msgstr "<userinput>desktop</userinput>"
 
-#. Tag: userinput
-#: preseed.xml:1057
-#, no-c-format
-msgid "gnome-desktop"
-msgstr "gnome-desktop"
+#. Tag: para
+#: preseed.xml:1053
+#, fuzzy, no-c-format
+#| msgid "<userinput>desktop</userinput>"
+msgid "<userinput>desktop</userinput> (graphical desktop)"
+msgstr "<userinput>desktop</userinput>"
 
-#. Tag: userinput
-#: preseed.xml:1060
-#, no-c-format
-msgid "kde-desktop"
-msgstr "kde-desktop"
+#. Tag: para
+#: preseed.xml:1056
+#, fuzzy, no-c-format
+#| msgid "<userinput>desktop</userinput>"
+msgid "<userinput>gnome-desktop</userinput> (Gnome desktop)"
+msgstr "<userinput>desktop</userinput>"
 
-#. Tag: userinput
-#: preseed.xml:1063
-#, no-c-format
-msgid "web-server"
-msgstr "웹 서버"
+#. Tag: para
+#: preseed.xml:1059
+#, fuzzy, no-c-format
+#| msgid "<userinput>desktop</userinput>"
+msgid "<userinput>xfce-desktop</userinput> (XFCE desktop)"
+msgstr "<userinput>desktop</userinput>"
 
-#. Tag: userinput
-#: preseed.xml:1066
-#, no-c-format
-msgid "print-server"
-msgstr "인쇄 서버"
+#. Tag: para
+#: preseed.xml:1062
+#, fuzzy, no-c-format
+#| msgid "<userinput>desktop</userinput>"
+msgid "<userinput>kde-desktop</userinput> (KDE desktop)"
+msgstr "<userinput>desktop</userinput>"
 
-#. Tag: userinput
-#: preseed.xml:1069
-#, no-c-format
-msgid "dns-server"
-msgstr "DNS 서버"
+#. Tag: para
+#: preseed.xml:1065
+#, fuzzy, no-c-format
+#| msgid "<userinput>desktop</userinput>"
+msgid "<userinput>cinnamon-desktop</userinput> (Cinnamon desktop)"
+msgstr "<userinput>desktop</userinput>"
 
-#. Tag: userinput
-#: preseed.xml:1072
-#, no-c-format
-msgid "file-server"
-msgstr "파일 서버"
+#. Tag: para
+#: preseed.xml:1068
+#, fuzzy, no-c-format
+#| msgid "<userinput>desktop</userinput>"
+msgid "<userinput>mate-desktop</userinput> (MATE desktop)"
+msgstr "<userinput>desktop</userinput>"
 
-#. Tag: userinput
-#: preseed.xml:1075
-#, no-c-format
-msgid "mail-server"
-msgstr "메일 서버"
+#. Tag: para
+#: preseed.xml:1071
+#, fuzzy, no-c-format
+#| msgid "<userinput>desktop</userinput>"
+msgid "<userinput>lxde-desktop</userinput> (LXDE desktop)"
+msgstr "<userinput>desktop</userinput>"
 
-#. Tag: userinput
-#: preseed.xml:1078
-#, no-c-format
-msgid "sql-database"
-msgstr "SQL 데이터베이스"
+#. Tag: para
+#: preseed.xml:1074
+#, fuzzy, no-c-format
+#| msgid "<userinput>desktop</userinput>"
+msgid "<userinput>web-server</userinput> (web server)"
+msgstr "<userinput>desktop</userinput>"
 
-#. Tag: userinput
-#: preseed.xml:1081
-#, no-c-format
-msgid "laptop"
-msgstr "노트북 컴퓨터"
+#. Tag: para
+#: preseed.xml:1077
+#, fuzzy, no-c-format
+#| msgid "<userinput>desktop</userinput>"
+msgid "<userinput>print-server</userinput> (print server)"
+msgstr "<userinput>desktop</userinput>"
+
+#. Tag: para
+#: preseed.xml:1080
+#, fuzzy, no-c-format
+#| msgid "<userinput>desktop</userinput>"
+msgid "<userinput>ssh-server</userinput> (SSH server)"
+msgstr "<userinput>desktop</userinput>"
 
 #. Tag: para
 #: preseed.xml:1085
@@ -2664,7 +2791,51 @@ msgstr "부트로더 설치"
 
 #. Tag: screen
 #: preseed.xml:1108
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "<phrase arch=\"linux-any\"># Grub is the default boot loader (for x86). "
+#| "If you want lilo installed\n"
+#| "# instead, uncomment this:\n"
+#| "#d-i grub-installer/skip boolean true\n"
+#| "# To also skip installing lilo, and install no bootloader, uncomment "
+#| "this\n"
+#| "# too:\n"
+#| "#d-i lilo-installer/skip boolean true</phrase>\n"
+#| "<phrase arch=\"kfreebsd-any;hurd-any\"># To install no bootloader, "
+#| "uncomment this\n"
+#| "#d-i grub-installer/skip boolean true</phrase>\n"
+#| "\n"
+#| "# This is fairly safe to set, it makes grub install automatically to the "
+#| "MBR\n"
+#| "# if no other operating system is detected on the machine.\n"
+#| "d-i grub-installer/only_debian boolean true\n"
+#| "\n"
+#| "# This one makes grub-installer install to the MBR if it also finds some "
+#| "other\n"
+#| "# OS, which is less safe as it might not be able to boot that other OS.\n"
+#| "d-i grub-installer/with_other_os boolean true\n"
+#| "\n"
+#| "# Alternatively, if you want to install to a location other than the "
+#| "mbr,\n"
+#| "# uncomment and edit these lines:\n"
+#| "#d-i grub-installer/only_debian boolean false\n"
+#| "#d-i grub-installer/with_other_os boolean false\n"
+#| "#d-i grub-installer/bootdev  string (hd0,0)\n"
+#| "# To install grub to multiple disks:\n"
+#| "#d-i grub-installer/bootdev  string (hd0,0) (hd1,0) (hd2,0)\n"
+#| "# To install to a particular device:\n"
+#| "#d-i grub-installer/bootdev  string /dev/sda\n"
+#| "\n"
+#| "# Optional password for grub, either in clear text\n"
+#| "#d-i grub-installer/password password r00tme\n"
+#| "#d-i grub-installer/password-again password r00tme\n"
+#| "# or encrypted using an MD5 hash, see grub-md5-crypt(8).\n"
+#| "#d-i grub-installer/password-crypted password [MD5 hash]\n"
+#| "\n"
+#| "# Use the following option to add additional boot parameters for the\n"
+#| "# installed system (if supported by the bootloader installer).\n"
+#| "# Note: options passed to the installer will be added automatically.\n"
+#| "#d-i debian-installer/add-kernel-opts string nousb"
 msgid ""
 "<phrase arch=\"linux-any\"># Grub is the default boot loader (for x86). If "
 "you want lilo installed\n"
@@ -2696,6 +2867,8 @@ msgid ""
 "#d-i grub-installer/bootdev  string (hd0,0) (hd1,0) (hd2,0)\n"
 "# To install to a particular device:\n"
 "#d-i grub-installer/bootdev  string /dev/sda\n"
+"# To install to the first device:\n"
+"#d-i grub-installer/bootdev  string default\n"
 "\n"
 "# Optional password for grub, either in clear text\n"
 "#d-i grub-installer/password password r00tme\n"
@@ -2860,7 +3033,10 @@ msgid ""
 "When the filesystem of the target system is mounted, it is available in "
 "<filename>/target</filename>. If an installation CD is used, when it is "
 "mounted it is available in <filename>/cdrom</filename>."
-msgstr "대상 시스템의 파일 시스템을 마운트했으면, <filename>/target</filename> 아래에 그 파일 시스템이 있습니다. 설치 CD를 사용하고 마운트하면, 그 내용은 <filename>/cdrom</filename> 아래에 있습니다."
+msgstr ""
+"대상 시스템의 파일 시스템을 마운트했으면, <filename>/target</filename> 아래"
+"에 그 파일 시스템이 있습니다. 설치 CD를 사용하고 마운트하면, 그 내용은 "
+"<filename>/cdrom</filename> 아래에 있습니다."
 
 #. Tag: screen
 #: preseed.xml:1154
@@ -3080,3 +3256,33 @@ msgstr ""
 "야 합니다. 미리 설정을 실행하는 두 개의 별도의 단계가 있기 때문입니다. 예를 "
 "들어서 preseed/early 명령을 한 번 더 실행할 수 있고, 두 번째가 네트워크가 연"
 "결된 다음에 실행될 수 있습니다."
+
+#~ msgid "<entry>desktop</entry>"
+#~ msgstr "<entry>desktop</entry>"
+
+#~ msgid "standard"
+#~ msgstr "표준 시스템"
+
+#~ msgid "gnome-desktop"
+#~ msgstr "gnome-desktop"
+
+#~ msgid "web-server"
+#~ msgstr "웹 서버"
+
+#~ msgid "print-server"
+#~ msgstr "인쇄 서버"
+
+#~ msgid "dns-server"
+#~ msgstr "DNS 서버"
+
+#~ msgid "file-server"
+#~ msgstr "파일 서버"
+
+#~ msgid "mail-server"
+#~ msgstr "메일 서버"
+
+#~ msgid "sql-database"
+#~ msgstr "SQL 데이터베이스"
+
+#~ msgid "laptop"
+#~ msgstr "노트북 컴퓨터"

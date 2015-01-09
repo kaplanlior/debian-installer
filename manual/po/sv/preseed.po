@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: preseed\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2014-08-03 08:11+0000\n"
+"POT-Creation-Date: 2015-01-09 19:07+0000\n"
 "PO-Revision-Date: 2012-07-31 00:19+0100\n"
 "Last-Translator: Martin Bagge / brother <brother@bsnet.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -416,11 +416,29 @@ msgstr ""
 
 #. Tag: screen
 #: preseed.xml:284
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "Boot parameters to specify:\n"
+#| "- if you're netbooting:\n"
+#| "  preseed/url=http://host/path/to/preseed.cfg\n"
+#| "  preseed/url/checksum=5da499872becccfeda2c4872f9171c3d\n"
+#| "\n"
+#| "- if you're booting a remastered CD:\n"
+#| "  preseed/file=/cdrom/preseed.cfg\n"
+#| "  preseed/file/checksum=5da499872becccfeda2c4872f9171c3d\n"
+#| "\n"
+#| "- if you're installing from USB media (put the preconfiguration file in "
+#| "the\n"
+#| "  toplevel directory of the USB stick):\n"
+#| "  preseed/file=/hd-media/preseed.cfg\n"
+#| "  preseed/file/checksum=5da499872becccfeda2c4872f9171c3d"
 msgid ""
 "Boot parameters to specify:\n"
 "- if you're netbooting:\n"
 "  preseed/url=http://host/path/to/preseed.cfg\n"
+"  preseed/url/checksum=5da499872becccfeda2c4872f9171c3d\n"
+"- or\n"
+"  preseed/url=tftp://host/path/to/preseed.cfg\n"
 "  preseed/url/checksum=5da499872becccfeda2c4872f9171c3d\n"
 "\n"
 "- if you're booting a remastered CD:\n"
@@ -566,10 +584,16 @@ msgstr ""
 
 #. Tag: para
 #: preseed.xml:349
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "A <quote>--</quote> in the boot options has special meaning. Kernel "
+#| "parameters that appear after the last <quote>--</quote> may be copied "
+#| "into the bootloader configuration for the installed system (if supported "
+#| "by the installer for the bootloader). The installer will automatically "
+#| "filter out any options (like preconfiguration options) that it recognizes."
 msgid ""
-"A <quote>--</quote> in the boot options has special meaning. Kernel "
-"parameters that appear after the last <quote>--</quote> may be copied into "
+"A <quote>---</quote> in the boot options has special meaning. Kernel "
+"parameters that appear after the last <quote>---</quote> may be copied into "
 "the bootloader configuration for the installed system (if supported by the "
 "installer for the bootloader). The installer will automatically filter out "
 "any options (like preconfiguration options) that it recognizes."
@@ -1127,10 +1151,9 @@ msgstr ""
 
 #. Tag: entry
 #: preseed.xml:548
-#, fuzzy, no-c-format
-#| msgid "<entry>yes</entry>"
-msgid "<entry>desktop</entry>"
-msgstr "<entry>ja</entry>"
+#, no-c-format
+msgid "desktop"
+msgstr "desktop"
 
 #. Tag: entry
 #: preseed.xml:548
@@ -2342,7 +2365,7 @@ msgid ""
 "# You can choose one of the three predefined partitioning recipes:\n"
 "# - atomic: all files in one partition\n"
 "# - home:   separate /home partition\n"
-"# - multi:  separate /home, /usr, /var, and /tmp partitions\n"
+"# - multi:  separate /home, /var, and /tmp partitions\n"
 "d-i partman-auto/choose_recipe select atomic\n"
 "\n"
 "# Or provide a recipe of your own...\n"
@@ -2475,9 +2498,8 @@ msgid ""
 "If you are using RAID 1, you can preseed grub to install to all devices used "
 "in the array; see <xref linkend=\"preseed-bootloader\"/>."
 msgstr ""
-"Om du använder RAID 1 kan du "
-"förinställa grub att installera sig på alla enheter som används i kedjan; se "
-"<xref linkend=\"preseed-bootloader\"/>."
+"Om du använder RAID 1 kan du förinställa grub att installera sig på alla "
+"enheter som används i kedjan; se <xref linkend=\"preseed-bootloader\"/>."
 
 #. Tag: para
 #: preseed.xml:966
@@ -2905,71 +2927,71 @@ msgstr ""
 "Du kan välja att installera alla kombinationer av funktioner som finns "
 "tillgängliga. Tillgängliga funktioner just nu inkluderar:"
 
-#. Tag: userinput
-#: preseed.xml:1051
+#. Tag: para
+#: preseed.xml:1050
 #, no-c-format
-msgid "standard"
-msgstr "standard"
-
-#. Tag: userinput
-#: preseed.xml:1054
-#, no-c-format
-msgid "<userinput>desktop</userinput>"
+msgid "<userinput>standard</userinput> (standard tools)"
 msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1057
+#. Tag: para
+#: preseed.xml:1053
 #, no-c-format
-msgid "gnome-desktop"
-msgstr "gnome-desktop"
+msgid "<userinput>desktop</userinput> (graphical desktop)"
+msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1060
+#. Tag: para
+#: preseed.xml:1056
 #, no-c-format
-msgid "kde-desktop"
-msgstr "kde-desktop"
+msgid "<userinput>gnome-desktop</userinput> (Gnome desktop)"
+msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1063
+#. Tag: para
+#: preseed.xml:1059
 #, no-c-format
-msgid "web-server"
-msgstr "web-server"
+msgid "<userinput>xfce-desktop</userinput> (XFCE desktop)"
+msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1066
+#. Tag: para
+#: preseed.xml:1062
 #, no-c-format
-msgid "print-server"
-msgstr "print-server"
+msgid "<userinput>kde-desktop</userinput> (KDE desktop)"
+msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1069
+#. Tag: para
+#: preseed.xml:1065
 #, no-c-format
-msgid "dns-server"
-msgstr "dns-server"
+msgid "<userinput>cinnamon-desktop</userinput> (Cinnamon desktop)"
+msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1072
+#. Tag: para
+#: preseed.xml:1068
 #, no-c-format
-msgid "file-server"
-msgstr "file-server"
+msgid "<userinput>mate-desktop</userinput> (MATE desktop)"
+msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1075
+#. Tag: para
+#: preseed.xml:1071
 #, no-c-format
-msgid "mail-server"
-msgstr "mail-server"
+msgid "<userinput>lxde-desktop</userinput> (LXDE desktop)"
+msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1078
+#. Tag: para
+#: preseed.xml:1074
 #, no-c-format
-msgid "sql-database"
-msgstr "sql-database"
+msgid "<userinput>web-server</userinput> (web server)"
+msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1081
+#. Tag: para
+#: preseed.xml:1077
 #, no-c-format
-msgid "laptop"
-msgstr "laptop"
+msgid "<userinput>print-server</userinput> (print server)"
+msgstr ""
+
+#. Tag: para
+#: preseed.xml:1080
+#, no-c-format
+msgid "<userinput>ssh-server</userinput> (SSH server)"
+msgstr ""
 
 #. Tag: para
 #: preseed.xml:1085
@@ -3112,6 +3134,8 @@ msgid ""
 "#d-i grub-installer/bootdev  string (hd0,0) (hd1,0) (hd2,0)\n"
 "# To install to a particular device:\n"
 "#d-i grub-installer/bootdev  string /dev/sda\n"
+"# To install to the first device:\n"
+"#d-i grub-installer/bootdev  string default\n"
 "\n"
 "# Optional password for grub, either in clear text\n"
 "#d-i grub-installer/password password r00tme\n"
@@ -3524,8 +3548,40 @@ msgstr ""
 "chans att köra kommandot preseed/early, den andra gången inträffar efter att "
 "nätverket har kommit upp."
 
-#~ msgid "desktop"
-#~ msgstr "desktop"
+#, fuzzy
+#~| msgid "<entry>yes</entry>"
+#~ msgid "<entry>desktop</entry>"
+#~ msgstr "<entry>ja</entry>"
+
+#~ msgid "standard"
+#~ msgstr "standard"
+
+#~ msgid "gnome-desktop"
+#~ msgstr "gnome-desktop"
+
+#~ msgid "kde-desktop"
+#~ msgstr "kde-desktop"
+
+#~ msgid "web-server"
+#~ msgstr "web-server"
+
+#~ msgid "print-server"
+#~ msgstr "print-server"
+
+#~ msgid "dns-server"
+#~ msgstr "dns-server"
+
+#~ msgid "file-server"
+#~ msgstr "file-server"
+
+#~ msgid "mail-server"
+#~ msgstr "mail-server"
+
+#~ msgid "sql-database"
+#~ msgstr "sql-database"
+
+#~ msgid "laptop"
+#~ msgstr "laptop"
 
 #~ msgid ""
 #~ "# Locale sets language and country.\n"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: preseed\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2014-08-03 08:11+0000\n"
+"POT-Creation-Date: 2015-01-09 19:07+0000\n"
 "PO-Revision-Date: 2012-08-04 06:20+0700\n"
 "Last-Translator: hailang <hailangvn@gmail.com>\n"
 "Language-Team: MOST Project <du-an-most@lists.hanoilug.org>\n"
@@ -415,11 +415,29 @@ msgstr ""
 
 #. Tag: screen
 #: preseed.xml:284
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "Boot parameters to specify:\n"
+#| "- if you're netbooting:\n"
+#| "  preseed/url=http://host/path/to/preseed.cfg\n"
+#| "  preseed/url/checksum=5da499872becccfeda2c4872f9171c3d\n"
+#| "\n"
+#| "- if you're booting a remastered CD:\n"
+#| "  preseed/file=/cdrom/preseed.cfg\n"
+#| "  preseed/file/checksum=5da499872becccfeda2c4872f9171c3d\n"
+#| "\n"
+#| "- if you're installing from USB media (put the preconfiguration file in "
+#| "the\n"
+#| "  toplevel directory of the USB stick):\n"
+#| "  preseed/file=/hd-media/preseed.cfg\n"
+#| "  preseed/file/checksum=5da499872becccfeda2c4872f9171c3d"
 msgid ""
 "Boot parameters to specify:\n"
 "- if you're netbooting:\n"
 "  preseed/url=http://host/path/to/preseed.cfg\n"
+"  preseed/url/checksum=5da499872becccfeda2c4872f9171c3d\n"
+"- or\n"
+"  preseed/url=tftp://host/path/to/preseed.cfg\n"
 "  preseed/url/checksum=5da499872becccfeda2c4872f9171c3d\n"
 "\n"
 "- if you're booting a remastered CD:\n"
@@ -564,10 +582,16 @@ msgstr ""
 
 #. Tag: para
 #: preseed.xml:349
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "A <quote>--</quote> in the boot options has special meaning. Kernel "
+#| "parameters that appear after the last <quote>--</quote> may be copied "
+#| "into the bootloader configuration for the installed system (if supported "
+#| "by the installer for the bootloader). The installer will automatically "
+#| "filter out any options (like preconfiguration options) that it recognizes."
 msgid ""
-"A <quote>--</quote> in the boot options has special meaning. Kernel "
-"parameters that appear after the last <quote>--</quote> may be copied into "
+"A <quote>---</quote> in the boot options has special meaning. Kernel "
+"parameters that appear after the last <quote>---</quote> may be copied into "
 "the bootloader configuration for the installed system (if supported by the "
 "installer for the bootloader). The installer will automatically filter out "
 "any options (like preconfiguration options) that it recognizes."
@@ -1117,10 +1141,9 @@ msgstr ""
 
 #. Tag: entry
 #: preseed.xml:548
-#, fuzzy, no-c-format
-#| msgid "<entry>yes</entry>"
-msgid "<entry>desktop</entry>"
-msgstr "<entry>có</entry>"
+#, no-c-format
+msgid "desktop"
+msgstr "môi trường làm việc"
 
 #. Tag: entry
 #: preseed.xml:548
@@ -2204,7 +2227,88 @@ msgstr "Mẫu phân vùng"
 
 #. Tag: screen
 #: preseed.xml:948
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "# If the system has free space you can choose to only partition that "
+#| "space.\n"
+#| "# This is only honoured if partman-auto/method (below) is not set.\n"
+#| "#d-i partman-auto/init_automatically_partition select biggest_free\n"
+#| "\n"
+#| "# Alternatively, you may specify a disk to partition. If the system has "
+#| "only\n"
+#| "# one disk the installer will default to using that, but otherwise the "
+#| "device\n"
+#| "# name must be given in traditional, non-devfs format (so e.g. /dev/hda "
+#| "or\n"
+#| "# /dev/sda, and not e.g. /dev/discs/disc0/disc).\n"
+#| "# For example, to use the first SCSI/SATA hard disk:\n"
+#| "#d-i partman-auto/disk string /dev/sda\n"
+#| "# In addition, you'll need to specify the method to use.\n"
+#| "# The presently available methods are:\n"
+#| "# - regular: use the usual partition types for your architecture\n"
+#| "# - lvm:     use LVM to partition the disk\n"
+#| "# - crypto:  use LVM within an encrypted partition\n"
+#| "d-i partman-auto/method string lvm\n"
+#| "\n"
+#| "# If one of the disks that are going to be automatically partitioned\n"
+#| "# contains an old LVM configuration, the user will normally receive a\n"
+#| "# warning. This can be preseeded away...\n"
+#| "d-i partman-lvm/device_remove_lvm boolean true\n"
+#| "# The same applies to pre-existing software RAID array:\n"
+#| "d-i partman-md/device_remove_md boolean true\n"
+#| "# And the same goes for the confirmation to write the lvm partitions.\n"
+#| "d-i partman-lvm/confirm boolean true\n"
+#| "d-i partman-lvm/confirm_nooverwrite boolean true\n"
+#| "\n"
+#| "# You can choose one of the three predefined partitioning recipes:\n"
+#| "# - atomic: all files in one partition\n"
+#| "# - home:   separate /home partition\n"
+#| "# - multi:  separate /home, /usr, /var, and /tmp partitions\n"
+#| "d-i partman-auto/choose_recipe select atomic\n"
+#| "\n"
+#| "# Or provide a recipe of your own...\n"
+#| "# If you have a way to get a recipe file into the d-i environment, you "
+#| "can\n"
+#| "# just point at it.\n"
+#| "#d-i partman-auto/expert_recipe_file string /hd-media/recipe\n"
+#| "\n"
+#| "# If not, you can put an entire recipe into the preconfiguration file in "
+#| "one\n"
+#| "# (logical) line. This example creates a small /boot partition, suitable\n"
+#| "# swap, and uses the rest of the space for the root partition:\n"
+#| "#d-i partman-auto/expert_recipe string                         \\\n"
+#| "#      boot-root ::                                            \\\n"
+#| "#              40 50 100 ext3                                  \\\n"
+#| "#                      $primary{ } $bootable{ }                \\\n"
+#| "#                      method{ format } format{ }              \\\n"
+#| "#                      use_filesystem{ } filesystem{ ext3 }    \\\n"
+#| "#                      mountpoint{ /boot }                     \\\n"
+#| "#              .                                               \\\n"
+#| "#              500 10000 1000000000 ext3                       \\\n"
+#| "#                      method{ format } format{ }              \\\n"
+#| "#                      use_filesystem{ } filesystem{ ext3 }    \\\n"
+#| "#                      mountpoint{ / }                         \\\n"
+#| "#              .                                               \\\n"
+#| "#              64 512 300% linux-swap                          \\\n"
+#| "#                      method{ swap } format{ }                \\\n"
+#| "#              .\n"
+#| "\n"
+#| "# The full recipe format is documented in the file partman-auto-recipe."
+#| "txt\n"
+#| "# included in the 'debian-installer' package or available from D-I "
+#| "source\n"
+#| "# repository. This also documents how to specify settings such as file\n"
+#| "# system labels, volume group names and which physical devices to "
+#| "include\n"
+#| "# in a volume group.\n"
+#| "\n"
+#| "# This makes partman automatically partition without confirmation, "
+#| "provided\n"
+#| "# that you told it what to do using one of the methods above.\n"
+#| "d-i partman-partitioning/confirm_write_new_label boolean true\n"
+#| "d-i partman/choose_partition select finish\n"
+#| "d-i partman/confirm boolean true\n"
+#| "d-i partman/confirm_nooverwrite boolean true"
 msgid ""
 "# If the system has free space you can choose to only partition that space.\n"
 "# This is only honoured if partman-auto/method (below) is not set.\n"
@@ -2238,7 +2342,7 @@ msgid ""
 "# You can choose one of the three predefined partitioning recipes:\n"
 "# - atomic: all files in one partition\n"
 "# - home:   separate /home partition\n"
-"# - multi:  separate /home, /usr, /var, and /tmp partitions\n"
+"# - multi:  separate /home, /var, and /tmp partitions\n"
 "d-i partman-auto/choose_recipe select atomic\n"
 "\n"
 "# Or provide a recipe of your own...\n"
@@ -2738,71 +2842,71 @@ msgstr ""
 "Bạn có khả năng chọn cài đặt bất cứ sự phối hợp công việc nào sẵn sàng. Vào "
 "lúc viết câu này, các công việc sẵn sàng gồm:"
 
-#. Tag: userinput
-#: preseed.xml:1051
+#. Tag: para
+#: preseed.xml:1050
 #, no-c-format
-msgid "standard"
-msgstr "chuẩn"
-
-#. Tag: userinput
-#: preseed.xml:1054
-#, no-c-format
-msgid "<userinput>desktop</userinput>"
+msgid "<userinput>standard</userinput> (standard tools)"
 msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1057
+#. Tag: para
+#: preseed.xml:1053
 #, no-c-format
-msgid "gnome-desktop"
-msgstr "môi trường làm việc Gnome"
+msgid "<userinput>desktop</userinput> (graphical desktop)"
+msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1060
+#. Tag: para
+#: preseed.xml:1056
 #, no-c-format
-msgid "kde-desktop"
-msgstr "môi trường làm việc KDE"
+msgid "<userinput>gnome-desktop</userinput> (Gnome desktop)"
+msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1063
+#. Tag: para
+#: preseed.xml:1059
 #, no-c-format
-msgid "web-server"
-msgstr "trình phục vụ Mạng"
+msgid "<userinput>xfce-desktop</userinput> (XFCE desktop)"
+msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1066
+#. Tag: para
+#: preseed.xml:1062
 #, no-c-format
-msgid "print-server"
-msgstr "trình phục vụ in"
+msgid "<userinput>kde-desktop</userinput> (KDE desktop)"
+msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1069
+#. Tag: para
+#: preseed.xml:1065
 #, no-c-format
-msgid "dns-server"
-msgstr "trình phục vụ DNS"
+msgid "<userinput>cinnamon-desktop</userinput> (Cinnamon desktop)"
+msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1072
+#. Tag: para
+#: preseed.xml:1068
 #, no-c-format
-msgid "file-server"
-msgstr "trình phục vụ tập tin"
+msgid "<userinput>mate-desktop</userinput> (MATE desktop)"
+msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1075
+#. Tag: para
+#: preseed.xml:1071
 #, no-c-format
-msgid "mail-server"
-msgstr "trình phục vụ thư tín"
+msgid "<userinput>lxde-desktop</userinput> (LXDE desktop)"
+msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1078
+#. Tag: para
+#: preseed.xml:1074
 #, no-c-format
-msgid "sql-database"
-msgstr "cơ sở dữ liệu SQL"
+msgid "<userinput>web-server</userinput> (web server)"
+msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1081
+#. Tag: para
+#: preseed.xml:1077
 #, no-c-format
-msgid "laptop"
-msgstr "máy tính xách tay"
+msgid "<userinput>print-server</userinput> (print server)"
+msgstr ""
+
+#. Tag: para
+#: preseed.xml:1080
+#, no-c-format
+msgid "<userinput>ssh-server</userinput> (SSH server)"
+msgstr ""
 
 #. Tag: para
 #: preseed.xml:1085
@@ -2878,7 +2982,51 @@ msgstr "Cài đặt bộ nạp khởi động"
 
 #. Tag: screen
 #: preseed.xml:1108
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "<phrase arch=\"linux-any\"># Grub is the default boot loader (for x86). "
+#| "If you want lilo installed\n"
+#| "# instead, uncomment this:\n"
+#| "#d-i grub-installer/skip boolean true\n"
+#| "# To also skip installing lilo, and install no bootloader, uncomment "
+#| "this\n"
+#| "# too:\n"
+#| "#d-i lilo-installer/skip boolean true</phrase>\n"
+#| "<phrase arch=\"kfreebsd-any;hurd-any\"># To install no bootloader, "
+#| "uncomment this\n"
+#| "#d-i grub-installer/skip boolean true</phrase>\n"
+#| "\n"
+#| "# This is fairly safe to set, it makes grub install automatically to the "
+#| "MBR\n"
+#| "# if no other operating system is detected on the machine.\n"
+#| "d-i grub-installer/only_debian boolean true\n"
+#| "\n"
+#| "# This one makes grub-installer install to the MBR if it also finds some "
+#| "other\n"
+#| "# OS, which is less safe as it might not be able to boot that other OS.\n"
+#| "d-i grub-installer/with_other_os boolean true\n"
+#| "\n"
+#| "# Alternatively, if you want to install to a location other than the "
+#| "mbr,\n"
+#| "# uncomment and edit these lines:\n"
+#| "#d-i grub-installer/only_debian boolean false\n"
+#| "#d-i grub-installer/with_other_os boolean false\n"
+#| "#d-i grub-installer/bootdev  string (hd0,0)\n"
+#| "# To install grub to multiple disks:\n"
+#| "#d-i grub-installer/bootdev  string (hd0,0) (hd1,0) (hd2,0)\n"
+#| "# To install to a particular device:\n"
+#| "#d-i grub-installer/bootdev  string /dev/sda\n"
+#| "\n"
+#| "# Optional password for grub, either in clear text\n"
+#| "#d-i grub-installer/password password r00tme\n"
+#| "#d-i grub-installer/password-again password r00tme\n"
+#| "# or encrypted using an MD5 hash, see grub-md5-crypt(8).\n"
+#| "#d-i grub-installer/password-crypted password [MD5 hash]\n"
+#| "\n"
+#| "# Use the following option to add additional boot parameters for the\n"
+#| "# installed system (if supported by the bootloader installer).\n"
+#| "# Note: options passed to the installer will be added automatically.\n"
+#| "#d-i debian-installer/add-kernel-opts string nousb"
 msgid ""
 "<phrase arch=\"linux-any\"># Grub is the default boot loader (for x86). If "
 "you want lilo installed\n"
@@ -2910,6 +3058,8 @@ msgid ""
 "#d-i grub-installer/bootdev  string (hd0,0) (hd1,0) (hd2,0)\n"
 "# To install to a particular device:\n"
 "#d-i grub-installer/bootdev  string /dev/sda\n"
+"# To install to the first device:\n"
+"#d-i grub-installer/bootdev  string default\n"
 "\n"
 "# Optional password for grub, either in clear text\n"
 "#d-i grub-installer/password password r00tme\n"
@@ -3313,5 +3463,37 @@ msgstr ""
 "<literal>preseed/url</literal>, điều thứ hai được tạo một khi mạng trở thành "
 "hoạt động."
 
-#~ msgid "desktop"
-#~ msgstr "môi trường làm việc"
+#, fuzzy
+#~| msgid "<entry>yes</entry>"
+#~ msgid "<entry>desktop</entry>"
+#~ msgstr "<entry>có</entry>"
+
+#~ msgid "standard"
+#~ msgstr "chuẩn"
+
+#~ msgid "gnome-desktop"
+#~ msgstr "môi trường làm việc Gnome"
+
+#~ msgid "kde-desktop"
+#~ msgstr "môi trường làm việc KDE"
+
+#~ msgid "web-server"
+#~ msgstr "trình phục vụ Mạng"
+
+#~ msgid "print-server"
+#~ msgstr "trình phục vụ in"
+
+#~ msgid "dns-server"
+#~ msgstr "trình phục vụ DNS"
+
+#~ msgid "file-server"
+#~ msgstr "trình phục vụ tập tin"
+
+#~ msgid "mail-server"
+#~ msgstr "trình phục vụ thư tín"
+
+#~ msgid "sql-database"
+#~ msgstr "cơ sở dữ liệu SQL"
+
+#~ msgid "laptop"
+#~ msgstr "máy tính xách tay"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: partitioning\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2014-08-05 21:38+0000\n"
+"POT-Creation-Date: 2015-01-09 19:07+0000\n"
 "PO-Revision-Date: 2012-07-26 13:01+0300\n"
 "Last-Translator: galaxico <galaxico@quad-nrg.net>\n"
 "Language-Team: Greek <debian-l10n-greek@lists.debian.org>\n"
@@ -434,6 +434,17 @@ msgstr ""
 #: partitioning.xml:177
 #, no-c-format
 msgid ""
+"It is now recommended to have <filename>/usr</filename> on the root "
+"partition <filename>/</filename>, otherwise it could cause some trouble at "
+"boot time. This means that you should provide at least 600&ndash;750MB of "
+"disk space for the root partition including <filename>/usr</filename>, or "
+"5&ndash;6GB for a workstation or a server installation."
+msgstr ""
+
+#. Tag: para
+#: partitioning.xml:187
+#, no-c-format
+msgid ""
 "<filename>/var</filename>: variable data like news articles, e-mails, web "
 "sites, databases, the packaging system cache, etc. will be placed under this "
 "directory. The size of this directory depends greatly on the usage of your "
@@ -461,7 +472,7 @@ msgstr ""
 "συστήματος, μπορείτε να περιοριστείτε ακόμα και στα 30 ή 40 ΜΒ."
 
 #. Tag: para
-#: partitioning.xml:193
+#: partitioning.xml:203
 #, no-c-format
 msgid ""
 "<filename>/tmp</filename>: temporary data created by programs will most "
@@ -481,7 +492,7 @@ msgstr ""
 "κατάλογο <filename>/tmp</filename>."
 
 #. Tag: para
-#: partitioning.xml:204
+#: partitioning.xml:214
 #, no-c-format
 msgid ""
 "<filename>/home</filename>: every user will put his personal data into a "
@@ -502,13 +513,13 @@ msgstr ""
 "σας κατάλογο."
 
 #. Tag: title
-#: partitioning.xml:225
+#: partitioning.xml:235
 #, no-c-format
 msgid "Recommended Partitioning Scheme"
 msgstr "Προτεινόμενο Σχήμα Διαμέρισης"
 
 #. Tag: para
-#: partitioning.xml:226
+#: partitioning.xml:236
 #, no-c-format
 msgid ""
 "For new users, personal &debian; boxes, home systems, and other single-user "
@@ -528,13 +539,18 @@ msgstr ""
 "αρκετά μεγάλη."
 
 #. Tag: para
-#: partitioning.xml:235
-#, no-c-format
+#: partitioning.xml:245
+#, fuzzy, no-c-format
+#| msgid ""
+#| "For multi-user systems or systems with lots of disk space, it's best to "
+#| "put <filename>/usr</filename>, <filename>/var</filename>, <filename>/tmp</"
+#| "filename>, and <filename>/home</filename> each on their own partitions "
+#| "separate from the <filename>/</filename> partition."
 msgid ""
 "For multi-user systems or systems with lots of disk space, it's best to put "
-"<filename>/usr</filename>, <filename>/var</filename>, <filename>/tmp</"
-"filename>, and <filename>/home</filename> each on their own partitions "
-"separate from the <filename>/</filename> partition."
+"<filename>/var</filename>, <filename>/tmp</filename>, and <filename>/home</"
+"filename> each on their own partitions separate from the <filename>/</"
+"filename> partition."
 msgstr ""
 "Για συστήματα πολλών χρηστών ή συστήματα με άφθονο χώρο δίσκων είναι "
 "καλλίτερο να βάλετε κάθε ένα από τους καταλόγους <filename>/usr</filename>, "
@@ -543,7 +559,7 @@ msgstr ""
 "<filename>/</filename>."
 
 #. Tag: para
-#: partitioning.xml:243
+#: partitioning.xml:253
 #, no-c-format
 msgid ""
 "You might need a separate <filename>/usr/local</filename> partition if you "
@@ -569,7 +585,7 @@ msgstr ""
 "τις χρήσεις του."
 
 #. Tag: para
-#: partitioning.xml:255
+#: partitioning.xml:265
 #, no-c-format
 msgid ""
 "For very complex systems, you should see the <ulink url=\"&url-multidisk-"
@@ -582,7 +598,7 @@ msgstr ""
 "στήνουν servers."
 
 #. Tag: para
-#: partitioning.xml:262
+#: partitioning.xml:272
 #, no-c-format
 msgid ""
 "With respect to the issue of swap partition size, there are many views. One "
@@ -601,7 +617,7 @@ msgstr ""
 "(ή και παραπάνω) μνήμη swap."
 
 #. Tag: para
-#: partitioning.xml:271
+#: partitioning.xml:281
 #, no-c-format
 msgid ""
 "On some 32-bit architectures (m68k and PowerPC), the maximum size of a swap "
@@ -620,7 +636,7 @@ msgstr ""
 "swap μεταξύ των πολλαπλών κατατμήσεων δίνοντας έτσι καλλίτερη απόδοση."
 
 #. Tag: para
-#: partitioning.xml:281
+#: partitioning.xml:291
 #, no-c-format
 msgid ""
 "As an example, an older home machine might have 32MB of RAM and a 1.7GB IDE "
@@ -637,7 +653,7 @@ msgstr ""
 "για το Linux."
 
 #. Tag: para
-#: partitioning.xml:290
+#: partitioning.xml:300
 #, no-c-format
 msgid ""
 "For an idea of the space taken by tasks you might be interested in adding "
@@ -649,13 +665,13 @@ msgstr ""
 "του (βασικού) συστήματος, κοιτάξτε το <xref linkend=\"tasksel-size-list\"/>."
 
 #. Tag: title
-#: partitioning.xml:306
+#: partitioning.xml:316
 #, no-c-format
 msgid "Device Names in Linux"
 msgstr "Ονόματα συσκευών στο Linux"
 
 #. Tag: para
-#: partitioning.xml:307
+#: partitioning.xml:317
 #, no-c-format
 msgid ""
 "Linux disks and partition names may be different from other operating "
@@ -668,19 +684,19 @@ msgstr ""
 "σχήμα ονοματοδοσίας:"
 
 #. Tag: para
-#: partitioning.xml:315
+#: partitioning.xml:325
 #, no-c-format
 msgid "The first floppy drive is named <filename>/dev/fd0</filename>."
 msgstr "Η πρώτη συσκευή δισκέττας ονομάζεται <filename>/dev/fd0</filename>."
 
 #. Tag: para
-#: partitioning.xml:320
+#: partitioning.xml:330
 #, no-c-format
 msgid "The second floppy drive is named <filename>/dev/fd1</filename>."
 msgstr "Η δεύτερη συσκευή δισκέττας ονομάζεται <filename>/dev/fd1</filename>."
 
 #. Tag: para
-#: partitioning.xml:325
+#: partitioning.xml:335
 #, no-c-format
 msgid ""
 "The first SCSI disk (SCSI ID address-wise) is named <filename>/dev/sda</"
@@ -690,7 +706,7 @@ msgstr ""
 "filename>."
 
 #. Tag: para
-#: partitioning.xml:331
+#: partitioning.xml:341
 #, no-c-format
 msgid ""
 "The second SCSI disk (address-wise) is named <filename>/dev/sdb</filename>, "
@@ -700,7 +716,7 @@ msgstr ""
 "sdb</filename> κοκ."
 
 #. Tag: para
-#: partitioning.xml:337
+#: partitioning.xml:347
 #, no-c-format
 msgid ""
 "The first SCSI CD-ROM is named <filename>/dev/scd0</filename>, also known as "
@@ -710,7 +726,7 @@ msgstr ""
 "επίσης γνωστή και σαν <filename>/dev/sr0</filename>."
 
 #. Tag: para
-#: partitioning.xml:343
+#: partitioning.xml:353
 #, no-c-format
 msgid ""
 "The master disk on IDE primary controller is named <filename>/dev/hda</"
@@ -720,7 +736,7 @@ msgstr ""
 "filename>."
 
 #. Tag: para
-#: partitioning.xml:349
+#: partitioning.xml:359
 #, no-c-format
 msgid ""
 "The slave disk on IDE primary controller is named <filename>/dev/hdb</"
@@ -730,7 +746,7 @@ msgstr ""
 "filename>."
 
 #. Tag: para
-#: partitioning.xml:355
+#: partitioning.xml:365
 #, no-c-format
 msgid ""
 "The master and slave disks of the secondary controller can be called "
@@ -744,20 +760,20 @@ msgstr ""
 "λειτουργούν ουσιαστικά σαν δυο ελεγκτές."
 
 #. Tag: para
-#: partitioning.xml:366
+#: partitioning.xml:376
 #, no-c-format
 msgid "The first DASD device is named <filename>/dev/dasda</filename>."
 msgstr "Η πρώτη συσκευή DASD ονομάζεται <filename>/dev/dasda</filename>."
 
 #. Tag: para
-#: partitioning.xml:372
+#: partitioning.xml:382
 #, no-c-format
 msgid ""
 "The second DASD device is named <filename>/dev/dasdb</filename>, and so on."
 msgstr "Η δεύτερη συσκευή DASD ονομάζεται <filename>/dev/dasdb</filename>.κοκ."
 
 #. Tag: para
-#: partitioning.xml:380
+#: partitioning.xml:390
 #, no-c-format
 msgid ""
 "The partitions on each disk are represented by appending a decimal number to "
@@ -771,7 +787,7 @@ msgstr ""
 "στο σύστημά σας."
 
 #. Tag: para
-#: partitioning.xml:387
+#: partitioning.xml:397
 #, no-c-format
 msgid ""
 "Here is a real-life example. Let's assume you have a system with 2 SCSI "
@@ -792,7 +808,7 @@ msgstr ""
 "κατατμήσεις του."
 
 #. Tag: para
-#: partitioning.xml:398
+#: partitioning.xml:408
 #, no-c-format
 msgid ""
 "Note that if you have two SCSI host bus adapters (i.e., controllers), the "
@@ -807,7 +823,7 @@ msgstr ""
 "δίσκων."
 
 #. Tag: para
-#: partitioning.xml:405
+#: partitioning.xml:415
 #, no-c-format
 msgid ""
 "Linux represents the primary partitions as the drive name, plus the numbers "
@@ -828,7 +844,7 @@ msgstr ""
 "τους IDE."
 
 #. Tag: para
-#: partitioning.xml:416
+#: partitioning.xml:426
 #, no-c-format
 msgid ""
 "Sun disk partitions allow for 8 separate partitions (or slices). The third "
@@ -843,7 +859,7 @@ msgstr ""
 "φορτωτή εκκίνησης (είτε το SILO είτε αυτόν της Sun)."
 
 #. Tag: para
-#: partitioning.xml:423
+#: partitioning.xml:433
 #, no-c-format
 msgid ""
 "The partitions on each disk are represented by appending a decimal number to "
@@ -857,13 +873,13 @@ msgstr ""
 "DASD στο σύστημά σας."
 
 #. Tag: title
-#: partitioning.xml:438
+#: partitioning.xml:448
 #, no-c-format
 msgid "&debian; Partitioning Programs"
 msgstr "Προγράμματα Διαμέρισης στο &debian;"
 
 #. Tag: para
-#: partitioning.xml:439
+#: partitioning.xml:449
 #, no-c-format
 msgid ""
 "Several varieties of partitioning programs have been adapted by &debian; "
@@ -876,7 +892,7 @@ msgstr ""
 "και αρχιτεκτονικών υπολογιστών."
 
 #. Tag: para
-#: partitioning.xml:452
+#: partitioning.xml:462
 #, no-c-format
 msgid ""
 "Recommended partitioning tool in &debian;. This Swiss army knife can also "
@@ -891,7 +907,7 @@ msgstr ""
 "διάφορα σημεία προσάρτησης."
 
 #. Tag: para
-#: partitioning.xml:464
+#: partitioning.xml:474
 #, no-c-format
 msgid "The original Linux disk partitioner, good for gurus."
 msgstr ""
@@ -899,7 +915,7 @@ msgstr ""
 "χρήστες."
 
 #. Tag: para
-#: partitioning.xml:468
+#: partitioning.xml:478
 #, no-c-format
 msgid ""
 "Be careful if you have existing FreeBSD partitions on your machine. The "
@@ -915,7 +931,7 @@ msgstr ""
 "την σελίδα <ulink url=\"&url-linux-freebsd;\">Linux+FreeBSD HOWTO</ulink>."
 
 #. Tag: para
-#: partitioning.xml:481
+#: partitioning.xml:491
 #, no-c-format
 msgid "A simple-to-use, full-screen disk partitioner for the rest of us."
 msgstr ""
@@ -923,7 +939,7 @@ msgstr ""
 "από μας."
 
 #. Tag: para
-#: partitioning.xml:485
+#: partitioning.xml:495
 #, no-c-format
 msgid ""
 "Note that <command>cfdisk</command> doesn't understand FreeBSD partitions at "
@@ -933,25 +949,25 @@ msgstr ""
 "FreeBSD καθόλου, και σαν αποτέλεσμα τα ονόματα μπορεί επίσης να διαφέρουν."
 
 #. Tag: para
-#: partitioning.xml:495
+#: partitioning.xml:505
 #, no-c-format
 msgid "Atari-aware version of <command>fdisk</command>."
 msgstr "Έκδοση του <command>fdisk</command>για Atari."
 
 #. Tag: para
-#: partitioning.xml:504
+#: partitioning.xml:514
 #, no-c-format
 msgid "Amiga-aware version of <command>fdisk</command>."
 msgstr "Έκδοση του <command>fdisk</command>για Amiga."
 
 #. Tag: para
-#: partitioning.xml:513
+#: partitioning.xml:523
 #, no-c-format
 msgid "Mac-aware version of <command>fdisk</command>."
 msgstr "Έκδοση του <command>fdisk</command>για Mac."
 
 #. Tag: para
-#: partitioning.xml:522
+#: partitioning.xml:532
 #, no-c-format
 msgid ""
 "PowerMac-aware version of <command>fdisk</command>, also used by BVM and "
@@ -961,7 +977,7 @@ msgstr ""
 "σε συστήματα BVM και Motorola VMEbus."
 
 #. Tag: para
-#: partitioning.xml:532
+#: partitioning.xml:542
 #, no-c-format
 msgid ""
 "&arch-title; version of <command>fdisk</command>; Please read the fdasd "
@@ -976,7 +992,7 @@ msgstr ""
 "λεπτομέρειες."
 
 #. Tag: para
-#: partitioning.xml:543
+#: partitioning.xml:553
 #, no-c-format
 msgid ""
 "One of these programs will be run by default when you select "
@@ -990,14 +1006,14 @@ msgstr ""
 "από την γραμμή εντολών στο VT2, αλλά αυτό είναι κάτι που δεν συνίσταται."
 
 #. Tag: para
-#: partitioning.xml:550
+#: partitioning.xml:560
 #, no-c-format
 msgid "Remember to mark your boot partition as <quote>Bootable</quote>."
 msgstr ""
 "Θυμηθείτε να σημαδέψετε την κατάτμηση εκκίνησης σαν  <quote>Bootable</quote>."
 
 #. Tag: para
-#: partitioning.xml:553
+#: partitioning.xml:563
 #, no-c-format
 msgid ""
 "One key point when partitioning for Mac type disks is that the swap "
@@ -1016,14 +1032,14 @@ msgstr ""
 "αν πρόκειται να μοιραστείτε έναν δίσκο με το MacOS."
 
 #. Tag: title
-#: partitioning.xml:569 partitioning.xml:593 partitioning.xml:689
-#: partitioning.xml:803 partitioning.xml:880
+#: partitioning.xml:579 partitioning.xml:603 partitioning.xml:699
+#: partitioning.xml:813 partitioning.xml:890
 #, no-c-format
 msgid "Partitioning for &arch-title;"
 msgstr "Διαμέριση για την αρχιτεκτονική &arch-title;"
 
 #. Tag: para
-#: partitioning.xml:570
+#: partitioning.xml:580
 #, no-c-format
 msgid ""
 "PALO, the HPPA boot loader, requires a partition of type <quote>F0</quote> "
@@ -1055,7 +1071,7 @@ msgstr ""
 "25&ndash;50MB είναι αρκετά."
 
 #. Tag: para
-#: partitioning.xml:594
+#: partitioning.xml:604
 #, no-c-format
 msgid ""
 "If you have an existing other operating system such as DOS or Windows and "
@@ -1076,7 +1092,7 @@ msgstr ""
 "υπάρχουσα κατάτμηση και αλλάξτε το μέγεθός της."
 
 #. Tag: para
-#: partitioning.xml:604
+#: partitioning.xml:614
 #, no-c-format
 msgid ""
 "The PC BIOS generally adds additional constraints for disk partitioning. "
@@ -1098,7 +1114,7 @@ msgstr ""
 "περισσότερες περιπτώσεις."
 
 #. Tag: para
-#: partitioning.xml:614
+#: partitioning.xml:624
 #, no-c-format
 msgid ""
 "<quote>Primary</quote> partitions are the original partitioning scheme for "
@@ -1119,7 +1135,7 @@ msgstr ""
 "μπορείτε όμως να έχετε μόνο μια εκτεταμένη κατάτμηση για κάθε δίσκο."
 
 #. Tag: para
-#: partitioning.xml:625
+#: partitioning.xml:635
 #, no-c-format
 msgid ""
 "Linux limits the partitions per drive to 255 partitions for SCSI disks (3 "
@@ -1138,7 +1154,7 @@ msgstr ""
 "κατατμήσεις."
 
 #. Tag: para
-#: partitioning.xml:635
+#: partitioning.xml:645
 #, no-c-format
 msgid ""
 "If you have a large IDE disk, and are using neither LBA addressing, nor "
@@ -1155,7 +1171,7 @@ msgstr ""
 "την μετάφραση από το BIOS)."
 
 #. Tag: para
-#: partitioning.xml:643
+#: partitioning.xml:653
 #, no-c-format
 msgid ""
 "This restriction doesn't apply if you have a BIOS newer than around "
@@ -1185,7 +1201,7 @@ msgstr ""
 "δίσκων."
 
 #. Tag: para
-#: partitioning.xml:657
+#: partitioning.xml:667
 #, no-c-format
 msgid ""
 "If you have a large disk, you might have to use cylinder translation "
@@ -1209,7 +1225,7 @@ msgstr ""
 "1024ου κυλίνδρου."
 
 #. Tag: para
-#: partitioning.xml:669
+#: partitioning.xml:679
 #, no-c-format
 msgid ""
 "The recommended way of accomplishing this is to create a small "
@@ -1234,7 +1250,7 @@ msgstr ""
 "υποστηρίζει τις επεκτάσεις πρόσβασης μεγάλων δίσκων."
 
 #. Tag: para
-#: partitioning.xml:690
+#: partitioning.xml:700
 #, no-c-format
 msgid ""
 "The <command>partman</command> disk partitioner is the default partitioning "
@@ -1251,13 +1267,13 @@ msgstr ""
 "<command>parted</command> για να κάνει την διαμέριση στον-δίσκο."
 
 #. Tag: title
-#: partitioning.xml:702
+#: partitioning.xml:712
 #, no-c-format
 msgid "EFI Recognized Formats"
 msgstr "EFI Αναγνωρίσιμα format."
 
 #. Tag: para
-#: partitioning.xml:703
+#: partitioning.xml:713
 #, no-c-format
 msgid ""
 "The IA-64 EFI firmware supports two partition table (or disk label) formats, "
@@ -1276,7 +1292,7 @@ msgstr ""
 "χειριστεί σωστά πίνακες τόσο τύπου GPT όσο και MS-DOS."
 
 #. Tag: para
-#: partitioning.xml:715
+#: partitioning.xml:725
 #, no-c-format
 msgid ""
 "The automatic partitioning recipes for <command>partman</command> allocate "
@@ -1292,7 +1308,7 @@ msgstr ""
 "τρόπο ανάλογο αυτού της ρύθμισης της κατάτμησης <emphasis>swap</emphasis>."
 
 #. Tag: para
-#: partitioning.xml:723
+#: partitioning.xml:733
 #, no-c-format
 msgid ""
 "The <command>partman</command> partitioner will handle most disk layouts. "
@@ -1346,13 +1362,13 @@ msgstr ""
 "πρπβληματικά μπλοκ."
 
 #. Tag: title
-#: partitioning.xml:748
+#: partitioning.xml:758
 #, no-c-format
 msgid "Boot Loader Partition Requirements"
 msgstr "Απαιτήσεις κατατμήσεων από τον φορτωτή εκκίνησης. "
 
 #. Tag: para
-#: partitioning.xml:749
+#: partitioning.xml:759
 #, no-c-format
 msgid ""
 "ELILO, the IA-64 boot loader, requires a partition containing a FAT file "
@@ -1370,7 +1386,7 @@ msgstr ""
 "καλλίτερο."
 
 #. Tag: para
-#: partitioning.xml:758
+#: partitioning.xml:768
 #, no-c-format
 msgid ""
 "The EFI Boot Manager and the EFI Shell fully support the GPT table so the "
@@ -1398,7 +1414,7 @@ msgstr ""
 "δημιουργήσετε επαρκή ελεύθερο χώρο για την προσθήκη μιας κατάτμησης EFI."
 
 #. Tag: para
-#: partitioning.xml:773
+#: partitioning.xml:783
 #, no-c-format
 msgid ""
 "It is strongly recommended that you allocate the EFI boot partition on the "
@@ -1408,13 +1424,13 @@ msgstr ""
 "δίσκο που περιέχει και το <emphasis>ριζικό</emphasis> σύστημα αρχείων."
 
 #. Tag: title
-#: partitioning.xml:781
+#: partitioning.xml:791
 #, no-c-format
 msgid "EFI Diagnostic Partitions"
 msgstr "Διαγνωστικές κατατμήσεις EFI"
 
 #. Tag: para
-#: partitioning.xml:782
+#: partitioning.xml:792
 #, no-c-format
 msgid ""
 "The EFI firmware is significantly more sophisticated than the usual BIOS "
@@ -1438,7 +1454,7 @@ msgstr ""
 "κάνετε τη ρύθμιση της κατάτμησης εκκίνησης EFI."
 
 #. Tag: para
-#: partitioning.xml:804
+#: partitioning.xml:814
 #, no-c-format
 msgid ""
 "SGI machines require an SGI disk label in order to make the system bootable "
@@ -1458,13 +1474,13 @@ msgstr ""
 "από τον τομέα 0."
 
 #. Tag: title
-#: partitioning.xml:821
+#: partitioning.xml:831
 #, no-c-format
 msgid "Partitioning Newer PowerMacs"
 msgstr "Διαμέριση για νεώτερους PowerMac. "
 
 #. Tag: para
-#: partitioning.xml:822
+#: partitioning.xml:832
 #, no-c-format
 msgid ""
 "If you are installing onto a NewWorld PowerMac you must create a special "
@@ -1490,7 +1506,7 @@ msgstr ""
 "userinput>."
 
 #. Tag: para
-#: partitioning.xml:835
+#: partitioning.xml:845
 #, no-c-format
 msgid ""
 "The special partition type Apple_Bootstrap is required to prevent MacOS from "
@@ -1503,7 +1519,7 @@ msgstr ""
 "ώστε το OpenFirmware να την ξεκινά από αυτήν αυτόματα."
 
 #. Tag: para
-#: partitioning.xml:842
+#: partitioning.xml:852
 #, no-c-format
 msgid ""
 "Note that the bootstrap partition is only meant to hold 3 very small files: "
@@ -1523,7 +1539,7 @@ msgstr ""
 "την διαχείριση αυτής της κατάτμησης."
 
 #. Tag: para
-#: partitioning.xml:852
+#: partitioning.xml:862
 #, no-c-format
 msgid ""
 "In order for OpenFirmware to automatically boot &debian-gnu; the bootstrap "
@@ -1547,7 +1563,7 @@ msgstr ""
 "διευθύνσεων των κατατμήσεων."
 
 #. Tag: para
-#: partitioning.xml:864
+#: partitioning.xml:874
 #, no-c-format
 msgid ""
 "Apple disks normally have several small driver partitions. If you intend to "
@@ -1564,7 +1580,7 @@ msgstr ""
 "κατατμήσεις συσκευών."
 
 #. Tag: para
-#: partitioning.xml:881
+#: partitioning.xml:891
 #, no-c-format
 msgid ""
 "Make sure you create a <quote>Sun disk label</quote> on your boot disk. This "
@@ -1580,7 +1596,7 @@ msgstr ""
 "Sun."
 
 #. Tag: para
-#: partitioning.xml:889
+#: partitioning.xml:899
 #, no-c-format
 msgid ""
 "Furthermore, on &arch-title; disks, make sure your first partition on your "
@@ -1603,7 +1619,7 @@ msgstr ""
 "και το μπλοκ εκκίνησης."
 
 #. Tag: para
-#: partitioning.xml:900
+#: partitioning.xml:910
 #, no-c-format
 msgid ""
 "It is also advised that the third partition should be of type <quote>Whole "

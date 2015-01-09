@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: d-i-manual\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2014-08-05 21:38+0000\n"
+"POT-Creation-Date: 2015-01-09 19:07+0000\n"
 "PO-Revision-Date: 2012-11-26 00:20+0800\n"
 "Last-Translator: Ji YongGang <jungleji@gmail.com>\n"
 "Language-Team: debian-chinese-gb <debian-chinese-gb@lists.debian.org>\n"
@@ -396,6 +396,17 @@ msgstr ""
 #: partitioning.xml:177
 #, no-c-format
 msgid ""
+"It is now recommended to have <filename>/usr</filename> on the root "
+"partition <filename>/</filename>, otherwise it could cause some trouble at "
+"boot time. This means that you should provide at least 600&ndash;750MB of "
+"disk space for the root partition including <filename>/usr</filename>, or "
+"5&ndash;6GB for a workstation or a server installation."
+msgstr ""
+
+#. Tag: para
+#: partitioning.xml:187
+#, no-c-format
+msgid ""
 "<filename>/var</filename>: variable data like news articles, e-mails, web "
 "sites, databases, the packaging system cache, etc. will be placed under this "
 "directory. The size of this directory depends greatly on the usage of your "
@@ -417,7 +428,7 @@ msgstr ""
 "很紧张，并且不准备做主版本的系统升级，可以为其准备 30 或 40MB 大小。"
 
 #. Tag: para
-#: partitioning.xml:193
+#: partitioning.xml:203
 #, no-c-format
 msgid ""
 "<filename>/tmp</filename>: temporary data created by programs will most "
@@ -433,7 +444,7 @@ msgstr ""
 "件。如果要使用这些程序，应该相应地调整 <filename>/tmp</filename> 目录的大小。"
 
 #. Tag: para
-#: partitioning.xml:204
+#: partitioning.xml:214
 #, no-c-format
 msgid ""
 "<filename>/home</filename>: every user will put his personal data into a "
@@ -450,13 +461,13 @@ msgstr ""
 "目录下计划保存大量的多媒体文件(图片、MP3、电影)，该预备更多的空间。"
 
 #. Tag: title
-#: partitioning.xml:225
+#: partitioning.xml:235
 #, no-c-format
 msgid "Recommended Partitioning Scheme"
 msgstr "推荐的分区方案"
 
 #. Tag: para
-#: partitioning.xml:226
+#: partitioning.xml:236
 #, no-c-format
 msgid ""
 "For new users, personal &debian; boxes, home systems, and other single-user "
@@ -472,20 +483,25 @@ msgstr ""
 "分区很大的时候，这将导致引导期间的延迟。"
 
 #. Tag: para
-#: partitioning.xml:235
-#, no-c-format
+#: partitioning.xml:245
+#, fuzzy, no-c-format
+#| msgid ""
+#| "For multi-user systems or systems with lots of disk space, it's best to "
+#| "put <filename>/usr</filename>, <filename>/var</filename>, <filename>/tmp</"
+#| "filename>, and <filename>/home</filename> each on their own partitions "
+#| "separate from the <filename>/</filename> partition."
 msgid ""
 "For multi-user systems or systems with lots of disk space, it's best to put "
-"<filename>/usr</filename>, <filename>/var</filename>, <filename>/tmp</"
-"filename>, and <filename>/home</filename> each on their own partitions "
-"separate from the <filename>/</filename> partition."
+"<filename>/var</filename>, <filename>/tmp</filename>, and <filename>/home</"
+"filename> each on their own partitions separate from the <filename>/</"
+"filename> partition."
 msgstr ""
 "对于多用户系统或者有大量磁盘空间的系统，最好将 <filename>/usr</filename>、"
 "<filename>/var</filename>、<filename>/tmp</filename> 和 <filename>/home</"
 "filename> 分配到他们各自的分区，与 <filename>/</filename> 分区分离开来。"
 
 #. Tag: para
-#: partitioning.xml:243
+#: partitioning.xml:253
 #, no-c-format
 msgid ""
 "You might need a separate <filename>/usr/local</filename> partition if you "
@@ -506,7 +522,7 @@ msgstr ""
 "好。一般来说，分区状况在每台计算机都不同，这取决于它们的用途。"
 
 #. Tag: para
-#: partitioning.xml:255
+#: partitioning.xml:265
 #, no-c-format
 msgid ""
 "For very complex systems, you should see the <ulink url=\"&url-multidisk-"
@@ -518,7 +534,7 @@ msgstr ""
 "有用。"
 
 #. Tag: para
-#: partitioning.xml:262
+#: partitioning.xml:272
 #, no-c-format
 msgid ""
 "With respect to the issue of swap partition size, there are many views. One "
@@ -534,7 +550,7 @@ msgstr ""
 "交换分区。"
 
 #. Tag: para
-#: partitioning.xml:271
+#: partitioning.xml:281
 #, no-c-format
 msgid ""
 "On some 32-bit architectures (m68k and PowerPC), the maximum size of a swap "
@@ -550,7 +566,7 @@ msgstr ""
 "IDE 通道。内核将平衡使用多个交换分区以达到更好的性能。"
 
 #. Tag: para
-#: partitioning.xml:281
+#: partitioning.xml:291
 #, no-c-format
 msgid ""
 "As an example, an older home machine might have 32MB of RAM and a 1.7GB IDE "
@@ -566,7 +582,7 @@ msgstr ""
 "区。"
 
 #. Tag: para
-#: partitioning.xml:290
+#: partitioning.xml:300
 #, no-c-format
 msgid ""
 "For an idea of the space taken by tasks you might be interested in adding "
@@ -577,13 +593,13 @@ msgstr ""
 "道，请查阅 <xref linkend=\"tasksel-size-list\"/>。"
 
 #. Tag: title
-#: partitioning.xml:306
+#: partitioning.xml:316
 #, no-c-format
 msgid "Device Names in Linux"
 msgstr "Linux 里面的设备名称"
 
 #. Tag: para
-#: partitioning.xml:307
+#: partitioning.xml:317
 #, no-c-format
 msgid ""
 "Linux disks and partition names may be different from other operating "
@@ -594,19 +610,19 @@ msgstr ""
 "Linux 所使用的设备名称。这里是基本的命名方案："
 
 #. Tag: para
-#: partitioning.xml:315
+#: partitioning.xml:325
 #, no-c-format
 msgid "The first floppy drive is named <filename>/dev/fd0</filename>."
 msgstr "第一个软盘驱动器被命名为 <filename>/dev/fd0</filename>。"
 
 #. Tag: para
-#: partitioning.xml:320
+#: partitioning.xml:330
 #, no-c-format
 msgid "The second floppy drive is named <filename>/dev/fd1</filename>."
 msgstr "第二个软盘驱动器被命名为 <filename>/dev/fd1</filename>。"
 
 #. Tag: para
-#: partitioning.xml:325
+#: partitioning.xml:335
 #, no-c-format
 msgid ""
 "The first SCSI disk (SCSI ID address-wise) is named <filename>/dev/sda</"
@@ -616,7 +632,7 @@ msgstr ""
 "filename>。"
 
 #. Tag: para
-#: partitioning.xml:331
+#: partitioning.xml:341
 #, no-c-format
 msgid ""
 "The second SCSI disk (address-wise) is named <filename>/dev/sdb</filename>, "
@@ -626,7 +642,7 @@ msgstr ""
 "等。"
 
 #. Tag: para
-#: partitioning.xml:337
+#: partitioning.xml:347
 #, no-c-format
 msgid ""
 "The first SCSI CD-ROM is named <filename>/dev/scd0</filename>, also known as "
@@ -636,7 +652,7 @@ msgstr ""
 "<filename>/dev/sr0</filename>。"
 
 #. Tag: para
-#: partitioning.xml:343
+#: partitioning.xml:353
 #, no-c-format
 msgid ""
 "The master disk on IDE primary controller is named <filename>/dev/hda</"
@@ -644,7 +660,7 @@ msgid ""
 msgstr "主 IDE 控制器下的主磁盘被命名为 <filename>/dev/hda</filename>。"
 
 #. Tag: para
-#: partitioning.xml:349
+#: partitioning.xml:359
 #, no-c-format
 msgid ""
 "The slave disk on IDE primary controller is named <filename>/dev/hdb</"
@@ -652,7 +668,7 @@ msgid ""
 msgstr "主 IDE 控制器的从盘命名为 <filename>/dev/hdb</filename>。"
 
 #. Tag: para
-#: partitioning.xml:355
+#: partitioning.xml:365
 #, no-c-format
 msgid ""
 "The master and slave disks of the secondary controller can be called "
@@ -665,20 +681,20 @@ msgstr ""
 "控制器的角色。"
 
 #. Tag: para
-#: partitioning.xml:366
+#: partitioning.xml:376
 #, no-c-format
 msgid "The first DASD device is named <filename>/dev/dasda</filename>."
 msgstr "第一个 DASD 设备被命名为 <filename>/dev/dasda</filename>。"
 
 #. Tag: para
-#: partitioning.xml:372
+#: partitioning.xml:382
 #, no-c-format
 msgid ""
 "The second DASD device is named <filename>/dev/dasdb</filename>, and so on."
 msgstr "第二个 DASD 设备被命名为 <filename>/dev/dasdb</filename>，等等。"
 
 #. Tag: para
-#: partitioning.xml:380
+#: partitioning.xml:390
 #, no-c-format
 msgid ""
 "The partitions on each disk are represented by appending a decimal number to "
@@ -691,7 +707,7 @@ msgstr ""
 "一个和第二个分区。"
 
 #. Tag: para
-#: partitioning.xml:387
+#: partitioning.xml:397
 #, no-c-format
 msgid ""
 "Here is a real-life example. Let's assume you have a system with 2 SCSI "
@@ -710,7 +726,7 @@ msgstr ""
 "filename> 及其分区。"
 
 #. Tag: para
-#: partitioning.xml:398
+#: partitioning.xml:408
 #, no-c-format
 msgid ""
 "Note that if you have two SCSI host bus adapters (i.e., controllers), the "
@@ -722,7 +738,7 @@ msgstr ""
 "的解决方案是观察引导信息，如果您知道驱动器型号和/或者容量。"
 
 #. Tag: para
-#: partitioning.xml:405
+#: partitioning.xml:415
 #, no-c-format
 msgid ""
 "Linux represents the primary partitions as the drive name, plus the numbers "
@@ -740,7 +756,7 @@ msgstr ""
 "适用。"
 
 #. Tag: para
-#: partitioning.xml:416
+#: partitioning.xml:426
 #, no-c-format
 msgid ""
 "Sun disk partitions allow for 8 separate partitions (or slices). The third "
@@ -753,7 +769,7 @@ msgstr ""
 "器(SILO 或者 SUN 的)使用。"
 
 #. Tag: para
-#: partitioning.xml:423
+#: partitioning.xml:433
 #, no-c-format
 msgid ""
 "The partitions on each disk are represented by appending a decimal number to "
@@ -766,13 +782,13 @@ msgstr ""
 "个 DASD 设备的第一个以及第二个分区。"
 
 #. Tag: title
-#: partitioning.xml:438
+#: partitioning.xml:448
 #, no-c-format
 msgid "&debian; Partitioning Programs"
 msgstr "&debian; 分区程序"
 
 #. Tag: para
-#: partitioning.xml:439
+#: partitioning.xml:449
 #, no-c-format
 msgid ""
 "Several varieties of partitioning programs have been adapted by &debian; "
@@ -784,7 +800,7 @@ msgstr ""
 "合您的体系的程序列表。"
 
 #. Tag: para
-#: partitioning.xml:452
+#: partitioning.xml:462
 #, no-c-format
 msgid ""
 "Recommended partitioning tool in &debian;. This Swiss army knife can also "
@@ -797,13 +813,13 @@ msgstr ""
 "区至挂接点。"
 
 #. Tag: para
-#: partitioning.xml:464
+#: partitioning.xml:474
 #, no-c-format
 msgid "The original Linux disk partitioner, good for gurus."
 msgstr "最早的 Linux 磁盘分区工具，对于老手很好用。"
 
 #. Tag: para
-#: partitioning.xml:468
+#: partitioning.xml:478
 #, no-c-format
 msgid ""
 "Be careful if you have existing FreeBSD partitions on your machine. The "
@@ -817,13 +833,13 @@ msgstr ""
 "参阅 <ulink url=\"&url-linux-freebsd;\">Linux+FreeBSD HOWTO</ulink>。"
 
 #. Tag: para
-#: partitioning.xml:481
+#: partitioning.xml:491
 #, no-c-format
 msgid "A simple-to-use, full-screen disk partitioner for the rest of us."
 msgstr "一个简单易用、全屏幕的磁盘分区程序。供其他人员使用。"
 
 #. Tag: para
-#: partitioning.xml:485
+#: partitioning.xml:495
 #, no-c-format
 msgid ""
 "Note that <command>cfdisk</command> doesn't understand FreeBSD partitions at "
@@ -833,25 +849,25 @@ msgstr ""
 "设备名称与结果可能不同。"
 
 #. Tag: para
-#: partitioning.xml:495
+#: partitioning.xml:505
 #, no-c-format
 msgid "Atari-aware version of <command>fdisk</command>."
 msgstr "Atari 版本的 <command>fdisk</command>。"
 
 #. Tag: para
-#: partitioning.xml:504
+#: partitioning.xml:514
 #, no-c-format
 msgid "Amiga-aware version of <command>fdisk</command>."
 msgstr "Amiga-aware 版本的 <command>fdisk</command>。"
 
 #. Tag: para
-#: partitioning.xml:513
+#: partitioning.xml:523
 #, no-c-format
 msgid "Mac-aware version of <command>fdisk</command>."
 msgstr "Mac-aware 版本的 <command>fdisk</command>。"
 
 #. Tag: para
-#: partitioning.xml:522
+#: partitioning.xml:532
 #, no-c-format
 msgid ""
 "PowerMac-aware version of <command>fdisk</command>, also used by BVM and "
@@ -861,7 +877,7 @@ msgstr ""
 "VMEbus 系统。"
 
 #. Tag: para
-#: partitioning.xml:532
+#: partitioning.xml:542
 #, no-c-format
 msgid ""
 "&arch-title; version of <command>fdisk</command>; Please read the fdasd "
@@ -876,7 +892,7 @@ msgstr ""
 "\"Installation Commands</ulink> 的第 13 章获得详细信息。"
 
 #. Tag: para
-#: partitioning.xml:543
+#: partitioning.xml:553
 #, no-c-format
 msgid ""
 "One of these programs will be run by default when you select "
@@ -889,13 +905,13 @@ msgstr ""
 "式。"
 
 #. Tag: para
-#: partitioning.xml:550
+#: partitioning.xml:560
 #, no-c-format
 msgid "Remember to mark your boot partition as <quote>Bootable</quote>."
 msgstr "要记得标记您的引导分区为 <quote>Bootable</quote>。"
 
 #. Tag: para
-#: partitioning.xml:553
+#: partitioning.xml:563
 #, no-c-format
 msgid ""
 "One key point when partitioning for Mac type disks is that the swap "
@@ -912,14 +928,14 @@ msgstr ""
 
 # index.docbook:612, index.docbook:672, index.docbook:696, index.docbook:793, index.docbook:912, index.docbook:989
 #. Tag: title
-#: partitioning.xml:569 partitioning.xml:593 partitioning.xml:689
-#: partitioning.xml:803 partitioning.xml:880
+#: partitioning.xml:579 partitioning.xml:603 partitioning.xml:699
+#: partitioning.xml:813 partitioning.xml:890
 #, no-c-format
 msgid "Partitioning for &arch-title;"
 msgstr "为 &arch-title; 准备分区"
 
 #. Tag: para
-#: partitioning.xml:570
+#: partitioning.xml:580
 #, no-c-format
 msgid ""
 "PALO, the HPPA boot loader, requires a partition of type <quote>F0</quote> "
@@ -945,7 +961,7 @@ msgstr ""
 "25&ndash;50 MB 一般来说应该足够了。"
 
 #. Tag: para
-#: partitioning.xml:594
+#: partitioning.xml:604
 #, no-c-format
 msgid ""
 "If you have an existing other operating system such as DOS or Windows and "
@@ -962,7 +978,7 @@ msgstr ""
 "<guimenuitem>Manual</guimenuitem> 选项，然后只需选择已有的分区，更改其尺寸。"
 
 #. Tag: para
-#: partitioning.xml:604
+#: partitioning.xml:614
 #, no-c-format
 msgid ""
 "The PC BIOS generally adds additional constraints for disk partitioning. "
@@ -980,7 +996,7 @@ msgstr ""
 "的介绍，帮助您在大多数情况下进行规划。"
 
 #. Tag: para
-#: partitioning.xml:614
+#: partitioning.xml:624
 #, no-c-format
 msgid ""
 "<quote>Primary</quote> partitions are the original partitioning scheme for "
@@ -998,7 +1014,7 @@ msgstr ""
 "一个扩展分区。"
 
 #. Tag: para
-#: partitioning.xml:625
+#: partitioning.xml:635
 #, no-c-format
 msgid ""
 "Linux limits the partitions per drive to 255 partitions for SCSI disks (3 "
@@ -1014,7 +1030,7 @@ msgstr ""
 "过 20 个的分区，除非您首先为这些分区手工创建了设备文件。"
 
 #. Tag: para
-#: partitioning.xml:635
+#: partitioning.xml:645
 #, no-c-format
 msgid ""
 "If you have a large IDE disk, and are using neither LBA addressing, nor "
@@ -1028,7 +1044,7 @@ msgstr ""
 "盘第一个 1024 柱面内(在没有 BIOS 转换的情况下，大约有 524MB)。"
 
 #. Tag: para
-#: partitioning.xml:643
+#: partitioning.xml:653
 #, no-c-format
 msgid ""
 "This restriction doesn't apply if you have a BIOS newer than around "
@@ -1052,7 +1068,7 @@ msgstr ""
 "&arch-kernel; 并不使用 BIOS 来进行磁盘寻址。"
 
 #. Tag: para
-#: partitioning.xml:657
+#: partitioning.xml:667
 #, no-c-format
 msgid ""
 "If you have a large disk, you might have to use cylinder translation "
@@ -1072,7 +1088,7 @@ msgstr ""
 "</emphasis>的 1024 柱面内。"
 
 #. Tag: para
-#: partitioning.xml:669
+#: partitioning.xml:679
 #, no-c-format
 msgid ""
 "The recommended way of accomplishing this is to create a small "
@@ -1092,7 +1108,7 @@ msgstr ""
 "起作用，甚至也不管您的 BIOS 是否支持大硬盘访问扩展。"
 
 #. Tag: para
-#: partitioning.xml:690
+#: partitioning.xml:700
 #, no-c-format
 msgid ""
 "The <command>partman</command> disk partitioner is the default partitioning "
@@ -1106,13 +1122,13 @@ msgstr ""
 "<command>parted</command> 来进行磁盘分区的。"
 
 #. Tag: title
-#: partitioning.xml:702
+#: partitioning.xml:712
 #, no-c-format
 msgid "EFI Recognized Formats"
 msgstr "EFI 能够识别的格式"
 
 #. Tag: para
-#: partitioning.xml:703
+#: partitioning.xml:713
 #, no-c-format
 msgid ""
 "The IA-64 EFI firmware supports two partition table (or disk label) formats, "
@@ -1129,7 +1145,7 @@ msgstr ""
 "DOS 分区表。"
 
 #. Tag: para
-#: partitioning.xml:715
+#: partitioning.xml:725
 #, no-c-format
 msgid ""
 "The automatic partitioning recipes for <command>partman</command> allocate "
@@ -1143,7 +1159,7 @@ msgstr ""
 "配置分区。其方法类似设置一个 <emphasis>交换</emphasis> 分区。"
 
 #. Tag: para
-#: partitioning.xml:723
+#: partitioning.xml:733
 #, no-c-format
 msgid ""
 "The <command>partman</command> partitioner will handle most disk layouts. "
@@ -1188,13 +1204,13 @@ msgstr ""
 "它可能要扫描坏区。"
 
 #. Tag: title
-#: partitioning.xml:748
+#: partitioning.xml:758
 #, no-c-format
 msgid "Boot Loader Partition Requirements"
 msgstr "启动引导器分区要求"
 
 #. Tag: para
-#: partitioning.xml:749
+#: partitioning.xml:759
 #, no-c-format
 msgid ""
 "ELILO, the IA-64 boot loader, requires a partition containing a FAT file "
@@ -1209,7 +1225,7 @@ msgstr ""
 "个内核的话，128MB 也许更好。"
 
 #. Tag: para
-#: partitioning.xml:758
+#: partitioning.xml:768
 #, no-c-format
 msgid ""
 "The EFI Boot Manager and the EFI Shell fully support the GPT table so the "
@@ -1231,7 +1247,7 @@ msgstr ""
 "入一个 EFI 分区。"
 
 #. Tag: para
-#: partitioning.xml:773
+#: partitioning.xml:783
 #, no-c-format
 msgid ""
 "It is strongly recommended that you allocate the EFI boot partition on the "
@@ -1241,13 +1257,13 @@ msgstr ""
 "盘上。"
 
 #. Tag: title
-#: partitioning.xml:781
+#: partitioning.xml:791
 #, no-c-format
 msgid "EFI Diagnostic Partitions"
 msgstr "EFI 诊断分区"
 
 #. Tag: para
-#: partitioning.xml:782
+#: partitioning.xml:792
 #, no-c-format
 msgid ""
 "The EFI firmware is significantly more sophisticated than the usual BIOS "
@@ -1266,7 +1282,7 @@ msgstr ""
 "区的时候。"
 
 #. Tag: para
-#: partitioning.xml:804
+#: partitioning.xml:814
 #, no-c-format
 msgid ""
 "SGI machines require an SGI disk label in order to make the system bootable "
@@ -1282,13 +1298,13 @@ msgstr ""
 "入。注意 volume header 必须从 0 号扇区开始。"
 
 #. Tag: title
-#: partitioning.xml:821
+#: partitioning.xml:831
 #, no-c-format
 msgid "Partitioning Newer PowerMacs"
 msgstr "为较新的 PowerMacs 分区"
 
 #. Tag: para
-#: partitioning.xml:822
+#: partitioning.xml:832
 #, no-c-format
 msgid ""
 "If you are installing onto a NewWorld PowerMac you must create a special "
@@ -1310,7 +1326,7 @@ msgstr ""
 "command> 里面使用 <userinput>b</userinput> 命令。"
 
 #. Tag: para
-#: partitioning.xml:835
+#: partitioning.xml:845
 #, no-c-format
 msgid ""
 "The special partition type Apple_Bootstrap is required to prevent MacOS from "
@@ -1321,7 +1337,7 @@ msgstr ""
 "为里面 含有一些特殊修改的模式来让 OpenFirmware 能够自动启动它。"
 
 #. Tag: para
-#: partitioning.xml:842
+#: partitioning.xml:852
 #, no-c-format
 msgid ""
 "Note that the bootstrap partition is only meant to hold 3 very small files: "
@@ -1338,7 +1354,7 @@ msgstr ""
 "command> 工具可以用来维护这个分区。"
 
 #. Tag: para
-#: partitioning.xml:852
+#: partitioning.xml:862
 #, no-c-format
 msgid ""
 "In order for OpenFirmware to automatically boot &debian-gnu; the bootstrap "
@@ -1358,7 +1374,7 @@ msgstr ""
 "顺序。"
 
 #. Tag: para
-#: partitioning.xml:864
+#: partitioning.xml:874
 #, no-c-format
 msgid ""
 "Apple disks normally have several small driver partitions. If you intend to "
@@ -1372,7 +1388,7 @@ msgstr ""
 "启动的时候，会初始化没有任何激活的 MacOS 分区以及驱动分区的磁盘。"
 
 #. Tag: para
-#: partitioning.xml:881
+#: partitioning.xml:891
 #, no-c-format
 msgid ""
 "Make sure you create a <quote>Sun disk label</quote> on your boot disk. This "
@@ -1385,7 +1401,7 @@ msgstr ""
 "<keycap>s</keycap> 中用 <command>fdisk</command> 键来创建 Sun 磁盘标记。"
 
 #. Tag: para
-#: partitioning.xml:889
+#: partitioning.xml:899
 #, no-c-format
 msgid ""
 "Furthermore, on &arch-title; disks, make sure your first partition on your "
@@ -1404,7 +1420,7 @@ msgstr ""
 "或者 UFS 分区在那里；它们将隔离分区表和引导块。"
 
 #. Tag: para
-#: partitioning.xml:900
+#: partitioning.xml:910
 #, no-c-format
 msgid ""
 "It is also advised that the third partition should be of type <quote>Whole "

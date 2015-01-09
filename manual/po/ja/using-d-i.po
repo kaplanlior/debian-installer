@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2014-10-05 18:15+0000\n"
+"POT-Creation-Date: 2015-01-09 19:07+0000\n"
 "PO-Revision-Date: 2013-04-03 00:38+0900\n"
 "Last-Translator: KURASAWA Nozomu (nabetaro) <nabetaro@debian.or.jp>\n"
 "Language-Team: Japanese <debian-japanese@lists.debian.org>\n"
@@ -2193,8 +2193,9 @@ msgstr "<filename>/</filename>, <filename>/home</filename>, swap"
 
 #. Tag: entry
 #: using-d-i.xml:1350
-#, no-c-format
-msgid "Separate /home, /usr, /var and /tmp partitions"
+#, fuzzy, no-c-format
+#| msgid "Separate /home, /usr, /var and /tmp partitions"
+msgid "Separate /home, /var and /tmp partitions"
 msgstr "Separate /home, /usr, /var and /tmp partitions"
 
 #. Tag: entry
@@ -2205,10 +2206,13 @@ msgstr "<entry>1GB</entry>"
 
 #. Tag: entry
 #: using-d-i.xml:1352
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "<filename>/</filename>, <filename>/home</filename>, <filename>/usr</"
+#| "filename>, <filename>/var</filename>, <filename>/tmp</filename>, swap"
 msgid ""
-"<filename>/</filename>, <filename>/home</filename>, <filename>/usr</"
-"filename>, <filename>/var</filename>, <filename>/tmp</filename>, swap"
+"<filename>/</filename>, <filename>/home</filename>, <filename>/var</"
+"filename>, <filename>/tmp</filename>, swap"
 msgstr ""
 "<filename>/</filename>, <filename>/home</filename>, <filename>/usr</"
 "filename>, <filename>/var</filename>, <filename>/tmp</filename>, swap"
@@ -4200,58 +4204,17 @@ msgstr ""
 
 #. Tag: para
 #: using-d-i.xml:2561
-#, fuzzy, no-c-format
-#| msgid ""
-#| "It is not possible to interactively select a different desktop during the "
-#| "installation. However, it <emphasis>is</emphasis> possible to get &d-i; "
-#| "to install a KDE desktop environment instead of GNOME by using preseeding "
-#| "(see <xref linkend=\"preseed-pkgsel\"/>) or by adding the parameter "
-#| "<literal>desktop=kde</literal> at the boot prompt when starting the "
-#| "installer. Alternatively the more lightweight Xfce and LXDE desktop "
-#| "environments can be selected by using <literal>desktop=xfce</literal> or "
-#| "<literal>desktop=lxde</literal>."
+#, no-c-format
 msgid ""
-"By default, &d-i; installs the Xfce desktop environment. It is not possible "
-"to interactively select a different desktop environment during the "
-"installation, however, it <emphasis>is</emphasis> possible to have the "
-"installer install a different desktop environment by using preseeding (see "
-"<xref linkend=\"preseed-pkgsel\"/>) or by adding the parameter "
-"<literal>desktop=name_of_the_desktop_environment</literal> at the boot "
-"prompt when starting the installer. Possible variants in this case are "
-"<literal>desktop=gnome</literal>, <literal>desktop=kde</literal>, "
-"<literal>desktop=lxde</literal> or <literal>desktop=xfce</literal>."
+"By default, &d-i; installs the <phrase arch=\"x86\">Gnome</phrase> <phrase "
+"arch=\"non-x86\">Xfce</phrase> desktop environment. It is possible to "
+"interactively select a different desktop environment during the "
+"installation. It is also possible to install multiple desktops, but some "
+"combinations of desktop may not be co-installable."
 msgstr ""
-"インストール中に異なるデスクトップ環境を、インタラクティブに選択することはで"
-"きません。しかし、preseed (<xref linkend=\"preseed-pkgsel\"/> 参照) を使用し"
-"たり、インストーラの起動時にブートプロンプトのパラメータで <literal>tasks="
-"\"standard, kde-desktop\"</literal> と指定して、&d-i; が GNOME ではなく KDE "
-"デスクトップ環境をインストールするようにできます。また、"
-"<literal>desktop=xfce</literal> や <literal>desktop=lxde</literal> とすると、"
-"もっと軽量な Xfce デスクトップ環境や LXDE デスクトップ環境を選択できます。"
 
 #. Tag: para
-#: using-d-i.xml:2575
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Some CD images (netinst and DVD) also allow selection of the desired "
-#| "desktop environment from the graphical boot menu. Select the "
-#| "<quote>Advanced options</quote> option in the main menu and look for "
-#| "<quote>Alternative desktop environments</quote>."
-msgid ""
-"If you use the special GNOME-, KDE- or LXDE-variant of the first CD in the "
-"full CD set, the installer installs the respective desktop environment "
-"instead of the default. Some CD images (netinst and DVD) also allow "
-"selection of the desired desktop environment from the graphical boot menu. "
-"Select the <quote>Advanced options</quote> option in the main menu and look "
-"for <quote>Alternative desktop environments</quote>."
-msgstr ""
-"いくつかの CD イメージ (netinst, DVD) では、グラフィカルブートメニューから、"
-"希望のデスクトップ環境の選択もできます。メインメニューの <quote>Advanced "
-"options</quote> を選択し、<quote>Alternative desktop environments</quote> を"
-"探してください。"
-
-#. Tag: para
-#: using-d-i.xml:2586
+#: using-d-i.xml:2569
 #, fuzzy, no-c-format
 #| msgid ""
 #| "Note that this will only work if the packages needed for the desired "
@@ -4276,27 +4239,16 @@ msgstr ""
 "ストールがうまくいくでしょう。"
 
 #. Tag: para
-#: using-d-i.xml:2596
+#: using-d-i.xml:2579
 #, no-c-format
 msgid ""
-"The various server tasks will install software roughly as follows. DNS "
-"server: <classname>bind9</classname>; File server: <classname>samba</"
-"classname>, <classname>nfs</classname>; Mail server: <classname>exim4</"
-"classname>, <classname>spamassassin</classname>, <classname>uw-imap</"
-"classname>; Print server: <classname>cups</classname>; SQL database: "
-"<classname>postgresql</classname>; Web server: <classname>apache2</"
-"classname>."
+"The various server tasks will install software roughly as follows. Web "
+"server: <classname>apache2</classname>; Print server: <classname>cups</"
+"classname>; SSH server: <classname>openssh</classname>."
 msgstr ""
-"各サーバタスクでは、おおまかに以下のソフトウェアをインストールします。DNS "
-"サーバ: <classname>bind9</classname>; ファイルサーバ: <classname>samba</"
-"classname>, <classname>nfs</classname>; メールサーバ: <classname>exim4</"
-"classname>, <classname>spamassassin</classname>, <classname>uw-imap</"
-"classname>; 印刷サーバ: <classname>cups</classname>; SQL データベース: "
-"<classname>postgresql</classname>; Web サーバ: <classname>apache2</"
-"classname>。"
 
 #. Tag: para
-#: using-d-i.xml:2607
+#: using-d-i.xml:2586
 #, no-c-format
 msgid ""
 "The <quote>Standard system</quote> task will install any package that has a "
@@ -4312,7 +4264,7 @@ msgstr ""
 "にしてください。"
 
 #. Tag: para
-#: using-d-i.xml:2615
+#: using-d-i.xml:2594
 #, no-c-format
 msgid ""
 "If during language selection a default locale other than the <quote>C</"
@@ -4331,7 +4283,7 @@ msgstr ""
 "ルします。"
 
 #. Tag: para
-#: using-d-i.xml:2625
+#: using-d-i.xml:2604
 #, no-c-format
 msgid ""
 "Once you've selected your tasks, select &BTN-CONT;. At this point, "
@@ -4345,7 +4297,7 @@ msgstr ""
 "ます。"
 
 #. Tag: para
-#: using-d-i.xml:2632
+#: using-d-i.xml:2611
 #, no-c-format
 msgid ""
 "You should be aware that especially the Desktop task is very large. "
@@ -4362,7 +4314,7 @@ msgstr ""
 "ンストールを始めたら、キャンセルするオプションはありません。"
 
 #. Tag: para
-#: using-d-i.xml:2641
+#: using-d-i.xml:2620
 #, no-c-format
 msgid ""
 "Even when packages are included on the CD-ROM, the installer may still "
@@ -4379,13 +4331,13 @@ msgstr ""
 "メージを使用していると、こういったことが起こり得ます。"
 
 #. Tag: title
-#: using-d-i.xml:2656
+#: using-d-i.xml:2635
 #, no-c-format
 msgid "Making Your System Bootable"
 msgstr "システムを起動可能に"
 
 #. Tag: para
-#: using-d-i.xml:2658
+#: using-d-i.xml:2637
 #, no-c-format
 msgid ""
 "If you are installing a diskless workstation, obviously, booting off the "
@@ -4400,13 +4352,13 @@ msgstr ""
 "ください。</phrase>"
 
 #. Tag: title
-#: using-d-i.xml:2673
+#: using-d-i.xml:2652
 #, no-c-format
 msgid "Detecting other operating systems"
 msgstr "他 OS の検出"
 
 #. Tag: para
-#: using-d-i.xml:2675
+#: using-d-i.xml:2654
 #, no-c-format
 msgid ""
 "Before a boot loader is installed, the installer will attempt to probe for "
@@ -4421,7 +4373,7 @@ msgstr ""
 "できるように、このコンピュータを設定します。"
 
 #. Tag: para
-#: using-d-i.xml:2683
+#: using-d-i.xml:2662
 #, no-c-format
 msgid ""
 "Note that multiple operating systems booting on a single machine is still "
@@ -4436,13 +4388,13 @@ msgstr ""
 "す。作動しない場合は、詳細についてブートマネージャの文書を調べるべきです。"
 
 #. Tag: title
-#: using-d-i.xml:2701
+#: using-d-i.xml:2680
 #, no-c-format
 msgid "<command>palo</command>-installer"
 msgstr "<command>palo</command> インストーラ"
 
 #. Tag: para
-#: using-d-i.xml:2702
+#: using-d-i.xml:2681
 #, no-c-format
 msgid ""
 "The bootloader on PA-RISC is <quote>palo</quote>. <command>PALO</command> is "
@@ -4458,19 +4410,19 @@ msgstr ""
 "Linux パーティションを読むことができるからです。"
 
 #. Tag: para
-#: using-d-i.xml:2711
+#: using-d-i.xml:2690
 #, no-c-format
 msgid "hppa FIXME ( need more info )"
 msgstr "hppa FIXME ( もっと情報が必要 )"
 
 #. Tag: title
-#: using-d-i.xml:2723
+#: using-d-i.xml:2702
 #, no-c-format
 msgid "Install the <command>Grub</command> Boot Loader on a Hard Disk"
 msgstr "ハードディスクへの <command>Grub</command> ブートローダのインストール"
 
 #. Tag: para
-#: using-d-i.xml:2725
+#: using-d-i.xml:2704
 #, no-c-format
 msgid ""
 "The main &architecture; boot loader is called <quote>grub</quote>. Grub is a "
@@ -4482,7 +4434,7 @@ msgstr ""
 "選んでおけばよいでしょう。"
 
 #. Tag: para
-#: using-d-i.xml:2731
+#: using-d-i.xml:2710
 #, no-c-format
 msgid ""
 "By default, grub will be installed into the Master Boot Record (MBR), where "
@@ -4495,7 +4447,7 @@ msgstr ""
 "さい。"
 
 #. Tag: para
-#: using-d-i.xml:2737
+#: using-d-i.xml:2716
 #, no-c-format
 msgid ""
 "If you do not want to install grub, use the &BTN-GOBACK; button to get to "
@@ -4506,13 +4458,13 @@ msgstr ""
 "てください。そしてそこから、使用したいブートローダを選択してください。"
 
 #. Tag: title
-#: using-d-i.xml:2750
+#: using-d-i.xml:2729
 #, no-c-format
 msgid "Install the <command>LILO</command> Boot Loader on a Hard Disk"
 msgstr "ハードディスクへの <command>LILO</command> ブートローダのインストール"
 
 #. Tag: para
-#: using-d-i.xml:2752
+#: using-d-i.xml:2731
 #, no-c-format
 msgid ""
 "The second &architecture; boot loader is called <quote>LILO</quote>. It is "
@@ -4528,7 +4480,7 @@ msgstr ""
 "\">LILO mini-HOWTO</ulink> もご覧ください。"
 
 #. Tag: para
-#: using-d-i.xml:2762
+#: using-d-i.xml:2741
 #, no-c-format
 msgid ""
 "Currently the LILO installation will only create menu entries for other "
@@ -4542,7 +4494,7 @@ msgstr ""
 "ません。"
 
 #. Tag: para
-#: using-d-i.xml:2770
+#: using-d-i.xml:2749
 #, no-c-format
 msgid ""
 "&d-i; offers you three choices on where to install the <command>LILO</"
@@ -4552,13 +4504,13 @@ msgstr ""
 "提示します。"
 
 #. Tag: term
-#: using-d-i.xml:2777
+#: using-d-i.xml:2756
 #, no-c-format
 msgid "Master Boot Record (MBR)"
 msgstr "Master Boot Record (MBR)"
 
 #. Tag: para
-#: using-d-i.xml:2777
+#: using-d-i.xml:2756
 #, no-c-format
 msgid ""
 "This way the <command>LILO</command> will take complete control of the boot "
@@ -4568,13 +4520,13 @@ msgstr ""
 "す。"
 
 #. Tag: term
-#: using-d-i.xml:2784
+#: using-d-i.xml:2763
 #, no-c-format
 msgid "new &debian; partition"
 msgstr "new &debian; partition"
 
 #. Tag: para
-#: using-d-i.xml:2784
+#: using-d-i.xml:2763
 #, no-c-format
 msgid ""
 "Choose this if you want to use another boot manager. <command>LILO</command> "
@@ -4586,13 +4538,13 @@ msgstr ""
 "インストールし、第 2 のブートローダとして動作します。"
 
 #. Tag: term
-#: using-d-i.xml:2793
+#: using-d-i.xml:2772
 #, no-c-format
 msgid "Other choice"
 msgstr "Other choice"
 
 #. Tag: para
-#: using-d-i.xml:2793
+#: using-d-i.xml:2772
 #, no-c-format
 msgid ""
 "Useful for advanced users who want to install <command>LILO</command> "
@@ -4608,7 +4560,7 @@ msgstr ""
 "<phrase condition=\"lenny\">従来の名前を</phrase>使用できます。"
 
 #. Tag: para
-#: using-d-i.xml:2803
+#: using-d-i.xml:2782
 #, no-c-format
 msgid ""
 "If you can no longer boot into Windows 9x (or DOS) after this step, you'll "
@@ -4624,13 +4576,13 @@ msgstr ""
 "る、ということを意味します!"
 
 #. Tag: title
-#: using-d-i.xml:2819
+#: using-d-i.xml:2798
 #, no-c-format
 msgid "Install the <command>ELILO</command> Boot Loader on a Hard Disk"
 msgstr "ハードディスクへの <command>ELILO</command> ブートローダのインストール"
 
 #. Tag: para
-#: using-d-i.xml:2821
+#: using-d-i.xml:2800
 #, no-c-format
 msgid ""
 "The &architecture; boot loader is called <quote>elilo</quote>. It is modeled "
@@ -4658,7 +4610,7 @@ msgstr ""
 "Boot Manager</quote> により実際に実行されます。"
 
 #. Tag: para
-#: using-d-i.xml:2837
+#: using-d-i.xml:2816
 #, no-c-format
 msgid ""
 "The <quote>elilo</quote> configuration and installation is done as the last "
@@ -4675,13 +4627,13 @@ msgstr ""
 "システムがあるディスクのパーティションを選択します。"
 
 #. Tag: title
-#: using-d-i.xml:2849
+#: using-d-i.xml:2828
 #, no-c-format
 msgid "Choose the correct partition!"
 msgstr "正しいパーティションを選択してください!"
 
 #. Tag: para
-#: using-d-i.xml:2851
+#: using-d-i.xml:2830
 #, no-c-format
 msgid ""
 "The criterion for selecting a partition is that it must be a FAT format "
@@ -4700,13 +4652,13 @@ msgstr ""
 "ください!"
 
 #. Tag: title
-#: using-d-i.xml:2866
+#: using-d-i.xml:2845
 #, no-c-format
 msgid "EFI Partition Contents"
 msgstr "EFI パーティションの内容"
 
 #. Tag: para
-#: using-d-i.xml:2868
+#: using-d-i.xml:2847
 #, no-c-format
 msgid ""
 "The EFI partition is a FAT filesystem format partition on one of the hard "
@@ -4736,13 +4688,13 @@ msgstr ""
 "のファイルシステムにその他のファイルがあるかもしれません。"
 
 #. Tag: filename
-#: using-d-i.xml:2890
+#: using-d-i.xml:2869
 #, no-c-format
 msgid "elilo.conf"
 msgstr "elilo.conf"
 
 #. Tag: para
-#: using-d-i.xml:2891
+#: using-d-i.xml:2870
 #, no-c-format
 msgid ""
 "This is the configuration file read by the boot loader when it starts. It is "
@@ -4754,13 +4706,13 @@ msgstr ""
 "ピーです。"
 
 #. Tag: filename
-#: using-d-i.xml:2900
+#: using-d-i.xml:2879
 #, no-c-format
 msgid "elilo.efi"
 msgstr "elilo.efi"
 
 #. Tag: para
-#: using-d-i.xml:2901
+#: using-d-i.xml:2880
 #, no-c-format
 msgid ""
 "This is the boot loader program that the <quote>EFI Boot Manager</quote> "
@@ -4773,13 +4725,13 @@ msgstr ""
 "<guimenuitem>&debian; GNU/Linux</guimenuitem> を選択するとこれが起動します。"
 
 #. Tag: filename
-#: using-d-i.xml:2911
+#: using-d-i.xml:2890
 #, no-c-format
 msgid "initrd.img"
 msgstr "initrd.img"
 
 #. Tag: para
-#: using-d-i.xml:2912
+#: using-d-i.xml:2891
 #, no-c-format
 msgid ""
 "This is the initial root filesystem used to boot the kernel. It is a copy of "
@@ -4793,13 +4745,13 @@ msgstr ""
 "filename> で指し示す <filename>/boot</filename> にあるファイルです。"
 
 #. Tag: filename
-#: using-d-i.xml:2924
+#: using-d-i.xml:2903
 #, no-c-format
 msgid "readme.txt"
 msgstr "readme.txt"
 
 #. Tag: para
-#: using-d-i.xml:2925
+#: using-d-i.xml:2904
 #, no-c-format
 msgid ""
 "This is a small text file warning you that the contents of the directory are "
@@ -4811,13 +4763,13 @@ msgstr ""
 "する小さなテキストファイルです。"
 
 #. Tag: filename
-#: using-d-i.xml:2935
+#: using-d-i.xml:2914
 #, no-c-format
 msgid "vmlinuz"
 msgstr "vmlinuz"
 
 #. Tag: para
-#: using-d-i.xml:2936
+#: using-d-i.xml:2915
 #, no-c-format
 msgid ""
 "This is the compressed kernel itself. It is a copy of the file referenced in "
@@ -4831,13 +4783,13 @@ msgstr ""
 "るファイルです。"
 
 #. Tag: title
-#: using-d-i.xml:2956
+#: using-d-i.xml:2935
 #, no-c-format
 msgid "<command>arcboot</command>-installer"
 msgstr "<command>arcboot</command>-installer"
 
 #. Tag: para
-#: using-d-i.xml:2957
+#: using-d-i.xml:2936
 #, no-c-format
 msgid ""
 "The boot loader on SGI machines is <command>arcboot</command>. It has to be "
@@ -4881,13 +4833,13 @@ msgstr ""
 "い。"
 
 #. Tag: replaceable
-#: using-d-i.xml:2976
+#: using-d-i.xml:2955
 #, no-c-format
 msgid "scsi"
 msgstr "scsi"
 
 #. Tag: para
-#: using-d-i.xml:2977
+#: using-d-i.xml:2956
 #, no-c-format
 msgid ""
 "is the SCSI bus to be booted from, this is <userinput>0</userinput> for the "
@@ -4897,13 +4849,13 @@ msgstr ""
 "となる。"
 
 #. Tag: replaceable
-#: using-d-i.xml:2985
+#: using-d-i.xml:2964
 #, no-c-format
 msgid "disk"
 msgstr "disk"
 
 #. Tag: para
-#: using-d-i.xml:2986
+#: using-d-i.xml:2965
 #, no-c-format
 msgid ""
 "is the SCSI ID of the hard disk on which <command>arcboot</command> is "
@@ -4913,13 +4865,13 @@ msgstr ""
 "す。"
 
 #. Tag: replaceable
-#: using-d-i.xml:2994
+#: using-d-i.xml:2973
 #, no-c-format
 msgid "partnr"
 msgstr "partnr"
 
 #. Tag: para
-#: using-d-i.xml:2995
+#: using-d-i.xml:2974
 #, no-c-format
 msgid ""
 "is the number of the partition on which <filename>/etc/arcboot.conf</"
@@ -4928,13 +4880,13 @@ msgstr ""
 "<filename>/etc/arcboot.conf</filename> があるパーティションの番号を表す。"
 
 #. Tag: replaceable
-#: using-d-i.xml:3003
+#: using-d-i.xml:2982
 #, no-c-format
 msgid "config"
 msgstr "config"
 
 #. Tag: para
-#: using-d-i.xml:3004
+#: using-d-i.xml:2983
 #, no-c-format
 msgid ""
 "is the name of the configuration entry in <filename>/etc/arcboot.conf</"
@@ -4944,13 +4896,13 @@ msgstr ""
 "は <quote>linux</quote> である。"
 
 #. Tag: title
-#: using-d-i.xml:3025
+#: using-d-i.xml:3004
 #, no-c-format
 msgid "Install <command>Yaboot</command> on a Hard Disk"
 msgstr "ハードディスクへの <command>Yaboot</command> のインストール"
 
 #. Tag: para
-#: using-d-i.xml:3026
+#: using-d-i.xml:3005
 #, no-c-format
 msgid ""
 "Newer (mid 1998 and on) PowerMacs use <command>yaboot</command> as their "
@@ -4970,13 +4922,13 @@ msgstr ""
 "が &debian-gnu; を起動できるように設定されています。"
 
 #. Tag: title
-#: using-d-i.xml:3044
+#: using-d-i.xml:3023
 #, no-c-format
 msgid "Install <command>Quik</command> on a Hard Disk"
 msgstr "ハードディスクへの <command>Quik</command> のインストール"
 
 #. Tag: para
-#: using-d-i.xml:3045
+#: using-d-i.xml:3024
 #, no-c-format
 msgid ""
 "The boot loader for OldWorld Power Macintosh machines is <command>quik</"
@@ -4990,13 +4942,13 @@ msgstr ""
 "Powermac や Power Computing のクローンで動作することが知られています。"
 
 #. Tag: title
-#: using-d-i.xml:3061
+#: using-d-i.xml:3040
 #, no-c-format
 msgid "<command>zipl</command>-installer"
 msgstr "<command>zipl</command> インストーラ"
 
 #. Tag: para
-#: using-d-i.xml:3062
+#: using-d-i.xml:3041
 #, no-c-format
 msgid ""
 "The boot loader on &arch-title; is <quote>zipl</quote>. <command>ZIPL</"
@@ -5012,13 +4964,13 @@ msgstr ""
 "and Installation Commands</quote> を見てください。"
 
 #. Tag: title
-#: using-d-i.xml:3079
+#: using-d-i.xml:3058
 #, no-c-format
 msgid "Install the <command>SILO</command> Boot Loader on a Hard Disk"
 msgstr "ハードディスクへの <command>SILO</command> ブートローダのインストール"
 
 #. Tag: para
-#: using-d-i.xml:3081
+#: using-d-i.xml:3060
 #, no-c-format
 msgid ""
 "The standard &architecture; boot loader is called <quote>silo</quote>. It is "
@@ -5048,13 +5000,13 @@ msgstr ""
 "Solaris と一緒に GNU/Linux をインストールするのなら、これが便利です。"
 
 #. Tag: title
-#: using-d-i.xml:3106
+#: using-d-i.xml:3085
 #, no-c-format
 msgid "Making the system bootable with flash-kernel"
 msgstr ""
 
 #. Tag: para
-#: using-d-i.xml:3107
+#: using-d-i.xml:3086
 #, no-c-format
 msgid ""
 "As there is no common firmware interface on all ARM platforms, the steps "
@@ -5067,7 +5019,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: using-d-i.xml:3118
+#: using-d-i.xml:3097
 #, no-c-format
 msgid ""
 "On devices which boot from internal NOR- or NAND-flash memory, flash-kernel "
@@ -5079,7 +5031,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: using-d-i.xml:3128
+#: using-d-i.xml:3107
 #, no-c-format
 msgid ""
 "For ARM systems that use u-boot as their system firmware and boot the kernel "
@@ -5089,13 +5041,13 @@ msgid ""
 msgstr ""
 
 #. Tag: title
-#: using-d-i.xml:3144
+#: using-d-i.xml:3123
 #, no-c-format
 msgid "Continue Without Boot Loader"
 msgstr "ブートローダなしで継続"
 
 #. Tag: para
-#: using-d-i.xml:3146
+#: using-d-i.xml:3125
 #, no-c-format
 msgid ""
 "This option can be used to complete the installation even when no boot "
@@ -5108,7 +5060,7 @@ msgstr ""
 "るのに利用できます。"
 
 #. Tag: para
-#: using-d-i.xml:3153
+#: using-d-i.xml:3132
 #, no-c-format
 msgid ""
 "If you plan to manually configure your bootloader, you should check the name "
@@ -5130,13 +5082,13 @@ msgstr ""
 "す。"
 
 #. Tag: title
-#: using-d-i.xml:3170
+#: using-d-i.xml:3149
 #, no-c-format
 msgid "Finishing the Installation"
 msgstr "インストールの完了"
 
 #. Tag: para
-#: using-d-i.xml:3171
+#: using-d-i.xml:3150
 #, no-c-format
 msgid ""
 "This is the last step in the &debian; installation process during which the "
@@ -5147,13 +5099,13 @@ msgstr ""
 "最終段階です。ほとんどが &d-i; の後片付けです。"
 
 #. Tag: title
-#: using-d-i.xml:3184
+#: using-d-i.xml:3163
 #, no-c-format
 msgid "Setting the System Clock"
 msgstr "システム時計の設定"
 
 #. Tag: para
-#: using-d-i.xml:3186
+#: using-d-i.xml:3165
 #, no-c-format
 msgid ""
 "The installer may ask you if the computer's clock is set to UTC. Normally "
@@ -5166,7 +5118,7 @@ msgstr ""
 "れているかどうか、といったことから UTC を基準にするかどうかを判断します。"
 
 #. Tag: para
-#: using-d-i.xml:3193
+#: using-d-i.xml:3172
 #, no-c-format
 msgid ""
 "In expert mode you will always be able to choose whether or not the clock is "
@@ -5184,7 +5136,7 @@ msgstr ""
 "地時間を選択してください。</phrase>"
 
 #. Tag: para
-#: using-d-i.xml:3204
+#: using-d-i.xml:3183
 #, no-c-format
 msgid ""
 "At this point &d-i; will also attempt to save the current time to the "
@@ -5195,13 +5147,13 @@ msgstr ""
 "す。先ほどの選択により、UTC か現地時間のどちらかで保存します。"
 
 #. Tag: title
-#: using-d-i.xml:3219
+#: using-d-i.xml:3198
 #, no-c-format
 msgid "Reboot the System"
 msgstr "システムの再起動"
 
 #. Tag: para
-#: using-d-i.xml:3221
+#: using-d-i.xml:3200
 #, no-c-format
 msgid ""
 "You will be prompted to remove the boot media (CD, floppy, etc) that you "
@@ -5212,7 +5164,7 @@ msgstr ""
 "促されます。システムはこの後、新しい &debian; システムで再起動します。"
 
 #. Tag: para
-#: using-d-i.xml:3227
+#: using-d-i.xml:3206
 #, no-c-format
 msgid ""
 "After a final prompt the system will be halted because rebooting is not "
@@ -5225,13 +5177,13 @@ msgstr ""
 "イルシステムとして選択した DASD から GNU/Linux を IPL してください。"
 
 #. Tag: title
-#: using-d-i.xml:3240
+#: using-d-i.xml:3219
 #, no-c-format
 msgid "Troubleshooting"
 msgstr "トラブルシューティング"
 
 #. Tag: para
-#: using-d-i.xml:3241
+#: using-d-i.xml:3220
 #, no-c-format
 msgid ""
 "The components listed in this section are usually not involved in the "
@@ -5242,13 +5194,13 @@ msgstr ""
 "うまく行かない時に、ユーザの助けになるようバックグラウンドで待っています。"
 
 #. Tag: title
-#: using-d-i.xml:3254
+#: using-d-i.xml:3233
 #, no-c-format
 msgid "Saving the installation logs"
 msgstr "インストールログの保存"
 
 #. Tag: para
-#: using-d-i.xml:3256
+#: using-d-i.xml:3235
 #, no-c-format
 msgid ""
 "If the installation is successful, the logfiles created during the "
@@ -5260,7 +5212,7 @@ msgstr ""
 "れています。"
 
 #. Tag: para
-#: using-d-i.xml:3263
+#: using-d-i.xml:3242
 #, no-c-format
 msgid ""
 "Choosing <guimenuitem>Save debug logs</guimenuitem> from the main menu "
@@ -5276,13 +5228,13 @@ msgstr ""
 "したいときに便利です。"
 
 #. Tag: title
-#: using-d-i.xml:3283
+#: using-d-i.xml:3262
 #, no-c-format
 msgid "Using the Shell and Viewing the Logs"
 msgstr "シェルの使用とログの参照"
 
 #. Tag: para
-#: using-d-i.xml:3285
+#: using-d-i.xml:3264
 #, no-c-format
 msgid ""
 "There are several methods you can use to get a shell while running an "
@@ -5307,14 +5259,14 @@ msgstr ""
 "keycombo> でインストーラ自体に戻ってください。"
 
 #. Tag: para
-#: using-d-i.xml:3303
+#: using-d-i.xml:3282
 #, no-c-format
 msgid "For the graphical installer see also <xref linkend=\"gtk-using\"/>."
 msgstr ""
 "グラフィカルインストーラでは、<xref linkend=\"gtk-using\"/> もご覧ください。"
 
 #. Tag: para
-#: using-d-i.xml:3307
+#: using-d-i.xml:3286
 #, no-c-format
 msgid ""
 "If you cannot switch consoles, there is also an <guimenuitem>Execute a "
@@ -5329,7 +5281,7 @@ msgstr ""
 "userinput> と入力すると、シェルを終了してインストーラに戻ります。"
 
 #. Tag: para
-#: using-d-i.xml:3315
+#: using-d-i.xml:3294
 #, no-c-format
 msgid ""
 "At this point you are booted from the RAM disk, and there is a limited set "
@@ -5347,7 +5299,7 @@ msgstr ""
 "す。"
 
 #. Tag: para
-#: using-d-i.xml:3324
+#: using-d-i.xml:3303
 #, no-c-format
 msgid ""
 "To edit and view files, use the text editor <command>nano</command>. Log "
@@ -5359,7 +5311,7 @@ msgstr ""
 "log</filename> ディレクトリにあります。"
 
 #. Tag: para
-#: using-d-i.xml:3331
+#: using-d-i.xml:3310
 #, no-c-format
 msgid ""
 "Although you can do basically anything in a shell that the available "
@@ -5371,7 +5323,7 @@ msgstr ""
 "しかありません。"
 
 #. Tag: para
-#: using-d-i.xml:3337
+#: using-d-i.xml:3316
 #, no-c-format
 msgid ""
 "Doing things manually from the shell may interfere with the installation "
@@ -5384,13 +5336,13 @@ msgstr ""
 "swap を有効にするようにし、シェルから手動で行わないようにしましょう。"
 
 #. Tag: title
-#: using-d-i.xml:3353
+#: using-d-i.xml:3332
 #, no-c-format
 msgid "Installation Over the Network"
 msgstr "ネットワーク越しのインストール"
 
 #. Tag: para
-#: using-d-i.xml:3355
+#: using-d-i.xml:3334
 #, no-c-format
 msgid ""
 "One of the more interesting components is <firstterm>network-console</"
@@ -5407,7 +5359,7 @@ msgstr ""
 "この部分は <xref linkend=\"automatic-install\"/> で自動化できます)"
 
 #. Tag: para
-#: using-d-i.xml:3365
+#: using-d-i.xml:3344
 #, no-c-format
 msgid ""
 "This component is not loaded into the main installation menu by default, so "
@@ -5429,7 +5381,7 @@ msgstr ""
 "ばれる新しいメニュー項目が表示されます。"
 
 #. Tag: para
-#: using-d-i.xml:3378
+#: using-d-i.xml:3357
 #, no-c-format
 msgid ""
 "For installations on &arch-title;, this is the default method after setting "
@@ -5439,7 +5391,7 @@ msgstr ""
 "法です。"
 
 #. Tag: para
-#: using-d-i.xml:3383
+#: using-d-i.xml:3362
 #, no-c-format
 msgid ""
 "<phrase arch=\"not-s390\">After selecting this new entry, you</phrase> "
@@ -5460,7 +5412,7 @@ msgstr ""
 "全に転送する必要があります。"
 
 #. Tag: para
-#: using-d-i.xml:3395
+#: using-d-i.xml:3374
 #, no-c-format
 msgid ""
 "Should you decide to continue with the installation locally, you can always "
@@ -5471,7 +5423,7 @@ msgstr ""
 "メニューに戻ります。そこで別のコンポーネントを選択してください。"
 
 #. Tag: para
-#: using-d-i.xml:3401
+#: using-d-i.xml:3380
 #, no-c-format
 msgid ""
 "Now let's switch to the other side of the wire. As a prerequisite, you need "
@@ -5502,7 +5454,7 @@ msgstr ""
 "認してください。"
 
 #. Tag: para
-#: using-d-i.xml:3418
+#: using-d-i.xml:3397
 #, no-c-format
 msgid ""
 "The <command>ssh</command> server in the installer uses a default "
@@ -5525,7 +5477,7 @@ msgstr ""
 "により、再接続後にインストールを再開できるかどうかが決まるでしょう。"
 
 #. Tag: para
-#: using-d-i.xml:3431
+#: using-d-i.xml:3410
 #, no-c-format
 msgid ""
 "You may be able to avoid the connection being dropped by adding the option "
@@ -5547,7 +5499,7 @@ msgstr ""
 "用は必要最小限にするべきです。"
 
 #. Tag: para
-#: using-d-i.xml:3444
+#: using-d-i.xml:3423
 #, no-c-format
 msgid ""
 "If you install several computers in turn and they happen to have the same IP "
@@ -5570,7 +5522,7 @@ msgstr ""
 "もう一度行う必要があります。"
 
 #. Tag: para
-#: using-d-i.xml:3460
+#: using-d-i.xml:3439
 #, no-c-format
 msgid ""
 "After the login you will be presented with an initial screen where you have "
@@ -5589,7 +5541,7 @@ msgstr ""
 "べきですが、シェル用には複数のセッションを起動できます。"
 
 #. Tag: para
-#: using-d-i.xml:3470
+#: using-d-i.xml:3449
 #, no-c-format
 msgid ""
 "After you have started the installation remotely over SSH, you should not go "
@@ -5604,13 +5556,13 @@ msgstr ""
 "インストールしたシステムに何か問題が発生するかもしれません。"
 
 #. Tag: title
-#: using-d-i.xml:3489
+#: using-d-i.xml:3468
 #, no-c-format
 msgid "Loading Missing Firmware"
 msgstr "見つからないファームウェアの読み込み"
 
 #. Tag: para
-#: using-d-i.xml:3490
+#: using-d-i.xml:3469
 #, no-c-format
 msgid ""
 "As described in <xref linkend=\"hardware-firmware\"/>, some devices require "
@@ -5625,7 +5577,7 @@ msgstr ""
 "が必要になります。"
 
 #. Tag: para
-#: using-d-i.xml:3498
+#: using-d-i.xml:3477
 #, no-c-format
 msgid ""
 "If a device driver requests firmware that is not available, &d-i; will "
@@ -5643,7 +5595,7 @@ msgstr ""
 "ジュールを再読込します。"
 
 #. Tag: para
-#: using-d-i.xml:3508
+#: using-d-i.xml:3487
 #, no-c-format
 msgid ""
 "Which devices are scanned and which file systems are supported depends on "
@@ -5661,7 +5613,7 @@ msgstr ""
 "す。</phrase>"
 
 #. Tag: para
-#: using-d-i.xml:3518
+#: using-d-i.xml:3497
 #, no-c-format
 msgid ""
 "Note that it is possible to skip loading the firmware if you know the device "
@@ -5673,7 +5625,7 @@ msgstr ""
 "にご注意ください。"
 
 #. Tag: para
-#: using-d-i.xml:3524
+#: using-d-i.xml:3503
 #, no-c-format
 msgid ""
 "&d-i; only prompts for firmware needed by kernel modules loaded during the "
@@ -5695,13 +5647,13 @@ msgstr ""
 "を検索してみるのもよいでしょう。"
 
 #. Tag: title
-#: using-d-i.xml:3538
+#: using-d-i.xml:3517
 #, no-c-format
 msgid "Preparing a medium"
 msgstr "メディアの準備"
 
 #. Tag: para
-#: using-d-i.xml:3539
+#: using-d-i.xml:3518
 #, no-c-format
 msgid ""
 "Official CD images do not include non-free firmware. The most common method "
@@ -5726,7 +5678,7 @@ msgstr ""
 "します。"
 
 #. Tag: para
-#: using-d-i.xml:3552
+#: using-d-i.xml:3531
 #, no-c-format
 msgid ""
 "Tarballs and zip files containing current packages for the most common "
@@ -5742,7 +5694,7 @@ msgstr ""
 "テムに展開するだけです。"
 
 #. Tag: para
-#: using-d-i.xml:3566
+#: using-d-i.xml:3545
 #, no-c-format
 msgid ""
 "If the firmware you need is not included in the tarball, you can also "
@@ -5758,7 +5710,7 @@ msgstr ""
 "ケージを含むかもしれません。"
 
 #. Tag: para
-#: using-d-i.xml:3580
+#: using-d-i.xml:3559
 #, no-c-format
 msgid ""
 "It is also possible to copy individual firmware files to the medium. Loose "
@@ -5770,13 +5722,13 @@ msgstr ""
 "から入手できます。"
 
 #. Tag: title
-#: using-d-i.xml:3589
+#: using-d-i.xml:3568
 #, no-c-format
 msgid "Firmware and the Installed System"
 msgstr "ファームウェアとインストールしたシステム"
 
 #. Tag: para
-#: using-d-i.xml:3590
+#: using-d-i.xml:3569
 #, no-c-format
 msgid ""
 "Any firmware loaded during the installation will be copied automatically to "
@@ -5794,7 +5746,7 @@ msgstr ""
 "がわずかにあります。"
 
 #. Tag: para
-#: using-d-i.xml:3599
+#: using-d-i.xml:3578
 #, no-c-format
 msgid ""
 "If the firmware was loaded from a firmware package, &d-i; will also install "
@@ -5810,7 +5762,7 @@ msgstr ""
 "できるようになると、自動的に更新するという利点があります。"
 
 #. Tag: para
-#: using-d-i.xml:3607
+#: using-d-i.xml:3586
 #, no-c-format
 msgid ""
 "If loading the firmware was skipped during the installation, the relevant "
@@ -5822,7 +5774,7 @@ msgstr ""
 "トールしたシステムで動作しないでしょう。"
 
 #. Tag: para
-#: using-d-i.xml:3614
+#: using-d-i.xml:3593
 #, no-c-format
 msgid ""
 "If the firmware was loaded from loose firmware files, the firmware copied to "
@@ -5834,6 +5786,72 @@ msgstr ""
 "ル完了後に対応したファームウェアパッケージをインストールするまで、インストー"
 "ルしたシステムにコピーしたファームウェアは、自動的に<emphasis>更新されません"
 "</emphasis>。"
+
+#, fuzzy
+#~| msgid ""
+#~| "It is not possible to interactively select a different desktop during "
+#~| "the installation. However, it <emphasis>is</emphasis> possible to get &d-"
+#~| "i; to install a KDE desktop environment instead of GNOME by using "
+#~| "preseeding (see <xref linkend=\"preseed-pkgsel\"/>) or by adding the "
+#~| "parameter <literal>desktop=kde</literal> at the boot prompt when "
+#~| "starting the installer. Alternatively the more lightweight Xfce and LXDE "
+#~| "desktop environments can be selected by using <literal>desktop=xfce</"
+#~| "literal> or <literal>desktop=lxde</literal>."
+#~ msgid ""
+#~ "By default, &d-i; installs the Xfce desktop environment. It is not "
+#~ "possible to interactively select a different desktop environment during "
+#~ "the installation, however, it <emphasis>is</emphasis> possible to have "
+#~ "the installer install a different desktop environment by using preseeding "
+#~ "(see <xref linkend=\"preseed-pkgsel\"/>) or by adding the parameter "
+#~ "<literal>desktop=name_of_the_desktop_environment</literal> at the boot "
+#~ "prompt when starting the installer. Possible variants in this case are "
+#~ "<literal>desktop=gnome</literal>, <literal>desktop=kde</literal>, "
+#~ "<literal>desktop=lxde</literal> or <literal>desktop=xfce</literal>."
+#~ msgstr ""
+#~ "インストール中に異なるデスクトップ環境を、インタラクティブに選択することは"
+#~ "できません。しかし、preseed (<xref linkend=\"preseed-pkgsel\"/> 参照) を使"
+#~ "用したり、インストーラの起動時にブートプロンプトのパラメータで "
+#~ "<literal>tasks=\"standard, kde-desktop\"</literal> と指定して、&d-i; が "
+#~ "GNOME ではなく KDE デスクトップ環境をインストールするようにできます。ま"
+#~ "た、<literal>desktop=xfce</literal> や <literal>desktop=lxde</literal> と"
+#~ "すると、もっと軽量な Xfce デスクトップ環境や LXDE デスクトップ環境を選択で"
+#~ "きます。"
+
+#, fuzzy
+#~| msgid ""
+#~| "Some CD images (netinst and DVD) also allow selection of the desired "
+#~| "desktop environment from the graphical boot menu. Select the "
+#~| "<quote>Advanced options</quote> option in the main menu and look for "
+#~| "<quote>Alternative desktop environments</quote>."
+#~ msgid ""
+#~ "If you use the special GNOME-, KDE- or LXDE-variant of the first CD in "
+#~ "the full CD set, the installer installs the respective desktop "
+#~ "environment instead of the default. Some CD images (netinst and DVD) also "
+#~ "allow selection of the desired desktop environment from the graphical "
+#~ "boot menu. Select the <quote>Advanced options</quote> option in the main "
+#~ "menu and look for <quote>Alternative desktop environments</quote>."
+#~ msgstr ""
+#~ "いくつかの CD イメージ (netinst, DVD) では、グラフィカルブートメニューか"
+#~ "ら、希望のデスクトップ環境の選択もできます。メインメニューの "
+#~ "<quote>Advanced options</quote> を選択し、<quote>Alternative desktop "
+#~ "environments</quote> を探してください。"
+
+#~ msgid ""
+#~ "The various server tasks will install software roughly as follows. DNS "
+#~ "server: <classname>bind9</classname>; File server: <classname>samba</"
+#~ "classname>, <classname>nfs</classname>; Mail server: <classname>exim4</"
+#~ "classname>, <classname>spamassassin</classname>, <classname>uw-imap</"
+#~ "classname>; Print server: <classname>cups</classname>; SQL database: "
+#~ "<classname>postgresql</classname>; Web server: <classname>apache2</"
+#~ "classname>."
+#~ msgstr ""
+#~ "各サーバタスクでは、おおまかに以下のソフトウェアをインストールします。DNS "
+#~ "サーバ: <classname>bind9</classname>; ファイルサーバ: <classname>samba</"
+#~ "classname>, <classname>nfs</classname>; メールサーバ: <classname>exim4</"
+#~ "classname>, <classname>spamassassin</classname>, <classname>uw-imap</"
+#~ "classname>; 印刷サーバ: <classname>cups</classname>; SQL データベース: "
+#~ "<classname>postgresql</classname>; Web サーバ: <classname>apache2</"
+#~ "classname>。"
 
 #~ msgid ""
 #~ "&d-i; supports several encryption methods. The default method is "

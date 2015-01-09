@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2014-08-03 08:11+0000\n"
+"POT-Creation-Date: 2015-01-09 19:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -238,6 +238,9 @@ msgid ""
       "- if you're netbooting:\n"
       "  preseed/url=http://host/path/to/preseed.cfg\n"
       "  preseed/url/checksum=5da499872becccfeda2c4872f9171c3d\n"
+      "- or\n"
+      "  preseed/url=tftp://host/path/to/preseed.cfg\n"
+      "  preseed/url/checksum=5da499872becccfeda2c4872f9171c3d\n"
       "\n"
       "- if you're booting a remastered CD:\n"
       "  preseed/file=/cdrom/preseed.cfg\n"
@@ -294,7 +297,7 @@ msgstr ""
 #. Tag: para
 #: preseed.xml:349
 #, no-c-format
-msgid "A <quote>--</quote> in the boot options has special meaning. Kernel parameters that appear after the last <quote>--</quote> may be copied into the bootloader configuration for the installed system (if supported by the installer for the bootloader). The installer will automatically filter out any options (like preconfiguration options) that it recognizes."
+msgid "A <quote>---</quote> in the boot options has special meaning. Kernel parameters that appear after the last <quote>---</quote> may be copied into the bootloader configuration for the installed system (if supported by the installer for the bootloader). The installer will automatically filter out any options (like preconfiguration options) that it recognizes."
 msgstr ""
 
 #. Tag: para
@@ -633,7 +636,7 @@ msgstr ""
 #. Tag: entry
 #: preseed.xml:548
 #, no-c-format
-msgid "<entry>desktop</entry>"
+msgid "desktop"
 msgstr ""
 
 #. Tag: entry
@@ -1229,7 +1232,7 @@ msgid ""
       "# You can choose one of the three predefined partitioning recipes:\n"
       "# - atomic: all files in one partition\n"
       "# - home:   separate /home partition\n"
-      "# - multi:  separate /home, /usr, /var, and /tmp partitions\n"
+      "# - multi:  separate /home, /var, and /tmp partitions\n"
       "d-i partman-auto/choose_recipe select atomic\n"
       "\n"
       "# Or provide a recipe of your own...\n"
@@ -1464,70 +1467,70 @@ msgstr ""
 msgid "You can choose to install any combination of tasks that are available. Available tasks as of this writing include:"
 msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1051
+#. Tag: para
+#: preseed.xml:1050
 #, no-c-format
-msgid "standard"
+msgid "<userinput>standard</userinput> (standard tools)"
 msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1054
+#. Tag: para
+#: preseed.xml:1053
 #, no-c-format
-msgid "<userinput>desktop</userinput>"
+msgid "<userinput>desktop</userinput> (graphical desktop)"
 msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1057
+#. Tag: para
+#: preseed.xml:1056
 #, no-c-format
-msgid "gnome-desktop"
+msgid "<userinput>gnome-desktop</userinput> (Gnome desktop)"
 msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1060
+#. Tag: para
+#: preseed.xml:1059
 #, no-c-format
-msgid "kde-desktop"
+msgid "<userinput>xfce-desktop</userinput> (XFCE desktop)"
 msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1063
+#. Tag: para
+#: preseed.xml:1062
 #, no-c-format
-msgid "web-server"
+msgid "<userinput>kde-desktop</userinput> (KDE desktop)"
 msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1066
+#. Tag: para
+#: preseed.xml:1065
 #, no-c-format
-msgid "print-server"
+msgid "<userinput>cinnamon-desktop</userinput> (Cinnamon desktop)"
 msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1069
+#. Tag: para
+#: preseed.xml:1068
 #, no-c-format
-msgid "dns-server"
+msgid "<userinput>mate-desktop</userinput> (MATE desktop)"
 msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1072
+#. Tag: para
+#: preseed.xml:1071
 #, no-c-format
-msgid "file-server"
+msgid "<userinput>lxde-desktop</userinput> (LXDE desktop)"
 msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1075
+#. Tag: para
+#: preseed.xml:1074
 #, no-c-format
-msgid "mail-server"
+msgid "<userinput>web-server</userinput> (web server)"
 msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1078
+#. Tag: para
+#: preseed.xml:1077
 #, no-c-format
-msgid "sql-database"
+msgid "<userinput>print-server</userinput> (print server)"
 msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1081
+#. Tag: para
+#: preseed.xml:1080
 #, no-c-format
-msgid "laptop"
+msgid "<userinput>ssh-server</userinput> (SSH server)"
 msgstr ""
 
 #. Tag: para
@@ -1546,10 +1549,7 @@ msgstr ""
 #: preseed.xml:1101
 #, no-c-format
 msgid ""
-      "#tasksel tasksel/first multiselect standard, web-server\n"
-      "# If the desktop task is selected, install the kde and xfce desktops\n"
-      "# instead of the default gnome desktop.\n"
-      "#tasksel tasksel/desktop multiselect kde, xfce\n"
+      "#tasksel tasksel/first multiselect standard, web-server, kde-desktop\n"
       "\n"
       "# Individual additional packages to install\n"
       "#d-i pkgsel/include string openssh-server build-essential\n"
@@ -1600,6 +1600,8 @@ msgid ""
       "#d-i grub-installer/bootdev  string (hd0,0) (hd1,0) (hd2,0)\n"
       "# To install to a particular device:\n"
       "#d-i grub-installer/bootdev  string /dev/sda\n"
+      "# To install to the first device:\n"
+      "#d-i grub-installer/bootdev  string default\n"
       "\n"
       "# Optional password for grub, either in clear text\n"
       "#d-i grub-installer/password password r00tme\n"

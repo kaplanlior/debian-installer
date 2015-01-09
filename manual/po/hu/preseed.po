@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2014-08-03 08:11+0000\n"
+"POT-Creation-Date: 2015-01-09 19:07+0000\n"
 "PO-Revision-Date: 2007-03-18 19:17+0100\n"
 "Last-Translator: SZERVÁC Attila <sas@321.hu>\n"
 "Language-Team: Hungarian\n"
@@ -400,11 +400,29 @@ msgstr ""
 
 #. Tag: screen
 #: preseed.xml:284
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "Boot parameters to specify:\n"
+#| "- if you're netbooting:\n"
+#| "  preseed/url=http://host/path/to/preseed.cfg\n"
+#| "  preseed/url/checksum=5da499872becccfeda2c4872f9171c3d\n"
+#| "\n"
+#| "- if you're booting a remastered CD:\n"
+#| "  preseed/file=/cdrom/preseed.cfg\n"
+#| "  preseed/file/checksum=5da499872becccfeda2c4872f9171c3d\n"
+#| "\n"
+#| "- if you're installing from USB media (put the preconfiguration file in "
+#| "the\n"
+#| "  toplevel directory of the USB stick):\n"
+#| "  preseed/file=/hd-media/preseed.cfg\n"
+#| "  preseed/file/checksum=5da499872becccfeda2c4872f9171c3d"
 msgid ""
 "Boot parameters to specify:\n"
 "- if you're netbooting:\n"
 "  preseed/url=http://host/path/to/preseed.cfg\n"
+"  preseed/url/checksum=5da499872becccfeda2c4872f9171c3d\n"
+"- or\n"
+"  preseed/url=tftp://host/path/to/preseed.cfg\n"
 "  preseed/url/checksum=5da499872becccfeda2c4872f9171c3d\n"
 "\n"
 "- if you're booting a remastered CD:\n"
@@ -541,10 +559,16 @@ msgstr ""
 
 #. Tag: para
 #: preseed.xml:349
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "A <quote>--</quote> in the boot options has special meaning. Kernel "
+#| "parameters that appear after the last <quote>--</quote> may be copied "
+#| "into the bootloader configuration for the installed system (if supported "
+#| "by the installer for the bootloader). The installer will automatically "
+#| "filter out any options (like preconfiguration options) that it recognizes."
 msgid ""
-"A <quote>--</quote> in the boot options has special meaning. Kernel "
-"parameters that appear after the last <quote>--</quote> may be copied into "
+"A <quote>---</quote> in the boot options has special meaning. Kernel "
+"parameters that appear after the last <quote>---</quote> may be copied into "
 "the bootloader configuration for the installed system (if supported by the "
 "installer for the bootloader). The installer will automatically filter out "
 "any options (like preconfiguration options) that it recognizes."
@@ -1076,10 +1100,9 @@ msgstr ""
 
 #. Tag: entry
 #: preseed.xml:548
-#, fuzzy, no-c-format
-#| msgid "<entry>yes</entry>"
-msgid "<entry>desktop</entry>"
-msgstr "<entry>igen</entry>"
+#, no-c-format
+msgid "desktop"
+msgstr "asztal"
 
 #. Tag: entry
 #: preseed.xml:548
@@ -2117,7 +2140,7 @@ msgid ""
 "# You can choose one of the three predefined partitioning recipes:\n"
 "# - atomic: all files in one partition\n"
 "# - home:   separate /home partition\n"
-"# - multi:  separate /home, /usr, /var, and /tmp partitions\n"
+"# - multi:  separate /home, /var, and /tmp partitions\n"
 "d-i partman-auto/choose_recipe select atomic\n"
 "\n"
 "# Or provide a recipe of your own...\n"
@@ -2242,9 +2265,9 @@ msgid ""
 "specifying spare devices."
 msgstr ""
 "Az előírás szoftver RAID partíciók beállítására is használható. A támogatott "
-"RAID szintek: 0, 1 és 5, csökkentett tömbök és tartalék eszközök. <phrase arch=\"any-x86\">RAID 1 "
-"esetén előírható a grub telepítése minden a tömbben használt eszközre; lásd "
-"itt: <xref linkend=\"preseed-bootloader\"/>.</phrase>"
+"RAID szintek: 0, 1 és 5, csökkentett tömbök és tartalék eszközök. <phrase "
+"arch=\"any-x86\">RAID 1 esetén előírható a grub telepítése minden a tömbben "
+"használt eszközre; lásd itt: <xref linkend=\"preseed-bootloader\"/>.</phrase>"
 
 #. Tag: para
 #: preseed.xml:959
@@ -2609,71 +2632,71 @@ msgid ""
 "Available tasks as of this writing include:"
 msgstr "Az elérhető feladatok bármely kombinációja használható. Például:"
 
-#. Tag: userinput
-#: preseed.xml:1051
+#. Tag: para
+#: preseed.xml:1050
 #, no-c-format
-msgid "standard"
-msgstr "szabvány"
-
-#. Tag: userinput
-#: preseed.xml:1054
-#, no-c-format
-msgid "<userinput>desktop</userinput>"
+msgid "<userinput>standard</userinput> (standard tools)"
 msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1057
+#. Tag: para
+#: preseed.xml:1053
 #, no-c-format
-msgid "gnome-desktop"
-msgstr "gnome-desktop"
+msgid "<userinput>desktop</userinput> (graphical desktop)"
+msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1060
+#. Tag: para
+#: preseed.xml:1056
 #, no-c-format
-msgid "kde-desktop"
-msgstr "kde-desktop"
+msgid "<userinput>gnome-desktop</userinput> (Gnome desktop)"
+msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1063
+#. Tag: para
+#: preseed.xml:1059
 #, no-c-format
-msgid "web-server"
-msgstr "web-kiszolgáló"
+msgid "<userinput>xfce-desktop</userinput> (XFCE desktop)"
+msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1066
+#. Tag: para
+#: preseed.xml:1062
 #, no-c-format
-msgid "print-server"
-msgstr "nyomtató-kiszolgáló"
+msgid "<userinput>kde-desktop</userinput> (KDE desktop)"
+msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1069
+#. Tag: para
+#: preseed.xml:1065
 #, no-c-format
-msgid "dns-server"
-msgstr "dns-kiszolgáló"
+msgid "<userinput>cinnamon-desktop</userinput> (Cinnamon desktop)"
+msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1072
+#. Tag: para
+#: preseed.xml:1068
 #, no-c-format
-msgid "file-server"
-msgstr "fájl-kiszolgáló"
+msgid "<userinput>mate-desktop</userinput> (MATE desktop)"
+msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1075
+#. Tag: para
+#: preseed.xml:1071
 #, no-c-format
-msgid "mail-server"
-msgstr "levél-kiszolgáló"
+msgid "<userinput>lxde-desktop</userinput> (LXDE desktop)"
+msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1078
+#. Tag: para
+#: preseed.xml:1074
 #, no-c-format
-msgid "sql-database"
-msgstr "sql-adatbázis"
+msgid "<userinput>web-server</userinput> (web server)"
+msgstr ""
 
-#. Tag: userinput
-#: preseed.xml:1081
+#. Tag: para
+#: preseed.xml:1077
 #, no-c-format
-msgid "laptop"
-msgstr "laptop"
+msgid "<userinput>print-server</userinput> (print server)"
+msgstr ""
+
+#. Tag: para
+#: preseed.xml:1080
+#, no-c-format
+msgid "<userinput>ssh-server</userinput> (SSH server)"
+msgstr ""
 
 #. Tag: para
 #: preseed.xml:1085
@@ -2771,6 +2794,8 @@ msgid ""
 "#d-i grub-installer/bootdev  string (hd0,0) (hd1,0) (hd2,0)\n"
 "# To install to a particular device:\n"
 "#d-i grub-installer/bootdev  string /dev/sda\n"
+"# To install to the first device:\n"
+"#d-i grub-installer/bootdev  string default\n"
 "\n"
 "# Optional password for grub, either in clear text\n"
 "#d-i grub-installer/password password r00tme\n"
@@ -3149,8 +3174,40 @@ msgstr ""
 "mert 2 önálló előírás fut, így például kétszer lefuthat a preseed/early "
 "parancs, másodszor a hálózat feléledése után."
 
-#~ msgid "desktop"
-#~ msgstr "asztal"
+#, fuzzy
+#~| msgid "<entry>yes</entry>"
+#~ msgid "<entry>desktop</entry>"
+#~ msgstr "<entry>igen</entry>"
+
+#~ msgid "standard"
+#~ msgstr "szabvány"
+
+#~ msgid "gnome-desktop"
+#~ msgstr "gnome-desktop"
+
+#~ msgid "kde-desktop"
+#~ msgstr "kde-desktop"
+
+#~ msgid "web-server"
+#~ msgstr "web-kiszolgáló"
+
+#~ msgid "print-server"
+#~ msgstr "nyomtató-kiszolgáló"
+
+#~ msgid "dns-server"
+#~ msgstr "dns-kiszolgáló"
+
+#~ msgid "file-server"
+#~ msgstr "fájl-kiszolgáló"
+
+#~ msgid "mail-server"
+#~ msgstr "levél-kiszolgáló"
+
+#~ msgid "sql-database"
+#~ msgstr "sql-adatbázis"
+
+#~ msgid "laptop"
+#~ msgstr "laptop"
 
 #~ msgid ""
 #~ "# Locale sets language and country.\n"

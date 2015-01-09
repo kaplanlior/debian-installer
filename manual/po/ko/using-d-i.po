@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: using-d-i.xml\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2014-10-05 18:15+0000\n"
+"POT-Creation-Date: 2015-01-09 19:07+0000\n"
 "PO-Revision-Date: 2014-10-12 02:10+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: Korean <debian-l10n-korean@lists.debian.org>\n"
@@ -2176,8 +2176,9 @@ msgstr "<filename>/</filename>, <filename>/home</filename>, 스왑"
 # 주의: 메시지 번역과 통일
 #. Tag: entry
 #: using-d-i.xml:1350
-#, no-c-format
-msgid "Separate /home, /usr, /var and /tmp partitions"
+#, fuzzy, no-c-format
+#| msgid "Separate /home, /usr, /var and /tmp partitions"
+msgid "Separate /home, /var and /tmp partitions"
 msgstr "/home, /usr/, /var, /tmp 파티션 분리"
 
 #. Tag: entry
@@ -2188,10 +2189,13 @@ msgstr "<entry>1GB</entry>"
 
 #. Tag: entry
 #: using-d-i.xml:1352
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "<filename>/</filename>, <filename>/home</filename>, <filename>/usr</"
+#| "filename>, <filename>/var</filename>, <filename>/tmp</filename>, swap"
 msgid ""
-"<filename>/</filename>, <filename>/home</filename>, <filename>/usr</"
-"filename>, <filename>/var</filename>, <filename>/tmp</filename>, swap"
+"<filename>/</filename>, <filename>/home</filename>, <filename>/var</"
+"filename>, <filename>/tmp</filename>, swap"
 msgstr ""
 "<filename>/</filename>, <filename>/home</filename>, <filename>/usr</"
 "filename>, <filename>/var</filename>, <filename>/tmp</filename>, 스왑"
@@ -4062,44 +4066,15 @@ msgstr ""
 #: using-d-i.xml:2561
 #, no-c-format
 msgid ""
-"By default, &d-i; installs the Xfce desktop environment. It is not possible "
-"to interactively select a different desktop environment during the "
-"installation, however, it <emphasis>is</emphasis> possible to have the "
-"installer install a different desktop environment by using preseeding (see "
-"<xref linkend=\"preseed-pkgsel\"/>) or by adding the parameter "
-"<literal>desktop=name_of_the_desktop_environment</literal> at the boot "
-"prompt when starting the installer. Possible variants in this case are "
-"<literal>desktop=gnome</literal>, <literal>desktop=kde</literal>, "
-"<literal>desktop=lxde</literal> or <literal>desktop=xfce</literal>."
+"By default, &d-i; installs the <phrase arch=\"x86\">Gnome</phrase> <phrase "
+"arch=\"non-x86\">Xfce</phrase> desktop environment. It is possible to "
+"interactively select a different desktop environment during the "
+"installation. It is also possible to install multiple desktops, but some "
+"combinations of desktop may not be co-installable."
 msgstr ""
-"기본값으로 &d-i;에서는 Xfce 데스크톱 환경을 설치합니다. 설치할 때 인터페이스"
-"에서 다른 종류의 데스크톱을 선택하는 방법은 없습니다. 하지만 미리 설정을 "
-"(<xref linkend=\"preseed-pkgsel\"/> 참고) 이용하거나, <literal>desktop=데스크"
-"톱_환경의_이름</literal> 파라미터를 부팅 명령으로 추가하면 가능합니다. 사용"
-"할 수 있는 값은 <literal>desktop=gnome</literal>, <literal>desktop=kde</"
-"literal>, <literal>desktop=lxde</literal>, <literal>desktop=xfce</literal>입"
-"니다."
-
-# 부팅 메뉴는 현재 번역되지 않으므로 "Advanced option" 및 "Alternative desktop environments"는 그대로 쓴다.
-#. Tag: para
-#: using-d-i.xml:2575
-#, no-c-format
-msgid ""
-"If you use the special GNOME-, KDE- or LXDE-variant of the first CD in the "
-"full CD set, the installer installs the respective desktop environment "
-"instead of the default. Some CD images (netinst and DVD) also allow "
-"selection of the desired desktop environment from the graphical boot menu. "
-"Select the <quote>Advanced options</quote> option in the main menu and look "
-"for <quote>Alternative desktop environments</quote>."
-msgstr ""
-"CD 세트 중에 첫 번째 CD로 GNOME-, KDE-, LXDE- 버전을 사용하면 해당 데스크톱 "
-"환경을 기본으로 설치합니다. 어떤 CD 이미지에서는(netinst, DVD) 그래픽 부팅 메"
-"뉴에서 원하는 데스크톱 환경을 선택할 수 있습니다. 메인 메뉴의 "
-"<quote>Advanced options</quote> 옵션에서 <quote>Alternative desktop "
-"environments</quote> 부분을 찾아 보십시오."
 
 #. Tag: para
-#: using-d-i.xml:2586
+#: using-d-i.xml:2569
 #, no-c-format
 msgid ""
 "Note that this will only work if the packages needed for the desired desktop "
@@ -4117,26 +4092,16 @@ msgstr ""
 "크톱 환경이든 설치하는데 문제가 없습니다."
 
 #. Tag: para
-#: using-d-i.xml:2596
+#: using-d-i.xml:2579
 #, no-c-format
 msgid ""
-"The various server tasks will install software roughly as follows. DNS "
-"server: <classname>bind9</classname>; File server: <classname>samba</"
-"classname>, <classname>nfs</classname>; Mail server: <classname>exim4</"
-"classname>, <classname>spamassassin</classname>, <classname>uw-imap</"
-"classname>; Print server: <classname>cups</classname>; SQL database: "
-"<classname>postgresql</classname>; Web server: <classname>apache2</"
-"classname>."
+"The various server tasks will install software roughly as follows. Web "
+"server: <classname>apache2</classname>; Print server: <classname>cups</"
+"classname>; SSH server: <classname>openssh</classname>."
 msgstr ""
-"여러가지 서버 태스크는 대략 다음과 같은 소프트웨어를 설치합니다. DNS 서버: "
-"<classname>bind9</classname>, 파일 서버: <classname>samba</classname>, "
-"<classname>nfs</classname>, 메일 서버: <classname>exim4</classname>, "
-"<classname>spamassassin</classname>, <classname>uw-imap</classname>, 인쇄 서"
-"버: <classname>cups</classname>, SQL 데이터베이스: <classname>postgresql</"
-"classname>, 웹 서버: <classname>apache2</classname>."
 
 #. Tag: para
-#: using-d-i.xml:2607
+#: using-d-i.xml:2586
 #, no-c-format
 msgid ""
 "The <quote>Standard system</quote> task will install any package that has a "
@@ -4151,7 +4116,7 @@ msgstr ""
 "고 있고 정말 최소한의 시스템을 원하는 경우가 아니라면)."
 
 #. Tag: para
-#: using-d-i.xml:2615
+#: using-d-i.xml:2594
 #, no-c-format
 msgid ""
 "If during language selection a default locale other than the <quote>C</"
@@ -4169,7 +4134,7 @@ msgstr ""
 "경에 필요한 지역화 패키지도(이러한 패키지가 있다면) 설치합니다."
 
 #. Tag: para
-#: using-d-i.xml:2625
+#: using-d-i.xml:2604
 #, no-c-format
 msgid ""
 "Once you've selected your tasks, select &BTN-CONT;. At this point, "
@@ -4182,7 +4147,7 @@ msgstr ""
 "자가 설정해야 하는 프로그램이 있으면 설치하는 중에 알려 줍니다."
 
 #. Tag: para
-#: using-d-i.xml:2632
+#: using-d-i.xml:2611
 #, no-c-format
 msgid ""
 "You should be aware that especially the Desktop task is very large. "
@@ -4198,7 +4163,7 @@ msgstr ""
 "수도 있습니다. 패키지 설치를 일단 시작하면 취소하는 방법은 없습니다."
 
 #. Tag: para
-#: using-d-i.xml:2641
+#: using-d-i.xml:2620
 #, no-c-format
 msgid ""
 "Even when packages are included on the CD-ROM, the installer may still "
@@ -4215,13 +4180,13 @@ msgstr ""
 "지를 사용하면 이런 일이 발생합니다."
 
 #. Tag: title
-#: using-d-i.xml:2656
+#: using-d-i.xml:2635
 #, no-c-format
 msgid "Making Your System Bootable"
 msgstr "시스템을 부팅 가능하게 만들기"
 
 #. Tag: para
-#: using-d-i.xml:2658
+#: using-d-i.xml:2637
 #, no-c-format
 msgid ""
 "If you are installing a diskless workstation, obviously, booting off the "
@@ -4235,13 +4200,13 @@ msgstr ""
 "\"boot-dev-select-sun\"/> 부분을 참고하십시오.</phrase>"
 
 #. Tag: title
-#: using-d-i.xml:2673
+#: using-d-i.xml:2652
 #, no-c-format
 msgid "Detecting other operating systems"
 msgstr "다른 운영 체제 검색"
 
 #. Tag: para
-#: using-d-i.xml:2675
+#: using-d-i.xml:2654
 #, no-c-format
 msgid ""
 "Before a boot loader is installed, the installer will attempt to probe for "
@@ -4255,7 +4220,7 @@ msgstr ""
 "니다. 또한 &debian; 이외에 다른 OS를 부팅할 수 있도록 컴퓨터를 설정합니다."
 
 #. Tag: para
-#: using-d-i.xml:2683
+#: using-d-i.xml:2662
 #, no-c-format
 msgid ""
 "Note that multiple operating systems booting on a single machine is still "
@@ -4270,13 +4235,13 @@ msgstr ""
 "서에서 더 자세한 사항을 찾아보십시오."
 
 #. Tag: title
-#: using-d-i.xml:2701
+#: using-d-i.xml:2680
 #, no-c-format
 msgid "<command>palo</command>-installer"
 msgstr "<command>palo</command>-installer"
 
 #. Tag: para
-#: using-d-i.xml:2702
+#: using-d-i.xml:2681
 #, no-c-format
 msgid ""
 "The bootloader on PA-RISC is <quote>palo</quote>. <command>PALO</command> is "
@@ -4292,19 +4257,19 @@ msgstr ""
 "파티션을 읽을 수 있기 때문입니다."
 
 #. Tag: para
-#: using-d-i.xml:2711
+#: using-d-i.xml:2690
 #, no-c-format
 msgid "hppa FIXME ( need more info )"
 msgstr "hppa FIXME ( need more info )"
 
 #. Tag: title
-#: using-d-i.xml:2723
+#: using-d-i.xml:2702
 #, no-c-format
 msgid "Install the <command>Grub</command> Boot Loader on a Hard Disk"
 msgstr "하드 디스크에 <command>GRUB</command> 부트로더 설치"
 
 #. Tag: para
-#: using-d-i.xml:2725
+#: using-d-i.xml:2704
 #, no-c-format
 msgid ""
 "The main &architecture; boot loader is called <quote>grub</quote>. Grub is a "
@@ -4316,7 +4281,7 @@ msgstr ""
 "다."
 
 #. Tag: para
-#: using-d-i.xml:2731
+#: using-d-i.xml:2710
 #, no-c-format
 msgid ""
 "By default, grub will be installed into the Master Boot Record (MBR), where "
@@ -4328,7 +4293,7 @@ msgstr ""
 "를 보려면 GRUB 안내서를 참고하십시오."
 
 #. Tag: para
-#: using-d-i.xml:2737
+#: using-d-i.xml:2716
 #, no-c-format
 msgid ""
 "If you do not want to install grub, use the &BTN-GOBACK; button to get to "
@@ -4339,13 +4304,13 @@ msgstr ""
 "한 다음, 사용하고 싶은 부트로더를 선택하십시오."
 
 #. Tag: title
-#: using-d-i.xml:2750
+#: using-d-i.xml:2729
 #, no-c-format
 msgid "Install the <command>LILO</command> Boot Loader on a Hard Disk"
 msgstr "하드 디스크에 <command>LILO</command> 부트로더 설치"
 
 #. Tag: para
-#: using-d-i.xml:2752
+#: using-d-i.xml:2731
 #, no-c-format
 msgid ""
 "The second &architecture; boot loader is called <quote>LILO</quote>. It is "
@@ -4361,7 +4326,7 @@ msgstr ""
 "HOWTO</ulink>도 참고하십시오."
 
 #. Tag: para
-#: using-d-i.xml:2762
+#: using-d-i.xml:2741
 #, no-c-format
 msgid ""
 "Currently the LILO installation will only create menu entries for other "
@@ -4374,7 +4339,7 @@ msgstr ""
 "메뉴 항목을 수동으로 추가해야 할 수 있습니다."
 
 #. Tag: para
-#: using-d-i.xml:2770
+#: using-d-i.xml:2749
 #, no-c-format
 msgid ""
 "&d-i; offers you three choices on where to install the <command>LILO</"
@@ -4384,13 +4349,13 @@ msgstr ""
 "다:"
 
 #. Tag: term
-#: using-d-i.xml:2777
+#: using-d-i.xml:2756
 #, no-c-format
 msgid "Master Boot Record (MBR)"
 msgstr "마스터 부트 레코드(Master Boot Record, MBR)"
 
 #. Tag: para
-#: using-d-i.xml:2777
+#: using-d-i.xml:2756
 #, no-c-format
 msgid ""
 "This way the <command>LILO</command> will take complete control of the boot "
@@ -4398,13 +4363,13 @@ msgid ""
 msgstr "이렇게 하면 <command>LILO</command>가 부팅 과정을 완전히 담당합니다."
 
 #. Tag: term
-#: using-d-i.xml:2784
+#: using-d-i.xml:2763
 #, no-c-format
 msgid "new &debian; partition"
 msgstr "&debian; 새로운 파티션"
 
 #. Tag: para
-#: using-d-i.xml:2784
+#: using-d-i.xml:2763
 #, no-c-format
 msgid ""
 "Choose this if you want to use another boot manager. <command>LILO</command> "
@@ -4415,13 +4380,13 @@ msgstr ""
 "&debian; 파티션의 맨 앞쪽에 설치하고 보조 부트 로더로서 동작합니다."
 
 #. Tag: term
-#: using-d-i.xml:2793
+#: using-d-i.xml:2772
 #, no-c-format
 msgid "Other choice"
 msgstr "기타"
 
 #. Tag: para
-#: using-d-i.xml:2793
+#: using-d-i.xml:2772
 #, no-c-format
 msgid ""
 "Useful for advanced users who want to install <command>LILO</command> "
@@ -4434,7 +4399,7 @@ msgstr ""
 "dev/hda</filename> 혹은 <filename>/dev/sda</filename>라고 쓸 수도 있습니다."
 
 #. Tag: para
-#: using-d-i.xml:2803
+#: using-d-i.xml:2782
 #, no-c-format
 msgid ""
 "If you can no longer boot into Windows 9x (or DOS) after this step, you'll "
@@ -4449,13 +4414,13 @@ msgstr ""
 "로 돌아가려면 다른 방법을 사용할 필요가있다는 것을 의미합니다!"
 
 #. Tag: title
-#: using-d-i.xml:2819
+#: using-d-i.xml:2798
 #, no-c-format
 msgid "Install the <command>ELILO</command> Boot Loader on a Hard Disk"
 msgstr "하드 디스크에 <command>ELILO</command> 부트로더 설치"
 
 #. Tag: para
-#: using-d-i.xml:2821
+#: using-d-i.xml:2800
 #, no-c-format
 msgid ""
 "The &architecture; boot loader is called <quote>elilo</quote>. It is modeled "
@@ -4482,7 +4447,7 @@ msgstr ""
 "시작하는 일을 합니다."
 
 #. Tag: para
-#: using-d-i.xml:2837
+#: using-d-i.xml:2816
 #, no-c-format
 msgid ""
 "The <quote>elilo</quote> configuration and installation is done as the last "
@@ -4498,13 +4463,13 @@ msgstr ""
 "은 디스크의 파티션입니다."
 
 #. Tag: title
-#: using-d-i.xml:2849
+#: using-d-i.xml:2828
 #, no-c-format
 msgid "Choose the correct partition!"
 msgstr "올바른 파티션을 고르십시오!"
 
 #. Tag: para
-#: using-d-i.xml:2851
+#: using-d-i.xml:2830
 #, no-c-format
 msgid ""
 "The criterion for selecting a partition is that it must be a FAT format "
@@ -4521,13 +4486,13 @@ msgstr ""
 "포맷하고 이전 내용이 삭제될 수도 있으니 주의하십시오!"
 
 #. Tag: title
-#: using-d-i.xml:2866
+#: using-d-i.xml:2845
 #, no-c-format
 msgid "EFI Partition Contents"
 msgstr "EFI 파티션 내용"
 
 #. Tag: para
-#: using-d-i.xml:2868
+#: using-d-i.xml:2847
 #, no-c-format
 msgid ""
 "The EFI partition is a FAT filesystem format partition on one of the hard "
@@ -4556,13 +4521,13 @@ msgstr ""
 "템을 업데이트하거나 다시 설정할 수도 있습니다."
 
 #. Tag: filename
-#: using-d-i.xml:2890
+#: using-d-i.xml:2869
 #, no-c-format
 msgid "elilo.conf"
 msgstr "elilo.conf"
 
 #. Tag: para
-#: using-d-i.xml:2891
+#: using-d-i.xml:2870
 #, no-c-format
 msgid ""
 "This is the configuration file read by the boot loader when it starts. It is "
@@ -4574,13 +4539,13 @@ msgstr ""
 "의 파일 이름을 바꾼 것입니다."
 
 #. Tag: filename
-#: using-d-i.xml:2900
+#: using-d-i.xml:2879
 #, no-c-format
 msgid "elilo.efi"
 msgstr "elilo.efi"
 
 #. Tag: para
-#: using-d-i.xml:2901
+#: using-d-i.xml:2880
 #, no-c-format
 msgid ""
 "This is the boot loader program that the <quote>EFI Boot Manager</quote> "
@@ -4596,13 +4561,13 @@ msgstr ""
 "선택하면 실행하는 프로그램입니다."
 
 #. Tag: filename
-#: using-d-i.xml:2911
+#: using-d-i.xml:2890
 #, no-c-format
 msgid "initrd.img"
 msgstr "initrd.img"
 
 #. Tag: para
-#: using-d-i.xml:2912
+#: using-d-i.xml:2891
 #, no-c-format
 msgid ""
 "This is the initial root filesystem used to boot the kernel. It is a copy of "
@@ -4616,13 +4581,13 @@ msgstr ""
 "는 파일입니다."
 
 #. Tag: filename
-#: using-d-i.xml:2924
+#: using-d-i.xml:2903
 #, no-c-format
 msgid "readme.txt"
 msgstr "readme.txt"
 
 #. Tag: para
-#: using-d-i.xml:2925
+#: using-d-i.xml:2904
 #, no-c-format
 msgid ""
 "This is a small text file warning you that the contents of the directory are "
@@ -4634,13 +4599,13 @@ msgstr ""
 "usr/sbin/elilo</filename>를 실행하면 없어집니다."
 
 #. Tag: filename
-#: using-d-i.xml:2935
+#: using-d-i.xml:2914
 #, no-c-format
 msgid "vmlinuz"
 msgstr "vmlinuz"
 
 #. Tag: para
-#: using-d-i.xml:2936
+#: using-d-i.xml:2915
 #, no-c-format
 msgid ""
 "This is the compressed kernel itself. It is a copy of the file referenced in "
@@ -4653,13 +4618,13 @@ msgstr ""
 "에서 가리키는 <filename>/boot</filename>에있는 파일입니다."
 
 #. Tag: title
-#: using-d-i.xml:2956
+#: using-d-i.xml:2935
 #, no-c-format
 msgid "<command>arcboot</command>-installer"
 msgstr "<command>arcboot</command>-installer"
 
 #. Tag: para
-#: using-d-i.xml:2957
+#: using-d-i.xml:2936
 #, no-c-format
 msgid ""
 "The boot loader on SGI machines is <command>arcboot</command>. It has to be "
@@ -4702,13 +4667,13 @@ msgstr ""
 "면 시스템을 하드 디스크에서 부팅할 수 있습니다."
 
 #. Tag: replaceable
-#: using-d-i.xml:2976
+#: using-d-i.xml:2955
 #, no-c-format
 msgid "scsi"
 msgstr "scsi"
 
 #. Tag: para
-#: using-d-i.xml:2977
+#: using-d-i.xml:2956
 #, no-c-format
 msgid ""
 "is the SCSI bus to be booted from, this is <userinput>0</userinput> for the "
@@ -4718,13 +4683,13 @@ msgstr ""
 "니다"
 
 #. Tag: replaceable
-#: using-d-i.xml:2985
+#: using-d-i.xml:2964
 #, no-c-format
 msgid "disk"
 msgstr "disk"
 
 #. Tag: para
-#: using-d-i.xml:2986
+#: using-d-i.xml:2965
 #, no-c-format
 msgid ""
 "is the SCSI ID of the hard disk on which <command>arcboot</command> is "
@@ -4732,13 +4697,13 @@ msgid ""
 msgstr "<command>arcboot</command>를 설치한 하드디스크의 SCSI ID"
 
 #. Tag: replaceable
-#: using-d-i.xml:2994
+#: using-d-i.xml:2973
 #, no-c-format
 msgid "partnr"
 msgstr "partnr"
 
 #. Tag: para
-#: using-d-i.xml:2995
+#: using-d-i.xml:2974
 #, no-c-format
 msgid ""
 "is the number of the partition on which <filename>/etc/arcboot.conf</"
@@ -4746,13 +4711,13 @@ msgid ""
 msgstr "<filename>/etc/arcboot.conf</filename> 파일이 들어 있는 파티션 번호"
 
 #. Tag: replaceable
-#: using-d-i.xml:3003
+#: using-d-i.xml:2982
 #, no-c-format
 msgid "config"
 msgstr "config"
 
 #. Tag: para
-#: using-d-i.xml:3004
+#: using-d-i.xml:2983
 #, no-c-format
 msgid ""
 "is the name of the configuration entry in <filename>/etc/arcboot.conf</"
@@ -4762,13 +4727,13 @@ msgstr ""
 "은 <quote>linux</quote>입니다."
 
 #. Tag: title
-#: using-d-i.xml:3025
+#: using-d-i.xml:3004
 #, no-c-format
 msgid "Install <command>Yaboot</command> on a Hard Disk"
 msgstr "하드 디스크에 <command>yaboot</command> 설치"
 
 #. Tag: para
-#: using-d-i.xml:3026
+#: using-d-i.xml:3005
 #, no-c-format
 msgid ""
 "Newer (mid 1998 and on) PowerMacs use <command>yaboot</command> as their "
@@ -4787,13 +4752,13 @@ msgstr ""
 "크가 부팅 가능하게 되고 OpenFirmware에서 &debian-gnu; 부팅 준비가 끝납니다."
 
 #. Tag: title
-#: using-d-i.xml:3044
+#: using-d-i.xml:3023
 #, no-c-format
 msgid "Install <command>Quik</command> on a Hard Disk"
 msgstr "하드 디스크에 <command>quik</command> 설치"
 
 #. Tag: para
-#: using-d-i.xml:3045
+#: using-d-i.xml:3024
 #, no-c-format
 msgid ""
 "The boot loader for OldWorld Power Macintosh machines is <command>quik</"
@@ -4807,13 +4772,13 @@ msgstr ""
 "품에서 동작한다고 알려져 있습니다."
 
 #. Tag: title
-#: using-d-i.xml:3061
+#: using-d-i.xml:3040
 #, no-c-format
 msgid "<command>zipl</command>-installer"
 msgstr "<command>zipl</command>-installer"
 
 #. Tag: para
-#: using-d-i.xml:3062
+#: using-d-i.xml:3041
 #, no-c-format
 msgid ""
 "The boot loader on &arch-title; is <quote>zipl</quote>. <command>ZIPL</"
@@ -4829,13 +4794,13 @@ msgstr ""
 "and Installation Commands</quote>를 보십시오."
 
 #. Tag: title
-#: using-d-i.xml:3079
+#: using-d-i.xml:3058
 #, no-c-format
 msgid "Install the <command>SILO</command> Boot Loader on a Hard Disk"
 msgstr "하드 디스크에 <command>SILO</command> 부트로더 설치"
 
 #. Tag: para
-#: using-d-i.xml:3081
+#: using-d-i.xml:3060
 #, no-c-format
 msgid ""
 "The standard &architecture; boot loader is called <quote>silo</quote>. It is "
@@ -4865,13 +4830,13 @@ msgstr ""
 "Solaris와 같이 설치할 때 유용합니다."
 
 #. Tag: title
-#: using-d-i.xml:3106
+#: using-d-i.xml:3085
 #, no-c-format
 msgid "Making the system bootable with flash-kernel"
 msgstr "시스템을 flash-kernel로 부팅 가능하게 만들기"
 
 #. Tag: para
-#: using-d-i.xml:3107
+#: using-d-i.xml:3086
 #, no-c-format
 msgid ""
 "As there is no common firmware interface on all ARM platforms, the steps "
@@ -4881,10 +4846,16 @@ msgid ""
 "particular operations that are required to make the system bootable on "
 "various devices. It detects whether the current device is supported, and if "
 "yes, performs the necessary operations."
-msgstr "ARM 플랫폼에서는 공통의 펌웨어 인터페이스가 없기 때문에, ARM 장치에서 시스템을 부팅시키는 단계는 장치에 따라 크게 다릅니다. &debian;은 <command>flash-kernel</command>라는 도구를 이 목적으로 사용합니다. flash-kernel에는 시스템을 여러가지 장치에서 부팅시키게 만드는 절차에 관한 데이터베이스가 들어 있습니다. flash-kernel은 현재 장치를 지원하는지 검색하고, 지원하는 경우 필요한 작업을 수행합니다."
+msgstr ""
+"ARM 플랫폼에서는 공통의 펌웨어 인터페이스가 없기 때문에, ARM 장치에서 시스템"
+"을 부팅시키는 단계는 장치에 따라 크게 다릅니다. &debian;은 <command>flash-"
+"kernel</command>라는 도구를 이 목적으로 사용합니다. flash-kernel에는 시스템"
+"을 여러가지 장치에서 부팅시키게 만드는 절차에 관한 데이터베이스가 들어 있습니"
+"다. flash-kernel은 현재 장치를 지원하는지 검색하고, 지원하는 경우 필요한 작업"
+"을 수행합니다."
 
 #. Tag: para
-#: using-d-i.xml:3118
+#: using-d-i.xml:3097
 #, no-c-format
 msgid ""
 "On devices which boot from internal NOR- or NAND-flash memory, flash-kernel "
@@ -4893,26 +4864,35 @@ msgid ""
 "of these devices do not allow having multiple kernels and ramdisks in their "
 "internal flash memory, i.e. running flash-kernel on them usually overwrites "
 "the previous contents of the flash memory!"
-msgstr "내부의 NOR 또는 NAND 플래시 메모리에서 부팅하는 장치의 경우, flash-kernel에서 커널 및 최초 램디스크를 그 내부 메모리에 씁니다. 이 방식은 예전의 armel 장치에서 특히 많이 사용합니다. 대부분의 장치는 내부 플래시 메모리에 여러 개의 커널과 램디스크를 탑재하도록 지원하지 않기 때문에, flash-kernel을 이러한 장치에서 실행하면 이전의 플래시 메모리 내용을 덮어쓰게 됩니다!"
+msgstr ""
+"내부의 NOR 또는 NAND 플래시 메모리에서 부팅하는 장치의 경우, flash-kernel에"
+"서 커널 및 최초 램디스크를 그 내부 메모리에 씁니다. 이 방식은 예전의 armel 장"
+"치에서 특히 많이 사용합니다. 대부분의 장치는 내부 플래시 메모리에 여러 개의 "
+"커널과 램디스크를 탑재하도록 지원하지 않기 때문에, flash-kernel을 이러한 장치"
+"에서 실행하면 이전의 플래시 메모리 내용을 덮어쓰게 됩니다!"
 
 #. Tag: para
-#: using-d-i.xml:3128
+#: using-d-i.xml:3107
 #, no-c-format
 msgid ""
 "For ARM systems that use u-boot as their system firmware and boot the kernel "
 "and the initial ramdisk from external storage media (such as MMC/SD-cards, "
 "USB mass storage devices or IDE/SATA harddisks), flash-kernel generates an "
 "appropriate boot script to allow autobooting without user interaction."
-msgstr "시스템 펌웨어로 u-boot를 사용해 커널과 최초 램디스크를 외부 저장 장치에서 (MMC/SD 카드, USB 저장 장치, IDE/SATA 하드 디스크 등) 부팅할 수 있는 ARM 시스템의 경우, flash-kernel에서는 사용자가 입력하지 않아도 자동 부팅할 수 있도록 적절한 부팅 스크립트를 만듭니다."
+msgstr ""
+"시스템 펌웨어로 u-boot를 사용해 커널과 최초 램디스크를 외부 저장 장치에서 "
+"(MMC/SD 카드, USB 저장 장치, IDE/SATA 하드 디스크 등) 부팅할 수 있는 ARM 시스"
+"템의 경우, flash-kernel에서는 사용자가 입력하지 않아도 자동 부팅할 수 있도록 "
+"적절한 부팅 스크립트를 만듭니다."
 
 #. Tag: title
-#: using-d-i.xml:3144
+#: using-d-i.xml:3123
 #, no-c-format
 msgid "Continue Without Boot Loader"
 msgstr "부트로더 없이 계속"
 
 #. Tag: para
-#: using-d-i.xml:3146
+#: using-d-i.xml:3125
 #, no-c-format
 msgid ""
 "This option can be used to complete the installation even when no boot "
@@ -4924,7 +4904,7 @@ msgstr ""
 "더가 필요없는 경우일(예를 들어 기존 부트로더를 사용) 것입니다."
 
 #. Tag: para
-#: using-d-i.xml:3153
+#: using-d-i.xml:3132
 #, no-c-format
 msgid ""
 "If you plan to manually configure your bootloader, you should check the name "
@@ -4945,13 +4925,13 @@ msgstr ""
 "및 파티션도 알아야 합니다."
 
 #. Tag: title
-#: using-d-i.xml:3170
+#: using-d-i.xml:3149
 #, no-c-format
 msgid "Finishing the Installation"
 msgstr "설치 마치기"
 
 #. Tag: para
-#: using-d-i.xml:3171
+#: using-d-i.xml:3150
 #, no-c-format
 msgid ""
 "This is the last step in the &debian; installation process during which the "
@@ -4962,13 +4942,13 @@ msgstr ""
 "다. 대부분은 &d-i;의 뒷정리입니다."
 
 #. Tag: title
-#: using-d-i.xml:3184
+#: using-d-i.xml:3163
 #, no-c-format
 msgid "Setting the System Clock"
 msgstr "시스템 시계 맞추기"
 
 #. Tag: para
-#: using-d-i.xml:3186
+#: using-d-i.xml:3165
 #, no-c-format
 msgid ""
 "The installer may ask you if the computer's clock is set to UTC. Normally "
@@ -4981,7 +4961,7 @@ msgstr ""
 "에, 이 질문은 보통 물어보지 않습니다."
 
 #. Tag: para
-#: using-d-i.xml:3193
+#: using-d-i.xml:3172
 #, no-c-format
 msgid ""
 "In expert mode you will always be able to choose whether or not the clock is "
@@ -4998,7 +4978,7 @@ msgstr ""
 "다. 듀얼 부팅을 하려면 UTC가 아니라 지역별 시각으로 맞추십시오.</phrase>"
 
 #. Tag: para
-#: using-d-i.xml:3204
+#: using-d-i.xml:3183
 #, no-c-format
 msgid ""
 "At this point &d-i; will also attempt to save the current time to the "
@@ -5009,13 +4989,13 @@ msgstr ""
 "한 사항에 따라 UTC로 저장할 수도 있고 지역별 시각으로 저장할 수도 있습니다."
 
 #. Tag: title
-#: using-d-i.xml:3219
+#: using-d-i.xml:3198
 #, no-c-format
 msgid "Reboot the System"
 msgstr "시스템 다시 시작"
 
 #. Tag: para
-#: using-d-i.xml:3221
+#: using-d-i.xml:3200
 #, no-c-format
 msgid ""
 "You will be prompted to remove the boot media (CD, floppy, etc) that you "
@@ -5026,7 +5006,7 @@ msgstr ""
 "에 새로 설치한 &debian; 시스템으로 다시 시작합니다."
 
 #. Tag: para
-#: using-d-i.xml:3227
+#: using-d-i.xml:3206
 #, no-c-format
 msgid ""
 "After a final prompt the system will be halted because rebooting is not "
@@ -5039,13 +5019,13 @@ msgstr ""
 "선택했던 DASD에서, &debian-gnu;를 IPL하면 됩니다."
 
 #. Tag: title
-#: using-d-i.xml:3240
+#: using-d-i.xml:3219
 #, no-c-format
 msgid "Troubleshooting"
 msgstr "문제해결"
 
 #. Tag: para
-#: using-d-i.xml:3241
+#: using-d-i.xml:3220
 #, no-c-format
 msgid ""
 "The components listed in this section are usually not involved in the "
@@ -5056,13 +5036,13 @@ msgstr ""
 "지만 백그라운드에서 기다리면서 잘못된 부분이 있을 때 도움이 됩니다."
 
 #. Tag: title
-#: using-d-i.xml:3254
+#: using-d-i.xml:3233
 #, no-c-format
 msgid "Saving the installation logs"
 msgstr "설치 로그 저장"
 
 #. Tag: para
-#: using-d-i.xml:3256
+#: using-d-i.xml:3235
 #, no-c-format
 msgid ""
 "If the installation is successful, the logfiles created during the "
@@ -5073,7 +5053,7 @@ msgstr ""
 "<filename>/var/log/installer/</filename>에 자동으로 작성되고 있습니다."
 
 #. Tag: para
-#: using-d-i.xml:3263
+#: using-d-i.xml:3242
 #, no-c-format
 msgid ""
 "Choosing <guimenuitem>Save debug logs</guimenuitem> from the main menu "
@@ -5088,13 +5068,13 @@ msgstr ""
 "로그를 설치 보고서에 첨부할 때 유용합니다."
 
 #. Tag: title
-#: using-d-i.xml:3283
+#: using-d-i.xml:3262
 #, no-c-format
 msgid "Using the Shell and Viewing the Logs"
 msgstr "쉘 사용하기 및 로그 보기"
 
 #. Tag: para
-#: using-d-i.xml:3285
+#: using-d-i.xml:3264
 #, no-c-format
 msgid ""
 "There are several methods you can use to get a shell while running an "
@@ -5119,13 +5099,13 @@ msgstr ""
 "시 돌아올 수 있습니다."
 
 #. Tag: para
-#: using-d-i.xml:3303
+#: using-d-i.xml:3282
 #, no-c-format
 msgid "For the graphical installer see also <xref linkend=\"gtk-using\"/>."
 msgstr "그래픽 설치 프로그램은 <xref linkend=\"gtk-using\"/> 부분도 보십시오."
 
 #. Tag: para
-#: using-d-i.xml:3307
+#: using-d-i.xml:3286
 #, no-c-format
 msgid ""
 "If you cannot switch consoles, there is also an <guimenuitem>Execute a "
@@ -5140,7 +5120,7 @@ msgstr ""
 "userinput>를 입력해서 쉘을 닫으십시오."
 
 #. Tag: para
-#: using-d-i.xml:3315
+#: using-d-i.xml:3294
 #, no-c-format
 msgid ""
 "At this point you are booted from the RAM disk, and there is a limited set "
@@ -5157,7 +5137,7 @@ msgstr ""
 "기록같은 훌륭한 기능도 일부 들어 있습니다."
 
 #. Tag: para
-#: using-d-i.xml:3324
+#: using-d-i.xml:3303
 #, no-c-format
 msgid ""
 "To edit and view files, use the text editor <command>nano</command>. Log "
@@ -5169,7 +5149,7 @@ msgstr ""
 "에 들어 있습니다."
 
 #. Tag: para
-#: using-d-i.xml:3331
+#: using-d-i.xml:3310
 #, no-c-format
 msgid ""
 "Although you can do basically anything in a shell that the available "
@@ -5181,7 +5161,7 @@ msgstr ""
 "션입니다."
 
 #. Tag: para
-#: using-d-i.xml:3337
+#: using-d-i.xml:3316
 #, no-c-format
 msgid ""
 "Doing things manually from the shell may interfere with the installation "
@@ -5194,13 +5174,13 @@ msgstr ""
 "설치 프로그램에서 알아서 하도록 놔두고 쉘에서 직접 하지 않도록 하십시오."
 
 #. Tag: title
-#: using-d-i.xml:3353
+#: using-d-i.xml:3332
 #, no-c-format
 msgid "Installation Over the Network"
 msgstr "네트워크를 통해 설치"
 
 #. Tag: para
-#: using-d-i.xml:3355
+#: using-d-i.xml:3334
 #, no-c-format
 msgid ""
 "One of the more interesting components is <firstterm>network-console</"
@@ -5217,7 +5197,7 @@ msgstr ""
 "따라 자동화할 수 있습니다.)"
 
 #. Tag: para
-#: using-d-i.xml:3365
+#: using-d-i.xml:3344
 #, no-c-format
 msgid ""
 "This component is not loaded into the main installation menu by default, so "
@@ -5238,7 +5218,7 @@ msgstr ""
 "목이 새로 생깁니다."
 
 #. Tag: para
-#: using-d-i.xml:3378
+#: using-d-i.xml:3357
 #, no-c-format
 msgid ""
 "For installations on &arch-title;, this is the default method after setting "
@@ -5248,7 +5228,7 @@ msgstr ""
 "입니다."
 
 #. Tag: para
-#: using-d-i.xml:3383
+#: using-d-i.xml:3362
 #, no-c-format
 msgid ""
 "<phrase arch=\"not-s390\">After selecting this new entry, you</phrase> "
@@ -5273,7 +5253,7 @@ msgstr ""
 "할 사람에게</quote> 안전하게 전달해야 합니다."
 
 #. Tag: para
-#: using-d-i.xml:3395
+#: using-d-i.xml:3374
 #, no-c-format
 msgid ""
 "Should you decide to continue with the installation locally, you can always "
@@ -5284,7 +5264,7 @@ msgstr ""
 "인 메뉴로 돌아갈 수 있습니다. 메인 메뉴에서 다른 컴포넌트를 선택하면 됩니다."
 
 #. Tag: para
-#: using-d-i.xml:3401
+#: using-d-i.xml:3380
 #, no-c-format
 msgid ""
 "Now let's switch to the other side of the wire. As a prerequisite, you need "
@@ -5314,7 +5294,7 @@ msgstr ""
 "핑거프린트가 표시될 것이고, 이 핑거프린트가 올바른 지 확인해야 합니다."
 
 #. Tag: para
-#: using-d-i.xml:3418
+#: using-d-i.xml:3397
 #, no-c-format
 msgid ""
 "The <command>ssh</command> server in the installer uses a default "
@@ -5338,7 +5318,7 @@ msgstr ""
 "니다."
 
 #. Tag: para
-#: using-d-i.xml:3431
+#: using-d-i.xml:3410
 #, no-c-format
 msgid ""
 "You may be able to avoid the connection being dropped by adding the option "
@@ -5360,7 +5340,7 @@ msgstr ""
 "다.) 그러니 이 옵션은 필요한 경우에만 사용해야 합니다."
 
 #. Tag: para
-#: using-d-i.xml:3444
+#: using-d-i.xml:3423
 #, no-c-format
 msgid ""
 "If you install several computers in turn and they happen to have the same IP "
@@ -5383,7 +5363,7 @@ msgstr ""
 "시 연결하면 됩니다."
 
 #. Tag: para
-#: using-d-i.xml:3460
+#: using-d-i.xml:3439
 #, no-c-format
 msgid ""
 "After the login you will be presented with an initial screen where you have "
@@ -5402,7 +5382,7 @@ msgstr ""
 "어야 합니다. 하지만 쉘의 경우에는 여러 개를 열어도 됩니다."
 
 #. Tag: para
-#: using-d-i.xml:3470
+#: using-d-i.xml:3449
 #, no-c-format
 msgid ""
 "After you have started the installation remotely over SSH, you should not go "
@@ -5417,13 +5397,13 @@ msgstr ""
 "다."
 
 #. Tag: title
-#: using-d-i.xml:3489
+#: using-d-i.xml:3468
 #, no-c-format
 msgid "Loading Missing Firmware"
 msgstr "없는 펌웨어 읽어들이기"
 
 #. Tag: para
-#: using-d-i.xml:3490
+#: using-d-i.xml:3469
 #, no-c-format
 msgid ""
 "As described in <xref linkend=\"hardware-firmware\"/>, some devices require "
@@ -5436,7 +5416,7 @@ msgstr ""
 "가끔 기본적인 기능은 동작하고 추가적인 기능에서만 펌웨어가 필요하기도 합니다."
 
 #. Tag: para
-#: using-d-i.xml:3498
+#: using-d-i.xml:3477
 #, no-c-format
 msgid ""
 "If a device driver requests firmware that is not available, &d-i; will "
@@ -5453,7 +5433,7 @@ msgstr ""
 "입니다."
 
 #. Tag: para
-#: using-d-i.xml:3508
+#: using-d-i.xml:3487
 #, no-c-format
 msgid ""
 "Which devices are scanned and which file systems are supported depends on "
@@ -5470,7 +5450,7 @@ msgstr ""
 "다.</phrase>"
 
 #. Tag: para
-#: using-d-i.xml:3518
+#: using-d-i.xml:3497
 #, no-c-format
 msgid ""
 "Note that it is possible to skip loading the firmware if you know the device "
@@ -5481,7 +5461,7 @@ msgstr ""
 "웨어 읽어들이기를 건너 뛸 수도 있습니다."
 
 #. Tag: para
-#: using-d-i.xml:3524
+#: using-d-i.xml:3503
 #, no-c-format
 msgid ""
 "&d-i; only prompts for firmware needed by kernel modules loaded during the "
@@ -5501,13 +5481,13 @@ msgstr ""
 "command> 명령 결과에서 <quote>firmware</quote>라는 말을 찾아보십시오."
 
 #. Tag: title
-#: using-d-i.xml:3538
+#: using-d-i.xml:3517
 #, no-c-format
 msgid "Preparing a medium"
 msgstr "미디어 준비하기"
 
 #. Tag: para
-#: using-d-i.xml:3539
+#: using-d-i.xml:3518
 #, no-c-format
 msgid ""
 "Official CD images do not include non-free firmware. The most common method "
@@ -5530,7 +5510,7 @@ msgstr ""
 "(FAT는 설치 앞 단계에서도 지원하는 파일 시스템이므로.)"
 
 #. Tag: para
-#: using-d-i.xml:3552
+#: using-d-i.xml:3531
 #, no-c-format
 msgid ""
 "Tarballs and zip files containing current packages for the most common "
@@ -5545,7 +5525,7 @@ msgstr ""
 "또는 zip 파일을 다운로드 미디어 파일 시스템에 배포하면됩니다."
 
 #. Tag: para
-#: using-d-i.xml:3566
+#: using-d-i.xml:3545
 #, no-c-format
 msgid ""
 "If the firmware you need is not included in the tarball, you can also "
@@ -5560,7 +5540,7 @@ msgstr ""
 "가 아닌 패키지도 들어 있습니다:"
 
 #. Tag: para
-#: using-d-i.xml:3580
+#: using-d-i.xml:3559
 #, no-c-format
 msgid ""
 "It is also possible to copy individual firmware files to the medium. Loose "
@@ -5571,13 +5551,13 @@ msgstr ""
 "놓은 시스템에서 가져올 수도 있고 하드웨어 공급사가 제공해 줄 수도 있습니다."
 
 #. Tag: title
-#: using-d-i.xml:3589
+#: using-d-i.xml:3568
 #, no-c-format
 msgid "Firmware and the Installed System"
 msgstr "펌웨어 및 설치한 시스템"
 
 #. Tag: para
-#: using-d-i.xml:3590
+#: using-d-i.xml:3569
 #, no-c-format
 msgid ""
 "Any firmware loaded during the installation will be copied automatically to "
@@ -5593,7 +5573,7 @@ msgstr ""
 "만 있습니다."
 
 #. Tag: para
-#: using-d-i.xml:3599
+#: using-d-i.xml:3578
 #, no-c-format
 msgid ""
 "If the firmware was loaded from a firmware package, &d-i; will also install "
@@ -5608,7 +5588,7 @@ msgstr ""
 "이 있습니다."
 
 #. Tag: para
-#: using-d-i.xml:3607
+#: using-d-i.xml:3586
 #, no-c-format
 msgid ""
 "If loading the firmware was skipped during the installation, the relevant "
@@ -5619,7 +5599,7 @@ msgstr ""
 "당 장치가 설치한 시스템에서 동작하지 않습니다."
 
 #. Tag: para
-#: using-d-i.xml:3614
+#: using-d-i.xml:3593
 #, no-c-format
 msgid ""
 "If the firmware was loaded from loose firmware files, the firmware copied to "
@@ -5630,3 +5610,54 @@ msgstr ""
 "펌웨어 파일에서 펌웨어를 설치한 경우, 그 펌웨어는 설치한 시스템에 복사되고 해"
 "당 펌웨어 패키지를(패키지가 있다면) 설치하지 않는 한 자동으로 업데이트되지 "
 "<emphasis>않습니다</emphasis>."
+
+#~ msgid ""
+#~ "By default, &d-i; installs the Xfce desktop environment. It is not "
+#~ "possible to interactively select a different desktop environment during "
+#~ "the installation, however, it <emphasis>is</emphasis> possible to have "
+#~ "the installer install a different desktop environment by using preseeding "
+#~ "(see <xref linkend=\"preseed-pkgsel\"/>) or by adding the parameter "
+#~ "<literal>desktop=name_of_the_desktop_environment</literal> at the boot "
+#~ "prompt when starting the installer. Possible variants in this case are "
+#~ "<literal>desktop=gnome</literal>, <literal>desktop=kde</literal>, "
+#~ "<literal>desktop=lxde</literal> or <literal>desktop=xfce</literal>."
+#~ msgstr ""
+#~ "기본값으로 &d-i;에서는 Xfce 데스크톱 환경을 설치합니다. 설치할 때 인터페이"
+#~ "스에서 다른 종류의 데스크톱을 선택하는 방법은 없습니다. 하지만 미리 설정"
+#~ "을 (<xref linkend=\"preseed-pkgsel\"/> 참고) 이용하거나, <literal>desktop="
+#~ "데스크톱_환경의_이름</literal> 파라미터를 부팅 명령으로 추가하면 가능합니"
+#~ "다. 사용할 수 있는 값은 <literal>desktop=gnome</literal>, "
+#~ "<literal>desktop=kde</literal>, <literal>desktop=lxde</literal>, "
+#~ "<literal>desktop=xfce</literal>입니다."
+
+# 부팅 메뉴는 현재 번역되지 않으므로 "Advanced option" 및 "Alternative desktop environments"는 그대로 쓴다.
+#~ msgid ""
+#~ "If you use the special GNOME-, KDE- or LXDE-variant of the first CD in "
+#~ "the full CD set, the installer installs the respective desktop "
+#~ "environment instead of the default. Some CD images (netinst and DVD) also "
+#~ "allow selection of the desired desktop environment from the graphical "
+#~ "boot menu. Select the <quote>Advanced options</quote> option in the main "
+#~ "menu and look for <quote>Alternative desktop environments</quote>."
+#~ msgstr ""
+#~ "CD 세트 중에 첫 번째 CD로 GNOME-, KDE-, LXDE- 버전을 사용하면 해당 데스크"
+#~ "톱 환경을 기본으로 설치합니다. 어떤 CD 이미지에서는(netinst, DVD) 그래픽 "
+#~ "부팅 메뉴에서 원하는 데스크톱 환경을 선택할 수 있습니다. 메인 메뉴의 "
+#~ "<quote>Advanced options</quote> 옵션에서 <quote>Alternative desktop "
+#~ "environments</quote> 부분을 찾아 보십시오."
+
+#~ msgid ""
+#~ "The various server tasks will install software roughly as follows. DNS "
+#~ "server: <classname>bind9</classname>; File server: <classname>samba</"
+#~ "classname>, <classname>nfs</classname>; Mail server: <classname>exim4</"
+#~ "classname>, <classname>spamassassin</classname>, <classname>uw-imap</"
+#~ "classname>; Print server: <classname>cups</classname>; SQL database: "
+#~ "<classname>postgresql</classname>; Web server: <classname>apache2</"
+#~ "classname>."
+#~ msgstr ""
+#~ "여러가지 서버 태스크는 대략 다음과 같은 소프트웨어를 설치합니다. DNS 서"
+#~ "버: <classname>bind9</classname>, 파일 서버: <classname>samba</"
+#~ "classname>, <classname>nfs</classname>, 메일 서버: <classname>exim4</"
+#~ "classname>, <classname>spamassassin</classname>, <classname>uw-imap</"
+#~ "classname>, 인쇄 서버: <classname>cups</classname>, SQL 데이터베이스: "
+#~ "<classname>postgresql</classname>, 웹 서버: <classname>apache2</"
+#~ "classname>."
