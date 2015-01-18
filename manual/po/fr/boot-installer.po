@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: boot-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2015-01-09 19:07+0000\n"
-"PO-Revision-Date: 2014-10-07 22:36+0100\n"
+"PO-Revision-Date: 2015-01-17 18:37+0100\n"
 "Last-Translator: Baptiste Jammet <baptiste@mailoo.org>\n"
 "Language-Team: debian-l10n-french <debian-l10n-french@lists.debian.org>\n"
 "Language: fr\n"
@@ -94,7 +94,7 @@ msgstr ""
 "utilisés principalement sur les anciens systèmes. Les versions plus récentes "
 "de u-boot peuvent aussi amorcer les noyaux Linux récents et les initrd (en "
 "plus des fichiers uImage/uInitrd), mais la syntaxe est légèrement différente "
-"que pour l'amorçage des uImages."
+"de celle des uImages."
 
 #. Tag: para
 #: boot-installer.xml:56
@@ -341,10 +341,10 @@ msgstr ""
 
 #. Tag: title
 #: boot-installer.xml:160
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "Booting from USB memory stick"
 msgid "Booting from a USB stick in u-boot"
-msgstr "Amorcer sur une clé USB"
+msgstr "Amorcer sur une clé USB avec u-boot"
 
 #. Tag: para
 #: boot-installer.xml:161
@@ -354,6 +354,10 @@ msgid ""
 "storage devices such as USB sticks. Unfortunately the exact steps required "
 "to do that can vary quite a bit from device to device."
 msgstr ""
+"De nombreuses versions récentes de u-boot ont une prise en charge de l'USB "
+"et permettent d'amorcer depuis un périphérique de stockage USB comme une "
+"clef USB. Malheureusement, la procédure exacte peut varier d'un périphérique "
+"à l'autre."
 
 #. Tag: para
 #: boot-installer.xml:168
@@ -365,6 +369,12 @@ msgid ""
 "stick on such systems, but unfortunately not all platforms have adopted this "
 "new framework yet."
 msgstr ""
+"La version 2014.10 de u-boot a introduit un cadre applicatif pour une "
+"gestion commune de la ligne de commande et l'autoboot. Cela permet de "
+"construire des images d'amorçage génériques qui fonctionnent sur tous les "
+"systèmes qui implémentent ce cadre applicatif. L'&d-i; prend en charge "
+"l'installation depuis une clef USB sur ces systèmes, mais malheureusement "
+"tous n'ont pas encore adopté ce cadre applicatif."
 
 #. Tag: para
 #: boot-installer.xml:177
@@ -377,6 +387,12 @@ msgid ""
 "Then copy the ISO image file of the first &debian; installation CD or DVD "
 "onto the stick."
 msgstr ""
+"Pour construire une clef USB amorçable pour installer &debian;, décompressez "
+"l'archive tar hd-media (consultez la <xref linkend=\"where-files\"/>) sur "
+"une clef USB formatée avec un système de fichiers pris en charge par la "
+"version de u-boot de votre périphérique. Pour les versions modernes de u-boot, "
+"FAT16, FAT32, ext2, ext3 et ext4 fonctionnent généralement. Ensuite, copiez "
+"l'image ISO du premier CD ou DVD &debian; sur cette clef."
 
 #. Tag: para
 #: boot-installer.xml:187
@@ -390,6 +406,14 @@ msgid ""
 "the USB-boot process any time from the u-boot prompt by entering the "
 "<quote>run usb_boot</quote> command."
 msgstr ""
+"Le cadre applicatif autoboot des versions récentes de u-boot fonctionne de la même "
+"façon que l'option d'ordre d'amorçage du BIOS dans un PC, c'est à dire "
+"qu'il  cherche, sur une liste des périphériques, une image d'amorçage valide "
+"et démarre la première qu'il trouve. S'il n'y a aucun système d'exploitation "
+"installé, brancher la clef USB et démarrer le système devrait amorcer "
+"l'installateur. Vous pouvez aussi engager l'amorçage USB à n'importe quel "
+"moment en entrant la commande <quote>run usb_boot</quote> à l'invite  de u-"
+"boot."
 
 #. Tag: para
 #: boot-installer.xml:197
@@ -410,6 +434,22 @@ msgid ""
 "console variable to contain the correct baudrate for your system and then "
 "start the installer with the <quote>run usb_boot</quote> command."
 msgstr ""
+"Un des problèmes qui peut apparaître en amorçant depuis une clef USB tout en "
+"utilisant une console série est une erreur de vitesse de transmission "
+"(baudrate). Si une variable console est définie dans u-boot, le script "
+"d'amorçage de l'&d-i; la passera automatiquement au noyau pour définir la "
+"première console et, si besoin, la fréquence de cette console. "
+"Malheureusement, la gestion de la variable console peut varier d'une plate-"
+"forme à l'autre : sur certaines elle contient la fréquence (comme dans "
+"<quote>console=ttyS0,115200</quote>), tandis que sur d'autres elle ne "
+"contient que le périphérique (<quote>console=ttyS0</quote>). Le dernier cas "
+"peut mener à une sortie confuse lorsque la fréquence par défaut diffère "
+"entre u-boot et le noyau. Les versions modernes de u-boot utilisent souvent "
+"115200 bauds alors que le noyau est toujours configuré par défaut à "
+"9600 bauds. Si cela arrivait, vous devriez définir la variable console "
+"manuellement pour qu'elle contienne la fréquence correcte pour votre "
+"système, et ensuite démarrer l'installateur avec la commande <quote>run "
+"usb_boot</quote>."
 
 #. Tag: title
 #: boot-installer.xml:345 boot-installer.xml:924 boot-installer.xml:1581
@@ -3053,7 +3093,7 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:2255
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "You may need to specify parameters for the serial port, such as speed and "
 #| "parity, for instance <userinput>console=ttyS0,9600n8</userinput>; other "
@@ -3067,7 +3107,10 @@ msgid ""
 msgstr ""
 "Vous pouvez avoir besoin de spécifier certains paramètres du port série, par "
 "exemple la vitesse ou la parité, <userinput>console=ttyS0,9600n8</"
-"userinput> ; la valeur pour la vitesse peut être aussi 57600 ou 115200."
+"userinput> ; la valeur pour la vitesse peut être aussi 57600 ou 115200. "
+"Assurez vous de spécifier cette option après <quote>---</quote> pour qu'elle "
+"soit copiée dans le gestionnaire d'amorçage du système installé (si cela est "
+"pris en charge par l'installateur pour ce gestionnaire d'amorçage)."
 
 #. Tag: para
 #: boot-installer.xml:2263
