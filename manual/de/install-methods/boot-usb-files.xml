@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 69344 -->
+<!-- original version: 69577 -->
 
  <sect1 condition="bootable-usb" id="boot-usb-files">
  <title>Dateien vorbereiten für das Booten von einem USB-Memory-Stick</title>
@@ -36,7 +36,8 @@ z.B. alle Daten auf Ihrer Festplatte verlieren!
 Debian-CD- und -DVD-Images können jetzt direkt auf einen USB-Stick
 geschrieben werden, was ein sehr einfacher Weg ist, einen bootfähigen
 USB-Stick zu erstellen. Wählen Sie einfach ein CD- oder DVD-Image, das
-auf Ihren Stick passt. Auf <xref linkend="official-cdrom"/> finden Sie
+auf Ihren Stick passt (z.B. das netinst-, CD-1-, DVD-1- oder netboot-Image).
+Auf <xref linkend="official-cdrom"/> finden Sie
 Informationen darüber, wie Sie sich ein CD- oder DVD-Image besorgen.
 
 </para><para>
@@ -59,11 +60,18 @@ der Stick nicht im Dateisystem eingebunden ist):
 <prompt>#</prompt> <userinput>sync</userinput>
 </screen></informalexample>
 
+Auf anderen Betriebssystemen kann das
+<ulink url="http://sf.net/projects/win32diskimager/">
+win32diskimager</ulink>-Programm verwendet werden, um das Image auf
+den Stick zu kopieren.
+
 </para><important><para>
 
 Das Image muss auf das vollständige Gerät geschrieben werden,
 nicht auf eine einzelne Partition, also z.B. auf /dev/sdb, nicht auf
 /dev/sdb1.
+Nutzen Sie keine Werkzeuge wie <command>unetbootin</command>, da diese
+das Image verändern.
 
 </para></important><important><para>
 
