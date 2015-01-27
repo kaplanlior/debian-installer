@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 69198 -->
+<!-- original version: 69518 -->
 
   <sect2 arch="arm">
   <!-- <title>CPU, Main Boards, and Video Support</title> -->
@@ -12,7 +12,7 @@ architecture, where all systems share a common system firmware (BIOS or/and
 UEFI) which handles the board-specific basic hardware initialization in a
 standardized way.
 
-The ARM architecture is used mainly in so-called <quote>systems-on-chip</quote> (SOCs). 
+The ARM architecture is used mainly in so-called <quote>systems-on-chip</quote> (SOCs).
 These SOCs are designed by many different companies with vastly varying
 hardware components even for the very basic functionality required to bring
 the system up.  Systems using them usually lack a common system firmware
@@ -48,7 +48,7 @@ kernel is still required.
 
 Because of this, the standard &debian; distribution only supports
 installation on a selected number of older ARM systems in addition to the
-newer systems which are supported by the ARM multiplatform (armmp) kernel. 
+newer systems which are supported by the ARM multiplatform (armmp) kernel.
 -->
 
 Agli albori il supporto per ARM nel kernel Linux consisteva nell'avere
@@ -57,7 +57,7 @@ il kernel <quote>uno-va-bene-per-tutti</quote> per i sistemi PC. Un tale
 approccio non è scalabile su un gran numero di dispositivi e quindi
 fu iniziato il lavoro per realizzare un unico kernel ARM che potesse
 funzionare su molti sistemi ARM. I sistemi ARM più recenti dispongono
-di un kernle realizzato con l'approccio multipiattaforma ma per molti
+di un kernel realizzato con l'approccio multipiattaforma ma per molti
 dei sistemi più vecchi è ancora necessario utilizzare un kernel
 specifico.
 
@@ -71,7 +71,7 @@ sui sistemi più recenti supportati con il kernel ARM multipiattaforma
 <!--
 The ARM architecture has evolved over time and modern ARM processors provide
 features which are not available in older models.  &debian; therefore
-provides two ARM ports, the &debian;/armel and the &debian;/armhf port. 
+provides two ARM ports, the &debian;/armel and the &debian;/armhf port.
 &debian;/armel targets older ARM processors without support for a hardware
 floating point unit (FPU), while &debian;/armhf works only on newer ARM
 processors which implement at least the ARMv7 architecture with version 3 of
@@ -138,6 +138,21 @@ dei kernel specifici per la piattaforma.
 <variablelist>
 
 <varlistentry>
+<term>IXP4xx</term>
+<listitem><para>
+
+<!--
+The Intel IXP4xx processor series is used in network attached storage
+devices like the Linksys NSLU2.
+-->
+
+La famiglia di processori Intel IXP4xx è utilizzata su dispositivi
+NAS (network attached storage) come il Linksys NSLU2.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
 <term>Kirkwood</term>
 <listitem><para>
 
@@ -161,7 +176,7 @@ url="&url-arm-cyrius-sheevaplug;">plug computer (SheevaPlug, GuruPluge
 e DreamPlug)</ulink>, <ulink url="&url-arm-cyrius-qnap-kirkwood;">QNAP
 Turbo Station</ulink> (tutti i modelli TS-11x, TS-21x, TS-41x) e i NAS
 LaCie (Network Space v2, Network Space Max v2, Internet Space v2, d2
-Network v2, 2Big Network v2 and 5Big Network v2).
+Network v2, 2Big Network v2 e 5Big Network v2).
 
 </para></listitem>
 </varlistentry>
@@ -193,19 +208,6 @@ dispositivi basati sul chip Orion:
 </varlistentry>
 
 <varlistentry>
-<term>MV78xx0</term>
-<listitem><para>
-
-<!--
-The MV78xx0 platform is used on the the Marvell DB-78xx0-BP development board.
--->
-
-La piattaforma MV78xx0 è usata sulle schede di sviluppo Marvell DB-78xx0-BP.
-
-</para></listitem>
-</varlistentry>
-
-<varlistentry>
 <term>Versatile</term>
 <listitem><para>
 
@@ -223,7 +225,7 @@ di un vero hardware.
 
 <varlistentry>
 <term>IXP4xx</term>
-<listitem><para>   
+<listitem><para>
 
 <!--
 The Intel IXP4xx processor series has been used in network attached storage
@@ -271,6 +273,25 @@ url="&url-arm-cyrius-n2100;">Thecus N2100</ulink>. La piattaforma IOP32x
 era supportata in &debian; 7 ma a partire dalla versione 8 non è più
 supportata perché la piattaforma ha dei vincoli hardware che non la
 rendono adatta per i prossimi rilasci di &debian;.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>MV78xx0</term>
+<listitem><para>
+
+<!--
+The MV78xx0 platform has been used on the Marvell DB-78xx0-BP
+development board.  It was supported in Debian 7 with a platform-specific
+kernel (based on the Linux kernel version 3.2), but is not supported
+anymore from Debian 8 onwards.
+-->
+
+La piattaforma MV78xx0 è stata utilizzata sulle schede di sviluppo
+Marvell DB-78xx0-BP. Questa piattaforma era supportata in Debian 7
+grazie a un kernel specifico (basato sul kernel Linux 3.2) ma dalla
+versione 8 in poi non è più supportata.
 
 </para></listitem>
 </varlistentry>
@@ -353,6 +374,11 @@ Cubietech Cubieboard 1 + 2 / Cubietruck
 </para></listitem>
 <listitem><para>
 
+LeMaker Banana Pi
+
+</para></listitem>
+<listitem><para>
+
 LinkSprite pcDuino
 
 </para></listitem>
@@ -369,7 +395,8 @@ Miniand Hackberry
 <listitem><para>
 
 Olimex A10-Olinuxino-LIME / A10s-Olinuxino Micro /
-A13-Olinuxino / A13-Olinuxino Micro / A20-Olinuxino Micro           
+A13-Olinuxino / A13-Olinuxino Micro / 
+A20-Olinuxino-LIME / A20-Olinuxino Micro 
 
 </para></listitem>
 <listitem><para>
@@ -423,8 +450,9 @@ the Cubox-i series is limited to drivers and device-tree
 information available in the mainline Linux kernel; the
 Freescale 3.0 kernel series for the Cubox-i is not supported by
 Debian.  Available drivers in the mainline kernel include
-serial console, ethernet, USB, MMC/SD-card and basic local
-display support over HDMI.
+serial console, ethernet, USB, MMC/SD-card and display
+support over HDMI (console and X11). In addition to that,
+the eSATA port on the Cubox-i4Pro is supported.
 -->
 
 La serie Cubox-i è un insieme di piccoli sistemi a forma di cubo basati
@@ -432,7 +460,38 @@ su SoC Freescale della famiglia i.MX6. Il supporto per le serie Cubox-i
 è limitato ai driver e alle informazioni del device-tree presenti nel
 kernel Linux; il kernel Freescale 3.0 per Cubox-i non è supportato da
 Debian. I driver disponibili comprendono console, ethernet, USB,
-MMC/SD-card e il supporto di base per un display tramite HDMI.
+MMC/SD-card e il video tramite HDMI (console e X11). Oltre a tutto ciò
+è supportata anche la porta eSATA presente su Cubox-i4Pro.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Wandboard Quad</term>
+<listitem><para>
+
+<!--
+The Wandboard Quad is a development board based on the Freescale
+i.MX6 Quad SoC.  System support for it is limited to drivers and
+device-tree information available in the mainline Linux kernel;
+the wandboard-specific 3.0 and 3.10 kernel series from
+wandboard.org are not supported by Debian.  The mainline kernel
+includes driver support for serial console, display via HDMI
+(console and X11), ethernet, USB, MMC/SD and SATA.  Support for
+the onboard audio options (analog, S/PDIF, HDMI-Audio) and for
+the onboard WLAN/Bluetooth module is not available in &debian;
+8.
+-->
+
+Wandboard Quad è una scheda per lo sviluppo basata sul Soc Freescale
+i.MX6 Quad. Il supporto per tale scheda è limitato ai driver e alle
+informazioni sul device-tree presenti nel kernel Linux; i kernel
+delle serie 3.0 e 3.10 disponibili da wandboard.org specifici per la
+scheda non sono supportati da Debian. Il kernel Linux contiene i
+driver per la console seriale, il video tramite HDMI (console e X11),
+ethernet, USB, MMC/SD e SATA. Il supporto per i dispositivi audio
+montati sulla scheda (analogico, S/PDIF, HDMI-Audio) e per il modulo
+WLAN/Bluetooth non è disponibile in &debian; 8.
 
 </para></listitem>
 </varlistentry>
@@ -454,7 +513,7 @@ many cases requires device-specific information.
 Solitamente il supporto ARM multipiattaforma del kernel Linux permette
 di usare il &d-i; anche su sistemi armhf non esplicitamente elencati in
 precedenza, a condizione che il kernel usato dal &d-i; abbia il
-supporto per i componenti del sistema e che sia disponbile un file con
+supporto per i componenti del sistema e che sia disponibile un file con
 il device-tree. In questo caso l'installatore può solitamente fornire
 uno spazio utente funzionante ma probabilmente non è in grado di
 impostare l'avvio automatico del sistema perché per questa operazione,
@@ -463,7 +522,7 @@ in molti casi, sono necessari informazioni specifiche sul dispositivo.
 </para><para>
 
 <!--
-When using &d-i; on such systems, you have to manually make the system 
+When using &d-i; on such systems, you have to manually make the system
 bootable at the end of the installation, e.g. by running the required
 commands in a shell started from within &d-i;.
 -->
@@ -504,7 +563,7 @@ nel 2012 e quindi non è possibile creare nuove versioni.
 
 <!--
 Using the armmp multiplatform kernel on the EfikaMX platform would require
-device-tree support for it, which is currently not available. 
+device-tree support for it, which is currently not available.
 -->
 
 L'uso del kernel multipiattaforma armmp sulla piattaforma EfikaMX potrebbe

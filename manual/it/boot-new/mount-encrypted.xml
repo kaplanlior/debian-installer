@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 68621 -->
+<!-- original version: 69266 -->
 
  <sect1 id="mount-encrypted-volumes">
  <!-- <title>Mounting encrypted volumes</title> -->
@@ -9,21 +9,14 @@
 <!--
 If you created encrypted volumes during the installation and assigned
 them mount points, you will be asked to enter the passphrase for each
-of these volumes during the boot. The actual procedure differs
-slightly between dm-crypt and loop-AES.
+of these volumes during the boot.
 -->
 
 Se durante l'installazione si creano dei volumi cifrati e si assegnano a
 dei punti di mount allora, durante l'avvio, viene richiesto l'inserimento
-della passphrase per ognuno di questi volumi. La procedura da seguire è
-leggermente diversa fra dm-crypt e loop-AES.
+della passphrase per ognuno di questi volumi.
 
-</para>
-
-  <sect2 id="mount-dm-crypt">
-  <!-- <title>dm-crypt</title> -->
-  <title>dm-crypt</title>
-<para>
+</para><para>
 
 <!--
 For partitions encrypted using dm-crypt you will be shown the following
@@ -116,53 +109,6 @@ After entering all passphrases the boot should continue as usual.
 L'avvio prosegue normalmente dopo l'inserimento di tutte le passphrase.
 
 </para>
-  </sect2>
-
-  <sect2 id="mount-loop-aes">
-  <!-- <title>loop-AES</title> -->
-  <title>loop-AES</title>
-<para>
-
-<!--
-For partitions encrypted using loop-AES you will be shown the following
-prompt during the boot:
--->
-
-Per le partizioni cifrate con loop-AES viene mostrato il seguente prompt
-durante l'avvio:
-
-<informalexample><screen>
-Checking loop-encrypted file systems.
-Setting up /dev/loop<replaceable>X</replaceable> (/<replaceable>mountpoint</replaceable>)
-Password:
-</screen></informalexample>
-
-</para><para>
-
-<!--
-No characters (even asterisks) will be shown while entering the passphrase.
-If you enter the wrong passphrase, you have two more tries to correct it.
-After the third try the boot process will skip this volume and continue to
-mount the next filesystem. Please see <xref linkend="crypto-troubleshooting"/>
-for further information.
--->
-
-Durante l'inserimento della passphrase non sono mostrati dei caratteri,
-nemmeno degli asterischi. Se la passphrase inserita è sbagliata si hanno
-a disposizione altri due tentativi, dopo il terzo tentativo il processo di
-avvio salta il montaggio del volume e prosegue con il filesystem successivo.
-Si veda <xref linkend="crypto-troubleshooting"/> per maggiori informazioni.
-
-</para><para>
-
-<!--
-After entering all passphrases the boot should continue as usual.
--->
-
-L'avvio prosegue normalmente dopo l'inserimento di tutte le passphrase.
-
-</para>
-  </sect2>
 
   <sect2 id="crypto-troubleshooting">
   <!-- <title>Troubleshooting</title> -->
@@ -200,41 +146,23 @@ macchina per fare un nuovo tentativo.
 <!--
 The easiest case is for encrypted volumes holding data like
 <filename>/home</filename> or <filename>/srv</filename>. You can
-simply mount them manually after the boot. For loop-AES this is
-a one-step operation:
+simply mount them manually after the boot.
 -->
 
 Il caso più semplice riguarda i volumi che contengono dati, come
 <filename>/home</filename> o <filename>/srv</filename>. Si possono montare
-manualmente al termine dell'avvio. Con loop-AES questa operazione richiede
-un solo comando:
-
-<informalexample><screen>
-<prompt>#</prompt> <userinput>mount <replaceable>/mount_point</replaceable></userinput>
-<prompt>Password:</prompt>
-</screen></informalexample>
-
-<!--
-where <replaceable>/mount_point</replaceable> should be replaced by
-the particular directory (e.g. <filename>/home</filename>). The only
-difference from an ordinary mount is that you will be asked to enter
-the passphrase for this volume.
--->
-
-dove <replaceable>/mount_point</replaceable> deve essere sostituito dalla
-directory specifica (per esempio <filename>/home</filename>). L'unica
-differenza rispetto a un normale mount è la richiesta di inserire la
-passphrase del volume.
+manualmente al termine dell'avvio.
 
 </para><para>
 
 <!--
-For dm-crypt this is a bit trickier. First you need to register the
+However for dm-crypt this is a bit tricky. First you need to register the
 volumes with <application>device mapper</application> by running:
 -->
 
-Con dm-crypt è leggermente più complesso. Prima si devono registrare i
-volumi con <application>device mapper</application> eseguendo:
+Purtroppo con dm-crypt è leggermente più complesso. Prima si devono
+registrare i volumi con <application>device mapper</application>
+eseguendo:
 
 <informalexample><screen>
 <prompt>#</prompt> <userinput>/etc/init.d/cryptdisks start</userinput>

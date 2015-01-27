@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 68456 -->
+<!-- original version: 69577 -->
 
  <sect1 condition="bootable-usb" id="boot-usb-files">
  <!-- <title>Preparing Files for USB Memory Stick Booting</title> -->
@@ -53,16 +53,18 @@ fisso.
 <para>
 
 <!--
-Debian CD and DVD images can now be written directly a USB stick,
+Debian CD and DVD images can now be written directly to a USB stick,
 which is a very easy way to make a bootable USB stick. Simply choose
-a CD or DVD image that will fit on your USB stick. See
+a CD or DVD image (such as the netinst, CD-1, DVD-1, or netboot) that will fit
+on your USB stick. See
 <xref linkend="official-cdrom"/> to get a CD or DVD image.
 -->
 
 Adesso è possibile scrivere le immagini dei CD o DVD Debian direttamente
 sulla chiavetta USB, questo è un metodo estremamente semplice per creare
 una chiavetta USB dalla quale è possibile avviare il sistema. È sufficiente
-scegliere un'immagine di dimensione adatta alla capacità della chiavetta
+scegliere un'immagine (netinst, CD-1, DVD-1 oppure netboot) di dimensione
+adatta alla capacità della chiavetta
 USB. Si veda <xref linkend="official-cdrom"/> per procurarsi l'immagine
 di un CD o DVD.
 
@@ -100,7 +102,30 @@ chiavetta non è montata:
 <prompt>#</prompt> <userinput>sync</userinput>
 </screen></informalexample>
 
+<!--
+The
+<ulink url="http://sf.net/projects/win32diskimager/">
+win32diskimager</ulink>
+utility can be used under other operating systems to copy the image.
+-->
+
+Con altri sistemi operativi è possibile usare il programma d'utilità
+<ulink url="http://sf.net/projects/win32diskimager/">
+win32diskimager</ulink> per copiare l'immagine.
+
 </para><important><para>
+
+<!--
+The image must be written to the whole-disk device and not a
+partition, e.g. /dev/sdb and not /dev/sdb1.
+Do not use tools like <command>unetbootin</command> which alter the image.
+-->
+
+L'immagine deve essere scritta sul device del disco e non su una
+partizione, cioè su /dev/sdb e non su /dev/sdb1. Non usare strumenti
+come <command>unetbootin</command> poiché modificano l'immagine.
+
+</para></important><important><para>
 
 <!--
 Simply writing the CD or DVD image to USB like this should work fine
@@ -286,15 +311,15 @@ Infine smontare la chiavetta (<userinput>umount /mnt</userinput>).
 If you like more flexibility or just want to know what's going on, you
 should use the following method to put the files on your stick. One
 advantage of using this method is that &mdash; if the capacity of your
-USB stick is large enough &mdash; you have the option of copying a
-full CD ISO image to it.
+USB stick is large enough &mdash; you have the option of copying any
+ISO image, even a DVD image, to it.
 -->
 
 Chi preferisce avere più flessibilità o semplicemente vuole capire
 cosa sta facendo, dovrebbe usare questo metodo per scrivere i file sulla
 chiavetta. Uno dei vantaggi di questo metodo è quello che se la chiavetta
-USB è sufficientemente capiente, è possibile copiarci l'immagine di un CD
-completo.
+USB è sufficientemente capiente, è possibile copiarci qualsiasi immagine
+ISO, persino quella di un DVD.
 
 </para>
 

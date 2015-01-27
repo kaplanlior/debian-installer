@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 69163 -->
+<!-- original version: 69573 -->
 
 <!--
 Be careful with the format of this file as it is parsed to generate
@@ -183,26 +183,28 @@ metodo file avviene dopo che è stata caricato il CD o l'immagine del CD.
 Infine la preconfigurazione network ha effetti solo dopo la configurazione
 della rete.
 
-</para><para>
+</para><important><para>
 
 <!--
 Obviously, any questions that have been processed before the
 preconfiguration file is loaded cannot be preseeded (this will include
 questions that are only displayed at medium or low priority, like the
-first hardware detection run). <xref linkend="preseed-bootparms"/>
-offers a way to avoid these questions being asked.
+first hardware detection run). A not so convenient way to avoid these
+questions from being asked is to preseed them through the boot parameters,
+as described in <xref linkend="preseed-bootparms"/>.
 -->
 
 Ovviamente qualsiasi domanda elaborata prima che venga caricato il file
-di preconfigurazione non può essere preconfigurata (tra cui quelle mostrate
-solo quando la priorità è media o bassa, per esempio il primo riconoscimento
-dell'hardware). In <xref linkend="preseed-bootparms"/> è descritto un modo
-per evitare che queste domande siano poste.
+di preconfigurazione non può essere preconfigurata (tra cui quelle
+mostrate solo quando la priorità è media o bassa, per esempio il primo
+riconoscimento dell'hardware). Un modo non molto conveniente per evitare
+che queste domande siano poste è preconfigurarle tramite i parametri di
+avvio, come descritto in <xref linkend="preseed-bootparms"/>.
 
 </para><para>
 
 <!--
-In order to avoid the questions that would normally appear before the
+In order to easily avoid the questions that would normally appear before the
 preseeding occurs, you can start the installer in <quote>auto</quote>
 mode. This delays questions that would normally be asked too early for
 preseeding (i.e. language, country and keyboard selection) until after
@@ -211,16 +213,17 @@ the installation at critical priority, which avoids many unimportant
 questions. See <xref linkend="preseed-auto"/> for details.
 -->
 
-Per evitare le domande normalmente poste prima che avvenga la
-preconfigurazione, è possibile avviare l'installatore in modalità
-<quote>auto</quote>. Questa modalità rimanda le domande che sarebbero
-poste troppo presto per la preconfigurazione (cioè la scelta di lingua,
-nazione e tastiera) fino a che la rete non sia funzionante, in modo
-da consentire la preconfigurazione; inoltre la priorità
-dell'installazione viene forzata ad alta, evitando parecchie domande
-trascurabili. Si veda <xref linkend="preseed-auto"/> per i dettagli.
+Per evitare facilmente le domande che sarebbero normalmente poste prima
+che avvenga la preconfigurazione, è possibile avviare l'installatore in
+modalità <quote>auto</quote>. Infatti, in questa modalità le domande che
+sarebbero poste troppo presto per la preconfigurazione (cioè la scelta
+di lingua, nazione e tastiera) sono rimandate fino a quando la rete è
+funzionante, in modo da consentirne la preconfigurazione; inoltre la
+priorità dell'installazione viene forzata ad alta, evitando parecchie
+domande trascurabili. Si veda <xref linkend="preseed-auto"/> per i
+dettagli.
 
-</para>
+</para></important>
   </sect2>
 
   <sect2 id="preseed-limitations">
@@ -470,8 +473,15 @@ Boot parameters to specify:
 - con avvio da rete:
   preseed/url=http://host/percorso/di/preseed.cfg
   preseed/url/checksum=5da499872becccfeda2c4872f9171c3d
-
 <!--
+- or
+  preseed/url=tftp://host/path/to/preseed.cfg
+  preseed/url/checksum=5da499872becccfeda2c4872f9171c3d
+-->- oppure
+  preseed/url=tftp://host/path/to/preseed.cfg
+  preseed/url/checksum=5da499872becccfeda2c4872f9171c3d
+
+  <!--
 - if you're booting a remastered CD:
 -->- con avvio da un CD masterizzato:
   preseed/file=/cdrom/preseed.cfg
@@ -620,15 +630,15 @@ variabile completa. Per esempio alla variabile <literal>preseed/url</literal>
 </para><para>
 
 <!--
-A <quote>\-\-</quote> in the boot options has special meaning. Kernel
-parameters that appear after the last <quote>\-\-</quote> may be copied
+A <quote>\-\-\-</quote> in the boot options has special meaning. Kernel
+parameters that appear after the last <quote>\-\-\-</quote> may be copied
 into the bootloader configuration for the installed system (if supported by
 the installer for the bootloader). The installer will automatically filter
 out any options (like preconfiguration options) that it recognizes.
 -->
 
-L'uso di <quote>--</quote> nelle opzioni d'avvio ha un significato speciale,
-i parametri del kernel che seguono l'ultimo <quote>--</quote> potrebbero
+L'uso di <quote>---</quote> nelle opzioni d'avvio ha un significato speciale,
+i parametri del kernel che seguono l'ultimo <quote>---</quote> potrebbero
 essere copiati nella configurazione del bootloader nel sistema installato
 (solo se il boot loader è supportato dall'installatore). L'installatore
 filtra qualsiasi opzione (come le opzioni di preconfigurazione) che riesce
@@ -1887,9 +1897,12 @@ chiave SSH oppure con sudo).
 
 <!--
 The following command can be used to generate an MD5 hash for a password:
+The following command (available from the <classname>whois</classname> package)
+can be used to generate an MD5 hash for a password:
 -->
 
-Si può usare il seguente comando per creare un hash MD5 di una password:
+Per creare l'hash MD5 di una password è possibile usare il seguente
+comando (disponibile dal pacchetto <classname>whois</classname>):
 
 <informalexample><screen>
 mkpasswd -m sha-512
@@ -2056,12 +2069,12 @@ d-i partman-lvm/confirm_nooverwrite boolean true
 # You can choose from any of the predefined partitioning recipes:
 # - atomic: all files in one partition
 # - home:   separate /home partition
-# - multi:  separate /home, /usr, /var, and /tmp partitions
+# - multi:  separate /home, /var, and /tmp partitions
 --># È possibile scegliere una qualsiasi delle ricette di partizionamento
 # predefinite:
 # - atomic: tutti i file in una partizione
 # - home:   partizione separata per /home
-# - multi:  partizioni separate per /home, /usr, /var e /tmp
+# - multi:  partizioni separate per /home, /var e /tmp
 d-i partman-auto/choose_recipe select atomic
 
 <!--
@@ -2432,37 +2445,48 @@ siano disponibili. I task attualmente disponibili includono:
 
 <itemizedlist>
 <listitem><para>
-  <userinput>standard</userinput>
+  <userinput>standard</userinput><!-- (standard tools) -->
+  (programmi standard)
 </para></listitem>
 <listitem><para>
-  <userinput>desktop</userinput>
+  <userinput>desktop</userinput><!-- (graphical desktop) -->
+  (desktop grafico)
 </para></listitem>
 <listitem><para>
-  <userinput>gnome-desktop</userinput>
+  <userinput>gnome-desktop</userinput><!-- (Gnome desktop) -->
+  (desktop GNOME)
 </para></listitem>
 <listitem><para>
-  <userinput>xfce-desktop</userinput>
+  <userinput>xfce-desktop</userinput><!-- (XFCE desktop) -->
+  (desktop XFCE)
 </para></listitem>
 <listitem><para>
-  <userinput>kde-desktop</userinput>
+  <userinput>kde-desktop</userinput><!-- (KDE desktop) -->
+  (desktop KDE)
 </para></listitem>
 <listitem><para>
-  <userinput>cinnamon-desktop</userinput>
+  <userinput>cinnamon-desktop</userinput><!-- (Cinnamon desktop) -->
+  (desktop cinnamon)
 </para></listitem>
 <listitem><para>
-  <userinput>mate-desktop</userinput>
+  <userinput>mate-desktop</userinput><!-- (MATE desktop) -->
+  (desktop MATE)
 </para></listitem>
 <listitem><para>
-  <userinput>lxde-desktop</userinput>
+  <userinput>lxde-desktop</userinput><!-- (LXDE desktop) -->
+  (desktop LXDE)
 </para></listitem>
 <listitem><para>
-  <userinput>web-server</userinput>
+  <userinput>web-server</userinput><!-- (web server) -->
+  (server web)
 </para></listitem>
 <listitem><para>
-  <userinput>print-server</userinput>
+  <userinput>print-server</userinput><!-- (print server) -->
+  (server di stampa)
 </para></listitem>
 <listitem><para>
-  <userinput>ssh-server</userinput>
+  <userinput>ssh-server</userinput><!-- (SSH server) -->
+  (server SSH)
 </para></listitem>
 </itemizedlist>
 
@@ -2576,6 +2600,10 @@ d-i grub-installer/with_other_os boolean true
 # To install to a particular device:
 --># Per installare su un device particolare:
 #d-i grub-installer/bootdev  string /dev/sda
+<!--
+# To install to the first device:
+--># Per installare sul primo device:
+#d-i grub-installer/bootdev  string default
 
 <!--
 # Optional password for grub, either in clear text
@@ -2692,6 +2720,18 @@ installation.
 Una funzionalità molto potente e flessibile offerta dagli strumenti di
 preconfigurazione è la possibilità si eseguire dei comandi o degli script
 in determinati momenti dell'installazione.
+
+</para><para>
+
+<!--
+When the filesystem of the target system is mounted, it is available in
+<filename>/target</filename>. If an installation CD is used, when it is mounted
+it is available in <filename>/cdrom</filename>.
+-->
+
+Il filesystem su cui verrà installato il sistema, una volta montato, è
+disponibile in <filename>/target</filename>. Se l'installazione avviene
+da CD, una volta montato, è disponibile in <filename>/cdrom</filename>.
 
 </para>
 

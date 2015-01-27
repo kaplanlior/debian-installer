@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 68948 -->
+<!-- original version: 69333 -->
 
  <sect1 id="linux-upgrade">
  <!-- <title>Installing &debian-gnu; from a Unix/Linux System</title> -->
@@ -311,13 +311,11 @@ in the <command>debootstrap</command> command:
 <userinput>armel</userinput>,
 <userinput>armhf</userinput>,
 <userinput>i386</userinput>,
-<userinput>ia64</userinput>,
 <userinput>mips</userinput>,
 <userinput>mipsel</userinput>,
 <userinput>powerpc</userinput>,
-<userinput>s390</userinput>,
-<userinput>s390x</userinput>, or
-<userinput>sparc</userinput>.
+<userinput>ppc64el</userinput>,
+<userinput>s390x</userinput>.
 -->
 
 Nel comando <command>debootstrap</command> sostituire
@@ -1007,23 +1005,72 @@ Su alcune macchine potrebbe essere necessario usare
   </sect2>
 
   <sect2>
-  <!-- <title>Remote access: Installing SSH and setting a password</title> -->
-  <title>Accesso remoto: installazione di SSH e impostazione di una  password</title>
+  <!-- <title>Remote access: Installing SSH and setting up access</title> -->
+  <title>Accesso remoto: installazione di SSH e impostazione dell'accesso</title>
 <para>
 
 <!--
 In case you can login to the system via console, you can skip this section. If
 the system should be accessible via the network later on, you need to install
-SSH and set a password for root:
+SSH and set up access.
 -->
 
-Chi potrà accedere al sistema con la console, può saltare questa sezione.
-Se in seguito il sistema deve essere accessibile da remoto, è necessario
-installare SSH e impostare una password per root:
+Chi può accedere al sistema dalla console, può saltare questa sezione.
+Se il sistema deve essere accessibile da remoto, è necessario installare
+SSH e impostare l'accesso.
 
 <informalexample><screen>
 # aptitude install ssh
+</screen></informalexample>
+
+<!--
+Root login with password is disabled by default, so setting up access can be
+done by setting a password and re-enable root login with password:
+-->
+
+Con la configurazione predefinita non è possibile accedere come root tramite
+password, quindi è necessario prima impostare una password e poi riattivare
+l'accesso come root tramite password:
+
+<informalexample><screen>
 # passwd
+# editor /etc/ssh/sshd_config
+</screen></informalexample>
+
+<!--
+This is the option to be enabled:
+-->
+
+Questa è l'opzione da attivare:
+
+<informalexample><screen>
+PermitRootLogin yes
+</screen></informalexample>
+
+<!--
+Access can also be set up by adding an ssh key to the root account:
+-->
+
+È possibile anche configurare l'accesso aggiungendo una chiave ssh
+all'utente root:
+
+<informalexample><screen>
+# mkdir /root/.ssh
+# cat &lt;&lt; EOF &gt; /root/.ssh/authorized_keys
+ssh-rsa ....
+EOF
+</screen></informalexample>
+
+<!--
+Lastly, access can be set up by adding a non-root user and setting a password:
+-->
+
+Infine, configurare l'accesso per un utente non-root e impostare la password
+per questo utente:
+
+<informalexample><screen>
+# adduser joe
+# passwd joe
 </screen></informalexample>
 </para>
   </sect2>
@@ -1041,7 +1088,7 @@ to install all packages with <quote>standard</quote> priority:
 
 Come già detto in precedenza, al termine dell'installazione si dispone di
 un sistema decisamente basilare. Per rendere il proprio sistema più completo
-c'è un modo semplice per installare tutti i pacchetti con priorità
+c'è un metodo molto semplice per installare tutti i pacchetti con priorità
 <quote>standard</quote>:
 
 <informalexample><screen>
