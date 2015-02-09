@@ -2,7 +2,7 @@
 #
 # Seok-moon Jang <drssay97@gmail.com>, 2005.
 # Leeyumi <orccl1001@gmail.com>, 2011.
-# Changwoo Ryu <cwryu@debian.org>, 2005-2009, 2012-2014.
+# Changwoo Ryu <cwryu@debian.org>, 2005-2009, 2012-2015.
 #
 # 이 번역은 완성 단계로 품질에 많은 신경을 쓰고 있습니다. 반드시
 # debian-l10n-korean 메일링 리스트에 번역 사실을 알리고 토의를 하십시오.
@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: boot-installer.xml\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2015-01-09 19:07+0000\n"
-"PO-Revision-Date: 2014-09-21 00:50+0900\n"
+"PO-Revision-Date: 2015-02-09 08:59+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: Korean <debian-i10n-korean@lists.debian.org>\n"
 "Language: ko\n"
@@ -336,10 +336,9 @@ msgstr ""
 
 #. Tag: title
 #: boot-installer.xml:160
-#, fuzzy, no-c-format
-#| msgid "Booting from USB memory stick"
+#, no-c-format
 msgid "Booting from a USB stick in u-boot"
-msgstr "USB 메모리에서 부팅하기"
+msgstr "u-boot 이용해 USB 메모리에서 부팅하기"
 
 #. Tag: para
 #: boot-installer.xml:161
@@ -348,7 +347,7 @@ msgid ""
 "Many modern u-boot versions have USB support and allow booting from USB mass "
 "storage devices such as USB sticks. Unfortunately the exact steps required "
 "to do that can vary quite a bit from device to device."
-msgstr ""
+msgstr "최근의 u-boot 버전에서는 USB를 지원하므로, USB 메모리와 같은 USB 대용량 저장소 장치에서 부팅할 수 있습니다. 아쉽지만 부팅하는 정확한 단계는 하드웨어마다 조금씩 다를 수 있습니다."
 
 #. Tag: para
 #: boot-installer.xml:168
@@ -359,7 +358,7 @@ msgid ""
 "implementing this framework. The &d-i; supports installation from a USB "
 "stick on such systems, but unfortunately not all platforms have adopted this "
 "new framework yet."
-msgstr ""
+msgstr "U-Boot v2014.10 버전부터 공통된 명령행 처리와 자동 부팅 프레임워크가 갖춰졌습니다. 이 기능 때문에 이 프레임워크를 구현한 시스템이라면 어디든 동작하는 일반적인 부팅 이미지를 만들 수 있게 되었습니다. &d-i;에서는 USB 메모리를 이용해 그러한 시스템을 부팅할 수 있습니다. 하지만 이 프레임워크를 아직 사용하지 않는 플랫폼도 있습니다."
 
 #. Tag: para
 #: boot-installer.xml:177
@@ -371,7 +370,7 @@ msgid ""
 "u-boot versions, any of FAT16 / FAT32 / ext2 / ext3 / ext4 usually works. "
 "Then copy the ISO image file of the first &debian; installation CD or DVD "
 "onto the stick."
-msgstr ""
+msgstr "&debian; 설치에 사용할 부팅 가능 USB 메모리를 만드려면, hd-media 묶음을 (<xref linkend=\"where-files\"/> 참고) USB 메모리에 풀어 놓습니다. USB 메모리는 하드웨어의 u-boot 버전에서 지원하는 파일 시스템으로 포맷해야 합니다. 최근의 u-boot 버전에서는 FAT16 / FAT32 / ext2 / ext3 / ext4 모두 동작합니다. 그리고 첫번째 &debian; 설치 CD 또는 DVD의 ISO 이미지를 그 USB 메모리에 복사합니다."
 
 #. Tag: para
 #: boot-installer.xml:187
@@ -384,7 +383,7 @@ msgid ""
 "the system should result in starting the installer. You can also initiate "
 "the USB-boot process any time from the u-boot prompt by entering the "
 "<quote>run usb_boot</quote> command."
-msgstr ""
+msgstr "최근 u-boot 버전의 자동 부팅 프레임워크는 PC BIOS의 부팅 순서와 비슷하게 동작합니다. 즉 가능한 부팅 장치에서 부팅 이미지를 확인하고, 찾은 부팅 장치 중에서 첫 번째에서 부팅합니다. 운영 체제를 설치하지 않았으면, USB 메모리를 연결하고 전원을 켜면 설치 프로그램을 시작하게 됩니다. u-boot 프롬프트에서 <quote>run usb_boot</quote> 명령을 입력하면 언제든지 USB 부팅을 할 수 있습니다."
 
 #. Tag: para
 #: boot-installer.xml:197
@@ -404,7 +403,7 @@ msgid ""
 "to the traditional 9600 baud. If this happens, you should manually set the "
 "console variable to contain the correct baudrate for your system and then "
 "start the installer with the <quote>run usb_boot</quote> command."
-msgstr ""
+msgstr "시리얼 콘솔을 사용할 때 USB 메모리에서 부팅할 경우 발생할 수 있는 한 가지 문제는 보우레이트가 일치하지 않는 경우입니다. 콘솔 변수를 u-boot에서 지정한 경우, &d-i; 부팅 스크립트에서 자동으로 커널에 전달해서 사용하는 콘솔 장치와 보우레이트를 설정합니다. 아쉽지만 콘솔 변수 처리는 플랫폼마다 다릅니다. 일부 시스템에서는 콘솔 변수에서 보우레이트를 지정하고 (<quote>console=ttyS0,115200</quote>처럼), 어떤 플랫폼에서는 콘솔 변수에 시리얼 장치만 (<quote>console=ttyS0</quote>처럼) 설정합니다. 후자의 경우 u-boot와 커널이 사용하는 기본 보우레이트가 다른 경우 콘솔 출력이 깨질 수 있습니다. 최근의 u-boot 버전에서는 115200 보우레이트를 사용하지만, 여전히 커널은 전통적인 9600 보우레이트를 사용합니다. 이런 상황이 벌어지는 경우, 콘솔 변수를 수동으로 설정해서 시스템의 보우레이트를 바로잡고 <quote>run usb_boot</quote> 명령으로 설치 프로그램을 시작해야 합니다."
 
 #. Tag: title
 #: boot-installer.xml:345 boot-installer.xml:924 boot-installer.xml:1581
@@ -2907,21 +2906,14 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:2255
-#, fuzzy, no-c-format
-#| msgid ""
-#| "You may need to specify parameters for the serial port, such as speed and "
-#| "parity, for instance <userinput>console=ttyS0,9600n8</userinput>; other "
-#| "typical speeds may be 57600 or 115200."
+#, no-c-format
 msgid ""
 "You may need to specify parameters for the serial port, such as speed and "
 "parity, for instance <userinput>console=ttyS0,9600n8</userinput>; other "
 "typical speeds may be 57600 or 115200. Be sure to specify this option after "
 "<quote>---</quote>, so that it is copied into the bootloader configuration "
 "for the installed system (if supported by the installer for the bootloader)."
-msgstr ""
-"속도와 패리티 등의 시리얼 포트 파라미터를 지정해야 합니다. 예를 들어 "
-"<userinput>console=ttyS0,9600n8</userinput>와 같이 합니다. 57600이나 115200"
-"도 많이 사용하는 속도입니다."
+msgstr "속도와 패리티 등의 시리얼 포트 파라미터를 지정해야 합니다. 예를 들어 <userinput>console=ttyS0,9600n8</userinput>와 같이 합니다. 57600이나 115200도 많이 사용하는 속도입니다. <quote>---</quote> 다음에 이 옵션을 지정하십시오. 그래야 (부트로더 설치 모듈에서 지원하는 경우) 설치한 시스템의 부트로더 설정으로 들어갑니다."
 
 #. Tag: para
 #: boot-installer.xml:2263
