@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: preseed.xml\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2015-01-09 19:07+0000\n"
+"POT-Creation-Date: 2015-02-23 20:58+0000\n"
 "PO-Revision-Date: 2015-02-09 09:38+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: Korean <debian-i10n-korean@lists.debian.org>\n"
@@ -546,7 +546,12 @@ msgid ""
 "the bootloader configuration for the installed system (if supported by the "
 "installer for the bootloader). The installer will automatically filter out "
 "any options (like preconfiguration options) that it recognizes."
-msgstr "부팅 옵션의 <quote>---</quote>는 특별한 의미가 있습니다. 마지막 <quote>---</quote> 뒤에 오는 커널 파라미터는 설치한 시스템의 부트로더 설정으로 복사되어 들어갑니다. (설치 프로그램에서 설치하는 부트로더가 지원하는 경우.) 설치 프로그램은(미리 설정 옵션과 마찬가지로) 설치 프로그램에서 인식하는 옵션만 모두 걸러냅니다."
+msgstr ""
+"부팅 옵션의 <quote>---</quote>는 특별한 의미가 있습니다. 마지막 <quote>---</"
+"quote> 뒤에 오는 커널 파라미터는 설치한 시스템의 부트로더 설정으로 복사되어 "
+"들어갑니다. (설치 프로그램에서 설치하는 부트로더가 지원하는 경우.) 설치 프로"
+"그램은(미리 설정 옵션과 마찬가지로) 설치 프로그램에서 인식하는 옵션만 모두 걸"
+"러냅니다."
 
 #. Tag: para
 #: preseed.xml:358
@@ -1937,25 +1942,28 @@ msgstr ""
 
 #. Tag: para
 #: preseed.xml:891
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "The following command can be used to generate an MD5 hash for a password:"
 msgid ""
-"The following command can be used to generate an MD5 hash for a password:"
+"The following command (available from the <classname>whois</classname> "
+"package) can be used to generate an MD5 hash for a password:"
 msgstr "암호에 대한 MD5 해시를 만드려면 다음 명령을 사용할 수 있습니다:"
 
 #. Tag: screen
-#: preseed.xml:895
+#: preseed.xml:896
 #, no-c-format
 msgid "mkpasswd -m sha-512"
 msgstr "mkpasswd -m sha-512"
 
 #. Tag: title
-#: preseed.xml:901
+#: preseed.xml:902
 #, no-c-format
 msgid "Clock and time zone setup"
 msgstr "시계 및 시간대 설정"
 
 #. Tag: screen
-#: preseed.xml:903
+#: preseed.xml:904
 #, no-c-format
 msgid ""
 "# Controls whether or not the hardware clock is set to UTC.\n"
@@ -1983,13 +1991,13 @@ msgstr ""
 "#d-i clock-setup/ntp-server string ntp.example.com"
 
 #. Tag: title
-#: preseed.xml:908
+#: preseed.xml:909
 #, no-c-format
 msgid "Partitioning"
 msgstr "파티션하기"
 
 #. Tag: para
-#: preseed.xml:909
+#: preseed.xml:910
 #, no-c-format
 msgid ""
 "Using preseeding to partition the harddisk is limited to what is supported "
@@ -2005,7 +2013,7 @@ msgstr ""
 "할 수 있습니다."
 
 #. Tag: para
-#: preseed.xml:917
+#: preseed.xml:918
 #, no-c-format
 msgid ""
 "Preseeding of advanced partition setups using RAID, LVM and encryption is "
@@ -2017,7 +2025,7 @@ msgstr ""
 "입니다."
 
 #. Tag: para
-#: preseed.xml:923
+#: preseed.xml:924
 #, no-c-format
 msgid ""
 "The examples below only provide basic information on the use of recipes. For "
@@ -2036,7 +2044,7 @@ msgstr ""
 "리스마다 달라질 수 있습니다."
 
 #. Tag: para
-#: preseed.xml:937
+#: preseed.xml:938
 #, no-c-format
 msgid ""
 "The identification of disks is dependent on the order in which their drivers "
@@ -2048,14 +2056,14 @@ msgstr ""
 "도록 하십시오."
 
 #. Tag: title
-#: preseed.xml:946
+#: preseed.xml:947
 #, no-c-format
 msgid "Partitioning example"
 msgstr "파티션 예제"
 
 # 주의: 메시지 번역과 통일
 #. Tag: screen
-#: preseed.xml:948
+#: preseed.xml:949
 #, no-c-format
 msgid ""
 "# If the system has free space you can choose to only partition that space.\n"
@@ -2136,9 +2144,12 @@ msgstr ""
 "# 아래의 partman-auto/method 설정이 있을 때만 적용됩니다.\n"
 "#d-i partman-auto/init_automatically_partition select biggest_free\n"
 "\n"
-"# 다른 방법으로, 파티션할 디스크를 직접 지정할 수 있습니다. 시스템에 디스크가 1개\n"
-"# 뿐인 경우 설치 프로그램에서는 그 디스크를 사용합니다. 하지만 여러 개인 경우 장치\n"
-"# 이름은 전통적인, devfs 형식이 아닌 형식으로 지정합니다. (예를 들어 /dev/hda 또는\n"
+"# 다른 방법으로, 파티션할 디스크를 직접 지정할 수 있습니다. 시스템에 디스크"
+"가 1개\n"
+"# 뿐인 경우 설치 프로그램에서는 그 디스크를 사용합니다. 하지만 여러 개인 경"
+"우 장치\n"
+"# 이름은 전통적인, devfs 형식이 아닌 형식으로 지정합니다. (예를 들어 /dev/"
+"hda 또는\n"
 "# /dev/sda. /dev/discs/disc0/disc 형식이 아님.)\n"
 "# 예를 들어, 첫 번째 SCSI/SATA 하드 디스크를 사용하려면:\n"
 "#d-i partman-auto/disk string /dev/sda\n"
@@ -2149,7 +2160,8 @@ msgstr ""
 "# - crypto:  암호화한 파티션에 LVM을 사용\n"
 "d-i partman-auto/method string lvm\n"
 "\n"
-"# 자동으로 파티션할 디스크 중에 과거 LVM 설정이 남아 있을 경우, 경고 메시지를\n"
+"# 자동으로 파티션할 디스크 중에 과거 LVM 설정이 남아 있을 경우, 경고 메시지"
+"를\n"
 "# 받게 됩니다. 이 경고를 미리 설정으로 무시할 수 잇습니다...\n"
 "d-i partman-lvm/device_remove_lvm boolean true\n"
 "# 기존에 소프트웨어 RAID 어레이가 설정된 경우에도 마찬가지로 적용됩니다:\n"
@@ -2202,13 +2214,13 @@ msgstr ""
 "d-i partman/confirm_nooverwrite boolean true"
 
 #. Tag: title
-#: preseed.xml:952
+#: preseed.xml:953
 #, no-c-format
 msgid "Partitioning using RAID"
 msgstr "RAID를 사용해 파티션하기"
 
 #. Tag: para
-#: preseed.xml:953
+#: preseed.xml:954
 #, no-c-format
 msgid ""
 "You can also use preseeding to set up partitions on software RAID arrays. "
@@ -2219,7 +2231,7 @@ msgstr ""
 "RAID 0, 1, 5, 6, 10, 비상용 어레이 및 예비 장치를 지정합니다."
 
 #. Tag: para
-#: preseed.xml:959
+#: preseed.xml:960
 #, no-c-format
 msgid ""
 "If you are using RAID 1, you can preseed grub to install to all devices used "
@@ -2229,7 +2241,7 @@ msgstr ""
 "에서 찾을 수 있습니다. <xref linkend=\"preseed-bootloader\"/>를 참조하십시오."
 
 #. Tag: para
-#: preseed.xml:966
+#: preseed.xml:967
 #, no-c-format
 msgid ""
 "This type of automated partitioning is easy to get wrong. It is also "
@@ -2244,7 +2256,7 @@ msgstr ""
 "var/log/syslog</filename> 파일을 확인하십시오."
 
 #. Tag: screen
-#: preseed.xml:976
+#: preseed.xml:977
 #, no-c-format
 msgid ""
 "# The method should be set to \"raid\".\n"
@@ -2346,13 +2358,13 @@ msgstr ""
 "d-i partman/confirm_nooverwrite boolean true"
 
 #. Tag: title
-#: preseed.xml:981
+#: preseed.xml:982
 #, no-c-format
 msgid "Controlling how partitions are mounted"
 msgstr "파티션 마운트 방법 조정하기"
 
 #. Tag: para
-#: preseed.xml:982
+#: preseed.xml:983
 #, no-c-format
 msgid ""
 "Normally, filesystems are mounted using a universally unique identifier "
@@ -2368,7 +2380,7 @@ msgstr ""
 "따라 마운트할 경우, 레이블이 없는 파일 시스템은 UUID를 사용해 마운트합니다."
 
 #. Tag: para
-#: preseed.xml:991
+#: preseed.xml:992
 #, no-c-format
 msgid ""
 "Devices with stable names, such as LVM logical volumes, will continue to use "
@@ -2378,7 +2390,7 @@ msgstr ""
 "용합니다."
 
 #. Tag: para
-#: preseed.xml:998
+#: preseed.xml:999
 #, no-c-format
 msgid ""
 "Traditional device names may change based on the order in which the kernel "
@@ -2393,7 +2405,7 @@ msgstr ""
 "있고 그 경우 시스템이 어떻게 동작할지 확신할 수 없습니다."
 
 #. Tag: screen
-#: preseed.xml:1008
+#: preseed.xml:1009
 #, no-c-format
 msgid ""
 "# The default is to mount by UUID, but you can also choose \"traditional\" "
@@ -2409,13 +2421,13 @@ msgstr ""
 "#d-i partman/mount_style select uuid"
 
 #. Tag: title
-#: preseed.xml:1014
+#: preseed.xml:1015
 #, no-c-format
 msgid "Base system installation"
 msgstr "기본 시스템  설치"
 
 #. Tag: para
-#: preseed.xml:1015
+#: preseed.xml:1016
 #, no-c-format
 msgid ""
 "There is actually not very much that can be preseeded for this stage of the "
@@ -2426,7 +2438,7 @@ msgstr ""
 "쓸 부분은 커널 설치에 관한 질문입니다."
 
 #. Tag: screen
-#: preseed.xml:1022
+#: preseed.xml:1023
 #, no-c-format
 msgid ""
 "# Configure APT to not install recommended packages by default. Use of this\n"
@@ -2450,13 +2462,13 @@ msgstr ""
 "#d-i base-installer/kernel/image string &kernelpackage;-586"
 
 #. Tag: title
-#: preseed.xml:1027
+#: preseed.xml:1028
 #, no-c-format
 msgid "Apt setup"
 msgstr "APT 설정"
 
 #. Tag: para
-#: preseed.xml:1028
+#: preseed.xml:1029
 #, no-c-format
 msgid ""
 "Setup of the <filename>/etc/apt/sources.list</filename> and basic "
@@ -2469,7 +2481,7 @@ msgstr ""
 "른 저장소를 지정할 수 있습니다."
 
 #. Tag: screen
-#: preseed.xml:1036
+#: preseed.xml:1037
 #, no-c-format
 msgid ""
 "# You can choose to install non-free and contrib software.\n"
@@ -2525,13 +2537,13 @@ msgstr ""
 "#d-i debian-installer/allow_unauthenticated boolean true"
 
 #. Tag: title
-#: preseed.xml:1041
+#: preseed.xml:1042
 #, no-c-format
 msgid "Package selection"
 msgstr "패키지 선택"
 
 #. Tag: para
-#: preseed.xml:1042
+#: preseed.xml:1043
 #, no-c-format
 msgid ""
 "You can choose to install any combination of tasks that are available. "
@@ -2541,73 +2553,73 @@ msgstr ""
 "수 있는 태스크는 다음과 같습니다:"
 
 #. Tag: para
-#: preseed.xml:1050
+#: preseed.xml:1051
 #, no-c-format
 msgid "<userinput>standard</userinput> (standard tools)"
 msgstr "<userinput>standard</userinput> (표준 도구)"
 
 #. Tag: para
-#: preseed.xml:1053
+#: preseed.xml:1054
 #, no-c-format
 msgid "<userinput>desktop</userinput> (graphical desktop)"
 msgstr "<userinput>desktop</userinput> (그래픽 데스크톱)"
 
 #. Tag: para
-#: preseed.xml:1056
+#: preseed.xml:1057
 #, no-c-format
 msgid "<userinput>gnome-desktop</userinput> (Gnome desktop)"
 msgstr "<userinput>gnome-desktop</userinput> (그놈 데스크톱)"
 
 #. Tag: para
-#: preseed.xml:1059
+#: preseed.xml:1060
 #, no-c-format
 msgid "<userinput>xfce-desktop</userinput> (XFCE desktop)"
 msgstr "<userinput>xfce-desktop</userinput> (XFCE 데스크톱)"
 
 #. Tag: para
-#: preseed.xml:1062
+#: preseed.xml:1063
 #, no-c-format
 msgid "<userinput>kde-desktop</userinput> (KDE desktop)"
 msgstr "<userinput>kde-desktop</userinput> (KDE 데스크톱)"
 
 #. Tag: para
-#: preseed.xml:1065
+#: preseed.xml:1066
 #, no-c-format
 msgid "<userinput>cinnamon-desktop</userinput> (Cinnamon desktop)"
 msgstr "<userinput>cinnamon-desktop</userinput> (시나몬 데스크톱)"
 
 #. Tag: para
-#: preseed.xml:1068
+#: preseed.xml:1069
 #, no-c-format
 msgid "<userinput>mate-desktop</userinput> (MATE desktop)"
 msgstr "<userinput>mate-desktop</userinput> (MATE 데스크톱)"
 
 #. Tag: para
-#: preseed.xml:1071
+#: preseed.xml:1072
 #, no-c-format
 msgid "<userinput>lxde-desktop</userinput> (LXDE desktop)"
 msgstr "<userinput>lxde-desktop</userinput> (LXDE 데스크톱)"
 
 #. Tag: para
-#: preseed.xml:1074
+#: preseed.xml:1075
 #, no-c-format
 msgid "<userinput>web-server</userinput> (web server)"
 msgstr "<userinput>web-server</userinput> (웹 서버)"
 
 #. Tag: para
-#: preseed.xml:1077
+#: preseed.xml:1078
 #, no-c-format
 msgid "<userinput>print-server</userinput> (print server)"
 msgstr "<userinput>print-server</userinput> (인쇄 서버)"
 
 #. Tag: para
-#: preseed.xml:1080
+#: preseed.xml:1081
 #, no-c-format
 msgid "<userinput>ssh-server</userinput> (SSH server)"
 msgstr "<userinput>ssh-server</userinput> (SSH 서버)"
 
 #. Tag: para
-#: preseed.xml:1085
+#: preseed.xml:1086
 #, no-c-format
 msgid ""
 "You can also choose to install no tasks, and force the installation of a set "
@@ -2618,7 +2630,7 @@ msgstr ""
 "<userinput>표준 시스템</userinput> 태스크는 항상 포함하시길 권장합니다."
 
 #. Tag: para
-#: preseed.xml:1091
+#: preseed.xml:1092
 #, no-c-format
 msgid ""
 "If you want to install some individual packages in addition to packages "
@@ -2632,7 +2644,7 @@ msgstr ""
 "백으로 구분할 수 있으므로, 커널 명령행에서도 쉽게 사용할 수 있습니다."
 
 #. Tag: screen
-#: preseed.xml:1101
+#: preseed.xml:1102
 #, no-c-format
 msgid ""
 "#tasksel tasksel/first multiselect standard, web-server, kde-desktop\n"
@@ -2664,13 +2676,13 @@ msgstr ""
 "#popularity-contest popularity-contest/participate boolean false"
 
 #. Tag: title
-#: preseed.xml:1106
+#: preseed.xml:1107
 #, no-c-format
 msgid "Boot loader installation"
 msgstr "부트로더 설치"
 
 #. Tag: screen
-#: preseed.xml:1108
+#: preseed.xml:1109
 #, no-c-format
 msgid ""
 "<phrase arch=\"linux-any\"># Grub is the default boot loader (for x86). If "
@@ -2717,12 +2729,15 @@ msgid ""
 "# Note: options passed to the installer will be added automatically.\n"
 "#d-i debian-installer/add-kernel-opts string nousb"
 msgstr ""
-"<phrase arch=\"linux-any\"># GRUB은 기본(x86의 경우) 부트로더입니다. lilo를 사용하려면 다음\n"
+"<phrase arch=\"linux-any\"># GRUB은 기본(x86의 경우) 부트로더입니다. lilo를 "
+"사용하려면 다음\n"
 "# 설정의 주석을 지우십시오.\n"
 "#d-i grub-installer/skip boolean true\n"
-"# lilo 설치도 건너 뛰고 부트로더 없이 설치하려면, 다음 설정의 주석도 지우십시오:\n"
+"# lilo 설치도 건너 뛰고 부트로더 없이 설치하려면, 다음 설정의 주석도 지우십시"
+"오:\n"
 "#d-i lilo-installer/skip boolean true</phrase>\n"
-"<phrase arch=\"kfreebsd-any;hurd-any\"># 부트로더를 설치하지 않으려면, 다음 설정의 주석을 지우십시오:\n"
+"<phrase arch=\"kfreebsd-any;hurd-any\"># 부트로더를 설치하지 않으려면, 다음 "
+"설정의 주석을 지우십시오:\n"
 "#d-i grub-installer/skip boolean true</phrase>\n"
 "\n"
 "# 다음 설정은 설정해도 안전합니다. 다음 설정은 컴퓨터에 다른 운영체제가\n"
@@ -2751,13 +2766,14 @@ msgstr ""
 "# 아니면 MD5 해시를 사용합니다. grub-md5-crypt(8) 참고.\n"
 "#d-i grub-installer/password-crypted password [MD5 hash]\n"
 "\n"
-"# 다음 옵션을 사용하면 설치할 시스템에 부팅 파라미터를 추가합니다. (부트로더\n"
+"# 다음 옵션을 사용하면 설치할 시스템에 부팅 파라미터를 추가합니다. (부트로"
+"더\n"
 "# 설치에서 지원하는 경우)\n"
 "# 주의: 설치 프로그램에 추가했던 옵션은 자동으로 추가됩니다.\n"
 "#d-i debian-installer/add-kernel-opts string nousb"
 
 #. Tag: para
-#: preseed.xml:1110
+#: preseed.xml:1111
 #, no-c-format
 msgid ""
 "An MD5 hash for a password for <classname>grub</classname> can be generated "
@@ -2769,13 +2785,13 @@ msgstr ""
 "\"preseed-account\"/> 부분의 예제 명령을 사용해서 만들어 낼 수 있습니다."
 
 #. Tag: title
-#: preseed.xml:1120
+#: preseed.xml:1121
 #, no-c-format
 msgid "Finishing up the installation"
 msgstr "설치 마치기"
 
 #. Tag: screen
-#: preseed.xml:1122
+#: preseed.xml:1123
 #, no-c-format
 msgid ""
 "# During installations from serial console, the regular virtual consoles\n"
@@ -2814,13 +2830,13 @@ msgstr ""
 "#d-i debian-installer/exit/poweroff boolean true"
 
 #. Tag: title
-#: preseed.xml:1127
+#: preseed.xml:1128
 #, no-c-format
 msgid "Preseeding other packages"
 msgstr "기타 패키지 미리 설정"
 
 #. Tag: screen
-#: preseed.xml:1129
+#: preseed.xml:1130
 #, no-c-format
 msgid ""
 "# Depending on what software you choose to install, or if things go wrong\n"
@@ -2839,19 +2855,19 @@ msgstr ""
 "#   debconf-get-selections >> file"
 
 #. Tag: title
-#: preseed.xml:1136
+#: preseed.xml:1137
 #, no-c-format
 msgid "Advanced options"
 msgstr "고급 옵션"
 
 #. Tag: title
-#: preseed.xml:1139
+#: preseed.xml:1140
 #, no-c-format
 msgid "Running custom commands during the installation"
 msgstr "설치할 때 임의의 명령어 실행하기"
 
 #. Tag: para
-#: preseed.xml:1140
+#: preseed.xml:1141
 #, no-c-format
 msgid ""
 "A very powerful and flexible option offered by the preconfiguration tools is "
@@ -2861,7 +2877,7 @@ msgstr ""
 "크립트를 실행하는 기능입니다."
 
 #. Tag: para
-#: preseed.xml:1146
+#: preseed.xml:1147
 #, no-c-format
 msgid ""
 "When the filesystem of the target system is mounted, it is available in "
@@ -2873,7 +2889,7 @@ msgstr ""
 "<filename>/cdrom</filename> 아래에 있습니다."
 
 #. Tag: screen
-#: preseed.xml:1154
+#: preseed.xml:1155
 #, no-c-format
 msgid ""
 "# d-i preseeding is inherently not secure. Nothing in the installer checks\n"
@@ -2923,13 +2939,13 @@ msgstr ""
 "#d-i preseed/late_command string apt-install zsh; in-target chsh -s /bin/zsh"
 
 #. Tag: title
-#: preseed.xml:1159
+#: preseed.xml:1160
 #, no-c-format
 msgid "Using preseeding to change default values"
 msgstr "미리 설정을 이용해 기본값 바꾸기"
 
 #. Tag: para
-#: preseed.xml:1160
+#: preseed.xml:1161
 #, no-c-format
 msgid ""
 "It is possible to use preseeding to change the default answer for a "
@@ -2955,7 +2971,7 @@ msgstr ""
 "버깅하는 데도 좋습니다."
 
 #. Tag: para
-#: preseed.xml:1174
+#: preseed.xml:1175
 #, no-c-format
 msgid ""
 "Note that the <quote>d-i</quote> owner should only be used for variables "
@@ -2969,7 +2985,7 @@ msgstr ""
 "주를 보십시오."
 
 #. Tag: para
-#: preseed.xml:1181
+#: preseed.xml:1182
 #, no-c-format
 msgid ""
 "If you are preseeding using boot parameters, you can make the installer ask "
@@ -2990,7 +3006,7 @@ msgstr ""
 "replaceable>?=<replaceable>값</replaceable></userinput>) 합니다."
 
 #. Tag: para
-#: preseed.xml:1191
+#: preseed.xml:1192
 #, no-c-format
 msgid ""
 "For more debugging information, use the boot parameter "
@@ -3003,13 +3019,13 @@ msgstr ""
 "재 설정 및 각 패키지의 설치 스크립트의 진행 상태에 대해 더 자세히 표시합니다."
 
 #. Tag: title
-#: preseed.xml:1203
+#: preseed.xml:1204
 #, no-c-format
 msgid "Chainloading preconfiguration files"
 msgstr "미리 설정 파일을 분리해서 사용하기"
 
 #. Tag: para
-#: preseed.xml:1204
+#: preseed.xml:1205
 #, no-c-format
 msgid ""
 "It is possible to include other preconfiguration files from a "
@@ -3024,7 +3040,7 @@ msgstr ""
 "다른 파일에 집어 넣는 식으로 활용이 가능합니다."
 
 #. Tag: screen
-#: preseed.xml:1214
+#: preseed.xml:1215
 #, no-c-format
 msgid ""
 "# More than one file can be listed, separated by spaces; all will be\n"
@@ -3074,7 +3090,7 @@ msgstr ""
 "#d-i preseed/run string foo.sh"
 
 #. Tag: para
-#: preseed.xml:1216
+#: preseed.xml:1217
 #, no-c-format
 msgid ""
 "It is also possible to chainload from the initrd or file preseeding phase, "

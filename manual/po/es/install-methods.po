@@ -36,7 +36,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2015-01-09 19:07+0000\n"
+"POT-Creation-Date: 2015-02-23 20:58+0000\n"
 "PO-Revision-Date: 2013-02-24 13:33+0100\n"
 "Last-Translator: Javier Fernández-Sanguino <jfs@debian.org>\n"
 "Language-Team: Debian l10n Spanish <debian-l10n-spanish@lists.debian.org>\n"
@@ -844,12 +844,17 @@ msgstr ""
 
 #. Tag: para
 #: install-methods.xml:558
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "Debian CD and DVD images can now be written directly a USB stick, which "
+#| "is a very easy way to make a bootable USB stick. Simply choose a CD or "
+#| "DVD image that will fit on your USB stick. See <xref linkend=\"official-"
+#| "cdrom\"/> to get a CD or DVD image."
 msgid ""
-"Debian CD and DVD images can now be written directly a USB stick, which is a "
-"very easy way to make a bootable USB stick. Simply choose a CD or DVD image "
-"that will fit on your USB stick. See <xref linkend=\"official-cdrom\"/> to "
-"get a CD or DVD image."
+"Debian CD and DVD images can now be written directly to a USB stick, which "
+"is a very easy way to make a bootable USB stick. Simply choose a CD or DVD "
+"image (such as the netinst, CD-1, DVD-1, or netboot) that will fit on your "
+"USB stick. See <xref linkend=\"official-cdrom\"/> to get a CD or DVD image."
 msgstr ""
 "Las imágenes de CD y DVD de Debian ahora se pueden escribir directamente en "
 "una memoria USB para hacerla arrancable de una manera muy sencilla. Sólo "
@@ -858,7 +863,7 @@ msgstr ""
 "información sobre cómo obtener una imagen de CD o DVD."
 
 #. Tag: para
-#: install-methods.xml:565
+#: install-methods.xml:566
 #, no-c-format
 msgid ""
 "Alternatively, for very small USB sticks, only a few megabytes in size, you "
@@ -871,13 +876,25 @@ msgstr ""
 "filename> (en la ubicación mencionada en <xref linkend=\"where-files\"/>)."
 
 #. Tag: para
-#: install-methods.xml:572
-#, no-c-format
+#: install-methods.xml:573
+#, fuzzy, no-c-format
+#| msgid ""
+#| "The CD or DVD image you choose should be written directly to the USB "
+#| "stick, overwriting its current contents. For example, when using an "
+#| "existing GNU/Linux system, the CD or DVD image file can be written to a "
+#| "USB stick as follows, after having made sure that the stick is unmounted:"
 msgid ""
 "The CD or DVD image you choose should be written directly to the USB stick, "
 "overwriting its current contents. For example, when using an existing GNU/"
 "Linux system, the CD or DVD image file can be written to a USB stick as "
-"follows, after having made sure that the stick is unmounted:"
+"follows, after having made sure that the stick is unmounted: "
+"<informalexample><screen>\n"
+"<prompt>#</prompt> <userinput>cp <replaceable>debian.iso</replaceable> /dev/"
+"<replaceable>sdX</replaceable></userinput>\n"
+"<prompt>#</prompt> <userinput>sync</userinput>\n"
+"</screen></informalexample> The <ulink url=\"http://sf.net/projects/"
+"win32diskimager/\"> win32diskimager</ulink> utility can be used under other "
+"operating systems to copy the image."
 msgstr ""
 "La imagen de CD o DVD seleccionada se debe escribir directamente en la "
 "memoria USB, reemplazando la totalidad de su contenido actual. Por ejemplo, "
@@ -885,28 +902,17 @@ msgstr ""
 "memoria USB de la siguiente manera, después de comprobar que se ha "
 "desmontado el dispositivo USB:"
 
-#. Tag: screen
-#: install-methods.xml:579
-#, no-c-format
-msgid ""
-"<prompt>#</prompt> <userinput>cp <replaceable>debian.iso</replaceable> /dev/"
-"<replaceable>sdX</replaceable></userinput>\n"
-"<prompt>#</prompt> <userinput>sync</userinput>"
-msgstr ""
-"<prompt>#</prompt> <userinput>cp <replaceable>debian.iso</replaceable> /dev/"
-"<replaceable>sdX</replaceable></userinput>\n"
-"<prompt>#</prompt> <userinput>sync</userinput>"
-
 #. Tag: para
-#: install-methods.xml:581
+#: install-methods.xml:587
 #, no-c-format
 msgid ""
 "The image must be written to the whole-disk device and not a partition, e."
-"g. /dev/sdb and not /dev/sdb1."
+"g. /dev/sdb and not /dev/sdb1. Do not use tools like <command>unetbootin</"
+"command> which alter the image."
 msgstr ""
 
 #. Tag: para
-#: install-methods.xml:586
+#: install-methods.xml:593
 #, no-c-format
 msgid ""
 "Simply writing the CD or DVD image to USB like this should work fine for "
@@ -918,7 +924,7 @@ msgstr ""
 "más complejos, generalmente para personas con necesidades especiales."
 
 #. Tag: para
-#: install-methods.xml:594
+#: install-methods.xml:601
 #, no-c-format
 msgid ""
 "The hybrid image on the stick does not occupy all the storage space, so it "
@@ -933,7 +939,7 @@ msgstr ""
 "desea almacenar todo en un único dispositivo."
 
 #. Tag: para
-#: install-methods.xml:602
+#: install-methods.xml:609
 #, no-c-format
 msgid ""
 "Create a second, FAT partition on the stick, mount the partition and copy or "
@@ -943,7 +949,7 @@ msgstr ""
 "o desempaquete el firmware en él. Por ejemplo:"
 
 #. Tag: screen
-#: install-methods.xml:607
+#: install-methods.xml:614
 #, no-c-format
 msgid ""
 "# mount /dev/<replaceable>sdX2</replaceable> /mnt\n"
@@ -959,7 +965,7 @@ msgstr ""
 "# umount /mnt"
 
 #. Tag: para
-#: install-methods.xml:609
+#: install-methods.xml:616
 #, no-c-format
 msgid ""
 "You might have written the <filename>mini.iso</filename> to the USB stick. "
@@ -973,13 +979,13 @@ msgstr ""
 "debería hacer visibles las dos particiones."
 
 #. Tag: title
-#: install-methods.xml:623
+#: install-methods.xml:630
 #, no-c-format
 msgid "Manually copying files to the USB stick"
 msgstr "Copia manual de los ficheros a la memoria USB"
 
 #. Tag: para
-#: install-methods.xml:624
+#: install-methods.xml:631
 #, no-c-format
 msgid ""
 "An alternative way to set up your USB stick is to manually copy the "
@@ -994,7 +1000,7 @@ msgstr ""
 "linkend=\"usb-copy-flexible\"/>)."
 
 #. Tag: para
-#: install-methods.xml:631
+#: install-methods.xml:638
 #, no-c-format
 msgid ""
 "There is an all-in-one file <filename>hd-media/boot.img.gz</filename> which "
@@ -1010,7 +1016,7 @@ msgstr ""
 "<classname>yaboot</classname> y su fichero de configuración</phrase>."
 
 #. Tag: para
-#: install-methods.xml:640
+#: install-methods.xml:647
 #, no-c-format
 msgid ""
 "Note that, although convenient, this method does have one major "
@@ -1026,7 +1032,7 @@ msgstr ""
 "reparticionarla y crear un nuevo sistema de ficheros"
 
 #. Tag: para
-#: install-methods.xml:648
+#: install-methods.xml:655
 #, no-c-format
 msgid "To use this image simply extract it directly to your USB stick:"
 msgstr ""
@@ -1034,13 +1040,13 @@ msgstr ""
 "USB:"
 
 #. Tag: screen
-#: install-methods.xml:652
+#: install-methods.xml:659
 #, no-c-format
 msgid "# zcat boot.img.gz &gt; /dev/<replaceable>sdX</replaceable>"
 msgstr "# zcat boot.img.gz &gt;/dev/<replaceable>sdX</replaceable>"
 
 #. Tag: para
-#: install-methods.xml:654
+#: install-methods.xml:661
 #, no-c-format
 msgid ""
 "Create a partition of type \"Apple_Bootstrap\" on your USB stick using "
@@ -1052,13 +1058,13 @@ msgstr ""
 "y extraiga la imagen directamente a éste:"
 
 #. Tag: screen
-#: install-methods.xml:660
+#: install-methods.xml:667
 #, no-c-format
 msgid "# zcat boot.img.gz &gt; /dev/<replaceable>sdX2</replaceable>"
 msgstr "# zcat boot.img.gz &gt;/dev/<replaceable>sdX2</replaceable>"
 
 #. Tag: para
-#: install-methods.xml:662
+#: install-methods.xml:669
 #, no-c-format
 msgid ""
 "After that, mount the USB memory stick <phrase arch=\"x86\">"
@@ -1080,14 +1086,14 @@ msgstr ""
 "mnt</userinput>) y habrá terminado."
 
 #. Tag: title
-#: install-methods.xml:679
+#: install-methods.xml:686
 #, no-c-format
 msgid "Manually copying files to the USB stick &mdash; the flexible way"
 msgstr ""
 "Copia manual de los ficheros a la memoria USB &mdash; la forma flexible"
 
 #. Tag: para
-#: install-methods.xml:680
+#: install-methods.xml:687
 #, fuzzy, no-c-format
 #| msgid ""
 #| "If you like more flexibility or just want to know what's going on, you "
@@ -1109,13 +1115,13 @@ msgstr ""
 "completa de CD en ella."
 
 #. Tag: title
-#: install-methods.xml:695 install-methods.xml:817
+#: install-methods.xml:702 install-methods.xml:824
 #, no-c-format
 msgid "Partitioning the USB stick"
 msgstr "Particionado de las memorias USB"
 
 #. Tag: para
-#: install-methods.xml:696
+#: install-methods.xml:703
 #, no-c-format
 msgid ""
 "We will show how to set up the memory stick to use the first partition, "
@@ -1125,7 +1131,7 @@ msgstr ""
 "partición en lugar de todo el dispositivo."
 
 #. Tag: para
-#: install-methods.xml:701
+#: install-methods.xml:708
 #, no-c-format
 msgid ""
 "Since most USB sticks come pre-configured with a single FAT16 partition, you "
@@ -1161,7 +1167,7 @@ msgstr ""
 "encuentra en el paquete de &debian; <classname>dosfstools</classname>."
 
 #. Tag: para
-#: install-methods.xml:725
+#: install-methods.xml:732
 #, no-c-format
 msgid ""
 "In order to start the kernel after booting from the USB stick, we will put a "
@@ -1180,7 +1186,7 @@ msgstr ""
 "cambios a la configuración del gestor de arranque."
 
 #. Tag: para
-#: install-methods.xml:735
+#: install-methods.xml:742
 #, no-c-format
 msgid ""
 "To put <classname>syslinux</classname> on the FAT16 partition on your USB "
@@ -1205,13 +1211,13 @@ msgstr ""
 "que contiene el código del gestor de arranque."
 
 #. Tag: title
-#: install-methods.xml:752 install-methods.xml:864
+#: install-methods.xml:759 install-methods.xml:871
 #, no-c-format
 msgid "Adding the installer image"
 msgstr "Añadir la imagen del instalador"
 
 #. Tag: para
-#: install-methods.xml:753
+#: install-methods.xml:760
 #, fuzzy, no-c-format
 #| msgid ""
 #| "Mount the partition (<userinput>mount /dev/<replaceable>sdX1</"
@@ -1247,7 +1253,7 @@ msgstr ""
 "nombres de ficheros estilo DOS (8.3)."
 
 #. Tag: para
-#: install-methods.xml:777
+#: install-methods.xml:784
 #, no-c-format
 msgid ""
 "Next you should create a <filename>syslinux.cfg</filename> configuration "
@@ -1273,7 +1279,7 @@ msgstr ""
 "parámetros al final."
 
 #. Tag: para
-#: install-methods.xml:789
+#: install-methods.xml:796
 #, no-c-format
 msgid ""
 "To enable the boot prompt to permit further parameter appending, add a "
@@ -1283,7 +1289,7 @@ msgstr ""
 "parámetros, añada la línea <userinput>prompt 1</userinput>."
 
 #. Tag: para
-#: install-methods.xml:794 install-methods.xml:904
+#: install-methods.xml:801 install-methods.xml:911
 #, no-c-format
 msgid ""
 "If you used an <filename>hd-media</filename> image, you should now copy the "
@@ -1303,7 +1309,7 @@ msgstr ""
 "desmonte la memoria USB, (<userinput>umount /mnt</userinput>)."
 
 #. Tag: para
-#: install-methods.xml:818
+#: install-methods.xml:825
 #, no-c-format
 msgid ""
 "Most USB sticks do not come pre-configured in such a way that Open Firmware "
@@ -1333,7 +1339,7 @@ msgstr ""
 "command> en el paquete &debian; <classname>hfsutils</classname>."
 
 #. Tag: para
-#: install-methods.xml:835
+#: install-methods.xml:842
 #, no-c-format
 msgid ""
 "In order to start the kernel after booting from the USB stick, we will put a "
@@ -1350,7 +1356,7 @@ msgstr ""
 "HFS para hacer cambios a la configuración del gestor de arranque."
 
 #. Tag: para
-#: install-methods.xml:844
+#: install-methods.xml:851
 #, no-c-format
 msgid ""
 "The normal <command>ybin</command> tool that comes with <command>yaboot</"
@@ -1387,7 +1393,7 @@ msgstr ""
 "con las herramientas habituales de Unix."
 
 #. Tag: para
-#: install-methods.xml:865
+#: install-methods.xml:872
 #, no-c-format
 msgid ""
 "Mount the partition (<userinput>mount /dev/<replaceable>sdX2</replaceable> /"
@@ -1398,31 +1404,31 @@ msgstr ""
 "al dispositivo de memoria:"
 
 #. Tag: para
-#: install-methods.xml:872
+#: install-methods.xml:879
 #, no-c-format
 msgid "<filename>vmlinux</filename> (kernel binary)"
 msgstr "<filename>vmlinux</filename> (binario del núcleo)"
 
 #. Tag: para
-#: install-methods.xml:877
+#: install-methods.xml:884
 #, no-c-format
 msgid "<filename>initrd.gz</filename> (initial ramdisk image)"
 msgstr "<filename>initrd.gz</filename> (imagen inicial de memoria ram)"
 
 #. Tag: para
-#: install-methods.xml:882
+#: install-methods.xml:889
 #, no-c-format
 msgid "<filename>yaboot.conf</filename> (yaboot configuration file)"
 msgstr "<filename>yaboot.conf</filename> (fichero de configuración de yaboot)"
 
 #. Tag: para
-#: install-methods.xml:887
+#: install-methods.xml:894
 #, no-c-format
 msgid "<filename>boot.msg</filename> (optional boot message)"
 msgstr "<filename>boot.msg</filename> (mensaje de arranque opcional)"
 
 #. Tag: para
-#: install-methods.xml:894
+#: install-methods.xml:901
 #, no-c-format
 msgid ""
 "The <filename>yaboot.conf</filename> configuration file should contain the "
@@ -1458,13 +1464,13 @@ msgstr ""
 "a arrancar."
 
 #. Tag: title
-#: install-methods.xml:932
+#: install-methods.xml:939
 #, no-c-format
 msgid "Preparing Files for Hard Disk Booting"
 msgstr "Preparación de los ficheros para arranque desde el disco duro"
 
 #. Tag: para
-#: install-methods.xml:933
+#: install-methods.xml:940
 #, no-c-format
 msgid ""
 "The installer may be booted using boot files placed on an existing hard "
@@ -1476,7 +1482,7 @@ msgstr ""
 "operativo o ejecutando directamente un gestor de arranque desde la BIOS."
 
 #. Tag: para
-#: install-methods.xml:939
+#: install-methods.xml:946
 #, no-c-format
 msgid ""
 "A full, <quote>pure network</quote> installation can be achieved using this "
@@ -1490,7 +1496,7 @@ msgstr ""
 "muchos, y poco fiables, disquetes."
 
 #. Tag: para
-#: install-methods.xml:946
+#: install-methods.xml:953
 #, no-c-format
 msgid ""
 "The installer cannot boot from files on an HFS+ file system. MacOS System "
@@ -1513,7 +1519,7 @@ msgstr ""
 "de instalación que descargue."
 
 #. Tag: para
-#: install-methods.xml:957
+#: install-methods.xml:964
 #, no-c-format
 msgid ""
 "Different programs are used for hard disk installation system booting, "
@@ -1525,7 +1531,7 @@ msgstr ""
 "quote> u <quote>OldWorld</quote>."
 
 #. Tag: title
-#: install-methods.xml:966
+#: install-methods.xml:973
 #, no-c-format
 msgid ""
 "Hard disk installer booting from Linux using <command>LILO</command> or "
@@ -1535,7 +1541,7 @@ msgstr ""
 "<command>LILO</command> o <command>GRUB</command>"
 
 #. Tag: para
-#: install-methods.xml:968
+#: install-methods.xml:975
 #, no-c-format
 msgid ""
 "This section explains how to add to or even replace an existing linux "
@@ -1545,7 +1551,7 @@ msgstr ""
 "Linux existente usando <command>LILO</command> o <command>GRUB</command>."
 
 #. Tag: para
-#: install-methods.xml:974
+#: install-methods.xml:981
 #, no-c-format
 msgid ""
 "At boot time, both bootloaders support loading in memory not only the "
@@ -1557,7 +1563,7 @@ msgstr ""
 "usar este disco RAM como sistema de ficheros raíz."
 
 #. Tag: para
-#: install-methods.xml:980
+#: install-methods.xml:987
 #, no-c-format
 msgid ""
 "Copy the following files from the &debian; archives to a convenient location "
@@ -1570,19 +1576,19 @@ msgstr ""
 "boot/newinstall/</filename>."
 
 #. Tag: para
-#: install-methods.xml:988
+#: install-methods.xml:995
 #, no-c-format
 msgid "<filename>vmlinuz</filename> (kernel binary)"
 msgstr "<filename>vmlinuz</filename> (binario del núcleo)"
 
 #. Tag: para
-#: install-methods.xml:993
+#: install-methods.xml:1000
 #, no-c-format
 msgid "<filename>initrd.gz</filename> (ramdisk image)"
 msgstr "<filename>initrd.gz</filename> (imagen de disco RAM)"
 
 #. Tag: para
-#: install-methods.xml:1000
+#: install-methods.xml:1007
 #, no-c-format
 msgid ""
 "Finally, to configure the bootloader proceed to <xref linkend=\"boot-initrd"
@@ -1592,7 +1598,7 @@ msgstr ""
 "\"boot-initrd\"/>."
 
 #. Tag: title
-#: install-methods.xml:1010
+#: install-methods.xml:1017
 #, no-c-format
 msgid "Hard disk installer booting from DOS using <command>loadlin</command>"
 msgstr ""
@@ -1600,7 +1606,7 @@ msgstr ""
 "command>"
 
 #. Tag: para
-#: install-methods.xml:1011
+#: install-methods.xml:1018
 #, no-c-format
 msgid ""
 "This section explains how to prepare your hard drive for booting the "
@@ -1610,7 +1616,7 @@ msgstr ""
 "desde DOS usando <command>loadlin</command>."
 
 #. Tag: para
-#: install-methods.xml:1016
+#: install-methods.xml:1023
 #, no-c-format
 msgid ""
 "Copy the following directories from a &debian; CD image to <filename>c:\\</"
@@ -1620,7 +1626,7 @@ msgstr ""
 "<filename>c:\\</filename>."
 
 #. Tag: para
-#: install-methods.xml:1021
+#: install-methods.xml:1028
 #, no-c-format
 msgid ""
 "<filename>/&x86-install-dir;</filename> (kernel binary and ramdisk image)"
@@ -1629,19 +1635,19 @@ msgstr ""
 "RAM)"
 
 #. Tag: para
-#: install-methods.xml:1026
+#: install-methods.xml:1033
 #, no-c-format
 msgid "<filename>/tools</filename> (loadlin tool)"
 msgstr "<filename>/tools</filename> (herramienta loadlin)"
 
 #. Tag: title
-#: install-methods.xml:1039
+#: install-methods.xml:1046
 #, no-c-format
 msgid "Hard Disk Installer Booting for OldWorld Macs"
 msgstr "Arranque del instalador desde el disco duro en Macs OldWorld"
 
 #. Tag: para
-#: install-methods.xml:1040
+#: install-methods.xml:1047
 #, no-c-format
 msgid ""
 "The <filename>boot-floppy-hfs</filename> floppy uses <application>miBoot</"
@@ -1665,7 +1671,7 @@ msgstr ""
 "necesita <application>BootX</application> en ese modelo."
 
 #. Tag: para
-#: install-methods.xml:1053
+#: install-methods.xml:1060
 #, no-c-format
 msgid ""
 "Download and unstuff the <application>BootX</application> distribution, "
@@ -1693,13 +1699,13 @@ msgstr ""
 "Kernels</filename> en la carpeta «System» activa."
 
 #. Tag: title
-#: install-methods.xml:1073
+#: install-methods.xml:1080
 #, no-c-format
 msgid "Hard Disk Installer Booting for NewWorld Macs"
 msgstr "Arranque del instalador desde el disco duro en Macs NewWorld"
 
 #. Tag: para
-#: install-methods.xml:1074
+#: install-methods.xml:1081
 #, no-c-format
 msgid ""
 "NewWorld PowerMacs support booting from a network or an ISO9660 CD-ROM, as "
@@ -1720,7 +1726,7 @@ msgstr ""
 "no debe usarse en PowerMacs NewWorld."
 
 #. Tag: para
-#: install-methods.xml:1085
+#: install-methods.xml:1092
 #, no-c-format
 msgid ""
 "<emphasis>Copy</emphasis> (not move) the following four files which you "
@@ -1734,31 +1740,31 @@ msgstr ""
 "tecla <keycap>option</keycap>)."
 
 #. Tag: filename
-#: install-methods.xml:1095 install-methods.xml:1421
+#: install-methods.xml:1102 install-methods.xml:1428
 #, no-c-format
 msgid "vmlinux"
 msgstr "vmlinux"
 
 #. Tag: filename
-#: install-methods.xml:1100 install-methods.xml:1426
+#: install-methods.xml:1107 install-methods.xml:1433
 #, no-c-format
 msgid "initrd.gz"
 msgstr "initrd.gz"
 
 #. Tag: filename
-#: install-methods.xml:1105 install-methods.xml:1431
+#: install-methods.xml:1112 install-methods.xml:1438
 #, no-c-format
 msgid "yaboot"
 msgstr "yaboot"
 
 #. Tag: filename
-#: install-methods.xml:1110 install-methods.xml:1436
+#: install-methods.xml:1117 install-methods.xml:1443
 #, no-c-format
 msgid "yaboot.conf"
 msgstr "yaboot.conf"
 
 #. Tag: para
-#: install-methods.xml:1115
+#: install-methods.xml:1122
 #, no-c-format
 msgid ""
 "Make a note of the partition number of the MacOS partition where you place "
@@ -1774,21 +1780,21 @@ msgstr ""
 "de «Open Firmware» cuando arranque el instalador."
 
 #. Tag: para
-#: install-methods.xml:1123
+#: install-methods.xml:1130
 #, no-c-format
 msgid "To boot the installer, proceed to <xref linkend=\"boot-newworld\"/>."
 msgstr ""
 "Para arrancar el instalador, continúe en <xref linkend=\"boot-newworld\"/>."
 
 #. Tag: title
-#: install-methods.xml:1136
+#: install-methods.xml:1143
 #, no-c-format
 msgid "Preparing Files for TFTP Net Booting"
 msgstr ""
 "Preparación de los ficheros para el arranque a través de red usando TFTP"
 
 #. Tag: para
-#: install-methods.xml:1137
+#: install-methods.xml:1144
 #, no-c-format
 msgid ""
 "If your machine is connected to a local area network, you may be able to "
@@ -1804,7 +1810,7 @@ msgstr ""
 "esa máquina, y debe configurarla para permitir el arranque desde ella."
 
 #. Tag: para
-#: install-methods.xml:1145
+#: install-methods.xml:1152
 #, no-c-format
 msgid ""
 "You need to set up a TFTP server, and for many machines a DHCP server<phrase "
@@ -1817,7 +1823,7 @@ msgstr ""
 "BOOTP</phrase>."
 
 #. Tag: para
-#: install-methods.xml:1152
+#: install-methods.xml:1159
 #, no-c-format
 msgid ""
 "<phrase condition=\"supports-rarp\">The Reverse Address Resolution Protocol "
@@ -1839,7 +1845,7 @@ msgstr ""
 "través de DHCP."
 
 #. Tag: para
-#: install-methods.xml:1166
+#: install-methods.xml:1173
 #, no-c-format
 msgid ""
 "For PowerPC, if you have a NewWorld Power Macintosh machine, it is a good "
@@ -1851,7 +1857,7 @@ msgstr ""
 "solamente pueden arrancar usando BOOTP."
 
 #. Tag: para
-#: install-methods.xml:1172
+#: install-methods.xml:1179
 #, no-c-format
 msgid ""
 "Some older HPPA machines (e.g. 715/75) use RBOOTD rather than BOOTP. There "
@@ -1862,7 +1868,7 @@ msgstr ""
 "&debian;."
 
 #. Tag: para
-#: install-methods.xml:1177
+#: install-methods.xml:1184
 #, no-c-format
 msgid ""
 "The Trivial File Transfer Protocol (TFTP) is used to serve the boot image to "
@@ -1877,7 +1883,7 @@ msgstr ""
 "(conocido también como Solaris) y GNU/Linux."
 
 #. Tag: para
-#: install-methods.xml:1185
+#: install-methods.xml:1192
 #, no-c-format
 msgid ""
 "For a &debian-gnu; server we recommend <classname>tftpd-hpa</classname>. "
@@ -1891,13 +1897,13 @@ msgstr ""
 "problemas. Una buena alternativa es <classname>atftpd</classname>."
 
 #. Tag: title
-#: install-methods.xml:1201
+#: install-methods.xml:1208
 #, no-c-format
 msgid "Setting up RARP server"
 msgstr "Configuración del servidor RARP"
 
 #. Tag: para
-#: install-methods.xml:1202
+#: install-methods.xml:1209
 #, no-c-format
 msgid ""
 "To set up RARP, you need to know the Ethernet address (a.k.a. the MAC "
@@ -1917,7 +1923,7 @@ msgstr ""
 "addr show dev eth0</userinput>."
 
 #. Tag: para
-#: install-methods.xml:1214
+#: install-methods.xml:1221
 #, fuzzy, no-c-format
 #| msgid ""
 #| "On a RARP server system using a Linux 2.4 or 2.6 kernel, or Solaris/"
@@ -1953,13 +1959,13 @@ msgstr ""
 "y en SunOS 4 (Solaris 1) utilice <userinput>/usr/etc/rarpd -a</userinput>."
 
 #. Tag: title
-#: install-methods.xml:1235
+#: install-methods.xml:1242
 #, no-c-format
 msgid "Setting up a DHCP server"
 msgstr "Configuración del servidor DHCP"
 
 #. Tag: para
-#: install-methods.xml:1236
+#: install-methods.xml:1243
 #, no-c-format
 msgid ""
 "One free software DHCP server is ISC <command>dhcpd</command>. For &debian-"
@@ -1973,7 +1979,7 @@ msgstr ""
 "(consulte <filename>/etc/dhcpd3/dhcpd.conf</filename>):"
 
 #. Tag: screen
-#: install-methods.xml:1243
+#: install-methods.xml:1250
 #, no-c-format
 msgid ""
 "option domain-name \"example.com\";\n"
@@ -2017,7 +2023,7 @@ msgstr ""
 "}"
 
 #. Tag: para
-#: install-methods.xml:1245
+#: install-methods.xml:1252
 #, no-c-format
 msgid ""
 "In this example, there is one server <replaceable>servername</replaceable> "
@@ -2035,7 +2041,7 @@ msgstr ""
 "que se recuperará a través de TFTP."
 
 #. Tag: para
-#: install-methods.xml:1255
+#: install-methods.xml:1262
 #, no-c-format
 msgid ""
 "After you have edited the <command>dhcpd</command> configuration file, "
@@ -2045,13 +2051,13 @@ msgstr ""
 "reinícielo con <userinput>/etc/init.d/isc-dhcp-server restart</userinput>."
 
 #. Tag: title
-#: install-methods.xml:1263
+#: install-methods.xml:1270
 #, no-c-format
 msgid "Enabling PXE Booting in the DHCP configuration"
 msgstr "Habilitar el arranque PXE en la configuración DHCP"
 
 #. Tag: para
-#: install-methods.xml:1264
+#: install-methods.xml:1271
 #, no-c-format
 msgid ""
 "Here is another example for a <filename>dhcp.conf</filename> using the Pre-"
@@ -2122,13 +2128,13 @@ msgstr ""
 "imagen de núcleo (vea <xref linkend=\"tftp-images\"/> a continuación)."
 
 #. Tag: title
-#: install-methods.xml:1284
+#: install-methods.xml:1291
 #, no-c-format
 msgid "Setting up a BOOTP server"
 msgstr "Configuración del servidor BOOTP"
 
 #. Tag: para
-#: install-methods.xml:1285
+#: install-methods.xml:1292
 #, no-c-format
 msgid ""
 "There are two BOOTP servers available for GNU/Linux. The first is CMU "
@@ -2144,7 +2150,7 @@ msgstr ""
 "classname> respectivamente."
 
 #. Tag: para
-#: install-methods.xml:1293
+#: install-methods.xml:1300
 #, no-c-format
 msgid ""
 "To use CMU <command>bootpd</command>, you must first uncomment (or add) the "
@@ -2210,7 +2216,7 @@ msgstr ""
 "phrase>"
 
 #. Tag: para
-#: install-methods.xml:1326
+#: install-methods.xml:1333
 #, fuzzy, no-c-format
 #| msgid ""
 #| "By contrast, setting up BOOTP with ISC <command>dhcpd</command> is really "
@@ -2245,13 +2251,13 @@ msgstr ""
 "userinput>."
 
 #. Tag: title
-#: install-methods.xml:1345
+#: install-methods.xml:1352
 #, no-c-format
 msgid "Enabling the TFTP Server"
 msgstr "Habilitar el servidor TFTP"
 
 #. Tag: para
-#: install-methods.xml:1346
+#: install-methods.xml:1353
 #, no-c-format
 msgid ""
 "To get the TFTP server ready to go, you should first make sure that "
@@ -2261,7 +2267,7 @@ msgstr ""
 "<command>tftpd</command> está instalada."
 
 #. Tag: para
-#: install-methods.xml:1351
+#: install-methods.xml:1358
 #, no-c-format
 msgid ""
 "In the case of <classname>tftpd-hpa</classname> there are two ways the "
@@ -2277,7 +2283,7 @@ msgstr ""
 "paquete, y se puede modificar reconfigurando el paquete."
 
 #. Tag: para
-#: install-methods.xml:1360
+#: install-methods.xml:1367
 #, no-c-format
 msgid ""
 "Historically, TFTP servers used <filename>/tftpboot</filename> as directory "
@@ -2296,7 +2302,7 @@ msgstr ""
 "ejemplos de configuración en esta sección si la ubicación varía."
 
 #. Tag: para
-#: install-methods.xml:1370
+#: install-methods.xml:1377
 #, no-c-format
 msgid ""
 "All <command>in.tftpd</command> alternatives available in &debian; should "
@@ -2313,7 +2319,7 @@ msgstr ""
 "buen punto de partida para diagnosticar la causa de los errores."
 
 #. Tag: para
-#: install-methods.xml:1378
+#: install-methods.xml:1385
 #, no-c-format
 msgid ""
 "If you intend to install &debian; on an SGI machine and your TFTP server is "
@@ -2344,13 +2350,13 @@ msgstr ""
 "el servidor TFTP."
 
 #. Tag: title
-#: install-methods.xml:1400
+#: install-methods.xml:1407
 #, no-c-format
 msgid "Move TFTP Images Into Place"
 msgstr "Mover las imágenes TFTP a su ubicación"
 
 #. Tag: para
-#: install-methods.xml:1401
+#: install-methods.xml:1408
 #, no-c-format
 msgid ""
 "Next, place the TFTP boot image you need, as found in <xref linkend=\"where-"
@@ -2367,7 +2373,7 @@ msgstr ""
 "es determinado por el cliente TFTP, y no existe un estándar definido."
 
 #. Tag: para
-#: install-methods.xml:1410
+#: install-methods.xml:1417
 #, no-c-format
 msgid ""
 "On NewWorld Power Macintosh machines, you will need to set up the "
@@ -2383,13 +2389,13 @@ msgstr ""
 "filename> los siguientes ficheros:"
 
 #. Tag: filename
-#: install-methods.xml:1441
+#: install-methods.xml:1448
 #, no-c-format
 msgid "boot.msg"
 msgstr "boot.msg"
 
 #. Tag: para
-#: install-methods.xml:1446
+#: install-methods.xml:1453
 #, no-c-format
 msgid ""
 "For PXE booting, everything you should need is set up in the "
@@ -2406,7 +2412,7 @@ msgstr ""
 "del fichero a arrancar."
 
 #. Tag: para
-#: install-methods.xml:1454
+#: install-methods.xml:1461
 #, no-c-format
 msgid ""
 "For PXE booting, everything you should need is set up in the "
@@ -2423,13 +2429,13 @@ msgstr ""
 "command> como el nombre del fichero a arrancar."
 
 #. Tag: title
-#: install-methods.xml:1466
+#: install-methods.xml:1473
 #, no-c-format
 msgid "SPARC TFTP Booting"
 msgstr "Arranque de TFTP en SPARC"
 
 #. Tag: para
-#: install-methods.xml:1467
+#: install-methods.xml:1474
 #, no-c-format
 msgid ""
 "Some SPARC architectures add the subarchitecture names, such as "
@@ -2460,7 +2466,7 @@ msgstr ""
 "si es necesario, el nombre de la subarquitectura."
 
 #. Tag: para
-#: install-methods.xml:1483
+#: install-methods.xml:1490
 #, no-c-format
 msgid ""
 "If you've done all this correctly, giving the command <userinput>boot net</"
@@ -2474,7 +2480,7 @@ msgstr ""
 "solicitando si el cargador no encuentra la imagen."
 
 #. Tag: para
-#: install-methods.xml:1490
+#: install-methods.xml:1497
 #, no-c-format
 msgid ""
 "You can also force some sparc systems to look for a specific file name by "
@@ -2488,13 +2494,13 @@ msgstr ""
 "el directorio en el que busca el servidor TFTP."
 
 #. Tag: title
-#: install-methods.xml:1501
+#: install-methods.xml:1508
 #, no-c-format
 msgid "SGI TFTP Booting"
 msgstr "Arranque TFTP en SGI"
 
 #. Tag: para
-#: install-methods.xml:1502
+#: install-methods.xml:1509
 #, no-c-format
 msgid ""
 "On SGI machines you can rely on the <command>bootpd</command> to supply the "
@@ -2509,13 +2515,13 @@ msgstr ""
 "filename>."
 
 #. Tag: title
-#: install-methods.xml:1610
+#: install-methods.xml:1617
 #, no-c-format
 msgid "Automatic Installation"
 msgstr "Instalación automática"
 
 #. Tag: para
-#: install-methods.xml:1611
+#: install-methods.xml:1618
 #, no-c-format
 msgid ""
 "For installing on multiple computers it's possible to do fully automatic "
@@ -2531,14 +2537,14 @@ msgstr ""
 "la <ulink url=\"http://fai-project.org\">página oficial de FAI</ulink>"
 
 #. Tag: title
-#: install-methods.xml:1623
+#: install-methods.xml:1630
 #, no-c-format
 msgid "Automatic Installation Using the &debian; Installer"
 msgstr ""
 "Utilizar el instalador de &debian; para realizar una instalación automática"
 
 #. Tag: para
-#: install-methods.xml:1624
+#: install-methods.xml:1631
 #, no-c-format
 msgid ""
 "The &debian; Installer supports automating installs via preconfiguration "
@@ -2553,7 +2559,7 @@ msgstr ""
 "instalación."
 
 #. Tag: para
-#: install-methods.xml:1631
+#: install-methods.xml:1638
 #, no-c-format
 msgid ""
 "Full documentation on preseeding including a working example that you can "
@@ -2562,6 +2568,15 @@ msgstr ""
 "Puede encontrar la documentación completa sobre la configuración de semillas "
 "de preconfiguración y un ejemplo que puede editar para trabajar en <xref "
 "linkend=\"appendix-preseed\"/>."
+
+#~ msgid ""
+#~ "<prompt>#</prompt> <userinput>cp <replaceable>debian.iso</replaceable> /"
+#~ "dev/<replaceable>sdX</replaceable></userinput>\n"
+#~ "<prompt>#</prompt> <userinput>sync</userinput>"
+#~ msgstr ""
+#~ "<prompt>#</prompt> <userinput>cp <replaceable>debian.iso</replaceable> /"
+#~ "dev/<replaceable>sdX</replaceable></userinput>\n"
+#~ "<prompt>#</prompt> <userinput>sync</userinput>"
 
 #~ msgid "Thecus N2100 Installation Files"
 #~ msgstr "Ficheros de instalación para Thecus N2100"
