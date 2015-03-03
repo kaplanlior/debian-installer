@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 69602 -->
+<!-- original version: 69619 -->
 
 <!--
 Be carefull with the format of this file as it is parsed to generate
@@ -1593,6 +1593,14 @@ d-i grub-installer/only_debian boolean true
 # die anderen Systeme nicht mehr gestartet werden können.
 d-i grub-installer/with_other_os boolean true
 
+# Aufgrund von möglicherweise vorhandenen USB-Sticks kann der Speicherort
+# des MBR grundsätzlich nicht sicher erkannt werden, daher muss er
+# angegeben werden:
+#d-i grub-installer/bootdev  string /dev/sda
+# Um auf das erste verfügbare Gerät zu installieren (angenommen,
+# dies ist kein USB-Stick):
+#d-i grub-installer/bootdev  string default
+
 # Wenn Sie alternativ an einen anderen Ort als in den MBR installieren
 # möchten, entfernen Sie hier die Kommentarzeichen und passen Sie
 # die Zeilen an:
@@ -1601,10 +1609,6 @@ d-i grub-installer/with_other_os boolean true
 #d-i grub-installer/bootdev  string (hd0,1)
 # Um grub auf mehrere Geräte zu installieren:
 #d-i grub-installer/bootdev  string (hd0,1) (hd1,1) (hd2,1)
-# Um grub auf ein bestimmtes Gerät zu installieren:
-#d-i grub-installer/bootdev  string /dev/sda
-# Um auf das erste verfügbare Gerät zu installieren:
-#d-i grub-installer/bootdev  string default
 
 # Optionales Passwort für grub, entweder als Klartext ...
 #d-i grub-installer/password password r00tme
