@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 69602 -->
+<!-- original version: 69619 -->
 
 <!--
 Be careful with the format of this file as it is parsed to generate
@@ -2585,6 +2585,19 @@ d-i grub-installer/only_debian boolean true
 d-i grub-installer/with_other_os boolean true
 
 <!--
+# Due notably to potential USB sticks, the location of the MBR can not be
+# determined safely in general, so this needs to be specified:
+--># A causa della potenziale presenza di chiavette USB non è possibile
+# determinare con sicurezza la posizione del MBR e quindi è necessario
+# specificarla:
+#d-i grub-installer/bootdev  string /dev/sda
+<!--
+# To install to the first device (assuming it is not a USB stick):
+--># Per installare sul primo device (supponendo che non sia una
+# chiavetta USB):
+#d-i grub-installer/bootdev  string default
+
+<!--
 # Alternatively, if you want to install to a location other than the mbr,
 # uncomment and edit these lines:
 --># In alternativa, se si vuole installare in una posizione differente dal
@@ -2596,14 +2609,6 @@ d-i grub-installer/with_other_os boolean true
 # To install grub to multiple disks:
 --># Per installare grub su più dischi:
 #d-i grub-installer/bootdev  string (hd0,1) (hd1,1) (hd2,1)
-<!--
-# To install to a particular device:
---># Per installare su un device particolare:
-#d-i grub-installer/bootdev  string /dev/sda
-<!--
-# To install to the first device:
---># Per installare sul primo device:
-#d-i grub-installer/bootdev  string default
 
 <!--
 # Optional password for grub, either in clear text
