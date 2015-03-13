@@ -2,20 +2,20 @@
 # Russian L10N Team <debian-l10n-russian@lists.debian.org>, 2004, 2005.
 # Yuri Kozlov <yuray@id.ru>, 2004, 2005.
 # Yuri Kozlov <kozlov.y@gmail.com>, 2006, 2007.
-# Yuri Kozlov <yuray@komyakino.ru>, 2010.
+# Yuri Kozlov <yuray@komyakino.ru>, 2010, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: boot-new\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2014-08-26 20:40+0000\n"
-"PO-Revision-Date: 2010-10-24 14:58+0400\n"
+"PO-Revision-Date: 2015-03-13 18:46+0300\n"
 "Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.0\n"
+"X-Generator: Lokalize 1.5\n"
 "Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
@@ -275,7 +275,7 @@ msgstr "Монтирование шифрованных томов"
 
 #. Tag: para
 #: boot-new.xml:147
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "If you created encrypted volumes during the installation and assigned "
 #| "them mount points, you will be asked to enter the passphrase for each of "
@@ -288,8 +288,7 @@ msgid ""
 msgstr ""
 "Если вы создали шифрованные тома во время установки и назначили им точки "
 "монтирования, то во время загрузки машины вас попросят ввести ключевую фразу "
-"на каждый том. В процедуре ввода для dm-crypt и loop-AES есть некоторые "
-"различия."
+"на каждый том."
 
 #. Tag: para
 #: boot-new.xml:155
@@ -407,7 +406,7 @@ msgid ""
 "computer to try again."
 msgstr ""
 "Первый случай касается корневого раздела. Если он не смонтирован, то процесс "
-"загрузки остановится, а вам придётся перезагрузить компьютер чтобы "
+"загрузки остановится, а вам придётся перезагрузить компьютер, чтобы "
 "попробовать ещё раз."
 
 #. Tag: para
@@ -418,10 +417,14 @@ msgid ""
 "filename> or <filename>/srv</filename>. You can simply mount them manually "
 "after the boot."
 msgstr ""
+"Самый простой случай — шифрованные тома с данными <filename>/home</"
+"filename> или <filename>/srv</filename>. Вы можете просто смонтировать их "
+"вручную "
+"после загрузки машины."
 
 #. Tag: para
 #: boot-new.xml:226
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "For dm-crypt this is a bit trickier. First you need to register the "
 #| "volumes with <application>device mapper</application> by running: "
@@ -445,15 +448,15 @@ msgid ""
 "this command several times without worrying.) After successful registration "
 "you can simply mount the volumes the usual way:"
 msgstr ""
-"Для dm-crypt немного сложнее. Во-первых вам нужно зарегистрировать тома с "
+"Для dm-crypt немного сложнее. Во-первых, вам нужно зарегистрировать тома с "
 "помощью <application>device mapper</application>выполнив: "
 "<informalexample><screen>\n"
 "<prompt>#</prompt> <userinput>/etc/init.d/cryptdisks start</userinput>\n"
-"</screen></informalexample> Эта операция просканирует все тома указанные в "
-"<filename>/etc/crypttab</filename> и создаст соответствующие устройства в "
-"каталоге <filename>/dev</filename> после ввода правильных ключевых фраз. "
-"(Тома зарегистрированные ранее будут пропущены, поэтому вы можете спокойно "
-"запускать эту команду несколько раз.) После успешной регистрации вы можете "
+"</screen></informalexample> Эта операция просканирует все тома, указанные в "
+"<filename>/etc/crypttab</filename>, и создаст соответствующие устройства в "
+"каталоге <filename>/dev</filename> после ввода правильных ключевых фраз "
+"(тома, зарегистрированные ранее, будут пропущены, поэтому вы можете спокойно "
+"запускать эту команду несколько раз). После успешной регистрации вы можете "
 "смонтировать тома как обычно:"
 
 #. Tag: screen
@@ -468,7 +471,7 @@ msgstr ""
 
 #. Tag: para
 #: boot-new.xml:244
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "If any volume holding noncritical system files could not be mounted "
 #| "(<filename>/usr</filename> or <filename>/var</filename>), the system "
@@ -493,15 +496,10 @@ msgstr ""
 "Если на любых несмонтированных томах содержатся некритичные системные файлы "
 "(<filename>/usr</filename> или <filename>/var</filename>), система должна "
 "загрузиться и вы сможете смонтировать тома вручную как в предыдущем случае. "
-"Однако, может потребоваться (пере)запуск каждого сервиса, который обычно "
-"запускается на уровне выполнения по умолчанию, так как скорее всего они не "
-"смогли запуститься. Самый простой способ сделать это &mdash; перейти на "
-"первый уровень выполнения и вернуться назад с помощью запуска "
-"<informalexample><screen>\n"
-"<prompt>#</prompt> <userinput>init 1</userinput>\n"
-"</screen></informalexample> в оболочке и нажать <keycombo> <keycap>Control</"
-"keycap> <keycap>D</keycap> </keycombo> когда попросят ввести пароль "
-"суперпользователя."
+"Однако, может потребоваться (пере)запуск каждой службы, которая обычно "
+"запускается на уровне выполнения по умолчанию, так как, скорее всего, они не "
+"смогли запуститься. Самый простой способ сделать это — просто перезагрузить "
+"компьютер."
 
 #. Tag: title
 #: boot-new.xml:262

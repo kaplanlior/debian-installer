@@ -2,20 +2,20 @@
 # Russian L10N Team <debian-l10n-russian@lists.debian.org>, 2004.
 # Yuri Kozlov <yuray@komyakino.ru>, 2004, 2005.
 # Yuri Kozlov <yuray@komyakino.ru>, 2005, 2006, 2007, 2008.
-# Yuri Kozlov <yuray@komyakino.ru>, 2009, 2010, 2012, 2013.
+# Yuri Kozlov <yuray@komyakino.ru>, 2009, 2010, 2012, 2013, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: install-methods\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2015-02-23 20:58+0000\n"
-"PO-Revision-Date: 2013-03-10 16:42+0400\n"
+"PO-Revision-Date: 2015-03-13 19:05+0300\n"
 "Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.4\n"
+"X-Generator: Lokalize 1.5\n"
 "Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
@@ -81,7 +81,7 @@ msgstr ""
 
 #. Tag: para
 #: install-methods.xml:38
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "If your machine doesn't support CD booting<phrase arch=\"x86\"> (only "
 #| "relevant on very old PC systems)</phrase>, but you do have a CD set, you "
@@ -113,7 +113,7 @@ msgstr ""
 "(верно только для очень старых ПК)</phrase>, а вы имеете набор CD, то для "
 "загрузки программы установки можно воспользоваться другим методом, например, "
 "загрузить ядро <phrase condition=\"supports-floppy-boot\">с дискеты,</"
-"phrase> <phrase arch=\"s390\">с ленты, виртуальной ленты,</phrase> <phrase "
+"phrase> <phrase arch=\"s390\">VM reader,</phrase> <phrase "
 "condition=\"bootable-disk\">с жёсткого диска,</phrase> <phrase condition="
 "\"bootable-usb\">с карт памяти usb,</phrase> <phrase condition=\"supports-"
 "tftp\">по сети,</phrase> или вручную с CD. Для этого на компакт-диске есть "
@@ -134,7 +134,7 @@ msgstr ""
 
 #. Tag: para
 #: install-methods.xml:66
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "If you don't have a CD set, then you will need to download the installer "
 #| "system files and place them on the <phrase arch=\"s390\">installation "
@@ -152,8 +152,8 @@ msgid ""
 "connected computer</phrase> so they can be used to boot the installer."
 msgstr ""
 "Если у вас нет набора CD, то вам потребуется загрузить системные файлы "
-"программы установки и сохранить их на <phrase arch=\"s390\">установочную "
-"ленту</phrase> <phrase condition=\"supports-floppy-boot\">дискету или</"
+"программы установки и сохранить их на <phrase arch=\"s390\">VM minidisk</"
+"phrase> <phrase condition=\"supports-floppy-boot\">дискету или</"
 "phrase> <phrase condition=\"bootable-disk\">жёсткий диск, или</phrase> "
 "<phrase condition=\"bootable-usb\">карте памяти usb, или</phrase> <phrase "
 "condition=\"supports-tftp\">подключённый к сети компьютер</phrase> и "
@@ -309,10 +309,10 @@ msgstr ""
 
 #. Tag: title
 #: install-methods.xml:210
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "QNAP Turbo Station Installation Files"
 msgid "Armhf Multiplatform Installation Files"
-msgstr "Файлы установки для QNAP Turbo Station"
+msgstr "Мультиплатформенные файлы установки для armhf"
 
 #. Tag: para
 #: install-methods.xml:211
@@ -327,6 +327,15 @@ msgid ""
 "a bootable USB stick with the installer can be obtained from &armmp-hd-media-"
 "tarball;."
 msgstr ""
+"К файлам установки для систем, поддерживаемых мультиплатформенным ядром armhf "
+"(смотрите <xref linkend=\"armhf-armmp-supported-platforms\"/>) относится "
+"стандартный образ ядра Linux, стандартный образ начального ramdisk Linux и "
+"специальный для каждой системы двоичный файл дерева устройств. "
+"Образ ядра и начального ramdisk для загрузки по tftp можно получить с "
+"&armmp-firmware-img;, "
+"двоичный файл дерева устройств можно получить с &armmp-dtb-img;. "
+"Архив tar для создания загрузочного носителя USB с программой установки можно "
+"получить с &armmp-hd-media-tarball;."
 
 #. Tag: title
 #: install-methods.xml:265
@@ -795,7 +804,7 @@ msgstr "Подготовка карты памяти USB из гибридног
 
 #. Tag: para
 #: install-methods.xml:558
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Debian CD and DVD images can now be written directly a USB stick, which "
 #| "is a very easy way to make a bootable USB stick. Simply choose a CD or "
@@ -809,7 +818,8 @@ msgid ""
 msgstr ""
 "Образы Debian CD и DVD могут быть непосредственно записаны на карту памяти "
 "USB; это самой лёгкий способ создать загрузочный USB. Просто выберите образ "
-"CD или DVD подходящего размера для вашей карты памяти USB. О том, как "
+"CD или DVD  (такие как netinst, CD-1, DVD-1 или netboot) подходящего размера "
+"для вашей карты памяти USB. О том, как "
 "получить образ CD или DVD, читайте <xref linkend=\"official-cdrom\"/>."
 
 #. Tag: para
@@ -828,7 +838,7 @@ msgstr ""
 
 #. Tag: para
 #: install-methods.xml:573
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "The CD or DVD image you choose should be written directly to the USB "
 #| "stick, overwriting its current contents. For example, when using an "
@@ -850,7 +860,14 @@ msgstr ""
 "Выбранный вами образ CD или DVD должен быть записан прямо на карту памяти "
 "USB, что сотрёт её имеющееся содержимое. Например, из системы GNU/Linux, "
 "файл образа CD или DVD можно записать на карту памяти USB следующим образом "
-"(предварительно отмонтировав):"
+"(предварительно отмонтировав): "
+"<informalexample><screen>\n"
+"<prompt>#</prompt> <userinput>cp <replaceable>debian.iso</replaceable> /dev/"
+"<replaceable>sdX</replaceable></userinput>\n"
+"<prompt>#</prompt> <userinput>sync</userinput>\n"
+"</screen></informalexample> Для копирования образов из других "
+"ОС можно использовать программу <ulink url=\"http://sf.net/projects/"
+"win32diskimager/\"> win32diskimager</ulink>."
 
 #. Tag: para
 #: install-methods.xml:587
@@ -860,6 +877,11 @@ msgid ""
 "g. /dev/sdb and not /dev/sdb1. Do not use tools like <command>unetbootin</"
 "command> which alter the image."
 msgstr ""
+"Образ должен быть записан на устройство, представляющее весь диск, а не "
+"отдельный раздел, "
+"например /dev/sdb, а не /dev/sdb1. Не используйте программы типа <command>"
+"unetbootin</"
+"command>, которые изменяют образ."
 
 #. Tag: para
 #: install-methods.xml:593
@@ -1040,7 +1062,7 @@ msgstr "Копирование файлов на карту памяти USB в�
 
 #. Tag: para
 #: install-methods.xml:687
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "If you like more flexibility or just want to know what's going on, you "
 #| "should use the following method to put the files on your stick. One "
@@ -1057,8 +1079,9 @@ msgstr ""
 "Если вам хочется большей гибкости или вы просто хотите знать, что на самом "
 "деле происходит, то можете воспользоваться следующим методом записи файлов "
 "на карту памяти. Преимущество использования этого метода в том, что если "
-"ёмкость карты USB достаточно велика, то вы можете скопировать на неё полный "
-"образ CD ISO."
+"ёмкость карты USB достаточно велика, то вы можете скопировать любой образ "
+"ISO, "
+"даже DVD."
 
 #. Tag: title
 #: install-methods.xml:702 install-methods.xml:824
@@ -1161,7 +1184,7 @@ msgstr "Добавление образа программы установки"
 
 #. Tag: para
 #: install-methods.xml:760
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Mount the partition (<userinput>mount /dev/<replaceable>sdX1</"
 #| "replaceable> /mnt</userinput>) and copy the following installer image "
@@ -1190,7 +1213,7 @@ msgstr ""
 "карту памяти: <itemizedlist> <listitem><para> <filename>vmlinuz</filename> "
 "или <filename>linux</filename> (файл ядра) </para></listitem> "
 "<listitem><para> <filename>initrd.gz</filename> (образ ramdisk) </para></"
-"listitem> </itemizedlist> Вы можете выбрать обычную версию программ "
+"listitem> </itemizedlist> Вы можете выбрать текстовую версию программы "
 "установки или версию с графическим интерфейсом. Последнюю можно найти в "
 "подкаталоге <filename>gtk</filename>. Если вы хотите переименовать файлы, "
 "учтите, что <classname>syslinux</classname> работает только с файловыми "
@@ -1855,7 +1878,7 @@ msgstr ""
 
 #. Tag: para
 #: install-methods.xml:1221
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "On a RARP server system using a Linux 2.4 or 2.6 kernel, or Solaris/"
 #| "SunOS, you use the <command>rarpd</command> program. You need to ensure "
@@ -1878,7 +1901,7 @@ msgid ""
 "sbin/in.rarpd -a</userinput> on some other Linux systems, or <userinput>/usr/"
 "etc/rarpd -a</userinput> in SunOS 4 (Solaris 1)."
 msgstr ""
-"В системе с RARP сервером использующей ядро Linux 2.4 или 2.6, или Solaris/"
+"В системе с RARP сервером использующей ядро Linux или Solaris/"
 "SunOS вы должны использовать программу <command>rarpd</command>. Вам нужно "
 "проверить, что аппаратный адрес Ethernet клиента содержится в базе данных "
 "<quote>ethers</quote> (или в файле <filename>/etc/ethers</filename> или "
@@ -2144,7 +2167,7 @@ msgstr ""
 
 #. Tag: para
 #: install-methods.xml:1333
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "By contrast, setting up BOOTP with ISC <command>dhcpd</command> is really "
 #| "easy, because it treats BOOTP clients as a moderately special case of "
