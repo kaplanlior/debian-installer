@@ -2,20 +2,20 @@
 # Copyright (C) 2005, 2006, 2007, 2008, 2009, 2010 Free Software Foundation, Inc.
 #
 # Yuri Kozlov <yuray@komyakino.ru>, 2005, 2006, 2007, 2008.
-# Yuri Kozlov <yuray@komyakino.ru>, 2009, 2010, 2011, 2012, 2013.
+# Yuri Kozlov <yuray@komyakino.ru>, 2009, 2010, 2011, 2012, 2013, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: preseed\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2015-02-23 20:58+0000\n"
-"PO-Revision-Date: 2013-03-10 17:04+0400\n"
+"PO-Revision-Date: 2015-03-14 08:24+0300\n"
 "Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.4\n"
+"X-Generator: Lokalize 1.5\n"
 "Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
@@ -201,10 +201,10 @@ msgstr "с дискет (с поддержкой сети)"
 
 #. Tag: entry
 #: preseed.xml:108
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "generic/tape"
 msgid "generic"
-msgstr "generic/tape"
+msgstr "generic"
 
 #. Tag: para
 #: preseed.xml:117
@@ -225,7 +225,7 @@ msgstr ""
 
 #. Tag: para
 #: preseed.xml:126
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Obviously, any questions that have been processed before the "
 #| "preconfiguration file is loaded cannot be preseeded (this will include "
@@ -243,12 +243,13 @@ msgstr ""
 "Очевидно, что на любые вопросы, задаваемые перед загрузкой файла ответов, "
 "нельзя указать готовые ответы (сюда включаются вопросы, которые задаются "
 "только на среднем и низком уровне важности, например запуск определения "
-"аппаратуры. <xref linkend=\"preseed-bootparms\"/> описывает как избежать "
-"отображения таких вопросов."
+"аппаратуры). И не существует удобного способа избежать этих вопросов кроме "
+"указания ответов на них через параметры загрузки, как описано в "
+"<xref linkend=\"preseed-bootparms\"/>."
 
 #. Tag: para
 #: preseed.xml:135
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "In order to avoid the questions that would normally appear before the "
 #| "preseeding occurs, you can start the installer in <quote>auto</quote> "
@@ -266,7 +267,7 @@ msgid ""
 "at critical priority, which avoids many unimportant questions. See <xref "
 "linkend=\"preseed-auto\"/> for details."
 msgstr ""
-"Чтобы избежать вопросов, которые обычно задаются перед тем как начнёт "
+"Чтобы просто избежать вопросов, которые обычно задаются перед тем как начнёт "
 "действовать автоматизация ответов, вы можете запустить программу установки в "
 "режиме <quote>auto</quote>. Это позволит отложить вопросы, которые обычно "
 "задаются перед автоматической установкой (например, про язык, страну и выбор "
@@ -415,7 +416,7 @@ msgstr ""
 
 #. Tag: screen
 #: preseed.xml:284
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Boot parameters to specify:\n"
 #| "- if you're netbooting:\n"
@@ -452,6 +453,9 @@ msgstr ""
 "Задаваемые параметры при загрузке:\n"
 "- при загрузке из сети:\n"
 "  preseed/url=http://host/path/to/preseed.cfg\n"
+"  preseed/url/checksum=5da499872becccfeda2c4872f9171c3d\n"
+"- или\n"
+"  preseed/url=tftp://host/path/to/preseed.cfg\n"
 "  preseed/url/checksum=5da499872becccfeda2c4872f9171c3d\n"
 "\n"
 "- при загрузке с изменённого CD:\n"
@@ -581,7 +585,7 @@ msgstr ""
 
 #. Tag: para
 #: preseed.xml:349
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "A <quote>--</quote> in the boot options has special meaning. Kernel "
 #| "parameters that appear after the last <quote>--</quote> may be copied "
@@ -595,8 +599,8 @@ msgid ""
 "installer for the bootloader). The installer will automatically filter out "
 "any options (like preconfiguration options) that it recognizes."
 msgstr ""
-"Обозначение <quote>--</quote> в параметрах загрузки имеет специальное "
-"значение. Параметры ядра, указанные после <quote>--</quote>, могут быть "
+"Обозначение <quote>---</quote> в параметрах загрузки имеет специальное "
+"значение. Параметры ядра, указанные после <quote>---</quote>, могут быть "
 "скопированы в конфигурацию установленного системного загрузчика (если это "
 "умеет программа установки для загрузчика). Программа установки автоматически "
 "фильтрует все параметры (например, параметры предварительной настройки), "
@@ -653,6 +657,9 @@ msgid ""
 "fairly simple command lines at the boot prompt to result in arbitrarily "
 "complex customized automatic installs."
 msgstr ""
+"Есть несколько возможностей программы установки &debian;, объединив которые "
+"с помощью простых команд в приглашении к загрузке, можно получить "
+"автоматическую установку любого уровня настраиваемости."
 
 #. Tag: para
 #: preseed.xml:389
@@ -665,10 +672,19 @@ msgid ""
 "parameters on the boot prompt. <phrase arch=\"x86\">See <xref linkend=\"boot-"
 "screen\"/> for information on how to add a boot parameter.</phrase>"
 msgstr ""
+"Это включается с помощью выбора <literal>Automated install</literal> "
+"при загрузке, также называемом <literal>auto</literal> для некоторых "
+"архитектур или "
+"методов загрузки. В этом разделе "
+"<literal>auto</literal> означает не параметр, а выбор метода загрузки и "
+"добавляется в "
+"загрузочные параметры в приглашении к загрузке. <phrase arch=\"x86\">О том, "
+"как добавлять "
+"загрузочные параметры, смотрите <xref linkend=\"boot-screen\"/>.</phrase>"
 
 #. Tag: para
 #: preseed.xml:398
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "There are several features of &debian; Installer that combine to allow "
 #| "fairly simple command lines at the boot prompt to result in arbitrarily "
@@ -695,10 +711,8 @@ msgid ""
 "in the preseed file being retrieved from <literal>http://autoserver.example."
 "com/d-i/&releasename;/./preseed.cfg</literal>."
 msgstr ""
-"Есть несколько возможностей программы установки &debian;, объединив которые "
-"с помощью простых команд в приглашении к загрузке, можно получить "
-"автоматическую установку любого уровня настраиваемости. Вот один из примеров "
-"использования настроек в приглашении к загрузке: <informalexample><screen>\n"
+"Вот один из примеров использования настроек в приглашении к загрузке: <"
+"informalexample><screen>\n"
 "auto url=autoserver\n"
 "</screen></informalexample> В этом случае для установки согласно полученным "
 "настройкам с DHCP сервера будет найдена машина <literal>autoserver</literal> "
@@ -843,7 +857,7 @@ msgstr ""
 
 #. Tag: para
 #: preseed.xml:482
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "The <literal>auto</literal> boot label is not yet defined everywhere. The "
 #| "same effect may be achieved by simply adding the two parameters "
@@ -865,9 +879,10 @@ msgid ""
 "<literal>debconf/priority</literal> and setting it to <literal>critical</"
 "literal> stops any questions with a lower priority from being asked."
 msgstr ""
-"Загрузочная метка <literal>auto</literal> пока определена не везде. Такой же "
+"Выбор загрузки <literal>auto</literal> пока определён не для всех архитектур. "
+"Такой же "
 "эффект можно получить просто добавив два параметра <literal>auto=true "
-"priority=critical</literal> в командной строке параметров ядра. Параметр "
+"priority=critical</literal> в командной строке параметров ядра. Параметр ядра "
 "<literal>auto</literal> &mdash; это псевдоним для <literal>auto-install/"
 "enable</literal> и установка его в <literal>true</literal>задерживает выдачу "
 "вопросов о локали и клавиатуре, чтобы была возможность настроить их "
@@ -2058,13 +2073,16 @@ msgstr ""
 
 #. Tag: para
 #: preseed.xml:891
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "The following command can be used to generate an MD5 hash for a password:"
 msgid ""
 "The following command (available from the <classname>whois</classname> "
 "package) can be used to generate an MD5 hash for a password:"
-msgstr "С помощью следующей команды можно сгенерировать MD5 хеш для пароля:"
+msgstr ""
+"С помощью следующей команды (доступной из пакета <classname>whois</classname>"
+") "
+"можно сгенерировать MD5 хеш для пароля:"
 
 #. Tag: screen
 #: preseed.xml:896
@@ -2181,7 +2199,7 @@ msgstr "Пример разметки"
 
 #. Tag: screen
 #: preseed.xml:949
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "# If the system has free space you can choose to only partition that "
 #| "space.\n"
@@ -2370,7 +2388,7 @@ msgstr ""
 "# Вы можете выбрать один из трёх имеющихся наборов разметки:\n"
 "# - atomic: все файлы в одном разделе\n"
 "# - home:   отдельный раздел для /home\n"
-"# - multi:  отдельные разделы для /home, /usr, /var и /tmp\n"
+"# - multi:  отдельные разделы для /home, /var и /tmp\n"
 "d-i partman-auto/choose_recipe select atomic\n"
 "\n"
 "# Или создать набор вручную...\n"
@@ -2692,7 +2710,7 @@ msgstr ""
 
 #. Tag: screen
 #: preseed.xml:1037
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "# You can choose to install non-free and contrib software.\n"
 #| "#d-i apt-setup/non-free boolean true\n"
@@ -2755,9 +2773,8 @@ msgstr ""
 "#d-i apt-setup/use_mirror boolean false\n"
 "# Выберите обновляемые сервисы; задайте используемые зеркала.\n"
 "# Значения ниже используются по умолчанию.\n"
-"#d-i apt-setup/services-select multiselect security, volatile\n"
+"#d-i apt-setup/services-select multiselect security, updates\n"
 "#d-i apt-setup/security_host string security.debian.org\n"
-"#d-i apt-setup/volatile_host string volatile.debian.org\n"
 "\n"
 "# Дополнительные репозитории доступны как local[0-9]\n"
 "#d-i apt-setup/local0/repository string \\\n"
@@ -2795,80 +2812,80 @@ msgstr ""
 
 #. Tag: para
 #: preseed.xml:1051
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>standard</userinput> (standard tools)"
-msgstr "<userinput>desktop</userinput>"
+msgstr "<userinput>standard</userinput> (стандартные инструменты)"
 
 #. Tag: para
 #: preseed.xml:1054
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>desktop</userinput> (graphical desktop)"
-msgstr "<userinput>desktop</userinput>"
+msgstr "<userinput>desktop</userinput> (графический рабочий стол)"
 
 #. Tag: para
 #: preseed.xml:1057
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>gnome-desktop</userinput> (Gnome desktop)"
-msgstr "<userinput>desktop</userinput>"
+msgstr "<userinput>gnome-desktop</userinput> (рабочий стол Gnome)"
 
 #. Tag: para
 #: preseed.xml:1060
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>xfce-desktop</userinput> (XFCE desktop)"
-msgstr "<userinput>desktop</userinput>"
+msgstr "<userinput>xfce-desktop</userinput> (рабочий стол XFCE)"
 
 #. Tag: para
 #: preseed.xml:1063
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>kde-desktop</userinput> (KDE desktop)"
-msgstr "<userinput>desktop</userinput>"
+msgstr "<userinput>kde-desktop</userinput> (рабочий стол KDE)"
 
 #. Tag: para
 #: preseed.xml:1066
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>cinnamon-desktop</userinput> (Cinnamon desktop)"
-msgstr "<userinput>desktop</userinput>"
+msgstr "<userinput>cinnamon-desktop</userinput> (рабочий стол Cinnamon)"
 
 #. Tag: para
 #: preseed.xml:1069
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>mate-desktop</userinput> (MATE desktop)"
-msgstr "<userinput>desktop</userinput>"
+msgstr "<userinput>mate-desktop</userinput> (рабочий стол MATE)"
 
 #. Tag: para
 #: preseed.xml:1072
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>lxde-desktop</userinput> (LXDE desktop)"
-msgstr "<userinput>desktop</userinput>"
+msgstr "<userinput>lxde-desktop</userinput> (рабочий стол LXDE)"
 
 #. Tag: para
 #: preseed.xml:1075
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>web-server</userinput> (web server)"
-msgstr "<userinput>desktop</userinput>"
+msgstr "<userinput>web-server</userinput> (веб-сервер)"
 
 #. Tag: para
 #: preseed.xml:1078
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>print-server</userinput> (print server)"
-msgstr "<userinput>desktop</userinput>"
+msgstr "<userinput>print-server</userinput> (сервер печати)"
 
 #. Tag: para
 #: preseed.xml:1081
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>ssh-server</userinput> (SSH server)"
-msgstr "<userinput>desktop</userinput>"
+msgstr "<userinput>ssh-server</userinput> (сервер SSH)"
 
 #. Tag: para
 #: preseed.xml:1086
@@ -2938,7 +2955,7 @@ msgstr "Установка загрузчика"
 
 #. Tag: screen
 #: preseed.xml:1109
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "<phrase arch=\"linux-any\"># Grub is the default boot loader (for x86). "
 #| "If you want lilo installed\n"
@@ -3058,6 +3075,8 @@ msgstr ""
 "#d-i grub-installer/bootdev  string (hd0,1) (hd1,1) (hd2,1)\n"
 "# Для установки на определённое устройство:\n"
 "#d-i grub-installer/bootdev  string /dev/sda\n"
+"# Для установки на первое устройство:\n"
+"#d-i grub-installer/bootdev  string default\n"
 "\n"
 "# Необязательный пароль на grub в виде открытого текста\n"
 "#d-i grub-installer/password password r00tme\n"
@@ -3190,6 +3209,9 @@ msgid ""
 "<filename>/target</filename>. If an installation CD is used, when it is "
 "mounted it is available in <filename>/cdrom</filename>."
 msgstr ""
+"Когда целевая файловая система смонтирована, она доступна в "
+"<filename>/target</filename>. При использовании установочного CD, "
+"когда он смонтирован, то доступен в <filename>/cdrom</filename>."
 
 #. Tag: screen
 #: preseed.xml:1155
