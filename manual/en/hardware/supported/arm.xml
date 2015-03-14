@@ -11,8 +11,8 @@ architecture, where all systems share a common system firmware (BIOS or/and
 UEFI) which handles the board-specific basic hardware initialization in a
 standardized way.
 
-The ARM architecture is used mainly in so-called <quote>systems-on-chip</quote> (SOCs). 
-These SOCs are designed by many different companies with vastly varying
+The ARM architecture is used mainly in so-called <quote>systems-on-chip</quote> (SoCs). 
+These SoCs are designed by many different companies with vastly varying
 hardware components even for the very basic functionality required to bring
 the system up.  Systems using them usually lack a common system firmware
 interface and as a result, on ARM systems the Linux kernel has to take care
@@ -187,7 +187,7 @@ anymore from Debian 8 onwards.
         <term>Freescale MX53 Quick Start Board</term>
         <listitem>
           <para>   
-            The IMX53QSB is a development board based on the i.MX53 SOC.
+            The IMX53QSB is a development board based on the i.MX53 SoC.
           </para>
         </listitem>
       </varlistentry>
@@ -210,15 +210,16 @@ anymore from Debian 8 onwards.
           <para>   
             The armmp kernel supports several development boards and
             embedded systems based on the Allwinner A10 (architecture
-            codename <quote>sun4i</quote>) and A20 (architecture codename
-            <quote>sun7i</quote>) SOCs.  Full installer support is currently
+            codename <quote>sun4i</quote>), A10s/A13 (architecture codename
+            <quote>sun5i</quote>) and A20 (architecture codename
+            <quote>sun7i</quote>) SoCs.  Full installer support is currently
             available for the following sunXi-based systems:
             <itemizedlist>
              <listitem><para>
                Cubietech Cubieboard 1 + 2 / Cubietruck
              </para></listitem>
              <listitem><para>
-               LeMaker Banana Pi
+               LeMaker Banana Pi and Banana Pro
              </para></listitem>
              <listitem><para>
                LinkSprite pcDuino
@@ -232,7 +233,7 @@ anymore from Debian 8 onwards.
              <listitem><para>
                Olimex A10-Olinuxino-LIME / A10s-Olinuxino Micro /
                A13-Olinuxino / A13-Olinuxino Micro / 
-               A20-Olinuxino-LIME / A20-Olinuxino Micro           
+               A20-Olinuxino-LIME / A20-Olinuxino-LIME2 / A20-Olinuxino Micro           
              </para></listitem>
              <listitem><para>
                PineRiver Mini X-Plus
@@ -248,10 +249,19 @@ anymore from Debian 8 onwards.
           </para> 
           <para>
             The mainline Linux kernel generally supports serial console,
-            ethernet, SATA, USB and MMC/SD-cards on Allwinner A10 and A20
-            SOCs, but it does not have local display (HDMI/VGA/LVDS) and
-            audio support. The NAND flash memory that is built into some
-            sunXi-based systems is not supported.
+            ethernet, SATA, USB and MMC/SD-cards on Allwinner A10, A10s/A13
+            and A20 SoCs, but it does not have native drivers for the
+            display (HDMI/VGA/LCD) and audio hardware in these SoCs.  The
+            NAND flash memory that is built into some sunXi-based systems is
+            not supported.
+          </para>
+          <para>
+            Using a local display is technically possible without native
+            display drivers via the <quote>simplefb</quote> infrastructure
+            in the mainline kernel, which relies on the
+            <quote>u-boot</quote> bootloader for initializing the display
+            hardware, but this is not supported by the u-boot version in
+            &debian; 8.
           </para>
         </listitem>
       </varlistentry>
@@ -261,7 +271,7 @@ anymore from Debian 8 onwards.
         <listitem>
           <para>
             The Cubox-i series is a set of small, cubical-shaped systems
-            based on the Freescale i.MX6 SOC family.  System support for
+            based on the Freescale i.MX6 SoC family.  System support for
             the Cubox-i series is limited to drivers and device-tree
             information available in the mainline Linux kernel; the
             Freescale 3.0 kernel series for the Cubox-i is not supported by
