@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: boot-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2015-01-09 19:07+0000\n"
-"PO-Revision-Date: 2015-03-14 08:37+0300\n"
+"PO-Revision-Date: 2015-03-16 19:23+0300\n"
 "Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
 "Language: ru\n"
@@ -78,6 +78,14 @@ msgid ""
 "or b) uImage-format kernels (<quote>uImage</quote>) in conjunction with "
 "corresponding initial ramdisks (<quote>uInitrd</quote>)."
 msgstr ""
+"В системах на базе ARM в большинстве случаев используется один из двух "
+"форматов "
+"загрузочных образов: а) стандартные ядра Linux в формате zImage (<quote>"
+"vmlinuz</quote>) в "
+"вместе со стандартными начальными Linux ramdisk (<quote>initrd.gz</quote>) "
+"или б) ядра в формате uImage (<quote>uImage</quote>) вместе с "
+"соответствующими "
+"начальными ramdisk (<quote>uInitrd</quote>)."
 
 #. Tag: para
 #: boot-installer.xml:47
@@ -90,6 +98,14 @@ msgid ""
 "Linux kernels and ramdisk images, but the command syntax to do that is "
 "slightly different from that for booting uImages."
 msgstr ""
+"uImage/uInitrd — формат образов, разработанный для микропрограммы u-boot, "
+"которая "
+"используется во многих системах за основе ARM. Старые версии u-boot "
+"позволяли только загружать файлы в формате uImage/uInitrd, поэтому они часто "
+"используются в старых системах armel. Новые версии u-boot — помимо загрузки "
+"uImage/uInitrd — также загружают стандартные ядра Linux и образы ramdisk, но "
+"синтаксис команды загрузки несколько отличается от работающего на "
+"загрузку uImage."
 
 #. Tag: para
 #: boot-installer.xml:56
@@ -100,6 +116,12 @@ msgid ""
 "needed. It is specific to each supported system and contains a description "
 "of the particular hardware."
 msgstr ""
+"Для систем, использующих мультиплатформенное ядро, помимо ядра и начального "
+"ramdisk "
+"требуется так называемый файл дерева устройств (device-tree blob, <quote>dtb<"
+"/quote>). "
+"Он уникальный для каждой поддерживаемой системы и содержит описание "
+"аппаратуры устройства."
 
 #. Tag: title
 #: boot-installer.xml:64
@@ -156,7 +178,7 @@ msgstr ""
 #: boot-installer.xml:90
 #, no-c-format
 msgid "TFTP-booting in u-boot"
-msgstr ""
+msgstr "Загрузка по TFTP из u-boot"
 
 #. Tag: para
 #: boot-installer.xml:91
@@ -166,6 +188,10 @@ msgid ""
 "steps: a) configuring the network, b) loading the images (kernel/initial "
 "ramdisk/dtb) into memory and c) actually executing the previosly loaded code."
 msgstr ""
+"Загрузка по сети в системах, использующих микропрограмму u-boot, состоит из "
+"трёх шагов: а) настройка сети, б) загрузка образов (ядро/начальный "
+"ramdisk/dtb) в "
+"память и в) исполнение ранее загруженного кода."
 
 #. Tag: para
 #: boot-installer.xml:97
@@ -185,6 +211,21 @@ msgid ""
 "</screen></informalexample> If you prefer, you can make these settings "
 "permanent by running"
 msgstr ""
+"Во-первых, нужно настроить сеть, или автоматически по DHCP командой "
+"<informalexample><screen>\n"
+"setenv autoload no\n"
+"dhcp\n"
+"</screen></informalexample> или вручную указав настройки в переменных "
+"окружения "
+"<informalexample><screen>\n"
+"setenv ipaddr &lt;ip address of the client&gt;\n"
+"setenv netmask &lt;netmask&gt;\n"
+"setenv serverip &lt;ip address of the tftp server&gt;\n"
+"setenv dnsip &lt;ip address of the nameserver&gt;\n"
+"setenv gatewayip &lt;ip address of the default gateway&gt;\n"
+"</screen></informalexample> Если хотите, то можно сделать настройки "
+"постоянными с помощью "
+"команды"
 
 #. Tag: screen
 #: boot-installer.xml:104
@@ -202,6 +243,13 @@ msgid ""
 "the memory map can vary from system to system, so there is no general rule "
 "which addresses can be used for this."
 msgstr ""
+"После этого нужно загрузить образы (ядро/начальный ramdisk/dtb) в "
+"память. Это выполняется с помощью команды tftpboot, которой указывается адрес "
+"по которому требуется сохранить образ в память. К сожалению, в разных "
+"устройствах "
+"карты памяти сильно различаются, поэтому нет общего правила какие адреса "
+"следует "
+"использовать."
 
 #. Tag: para
 #: boot-installer.xml:114
@@ -217,6 +265,16 @@ msgid ""
 "name <quote>sun4i</quote> or the Allwinner A20, architecture name "
 "<quote>sun7i</quote>), you can e.g. use the follwing values:"
 msgstr ""
+"В некоторых системах в u-boot уже настроены переменные окружения "
+"нужными адресами загрузки: kernel_addr_r, ramdisk_addr_r и fdt_addr_r. Вы "
+"можете проверить их наличие выполнив <informalexample><screen>\n"
+"printenv kernel_addr_r ramdisk_addr_r fdt_addr_r\n"
+"</screen></informalexample> Если они не определены, то обратитесь к "
+"документации "
+"на систему и введите их значения вручную. В системах на основе "
+"ЦПУ Allwinner SunXi (например, Allwinner A10, имя архитектуры "
+"name <quote>sun4i</quote> или Allwinner A20, имя архитектуры "
+"<quote>sun7i</quote>), вы можете, например, использовать следующие значения:"
 
 #. Tag: screen
 #: boot-installer.xml:125
@@ -237,6 +295,8 @@ msgid ""
 "When the load addresses are defined, you can load the images into memory "
 "from the previously defined tftp server with"
 msgstr ""
+"После определения адресов загрузки вы можете загрузить образы в память с "
+"ранее настроенного сервера tftp с помощью команд"
 
 #. Tag: screen
 #: boot-installer.xml:130
@@ -246,6 +306,9 @@ msgid ""
 "tftpboot ${fdt_addr_r} &lt;filename of the dtb&gt;\n"
 "tftpboot ${ramdisk_addr_r} &lt;filename of the initial ramdisk image&gt;"
 msgstr ""
+"tftpboot ${kernel_addr_r} &lt;имя файла образа ядра&gt;\n"
+"tftpboot ${fdt_addr_r} &lt;имя файла dtb&gt;\n"
+"tftpboot ${ramdisk_addr_r} &lt;имя файла начального ramdisk&gt;"
 
 #. Tag: para
 #: boot-installer.xml:132
@@ -265,6 +328,22 @@ msgid ""
 "bootm ${kernel_addr_r} ${ramdisk_addr_r} ${fdt_addr_r}\n"
 "</screen></informalexample> and with native Linux images it is"
 msgstr ""
+"Третьим шагом является настройка командной строки ядра и запуск загруженного "
+"кода. U-boot передаёт содержимое переменной окружения <quote>bootargs</quote> "
+"ядру как командную строку, поэтому все параметры ядра и программы установки — "
+"консольное устройство (смотрите <xref linkend="
+"\"boot-console\"/>) или ответы на вопросы о настройке (смотрите <xref "
+"linkend=\"installer-args"
+"\"/> and <xref linkend=\"appendix-preseed\"/>) — можно указать с помощью "
+"команды вида "
+"<informalexample><screen>\n"
+"setenv bootargs console=ttyS0,115200 rootwait panic=10\n"
+"</screen></informalexample> Точная команда для выполнения ранее загруженного "
+"кода "
+"зависит от используемого формата образа. Для uImage/uInitrd, команда будет "
+"<informalexample><screen>\n"
+"bootm ${kernel_addr_r} ${ramdisk_addr_r} ${fdt_addr_r}\n"
+"</screen></informalexample>, а для родных образов Linux"
 
 #. Tag: screen
 #: boot-installer.xml:145
@@ -283,13 +362,22 @@ msgid ""
 "a platform-specific kernel, i.e. a kernel without device-tree, simply omit "
 "the ${fdt_addr_r} parameter."
 msgstr ""
+"Замечание: При загрузке стандартных образов linux важно загрузить образ "
+"начального "
+"ramdisk после ядра и dtb так как u-boot устанавливает переменную filesize "
+"равной размеру "
+"последнего загруженного файла, а для правильной работы команды bootz "
+"требуется размер образа "
+"ramdisk. При загрузке специального ядра устройства, то есть ядра без дерева "
+"устройств, просто не "
+"указывайте параметр ${fdt_addr_r}."
 
 #. Tag: title
 #: boot-installer.xml:160
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "Booting from USB memory stick"
 msgid "Booting from a USB stick in u-boot"
-msgstr "Загрузка с карты памяти USB"
+msgstr "Загрузка с карты памяти USB из u-boot"
 
 #. Tag: para
 #: boot-installer.xml:161
@@ -299,6 +387,11 @@ msgid ""
 "storage devices such as USB sticks. Unfortunately the exact steps required "
 "to do that can vary quite a bit from device to device."
 msgstr ""
+"Многие современные версии u-boot поддерживают USB и позволяют выполнять "
+"загрузку "
+"накопителей USB, например карт памяти USB (флешек). К сожалению, точный шаги "
+"для "
+"выполнения данной процедуры для разных устройств различаются."
 
 #. Tag: para
 #: boot-installer.xml:168
@@ -310,6 +403,14 @@ msgid ""
 "stick on such systems, but unfortunately not all platforms have adopted this "
 "new framework yet."
 msgstr ""
+"В u-Boot v2014.10 появился общий механизм обработки командной строки и "
+"autoboot. "
+"Это позволяет собирать единые загрузочные образы, которые работают на любой "
+"системе, "
+"поддерживающей данный механизм. "
+"&d-i; поддерживает установку с носителей USB для таких систем, но, к "
+"сожалению, "
+"пока не все платформы переделаны под этот новый механизм."
 
 #. Tag: para
 #: boot-installer.xml:177
