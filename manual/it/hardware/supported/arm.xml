@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 69518 -->
+<!-- original version: 69644 -->
 
   <sect2 arch="arm">
   <!-- <title>CPU, Main Boards, and Video Support</title> -->
@@ -12,8 +12,8 @@ architecture, where all systems share a common system firmware (BIOS or/and
 UEFI) which handles the board-specific basic hardware initialization in a
 standardized way.
 
-The ARM architecture is used mainly in so-called <quote>systems-on-chip</quote> (SOCs).
-These SOCs are designed by many different companies with vastly varying
+The ARM architecture is used mainly in so-called <quote>systems-on-chip</quote> (SoCs).
+These SoCs are designed by many different companies with vastly varying
 hardware components even for the very basic functionality required to bring
 the system up.  Systems using them usually lack a common system firmware
 interface and as a result, on ARM systems the Linux kernel has to take care
@@ -319,7 +319,7 @@ multipiattaforma (armmp):
 <listitem><para>
 
 <!--
-The IMX53QSB is a development board based on the i.MX53 SOC.
+The IMX53QSB is a development board based on the i.MX53 SoC.
 -->
 
 La IMX53QSB è una scheda di sviluppo basata sul SoC i.MX53.
@@ -355,13 +355,15 @@ Allwinner sunXi
 <!--
 The armmp kernel supports several development boards and
 embedded systems based on the Allwinner A10 (architecture
-codename <quote>sun4i</quote>) and A20 (architecture codename
-<quote>sun7i</quote>) SOCs.  Full installer support is currently
+codename <quote>sun4i</quote>), A10s/A13 (architecture codename
+<quote>sun5i</quote>) and A20 (architecture codename
+<quote>sun7i</quote>) SoCs.  Full installer support is currently
 available for the following sunXi-based systems:
 -->
 
 Parecchie schede per sviluppo e sistemi embedded basati sui SoC Allwinner
-A10 (nome in codice dell'architettura <quote>sun4i</quote>) e A20 (nome
+A10 (nome in codice dell'architettura <quote>sun4i</quote>), A10s/A13
+(nome in codice dell'architettura <quote>sun5i</quote> e A20 (nome
 in codice dell'architettura <quote>sun7i</quote>) sono supportate dal
 kernel armmp. Attualmente l'installazione è pienamente supportata sui
 seguenti sistemi basati sul sunXi:
@@ -374,7 +376,11 @@ Cubietech Cubieboard 1 + 2 / Cubietruck
 </para></listitem>
 <listitem><para>
 
-LeMaker Banana Pi
+<!--
+LeMaker Banana Pi and Banana Pro
+-->
+
+LeMaker Banana Pi e Banana Pro
 
 </para></listitem>
 <listitem><para>
@@ -396,7 +402,7 @@ Miniand Hackberry
 
 Olimex A10-Olinuxino-LIME / A10s-Olinuxino Micro /
 A13-Olinuxino / A13-Olinuxino Micro / 
-A20-Olinuxino-LIME / A20-Olinuxino Micro 
+A20-Olinuxino-LIME / A20-Olinuxino-LIME2 / A20-Olinuxino Micro
 
 </para></listitem>
 <listitem><para>
@@ -424,16 +430,34 @@ Debian.
 
 <!--
 The mainline Linux kernel generally supports serial console,
-ethernet, SATA, USB and MMC/SD-cards on Allwinner A10 and A20
-SOCs, but it does not have local display (HDMI/VGA/LVDS) and
-audio support. The NAND flash memory that is built into some
-sunXi-based systems is not supported.
+ethernet, SATA, USB and MMC/SD-cards on Allwinner A10, A10s/A13
+and A20 SoCs, but it does not have native drivers for the
+display (HDMI/VGA/LCD) and audio hardware in these SoCs.  The
+NAND flash memory that is built into some sunXi-based systems is
+not supported.
 -->
 
-Sui SoC Allwinner A10 e A20 il kernel Linux supporta la console seriale,
-ethernet, SATA, USB e MMC/SD ma non supporta il display locale
-(HDMI/VGA/LVDS) né l'audio. La memoria flash NAND presente in alcuni
-sistemi sunXi non è supportata.
+Sui SoC Allwinner A10, A10s/A13 e A20 il kernel Linux supporta la console
+seriale, ethernet, SATA, USB e MMC/SD ma non dispone di driver nativi per
+il display locale (HDMI/VGA/LCD) né l'audio. La memoria flash NAND presente
+in alcuni sistemi sunXi non è supportata.
+
+</para><para>
+
+<!--
+Using a local display is technically possible without native
+display drivers via the <quote>simplefb</quote> infrastructure
+in the mainline kernel, which relies on the
+<quote>u-boot</quote> bootloader for initializing the display
+hardware, but this is not supported by the u-boot version in
+&debian; 8.
+-->
+
+Tecnicamente è possibile usare un display locale senza il driver
+nativo tramite l'infrastruttura <quote>simplefb</quote> presente nel
+kernel, la quale si appoggia al bootloader <quote>u-boot</quote> per
+l'inizializzazione dell'hardware del diplay; purtroppo tale operazione
+non è supportata nella versione di u-boot presente in &debian; 8.
 
 </para>
 </listitem>
@@ -445,7 +469,7 @@ sistemi sunXi non è supportata.
 
 <!--
 The Cubox-i series is a set of small, cubical-shaped systems
-based on the Freescale i.MX6 SOC family.  System support for
+based on the Freescale i.MX6 SoC family.  System support for
 the Cubox-i series is limited to drivers and device-tree
 information available in the mainline Linux kernel; the
 Freescale 3.0 kernel series for the Cubox-i is not supported by
