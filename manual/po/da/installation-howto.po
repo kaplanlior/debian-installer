@@ -1,7 +1,8 @@
 # Danish translation of d-i-manual-installation-howto.
-# Copyright (C) 2014 Free Software Foundation, Inc.
+# Copyright (C) 2015 Free Software Foundation, Inc.
 # Joe Hansen <joedalton2@yahoo.dk>, 2014, 2015.
 #
+# 32-bit processorer (er anvendt selv om 32-bit-processorer er den korrekte brug)
 # howto -> manual
 # language -> sprog
 # locale -> sted (lokalitet andet?)
@@ -13,7 +14,7 @@ msgstr ""
 "Project-Id-Version: d-i-manual_installation-howto\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2012-12-29 10:09+0000\n"
-"PO-Revision-Date: 2015-03-16 10:40+0100\n"
+"PO-Revision-Date: 2015-03-20 10:40+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -382,6 +383,14 @@ msgid ""
 "arch=\"x86\"> <xref linkend=\"boot-initrd\"/> explains one way to do it. </"
 "phrase>"
 msgstr ""
+"Det er muligt at igangsætte installationsprogrammet uden at bruge "
+"eksterne medier, men alene en eksisterende harddisk, som kan have et "
+"andet operativsystem. Hent <filename>hd-media/initrd.gz</filename>, "
+"<filename>hd-media/vmlinuz</filename>, og et &debian;-cd-aftryk til "
+"øverste niveau af harddisken. Sikr dig at cd-aftrykket har et filnavn, "
+"der ender med <literal>.iso</literal>. Nu gælder det bare om at starte "
+"Linux op med initrd. <phrase arch=\"x86\"> <xref linkend=\"boot-initrd\"/> "
+"forklarer en måde at gøre dette. </phrase>"
 
 #. Tag: title
 #: installation-howto.xml:217
@@ -411,6 +420,11 @@ msgid ""
 "language is spoken. If it's not on the short list, a list of all the "
 "countries in the world is available."
 msgstr ""
+"Efter et stykke tid vil du blive spurgt om at vælge sprog. Brug piletasterne "
+"til at vælge et land og tryk på &enterkey; for at fortsætte. Så vil du blive "
+"spurgt om at vælge dit land, med valgmuligheder der inkluderer lande hvor dit "
+"sprog tales. Hvis det ikke er på den korte liste, er en længere liste med alle "
+"landene i verden også tilgængelig."
 
 #. Tag: para
 #: installation-howto.xml:232
@@ -440,6 +454,9 @@ msgid ""
 "networking by DHCP. If you are not on a network or do not have DHCP, you "
 "will be given the opportunity to configure the network manually."
 msgstr ""
+"Nu vil installationsprogrammet prøve at detektere dit netværksudstyr og "
+"opsætte netværk med DHCP. Hvis du ikke er på et netværk eller ikke har "
+"DHCP, så vil du få mulighed for at konfigurere netværket manuelt."
 
 #. Tag: para
 #: installation-howto.xml:248
@@ -450,6 +467,10 @@ msgid ""
 "correctly. The time zone is based on the country selected earlier and the "
 "installer will only ask to select one if a country has multiple zones."
 msgstr ""
+"Det næste trin er at indstille dit ur og tidszone. Installationsprogrammet "
+"vil forsøge at kontakte en tidserver på internetet for at sikre at uret "
+"er indstillet korrekt. Tidszonen er baseret på dit landevalg tidligere og "
+"installationsprogrammet vil kun spørge hvis et land har flere zoner."
 
 #. Tag: para
 #: installation-howto.xml:255
@@ -463,6 +484,13 @@ msgid ""
 "<command>sudo</command> package will be installed later to enable "
 "administrative tasks to be carried out on the new system."
 msgstr ""
+"Indstilling af uret og tidszonen efterfølges af oprettelsen af brugerkonti. "
+"Som standard bliver du spurgt om at angive en adgangskode for administratoren "
+"<quote>root</quote> og information nødvendig for at oprette en normal "
+"brugerkonto. Hvis du ikke angiver en adgangskode for brugeren "
+"<quote>root</quote> vil denne konto blive deaktiveret, men pakken "
+"<command>sudo</command> vil blive installeret senere for at aktivere "
+"at administrative opgaver kan udføres på det nye system."
 
 #. Tag: para
 #: installation-howto.xml:264
@@ -512,6 +540,16 @@ msgid ""
 "please refer to <xref linkend=\"di-partition\"/>; the appendix <xref linkend="
 "\"partitioning\"/> has more general information about partitioning."
 msgstr ""
+"På den næste skærm vil du se din partitionstabel, hvordan partitionerne "
+"vil blive formateret, og hvor de vil blive monteret. Vælg en partition "
+"for at ændre eller slette den. Hvis du udførte automatisk partitionering, "
+"så bør du være i stand til at vælge <guimenuitem>Fuldfør partitionering og "
+"skriv ændringer til disk</guimenuitem> fra menuen for at bruge opsætningen. "
+"Husk at tildele mindst en partition til swapplads og at montere en partition "
+"på <filename>/</filename>. For yderligere detaljeret information om hvordan "
+"partitionsprogrammet anvendes så se <xref linkend=\"di-partition\"/>; "
+"appendikset <xref linkend=\"partitioning\"/> har mere generel information "
+"om partitionering."
 
 #. Tag: para
 #: installation-howto.xml:292
@@ -538,6 +576,15 @@ msgid ""
 "a graphical desktop after the installation. See <xref linkend=\"pkgsel\"/> "
 "for additional information about this step."
 msgstr ""
+"Det grundlæggende system som blev installeret tidligere er en fungerende, "
+"men meget minimal installation. For at gøre systemet mere funktionelt, så "
+"giver det næste trin dig mulighed for at installere yderligere pakker "
+"ved at vælge opgaver. Før pakker kan installeres skal <classname>apt</classname> "
+"konfigureres, da dette program definerer hvorfra pakkerne vil blive "
+"hentet. Opgaven <quote>Standardsystem</quote> vil blive valgt som "
+"standard og bør normalt installeres. Vælg opgaven <quote>Skrivebordsmiljø</quote> "
+"hvis du ønsker at have et grafisk skrivebord efter installationen. Se "
+"<xref linkend=\"pkgsel\"/> for yderligere information om dette trin."
 
 #. Tag: para
 #: installation-howto.xml:309
@@ -566,6 +613,10 @@ msgid ""
 "boot up into the newly installed system and allow you to log in. This is "
 "explained in <xref linkend=\"boot-new\"/>."
 msgstr ""
+"&d-i; vil nu fortælle dig, at installationen er færdig. Fjern cd-rommen "
+"eller et andet opstartsmedie og tryk på &enterkey; for at genstarte maskinen. "
+"Den bør starte op i det netop installerede system og give dig mulighed for "
+"at logge ind. Dette er forklaret i <xref linkend=\"boot-new\"/>."
 
 #. Tag: para
 #: installation-howto.xml:326
