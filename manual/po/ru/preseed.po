@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: preseed\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2015-02-23 20:58+0000\n"
+"POT-Creation-Date: 2015-03-21 16:42+0000\n"
 "PO-Revision-Date: 2015-03-14 08:24+0300\n"
 "Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
@@ -202,7 +202,6 @@ msgstr "с дискет (с поддержкой сети)"
 #. Tag: entry
 #: preseed.xml:108
 #, no-c-format
-#| msgid "generic/tape"
 msgid "generic"
 msgstr "generic"
 
@@ -226,12 +225,6 @@ msgstr ""
 #. Tag: para
 #: preseed.xml:126
 #, no-c-format
-#| msgid ""
-#| "Obviously, any questions that have been processed before the "
-#| "preconfiguration file is loaded cannot be preseeded (this will include "
-#| "questions that are only displayed at medium or low priority, like the "
-#| "first hardware detection run). <xref linkend=\"preseed-bootparms\"/> "
-#| "offers a way to avoid these questions being asked."
 msgid ""
 "Obviously, any questions that have been processed before the "
 "preconfiguration file is loaded cannot be preseeded (this will include "
@@ -244,20 +237,12 @@ msgstr ""
 "нельзя указать готовые ответы (сюда включаются вопросы, которые задаются "
 "только на среднем и низком уровне важности, например запуск определения "
 "аппаратуры). И не существует удобного способа избежать этих вопросов кроме "
-"указания ответов на них через параметры загрузки, как описано в "
-"<xref linkend=\"preseed-bootparms\"/>."
+"указания ответов на них через параметры загрузки, как описано в <xref "
+"linkend=\"preseed-bootparms\"/>."
 
 #. Tag: para
 #: preseed.xml:135
 #, no-c-format
-#| msgid ""
-#| "In order to avoid the questions that would normally appear before the "
-#| "preseeding occurs, you can start the installer in <quote>auto</quote> "
-#| "mode. This delays questions that would normally be asked too early for "
-#| "preseeding (i.e. language, country and keyboard selection) until after "
-#| "the network comes up, thus allowing them to be preseeded. It also runs "
-#| "the installation at critical priority, which avoids many unimportant "
-#| "questions. See <xref linkend=\"preseed-auto\"/> for details."
 msgid ""
 "In order to easily avoid the questions that would normally appear before the "
 "preseeding occurs, you can start the installer in <quote>auto</quote> mode. "
@@ -417,21 +402,6 @@ msgstr ""
 #. Tag: screen
 #: preseed.xml:284
 #, no-c-format
-#| msgid ""
-#| "Boot parameters to specify:\n"
-#| "- if you're netbooting:\n"
-#| "  preseed/url=http://host/path/to/preseed.cfg\n"
-#| "  preseed/url/checksum=5da499872becccfeda2c4872f9171c3d\n"
-#| "\n"
-#| "- if you're booting a remastered CD:\n"
-#| "  preseed/file=/cdrom/preseed.cfg\n"
-#| "  preseed/file/checksum=5da499872becccfeda2c4872f9171c3d\n"
-#| "\n"
-#| "- if you're installing from USB media (put the preconfiguration file in "
-#| "the\n"
-#| "  toplevel directory of the USB stick):\n"
-#| "  preseed/file=/hd-media/preseed.cfg\n"
-#| "  preseed/file/checksum=5da499872becccfeda2c4872f9171c3d"
 msgid ""
 "Boot parameters to specify:\n"
 "- if you're netbooting:\n"
@@ -586,12 +556,6 @@ msgstr ""
 #. Tag: para
 #: preseed.xml:349
 #, no-c-format
-#| msgid ""
-#| "A <quote>--</quote> in the boot options has special meaning. Kernel "
-#| "parameters that appear after the last <quote>--</quote> may be copied "
-#| "into the bootloader configuration for the installed system (if supported "
-#| "by the installer for the bootloader). The installer will automatically "
-#| "filter out any options (like preconfiguration options) that it recognizes."
 msgid ""
 "A <quote>---</quote> in the boot options has special meaning. Kernel "
 "parameters that appear after the last <quote>---</quote> may be copied into "
@@ -672,33 +636,16 @@ msgid ""
 "parameters on the boot prompt. <phrase arch=\"x86\">See <xref linkend=\"boot-"
 "screen\"/> for information on how to add a boot parameter.</phrase>"
 msgstr ""
-"Это включается с помощью выбора <literal>Automated install</literal> "
-"при загрузке, также называемом <literal>auto</literal> для некоторых "
-"архитектур или "
-"методов загрузки. В этом разделе "
-"<literal>auto</literal> означает не параметр, а выбор метода загрузки и "
-"добавляется в "
-"загрузочные параметры в приглашении к загрузке. <phrase arch=\"x86\">О том, "
-"как добавлять "
+"Это включается с помощью выбора <literal>Automated install</literal> при "
+"загрузке, также называемом <literal>auto</literal> для некоторых архитектур "
+"или методов загрузки. В этом разделе <literal>auto</literal> означает не "
+"параметр, а выбор метода загрузки и добавляется в загрузочные параметры в "
+"приглашении к загрузке. <phrase arch=\"x86\">О том, как добавлять "
 "загрузочные параметры, смотрите <xref linkend=\"boot-screen\"/>.</phrase>"
 
 #. Tag: para
 #: preseed.xml:398
 #, no-c-format
-#| msgid ""
-#| "There are several features of &debian; Installer that combine to allow "
-#| "fairly simple command lines at the boot prompt to result in arbitrarily "
-#| "complex customized automatic installs. To illustrate this, here are some "
-#| "examples that can be used at the boot prompt: <informalexample><screen>\n"
-#| "auto url=autoserver\n"
-#| "</screen></informalexample> This relies on there being a DHCP server that "
-#| "will get the machine to the point where <literal>autoserver</literal> can "
-#| "be resolved by DNS, perhaps after adding the local domain if that was "
-#| "provided by DHCP. If this was done at a site where the domain is "
-#| "<literal>example.com</literal>, and they have a reasonably sane DHCP "
-#| "setup, it would result in the preseed file being retrieved from "
-#| "<literal>http://autoserver.example.com/d-i/&releasename;/./preseed.cfg</"
-#| "literal>."
 msgid ""
 "To illustrate this, here are some examples that can be used at the boot "
 "prompt: <informalexample><screen>\n"
@@ -711,8 +658,8 @@ msgid ""
 "in the preseed file being retrieved from <literal>http://autoserver.example."
 "com/d-i/&releasename;/./preseed.cfg</literal>."
 msgstr ""
-"Вот один из примеров использования настроек в приглашении к загрузке: <"
-"informalexample><screen>\n"
+"Вот один из примеров использования настроек в приглашении к загрузке: "
+"<informalexample><screen>\n"
 "auto url=autoserver\n"
 "</screen></informalexample> В этом случае для установки согласно полученным "
 "настройкам с DHCP сервера будет найдена машина <literal>autoserver</literal> "
@@ -858,16 +805,6 @@ msgstr ""
 #. Tag: para
 #: preseed.xml:482
 #, no-c-format
-#| msgid ""
-#| "The <literal>auto</literal> boot label is not yet defined everywhere. The "
-#| "same effect may be achieved by simply adding the two parameters "
-#| "<literal>auto=true priority=critical</literal> to the kernel command "
-#| "line. The <literal>auto</literal> parameter is an alias for <literal>auto-"
-#| "install/enable</literal> and setting it to <literal>true</literal> delays "
-#| "the locale and keyboard questions until after there has been a chance to "
-#| "preseed them, while <literal>priority</literal> is an alias for "
-#| "<literal>debconf/priority</literal> and setting it to <literal>critical</"
-#| "literal> stops any questions with a lower priority from being asked."
 msgid ""
 "The <literal>auto</literal> boot choice is not yet defined on all arches. "
 "The same effect may be achieved by simply adding the two parameters "
@@ -879,17 +816,16 @@ msgid ""
 "<literal>debconf/priority</literal> and setting it to <literal>critical</"
 "literal> stops any questions with a lower priority from being asked."
 msgstr ""
-"Выбор загрузки <literal>auto</literal> пока определён не для всех архитектур. "
-"Такой же "
-"эффект можно получить просто добавив два параметра <literal>auto=true "
-"priority=critical</literal> в командной строке параметров ядра. Параметр ядра "
-"<literal>auto</literal> &mdash; это псевдоним для <literal>auto-install/"
-"enable</literal> и установка его в <literal>true</literal>задерживает выдачу "
-"вопросов о локали и клавиатуре, чтобы была возможность настроить их "
-"автоматически, а <literal>priority</literal> является псевдонимом для "
-"<literal>debconf/priority</literal>, и установка в значение "
-"<literal>critical</literal> заставляет программу установки не задавать "
-"вопросы с меньшим уровнем важности."
+"Выбор загрузки <literal>auto</literal> пока определён не для всех "
+"архитектур. Такой же эффект можно получить просто добавив два параметра "
+"<literal>auto=true priority=critical</literal> в командной строке параметров "
+"ядра. Параметр ядра <literal>auto</literal> &mdash; это псевдоним для "
+"<literal>auto-install/enable</literal> и установка его в <literal>true</"
+"literal>задерживает выдачу вопросов о локали и клавиатуре, чтобы была "
+"возможность настроить их автоматически, а <literal>priority</literal> "
+"является псевдонимом для <literal>debconf/priority</literal>, и установка в "
+"значение <literal>critical</literal> заставляет программу установки не "
+"задавать вопросы с меньшим уровнем важности."
 
 #. Tag: para
 #: preseed.xml:496
@@ -2074,15 +2010,12 @@ msgstr ""
 #. Tag: para
 #: preseed.xml:891
 #, no-c-format
-#| msgid ""
-#| "The following command can be used to generate an MD5 hash for a password:"
 msgid ""
 "The following command (available from the <classname>whois</classname> "
 "package) can be used to generate an MD5 hash for a password:"
 msgstr ""
-"С помощью следующей команды (доступной из пакета <classname>whois</classname>"
-") "
-"можно сгенерировать MD5 хеш для пароля:"
+"С помощью следующей команды (доступной из пакета <classname>whois</"
+"classname>) можно сгенерировать MD5 хеш для пароля:"
 
 #. Tag: screen
 #: preseed.xml:896
@@ -2200,87 +2133,6 @@ msgstr "Пример разметки"
 #. Tag: screen
 #: preseed.xml:949
 #, no-c-format
-#| msgid ""
-#| "# If the system has free space you can choose to only partition that "
-#| "space.\n"
-#| "# This is only honoured if partman-auto/method (below) is not set.\n"
-#| "#d-i partman-auto/init_automatically_partition select biggest_free\n"
-#| "\n"
-#| "# Alternatively, you may specify a disk to partition. If the system has "
-#| "only\n"
-#| "# one disk the installer will default to using that, but otherwise the "
-#| "device\n"
-#| "# name must be given in traditional, non-devfs format (so e.g. /dev/hda "
-#| "or\n"
-#| "# /dev/sda, and not e.g. /dev/discs/disc0/disc).\n"
-#| "# For example, to use the first SCSI/SATA hard disk:\n"
-#| "#d-i partman-auto/disk string /dev/sda\n"
-#| "# In addition, you'll need to specify the method to use.\n"
-#| "# The presently available methods are:\n"
-#| "# - regular: use the usual partition types for your architecture\n"
-#| "# - lvm:     use LVM to partition the disk\n"
-#| "# - crypto:  use LVM within an encrypted partition\n"
-#| "d-i partman-auto/method string lvm\n"
-#| "\n"
-#| "# If one of the disks that are going to be automatically partitioned\n"
-#| "# contains an old LVM configuration, the user will normally receive a\n"
-#| "# warning. This can be preseeded away...\n"
-#| "d-i partman-lvm/device_remove_lvm boolean true\n"
-#| "# The same applies to pre-existing software RAID array:\n"
-#| "d-i partman-md/device_remove_md boolean true\n"
-#| "# And the same goes for the confirmation to write the lvm partitions.\n"
-#| "d-i partman-lvm/confirm boolean true\n"
-#| "d-i partman-lvm/confirm_nooverwrite boolean true\n"
-#| "\n"
-#| "# You can choose one of the three predefined partitioning recipes:\n"
-#| "# - atomic: all files in one partition\n"
-#| "# - home:   separate /home partition\n"
-#| "# - multi:  separate /home, /usr, /var, and /tmp partitions\n"
-#| "d-i partman-auto/choose_recipe select atomic\n"
-#| "\n"
-#| "# Or provide a recipe of your own...\n"
-#| "# If you have a way to get a recipe file into the d-i environment, you "
-#| "can\n"
-#| "# just point at it.\n"
-#| "#d-i partman-auto/expert_recipe_file string /hd-media/recipe\n"
-#| "\n"
-#| "# If not, you can put an entire recipe into the preconfiguration file in "
-#| "one\n"
-#| "# (logical) line. This example creates a small /boot partition, suitable\n"
-#| "# swap, and uses the rest of the space for the root partition:\n"
-#| "#d-i partman-auto/expert_recipe string                         \\\n"
-#| "#      boot-root ::                                            \\\n"
-#| "#              40 50 100 ext3                                  \\\n"
-#| "#                      $primary{ } $bootable{ }                \\\n"
-#| "#                      method{ format } format{ }              \\\n"
-#| "#                      use_filesystem{ } filesystem{ ext3 }    \\\n"
-#| "#                      mountpoint{ /boot }                     \\\n"
-#| "#              .                                               \\\n"
-#| "#              500 10000 1000000000 ext3                       \\\n"
-#| "#                      method{ format } format{ }              \\\n"
-#| "#                      use_filesystem{ } filesystem{ ext3 }    \\\n"
-#| "#                      mountpoint{ / }                         \\\n"
-#| "#              .                                               \\\n"
-#| "#              64 512 300% linux-swap                          \\\n"
-#| "#                      method{ swap } format{ }                \\\n"
-#| "#              .\n"
-#| "\n"
-#| "# The full recipe format is documented in the file partman-auto-recipe."
-#| "txt\n"
-#| "# included in the 'debian-installer' package or available from D-I "
-#| "source\n"
-#| "# repository. This also documents how to specify settings such as file\n"
-#| "# system labels, volume group names and which physical devices to "
-#| "include\n"
-#| "# in a volume group.\n"
-#| "\n"
-#| "# This makes partman automatically partition without confirmation, "
-#| "provided\n"
-#| "# that you told it what to do using one of the methods above.\n"
-#| "d-i partman-partitioning/confirm_write_new_label boolean true\n"
-#| "d-i partman/choose_partition select finish\n"
-#| "d-i partman/confirm boolean true\n"
-#| "d-i partman/confirm_nooverwrite boolean true"
 msgid ""
 "# If the system has free space you can choose to only partition that space.\n"
 "# This is only honoured if partman-auto/method (below) is not set.\n"
@@ -2711,34 +2563,6 @@ msgstr ""
 #. Tag: screen
 #: preseed.xml:1037
 #, no-c-format
-#| msgid ""
-#| "# You can choose to install non-free and contrib software.\n"
-#| "#d-i apt-setup/non-free boolean true\n"
-#| "#d-i apt-setup/contrib boolean true\n"
-#| "# Uncomment this if you don't want to use a network mirror.\n"
-#| "#d-i apt-setup/use_mirror boolean false\n"
-#| "# Select which update services to use; define the mirrors to be used.\n"
-#| "# Values shown below are the normal defaults.\n"
-#| "#d-i apt-setup/services-select multiselect security, volatile\n"
-#| "#d-i apt-setup/security_host string security.debian.org\n"
-#| "#d-i apt-setup/volatile_host string volatile.debian.org\n"
-#| "\n"
-#| "# Additional repositories, local[0-9] available\n"
-#| "#d-i apt-setup/local0/repository string \\\n"
-#| "#       http://local.server/debian stable main\n"
-#| "#d-i apt-setup/local0/comment string local server\n"
-#| "# Enable deb-src lines\n"
-#| "#d-i apt-setup/local0/source boolean true\n"
-#| "# URL to the public key of the local repository; you must provide a key "
-#| "or\n"
-#| "# apt will complain about the unauthenticated repository and so the\n"
-#| "# sources.list line will be left commented out\n"
-#| "#d-i apt-setup/local0/key string http://local.server/key\n"
-#| "\n"
-#| "# By default the installer requires that repositories be authenticated\n"
-#| "# using a known gpg key. This setting can be used to disable that\n"
-#| "# authentication. Warning: Insecure, not recommended.\n"
-#| "#d-i debian-installer/allow_unauthenticated boolean true"
 msgid ""
 "# You can choose to install non-free and contrib software.\n"
 "#d-i apt-setup/non-free boolean true\n"
@@ -2813,77 +2637,66 @@ msgstr ""
 #. Tag: para
 #: preseed.xml:1051
 #, no-c-format
-#| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>standard</userinput> (standard tools)"
 msgstr "<userinput>standard</userinput> (стандартные инструменты)"
 
 #. Tag: para
 #: preseed.xml:1054
 #, no-c-format
-#| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>desktop</userinput> (graphical desktop)"
 msgstr "<userinput>desktop</userinput> (графический рабочий стол)"
 
 #. Tag: para
 #: preseed.xml:1057
 #, no-c-format
-#| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>gnome-desktop</userinput> (Gnome desktop)"
 msgstr "<userinput>gnome-desktop</userinput> (рабочий стол Gnome)"
 
 #. Tag: para
 #: preseed.xml:1060
 #, no-c-format
-#| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>xfce-desktop</userinput> (XFCE desktop)"
 msgstr "<userinput>xfce-desktop</userinput> (рабочий стол XFCE)"
 
 #. Tag: para
 #: preseed.xml:1063
 #, no-c-format
-#| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>kde-desktop</userinput> (KDE desktop)"
 msgstr "<userinput>kde-desktop</userinput> (рабочий стол KDE)"
 
 #. Tag: para
 #: preseed.xml:1066
 #, no-c-format
-#| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>cinnamon-desktop</userinput> (Cinnamon desktop)"
 msgstr "<userinput>cinnamon-desktop</userinput> (рабочий стол Cinnamon)"
 
 #. Tag: para
 #: preseed.xml:1069
 #, no-c-format
-#| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>mate-desktop</userinput> (MATE desktop)"
 msgstr "<userinput>mate-desktop</userinput> (рабочий стол MATE)"
 
 #. Tag: para
 #: preseed.xml:1072
 #, no-c-format
-#| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>lxde-desktop</userinput> (LXDE desktop)"
 msgstr "<userinput>lxde-desktop</userinput> (рабочий стол LXDE)"
 
 #. Tag: para
 #: preseed.xml:1075
 #, no-c-format
-#| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>web-server</userinput> (web server)"
 msgstr "<userinput>web-server</userinput> (веб-сервер)"
 
 #. Tag: para
 #: preseed.xml:1078
 #, no-c-format
-#| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>print-server</userinput> (print server)"
 msgstr "<userinput>print-server</userinput> (сервер печати)"
 
 #. Tag: para
 #: preseed.xml:1081
 #, no-c-format
-#| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>ssh-server</userinput> (SSH server)"
 msgstr "<userinput>ssh-server</userinput> (сервер SSH)"
 
@@ -2955,7 +2768,7 @@ msgstr "Установка загрузчика"
 
 #. Tag: screen
 #: preseed.xml:1109
-#, no-c-format
+#, fuzzy, no-c-format
 #| msgid ""
 #| "<phrase arch=\"linux-any\"># Grub is the default boot loader (for x86). "
 #| "If you want lilo installed\n"
@@ -2989,6 +2802,8 @@ msgstr "Установка загрузчика"
 #| "#d-i grub-installer/bootdev  string (hd0,1) (hd1,1) (hd2,1)\n"
 #| "# To install to a particular device:\n"
 #| "#d-i grub-installer/bootdev  string /dev/sda\n"
+#| "# To install to the first device:\n"
+#| "#d-i grub-installer/bootdev  string default\n"
 #| "\n"
 #| "# Optional password for grub, either in clear text\n"
 #| "#d-i grub-installer/password password r00tme\n"
@@ -3022,6 +2837,12 @@ msgid ""
 "# OS, which is less safe as it might not be able to boot that other OS.\n"
 "d-i grub-installer/with_other_os boolean true\n"
 "\n"
+"# Due notably to potential USB sticks, the location of the MBR can not be\n"
+"# determined safely in general, so this needs to be specified:\n"
+"#d-i grub-installer/bootdev  string /dev/sda\n"
+"# To install to the first device (assuming it is not a USB stick):\n"
+"#d-i grub-installer/bootdev  string default\n"
+"\n"
 "# Alternatively, if you want to install to a location other than the mbr,\n"
 "# uncomment and edit these lines:\n"
 "#d-i grub-installer/only_debian boolean false\n"
@@ -3029,10 +2850,6 @@ msgid ""
 "#d-i grub-installer/bootdev  string (hd0,1)\n"
 "# To install grub to multiple disks:\n"
 "#d-i grub-installer/bootdev  string (hd0,1) (hd1,1) (hd2,1)\n"
-"# To install to a particular device:\n"
-"#d-i grub-installer/bootdev  string /dev/sda\n"
-"# To install to the first device:\n"
-"#d-i grub-installer/bootdev  string default\n"
 "\n"
 "# Optional password for grub, either in clear text\n"
 "#d-i grub-installer/password password r00tme\n"
@@ -3209,9 +3026,9 @@ msgid ""
 "<filename>/target</filename>. If an installation CD is used, when it is "
 "mounted it is available in <filename>/cdrom</filename>."
 msgstr ""
-"Когда целевая файловая система смонтирована, она доступна в "
-"<filename>/target</filename>. При использовании установочного CD, "
-"когда он смонтирован, то доступен в <filename>/cdrom</filename>."
+"Когда целевая файловая система смонтирована, она доступна в <filename>/"
+"target</filename>. При использовании установочного CD, когда он смонтирован, "
+"то доступен в <filename>/cdrom</filename>."
 
 #. Tag: screen
 #: preseed.xml:1155
