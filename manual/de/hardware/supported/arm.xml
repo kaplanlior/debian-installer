@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 69518 -->
+<!-- original version: 69644 -->
 
   <sect2 arch="arm"><title>CPUs, Mainboards und Grafikunterstützung</title>
 
@@ -228,7 +228,8 @@ Verwendung des Multiplattform-Kernels (armmp):
           <para>
              Der armmp-Kernel unterstützt verschiedene Development-Boards
              und Embedded-Systeme, die auf den SoCs Allwinner A10
-             (Architektur-Codename <quote>sun4i</quote>) und A20
+             (Architektur-Codename <quote>sun4i</quote>), A10s/A13
+             (Architektur-Codename <quote>sun5i</quote>) und A20
              (Architektur-Codename <quote>sun7i</quote>) aufbauen.
              Vollständige Unterstützung durch den Installer ist derzeit
              für folgende sunXi-basierte Systeme verfügbar:
@@ -237,7 +238,7 @@ Verwendung des Multiplattform-Kernels (armmp):
                Cubietech Cubieboard 1 + 2 / Cubietruck
              </para></listitem>
              <listitem><para>
-               LeMaker Banana Pi
+               LeMaker Banana Pi und Banana Pro
              </para></listitem>
              <listitem><para>
                LinkSprite pcDuino
@@ -251,7 +252,7 @@ Verwendung des Multiplattform-Kernels (armmp):
              <listitem><para>
                Olimex A10-Olinuxino-LIME / A10s-Olinuxino Micro /
                A13-Olinuxino / A13-Olinuxino Micro / 
-               A20-Olinuxino-LIME / A20-Olinuxino Micro
+               A20-Olinuxino-LIME / A20-Olinuxino-LIME2 / A20-Olinuxino Micro
              </para></listitem>
              <listitem><para>
                PineRiver Mini X-Plus
@@ -267,12 +268,22 @@ Verwendung des Multiplattform-Kernels (armmp):
              wird von Debian nicht unterstützt.
           </para>
           <para>
-             Der Mainline-Linux-Kernel unterstützt auf Allwinner A10- und
-             A20-SOCs grundsätzlich die serielle Konsole, Ethernet, SATA,
-             USB und MMC-/SD-Karten, enthält aber keinen Support für
-             lokale Grafik (HDMI/VGA/LVDS) und Audioausgabe.
+             Der Mainline-Linux-Kernel unterstützt auf Allwinner A10-,
+             A10s/A13- und
+             A20-SoCs grundsätzlich die serielle Konsole, Ethernet, SATA,
+             USB und MMC-/SD-Karten, enthält aber keine nativen Treiber für
+             Grafik- (HDMI/VGA/LCD) und Audio-Hardware auf diesen SoCs.
              Der NAND-Flash-Speicher, der in einige sunXi-basierte Systeme
              eingebaut ist, wird nicht unterstützt.
+          </para>
+          <para>
+             Die Verwendung eines lokalen Displays ist durch die
+             <quote>simplefb</quote>-Infrastruktur im Mainline-Kernel
+             technisch gesehen auch ohne native Display-Treiber
+             möglich. <quote>simplefb</quote> ist dabei für die Initialisierung
+             der Display-Hardware auf den <quote>u-boot</quote>-Bootloader
+             angewiesen, allerdings wird dies durch die u-boot-Version in
+             &debian; 8 nicht unterstützt.
           </para>
         </listitem>
       </varlistentry>
