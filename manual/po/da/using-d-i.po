@@ -10,6 +10,7 @@
 # scheme -> plan
 # stateful -> tilstandebærende
 # stateless -> tilstandsfri
+# volume -> diskenhed
 #
 msgid ""
 msgstr ""
@@ -3138,6 +3139,13 @@ msgid ""
 "configuration is shown. The menu itself is context sensitive and only shows "
 "valid actions. The possible actions are:"
 msgstr ""
+"Når du returnerer til hovedskærmen for <command>partman</command>, så vil "
+"du se en ny indstilling <guimenuitem>Konfigurer Logical Volume Manager</"
+"guimenuitem>. Når du vælger den, vil du først blive spurgt om at bekræfte "
+"igangværende ændringer til partitionstabellen (hvis nogen) og derefter vil LVM-"
+"konfigurationsmenuen blive vist. Over menuen vises et resume af LVM-"
+"konfigurationen. Menuen er kontekstafhængig og viser kun gyldige handlinger. "
+"De mulige handlinger er:"
 
 #. Tag: para
 #: using-d-i.xml:1869
@@ -3192,6 +3200,8 @@ msgid ""
 "<guimenuitem>Finish</guimenuitem>: return to the main <command>partman</"
 "command> screen"
 msgstr ""
+"<guimenuitem>Afslut</guimenuitem>: returner til hovedskærmen for "
+"<command>partman</command>"
 
 #. Tag: para
 #: using-d-i.xml:1897
@@ -3200,6 +3210,8 @@ msgid ""
 "Use the options in that menu to first create a volume group and then create "
 "your logical volumes inside it."
 msgstr ""
+"Brug indstillingerne i den menu til først at oprette en diskenhedsgruppe og "
+"så oprette dine logiske diskenheder inden i den."
 
 #. Tag: para
 #: using-d-i.xml:1902
@@ -3209,6 +3221,9 @@ msgid ""
 "logical volumes will be displayed in the same way as ordinary partitions "
 "(and you should treat them as such)."
 msgstr ""
+"Efter du returnerer til hovedskærmen for <command>partman</command>, vil "
+"oprettede logiske diskenheder blive vist på samme måde som ordinære partitioner "
+"(og du skal opfatte dem som sådanne)."
 
 #. Tag: title
 #: using-d-i.xml:1916
@@ -3229,6 +3244,14 @@ msgid ""
 "to the hard drive, but without knowing the right passphrase, the data on the "
 "hard drive will look like random characters."
 msgstr ""
+"&d-i; giver mulighed for at opsætte krypterede partitioner. Hver fil du "
+"skriver til sådan en partition gemmes øjeblikkelig til enheder i krypteret "
+"form. Adgang til de krypterede data tildeles kun efter indtastning af "
+"<firstterm>adgangsfrasen</firstterm> brugt da den krypterede partition blev "
+"oprettet. Denne funktion er nyttig til at beskytte sensitive data i "
+"tilfælde af, at din bærbare eller harddisk bliver stjålet. Tyven for måske "
+"fysisk adgang til harddisken, men uden den korrekt adgangsfrase vil dataene "
+"på harddisken ligne vilkårlige tegn."
 
 #. Tag: para
 #: using-d-i.xml:1929
@@ -3246,6 +3269,16 @@ msgid ""
 "because currently there is no way to load the kernel from an encrypted "
 "partition."
 msgstr ""
+"De to vigtigste partitioner at kryptere er: Hjemmemappen, hvor dine private "
+"data befinder sig og swap-partitionen, hvor sensitive data måske er lagret "
+"midlertidigt. Selvfølgelig er der intet der forhindrer dig i at kryptere "
+"andre partitioner. For eksempel <filename>/var</filename> hvor databaseservere, "
+"postservere eller printservere lagrer deres data, eller <filename>/tmp</filename> "
+"som bruges af diverse programmer til at lagre potentielt interessante "
+"midlertidige filer. Nogle folk ønsker endda at kryptere hele deres system. "
+"Den eneste undtagelse er partitionen <filename>/boot</filename>, som skal "
+"forblive ukrypteret, da der i øjeblikket ikke er nogen måde at indlæse "
+"kernen på fra en krypteret partition."
 
 #. Tag: para
 #: using-d-i.xml:1944
@@ -3256,6 +3289,10 @@ msgid ""
 "for every read or write. The performance impact depends on your CPU speed, "
 "chosen cipher and a key length."
 msgstr ""
+"Bemærk venligst at ydelsen fra krypterede partitioner vil være mindre end "
+"hvis der ikke er anvendt kryptering, da dataene skal dekrypterets og "
+"krypteres for hver læs og skriv. Ydelsesbelastningen afhænger af din "
+"CPU-hastighed, valgte krypteringsalgoritme og nøglelængde."
 
 #. Tag: para
 #: using-d-i.xml:1951
@@ -3269,6 +3306,14 @@ msgid ""
 "<menuchoice> <guimenu>Use as:</guimenu> </menuchoice> option. The menu will "
 "then change to include several cryptographic options for the partition."
 msgstr ""
+"For at bruge kryptering, så skal du oprette en ny partition ved at vælge "
+"ledig plads i hovedpartitioneringsmenuen. En anden mulighed er, at vælge "
+"en eksisterende partition (f.eks. en normal partition, en LVM logisk diskenhed "
+"eller en RAID-diskenhed). I menuen for <guimenu>Partitionsindstillinger</guimenu> "
+"skal du vælge <guimenuitem>fysisk diskenhed for kryptering</guimenuitem> ved "
+"indstillingen <menuchoice> <guimenu>Brug som:</guimenu> </menuchoice>. Menuen "
+"vil så ændre sig og inkludere flere kryptografiske indstillingsmuligheder for "
+"partitionen."
 
 #. Tag: para
 #: using-d-i.xml:1962
@@ -3277,6 +3322,8 @@ msgid ""
 "The encryption method supported by &d-i; is <firstterm>dm-crypt</firstterm> "
 "(included in newer Linux kernels, able to host LVM physical volumes)."
 msgstr ""
+"Krypteringsmetoden understøttet af &d-i; er <firstterm>dm-crypt</firstterm> "
+"(inkluderet i nyere Linuxkerner, som kan være vært for LVM fysiske diskenheder)."
 
 #. Tag: para
 #: using-d-i.xml:1971
@@ -3287,6 +3334,9 @@ msgid ""
 "use the defaults, because they have been carefully chosen with security in "
 "mind."
 msgstr ""
+"Lad os kigge på de tilgængelige indstillinger, når du vælger kryptering via "
+"<userinput>Device-mapper (dm-crypt)</userinput>. Som altid: Hvis i tvivl, "
+"så brug standarderne, da de er valgt med omhu med tanke på sikkerhed."
 
 #. Tag: term
 #: using-d-i.xml:1981
@@ -4194,6 +4244,11 @@ msgid ""
 "installation. It is also possible to install multiple desktops, but some "
 "combinations of desktop may not be co-installable."
 msgstr ""
+"Som standard installerer &d-i; skrivebordsmiløjet <phrase arch=\"x86\">"
+"Gnome</phrase> <phrase arch=\"non-x86\">Xfce</phrase>. Det er muligt "
+"interaktivt at vælge et andet skrivebordsmiljø under installationen. "
+"Det er også muligt at installere flere skriveborde, men nogle kombinationer "
+"af skriveborde fungerer måske ikke sammen."
 
 #. Tag: para
 #: using-d-i.xml:2569
