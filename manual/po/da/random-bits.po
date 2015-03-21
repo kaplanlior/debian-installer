@@ -2,18 +2,22 @@
 # Copyright (C) 2014 Free Software Foundation, Inc.
 # Joe Hansen <joedalton2@yahoo.dk>, 2014, 2015.
 #
-# howto -> manual
+# 32-bit processorer (er anvendt selv om 32-bit-processorer er den korrekte brug)
+# installer -> installationsprogram
 # language -> sprog
 # locale -> sted (lokalitet andet?)
 # locales -> steder (sprogområder)
 # scheme -> plan
+# stateful -> tilstandebærende
+# stateless -> tilstandsfri
+# volume -> diskenhed
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: d-i-manual_random-bits\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2015-01-09 19:07+0000\n"
-"PO-Revision-Date: 2015-03-05 11:40+0100\n"
+"PO-Revision-Date: 2015-03-21 11:40+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -1363,7 +1367,7 @@ msgstr "# apt-cache search &kernelpackage;"
 #: random-bits.xml:726
 #, no-c-format
 msgid "Then install the kernel package of your choice using its package name."
-msgstr ""
+msgstr "Installer så kernepakken efter dit valg via dets pakkenavn."
 
 #. Tag: screen
 #: random-bits.xml:730
@@ -1425,6 +1429,9 @@ msgid ""
 "been created. There are alternative methods to install <command>grub2</"
 "command>, but those are outside the scope of this appendix."
 msgstr ""
+"Bemærk at dette antager at en <filename>/dev/hda</filename>-enhedsfil "
+"er blevet oprettet. Der er alternative metoder til at installere "
+"<command>grub2</command>, men de er uden for dette appendisk omfang."
 
 #. Tag: para
 #: random-bits.xml:772
@@ -1565,7 +1572,7 @@ msgstr "# aptitude clean"
 #: random-bits.xml:860
 #, no-c-format
 msgid "Installing &debian-gnu; over Parallel Line IP (PLIP)"
-msgstr ""
+msgstr "Installation af &debian-gnu; over Parallel Line IP (PLIP)"
 
 #. Tag: para
 #: random-bits.xml:862
@@ -1577,6 +1584,11 @@ msgid ""
 "connected to a network that has a &debian; mirror on it (e.g. to the "
 "Internet)."
 msgstr ""
+"Dette afsnit forklarer hvordan &debian-gnu; installeres på en computer "
+"uden et Ethernetkort, men kun via en ekstern adgangspunktcomputer tilkoblet "
+"via et Null-Modem-kabel (også kaldt for Null-Printer-kabel). Adgangspunktcomputeren "
+"skal være forbundet til et netværk, som har et &debian;-spejl (f.eks. til "
+"internettet)."
 
 #. Tag: para
 #: random-bits.xml:870
@@ -1621,12 +1633,14 @@ msgid ""
 "A target computer, called <emphasis>target</emphasis>, where &debian; will "
 "be installed."
 msgstr ""
+"En målcomputer, kaldet <emphasis>mål</emphasis>, hvor &debian; vil blive "
+"installeret."
 
 #. Tag: para
 #: random-bits.xml:902
 #, no-c-format
 msgid "System installation media; see <xref linkend=\"installation-media\"/>."
-msgstr ""
+msgstr "systeminstallationsmedie; se <xref linkend=\"installation-media\"/>."
 
 #. Tag: para
 #: random-bits.xml:907
@@ -1635,6 +1649,8 @@ msgid ""
 "Another computer connected to the Internet, called <emphasis>source</"
 "emphasis>, that will function as the gateway."
 msgstr ""
+"En anden computer forbundet til internettet, kaldt <emphasis>kilde</"
+"emphasis>, som vil fungere som adgangspunkt."
 
 #. Tag: para
 #: random-bits.xml:913
@@ -1649,7 +1665,7 @@ msgstr ""
 #: random-bits.xml:925
 #, no-c-format
 msgid "Setting up source"
-msgstr ""
+msgstr "Opsætning af kilde"
 
 #. Tag: para
 #: random-bits.xml:926
@@ -1658,6 +1674,9 @@ msgid ""
 "The following shell script is a simple example of how to configure the "
 "source computer as a gateway to the Internet using ppp0."
 msgstr ""
+"Det følgende skalskript er et simpelt eksempel på hvordan "
+"kildecomputeren kan konfigureres som et adgangspunkt til internettet "
+"via ppp0."
 
 #. Tag: screen
 #: random-bits.xml:931
@@ -1682,12 +1701,30 @@ msgid ""
 "MASQUERADE\n"
 "echo 1 > /proc/sys/net/ipv4/ip_forward"
 msgstr ""
+"#!/bin/sh\n"
+"\n"
+"# Vi fjerner kørende moduler fra kernen for at undgå konflikter og for at \n"
+"# konfigurere dem om manuelt.\n"
+"modprobe -r lp parport_pc\n"
+"modprobe parport_pc io=<replaceable>0x378</replaceable> irq=<replaceable>7</"
+"replaceable>\n"
+"modprobe plip\n"
+"\n"
+"# Konfigurer plip-grænsefladen (plip0 for mig, se dmesg | grep plip)\n"
+"ifconfig <replaceable>plip0 192.168.0.2</replaceable> pointopoint "
+"<replaceable>192.168.0.1</replaceable> netmask 255.255.255.255 up\n"
+"\n"
+"# Konfigurer adgangspunkt\n"
+"modprobe iptable_nat\n"
+"iptables -t nat -A POSTROUTING -o <replaceable>ppp0</replaceable> -j "
+"MASQUERADE\n"
+"echo 1 > /proc/sys/net/ipv4/ip_forward"
 
 #. Tag: title
 #: random-bits.xml:937
 #, no-c-format
 msgid "Installing target"
-msgstr ""
+msgstr "Installation af mål"
 
 #. Tag: para
 #: random-bits.xml:938
@@ -1718,6 +1755,8 @@ msgid ""
 "Select the <userinput>plip-modules</userinput> option from the list; this "
 "will make the PLIP drivers available to the installation system."
 msgstr ""
+"Vælg indstillingen <userinput>plip-modules</userinput> fra listen; dette "
+"vil gøre PLIP-drivere tilgængelige for installationssystemet."
 
 #. Tag: guimenuitem
 #: random-bits.xml:967
@@ -1743,6 +1782,9 @@ msgid ""
 "ask you to select a network driver module from a list. Select the "
 "<userinput>plip</userinput> module."
 msgstr ""
+"Da intet netværkskort blev detekteret/valgt tidligere, vil installationsprogrammet "
+"anmode dig om at vælge et modul for netværksdriveren fra en liste. Vælg modulet "
+"<userinput>plip</userinput>."
 
 #. Tag: guimenuitem
 #: random-bits.xml:993
