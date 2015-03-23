@@ -29,6 +29,7 @@ fi
 stylesheet_html_single="$stylesheet_dir/style-html-single.xsl"
 stylesheet_dsssl="$stylesheet_dir/style-print.dsl"
 stylesheet_css="$stylesheet_dir/install.css"
+stylesheet_images_dir="$stylesheet_dir/png"
 
 entities_path="$build_path/entities"
 source_path="$manual_path/$language"
@@ -132,6 +133,7 @@ create_html () {
 
     # Copy the custom css stylesheet to the destination directory
     cp $stylesheet_css $destdir/html/
+    cp -r $stylesheet_images_dir $destdir/html/images
 
     return 0
 }

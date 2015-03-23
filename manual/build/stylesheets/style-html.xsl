@@ -28,10 +28,15 @@ href="file:///usr/share/sgml/docbook/stylesheet/xsl/nwalsh/html/chunk.xsl"/>
 <!-- We want some code aesthetic in resulting html -->
 <xsl:param name="chunker.output.indent" select="'yes'"/>
 
-<!-- Do we want fancy icons around note, warning, etc.? -->
-<xsl:param name="admon.graphics">0</xsl:param>
+<!-- We want fancy icons around note, warning, etc. -->
+<xsl:param name="admon.graphics">1</xsl:param>
 
-<!-- Do we want fancy icons instead of Next, Prev, Up, Home? -->
-<xsl:param name="navig.graphics">0</xsl:param>
+<!-- We want fancy icons instead of Next, Prev, Up, Home -->
+<xsl:param name="navig.graphics">1</xsl:param>
+<xsl:param name="navig.graphics.extension">.png</xsl:param>
+
+<!-- We don't want default inline css -->
+<xsl:param name="css.decoration">0</xsl:param>
+<xsl:param name="admon.style" />
 
 </xsl:stylesheet>
