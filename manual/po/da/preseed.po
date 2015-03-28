@@ -3,6 +3,8 @@
 # Joe Hansen <joedalton2@yahoo.dk>, 2014, 2015.
 #
 # 32-bit processorer (er anvendt selv om 32-bit-processorer er den korrekte brug)
+# cipher -> krypteringsalgoritme
+# howto -> manual
 # installer -> installationsprogram
 # language -> sprog
 # locale -> sted (lokalitet andet?)
@@ -18,7 +20,7 @@ msgstr ""
 "Project-Id-Version: d-i-manual_preseed\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2015-03-21 16:42+0000\n"
-"PO-Revision-Date: 2015-03-21 17:40+0100\n"
+"PO-Revision-Date: 2015-03-28 17:40+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -31,8 +33,7 @@ msgstr ""
 #, no-c-format
 msgid "Automating the installation using preseeding"
 msgstr ""
-"Automatisering af installationen med preseeding (udfyldte "
-"forhåndsindstillinger)"
+"Automatisering af installationen med preseeding (forhåndskonfiguration)"
 
 #. Tag: para
 #: preseed.xml:18
@@ -41,7 +42,7 @@ msgid ""
 "This appendix explains how to preseed answers to questions in &d-i; to "
 "automate your installation."
 msgstr ""
-"Dette appendiks forklarer hvordan du forhåndsindstiller svar på spørgsmål i "
+"Dette appendiks forklarer hvordan du forhåndskonfigurerer svar på spørgsmål i "
 "&d-i;, så installationen bliver automatisk."
 
 #. Tag: para
@@ -107,6 +108,12 @@ msgid ""
 "preseeding of more things, but it requires the most preparation. File and "
 "network preseeding each can be used with different installation methods."
 msgstr ""
+"Der er tre metoder, som kan bruges til forhåndskonfiguration: <firstterm>"
+"initrd</firstterm>, <firstterm>file</firstterm> og <firstterm>network</firstterm>. "
+"Initrd-forhåndskonfiguration vil fungere med alle installationsmetoder og "
+"understøtte forhåndskonfiguration for mange områder, men den kræver mest "
+"forberedelse. Fil- og netværksforhåndskonfiguration kan bruges med forskellige "
+"installationsmetoder."
 
 #. Tag: para
 #: preseed.xml:60
@@ -163,6 +170,8 @@ msgid ""
 "but only if you have network access, and set <literal>preseed/url</literal> "
 "appropriately"
 msgstr ""
+"men kun hvis du har netværksadgang og angiver <literal>preseed/url</literal> "
+"på passende vis"
 
 #. Tag: entry
 #: preseed.xml:88
@@ -182,30 +191,31 @@ msgstr "<entry>nej</entry>"
 msgid ""
 "hd-media <phrase condition=\"bootable-usb\">(including usb-stick)</phrase>"
 msgstr ""
+"hd-media <phrase condition=\"bootable-usb\">(inklusive usb-drev)</phrase>"
 
 #. Tag: entry
 #: preseed.xml:96 preseed.xml:101
 #, no-c-format
 msgid "yes<footnoteref linkend=\"apx-ps-net\"/>"
-msgstr ""
+msgstr "ja<footnoteref linkend=\"apx-ps-net\"/>"
 
 #. Tag: entry
 #: preseed.xml:98
 #, no-c-format
 msgid "floppy based (cd-drivers)"
-msgstr ""
+msgstr "diskettebaseret (cd-drivere)"
 
 #. Tag: entry
 #: preseed.xml:103
 #, no-c-format
 msgid "floppy based (net-drivers)"
-msgstr ""
+msgstr "diskettebaseret (net-drivere)"
 
 #. Tag: entry
 #: preseed.xml:108
 #, no-c-format
 msgid "generic"
-msgstr ""
+msgstr "generisk"
 
 #. Tag: para
 #: preseed.xml:117
@@ -218,6 +228,12 @@ msgid ""
 "loaded. For network preseeding it is only after the network has been "
 "configured."
 msgstr ""
+"En vigtig forskel mellem metoderne til forhåndskonfiguration er punktet "
+"hvor filen til forhåndskonfiguration indlæses og behandles. For initrd-"
+"forhåndskonfiguration er dette lige ved starten af installationen, før det "
+"første spørgsmål. For filforhåndskonfiguration er dette efter cd- eller "
+"cd-aftrykket er blevet indlæst. For netværksforhåndskonfiguration er det "
+"lige efter at netværket er blevet konfigureret."
 
 #. Tag: para
 #: preseed.xml:126
