@@ -3,6 +3,7 @@
 # Joe Hansen <joedalton2@yahoo.dk>, 2014, 2015.
 #
 # 32-bit processorer (er anvendt selv om 32-bit-processorer er den korrekte brug)
+# cipher -> krypteringsalgoritme
 # howto -> manual
 # language -> sprog
 # locale -> sted (lokalitet andet?)
@@ -3359,6 +3360,17 @@ msgid ""
 "encryption algorithm for protecting sensitive information in the 21st "
 "century."
 msgstr ""
+"Denne indstilling giver dig mulighed for at vælge krypteringsalgoritmen "
+"(<firstterm>cipher</firstterm>), som vil blive brugt til at kryptere dataene "
+"på partitionen. &d-i; understøtter i øjeblikket de følgende "
+"blokkrypteringsalgoritmer: <firstterm>aes</firstterm>, "
+"<firstterm>blowfish</firstterm>, <firstterm>serpent</firstterm> og "
+"<firstterm>twofish</firstterm>. Det er udover "
+"omfanget af dette dokument at diskutere kvaliteten af disse forskellige "
+"algoritmer, det kan dog være en hjælp til beslutningen at vide at i 2000 "
+"blev <emphasis>AES</emphasis> valgt af American National Institute of "
+"Standards and Technology som standardalgoritmen til kryptering for "
+"beskyttelse af ømtålelig information i det 21. århundrede."
 
 #. Tag: term
 #: using-d-i.xml:2001
@@ -3375,6 +3387,10 @@ msgid ""
 "hand, increasing the length of the key usually has a negative impact on "
 "performance. Available key sizes vary depending on the cipher."
 msgstr ""
+"Her kan du angive længden af krypteringsnøglen. Med en større nøglestørrelse, "
+"forbedres krypteringen. På den anden side, kan en øgning af længden af "
+"nøglen have en negativ indflydelse på ydelsen. Tilgængelige nøglestørrelser "
+"afhænger af krypteringsalgorimen."
 
 #. Tag: term
 #: using-d-i.xml:2015
@@ -3393,6 +3409,12 @@ msgid ""
 "prevent the attacker from deducing information from repeated patterns in the "
 "encrypted data."
 msgstr ""
+"<firstterm>Initialisationsvektoren</firstterm> eller <firstterm>IV</"
+"firstterm>-algortimen bruges i kryptografi til at sikre, at den samme "
+"krypteringsalgoritme brugt på de samme <firstterm>ren tekst</firstterm>-data "
+"med den samme nøgle altid laver en unik <firstterm>krypteringsalgoritmetekst"
+"</firstterm>. Ideen er at forhindre angriberen i at udlede information fra "
+"gentagne mønstre i de krypterede data."
 
 #. Tag: para
 #: using-d-i.xml:2027
@@ -3403,6 +3425,10 @@ msgid ""
 "alternatives only when you need to ensure compatibility with some previously "
 "installed system that is not able to use newer algorithms."
 msgstr ""
+"Fra de tilbudte alternativer, er standarden <userinput>xts-plain64</"
+"userinput> i øjeblikekt den mindst sårbare over for kendte angreb. Brug kun "
+"de andre alternativer, når du skal sikre kompatibilitet med nogle tidligere "
+"installerede systemer, som ikke kan anvende de nyere algoritmer."
 
 #. Tag: term
 #: using-d-i.xml:2039
@@ -3431,6 +3457,10 @@ msgid ""
 "\"&url-luks;\">LUKS</ulink>. </para></footnote> on the basis of a passphrase "
 "which you will be able to enter later in the process."
 msgstr ""
+"Krypteringsnøglen vil blive beregnet<footnote> <para> Brug af en adgangsfrase "
+"som nøgle betyder i øjeblikket, at partitionen vil blive opsat under <ulink url="
+"\"&url-luks;\">LUKS</ulink>. </para></footnote> på grundlag en adgangsfrase, "
+"som du vil kunne indtaste senere i processen."
 
 #. Tag: term
 #: using-d-i.xml:2063
@@ -3449,6 +3479,12 @@ msgid ""
 "there is an unknown weakness in the cipher algorithm, it is not achievable "
 "in our lifetime.)"
 msgstr ""
+"En ny krypteringsnøgle vil blive oprettet fra vilkårlige data hver gang, "
+"du forsøger at starte den krypterede partition. Med andre ord: ved hver "
+"nedlukning vil indholdet af partitionen blive tabt, da nøglen slettes fra "
+"hukommelsen. (Du kan selvfølgelig forsøge at gætte nøglen med et brute "
+"force-angreb, men med mindre, at der er en ukendt svaghed i krypteringsalgoritmen, "
+"så kan det ikke opnås i vores livstid)."
 
 #. Tag: para
 #: using-d-i.xml:2073
@@ -3462,6 +3498,12 @@ msgid ""
 "as it will be impossible (during a subsequent boot) to recover the suspended "
 "data written to the swap partition."
 msgstr ""
+"Vilkårlige nøgler er nyttige for swappartitioner, da du ikke skal huske "
+"adgangsfrasen eller slette ømtålelig information fra swappartitionen, før du "
+"lukker computeren ned. Det betyder dog også, at du <emphasis>ikke</emphasis> "
+"vil kunne bruge funktionaliteten <quote>suspend-to-disk</quote> (sæt disken i "
+"dvale) tilbudt af nyere Linuxkerner, da det vil være umuligt (under en "
+"efterfølgende opstart) at gendanne data skrevet til swappartitionen."
 
 #. Tag: term
 #: using-d-i.xml:2092
@@ -4135,10 +4177,10 @@ msgid ""
 "network topology. It takes into account by which protocol you connect to it, "
 "i.e. if you use IPv6, it will refer you to an IPv6-capable mirror near you."
 msgstr ""
-"En anden mulighed når du vælger at angive spejlet manuelt at at bruge "
+"En anden mulighed, når du vælger at angive spejlet manuelt, er at bruge "
 "<quote>http.debian.net</quote> som dit spejl. <quote>http.debian.net</quote> "
 "er ikke et fysisk spejl, men en tjeneste for spejltildeling, d.v.s. at det "
-"automatisk videresender dit sytsem til et rigtigt spejl tæt på dig i forhold "
+"automatisk videresender dit system til et rigtigt spejl tæt på dig i forhold "
 "til netværkstopologi. Det midlertidige spejl tager højde for hvilken "
 "protokol, du forbinder med, d.v.s. hvis du bruger IPv6, så bliver du sendt "
 "til et spejl med IPv6."
