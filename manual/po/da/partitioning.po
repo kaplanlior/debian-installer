@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: d-i-manual_partitioning\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2015-01-09 19:07+0000\n"
-"PO-Revision-Date: 2015-03-28 10:40+0100\n"
+"PO-Revision-Date: 2015-03-28 11:40+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -494,6 +494,13 @@ msgid ""
 "plan to save a lot of multimedia files (pictures, MP3, movies) in your home "
 "directory."
 msgstr ""
+"<filename>/home</filename>: Hver bruger vil placere sine personlige data "
+"i en undermappe i denne mappe. Dens størrelse afhænger af hvor mange "
+"brugere som skal bruge systemet og hvilke filer deres lagres i deres "
+"mapper. Afhængig af din planlagte brug, skal du reservere omkring 100 MB "
+"for hver bruger, men tilpas denne værdi til dine behov. Reserver en masse "
+"plads, hvis du planlægger at gemme en masse multimediefiler (billeder, mp3, "
+"film) i din hjemmemappe."
 
 #. Tag: title
 #: partitioning.xml:235
@@ -512,6 +519,12 @@ msgid ""
 "periodic file system integrity checking, and this can cause delays during "
 "booting when the partition is large."
 msgstr ""
+"For nye brugere, personlige &debian;-bokse, hjemmesystemer og andre "
+"enkel bruger-systemer, er en enkel <filename>/</filename>-partition (plus "
+"swap) sandsynligvis den simpleste måde at gå i gang. Hvis din partition "
+"er større end omkring 6 GB, så vælg ext3 som din partitionstype. Ext2-"
+"partitioner kræver periodisk integritetskontrol af filsystemet, og dette "
+"kan medføre forsinkelser under opstart, når partitionen er stor."
 
 #. Tag: para
 #: partitioning.xml:245
@@ -522,6 +535,10 @@ msgid ""
 "filename> each on their own partitions separate from the <filename>/</"
 "filename> partition."
 msgstr ""
+"For systemer med flere brugere eller systemer med en masse displads, er det "
+"bedst at placere <filename>/var</filename>, <filename>/tmp</filename>, og "
+"<filename>/home</filename> på hver deres partition adskilt fra partitionen "
+"<filename>/</filename> partition."
 
 #. Tag: para
 #: partitioning.xml:253
@@ -537,6 +554,15 @@ msgid ""
 "partition. In general, the partitioning situation varies from computer to "
 "computer depending on its uses."
 msgstr ""
+"Du skal måske bruge en separat partition <filename>/usr/local</filename>, "
+"hvis du planlægger at installere mange programmer, som ikke er en del af "
+"&debian;-distributionen. Hvis din maskine skal være en postserver, så kan "
+"det være en god ide at gøre <filename>/var/mail</filename> til en separat "
+"partition, for eksempel er 20&ndash;50 MB, en god ide. Hvis du opsætter "
+"en server med en masse brugerkonti, er det generelt en god ide at have en "
+"adskilt, stor partition for <filename>/home</filename>. Generelt er "
+"den ideelle partitionering forskellig fra computer til computer afhængig "
+"af computerens brug."
 
 #. Tag: para
 #: partitioning.xml:265
@@ -562,6 +588,13 @@ msgid ""
 "simultaneous equations on a machine with 256MB of memory, you may need a "
 "gigabyte (or more) of swap."
 msgstr ""
+"Med respekt for problemstillingen for swappartitionens størrelse, så er der "
+"mange meninger. En tommelfingerregel som fungerer godt er at bruge så "
+"meget swap som du har systemhukommelse. Den bør, i de fleste tilfælde, "
+"ikke være mindre end 16 MB. Selvfølgelig er der undtagelser til denne "
+"regel. Hvis du forsøger at løse 10.000 samtidige ligninger på en maskine "
+"med 256 MB hukommelse, så skal du sandsynligvis bruge en gigabyte (eller "
+"mere) swap."
 
 #. Tag: para
 #: partitioning.xml:281
@@ -574,6 +607,12 @@ msgid ""
 "and, if possible, different SCSI or IDE channels. The kernel will balance "
 "swap usage between multiple swap partitions, giving better performance."
 msgstr ""
+"På nogle 32-bit arkitekturer (m68k og PowerPC), er den maksimale størrelse "
+"for en swappartition 2 GB. Det bør være nok for næsten alle installationer. "
+"Hvis dit swapkrav er meget højt, så bør du eventuelt prøve at sprede "
+"swappen over forskellige diske (også kaldt for <quote>spindles</quote>) "
+"og, hvis muligt, forskellige SCSI- eler IDE-kanaler. Kernen vil balancere "
+"swapbrug mellem flere swappartitioner, hvilket giver bedre ydelse."
 
 #. Tag: para
 #: partitioning.xml:291
@@ -585,6 +624,11 @@ msgid ""
 "partition on <filename>/dev/hda3</filename> and about 1.2GB on <filename>/"
 "dev/hda2</filename> as the Linux partition."
 msgstr ""
+"Som et eksempel, kan en gammel maskine have 32 MB ram og et 1,7 GB IDE-drev "
+"på <filename>/dev/hda</filename>. Der er måske en 500 MB partition for et "
+"andet operativsystem på <filename>/dev/hda1</filename>, en 32 MB swappartition "
+"på <filename>/dev/hda3</filename> og omkring 1,2 GB på <filename>/"
+"dev/hda2</filename> som Linuxpartitionen."
 
 #. Tag: para
 #: partitioning.xml:300
@@ -687,6 +731,10 @@ msgid ""
 "respectively. Newer IDE controllers can actually have two channels, "
 "effectively acting like two controllers."
 msgstr ""
+"Master- og slavediskene for den sekundære controller kan kaldes "
+"<filename>/dev/hdc</filename> og <filename>/dev/hdd</filename>, "
+"respektivt. Nyere IDE-controllere kan faktisk have to kanaler, "
+"effectivt fungerende som to controllere."
 
 #. Tag: para
 #: partitioning.xml:376
@@ -728,6 +776,13 @@ msgid ""
 "<filename>sda2</filename>, and <filename>sda3</filename>. The same applies "
 "to the <filename>sdb</filename> disk and its partitions."
 msgstr ""
+"Her er et eksempel fra det virkelige liv. Lad os antage, at du har et "
+"system med 2 SCSI-diske, en på SCSI-adresse 2 og den anden på SCSI-adresse "
+"4. Den første disk (på adresse 2) er så navngivet <filename>sda</filename>, "
+"og den anden <filename>sdb</filename>. Hvis drevet <filename>sda</filename> "
+"har 3 partitioner, så vil de blive navngivet <filename>sda1</filename>, "
+"<filename>sda2</filename> og <filename>sda3</filename>. Det samme gælder "
+"for disken <filename>sdb</filename> og dens partitioner."
 
 #. Tag: para
 #: partitioning.xml:408
@@ -738,7 +793,7 @@ msgid ""
 "watch the boot messages, assuming you know the drive models and/or "
 "capacities."
 msgstr ""
-"Bemærk, at hvis du har to SCSI-værtsbusadaptere (dvs. controllere) så kan "
+"Bemærk, at hvis du har to SCSI-værtsbusadaptere (dvs. controllere), så kan "
 "rækkefølgen for drevene blive forstyrret. Den bedste løsning i dette "
 "tilfælde er at kigge på opstartsbeskederen, hvis vi antager, at du kender "
 "drevmodellerne og/eller kapaciteten."
@@ -755,6 +810,13 @@ msgid ""
 "is, the primary partition holding the logical partitions, is not usable by "
 "itself. This applies to SCSI disks as well as IDE disks."
 msgstr ""
+"Linux repræsenterer de primære partitioner som drevnavn, plus tallene 1 "
+"til 4. For eksempel, er den første primære partition på det første IDE-"
+"drev <filename>/dev/hda1</filename>. De logiske partitioner er nummereret "
+"startende med 5, så den første logiske partition på det samme drev er "
+"<filename>/dev/hda5</filename>. Husk at den udvidede partition, det vil "
+"sige den primære partition som indeholder de logiske partitioner, ikke "
+"kan bruges for sig selv. Dette gælder for SCSI-diske samt IDE-diske."
 
 #. Tag: para
 #: partitioning.xml:426
@@ -765,6 +827,10 @@ msgid ""
 "quote> partition. This partition references all of the sectors of the disk, "
 "and is used by the boot loader (either SILO, or Sun's)."
 msgstr ""
+"Sun-diskpartitioner tillader 8 separate partitioner (eller dele). Den tredje "
+"partition er normalt (og den foretrækkes at have) partitionen <quote>Whole "
+"Disk</quote>. Denne partition har reference til alle sektorerne for disken, "
+"og bruges af opstartsindlæseren (enten SILO, eller Suns)."
 
 #. Tag: para
 #: partitioning.xml:433
@@ -775,6 +841,10 @@ msgid ""
 "represent the first and second partitions of the first DASD device in your "
 "system."
 msgstr ""
+"Partitionen på hver disk er repræsenteret ved at tilføje et decimaltal til "
+"disknavnet: <filename>dasda1</filename> og <filename>dasda2</filename> "
+"repræsenterer den første og anden partition for den første DASD-enhed i dit "
+"system."
 
 #. Tag: title
 #: partitioning.xml:448
@@ -791,7 +861,12 @@ msgid ""
 "architectures. Following is a list of the program(s) applicable for your "
 "architecture."
 msgstr ""
+"Flere variationer af partitioneringsprogrammer er blevet tilpasset af "
+"&debian;-udviklere til at fungere på forskellige typer af harddiske og "
+"computerarkitekturer. Her følger en liste over programmer, som er egnede "
+"for din arkitektur."
 
+# hvad betyder speak her?
 #. Tag: para
 #: partitioning.xml:462
 #, no-c-format
@@ -801,6 +876,10 @@ msgid ""
 "(<quote>format</quote> in Windows speak)</phrase> and assign them to the "
 "mountpoints."
 msgstr ""
+"Anbefalet partitioneringsværktøj i &debian;. Denne schweitzerkniv kan også "
+"ændre størrelse på partitioner, oprette filsystemer <phrase arch=\"any-x86\"> "
+"(<quote>formatere</quote> i Windows speak)</phrase> og tildele dem til "
+"monteringspunkter."
 
 #. Tag: para
 #: partitioning.xml:474
