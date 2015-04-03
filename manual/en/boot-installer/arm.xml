@@ -186,6 +186,58 @@ bootz ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}
       <quote>run bootcmd_usb0</quote> command.
     </para>
   </sect2>     
+
+  <sect2 arch="armhf" id="boot-installer-sd-image">
+    <title>Using pre-built SD-card images with the installer</title>
+    <para>
+      For a number of systems, Debian provides SD card images that contain
+      both u-boot and the &d-i;.  These images are provided in two variants
+      - one for downloading the software packages over the network
+      (available at &armmp-netboot-sd-img;) and one for offline
+      installations using a Debian CD/DVD (available at
+      &armmp-hd-media-sd-img;).  To save space and network bandwidth, the
+      images consist of two parts - a system-dependent part named
+      <quote>firmware.&lt;system-type&gt;.img.gz</quote>, and a
+      system-independent part named <quote>partition.img.gz</quote>.
+    </para>
+    <para>
+      To create a complete image from the two parts on Linux systems, you
+      can use zcat as follows:
+      
+      <informalexample><screen>zcat firmware.&lt;system-type&gt;.img.gz partition.img.gz > complete_image.img</screen></informalexample>
+            
+      On Windows systems, you have to first decompress the two parts
+      separately, which can be done e.g.  by using 7-Zip, and then
+      concatenate the decompressed parts together by running the command
+      
+      <informalexample><screen>copy /b firmware.&lt;system-type&gt;.img + partition.img complete_image.img</screen></informalexample>
+          
+      in a Windows CMD.exe window.
+    </para>
+    <para>
+      Write the resulting image onto an SD card, e.g. by running the
+      following command on a Linux system:
+      
+      <informalexample><screen>cat complete_image.img > /dev/SD_CARD_DEVICE</screen></informalexample>
+
+      After plugging the SD card into the target system and powering the
+      system up, the installer is loaded from the SD card.  If you use the
+      hd-media variant for offline installations, you must provide the
+      installer with access to the first &debian; CD/DVD on a separate
+      medium, which can e.g. be a CD/DVD ISO image on a USB stick.
+    </para>
+    <para>
+      When you come to the partitioning step in the installer (see <xref
+      linkend="di-partition"/>), you can delete or replace any previous
+      partitions on the card.  Once the installer is started, it runs
+      completely in the system's main memory and does not need to access the
+      SD card anymore, so you can use the full card for installing &debian;. 
+      The easiest way to create a proper partition layout on the SD card is
+      to let the installer automatically create one for you (see
+      <xref linkend="partman-auto"/>).
+    </para>
+  </sect2>
+  
     
 <!-- # None of the arm systems supported in Jessie is able to boot from
      # CD/DVD -> commenting out the "Booting from CD-ROM section" for arm

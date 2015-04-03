@@ -28,6 +28,30 @@
     </para>
   </sect2>
 
+  <sect2 arch="armhf" id="armhf-uboot-images">
+    <title>Debian-provided u-boot (system firmware) images</title>
+    <para>
+      Debian provides u-boot images for various armhf systems that can load
+      their u-boot from an SD card at &armmp-uboot-img;.  The u-boot builds
+      are offered in two formats: raw u-boot components and a ready-made
+      card image that can easily be written onto an SD card.  The raw u-boot
+      components are provided for advanced users; the generally recommended
+      way is to use one of the ready-made SD card images.  They are named
+      &lt;system-type&gt;.sdcard.img.gz and can be written to a card e.g. 
+      with
+
+      <informalexample><screen>zcat &lt;system-type&gt;.sdcard.img.gz > /dev/SD_CARD_DEVICE</screen></informalexample>
+      
+      As with all images, please be aware that writing the image to an SD
+      card wipes all previous contents of the card!
+    </para>
+    <para>
+      If Debian provides a u-boot image for your system, it is recommended
+      that you use this image instead of the vendor-provided u-boot, as the
+      version in Debian is usually newer and has more features.
+    </para>
+  </sect2>
+
   <sect2 arch="arm" id="uboot-macsetting">
     <title>Setting the ethernet MAC address in u-boot</title>
     <para>
