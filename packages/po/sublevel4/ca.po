@@ -1,15 +1,15 @@
 # Catalan messages for debian-installer.
-# Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2010, 2011, 2012 Software in the Public Interest, Inc.
+# Copyright 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2010, 2011, 2012, 2015 Software in the Public Interest, Inc.
 # This file is distributed under the same license as debian-installer.
-# Jordi Mallach <jordi@debian.org>, 2002, 2003, 2004, 2006, 2007, 2008, 2010, 2011, 2012.
+# Jordi Mallach <jordi@debian.org>, 2002, 2003, 2004, 2006, 2007, 2008, 2010, 2011, 2012, 2015.
 # Guillem Jover <guillem@debian.org>, 2005, 2007.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: debian-installer wheezy\n"
+"Project-Id-Version: debian-installer jessie\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-12-30 22:01+0000\n"
-"PO-Revision-Date: 2012-02-27 01:54+0100\n"
+"PO-Revision-Date: 2015-04-04 01:30+0200\n"
 "Last-Translator: Jordi Mallach <jordi@debian.org>\n"
 "Language-Team: Catalan <debian-l10n-catalan@lists.debian.org>\n"
 "Language: ca\n"
@@ -1175,10 +1175,8 @@ msgstr "Suprimeix un conjunt ZFS"
 #. Menu entry
 #. Use infinitive form
 #: ../partman-zfs.templates:14001
-#, fuzzy
-#| msgid "Create %s file system"
 msgid "Create root file system"
-msgstr "Crea un sistema de fitxers %s"
+msgstr "Crea un sistema de fitxers arrel"
 
 #. Type: boolean
 #. Description
@@ -1252,12 +1250,6 @@ msgstr "Resum de la configuració actual del ZFS:"
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:21001
-#, fuzzy
-#| msgid ""
-#| " Free physical volumes:  ${FREE_PVS}\n"
-#| " Used physical volumes:  ${USED_PVS}\n"
-#| " ZFS pools:              ${VGS}\n"
-#| " ZFS logical volumes:    ${LVS}"
 msgid ""
 " Free physical volumes:  ${FREE_PVS}\n"
 " Used physical volumes:  ${USED_PVS}\n"
@@ -1268,7 +1260,8 @@ msgstr ""
 " Volums físics lliures:  ${FREE_PVS}\n"
 " Volums físics en ús:    ${USED_PVS}\n"
 " Conjunts de ZFS:        ${VGS}\n"
-" Volums lògics de ZFS:   ${LVS}"
+" Volums lògics de ZFS:   ${LVS}\n"
+" ${BOOTFS}"
 
 #. Type: note
 #. Description
@@ -1552,31 +1545,19 @@ msgstr ""
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
-#| msgid "Invalid logical volume or ZFS pool name"
 msgid "Invalid logical volume, ZFS pool name or ZFS file system name"
-msgstr "El nom del volum lògic o del conjunt ZFS és invàlid"
+msgstr "El volum lògic, nom del conjunt ZFS o nom del sistema de fitxers ZFS és invàlid"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:48001
-#, fuzzy
-#| msgid ""
-#| "Logical volume or ZFS pool names may only contain alphanumeric "
-#| "characters, hyphen, colon, period, and underscore. They must be 255 "
-#| "characters or less and must begin with an alphanumeric character. The "
-#| "names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
 msgid ""
 "Logical volumes, ZFS pool names and ZFS file systems may only contain "
 "alphanumeric characters, hyphen, colon, period, and underscore. They must be "
 "255 characters or less and must begin with an alphanumeric character. The "
 "names \"mirror\", \"raidz\", \"spare\", and \"log\" are not allowed."
-msgstr ""
-"Els noms dels volums lògics o conjunts ZFS només poden contindre caràcters "
-"alfanumèrics i els caràcters guió, punt i coma, punt i subratllat. Han de "
-"tenir 255 caràcters com a molt, i han de començar per un caràcter "
-"alfanumèric. No es permeten els noms «mirror», «raidz», «spare» i «log»."
+msgstr "Els volums lògics, noms de conjunts ZFS i sistemes de fitxers ZFS només poden contindre caràcters alfanumèrics i els caràcters guió, punt i coma, punt i subratllat. Han de tenir 255 caràcters com a molt, i han de començar per un caràcter alfanumèric. No es permeten els noms «mirror», «raidz», «spare» i «log»."
 
 #. Type: boolean
 #. Description
@@ -1662,25 +1643,21 @@ msgstr ""
 #. :sl4:
 #: ../partman-zfs.templates:51001
 msgid "Pool to modify:"
-msgstr ""
+msgstr "Conjunt a modificar:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
-#| msgid "ZFS pool name:"
 msgid "ZFS boot file system name:"
-msgstr "Nom del conjunt ZFS:"
+msgstr "Nom del sistema de fitxers d'arrencada ZFS:"
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:52001
-#, fuzzy
-#| msgid "Please enter the hostname for this system."
 msgid "Please enter the name of the boot file system among the following:"
-msgstr "Si us plau, introduïu el nom que voleu assignar a aquest sistema."
+msgstr "Introduïu el nom del sistema de fitxers d'arrencada d'entre els següents:"
 
 #. Type: string
 #. Description
@@ -1688,44 +1665,35 @@ msgstr "Si us plau, introduïu el nom que voleu assignar a aquest sistema."
 #: ../partman-zfs.templates:52001
 msgid ""
 "This will be prefixed by ${VG}/ROOT and mounted as the root file system."
-msgstr ""
+msgstr "Això anirà prefixat per ${VG}/ROOT i muntat com a sistema de fitxers arrel."
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
-#| msgid "No file system mounted on /target"
 msgid "No file system name entered"
-msgstr "No hi ha cap sistema de fitxers muntat en /target"
+msgstr "No s'ha introduït cap nom de sistema de fitxers"
 
 #. Type: error
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:53001
-#, fuzzy
-#| msgid "No name for the ZFS pool has been entered. Please enter a name."
 msgid "No name has been entered for the root file system. Please enter a name."
-msgstr ""
-"No s'ha introduït cap nom per al conjunt ZFS. Si us plau, introduïu-ne un."
+msgstr "No s'ha introduït cap nom per al sistema de fitxers arrel. conjunt ZFS. Introduïu-ne un."
 
 #. Type: string
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:54001
-#, fuzzy
-#| msgid "ZFS pool:"
 msgid "ZFS boot"
-msgstr "Conjunt ZFS:"
+msgstr "ZFS d'arrencada"
 
 #. Type: text
 #. Description
 #. :sl4:
 #: ../partman-zfs.templates:55001
-#, fuzzy
-#| msgid "Registering modules..."
 msgid "Loading ZFS module..."
-msgstr "S'estan registrant els mòduls..."
+msgstr "S'està carregant el mòdul ZFS..."
 
 #. Type: boolean
 #. Description
