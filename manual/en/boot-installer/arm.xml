@@ -126,6 +126,39 @@ bootz ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}
         kernel without device-tree, simply omit the ${fdt_addr_r} parameter. 
         </para>
     </sect3>
+
+    <sect3 arch="armhf" id="boot-armhf-netboot.tar.gz">
+      <title>Pre-built netboot tarball</title>
+      <para>
+        &debian; provides a pre-built tarball (&armmp-netboot-tarball;)
+        that can simply be unpacked on your tftp server and contains
+        all files necessary for netbooting.  It also includes a boot
+        script that automates all steps to load the installer.  Modern
+        u-boot versions contain a tftp autoboot feature that becomes
+        active if there is no bootable local storage device (MMC/SD,
+        USB, IDE/SATA/SCSI) and then loads this boot script from the
+        tftp server.  Prerequisite for using this feature is that you
+        have a dhcp server in your network which provides the client
+        with the address of the tftp server.
+      </para>
+      <para>
+        If you would like to trigger the tftp autoboot feature from the
+        u-boot commandline, you can use the follwing command:
+        <informalexample><screen>run bootcmd_dhcp</screen></informalexample>
+      </para>
+      <para>
+        To manually load the bootscript provided by the tarball, you can
+        alternatively issue the following commands at the u-boot prompt:
+
+<informalexample><screen>
+setenv autoload no
+dhcp
+tftpboot ${scriptaddr} /debian-installer/armhf/tftpboot.scr
+source ${scriptaddr}
+</screen></informalexample>
+
+      </para>
+    </sect3>
   </sect2> 
 
 
