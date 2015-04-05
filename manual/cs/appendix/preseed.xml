@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 69602 -->
+<!-- original version: 69619 -->
 
 <!--
 Be carefull with the format of this file as it is parsed to generate
@@ -1531,6 +1531,12 @@ d-i grub-installer/only_debian boolean true
 # což je méně bezpečné, protože se jiný systém nemusí zavést.
 d-i grub-installer/with_other_os boolean true
 
+# Kvůli potenciáním zapojeným USB klíčenkám nelze obecně bezpečně určit
+# umístění MBR, takže je potřeba ho zadat:
+#d-i grub-installer/bootdev  string /dev/sda
+# Pro instalaci na první zařízení (předpokládejme, že nejde o USB klíčenku):
+#d-i grub-installer/bootdev  string default
+
 # Alternativně můžete instalovat jinam než do MBR - odkomentujete
 # a upravte tyto řádky:
 #d-i grub-installer/only_debian boolean false
@@ -1538,10 +1544,6 @@ d-i grub-installer/with_other_os boolean true
 #d-i grub-installer/bootdev  string (hd0,1)
 # Pro instalaci Grubu na více disků:
 #d-i grub-installer/bootdev  string (hd0,1) (hd1,1) (hd2,1)
-# Pro instalaci na konkrétní zařízení:
-#d-i grub-installer/bootdev  string /dev/sda
-# Pro instalaci na první zařízení:
-#d-i grub-installer/bootdev  string default
 
 # Volitelné heslo pro Grub buď v čitelné podobě
 #d-i grub-installer/password password r00tme

@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 69518 -->
+<!-- original version: 69644 -->
 
   <sect2 arch="arm">
   <title>Procesory, základní desky a grafické karty</title>
@@ -202,16 +202,17 @@ základní desky, která se dá osadit různými dceřinnými CPU.
 <listitem><para>   
 
 Jádro armmp podporuje několik vývojářských desek a embeded systémů
-založených na SoC Allwinner A10 (architektura <quote>sun4i</quote>)
-a A20 (architektura <quote>sun7i</quote>). Instalační systém plně
-podporuje následující systémy:
+založených na SoC Allwinner A10 (architektura <quote>sun4i</quote>),
+A10s/A13 (architektura <quote>sun5i</quote>) a A20 (architektura
+<quote>sun7i</quote>). Instalační systém plně podporuje následující
+systémy:
 
   <itemizedlist>
   <listitem><para>
              Cubietech Cubieboard 1 + 2 / Cubietruck
   </para></listitem>
   <listitem><para>
-             LeMaker Banana Pi
+             LeMaker Banana Pi a Banana Pro
   </para></listitem>
   <listitem><para>
              LinkSprite pcDuino
@@ -225,7 +226,7 @@ podporuje následující systémy:
   <listitem><para>
              Olimex A10-Olinuxino-LIME / A10s-Olinuxino Micro /
              A13-Olinuxino / A13-Olinuxino Micro /
-             A20-Olinuxino-LIME / A20-Olinuxino Micro
+             A20-Olinuxino-LIME / A20-Olinuxino-LIME2 / A20-Olinuxino Micro
   </para></listitem>
   <listitem><para>
              PineRiver Mini X-Plus
@@ -241,11 +242,19 @@ odvozená z Androidu nejsou v Debianu podporována.
 
  </para><para>
 
-Oficiální linuxové jádro na SoC Allwinner A10 a A20 obvykle podporuje
-sériovou konzoli, ethernet, SATA, USB a karty MMC/SD, nicméně chybí
-podpora lokálního displeje (HDMI/VGA/LVDS) a audia. Také není
-podporována NAND flash paměť, která se nachází v některých systémech
-založených na sun<replaceable>X</replaceable>i.
+Oficiální linuxové jádro na SoC Allwinner A10, A10s/A13 a A20 obvykle
+podporuje sériovou konzoli, ethernet, SATA, USB a karty MMC/SD,
+nicméně chybí nativní ovladače lokálního displeje (HDMI/VGA/LCD)
+a integrovaného audio hardwaru. Také není podporována NAND flash
+paměť, která se nachází v některých systémech založených na
+sun<replaceable>X</replaceable>i.
+
+</para><para>
+
+Použití lokálního displeje bez nativních ovladačů je technicky možné
+přes infrastrukturu <quote>simplefb</quote>, která spoléhá na to, že
+se o inicializaci zobrazovacího hardwaru postará zavaděč u-boot. To
+ale verze u-bootu dodávaná s &debian;em 8 nepodporuje.
 
 </para></listitem>
 </varlistentry>

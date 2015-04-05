@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 43641 -->
+<!-- original version: 69717 -->
 
   <sect2 arch="arm" id="arm-firmware-overview">
   <title>ARM firmware</title>
@@ -27,6 +27,36 @@ platformě ARM téměř nemožné poskytnout obecně platné informace.
 
 </para>
   </sect2>
+
+  <sect2 arch="armhf" id="armhf-uboot-images">
+  <title>Obrazy u-bootu poskytované &debian;em</title>
+<para>
+
+Na &armmp-uboot-img; poskytuje &debian; obrazy u-bootu pro nejrůznější
+armhf systémy, které umí nahrát u-boot z SD karty. U-boot je nabízen
+ve dvou variantách: surové komponenty u-bootu a předpřipravený obraz
+pro jednoduché zapsání na SD kartu. Surové komponenty jsou zamýšleny
+pro pokročilé uživatele, doporučenou cestou jsou předpřipravené obrazy
+pro SD karty. Obrazy se jmenují
+<literal>&lt;systém&gt;.sdcard.img.gz</literal> a na SD kartu se dají
+zapsat například tímto příkazem:
+
+<informalexample><screen>
+<userinput>zcat <replaceable>&lt;systém&gt;</replaceable>.sdcard.img.gz &gt; /dev/<replaceable>SD_KARTA</replaceable></userinput>
+</screen></informalexample>
+
+Jako vždy, zkontrolujte si, zda zapisujete na správné zařízení,
+protože tím smažete veškerý obsah daného zařízení!
+
+</para><para>
+
+Pokud pro svůj systém naleznete obraz u-bootu jak u &debian;u, tak
+u výrobce systému, doporučujeme použít verzi z &debian;u, jelikož tato
+bývá novější a mívá více vlastností.
+
+</para>
+  </sect2>
+
 
   <sect2 arch="arm" id="uboot-macsetting">
   <title>Nastavení ethernetové MAC adresy v u-bootu</title>

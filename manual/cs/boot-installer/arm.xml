@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 69534 -->
+<!-- original version: 69715 -->
 
   <sect2 arch="arm" id="boot-image-formats">
   <title>Formáty zaváděcích obrazů</title>
@@ -161,6 +161,43 @@ parametr <literal>${fdt_addr_r}</literal>.
 
 </para></note>
    </sect3>
+
+   <sect3 arch="armhf" id="boot-armhf-netboot.tar.gz">
+   <title>Předpřipravený netboot archiv</title>
+<para>
+
+&debian; poskytuje předpřipravený archiv (&armmp-netboot-tarball;),
+stačí jednoduše rozbalit na TFTP server a který obsahuje všechny
+potřebné soubory pro zavádění ze sítě. Součástí je i zaváděcí skript,
+který automatizuje všechny kroky k zavedení instalátoru. Moderní verze
+u-bootu podporují vlastnost automatického zavádění z TFTP, která se
+aktivuje v případě, že neexistuje lokální úložné zařízení (MMC/SD,
+USB, IDE/SATA/SCSI). Předpokladem je, že máte na síti DHCP server,
+který klientovi předá adresu TFTP serveru.
+
+</para><para>
+
+Pokud byste chtěli automatické zavádění z TFTP vyvolat z příkazového
+řádku u-bootu, můžete použít následující příkaz:
+
+<informalexample><screen>
+<userinput>run bootcmd_dhcp</userinput>
+</screen></informalexample>
+
+</para><para>
+
+Alternativně můžete dodávaný zaváděcí skript nahrát ručně pomocí
+následujících příkazů u-bootu:
+
+<informalexample><screen>
+<userinput>setenv autoload no</userinput>
+<userinput>dhcp</userinput>
+<userinput>tftpboot ${scriptaddr} /debian-installer/armhf/tftpboot.scr</userinput>
+<userinput>source ${scriptaddr}</userinput>
+</screen></informalexample>
+
+      </para>
+    </sect3>
   </sect2>
 
   <sect2 arch="arm" id="boot-hd-media">
@@ -196,7 +233,7 @@ zaveditelný obraz a spustí první, který nalezne. Pokud na zařízení
 není nainstalovaný žádný operační systém, mělo by zasunutí USB
 klíčenky a zapnutí systému způsobit zavedení instalačního systému.
 Zavedení z USB můžete také vyvolat ručně na výzvě u-bootu příkazem
-<userinput>run usb_boot</userinput>.
+<userinput>run bootcmd_usb0</userinput>.
 
 </para><para>
 
@@ -212,9 +249,68 @@ přenosová rychlost u-bootu (často 115200) liší od výchozí přenosové
 rychlosti jádra (tradičních 9600), vede to ve druhém případě
 k nečitelnému výstupu. Pokud to nastane, měli byste ručně upravit
 proměnnou console, aby obsahovala správnou rychlost pro váš systém,
-a pak zavést instalátor příkazem <userinput>run usb_boot</userinput>.
+a pak zavést instalátor příkazem <userinput>run bootcmd_usb0</userinput>.
 
 </para>
+  </sect2>
+
+  <sect2 arch="armhf" id="boot-installer-sd-image">
+  <title>Použití předpřipravených obrazů SD karet</title>
+<para>
+
+Pro mnoho systémů poskytuje &debian; obrazy SD karet, které obsahují
+u-boot společně s &d-i;em. Tyto obrazy existují ve dvou variantách.
+Jedna stahuje balíky ze sítě (&armmp-netboot-sd-img;), druhá slouží
+pro offline instalaci z CD/DVD (&armmp-hd-media-sd-img;). Pro šetření
+přenosového pásma jsou obrazy rozděleny na systémově závislou část
+<quote>firmware.<replaceable>&lt;systém&gt;</replaceable>.img.gz</quote>
+a společnou část nazvanou <quote>partition.img.gz</quote>.
+
+</para><para>
+
+Pro vytvoření kompletního obrazu je třeba tyto dvě části spojit.
+Na linuxových systémech můžete použít třeba zcat:
+      
+<informalexample><screen>
+<userinput>zcat firmware.<replaceable>&lt;systém&gt;</replaceable>.img.gz partition.img.gz &gt; kompletni_obraz.img</userinput>
+</screen></informalexample>
+
+Na Windows musíte nejprve obě části rozbalit (např. pomocí programu
+7-Zip) a následně tyto rozbalené části spojit dohromady příkazem copy:
+      
+<informalexample><screen>
+<userinput>copy /b firmware.<replaceable>&lt;systém&gt;</replaceable>.img + partition.img kompletni_obraz.img</userinput>
+</screen></informalexample>
+          
+spuštěným v příkazovém řádku CMD.exe.
+
+</para><para>
+
+Kompletní obraz pak můžete zapsat na SD kartu.
+Na linuxových systémech můžete použít třeba:
+      
+<informalexample><screen>
+<userinput>cat kompletni_obraz.img &gt; /dev/<replaceable>SD_KARTA</replaceable></userinput>
+</screen></informalexample>
+
+Po zasunutí SD karty do instalovaného systému a jeho zapnutí se z SD
+karty automaticky zavede instalační systém. Používáte-li variantu pro
+offline instalaci, musíte instalačnímu systému zpřístupnit první
+instalační CD/DVD &debian;u na samostatném médiu, jako je například
+iso obraz prvního DVD uložený na USB klíčence.
+
+</para><para>
+
+Až se v instalaci dostanete k rozdělení disků (viz krok <xref
+linkend="di-partition"/>), můžete na instalační SD kartě smazat či
+nahradit libovolné oblasti, jelikož po zavedení instalátoru již tento
+běží kompletně z operační paměti a přístup k SD kartě dále
+nepotřebuje. Pro instalaci &debian;u tak můžete využít plnou kapacitu
+SD karty. Nejjednodušším způsobem, jak na kartě vytvořit optimální
+rozvržení oblastí, je nechat to na instalačním systému (viz <xref
+linkend="partman-auto"/>).
+
+    </para>
   </sect2>
 
 <!-- # None of the arm systems supported in Jessie is able to boot from
