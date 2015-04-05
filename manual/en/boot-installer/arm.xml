@@ -28,6 +28,24 @@
     </para>
   </sect2>
 
+  <sect2 arch="armhf" id="armhf-console-setup">
+    <title>Console configuration</title>
+    <para>
+      The netboot tarball (<xref linkend="boot-armhf-netboot.tar.gz"/>), the
+      hd-media tarball (<xref linkend="boot-hd-media"/>) and the installer
+      SD-card images (<xref linkend="boot-installer-sd-image"/>) use the
+      (platform-specific) default console that is defined by u-boot in the
+      <quote>console</quote> variable.  In most cases that is a serial
+      console, so on those platforms you by default need a serial console
+      cable to use the installer.
+    </para>
+    <para>
+      On platforms which also support a video console, you can modify the
+      u-boot <quote>console</quote> variable accordingly if you would like
+      the installer to start on the video console.
+    </para>
+  </sect2>
+
   <sect2 arch="arm" id="boot-tftp"><title>Booting by TFTP</title>
 
 &boot-installer-intro-net.xml;
@@ -270,7 +288,6 @@ source ${scriptaddr}
       <xref linkend="partman-auto"/>).
     </para>
   </sect2>
-  
     
 <!-- # None of the arm systems supported in Jessie is able to boot from
      # CD/DVD -> commenting out the "Booting from CD-ROM section" for arm
