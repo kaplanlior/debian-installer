@@ -35,7 +35,7 @@ hardware; it is most critically invoked during the bootstrap process
       classic PC BIOS, so that software written for the classic PC BIOS
       can be used unchanged.  Nonetheless UEFI is intended to one day
       completely replace the old PC BIOS without being fully
-      backwards-compatible and there are already a few systems with UEFI but
+      backwards-compatible and there are already a lot of systems with UEFI but
       without CSM.
     </para>
     <para>
@@ -43,7 +43,7 @@ hardware; it is most critically invoked during the bootstrap process
       when installing an operating system.  The way the firmware loads an
       operating system is fundamentally different between the classic BIOS
       (or UEFI in CSM mode) and native UEFI.  One major difference is the
-      way the harddisk partitions get recorded on the harddisk.  While the
+      way the harddisk partitions are recorded on the harddisk.  While the
       classic BIOS and UEFI in CSM mode use a DOS partition table,
       native UEFI uses a different partitioning scheme called <quote>GUID
       Partition Table</quote> (GPT).  On a single disk, for all practical
@@ -53,10 +53,10 @@ hardware; it is most critically invoked during the bootstrap process
       with GPT is only possible in native UEFI mode, but using GPT becomes
       more and more common as hard disk sizes grow, because the classic DOS
       partition table cannot address disks larger than about 2 Terabytes
-      while GPT allows for by far larger disks.  The other major difference
-      between BIOS (or UEFI in CSM mode) and native UEFI is from where boot
-      code is loaded and in which format it has to be, so that different
-      bootloaders are needed for both systems.
+      while GPT allows for far larger disks.  The other major difference
+      between BIOS (or UEFI in CSM mode) and native UEFI is the location where boot
+      code is stored and in which format it has to be. This means that different
+      bootloaders are needed for each system.
     </para>
     <para>
       The latter becomes important when booting &d-i; on a UEFI system with
@@ -85,9 +85,9 @@ hardware; it is most critically invoked during the bootstrap process
       the Windows bootloader.  As the boot code used by &d-i; is not signed
       by Microsoft, booting the installer requires prior deactivation of
       secure boot in case it is enabled.  Secure boot is often enabled by
-      default on systems that come preinstalled with a 64Bit version of
-      Windows 8 and there is unfortunately no standard where in the UEFI
-      setup it can be disabled.  On some systems, the option to disable
+      default on systems that come preinstalled with a 64-bit version of
+      Windows 8 and there is unfortunately no standard way to disable it
+      in the UEFI setup.  On some systems, the option to disable
       secure boot is only made visible when a BIOS password has been set by
       the user, so if you have a system with secure boot enabled, but cannot
       find an option to disable it, try setting a BIOS password, powercycle
@@ -98,8 +98,8 @@ hardware; it is most critically invoked during the bootstrap process
   <sect2 arch="x86" id="disable-fast-boot">
     <title>Disabling the Windows 8 <quote>fast boot</quote> feature</title>
     <para>
-      Windows 8 offers a feature called <quote>fast boot</quote> to cut down the time
-      needed to boot itself.  Technically, when this feature is enabled,
+      Windows 8 offers a feature called <quote>fast boot</quote> to cut down system
+      startup time.  Technically, when this feature is enabled,
       Windows 8 does not do a real shutdown and a real cold boot afterwards
       when ordered to shut down, but instead does something resembling a
       partial suspend to disk to reduce the <quote>boot</quote> time.  As long as Windows
@@ -113,6 +113,16 @@ hardware; it is most critically invoked during the bootstrap process
       filesystem corruption the <quote>fast boot</quote> feature has to be disabled
       within Windows.
     </para>
+    <para>
+      It may also be necessary to disable <quote>fast boot</quote> to
+      even allow access to UEFI setup to choose to boot another
+      operating system or &d-i;. On some UEFI systems, the firmware
+      will reduce <quote>boot</quote> time by not initialising the
+      keyboard controller or USB hardware; in these cases, it is
+      necessary to boot into Windows and disable this feature to allow
+      for a change of boot order.
+    </para>
+
   </sect2>  
   <sect2 arch="x86;powerpc" id="hardware-issues">
   <title>Hardware Issues to Watch Out For</title>
