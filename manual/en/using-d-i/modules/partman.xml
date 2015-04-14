@@ -293,13 +293,13 @@ If you choose guided partitioning using (encrypted) LVM, the installer will also
 a separate <filename>/boot</filename> partition. The other partitions,
 including the swap partition, will be created inside the LVM partition.
 
-</para><para arch="ia64">
+</para><para arch="amd64;arm64;i386">
 
-If you choose guided partitioning for your IA-64 system, there
-will be an additional partition, formatted as a FAT16 bootable filesystem,
-for the EFI boot loader.
-There is also an additional menu item in the formatting menu to manually
-set up a partition as an EFI boot partition.
+If you have booted in EFI mode then within the guided partitioning
+setup there will be an additional partition, formatted as a FAT32
+bootable filesystem, for the EFI boot loader. This partition is known
+as an EFI System Partition (ESP). There is also an additional menu
+item in the formatting menu to manually set up a partition as an ESP.
 
 </para><para>
 
@@ -407,11 +407,11 @@ Be sure to create at least two partitions: one for the
 forget to mount the root filesystem, <command>partman</command> won't
 let you continue until you correct this issue.
 
-</para><para arch="ia64">
+</para><para arch="amd64;arm64;i386">
 
-If you forget to select and format an EFI boot partition,
-<command>partman</command> will detect this and will not let you continue
-until you allocate one.
+If you boot in EFI mode but forget to select and format an EFI System
+Partition, <command>partman</command> will detect this and will not
+let you continue until you allocate one.
 
 </para><para arch="linux-any">
 
