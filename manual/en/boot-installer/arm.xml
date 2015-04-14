@@ -12,10 +12,10 @@
       ramdisks (<quote>uInitrd</quote>).
     </para>
     <para>
-      uImage/uInitrd are image formats designed for the u-boot firmware that
-      is used on many ARM-based systems. Older u-boot versions can only
+      uImage/uInitrd are image formats designed for the U-Boot firmware that
+      is used on many ARM-based systems. Older U-Boot versions can only
       boot files in uImage/uInitrd format, so these are often used on
-      older armel systems. Newer u-boot versions can - besides booting
+      older armel systems. Newer U-Boot versions can - besides booting
       uImages/uInitrds - also boot standard Linux kernels and ramdisk images,
       but the command syntax to do that is slightly different from that
       for booting uImages.
@@ -34,14 +34,14 @@
       The netboot tarball (<xref linkend="boot-armhf-netboot.tar.gz"/>), the
       hd-media tarball (<xref linkend="boot-hd-media"/>) and the installer
       SD-card images (<xref linkend="boot-installer-sd-image"/>) use the
-      (platform-specific) default console that is defined by u-boot in the
+      (platform-specific) default console that is defined by U-Boot in the
       <quote>console</quote> variable.  In most cases that is a serial
       console, so on those platforms you by default need a serial console
       cable to use the installer.
     </para>
     <para>
       On platforms which also support a video console, you can modify the
-      u-boot <quote>console</quote> variable accordingly if you would like
+      U-Boot <quote>console</quote> variable accordingly if you would like
       the installer to start on the video console.
     </para>
   </sect2>
@@ -51,9 +51,9 @@
 &boot-installer-intro-net.xml;
 
     <sect3 arch="arm" id="boot-tftp-uboot">
-      <title>TFTP-booting in u-boot</title>
+      <title>TFTP-booting in U-Boot</title>
       <para>
-        Network booting on systems using the u-boot firmware consists of
+        Network booting on systems using the U-Boot firmware consists of
         three steps: a) configuring the network, b) loading the images
         (kernel/initial ramdisk/dtb) into memory and c) actually executing
         the previosly loaded code.
@@ -87,7 +87,7 @@ saveenv
         can be used for this.                           
       </para>
       <para>
-        On some systems, u-boot predefines a set of environment variables
+        On some systems, U-Boot predefines a set of environment variables
         with suitable load addresses: kernel_addr_r, ramdisk_addr_r and
         fdt_addr_r. You can check whether they are defined by running
 <informalexample><screen>
@@ -116,7 +116,7 @@ tftpboot ${ramdisk_addr_r} &lt;filename of the initial ramdisk image&gt;
       </para>
       <para>
         The third part is setting the kernel commandline and actually
-        executing the loaded code.  U-boot passes the content of the
+        executing the loaded code.  U-Boot passes the content of the
         <quote>bootargs</quote> environment variable as commandline to the
         kernel, so any parameters for the kernel and the installer - such as
         the console device (see <xref linkend="boot-console"/>) or
@@ -137,7 +137,7 @@ bootz ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}
       </para>
       <para>
         Note: When booting standard linux images, it is important to load
-        the initial ramdisk image after the kernel and the dtb as u-boot
+        the initial ramdisk image after the kernel and the dtb as U-Boot
         sets the filesize variable to the size of the last file loaded and
         the bootz command requires the size of the ramdisk image to work
         correctly.  In case of booting a platform-specific kernel, i.e.  a
@@ -152,7 +152,7 @@ bootz ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}
         that can simply be unpacked on your tftp server and contains
         all files necessary for netbooting.  It also includes a boot
         script that automates all steps to load the installer.  Modern
-        u-boot versions contain a tftp autoboot feature that becomes
+        U-Boot versions contain a tftp autoboot feature that becomes
         active if there is no bootable local storage device (MMC/SD,
         USB, IDE/SATA/SCSI) and then loads this boot script from the
         tftp server.  Prerequisite for using this feature is that you
@@ -161,12 +161,12 @@ bootz ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}
       </para>
       <para>
         If you would like to trigger the tftp autoboot feature from the
-        u-boot commandline, you can use the follwing command:
+        U-Boot commandline, you can use the follwing command:
         <informalexample><screen>run bootcmd_dhcp</screen></informalexample>
       </para>
       <para>
         To manually load the bootscript provided by the tarball, you can
-        alternatively issue the following commands at the u-boot prompt:
+        alternatively issue the following commands at the U-Boot prompt:
 
 <informalexample><screen>
 setenv autoload no
@@ -181,10 +181,10 @@ source ${scriptaddr}
 
 
   <sect2 arch="arm" id="boot-hd-media">
-    <title>Booting from a USB stick in u-boot</title>
+    <title>Booting from a USB stick in U-Boot</title>
     <para>
     
-      Many modern u-boot versions have USB support and allow booting from
+      Many modern U-Boot versions have USB support and allow booting from
       USB mass storage devices such as USB sticks.  Unfortunately the exact
       steps required to do that can vary quite a bit from device to device.
       
@@ -202,26 +202,26 @@ source ${scriptaddr}
     
       To build a bootable USB stick for installing &debian;, unpack the
       hd-media tarball (see <xref linkend="where-files"/>) onto a
-      USB stick formatted with a filesystem supported by the u-boot version
-      on your device.  For modern u-boot versions, any of FAT16 / FAT32 /
+      USB stick formatted with a filesystem supported by the U-Boot version
+      on your device.  For modern U-Boot versions, any of FAT16 / FAT32 /
       ext2 / ext3 / ext4 usually works. Then copy the ISO image file of the
       first &debian; installation CD or DVD onto the stick.
 
     </para>
     <para>
-      The autoboot framework in modern u-boot versions works similar to the
+      The autoboot framework in modern U-Boot versions works similar to the
       boot ordering options in a PC BIOS, i.e.  it checks a list of possible
       boot devices for a valid boot image and starts the first one it finds. 
       If there is no operating system installed, plugging in the USB stick
       and powering up the system should result in starting the installer. 
-      You can also initiate the USB-boot process any time from the u-boot
+      You can also initiate the USB-boot process any time from the U-Boot
       prompt by entering the <quote>run bootcmd_usb0</quote> command.
     </para>
     
     <para>
       One problem that can come up when booting from a USB stick while using
       a serial console can be a console baudrate mismatch.  If a console
-      variable is defined in u-boot, the &d-i; boot script automatically
+      variable is defined in U-Boot, the &d-i; boot script automatically
       passes it to the kernel to set the primary console device and, if
       applicable, the console baudrate.  Unfortunately the handling of the
       console variable varies from platform to platform - on some platforms,
@@ -229,8 +229,8 @@ source ${scriptaddr}
       <quote>console=ttyS0,115200</quote>), while on other platforms the
       console variable contains only the device (as in
       <quote>console=ttyS0</quote>).  The latter case leads to a garbled
-      console output when the default baudrate differs between u-boot and
-      the kernel.  Modern u-boot versions often use 115200 baud while the
+      console output when the default baudrate differs between U-Boot and
+      the kernel.  Modern U-Boot versions often use 115200 baud while the
       kernel still defaults to the traditional 9600 baud. If this happens,
       you should manually set the console variable to contain the correct
       baudrate for your system and then start the installer with the
@@ -242,7 +242,7 @@ source ${scriptaddr}
     <title>Using pre-built SD-card images with the installer</title>
     <para>
       For a number of systems, Debian provides SD card images that contain
-      both u-boot and the &d-i;.  These images are provided in two variants
+      both U-Boot and the &d-i;.  These images are provided in two variants
       - one for downloading the software packages over the network
       (available at &armmp-netboot-sd-img;) and one for offline
       installations using a Debian CD/DVD (available at
