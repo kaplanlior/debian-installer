@@ -53,11 +53,11 @@ install desktop environments like GNOME or KDE).
 </para><para>
 
 Next, create file systems on the partitions. For example, to create an
-ext3 file system on partition <filename>/dev/hda6</filename> (that's
+ext3 file system on partition <filename>/dev/sda6</filename> (that's
 our example root partition):
 
 <informalexample><screen>
-# mke2fs -j /dev/<replaceable>hda6</replaceable>
+# mke2fs -j /dev/<replaceable>sda6</replaceable>
 </screen></informalexample>
 
 To create an ext2 file system instead, omit <userinput>-j</userinput>.
@@ -68,9 +68,9 @@ Initialize and activate swap (substitute the partition number for
 your intended &debian; swap partition):
 
 <informalexample><screen>
-# mkswap /dev/<replaceable>hda5</replaceable>
+# mkswap /dev/<replaceable>sda5</replaceable>
 # sync
-# swapon /dev/<replaceable>hda5</replaceable>
+# swapon /dev/<replaceable>sda5</replaceable>
 </screen></informalexample>
 
 Mount one partition as <filename>/mnt/debinst</filename> (the
@@ -80,7 +80,7 @@ referenced later below.
 
 <informalexample><screen>
 # mkdir /mnt/debinst
-# mount /dev/<replaceable>hda6</replaceable> /mnt/debinst
+# mount /dev/<replaceable>sda6</replaceable> /mnt/debinst
 </screen></informalexample>
 
 </para>
@@ -552,17 +552,17 @@ Installing and setting up <classname>grub2</classname> is as easy as:
 
 <informalexample><screen>
 # aptitude install grub-pc
-# grub-install /dev/<replaceable>hda</replaceable>
+# grub-install /dev/<replaceable>sda</replaceable>
 # update-grub
 </screen></informalexample>
 
 The second command will install <command>grub2</command> (in this case in
-the MBR of <literal>hda</literal>). The last command will create a sane
+the MBR of <literal>sda</literal>). The last command will create a sane
 and working <filename>/boot/grub/grub.cfg</filename>.
 
 </para><para>
 
-Note that this assumes that a <filename>/dev/hda</filename> device file has
+Note that this assumes that a <filename>/dev/sda</filename> device file has
 been created. There are alternative methods to install <command>grub2</command>,
 but those are outside the scope of this appendix.
 
@@ -571,8 +571,8 @@ but those are outside the scope of this appendix.
 Here is a basic <filename>/etc/lilo.conf</filename> as an example:
 
 <informalexample><screen>
-boot=/dev/<replaceable>hda6</replaceable>
-root=/dev/<replaceable>hda6</replaceable>
+boot=/dev/<replaceable>sda6</replaceable>
+root=/dev/<replaceable>sda6</replaceable>
 install=menu
 delay=20
 lba32
@@ -596,10 +596,10 @@ use <filename>yaboot.conf</filename> relative to the system you call it from).
 Here is a basic <filename>/etc/yaboot.conf</filename> as an example:
 
 <informalexample><screen>
-boot=/dev/hda2
+boot=/dev/sda2
 device=hd:
 partition=6
-root=/dev/hda6
+root=/dev/sda6
 magicboot=/usr/lib/yaboot/ofboot
 timeout=50
 image=/vmlinux

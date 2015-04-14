@@ -16,7 +16,7 @@ does not fix this issue. What does help, is to <quote>zero</quote> the
 first few sectors of the drive:
 
 <informalexample><screen>
-# dd if=/dev/zero of=/dev/hd<replaceable>X</replaceable> bs=512 count=2; sync
+# dd if=/dev/zero of=/dev/sd<replaceable>X</replaceable> bs=512 count=2; sync
 </screen></informalexample>
 
 Note that this will make any existing data on that disk inaccessible.
@@ -312,29 +312,27 @@ formatted and where they will be mounted.
 The list of partitions might look like this:
 
 <informalexample><screen>
-  IDE1 master (hda) - 6.4 GB WDC AC36400L
+  SCSI1 (0,0,0) (sda) - 6.4 GB WDC AC36400L
         #1 primary   16.4 MB  B f ext2       /boot
         #2 primary  551.0 MB      swap       swap
         #3 primary    5.8 GB      ntfs
            pri/log    8.2 MB      FREE SPACE
 
-  IDE1 slave (hdb) - 80.0 GB ST380021A
+  SCSI2 (1,0,0) (sdb) - 80.0 GB ST380021A
         #1 primary   15.9 MB      ext3
         #2 primary  996.0 MB      fat16
         #3 primary    3.9 GB      xfs        /home
-        #5 logical    6.0 GB    f ext3       /
+        #5 logical    6.0 GB    f ext4       /
         #6 logical    1.0 GB    f ext3       /var
         #7 logical  498.8 MB      ext3
-        #8 logical  551.5 MB      swap       swap
-        #9 logical   65.8 GB      ext2
 </screen></informalexample>
 
-This example shows two IDE harddrives divided into several partitions;
-the first disk has some free space. Each partition line consists of the
-partition number, its type, size, optional flags, file system, and
-mountpoint (if any). Note: this particular setup cannot be created using
-guided partitioning but it does show possible variation that can be achieved
-using manual partitioning.
+This example shows two hard drives divided into several partitions;
+the first disk has some free space. Each partition line consists of
+the partition number, its type, size, optional flags, file system, and
+mountpoint (if any). Note: this particular setup cannot be created
+using guided partitioning but it does show possible variation that can
+be achieved using manual partitioning.
 
 </para><para>
 
