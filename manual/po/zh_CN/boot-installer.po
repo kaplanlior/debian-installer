@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: d-i-manual\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2015-03-22 13:58+0000\n"
+"POT-Creation-Date: 2015-04-15 20:29+0000\n"
 "PO-Revision-Date: 2015-03-21 18:13+0100\n"
 "Last-Translator: Ji YongGang <jungleji@gmail.com>\n"
 "Language-Team: debian-chinese-gb <debian-chinese-gb@lists.debian.org>\n"
@@ -70,10 +70,10 @@ msgstr ""
 #: boot-installer.xml:47
 #, no-c-format
 msgid ""
-"uImage/uInitrd are image formats designed for the u-boot firmware that is "
-"used on many ARM-based systems. Older u-boot versions can only boot files in "
+"uImage/uInitrd are image formats designed for the U-Boot firmware that is "
+"used on many ARM-based systems. Older U-Boot versions can only boot files in "
 "uImage/uInitrd format, so these are often used on older armel systems. Newer "
-"u-boot versions can - besides booting uImages/uInitrds - also boot standard "
+"U-Boot versions can - besides booting uImages/uInitrds - also boot standard "
 "Linux kernels and ramdisk images, but the command syntax to do that is "
 "slightly different from that for booting uImages."
 msgstr ""
@@ -89,7 +89,35 @@ msgid ""
 msgstr ""
 
 #. Tag: title
-#: boot-installer.xml:64
+#: boot-installer.xml:65
+#, fuzzy, no-c-format
+#| msgid "Boot Configuration"
+msgid "Console configuration"
+msgstr "引导配置"
+
+#. Tag: para
+#: boot-installer.xml:66
+#, no-c-format
+msgid ""
+"The netboot tarball (<xref linkend=\"boot-armhf-netboot.tar.gz\"/>), the hd-"
+"media tarball (<xref linkend=\"boot-hd-media\"/>) and the installer SD-card "
+"images (<xref linkend=\"boot-installer-sd-image\"/>) use the (platform-"
+"specific) default console that is defined by U-Boot in the <quote>console</"
+"quote> variable. In most cases that is a serial console, so on those "
+"platforms you by default need a serial console cable to use the installer."
+msgstr ""
+
+#. Tag: para
+#: boot-installer.xml:75
+#, no-c-format
+msgid ""
+"On platforms which also support a video console, you can modify the U-Boot "
+"<quote>console</quote> variable accordingly if you would like the installer "
+"to start on the video console."
+msgstr ""
+
+#. Tag: title
+#: boot-installer.xml:82
 #, fuzzy, no-c-format
 #| msgid "Booting from TFTP"
 msgid "Booting by TFTP"
@@ -97,8 +125,8 @@ msgstr "从 TFTP 引导"
 
 # index.docbook:432, index.docbook:786, index.docbook:1338, index.docbook:1819, index.docbook:2242, index.docbook:2338
 #. Tag: para
-#: boot-installer.xml:70 boot-installer.xml:689 boot-installer.xml:1311
-#: boot-installer.xml:1495 boot-installer.xml:1818 boot-installer.xml:1928
+#: boot-installer.xml:88 boot-installer.xml:727 boot-installer.xml:1362
+#: boot-installer.xml:1546 boot-installer.xml:1868 boot-installer.xml:2016
 #, fuzzy, no-c-format
 #| msgid ""
 #| "Booting from the network requires that you have a network connection and "
@@ -113,8 +141,8 @@ msgstr ""
 
 # index.docbook:437, index.docbook:791, index.docbook:1343, index.docbook:1824, index.docbook:2247, index.docbook:2343
 #. Tag: para
-#: boot-installer.xml:76 boot-installer.xml:695 boot-installer.xml:1317
-#: boot-installer.xml:1501 boot-installer.xml:1824 boot-installer.xml:1934
+#: boot-installer.xml:94 boot-installer.xml:733 boot-installer.xml:1368
+#: boot-installer.xml:1552 boot-installer.xml:1874 boot-installer.xml:2022
 #, no-c-format
 msgid ""
 "Older systems such as the 715 might require the use of an RBOOT server "
@@ -123,8 +151,8 @@ msgstr "较早的系统比如 715 也许需要使用一台 RBOOT 服务器来取
 
 # index.docbook:442, index.docbook:796, index.docbook:1348, index.docbook:1829, index.docbook:2252, index.docbook:2348
 #. Tag: para
-#: boot-installer.xml:81 boot-installer.xml:700 boot-installer.xml:1322
-#: boot-installer.xml:1506 boot-installer.xml:1829 boot-installer.xml:1939
+#: boot-installer.xml:99 boot-installer.xml:738 boot-installer.xml:1373
+#: boot-installer.xml:1557 boot-installer.xml:1879 boot-installer.xml:2027
 #, fuzzy, no-c-format
 #| msgid ""
 #| "The installation method to support network booting is described in <xref "
@@ -135,22 +163,22 @@ msgid ""
 msgstr "支持的网络引导安装方法在 <xref linkend=\"install-tftp\"/>。"
 
 #. Tag: title
-#: boot-installer.xml:90
+#: boot-installer.xml:108
 #, no-c-format
-msgid "TFTP-booting in u-boot"
+msgid "TFTP-booting in U-Boot"
 msgstr ""
 
 #. Tag: para
-#: boot-installer.xml:91
+#: boot-installer.xml:109
 #, no-c-format
 msgid ""
-"Network booting on systems using the u-boot firmware consists of three "
+"Network booting on systems using the U-Boot firmware consists of three "
 "steps: a) configuring the network, b) loading the images (kernel/initial "
 "ramdisk/dtb) into memory and c) actually executing the previosly loaded code."
 msgstr ""
 
 #. Tag: para
-#: boot-installer.xml:97
+#: boot-installer.xml:115
 #, no-c-format
 msgid ""
 "First you have to configure the network, either automatically via DHCP by "
@@ -169,13 +197,13 @@ msgid ""
 msgstr ""
 
 #. Tag: screen
-#: boot-installer.xml:104
+#: boot-installer.xml:122
 #, no-c-format
 msgid "saveenv"
 msgstr ""
 
 #. Tag: para
-#: boot-installer.xml:106
+#: boot-installer.xml:124
 #, no-c-format
 msgid ""
 "Afterwards you need to load the images (kernel/initial ramdisk/dtb) into "
@@ -186,10 +214,10 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: boot-installer.xml:114
+#: boot-installer.xml:132
 #, no-c-format
 msgid ""
-"On some systems, u-boot predefines a set of environment variables with "
+"On some systems, U-Boot predefines a set of environment variables with "
 "suitable load addresses: kernel_addr_r, ramdisk_addr_r and fdt_addr_r. You "
 "can check whether they are defined by running <informalexample><screen>\n"
 "printenv kernel_addr_r ramdisk_addr_r fdt_addr_r\n"
@@ -201,7 +229,7 @@ msgid ""
 msgstr ""
 
 #. Tag: screen
-#: boot-installer.xml:125
+#: boot-installer.xml:143
 #, no-c-format
 msgid ""
 "setenv kernel_addr_r 0x46000000\n"
@@ -210,7 +238,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: boot-installer.xml:127
+#: boot-installer.xml:145
 #, no-c-format
 msgid ""
 "When the load addresses are defined, you can load the images into memory "
@@ -218,7 +246,7 @@ msgid ""
 msgstr ""
 
 #. Tag: screen
-#: boot-installer.xml:130
+#: boot-installer.xml:148
 #, no-c-format
 msgid ""
 "tftpboot ${kernel_addr_r} &lt;filename of the kernel image&gt;\n"
@@ -227,11 +255,11 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: boot-installer.xml:132
+#: boot-installer.xml:150
 #, no-c-format
 msgid ""
 "The third part is setting the kernel commandline and actually executing the "
-"loaded code. U-boot passes the content of the <quote>bootargs</quote> "
+"loaded code. U-Boot passes the content of the <quote>bootargs</quote> "
 "environment variable as commandline to the kernel, so any parameters for the "
 "kernel and the installer - such as the console device (see <xref linkend="
 "\"boot-console\"/>) or preseeding options (see <xref linkend=\"installer-args"
@@ -246,42 +274,94 @@ msgid ""
 msgstr ""
 
 #. Tag: screen
-#: boot-installer.xml:145
+#: boot-installer.xml:163
 #, no-c-format
 msgid "bootz ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}"
 msgstr ""
 
 #. Tag: para
-#: boot-installer.xml:147
+#: boot-installer.xml:165
 #, no-c-format
 msgid ""
 "Note: When booting standard linux images, it is important to load the "
-"initial ramdisk image after the kernel and the dtb as u-boot sets the "
+"initial ramdisk image after the kernel and the dtb as U-Boot sets the "
 "filesize variable to the size of the last file loaded and the bootz command "
 "requires the size of the ramdisk image to work correctly. In case of booting "
 "a platform-specific kernel, i.e. a kernel without device-tree, simply omit "
 "the ${fdt_addr_r} parameter."
 msgstr ""
 
+#. Tag: title
+#: boot-installer.xml:176
+#, no-c-format
+msgid "Pre-built netboot tarball"
+msgstr ""
+
+#. Tag: para
+#: boot-installer.xml:177
+#, no-c-format
+msgid ""
+"&debian; provides a pre-built tarball (&armmp-netboot-tarball;) that can "
+"simply be unpacked on your tftp server and contains all files necessary for "
+"netbooting. It also includes a boot script that automates all steps to load "
+"the installer. Modern U-Boot versions contain a tftp autoboot feature that "
+"becomes active if there is no bootable local storage device (MMC/SD, USB, "
+"IDE/SATA/SCSI) and then loads this boot script from the tftp server. "
+"Prerequisite for using this feature is that you have a dhcp server in your "
+"network which provides the client with the address of the tftp server."
+msgstr ""
+
+#. Tag: para
+#: boot-installer.xml:189
+#, no-c-format
+msgid ""
+"If you would like to trigger the tftp autoboot feature from the U-Boot "
+"commandline, you can use the follwing command:"
+msgstr ""
+
+#. Tag: screen
+#: boot-installer.xml:192
+#, no-c-format
+msgid "run bootcmd_dhcp"
+msgstr ""
+
+#. Tag: para
+#: boot-installer.xml:194
+#, no-c-format
+msgid ""
+"To manually load the bootscript provided by the tarball, you can "
+"alternatively issue the following commands at the U-Boot prompt:"
+msgstr ""
+
+#. Tag: screen
+#: boot-installer.xml:198
+#, no-c-format
+msgid ""
+"setenv autoload no\n"
+"dhcp\n"
+"tftpboot ${scriptaddr} /debian-installer/armhf/tftpboot.scr\n"
+"source ${scriptaddr}"
+msgstr ""
+
 # index.docbook:700, index.docbook:2176
 #. Tag: title
-#: boot-installer.xml:160
+#: boot-installer.xml:206
 #, fuzzy, no-c-format
 #| msgid "Booting from USB memory stick"
-msgid "Booting from a USB stick in u-boot"
+msgid "Booting from a USB stick in U-Boot"
 msgstr "从 U 盘引导"
 
 #. Tag: para
-#: boot-installer.xml:161
+#: boot-installer.xml:207
 #, no-c-format
 msgid ""
-"Many modern u-boot versions have USB support and allow booting from USB mass "
+"Many modern U-Boot versions have USB support and allow booting from USB mass "
 "storage devices such as USB sticks. Unfortunately the exact steps required "
 "to do that can vary quite a bit from device to device."
 msgstr ""
 
 #. Tag: para
-#: boot-installer.xml:168
+#: boot-installer.xml:214
 #, no-c-format
 msgid ""
 "U-Boot v2014.10 has introduced a common commandline handling and autoboot "
@@ -292,69 +372,166 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: boot-installer.xml:177
+#: boot-installer.xml:223
 #, no-c-format
 msgid ""
 "To build a bootable USB stick for installing &debian;, unpack the hd-media "
 "tarball (see <xref linkend=\"where-files\"/>) onto a USB stick formatted "
-"with a filesystem supported by the u-boot version on your device. For modern "
-"u-boot versions, any of FAT16 / FAT32 / ext2 / ext3 / ext4 usually works. "
+"with a filesystem supported by the U-Boot version on your device. For modern "
+"U-Boot versions, any of FAT16 / FAT32 / ext2 / ext3 / ext4 usually works. "
 "Then copy the ISO image file of the first &debian; installation CD or DVD "
 "onto the stick."
 msgstr ""
 
 #. Tag: para
-#: boot-installer.xml:187
+#: boot-installer.xml:233
 #, no-c-format
 msgid ""
-"The autoboot framework in modern u-boot versions works similar to the boot "
+"The autoboot framework in modern U-Boot versions works similar to the boot "
 "ordering options in a PC BIOS, i.e. it checks a list of possible boot "
 "devices for a valid boot image and starts the first one it finds. If there "
 "is no operating system installed, plugging in the USB stick and powering up "
 "the system should result in starting the installer. You can also initiate "
-"the USB-boot process any time from the u-boot prompt by entering the "
+"the USB-boot process any time from the U-Boot prompt by entering the "
 "<quote>run bootcmd_usb0</quote> command."
 msgstr ""
 
 #. Tag: para
-#: boot-installer.xml:197
+#: boot-installer.xml:243
 #, no-c-format
 msgid ""
 "One problem that can come up when booting from a USB stick while using a "
 "serial console can be a console baudrate mismatch. If a console variable is "
-"defined in u-boot, the &d-i; boot script automatically passes it to the "
+"defined in U-Boot, the &d-i; boot script automatically passes it to the "
 "kernel to set the primary console device and, if applicable, the console "
 "baudrate. Unfortunately the handling of the console variable varies from "
 "platform to platform - on some platforms, the console variable includes the "
 "baudrate (as in <quote>console=ttyS0,115200</quote>), while on other "
 "platforms the console variable contains only the device (as in "
 "<quote>console=ttyS0</quote>). The latter case leads to a garbled console "
-"output when the default baudrate differs between u-boot and the kernel. "
-"Modern u-boot versions often use 115200 baud while the kernel still defaults "
+"output when the default baudrate differs between U-Boot and the kernel. "
+"Modern U-Boot versions often use 115200 baud while the kernel still defaults "
 "to the traditional 9600 baud. If this happens, you should manually set the "
 "console variable to contain the correct baudrate for your system and then "
 "start the installer with the <quote>run bootcmd_usb0</quote> command."
 msgstr ""
 
+#. Tag: title
+#: boot-installer.xml:264
+#, no-c-format
+msgid "Using pre-built SD-card images with the installer"
+msgstr ""
+
+#. Tag: para
+#: boot-installer.xml:265
+#, no-c-format
+msgid ""
+"For a number of systems, Debian provides SD card images that contain both U-"
+"Boot and the &d-i;. These images are provided in two variants - one for "
+"downloading the software packages over the network (available at &armmp-"
+"netboot-sd-img;) and one for offline installations using a Debian CD/DVD "
+"(available at &armmp-hd-media-sd-img;). To save space and network bandwidth, "
+"the images consist of two parts - a system-dependent part named "
+"<quote>firmware.&lt;system-type&gt;.img.gz</quote>, and a system-independent "
+"part named <quote>partition.img.gz</quote>."
+msgstr ""
+
+#. Tag: para
+#: boot-installer.xml:276
+#, no-c-format
+msgid ""
+"To create a complete image from the two parts on Linux systems, you can use "
+"zcat as follows: <informalexample><screen>zcat firmware.&lt;system-type&gt;."
+"img.gz partition.img.gz > complete_image.img</screen></informalexample> On "
+"Windows systems, you have to first decompress the two parts separately, "
+"which can be done e.g. by using 7-Zip, and then concatenate the decompressed "
+"parts together by running the command <informalexample><screen>copy /b "
+"firmware.&lt;system-type&gt;.img + partition.img complete_image.img</"
+"screen></informalexample> in a Windows CMD.exe window."
+msgstr ""
+
+#. Tag: para
+#: boot-installer.xml:290
+#, no-c-format
+msgid ""
+"Write the resulting image onto an SD card, e.g. by running the following "
+"command on a Linux system: <informalexample><screen>cat complete_image.img "
+"> /dev/SD_CARD_DEVICE</screen></informalexample> After plugging the SD card "
+"into the target system and powering the system up, the installer is loaded "
+"from the SD card. If you use the hd-media variant for offline installations, "
+"you must provide the installer with access to the first &debian; CD/DVD on a "
+"separate medium, which can e.g. be a CD/DVD ISO image on a USB stick."
+msgstr ""
+
+#. Tag: para
+#: boot-installer.xml:302
+#, no-c-format
+msgid ""
+"When you come to the partitioning step in the installer (see <xref linkend="
+"\"di-partition\"/>), you can delete or replace any previous partitions on "
+"the card. Once the installer is started, it runs completely in the system's "
+"main memory and does not need to access the SD card anymore, so you can use "
+"the full card for installing &debian;. The easiest way to create a proper "
+"partition layout on the SD card is to let the installer automatically create "
+"one for you (see <xref linkend=\"partman-auto\"/>)."
+msgstr ""
+
+# index.docbook:700, index.docbook:2176
+#. Tag: title
+#: boot-installer.xml:443
+#, no-c-format
+msgid "Booting from USB Memory Stick"
+msgstr "从 U 盘引导"
+
+#. Tag: para
+#: boot-installer.xml:449
+#, fuzzy, no-c-format
+#| msgid ""
+#| "Let's assume you have prepared everything from <xref linkend=\"boot-dev-"
+#| "select\"/> and <xref linkend=\"boot-usb-files\"/>. Now just plug your USB "
+#| "stick into some free USB connector and reboot the computer. The system "
+#| "should boot up, and unless you have used the flexible way to build the "
+#| "stick and not enabled it, you should be presented with the <prompt>boot:</"
+#| "prompt> prompt. Here you can enter optional boot arguments, or just hit "
+#| "&enterkey;."
+msgid ""
+"If your computer will boot from USB, this will probably be the easiest route "
+"for installation. Assuming you have prepared everything from <xref linkend="
+"\"boot-dev-select\"/> and <xref linkend=\"boot-usb-files\"/>, just plug your "
+"USB stick into some free USB connector and reboot the computer. The system "
+"should boot up, and unless you have used the flexible way to build the stick "
+"and not enabled it, you should be presented with a graphical boot menu. Here "
+"you can select various installer options, or just hit &enterkey;."
+msgstr ""
+"假设您已经准备好了从 <xref linkend=\"boot-dev-select\"/> 到 <xref linkend="
+"\"boot-usb-files\"/> 的所有步骤。现在只需插入 U 盘到一个空的 USB 插槽并重启。"
+"除非您使用了灵活方式创建 U 盘并不激活，系统应该引导，并看到一个 <prompt>boot:"
+"</prompt> 提示符。此时您可以输入一些引导选项，也可以直接按 &enterkey;。"
+
 # index.docbook:578, index.docbook:951, index.docbook:1764, index.docbook:2018, index.docbook:2372
 #. Tag: title
-#: boot-installer.xml:345 boot-installer.xml:924 boot-installer.xml:1581
-#: boot-installer.xml:1962
+#: boot-installer.xml:463 boot-installer.xml:976 boot-installer.xml:1632
+#: boot-installer.xml:2050
 #, no-c-format
 msgid "Booting from a CD-ROM"
 msgstr "从 CD-ROM 启动"
 
 # index.docbook:531, index.docbook:584, index.docbook:957, index.docbook:1776, index.docbook:2024, index.docbook:2378
 #. Tag: para
-#: boot-installer.xml:351 boot-installer.xml:930 boot-installer.xml:1587
-#: boot-installer.xml:1968
-#, no-c-format
+#: boot-installer.xml:469 boot-installer.xml:982 boot-installer.xml:1638
+#: boot-installer.xml:2056
+#, fuzzy, no-c-format
+#| msgid ""
+#| "The easiest route for most people will be to use a set of &debian; CDs. "
+#| "If you have a CD set, and if your machine supports booting directly off "
+#| "the CD, great! Simply <phrase arch=\"x86\"> configure your system for "
+#| "booting off a CD as described in <xref linkend=\"boot-dev-select\"/>, </"
+#| "phrase> insert your CD, reboot, and proceed to the next chapter."
 msgid ""
-"The easiest route for most people will be to use a set of &debian; CDs. If "
-"you have a CD set, and if your machine supports booting directly off the CD, "
-"great! Simply <phrase arch=\"x86\"> configure your system for booting off a "
-"CD as described in <xref linkend=\"boot-dev-select\"/>, </phrase> insert "
-"your CD, reboot, and proceed to the next chapter."
+"If you have a CD set, and if your machine supports booting directly off the "
+"CD, great! Simply <phrase arch=\"x86\"> configure your system for booting "
+"off a CD as described in <xref linkend=\"boot-dev-select\"/>, </phrase> "
+"insert your CD, reboot, and proceed to the next chapter."
 msgstr ""
 "对于大多数人来说，最快的途径是使用一套 &debian; CD 光盘套件。如果您有此套件，"
 "并且如果您的机器支持直接 CD 引导，太棒了！只需要<phrase arch=\"x86\">配置您的"
@@ -363,8 +540,8 @@ msgstr ""
 
 # index.docbook:542, index.docbook:595, index.docbook:968, index.docbook:1787, index.docbook:2035, index.docbook:2389
 #. Tag: para
-#: boot-installer.xml:362 boot-installer.xml:941 boot-installer.xml:1598
-#: boot-installer.xml:1979
+#: boot-installer.xml:479 boot-installer.xml:992 boot-installer.xml:1648
+#: boot-installer.xml:2066
 #, no-c-format
 msgid ""
 "Note that certain CD drives may require special drivers, and thus be "
@@ -379,8 +556,8 @@ msgstr ""
 
 # index.docbook:550, index.docbook:603, index.docbook:976, index.docbook:1795, index.docbook:2043, index.docbook:2397
 #. Tag: para
-#: boot-installer.xml:370 boot-installer.xml:949 boot-installer.xml:1606
-#: boot-installer.xml:1987
+#: boot-installer.xml:487 boot-installer.xml:1000 boot-installer.xml:1656
+#: boot-installer.xml:2074
 #, fuzzy, no-c-format
 #| msgid ""
 #| "Even if you cannot boot from CD-ROM, you can probably install the "
@@ -401,8 +578,8 @@ msgstr ""
 
 # index.docbook:558, index.docbook:611, index.docbook:984, index.docbook:1803, index.docbook:2051, index.docbook:2405
 #. Tag: para
-#: boot-installer.xml:378 boot-installer.xml:957 boot-installer.xml:1614
-#: boot-installer.xml:1995
+#: boot-installer.xml:495 boot-installer.xml:1008 boot-installer.xml:1664
+#: boot-installer.xml:2082
 #, no-c-format
 msgid ""
 "If you have problems booting, see <xref linkend=\"boot-troubleshooting\"/>."
@@ -410,19 +587,19 @@ msgstr ""
 "如果您遇到引导方面的问题，请参见 <xref linkend=\"boot-troubleshooting\"/>。"
 
 #. Tag: title
-#: boot-installer.xml:452
+#: boot-installer.xml:505
 #, no-c-format
 msgid "Booting from Windows"
 msgstr "从 Windows 引导"
 
 #. Tag: para
-#: boot-installer.xml:453
+#: boot-installer.xml:506
 #, no-c-format
 msgid "To start the installer from Windows, you can either"
 msgstr "从 Windows 下启动安装程序，您可以"
 
 #. Tag: para
-#: boot-installer.xml:458
+#: boot-installer.xml:511
 #, no-c-format
 msgid ""
 "obtain CD-ROM/DVD-ROM<phrase condition=\"bootable-usb\"> or USB memory "
@@ -435,7 +612,7 @@ msgstr ""
 "condition=\"bootable-usb\"> 或 U 盘</phrase> 安装介质，或"
 
 #. Tag: para
-#: boot-installer.xml:466
+#: boot-installer.xml:519
 #, no-c-format
 msgid ""
 "download a standalone Windows executable, which is available as tools/win32-"
@@ -445,7 +622,7 @@ msgstr ""
 "stable/win32-loader.exe."
 
 #. Tag: para
-#: boot-installer.xml:474
+#: boot-installer.xml:527
 #, no-c-format
 msgid ""
 "If you use an installation CD or DVD, a pre-installation program should be "
@@ -459,7 +636,7 @@ msgstr ""
 "<command>setup.exe</command> 程序。"
 
 #. Tag: para
-#: boot-installer.xml:482
+#: boot-installer.xml:535
 #, no-c-format
 msgid ""
 "After the program has been started, a few preliminary questions will be "
@@ -470,14 +647,14 @@ msgstr ""
 "序。"
 
 #. Tag: title
-#: boot-installer.xml:492
+#: boot-installer.xml:545
 #, fuzzy, no-c-format
 #| msgid "Booting from DOS"
 msgid "Booting from DOS using loadlin"
 msgstr "从 DOS 引导"
 
 #. Tag: para
-#: boot-installer.xml:493
+#: boot-installer.xml:546
 #, no-c-format
 msgid ""
 "Boot into DOS (not Windows). To do this, you can for instance boot from a "
@@ -485,7 +662,7 @@ msgid ""
 msgstr "要启动到 DOS (非 Windows)，您可以从一个用于恢复或诊断的磁盘引导。"
 
 #. Tag: para
-#: boot-installer.xml:498
+#: boot-installer.xml:551
 #, no-c-format
 msgid ""
 "If you can access the installation CD, change the current drive to the CD-"
@@ -502,7 +679,7 @@ msgstr ""
 "\"/> 指引准备好了硬盘, 然后切换到该磁盘。"
 
 #. Tag: para
-#: boot-installer.xml:508
+#: boot-installer.xml:561
 #, no-c-format
 msgid ""
 "Enter the subdirectory for the flavor you chose, e.g., "
@@ -523,7 +700,7 @@ msgstr ""
 "会加载并运行安装程序。"
 
 #. Tag: title
-#: boot-installer.xml:526
+#: boot-installer.xml:579
 #, fuzzy, no-c-format
 #| msgid ""
 #| "Booting from Linux Using <command>LILO</command> or <command>GRUB</"
@@ -533,7 +710,7 @@ msgid ""
 msgstr "引导 Linux 使用 <command>LILO</command> 或 <command>GRUB</command>"
 
 #. Tag: para
-#: boot-installer.xml:529
+#: boot-installer.xml:582
 #, no-c-format
 msgid ""
 "To boot the installer from hard disk, you must first download and place the "
@@ -543,7 +720,7 @@ msgstr ""
 "<xref linkend=\"boot-drive-files\"/>。"
 
 #. Tag: para
-#: boot-installer.xml:534
+#: boot-installer.xml:587
 #, no-c-format
 msgid ""
 "If you intend to use the hard drive only for booting and then download "
@@ -559,7 +736,7 @@ msgstr ""
 "您重新分区用于引导的硬盘，需要小心操作。"
 
 #. Tag: para
-#: boot-installer.xml:544
+#: boot-installer.xml:597
 #, no-c-format
 msgid ""
 "Alternatively, if you intend to keep an existing partition on the hard drive "
@@ -575,7 +752,7 @@ msgstr ""
 "以从硬盘引导，并从 CD/DVD 映像文件上安装，而不使用网络。"
 
 #. Tag: para
-#: boot-installer.xml:553
+#: boot-installer.xml:606
 #, no-c-format
 msgid ""
 "For <command>LILO</command>, you will need to configure two essential things "
@@ -593,7 +770,7 @@ msgstr ""
 "lilo.conf</filename> 的例子："
 
 #. Tag: screen
-#: boot-installer.xml:574
+#: boot-installer.xml:627
 #, no-c-format
 msgid ""
 "image=/boot/newinstall/vmlinuz\n"
@@ -605,7 +782,7 @@ msgstr ""
 "       initrd=/boot/newinstall/initrd.gz"
 
 #. Tag: para
-#: boot-installer.xml:574
+#: boot-installer.xml:627
 #, no-c-format
 msgid ""
 "For more details, refer to the <citerefentry><refentrytitle>initrd</"
@@ -620,7 +797,7 @@ msgstr ""
 "行 <userinput>lilo</userinput> 并且重新启动。"
 
 #. Tag: para
-#: boot-installer.xml:583
+#: boot-installer.xml:636
 #, no-c-format
 msgid ""
 "The procedure for <command>GRUB1</command> is quite similar. Locate your "
@@ -635,7 +812,7 @@ msgstr ""
 "boot</filename> 位于系统中第一个磁盘的第一个分区上面):"
 
 #. Tag: screen
-#: boot-installer.xml:591
+#: boot-installer.xml:644
 #, no-c-format
 msgid ""
 "title  New Install\n"
@@ -649,7 +826,7 @@ msgstr ""
 "initrd /boot/newinstall/initrd.gz"
 
 #. Tag: para
-#: boot-installer.xml:593
+#: boot-installer.xml:646
 #, no-c-format
 msgid ""
 "The procedure for <command>GRUB2</command> is very similar. The file is "
@@ -660,7 +837,7 @@ msgstr ""
 "filename> 替代 <filename>menu.lst</filename> 文件。安装程序的入口，例如:"
 
 #. Tag: screen
-#: boot-installer.xml:599
+#: boot-installer.xml:652
 #, no-c-format
 msgid ""
 "menuentry 'New Install' {\n"
@@ -680,7 +857,7 @@ msgstr ""
 "}"
 
 #. Tag: para
-#: boot-installer.xml:601
+#: boot-installer.xml:654
 #, no-c-format
 msgid ""
 "From here on, there should be no difference between <command>GRUB</command> "
@@ -689,39 +866,16 @@ msgstr ""
 "从这里开始，下面采用 <command>GRUB</command> 或 <command>LILO</command> 将没"
 "有什么差别。"
 
-# index.docbook:700, index.docbook:2176
-#. Tag: title
-#: boot-installer.xml:610
-#, no-c-format
-msgid "Booting from USB Memory Stick"
-msgstr "从 U 盘引导"
-
-#. Tag: para
-#: boot-installer.xml:611
-#, no-c-format
-msgid ""
-"Let's assume you have prepared everything from <xref linkend=\"boot-dev-"
-"select\"/> and <xref linkend=\"boot-usb-files\"/>. Now just plug your USB "
-"stick into some free USB connector and reboot the computer. The system "
-"should boot up, and unless you have used the flexible way to build the stick "
-"and not enabled it, you should be presented with the <prompt>boot:</prompt> "
-"prompt. Here you can enter optional boot arguments, or just hit &enterkey;."
-msgstr ""
-"假设您已经准备好了从 <xref linkend=\"boot-dev-select\"/> 到 <xref linkend="
-"\"boot-usb-files\"/> 的所有步骤。现在只需插入 U 盘到一个空的 USB 插槽并重启。"
-"除非您使用了灵活方式创建 U 盘并不激活，系统应该引导，并看到一个 <prompt>boot:"
-"</prompt> 提示符。此时您可以输入一些引导选项，也可以直接按 &enterkey;。"
-
 # index.docbook:723, index.docbook:1876, index.docbook:2278, index.docbook:2426
 #. Tag: title
-#: boot-installer.xml:625 boot-installer.xml:1868
+#: boot-installer.xml:663 boot-installer.xml:1918
 #, no-c-format
 msgid "Booting from Floppies"
 msgstr "从软盘引导"
 
 # index.docbook:724, index.docbook:2286
 #. Tag: para
-#: boot-installer.xml:626 boot-installer.xml:1876
+#: boot-installer.xml:664 boot-installer.xml:1926
 #, no-c-format
 msgid ""
 "You will have already downloaded the floppy images you needed and created "
@@ -731,7 +885,7 @@ msgstr ""
 "\"create-floppy\"/>。"
 
 #. Tag: para
-#: boot-installer.xml:633
+#: boot-installer.xml:671
 #, no-c-format
 msgid ""
 "To boot from the installer boot floppy, place it in the primary floppy "
@@ -741,7 +895,7 @@ msgstr ""
 "开。"
 
 #. Tag: para
-#: boot-installer.xml:639
+#: boot-installer.xml:677
 #, no-c-format
 msgid ""
 "For installing from an LS-120 drive (ATAPI version) with a set of floppies, "
@@ -757,7 +911,7 @@ msgstr ""
 "(master)，那么在提示符下输入 <userinput>install root=/dev/hdc</userinput>。"
 
 #. Tag: para
-#: boot-installer.xml:649
+#: boot-installer.xml:687
 #, no-c-format
 msgid ""
 "Note that on some machines, <keycombo><keycap>Control</keycap> <keycap>Alt</"
@@ -772,7 +926,7 @@ msgstr ""
 "选择。在其它情况下，请在引导时使用硬重启。"
 
 #. Tag: para
-#: boot-installer.xml:658
+#: boot-installer.xml:696
 #, no-c-format
 msgid ""
 "The floppy disk will be accessed, and you should then see a screen that "
@@ -782,7 +936,7 @@ msgstr ""
 "</prompt> 提示符。"
 
 #. Tag: para
-#: boot-installer.xml:664
+#: boot-installer.xml:702
 #, no-c-format
 msgid ""
 "Once you press &enterkey;, you should see the message "
@@ -798,7 +952,7 @@ msgstr ""
 "下面 <xref linkend=\"kernel-msgs\"/> 可以找到。"
 
 #. Tag: para
-#: boot-installer.xml:673
+#: boot-installer.xml:711
 #, no-c-format
 msgid ""
 "After booting from the boot floppy, the root floppy is requested. Insert the "
@@ -811,26 +965,26 @@ msgstr ""
 
 # index.docbook:274, index.docbook:780, index.docbook:1320, index.docbook:1813, index.docbook:1896, index.docbook:2236, index.docbook:2332
 #. Tag: title
-#: boot-installer.xml:683 boot-installer.xml:1293 boot-installer.xml:1435
-#: boot-installer.xml:1489 boot-installer.xml:1812 boot-installer.xml:1922
+#: boot-installer.xml:721 boot-installer.xml:1344 boot-installer.xml:1486
+#: boot-installer.xml:1540 boot-installer.xml:1862 boot-installer.xml:2010
 #, no-c-format
 msgid "Booting with TFTP"
 msgstr "用 TFTP 引导"
 
 #. Tag: para
-#: boot-installer.xml:708
+#: boot-installer.xml:746
 #, no-c-format
 msgid "There are various ways to do a TFTP boot on i386."
 msgstr "在 i386 体系上有很多方法用 TFTP 进行引导。"
 
 #. Tag: title
-#: boot-installer.xml:714
+#: boot-installer.xml:752
 #, no-c-format
 msgid "NIC or Motherboard that support PXE"
 msgstr "支持 PXE 的网卡或者主板"
 
 #. Tag: para
-#: boot-installer.xml:715
+#: boot-installer.xml:753
 #, no-c-format
 msgid ""
 "It could be that your Network Interface Card or Motherboard provides PXE "
@@ -843,13 +997,13 @@ msgstr ""
 "引导。"
 
 #. Tag: title
-#: boot-installer.xml:726
+#: boot-installer.xml:764
 #, no-c-format
 msgid "NIC with Network BootROM"
 msgstr "网络 BootROM 的网卡"
 
 #. Tag: para
-#: boot-installer.xml:727
+#: boot-installer.xml:765
 #, no-c-format
 msgid ""
 "It could be that your Network Interface Card provides TFTP boot "
@@ -857,7 +1011,7 @@ msgid ""
 msgstr "您的网卡很有可能提供了 TFTP 引导功能。"
 
 #. Tag: para
-#: boot-installer.xml:732
+#: boot-installer.xml:770
 #, no-c-format
 msgid ""
 "Let us (<email>&email-debian-boot-list;</email>) know how did you manage it. "
@@ -867,13 +1021,13 @@ msgstr ""
 "文档。"
 
 #. Tag: title
-#: boot-installer.xml:740
+#: boot-installer.xml:778
 #, no-c-format
 msgid "Etherboot"
 msgstr "Etherboot"
 
 #. Tag: para
-#: boot-installer.xml:741
+#: boot-installer.xml:779
 #, no-c-format
 msgid ""
 "The <ulink url=\"http://www.etherboot.org\">etherboot project</ulink> "
@@ -884,48 +1038,52 @@ msgstr ""
 
 # index.docbook:1943, index.docbook:2477
 #. Tag: title
-#: boot-installer.xml:751
+#: boot-installer.xml:789
 #, no-c-format
 msgid "The Boot Screen"
 msgstr "引导界面"
 
 #. Tag: para
-#: boot-installer.xml:752
+#: boot-installer.xml:790
 #, no-c-format
 msgid ""
 "When the installer boots, you should be presented with a friendly graphical "
-"screen showing the &debian; logo and a menu: <informalexample><screen>\n"
-"Installer boot menu\n"
-"\n"
-"Install\n"
-"Graphical install\n"
-"Advanced options             >\n"
-"Help\n"
-"Install with speech synthesis\n"
-"\n"
-"Press ENTER to boot or TAB to edit a menu entry\n"
-"</screen></informalexample> Depending on the installation method you are "
-"using, the <quote>Graphical install</quote> option may not be available. Bi-"
-"arch images additionally have a 64 bit variant for each install option, "
-"right below it, thus almost doubling the number of options."
+"screen showing the &debian; logo and a menu:"
 msgstr ""
-"安装程序引导后，您应该看到界面友好的图形画面显示着 &debian; 图标和菜单："
-"<informalexample><screen>\n"
+
+#. Tag: screen
+#: boot-installer.xml:795
+#, no-c-format
+msgid ""
 "Installer boot menu\n"
 "\n"
 "Install\n"
 "Graphical install\n"
 "Advanced options             >\n"
 "Help\n"
-"Install with speech synthesis\n"
-"\n"
-"Press ENTER to boot or TAB to edit a menu entry\n"
-"</screen></informalexample> 根据您使用的不同安装方法，<quote>Graphical "
-"install</quote> 选项可能不会出现。双体系(bi-arch)映像会额外有一个 64 位安装选"
-"项，在其下方，因此会有双倍的选项。"
+"Install with speech synthesis"
+msgstr ""
 
 #. Tag: para
-#: boot-installer.xml:764
+#: boot-installer.xml:799
+#, no-c-format
+msgid ""
+"This graphical screen will look very slightly different depending on how "
+"your computer has booted (BIOS or UEFI), but the same options will be shown."
+msgstr ""
+
+#. Tag: para
+#: boot-installer.xml:807
+#, no-c-format
+msgid ""
+"Depending on the installation method you are using, the <quote>Graphical "
+"install</quote> option may not be available. Bi-arch images additionally "
+"have a 64 bit variant for each install option, right below it, thus almost "
+"doubling the number of options."
+msgstr ""
+
+#. Tag: para
+#: boot-installer.xml:814
 #, fuzzy, no-c-format
 #| msgid ""
 #| "For a normal installation, select either the <quote>Install</quote> or "
@@ -945,7 +1103,7 @@ msgstr ""
 "quote> 入口已经选中 &mdash; 然后按下 &enterkey; 引导安装程序。"
 
 #. Tag: para
-#: boot-installer.xml:772
+#: boot-installer.xml:822
 #, no-c-format
 msgid ""
 "The <quote>Advanced options</quote> entry gives access to a second menu that "
@@ -956,13 +1114,21 @@ msgstr ""
 "expert 模式、rescue 模式和自动安装。"
 
 #. Tag: para
-#: boot-installer.xml:778
-#, no-c-format
+#: boot-installer.xml:828
+#, fuzzy, no-c-format
+#| msgid ""
+#| "If you wish or need to add any boot parameters for either the installer "
+#| "or the kernel, press &tabkey;. This will display the default boot command "
+#| "for the selected menu entry and allow to add additional options. The help "
+#| "screens (see below) list some common possible options. Press &enterkey; "
+#| "to boot the installer with your options; pressing &escapekey; will return "
+#| "you to the boot menu and undo any changes you made."
 msgid ""
 "If you wish or need to add any boot parameters for either the installer or "
-"the kernel, press &tabkey;. This will display the default boot command for "
-"the selected menu entry and allow to add additional options. The help "
-"screens (see below) list some common possible options. Press &enterkey; to "
+"the kernel, press &tabkey; (BIOS boot) or &ekey; (UEFI boot). This will "
+"display the boot command for the selected menu entry and allow you to edit "
+"it to suit your needs. The help screens (see below) list some common "
+"possible options. Press &enterkey; (BIOS boot) or &f10key; (UEFI boot) to "
 "boot the installer with your options; pressing &escapekey; will return you "
 "to the boot menu and undo any changes you made."
 msgstr ""
@@ -972,7 +1138,7 @@ msgstr ""
 "您所做的修改。"
 
 #. Tag: para
-#: boot-installer.xml:787
+#: boot-installer.xml:839
 #, no-c-format
 msgid ""
 "Choosing the <quote>Help</quote> entry will result in the first help screen "
@@ -1001,7 +1167,7 @@ msgstr ""
 "(例如：<userinput>install fb=false</userinput>)。"
 
 #. Tag: para
-#: boot-installer.xml:805
+#: boot-installer.xml:857
 #, no-c-format
 msgid ""
 "The keyboard is assumed to have a default American English layout at this "
@@ -1017,7 +1183,7 @@ msgstr ""
 "说明了如何找到要使用正确的键。"
 
 #. Tag: para
-#: boot-installer.xml:815
+#: boot-installer.xml:867
 #, no-c-format
 msgid ""
 "If you are using a system that has the BIOS configured to use serial "
@@ -1035,7 +1201,7 @@ msgstr ""
 "Assistant</quote> (IRA)。"
 
 #. Tag: para
-#: boot-installer.xml:825
+#: boot-installer.xml:877
 #, no-c-format
 msgid ""
 "To bypass the graphical boot screen you can either blindly press &escapekey; "
@@ -1053,13 +1219,13 @@ msgstr ""
 "userinput>，这在帮助里面有说明。"
 
 #. Tag: title
-#: boot-installer.xml:841
+#: boot-installer.xml:893
 #, no-c-format
 msgid "The Graphical Installer"
 msgstr ""
 
 #. Tag: para
-#: boot-installer.xml:842
+#: boot-installer.xml:894
 #, no-c-format
 msgid ""
 "The graphical version of the installer is only available for a limited "
@@ -1070,7 +1236,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: boot-installer.xml:850
+#: boot-installer.xml:902
 #, no-c-format
 msgid ""
 "Although the functionality is identical, the graphical installer still has a "
@@ -1082,7 +1248,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: boot-installer.xml:859
+#: boot-installer.xml:911
 #, no-c-format
 msgid ""
 "The graphical installer is available with all CD images and with the hd-"
@@ -1096,7 +1262,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: boot-installer.xml:870
+#: boot-installer.xml:922
 #, no-c-format
 msgid ""
 "There is also a graphical installer image that can be netbooted. And there "
@@ -1108,7 +1274,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: boot-installer.xml:883
+#: boot-installer.xml:935
 #, no-c-format
 msgid ""
 "For &arch-title;, currently only an experimental <quote>mini</quote> ISO "
@@ -1120,7 +1286,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: boot-installer.xml:897
+#: boot-installer.xml:949
 #, no-c-format
 msgid ""
 "Just as with the text-based installer it is possible to add boot parameters "
@@ -1128,7 +1294,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: boot-installer.xml:903
+#: boot-installer.xml:955
 #, no-c-format
 msgid ""
 "The graphical installer requires significantly more memory to run than the "
@@ -1138,7 +1304,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: boot-installer.xml:910
+#: boot-installer.xml:962
 #, no-c-format
 msgid ""
 "If the amount of memory in your system is below &minimum-memory;, the "
@@ -1148,13 +1314,13 @@ msgid ""
 msgstr ""
 
 #. Tag: title
-#: boot-installer.xml:965
+#: boot-installer.xml:1016
 #, no-c-format
 msgid "CD Contents"
 msgstr "CD 的内容"
 
 #. Tag: para
-#: boot-installer.xml:967
+#: boot-installer.xml:1018
 #, no-c-format
 msgid ""
 "There are three basic variations of &debian; Install CDs. The "
@@ -1175,7 +1341,7 @@ msgstr ""
 "光盘套件，则可以不使用网络就能安装大量软件包，建立完整的系统。"
 
 #. Tag: para
-#: boot-installer.xml:983
+#: boot-installer.xml:1034
 #, no-c-format
 msgid ""
 "The IA-64 architecture uses the next generation Extensible Firmware "
@@ -1198,7 +1364,7 @@ msgstr ""
 "MBR 或者引导块记录。"
 
 #. Tag: para
-#: boot-installer.xml:999
+#: boot-installer.xml:1050
 #, no-c-format
 msgid ""
 "The &debian; Installer CD contains a small EFI partition where the "
@@ -1213,7 +1379,7 @@ msgstr ""
 "说明如下。"
 
 #. Tag: para
-#: boot-installer.xml:1008
+#: boot-installer.xml:1059
 #, no-c-format
 msgid ""
 "Most of the details of how <command>ELILO</command> actually loads and "
@@ -1232,7 +1398,7 @@ msgstr ""
 "查一个 EFI 分区是否合适。"
 
 #. Tag: para
-#: boot-installer.xml:1020
+#: boot-installer.xml:1071
 #, no-c-format
 msgid ""
 "The EFI Boot Manager is presented as the last step of the firmware "
@@ -1252,13 +1418,13 @@ msgstr ""
 "用第一个，当然，该选项不可用或者 CD 由于某种原因没法启动，使用第二个。"
 
 #. Tag: title
-#: boot-installer.xml:1039
+#: boot-installer.xml:1090
 #, no-c-format
 msgid "IMPORTANT"
 msgstr "重要"
 
 #. Tag: para
-#: boot-installer.xml:1040
+#: boot-installer.xml:1091
 #, no-c-format
 msgid ""
 "The EFI Boot Manager will select a default boot action, typically the first "
@@ -1275,13 +1441,13 @@ msgstr ""
 "command>返回 Boot Manager。"
 
 #. Tag: title
-#: boot-installer.xml:1052
+#: boot-installer.xml:1103
 #, no-c-format
 msgid "Option 1: Booting from the Boot Option Maintenance Menu"
 msgstr "选项 1: 从 Boot Option Maintenance Menu 启动"
 
 #. Tag: para
-#: boot-installer.xml:1059
+#: boot-installer.xml:1110
 #, no-c-format
 msgid ""
 "Insert the CD in the DVD/CD drive and reboot the machine. The firmware will "
@@ -1292,7 +1458,7 @@ msgstr ""
 "Boot Manager 页面和菜单。"
 
 #. Tag: para
-#: boot-installer.xml:1065
+#: boot-installer.xml:1116
 #, no-c-format
 msgid ""
 "Select <command>Boot Maintenance Menu</command> from the menu with the arrow "
@@ -1302,7 +1468,7 @@ msgstr ""
 "<command>ENTER</command>。会显示一个新菜单。"
 
 #. Tag: para
-#: boot-installer.xml:1071
+#: boot-installer.xml:1122
 #, no-c-format
 msgid ""
 "Select <command>Boot From a File</command> from the menu with the arrow keys "
@@ -1318,7 +1484,7 @@ msgstr ""
 "Boot</command>标签。如果您检查菜单行其他部分，会看到对应的设备和控制器信息。"
 
 #. Tag: para
-#: boot-installer.xml:1082
+#: boot-installer.xml:1133
 #, no-c-format
 msgid ""
 "You can choose either of the entries that refer to the CD/DVD drive. Select "
@@ -1334,7 +1500,7 @@ msgstr ""
 "的 CD 目录列表，要求您进行(额外的)下一步。"
 
 #. Tag: para
-#: boot-installer.xml:1093
+#: boot-installer.xml:1144
 #, no-c-format
 msgid ""
 "You will only need this step if you chose <command>Debian Inst [Acpi ...</"
@@ -1348,7 +1514,7 @@ msgstr ""
 "择，并按下 <command>ENTER</command>。这将进入启动步骤。"
 
 #. Tag: para
-#: boot-installer.xml:1105
+#: boot-installer.xml:1156
 #, no-c-format
 msgid ""
 "These steps start the &debian; boot loader which will display a menu page "
@@ -1359,13 +1525,13 @@ msgstr ""
 "进入选择启动内核和选项。"
 
 #. Tag: title
-#: boot-installer.xml:1115
+#: boot-installer.xml:1166
 #, no-c-format
 msgid "Option 2: Booting from the EFI Shell"
 msgstr "选项 2: 从 EFI Shell 启动"
 
 #. Tag: para
-#: boot-installer.xml:1116
+#: boot-installer.xml:1167
 #, no-c-format
 msgid ""
 "If, for some reason, option 1 is not successful, reboot the machine and when "
@@ -1378,7 +1544,7 @@ msgstr ""
 "来引导 &debian; 安装程序 CD :"
 
 #. Tag: para
-#: boot-installer.xml:1127
+#: boot-installer.xml:1178
 #, no-c-format
 msgid ""
 "Insert the CD in the DVD/CD drive and reboot the machine. The firmware will "
@@ -1387,7 +1553,7 @@ msgid ""
 msgstr "把 CD 放入 DVD/CD 驱动器。"
 
 #. Tag: para
-#: boot-installer.xml:1133
+#: boot-installer.xml:1184
 #, no-c-format
 msgid ""
 "Select <command>EFI Shell</command> from the menu with the arrow keys and "
@@ -1407,7 +1573,7 @@ msgstr ""
 "用于初始化 CD 驱动器。"
 
 #. Tag: para
-#: boot-installer.xml:1147
+#: boot-installer.xml:1198
 #, no-c-format
 msgid ""
 "Examine the output from the shell looking for the CDROM drive. It is most "
@@ -1420,7 +1586,7 @@ msgstr ""
 "<filename>fs<replaceable>n</replaceable></filename>。"
 
 #. Tag: para
-#: boot-installer.xml:1154
+#: boot-installer.xml:1205
 #, no-c-format
 msgid ""
 "Enter <command>fs<replaceable>n</replaceable>:</command> and press "
@@ -1433,7 +1599,7 @@ msgstr ""
 "光盘的分区号。Shell 现在将在提示符下显示分区号。"
 
 #. Tag: para
-#: boot-installer.xml:1161
+#: boot-installer.xml:1212
 #, no-c-format
 msgid ""
 "Enter <command>elilo</command> and press <command>ENTER</command>. This will "
@@ -1443,7 +1609,7 @@ msgstr ""
 "骤。"
 
 #. Tag: para
-#: boot-installer.xml:1168
+#: boot-installer.xml:1219
 #, no-c-format
 msgid ""
 "As with option 1, these steps start the &debian; boot loader which will "
@@ -1457,13 +1623,13 @@ msgstr ""
 "replaceable>:elilo</command>简短命令。进入选择启动内核和选项。"
 
 #. Tag: title
-#: boot-installer.xml:1182
+#: boot-installer.xml:1233
 #, no-c-format
 msgid "Installing using a Serial Console"
 msgstr "使用串口控制台安装"
 
 #. Tag: para
-#: boot-installer.xml:1184
+#: boot-installer.xml:1235
 #, no-c-format
 msgid ""
 "You may choose to perform an install using a monitor and keyboard or using a "
@@ -1481,7 +1647,7 @@ msgstr ""
 "置。"
 
 #. Tag: para
-#: boot-installer.xml:1195
+#: boot-installer.xml:1246
 #, no-c-format
 msgid ""
 "In most circumstances, you will want the installer to use the same baud rate "
@@ -1493,7 +1659,7 @@ msgstr ""
 "置，可以通过命令 <command>baud</command> 在 EFI shell 获得。"
 
 #. Tag: para
-#: boot-installer.xml:1202
+#: boot-installer.xml:1253
 #, no-c-format
 msgid ""
 "If there is not an option available that is configured for the serial device "
@@ -1508,7 +1674,7 @@ msgstr ""
 "窗口。"
 
 #. Tag: para
-#: boot-installer.xml:1213
+#: boot-installer.xml:1264
 #, no-c-format
 msgid ""
 "Most IA-64 boxes ship with a default console setting of 9600 baud. This "
@@ -1523,7 +1689,7 @@ msgstr ""
 "装。参考 <classname>Params</classname> 帮助菜单，获得启动文本模式安装的指导。"
 
 #. Tag: para
-#: boot-installer.xml:1222
+#: boot-installer.xml:1273
 #, no-c-format
 msgid ""
 "If you select the wrong console type, you will be able to select the kernel "
@@ -1535,13 +1701,13 @@ msgstr ""
 "核启动后死掉，只有重新启动才能开始安装。"
 
 #. Tag: title
-#: boot-installer.xml:1231
+#: boot-installer.xml:1282
 #, no-c-format
 msgid "Selecting the Boot Kernel and Options"
 msgstr "选择启动内核与选项"
 
 #. Tag: para
-#: boot-installer.xml:1233
+#: boot-installer.xml:1284
 #, no-c-format
 msgid ""
 "The boot loader will display a form with a menu list and a text window with "
@@ -1558,7 +1724,7 @@ msgstr ""
 "<classname>Params</classname>窗口解释命令行参数。"
 
 #. Tag: para
-#: boot-installer.xml:1245
+#: boot-installer.xml:1296
 #, no-c-format
 msgid ""
 "Consult the <classname>General</classname> help screen for the description "
@@ -1578,7 +1744,7 @@ msgstr ""
 "始安装："
 
 #. Tag: para
-#: boot-installer.xml:1263
+#: boot-installer.xml:1314
 #, no-c-format
 msgid ""
 "Select the kernel version and installation mode most appropriate to your "
@@ -1586,7 +1752,7 @@ msgid ""
 msgstr "使用方向键选择您需要的内核版本和适合的安装模式。"
 
 #. Tag: para
-#: boot-installer.xml:1268
+#: boot-installer.xml:1319
 #, no-c-format
 msgid ""
 "Enter any boot parameters by typing at the keyboard. The text will be "
@@ -1597,7 +1763,7 @@ msgstr ""
 "控制台)指定的。"
 
 #. Tag: para
-#: boot-installer.xml:1275
+#: boot-installer.xml:1326
 #, no-c-format
 msgid ""
 "Press <command>ENTER</command>. This will load and start the kernel. The "
@@ -1608,7 +1774,7 @@ msgstr ""
 "一个屏幕显示常规的初始化信息。"
 
 #. Tag: para
-#: boot-installer.xml:1284 boot-installer.xml:1421
+#: boot-installer.xml:1335 boot-installer.xml:1472
 #, no-c-format
 msgid ""
 "Proceed to the next chapter to continue the installation where you will set "
@@ -1616,7 +1782,7 @@ msgid ""
 msgstr "进入到下一章继续安装本地语言，网络和磁盘分区。"
 
 #. Tag: para
-#: boot-installer.xml:1295
+#: boot-installer.xml:1346
 #, no-c-format
 msgid ""
 "Booting an IA-64 system from the network is similar to a CD boot. The only "
@@ -1633,7 +1799,7 @@ msgstr ""
 "器。"
 
 #. Tag: para
-#: boot-installer.xml:1330
+#: boot-installer.xml:1381
 #, no-c-format
 msgid ""
 "Network booting an IA-64 system requires two architecture-specific actions. "
@@ -1646,13 +1812,13 @@ msgstr ""
 "必须在 EFI boot manager 下定义来打开网络的装入。"
 
 #. Tag: title
-#: boot-installer.xml:1341
+#: boot-installer.xml:1392
 #, no-c-format
 msgid "Configuring the Server"
 msgstr "配置网络服务器"
 
 #. Tag: para
-#: boot-installer.xml:1342
+#: boot-installer.xml:1393
 #, no-c-format
 msgid ""
 "A suitable TFTP entry for network booting an IA-64 system looks something "
@@ -1676,7 +1842,7 @@ msgstr ""
 "在客户端运行。"
 
 #. Tag: para
-#: boot-installer.xml:1352
+#: boot-installer.xml:1403
 #, no-c-format
 msgid ""
 "Extract the <filename>netboot.tar.gz</filename> file into the directory used "
@@ -1691,7 +1857,7 @@ msgstr ""
 "它包括 IA-64 系统需要的启动文件。"
 
 #. Tag: screen
-#: boot-installer.xml:1362
+#: boot-installer.xml:1413
 #, no-c-format
 msgid ""
 "# cd /var/lib/tftp\n"
@@ -1709,7 +1875,7 @@ msgstr ""
 "[...]"
 
 #. Tag: para
-#: boot-installer.xml:1362
+#: boot-installer.xml:1413
 #, no-c-format
 msgid ""
 "The <filename>netboot.tar.gz</filename> contains an <filename>elilo.conf</"
@@ -1728,13 +1894,13 @@ msgstr ""
 "filename>。请查看 <classname>elilo</classname> 软件包附带的文档以获得细节。"
 
 #. Tag: title
-#: boot-installer.xml:1379
+#: boot-installer.xml:1430
 #, no-c-format
 msgid "Configuring the Client"
 msgstr "配置客户机"
 
 #. Tag: para
-#: boot-installer.xml:1380
+#: boot-installer.xml:1431
 #, no-c-format
 msgid ""
 "To configure the client to support TFTP booting, start by booting to EFI and "
@@ -1761,7 +1927,7 @@ msgstr ""
 "DHCP 查询，然后会从服务器装入 <filename>elilo.efi</filename>。"
 
 #. Tag: para
-#: boot-installer.xml:1412
+#: boot-installer.xml:1463
 #, no-c-format
 msgid ""
 "The boot loader will display its prompt after it has downloaded and "
@@ -1776,13 +1942,13 @@ msgstr ""
 
 # index.docbook:1899, index.docbook:1946
 #. Tag: title
-#: boot-installer.xml:1438 boot-installer.xml:1462
+#: boot-installer.xml:1489 boot-installer.xml:1513
 #, no-c-format
 msgid "SGI TFTP Booting"
 msgstr "SGI TFTP 引导"
 
 #. Tag: para
-#: boot-installer.xml:1439
+#: boot-installer.xml:1490
 #, no-c-format
 msgid ""
 "After entering the command monitor use <informalexample><screen>\n"
@@ -1804,13 +1970,13 @@ msgstr ""
 
 # index.docbook:1943, index.docbook:2477
 #. Tag: title
-#: boot-installer.xml:1459 boot-installer.xml:2214
+#: boot-installer.xml:1510 boot-installer.xml:2301
 #, no-c-format
 msgid "Boot Parameters"
 msgstr "引导参数"
 
 #. Tag: para
-#: boot-installer.xml:1463
+#: boot-installer.xml:1514
 #, no-c-format
 msgid ""
 "On SGI machines you can append boot parameters to the <command>bootp():</"
@@ -1820,7 +1986,7 @@ msgstr ""
 "参数。"
 
 #. Tag: para
-#: boot-installer.xml:1468
+#: boot-installer.xml:1519
 #, no-c-format
 msgid ""
 "Following the <command>bootp():</command> command you can give the path and "
@@ -1838,19 +2004,19 @@ msgstr ""
 "command>:"
 
 #. Tag: screen
-#: boot-installer.xml:1478
+#: boot-installer.xml:1529
 #, no-c-format
 msgid "bootp(): append=\"root=/dev/sda1\""
 msgstr "bootp(): append=\"root=/dev/sda1\""
 
 #. Tag: title
-#: boot-installer.xml:1521
+#: boot-installer.xml:1572
 #, no-c-format
 msgid "s390 Limitations"
 msgstr "s390 的限制"
 
 #. Tag: para
-#: boot-installer.xml:1522
+#: boot-installer.xml:1573
 #, no-c-format
 msgid ""
 "In order to run the installation system a working network setup and ssh "
@@ -1858,7 +2024,7 @@ msgid ""
 msgstr "为了在 S/390 上安装系统，需要一个工作的网络设置和 ssh 会话。"
 
 #. Tag: para
-#: boot-installer.xml:1527
+#: boot-installer.xml:1578
 #, no-c-format
 msgid ""
 "The booting process starts with a network setup that prompts you for several "
@@ -1870,13 +2036,13 @@ msgstr ""
 "一个 ssh 会话登录进入系统，并且开始一个标准系统安装。"
 
 #. Tag: title
-#: boot-installer.xml:1538
+#: boot-installer.xml:1589
 #, no-c-format
 msgid "s390 Boot Parameters"
 msgstr "s390 引导参数"
 
 #. Tag: para
-#: boot-installer.xml:1539
+#: boot-installer.xml:1590
 #, fuzzy, no-c-format
 #| msgid ""
 #| "On S/390 you can append boot parameters in the parm file. This file can "
@@ -1897,7 +2063,7 @@ msgstr ""
 "映像。"
 
 #. Tag: para
-#: boot-installer.xml:1556
+#: boot-installer.xml:1607
 #, no-c-format
 msgid ""
 "If you boot the installer in a logical partition (LPAR) or virtual machine "
@@ -1920,7 +2086,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: boot-installer.xml:1621
+#: boot-installer.xml:1671
 #, no-c-format
 msgid ""
 "Currently, the only &arch-title; subarchitectures that support CD-ROM "
@@ -1936,7 +2102,7 @@ msgstr ""
 "keycap> 和 <keycap>Delete</keycap> 组合键引导出厂默认的 CD/DVD 驱动器。"
 
 #. Tag: para
-#: boot-installer.xml:1630
+#: boot-installer.xml:1680
 #, no-c-format
 msgid ""
 "To boot a PowerMac from an external Firewire CD/DVD drive invoke Open "
@@ -1953,13 +2119,13 @@ msgstr ""
 "</screen></informalexample> 另一种方法引导出厂默认的 CD/DVD 驱动器，键入"
 
 #. Tag: screen
-#: boot-installer.xml:1641
+#: boot-installer.xml:1691
 #, no-c-format
 msgid "0 &gt; boot cd:,\\install\\yaboot"
 msgstr "0 &gt; boot cd:,\\install\\yaboot"
 
 #. Tag: para
-#: boot-installer.xml:1643
+#: boot-installer.xml:1693
 #, no-c-format
 msgid ""
 "OldWorld PowerMacs will not boot a &debian; CD, because OldWorld computers "
@@ -1974,7 +2140,7 @@ msgstr ""
 "安装程序 从 CD 上选择所需要的文件。"
 
 #. Tag: para
-#: boot-installer.xml:1652
+#: boot-installer.xml:1702
 #, no-c-format
 msgid ""
 "To boot &debian; CD/DVD on Pegasos II machine, hold <keycap>Esc</keycap> key "
@@ -1985,13 +2151,13 @@ msgstr ""
 "<keycap>Esc</keycap> 键，出现 SmartFirmware 提示符后，键入"
 
 #. Tag: screen
-#: boot-installer.xml:1658
+#: boot-installer.xml:1708
 #, no-c-format
 msgid "boot cd install/pegasos"
 msgstr "boot cd install/pegasos"
 
 #. Tag: para
-#: boot-installer.xml:1660
+#: boot-installer.xml:1710
 #, fuzzy, no-c-format
 #| msgid ""
 #| "To boot &debian; CD/DVD on Pegasos II machine, hold <keycap>Esc</keycap> "
@@ -2006,20 +2172,20 @@ msgstr ""
 "<keycap>Esc</keycap> 键，出现 SmartFirmware 提示符后，键入"
 
 #. Tag: screen
-#: boot-installer.xml:1665
+#: boot-installer.xml:1715
 #, no-c-format
 msgid "0 > boot cdrom"
 msgstr ""
 
 #. Tag: title
-#: boot-installer.xml:1671
+#: boot-installer.xml:1721
 #, no-c-format
 msgid "Booting from Hard Disk"
 msgstr "从硬盘引导"
 
 # index.docbook:1591, index.docbook:2097
 #. Tag: para
-#: boot-installer.xml:1677
+#: boot-installer.xml:1727
 #, no-c-format
 msgid ""
 "Booting from an existing operating system is often a convenient option; for "
@@ -2030,7 +2196,7 @@ msgstr ""
 
 # index.docbook:1597, index.docbook:2103
 #. Tag: para
-#: boot-installer.xml:1683
+#: boot-installer.xml:1733
 #, no-c-format
 msgid ""
 "To boot the installer from hard disk, you will have already completed "
@@ -2041,13 +2207,13 @@ msgstr ""
 "下载并且安置所需文件。"
 
 #. Tag: title
-#: boot-installer.xml:1703
+#: boot-installer.xml:1753
 #, no-c-format
 msgid "Booting OldWorld PowerMacs from MacOS"
 msgstr "从 OldWorld PowerMacs 的 MacOS 上引导"
 
 #. Tag: para
-#: boot-installer.xml:1704
+#: boot-installer.xml:1754
 #, no-c-format
 msgid ""
 "If you set up BootX in <xref linkend=\"files-oldworld\"/>, you can use it to "
@@ -2068,13 +2234,13 @@ msgstr ""
 "序。"
 
 #. Tag: title
-#: boot-installer.xml:1722
+#: boot-installer.xml:1772
 #, no-c-format
 msgid "Booting NewWorld Macs from OpenFirmware"
 msgstr "从 NewWorld Macs 的 OpenFirmware 引导"
 
 #. Tag: para
-#: boot-installer.xml:1723
+#: boot-installer.xml:1773
 #, no-c-format
 msgid ""
 "You will have already placed the <filename>vmlinux</filename>, "
@@ -2115,19 +2281,19 @@ msgstr ""
 
 # index.docbook:700, index.docbook:2176
 #. Tag: title
-#: boot-installer.xml:1755
+#: boot-installer.xml:1805
 #, no-c-format
 msgid "Booting from USB memory stick"
 msgstr "从 U 盘引导"
 
 #. Tag: para
-#: boot-installer.xml:1756
+#: boot-installer.xml:1806
 #, no-c-format
 msgid "Currently, NewWorld PowerMac systems are known to support USB booting."
 msgstr "当前，New World PowerMac 系统支持从 USB 引导。"
 
 #. Tag: para
-#: boot-installer.xml:1762
+#: boot-installer.xml:1812
 #, no-c-format
 msgid ""
 "Make sure you have prepared everything from <xref linkend=\"boot-usb-files\"/"
@@ -2140,7 +2306,7 @@ msgstr ""
 "Open Firmware 提示符。参阅 <xref linkend=\"invoking-openfirmware\"/>。"
 
 #. Tag: para
-#: boot-installer.xml:1771
+#: boot-installer.xml:1821
 #, no-c-format
 msgid ""
 "You will need to work out where the USB storage device appears in the device "
@@ -2161,7 +2327,7 @@ msgstr ""
 "disk@1</filename> 。"
 
 #. Tag: para
-#: boot-installer.xml:1783
+#: boot-installer.xml:1833
 #, no-c-format
 msgid ""
 "Having worked out the device path, use a command like this to boot the "
@@ -2185,7 +2351,7 @@ msgstr ""
 "command>。"
 
 #. Tag: para
-#: boot-installer.xml:1797
+#: boot-installer.xml:1847
 #, no-c-format
 msgid ""
 "The system should now boot up, and you should be presented with the "
@@ -2196,7 +2362,7 @@ msgstr ""
 "动参数，或者只按下 &enterkey;。"
 
 #. Tag: para
-#: boot-installer.xml:1803
+#: boot-installer.xml:1853
 #, no-c-format
 msgid ""
 "This boot method is new, and may be difficult to get to work on some "
@@ -2207,13 +2373,13 @@ msgstr ""
 "下安装报告，参阅 <xref linkend=\"submit-bug\"/>。"
 
 #. Tag: para
-#: boot-installer.xml:1837
+#: boot-installer.xml:1887
 #, no-c-format
 msgid "Currently, PReP and New World PowerMac systems support netbooting."
 msgstr "目前来说，PReP 以及 New World PowerMac 系统支持网络引导。"
 
 #. Tag: para
-#: boot-installer.xml:1841
+#: boot-installer.xml:1891
 #, no-c-format
 msgid ""
 "On machines with Open Firmware, such as NewWorld Power Macs, enter the boot "
@@ -2246,7 +2412,7 @@ msgstr ""
 "<userinput>help boot</userinput> 命令可以给出语法和选项的说明。"
 
 #. Tag: para
-#: boot-installer.xml:1869
+#: boot-installer.xml:1919
 #, no-c-format
 msgid ""
 "Booting from floppies is supported for &arch-title;, although it is "
@@ -2258,7 +2424,7 @@ msgstr ""
 "没有安装 软盘驱动器，并且附带的 USB 软盘并不支持引导。"
 
 #. Tag: para
-#: boot-installer.xml:1881
+#: boot-installer.xml:1931
 #, no-c-format
 msgid ""
 "To boot from the <filename>boot-floppy-hfs.img</filename> floppy, place it "
@@ -2269,7 +2435,7 @@ msgstr ""
 "按下电源开关前把它放到软盘驱动器内。"
 
 #. Tag: para
-#: boot-installer.xml:1887
+#: boot-installer.xml:1937
 #, no-c-format
 msgid ""
 "For those not familiar with Macintosh floppy operations: a floppy placed in "
@@ -2281,7 +2447,7 @@ msgstr ""
 "序。一个 没有有效引导系统的软盘将回被弹出，并且机器将检查硬盘分区。"
 
 #. Tag: para
-#: boot-installer.xml:1894
+#: boot-installer.xml:1944
 #, no-c-format
 msgid ""
 "After booting, the <filename>root.bin</filename> floppy is requested. Insert "
@@ -2292,13 +2458,13 @@ msgstr ""
 "&enterkey;。安装程序将在根系统被装入内存后自动启动。"
 
 #. Tag: title
-#: boot-installer.xml:1905
+#: boot-installer.xml:1955
 #, no-c-format
 msgid "PowerPC Boot Parameters"
 msgstr "PowerPC 引导参数"
 
 #. Tag: para
-#: boot-installer.xml:1906
+#: boot-installer.xml:1956
 #, no-c-format
 msgid ""
 "Many older Apple monitors used a 640x480 67Hz mode. If your video appears "
@@ -2312,8 +2478,46 @@ msgstr ""
 "userinput> 。它将为大多数 Mach64 和 Rage 显示设备选择合适的模式。对于 Rage "
 "128 来说，请改变其值为 <userinput>video=aty128fb:vmode:6</userinput> 。"
 
+#. Tag: title
+#: boot-installer.xml:1968
+#, no-c-format
+msgid "Booting a ppc64el machine"
+msgstr ""
+
 #. Tag: para
-#: boot-installer.xml:1947
+#: boot-installer.xml:1969
+#, no-c-format
+msgid "How to boot a ppc64el machine:"
+msgstr ""
+
+#. Tag: title
+#: boot-installer.xml:1975
+#, no-c-format
+msgid "Petitboot"
+msgstr ""
+
+#. Tag: para
+#: boot-installer.xml:1976
+#, no-c-format
+msgid ""
+"Petitboot is a platform independent bootloader based on the Linux kexec. "
+"Petitboot supports loading kernel, initrd and device tree files from any "
+"Linux mountable filesystem, plus can load files from the network using the "
+"FTP, SFTP, TFTP, NFS, HTTP and HTTPS protocols. Petitboot can boot any "
+"operating system that includes kexec boot support."
+msgstr ""
+
+#. Tag: para
+#: boot-installer.xml:1984
+#, no-c-format
+msgid ""
+"Petitboot looks for bootloader configuration files on mountable devices in "
+"the system, and can also be configured to use boot information from a DHCP "
+"server."
+msgstr ""
+
+#. Tag: para
+#: boot-installer.xml:2035
 #, no-c-format
 msgid ""
 "On machines with OpenBoot, simply enter the boot monitor on the machine "
@@ -2332,7 +2536,7 @@ msgstr ""
 "i; 。"
 
 #. Tag: para
-#: boot-installer.xml:2002
+#: boot-installer.xml:2089
 #, no-c-format
 msgid ""
 "Most OpenBoot versions support the <userinput>boot cdrom</userinput> command "
@@ -2344,13 +2548,13 @@ msgstr ""
 "盘)。"
 
 #. Tag: title
-#: boot-installer.xml:2011
+#: boot-installer.xml:2098
 #, no-c-format
 msgid "IDPROM Messages"
 msgstr "IDPROM 消息"
 
 #. Tag: para
-#: boot-installer.xml:2012
+#: boot-installer.xml:2099
 #, no-c-format
 msgid ""
 "If you cannot boot because you get messages about a problem with "
@@ -2364,17 +2568,29 @@ msgstr ""
 "nvram-faq;\">Sun NVRAM FAQ</ulink> 以获得更多信息。"
 
 #. Tag: title
-#: boot-installer.xml:2031
+#: boot-installer.xml:2118
 #, no-c-format
 msgid "Accessibility"
 msgstr "辅助功能"
 
 #. Tag: para
-#: boot-installer.xml:2032
-#, no-c-format
+#: boot-installer.xml:2119
+#, fuzzy, no-c-format
+#| msgid ""
+#| "Some users may need specific support because of e.g. some visual "
+#| "impairment. <phrase arch=\"ia64;powerpc;x86\">USB braille displays are "
+#| "detected automatically (not serial displays connected via a serial-to-USB "
+#| "converter), but most other</phrase> <phrase arch=\"arm;hppa;mips;mipsel;"
+#| "sparc\">Most</phrase> accessibility features have to be enabled manually. "
+#| "<phrase arch=\"x86\">On machines that support it, the boot menu emits a "
+#| "beep when it is ready to receive keystrokes.</phrase> Some boot "
+#| "parameters can <phrase arch=\"x86\">then</phrase> be appended to enable "
+#| "accessibility features<phrase arch=\"x86\"> (see also <xref linkend="
+#| "\"boot-screen\"/>)</phrase>. Note that on most architectures the boot "
+#| "loader interprets your keyboard as a QWERTY keyboard."
 msgid ""
 "Some users may need specific support because of e.g. some visual impairment. "
-"<phrase arch=\"ia64;powerpc;x86\">USB braille displays are detected "
+"<phrase arch=\"ia64;powerpc;ppc64el;x86\">USB braille displays are detected "
 "automatically (not serial displays connected via a serial-to-USB converter), "
 "but most other</phrase> <phrase arch=\"arm;hppa;mips;mipsel;sparc\">Most</"
 "phrase> accessibility features have to be enabled manually. <phrase arch="
@@ -2395,13 +2611,13 @@ msgstr ""
 "要注意在大多数架构下 boot loader 将视您的键盘为 QWERTY 布局。"
 
 #. Tag: title
-#: boot-installer.xml:2052
+#: boot-installer.xml:2139
 #, no-c-format
 msgid "Installer front-end"
 msgstr ""
 
 #. Tag: para
-#: boot-installer.xml:2053
+#: boot-installer.xml:2140
 #, no-c-format
 msgid ""
 "The &debian; installer supports several front-ends for asking questions, "
@@ -2413,13 +2629,13 @@ msgid ""
 msgstr ""
 
 #. Tag: title
-#: boot-installer.xml:2065
+#: boot-installer.xml:2152
 #, no-c-format
 msgid "USB Braille Displays"
 msgstr "USB 盲文点显器"
 
 #. Tag: para
-#: boot-installer.xml:2066
+#: boot-installer.xml:2153
 #, no-c-format
 msgid ""
 "USB braille displays should be automatically detected. A textual version of "
@@ -2438,13 +2654,13 @@ msgstr ""
 "website</ulink> 可以找到盲文点显器的键绑定文档。"
 
 #. Tag: title
-#: boot-installer.xml:2081
+#: boot-installer.xml:2168
 #, no-c-format
 msgid "Serial Braille Displays"
 msgstr "串口盲文点显器"
 
 #. Tag: para
-#: boot-installer.xml:2082
+#: boot-installer.xml:2169
 #, no-c-format
 msgid ""
 "Serial braille displays cannot safely be automatically detected (since that "
@@ -2479,13 +2695,13 @@ msgstr ""
 "\"><classname>brltty</classname> website</ulink> 找到。"
 
 #. Tag: title
-#: boot-installer.xml:2105 boot-installer.xml:3114
+#: boot-installer.xml:2192 boot-installer.xml:3201
 #, no-c-format
 msgid "Software Speech Synthesis"
 msgstr "软件语音合成(Software Speech Synthesis)"
 
 #. Tag: para
-#: boot-installer.xml:2106
+#: boot-installer.xml:2193
 #, fuzzy, no-c-format
 #| msgid ""
 #| "Support for hardware speech synthesis devices is available only alongside "
@@ -2503,7 +2719,7 @@ msgstr ""
 "择 <quote>Graphical install</quote> 项。"
 
 #. Tag: para
-#: boot-installer.xml:2115
+#: boot-installer.xml:2202
 #, fuzzy, no-c-format
 #| msgid ""
 #| "Support for software speech synthesis can be activated by selecting it in "
@@ -2521,7 +2737,7 @@ msgstr ""
 "<classname>espeak</classname>)。"
 
 #. Tag: para
-#: boot-installer.xml:2121
+#: boot-installer.xml:2208
 #, no-c-format
 msgid ""
 "The default speech rate is quite slow. To make it faster, press "
@@ -2535,13 +2751,13 @@ msgid ""
 msgstr ""
 
 #. Tag: title
-#: boot-installer.xml:2140
+#: boot-installer.xml:2227
 #, no-c-format
 msgid "Hardware Speech Synthesis"
 msgstr "硬件语音合成(Hardware Speech Synthesis)"
 
 #. Tag: para
-#: boot-installer.xml:2141
+#: boot-installer.xml:2228
 #, fuzzy, no-c-format
 #| msgid ""
 #| "Support for hardware speech synthesis devices is available only alongside "
@@ -2557,7 +2773,7 @@ msgstr ""
 "择 <quote>Graphical install</quote> 项。"
 
 #. Tag: para
-#: boot-installer.xml:2148
+#: boot-installer.xml:2235
 #, no-c-format
 msgid ""
 "Hardware speech synthesis devices cannot be automatically detected. You thus "
@@ -2577,13 +2793,13 @@ msgstr ""
 "音合成设备的支持也会被自动安装到最终系统里面。"
 
 #. Tag: title
-#: boot-installer.xml:2163
+#: boot-installer.xml:2250
 #, no-c-format
 msgid "Board Devices"
 msgstr "板卡设备"
 
 #. Tag: para
-#: boot-installer.xml:2164
+#: boot-installer.xml:2251
 #, no-c-format
 msgid ""
 "Some accessibility devices are actual boards that are plugged inside the "
@@ -2598,7 +2814,7 @@ msgstr ""
 "数量。"
 
 #. Tag: para
-#: boot-installer.xml:2172
+#: boot-installer.xml:2259
 #, no-c-format
 msgid ""
 "If desired a textual version of the bootloader can be activated before "
@@ -2608,13 +2824,13 @@ msgstr ""
 "userinput> &enterkey;。"
 
 #. Tag: title
-#: boot-installer.xml:2180
+#: boot-installer.xml:2267
 #, no-c-format
 msgid "High-Contrast Theme"
 msgstr "高亮主题"
 
 #. Tag: para
-#: boot-installer.xml:2181
+#: boot-installer.xml:2268
 #, fuzzy, no-c-format
 #| msgid ""
 #| "For users with low vision, the installer can use a high-contrast theme "
@@ -2629,13 +2845,13 @@ msgstr ""
 "<userinput>theme=dark</userinput> 引导参数即可。"
 
 #. Tag: title
-#: boot-installer.xml:2190
+#: boot-installer.xml:2277
 #, no-c-format
 msgid "Preseeding"
 msgstr "预置"
 
 #. Tag: para
-#: boot-installer.xml:2191
+#: boot-installer.xml:2278
 #, no-c-format
 msgid ""
 "Alternatively, &debian; can be installed completely automatically by using "
@@ -2645,13 +2861,13 @@ msgstr ""
 "\"appendix-preseed\"/>。"
 
 #. Tag: title
-#: boot-installer.xml:2199
+#: boot-installer.xml:2286
 #, no-c-format
 msgid "Accessibility of the installed system"
 msgstr ""
 
 #. Tag: para
-#: boot-installer.xml:2200
+#: boot-installer.xml:2287
 #, no-c-format
 msgid ""
 "Documentation on accessibility of the installed system is available on the "
@@ -2660,7 +2876,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: boot-installer.xml:2215
+#: boot-installer.xml:2302
 #, no-c-format
 msgid ""
 "Boot parameters are Linux kernel parameters which are generally used to make "
@@ -2673,7 +2889,7 @@ msgstr ""
 "要给内核一点小小的帮助。"
 
 #. Tag: para
-#: boot-installer.xml:2222
+#: boot-installer.xml:2309
 #, no-c-format
 msgid ""
 "If this is the first time you're booting the system, try the default boot "
@@ -2686,7 +2902,7 @@ msgstr ""
 "的硬件特定参数。"
 
 #. Tag: para
-#: boot-installer.xml:2229
+#: boot-installer.xml:2316
 #, no-c-format
 msgid ""
 "Information on many boot parameters can be found in the <ulink url=\"http://"
@@ -2701,13 +2917,13 @@ msgstr ""
 "linkend=\"boot-troubleshooting\"/>。"
 
 #. Tag: title
-#: boot-installer.xml:2241
+#: boot-installer.xml:2328
 #, no-c-format
 msgid "Boot console"
 msgstr ""
 
 #. Tag: para
-#: boot-installer.xml:2243
+#: boot-installer.xml:2330
 #, no-c-format
 msgid ""
 "If you are booting with a serial console, generally the kernel will "
@@ -2724,7 +2940,7 @@ msgstr ""
 "是串口设备，通常是 <filename>ttyS0</filename> 形式。"
 
 #. Tag: para
-#: boot-installer.xml:2255
+#: boot-installer.xml:2342
 #, no-c-format
 msgid ""
 "You may need to specify parameters for the serial port, such as speed and "
@@ -2735,7 +2951,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: boot-installer.xml:2263
+#: boot-installer.xml:2350
 #, no-c-format
 msgid ""
 "In order to ensure the terminal type used by the installer matches your "
@@ -2760,7 +2976,7 @@ msgstr ""
 "literal> 终端类型，而它又非常接近于 <literal>vt102</literal> 类型。"
 
 #. Tag: para
-#: boot-installer.xml:2279
+#: boot-installer.xml:2366
 #, no-c-format
 msgid ""
 "For &arch-title; the serial devices are <filename>ttya</filename> or "
@@ -2773,13 +2989,13 @@ msgstr ""
 "<envar>output-device</envar> OpenPROM 变量至 <filename>ttya</filename>。"
 
 #. Tag: title
-#: boot-installer.xml:2291
+#: boot-installer.xml:2378
 #, no-c-format
 msgid "&debian; Installer Parameters"
 msgstr "&debian; 安装程序的参数"
 
 #. Tag: para
-#: boot-installer.xml:2292
+#: boot-installer.xml:2379
 #, no-c-format
 msgid ""
 "The installation system recognizes a few additional boot "
@@ -2792,7 +3008,7 @@ msgstr ""
 "para> </footnote>，它们很有用。"
 
 #. Tag: para
-#: boot-installer.xml:2305
+#: boot-installer.xml:2392
 #, no-c-format
 msgid ""
 "A number of parameters have a <quote>short form</quote> that helps avoid the "
@@ -2806,19 +3022,19 @@ msgstr ""
 "用简写。"
 
 #. Tag: term
-#: boot-installer.xml:2317
+#: boot-installer.xml:2404
 #, no-c-format
 msgid "debconf/priority (priority)"
 msgstr "debconf/priority (priority)"
 
 #. Tag: para
-#: boot-installer.xml:2318
+#: boot-installer.xml:2405
 #, no-c-format
 msgid "This parameter sets the lowest priority of messages to be displayed."
 msgstr "这些参数设置将设置显示的信息为最低的级别。"
 
 #. Tag: para
-#: boot-installer.xml:2322
+#: boot-installer.xml:2409
 #, no-c-format
 msgid ""
 "The default installation uses <userinput>priority=high</userinput>. This "
@@ -2831,7 +3047,7 @@ msgstr ""
 "将按照要求调整优先级别。"
 
 #. Tag: para
-#: boot-installer.xml:2329
+#: boot-installer.xml:2416
 #, no-c-format
 msgid ""
 "If you add <userinput>priority=medium</userinput> as boot parameter, you "
@@ -2849,13 +3065,13 @@ msgstr ""
 "且尝试正确无误地执行各项事宜。"
 
 #. Tag: term
-#: boot-installer.xml:2343
+#: boot-installer.xml:2430
 #, no-c-format
 msgid "DEBIAN_FRONTEND"
 msgstr "DEBIAN_FRONTEND"
 
 #. Tag: para
-#: boot-installer.xml:2344
+#: boot-installer.xml:2431
 #, no-c-format
 msgid ""
 "This boot parameter controls the type of user interface used for the "
@@ -2888,13 +3104,13 @@ msgstr ""
 "所支持的平台上使用 <userinput>gtk</userinput> 前端。"
 
 #. Tag: term
-#: boot-installer.xml:2375
+#: boot-installer.xml:2462
 #, no-c-format
 msgid "BOOT_DEBUG"
 msgstr "BOOT_DEBUG"
 
 #. Tag: para
-#: boot-installer.xml:2376
+#: boot-installer.xml:2463
 #, no-c-format
 msgid ""
 "Setting this boot parameter to 2 will cause the installer's boot process to "
@@ -2906,49 +3122,49 @@ msgstr ""
 "debug shell。(退出 shell 以后会继续引导过程。)"
 
 #. Tag: userinput
-#: boot-installer.xml:2385
+#: boot-installer.xml:2472
 #, no-c-format
 msgid "BOOT_DEBUG=0"
 msgstr "BOOT_DEBUG=0"
 
 #. Tag: para
-#: boot-installer.xml:2386
+#: boot-installer.xml:2473
 #, no-c-format
 msgid "This is the default."
 msgstr "此为默认。"
 
 #. Tag: userinput
-#: boot-installer.xml:2390
+#: boot-installer.xml:2477
 #, no-c-format
 msgid "BOOT_DEBUG=1"
 msgstr "BOOT_DEBUG=1"
 
 #. Tag: para
-#: boot-installer.xml:2391
+#: boot-installer.xml:2478
 #, no-c-format
 msgid "More verbose than usual."
 msgstr "更多的信息。"
 
 #. Tag: userinput
-#: boot-installer.xml:2395
+#: boot-installer.xml:2482
 #, no-c-format
 msgid "BOOT_DEBUG=2"
 msgstr "BOOT_DEBUG=2"
 
 #. Tag: para
-#: boot-installer.xml:2396
+#: boot-installer.xml:2483
 #, no-c-format
 msgid "Lots of debugging information."
 msgstr "大量的调试信息。"
 
 #. Tag: userinput
-#: boot-installer.xml:2400
+#: boot-installer.xml:2487
 #, no-c-format
 msgid "BOOT_DEBUG=3"
 msgstr "BOOT_DEBUG=3"
 
 #. Tag: para
-#: boot-installer.xml:2401
+#: boot-installer.xml:2488
 #, no-c-format
 msgid ""
 "Shells are run at various points in the boot process to allow detailed "
@@ -2958,13 +3174,13 @@ msgstr ""
 "Shell 将继续引导过程。"
 
 #. Tag: term
-#: boot-installer.xml:2415
+#: boot-installer.xml:2502
 #, no-c-format
 msgid "INSTALL_MEDIA_DEV"
 msgstr "INSTALL_MEDIA_DEV"
 
 #. Tag: para
-#: boot-installer.xml:2416
+#: boot-installer.xml:2503
 #, no-c-format
 msgid ""
 "The value of the parameter is the path to the device to load the &debian; "
@@ -2975,7 +3191,7 @@ msgstr ""
 "<userinput>INSTALL_MEDIA_DEV=/dev/floppy/0</userinput>"
 
 #. Tag: para
-#: boot-installer.xml:2422
+#: boot-installer.xml:2509
 #, no-c-format
 msgid ""
 "The boot floppy, which normally scans all floppies it can to find the root "
@@ -2984,19 +3200,19 @@ msgstr ""
 "引导软盘通常会扫描所有的软盘来找到根软盘，可以通过此参数设置只查找一个设备。"
 
 #. Tag: term
-#: boot-installer.xml:2433
+#: boot-installer.xml:2520
 #, no-c-format
 msgid "log_host"
 msgstr "log_host"
 
 #. Tag: term
-#: boot-installer.xml:2434
+#: boot-installer.xml:2521
 #, no-c-format
 msgid "log_port"
 msgstr "log_port"
 
 #. Tag: para
-#: boot-installer.xml:2435
+#: boot-installer.xml:2522
 #, no-c-format
 msgid ""
 "Causes the installer to send log messages to a remote syslog on the "
@@ -3007,13 +3223,13 @@ msgstr ""
 "定，默认端口是 syslog 标准端口 514。"
 
 #. Tag: term
-#: boot-installer.xml:2446
+#: boot-installer.xml:2533
 #, no-c-format
 msgid "lowmem"
 msgstr "lowmem"
 
 #. Tag: para
-#: boot-installer.xml:2447
+#: boot-installer.xml:2534
 #, no-c-format
 msgid ""
 "Can be used to force the installer to a lowmem level higher than the one the "
@@ -3024,13 +3240,13 @@ msgstr ""
 "和 2。参阅 <xref linkend=\"lowmem\"/>。"
 
 #. Tag: term
-#: boot-installer.xml:2457
+#: boot-installer.xml:2544
 #, no-c-format
 msgid "noshell"
 msgstr "noshell"
 
 #. Tag: para
-#: boot-installer.xml:2458
+#: boot-installer.xml:2545
 #, no-c-format
 msgid ""
 "Prevents the installer from offering interactive shells on tty2 and tty3. "
@@ -3040,13 +3256,13 @@ msgstr ""
 "处。"
 
 #. Tag: term
-#: boot-installer.xml:2467
+#: boot-installer.xml:2554
 #, no-c-format
 msgid "debian-installer/framebuffer (fb)"
 msgstr "debian-installer/framebuffer (fb)"
 
 #. Tag: para
-#: boot-installer.xml:2468
+#: boot-installer.xml:2555
 #, no-c-format
 msgid ""
 "Some architectures use the kernel framebuffer to offer installation in a "
@@ -3062,13 +3278,13 @@ msgstr ""
 "bogl 的相关错误信息、一个空白的屏幕，或者在开始安装几分钟后停止。"
 
 #. Tag: para
-#: boot-installer.xml:2477
+#: boot-installer.xml:2564
 #, no-c-format
 msgid "Such problems have been reported on hppa."
 msgstr "在 hppa 上面报告过存在这些问题。"
 
 #. Tag: para
-#: boot-installer.xml:2481
+#: boot-installer.xml:2568
 #, no-c-format
 msgid ""
 "Because of display problems on some systems, framebuffer support is "
@@ -3085,13 +3301,13 @@ msgstr ""
 "<userinput>fb=true</userinput>。"
 
 #. Tag: term
-#: boot-installer.xml:2495
+#: boot-installer.xml:2582
 #, no-c-format
 msgid "debian-installer/theme (theme)"
 msgstr "debian-installer/theme (theme)"
 
 #. Tag: para
-#: boot-installer.xml:2496
+#: boot-installer.xml:2583
 #, no-c-format
 msgid ""
 "A theme determines how the user interface of the installer looks (colors, "
@@ -3106,13 +3322,13 @@ msgstr ""
 "<userinput>theme=<replaceable>dark</replaceable></userinput> 设置。"
 
 #. Tag: term
-#: boot-installer.xml:2508 boot-installer.xml:2741
+#: boot-installer.xml:2595 boot-installer.xml:2828
 #, no-c-format
 msgid "netcfg/disable_autoconfig"
 msgstr "netcfg/disable_autoconfig"
 
 #. Tag: para
-#: boot-installer.xml:2509
+#: boot-installer.xml:2596
 #, fuzzy, no-c-format
 #| msgid ""
 #| "By default, the &d-i; automatically probes for network configuration via "
@@ -3129,7 +3345,7 @@ msgstr ""
 "视并且改变其获得的设定。您可以在 DHCP 检测失败的情况下手工配置网络。"
 
 #. Tag: para
-#: boot-installer.xml:2516
+#: boot-installer.xml:2603
 #, fuzzy, no-c-format
 #| msgid ""
 #| "If you have a DHCP server on your local network, but want to avoid it "
@@ -3148,13 +3364,13 @@ msgstr ""
 "阻止通过 DHCP 配置网络，并手工输入信息。"
 
 #. Tag: term
-#: boot-installer.xml:2527
+#: boot-installer.xml:2614
 #, no-c-format
 msgid "hw-detect/start_pcmcia"
 msgstr "hw-detect/start_pcmcia"
 
 #. Tag: para
-#: boot-installer.xml:2528
+#: boot-installer.xml:2615
 #, no-c-format
 msgid ""
 "Set to <userinput>false</userinput> to prevent starting PCMCIA services, if "
@@ -3164,13 +3380,13 @@ msgstr ""
 "携机会有这种现象。"
 
 #. Tag: term
-#: boot-installer.xml:2538
+#: boot-installer.xml:2625
 #, no-c-format
 msgid "disk-detect/dmraid/enable (dmraid)"
 msgstr "disk-detect/dmraid/enable (dmraid)"
 
 #. Tag: para
-#: boot-installer.xml:2539
+#: boot-installer.xml:2626
 #, no-c-format
 msgid ""
 "Set to <userinput>true</userinput> to enable support for Serial ATA RAID "
@@ -3184,13 +3400,13 @@ msgstr ""
 "ulink> 找到。"
 
 #. Tag: term
-#: boot-installer.xml:2550
+#: boot-installer.xml:2637
 #, no-c-format
 msgid "preseed/url (url)"
 msgstr "preseed/url (url)"
 
 #. Tag: para
-#: boot-installer.xml:2551
+#: boot-installer.xml:2638
 #, no-c-format
 msgid ""
 "Specify the url to a preconfiguration file to download and use for "
@@ -3200,13 +3416,13 @@ msgstr ""
 "install\"/>。"
 
 #. Tag: term
-#: boot-installer.xml:2560
+#: boot-installer.xml:2647
 #, no-c-format
 msgid "preseed/file (file)"
 msgstr "preseed/file (file)"
 
 #. Tag: para
-#: boot-installer.xml:2561
+#: boot-installer.xml:2648
 #, no-c-format
 msgid ""
 "Specify the path to a preconfiguration file to load for automating the "
@@ -3216,13 +3432,13 @@ msgstr ""
 ">。"
 
 #. Tag: term
-#: boot-installer.xml:2570
+#: boot-installer.xml:2657
 #, no-c-format
 msgid "preseed/interactive"
 msgstr "preseed/interactive"
 
 #. Tag: para
-#: boot-installer.xml:2571
+#: boot-installer.xml:2658
 #, no-c-format
 msgid ""
 "Set to <userinput>true</userinput> to display questions even if they have "
@@ -3236,13 +3452,13 @@ msgstr ""
 "<xref linkend=\"preseed-seenflag\"/> 了解详细信息。"
 
 #. Tag: term
-#: boot-installer.xml:2583
+#: boot-installer.xml:2670
 #, no-c-format
 msgid "auto-install/enable (auto)"
 msgstr "auto-install/enable (auto)"
 
 #. Tag: para
-#: boot-installer.xml:2584
+#: boot-installer.xml:2671
 #, no-c-format
 msgid ""
 "Delay questions that are normally asked before preseeding is possible until "
@@ -3253,13 +3469,13 @@ msgstr ""
 "auto\"/> 了解自动安装的详细信息。"
 
 #. Tag: term
-#: boot-installer.xml:2595
+#: boot-installer.xml:2682
 #, no-c-format
 msgid "finish-install/keep-consoles"
 msgstr "finish-install/keep-consoles"
 
 #. Tag: para
-#: boot-installer.xml:2596
+#: boot-installer.xml:2683
 #, no-c-format
 msgid ""
 "During installations from serial or management console, the regular virtual "
@@ -3270,13 +3486,13 @@ msgstr ""
 "inittab</filename> 里已经关掉。将其改为 <userinput>true</userinput> 打开。"
 
 #. Tag: term
-#: boot-installer.xml:2607
+#: boot-installer.xml:2694
 #, no-c-format
 msgid "cdrom-detect/eject"
 msgstr "cdrom-detect/eject"
 
 #. Tag: para
-#: boot-installer.xml:2608
+#: boot-installer.xml:2695
 #, no-c-format
 msgid ""
 "By default, before rebooting, &d-i; automatically ejects the optical media "
@@ -3292,7 +3508,7 @@ msgstr ""
 "新加载介质。"
 
 #. Tag: para
-#: boot-installer.xml:2617
+#: boot-installer.xml:2704
 #, no-c-format
 msgid ""
 "Set to <userinput>false</userinput> to disable automatic ejection, and be "
@@ -3303,13 +3519,13 @@ msgstr ""
 "后，不会自动从光盘引导。"
 
 #. Tag: term
-#: boot-installer.xml:2628
+#: boot-installer.xml:2715
 #, no-c-format
 msgid "base-installer/install-recommends (recommends)"
 msgstr "base-installer/install-recommends (recommends)"
 
 #. Tag: para
-#: boot-installer.xml:2629
+#: boot-installer.xml:2716
 #, no-c-format
 msgid ""
 "By setting this option to <userinput>false</userinput>, the package "
@@ -3322,7 +3538,7 @@ msgstr ""
 "<xref linkend=\"di-install-base\"/>。"
 
 #. Tag: para
-#: boot-installer.xml:2636
+#: boot-installer.xml:2723
 #, no-c-format
 msgid ""
 "Note that this option allows to have a leaner system, but can also result in "
@@ -3336,13 +3552,13 @@ msgstr ""
 "非常有经验的用户来使用。"
 
 #. Tag: term
-#: boot-installer.xml:2648
+#: boot-installer.xml:2735
 #, no-c-format
 msgid "debian-installer/allow_unauthenticated"
 msgstr "debian-installer/allow_unauthenticated"
 
 #. Tag: para
-#: boot-installer.xml:2649
+#: boot-installer.xml:2736
 #, no-c-format
 msgid ""
 "By default the installer requires that repositories be authenticated using a "
@@ -3355,13 +3571,13 @@ msgstr ""
 "emphasis>"
 
 #. Tag: term
-#: boot-installer.xml:2660
+#: boot-installer.xml:2747
 #, no-c-format
 msgid "ramdisk_size"
 msgstr "ramdisk_size"
 
 #. Tag: para
-#: boot-installer.xml:2661
+#: boot-installer.xml:2748
 #, no-c-format
 msgid ""
 "This parameter should already be set to a correct value where needed; set it "
@@ -3372,13 +3588,13 @@ msgstr ""
 "置。该值的单位是 kB。"
 
 #. Tag: term
-#: boot-installer.xml:2671
+#: boot-installer.xml:2758
 #, no-c-format
 msgid "rescue/enable"
 msgstr "rescue/enable"
 
 #. Tag: para
-#: boot-installer.xml:2672
+#: boot-installer.xml:2759
 #, no-c-format
 msgid ""
 "Set to <userinput>true</userinput> to enter rescue mode rather than "
@@ -3388,13 +3604,13 @@ msgstr ""
 "<xref linkend=\"rescue\"/>。"
 
 #. Tag: title
-#: boot-installer.xml:2685
+#: boot-installer.xml:2772
 #, no-c-format
 msgid "Using boot parameters to answer questions"
 msgstr "使用内核模块参数回答提问"
 
 #. Tag: para
-#: boot-installer.xml:2686
+#: boot-installer.xml:2773
 #, no-c-format
 msgid ""
 "With some exceptions, a value can be set at the boot prompt for any question "
@@ -3407,25 +3623,25 @@ msgstr ""
 "bootparms\"/> 找到。下面是一些具体的例子。"
 
 #. Tag: term
-#: boot-installer.xml:2698
+#: boot-installer.xml:2785
 #, no-c-format
 msgid "debian-installer/language (language)"
 msgstr "debian-installer/language (language)"
 
 #. Tag: term
-#: boot-installer.xml:2699
+#: boot-installer.xml:2786
 #, no-c-format
 msgid "debian-installer/country (country)"
 msgstr "debian-installer/country (country)"
 
 #. Tag: term
-#: boot-installer.xml:2700
+#: boot-installer.xml:2787
 #, no-c-format
 msgid "debian-installer/locale (locale)"
 msgstr "debian-installer/locale (locale)"
 
 #. Tag: para
-#: boot-installer.xml:2701
+#: boot-installer.xml:2788
 #, no-c-format
 msgid ""
 "There are two ways to specify the language, country and locale to use for "
@@ -3435,7 +3651,7 @@ msgstr ""
 "和地方(locale)。"
 
 #. Tag: para
-#: boot-installer.xml:2706
+#: boot-installer.xml:2793
 #, no-c-format
 msgid ""
 "The first and easiest is to pass only the parameter <literal>locale</"
@@ -3453,7 +3669,7 @@ msgstr ""
 "式组合。"
 
 #. Tag: para
-#: boot-installer.xml:2715
+#: boot-installer.xml:2802
 #, no-c-format
 msgid ""
 "The second, more flexible option is to specify <literal>language</literal> "
@@ -3468,13 +3684,13 @@ msgstr ""
 "locale=en_GB.UTF-8</userinput>。"
 
 #. Tag: term
-#: boot-installer.xml:2727
+#: boot-installer.xml:2814
 #, no-c-format
 msgid "anna/choose_modules (modules)"
 msgstr "anna/choose_modules (modules)"
 
 #. Tag: para
-#: boot-installer.xml:2728
+#: boot-installer.xml:2815
 #, no-c-format
 msgid ""
 "Can be used to automatically load installer components that are not loaded "
@@ -3489,7 +3705,7 @@ msgstr ""
 "classname> (参阅 <xref linkend=\"pppoe\"/>)</phrase>。"
 
 #. Tag: para
-#: boot-installer.xml:2742
+#: boot-installer.xml:2829
 #, fuzzy, no-c-format
 #| msgid ""
 #| "Set to <userinput>true</userinput> if you want to disable DHCP and "
@@ -3501,13 +3717,13 @@ msgstr ""
 "如果您想禁止 DHCP 使用静态网络设置，将它设为 <userinput>true</userinput>。"
 
 #. Tag: term
-#: boot-installer.xml:2751
+#: boot-installer.xml:2838
 #, no-c-format
 msgid "mirror/protocol (protocol)"
 msgstr "mirror/protocol (protocol)"
 
 #. Tag: para
-#: boot-installer.xml:2752
+#: boot-installer.xml:2839
 #, no-c-format
 msgid ""
 "By default the installer will use the http protocol to download files from "
@@ -3522,13 +3738,13 @@ msgstr ""
 "序使用该协议。注意，必须手动输入主机名，而不是从列表中选择 ftp 镜像。"
 
 #. Tag: term
-#: boot-installer.xml:2765
+#: boot-installer.xml:2852
 #, no-c-format
 msgid "tasksel:tasksel/first (tasks)"
 msgstr "tasksel:tasksel/first (tasks)"
 
 #. Tag: para
-#: boot-installer.xml:2766
+#: boot-installer.xml:2853
 #, no-c-format
 msgid ""
 "Can be used to select tasks that are not available from the interactive task "
@@ -3539,13 +3755,13 @@ msgstr ""
 "literal> 任务。参阅 <xref linkend=\"pkgsel\"/> 了解详细信息。"
 
 #. Tag: title
-#: boot-installer.xml:2780
+#: boot-installer.xml:2867
 #, no-c-format
 msgid "Passing parameters to kernel modules"
 msgstr "给内核模块传递参数"
 
 #. Tag: para
-#: boot-installer.xml:2781
+#: boot-installer.xml:2868
 #, no-c-format
 msgid ""
 "If drivers are compiled into the kernel, you can pass parameters to them as "
@@ -3565,7 +3781,7 @@ msgstr ""
 "配置中。"
 
 #. Tag: para
-#: boot-installer.xml:2794
+#: boot-installer.xml:2881
 #, no-c-format
 msgid ""
 "Note that it is now quite rare that parameters need to be passed to modules. "
@@ -3577,7 +3793,7 @@ msgstr ""
 "并很好地设置默认参数。然而，某些情况下还是需要手动设置参数。"
 
 #. Tag: para
-#: boot-installer.xml:2801
+#: boot-installer.xml:2888
 #, no-c-format
 msgid ""
 "The syntax to use to set parameters for modules is: "
@@ -3597,19 +3813,19 @@ msgstr ""
 "用："
 
 #. Tag: screen
-#: boot-installer.xml:2811
+#: boot-installer.xml:2898
 #, no-c-format
 msgid "3c509.xcvr=3 3c509.irq=10"
 msgstr "3c509.xcvr=3 3c509.irq=10"
 
 #. Tag: title
-#: boot-installer.xml:2817
+#: boot-installer.xml:2904
 #, no-c-format
 msgid "Blacklisting kernel modules"
 msgstr "内核模块黑名单"
 
 #. Tag: para
-#: boot-installer.xml:2818
+#: boot-installer.xml:2905
 #, no-c-format
 msgid ""
 "Sometimes it may be necessary to blacklist a module to prevent it from being "
@@ -3624,7 +3840,7 @@ msgstr ""
 "间冲突或者错误的驱动先加载，将造成设备无法正常工作。"
 
 #. Tag: para
-#: boot-installer.xml:2827
+#: boot-installer.xml:2914
 #, no-c-format
 msgid ""
 "You can blacklist a module using the following syntax: "
@@ -3638,7 +3854,7 @@ msgstr ""
 "入 <filename>/etc/modprobe.d/blacklist.local</filename> 文件的黑名单中。"
 
 #. Tag: para
-#: boot-installer.xml:2835
+#: boot-installer.xml:2922
 #, no-c-format
 msgid ""
 "Note that a module may still be loaded by the installation system itself. "
@@ -3650,19 +3866,19 @@ msgstr ""
 "件检查过程中从显示的模块列表中取消该模块。"
 
 #. Tag: title
-#: boot-installer.xml:2851
+#: boot-installer.xml:2938
 #, no-c-format
 msgid "Troubleshooting the Installation Process"
 msgstr "安装过程中的故障修复"
 
 #. Tag: title
-#: boot-installer.xml:2856
+#: boot-installer.xml:2943
 #, no-c-format
 msgid "CD-ROM Reliability"
 msgstr "CD-ROM 的可靠性"
 
 #. Tag: para
-#: boot-installer.xml:2857
+#: boot-installer.xml:2944
 #, no-c-format
 msgid ""
 "Sometimes, especially with older CD-ROM drives, the installer may fail to "
@@ -3674,7 +3890,7 @@ msgstr ""
 "&mdash; 即使是从 CD-ROM 成功引导 &mdash; 无法识别 CD-ROM 或在安装时读取错误。"
 
 #. Tag: para
-#: boot-installer.xml:2864
+#: boot-installer.xml:2951
 #, no-c-format
 msgid ""
 "There are many different possible causes for these problems. We can only "
@@ -3685,13 +3901,13 @@ msgstr ""
 "下的由您来处理。"
 
 #. Tag: para
-#: boot-installer.xml:2870
+#: boot-installer.xml:2957
 #, no-c-format
 msgid "There are two very simple things that you should try first."
 msgstr "您首先应试试两种最简单的方法。"
 
 #. Tag: para
-#: boot-installer.xml:2875
+#: boot-installer.xml:2962
 #, no-c-format
 msgid ""
 "If the CD-ROM does not boot, check that it was inserted correctly and that "
@@ -3699,7 +3915,7 @@ msgid ""
 msgstr "如果 CD-ROM 没有引导，检查一下它是否放好，并且没有弄脏。"
 
 #. Tag: para
-#: boot-installer.xml:2881
+#: boot-installer.xml:2968
 #, no-c-format
 msgid ""
 "If the installer fails to recognize a CD-ROM, try just running the option "
@@ -3712,7 +3928,7 @@ msgstr ""
 "DMA 相关的问题可以用这种方法解决。"
 
 #. Tag: para
-#: boot-installer.xml:2891
+#: boot-installer.xml:2978
 #, no-c-format
 msgid ""
 "If this does not work, then try the suggestions in the subsections below. "
@@ -3723,7 +3939,7 @@ msgstr ""
 "CD-ROM 和 DVD，为了方便，只提到 CD-ROM。"
 
 #. Tag: para
-#: boot-installer.xml:2897
+#: boot-installer.xml:2984
 #, no-c-format
 msgid ""
 "If you cannot get the installation working from CD-ROM, try one of the other "
@@ -3731,13 +3947,13 @@ msgid ""
 msgstr "如果您用 CD-ROM 无法安装，试试其他可用的安装方法。"
 
 #. Tag: title
-#: boot-installer.xml:2905
+#: boot-installer.xml:2992
 #, no-c-format
 msgid "Common issues"
 msgstr "常见问题"
 
 #. Tag: para
-#: boot-installer.xml:2908
+#: boot-installer.xml:2995
 #, no-c-format
 msgid ""
 "Some older CD-ROM drives do not support reading from discs that were burned "
@@ -3745,7 +3961,7 @@ msgid ""
 msgstr "有些老 CD-ROM 驱动器不能读取新 CD 刻录机的高速模式下刻录的光盘。"
 
 #. Tag: para
-#: boot-installer.xml:2925
+#: boot-installer.xml:3012
 #, no-c-format
 msgid ""
 "Some very old CD-ROM drives do not work correctly if <quote>direct memory "
@@ -3755,19 +3971,19 @@ msgstr ""
 "正常工作。"
 
 #. Tag: title
-#: boot-installer.xml:2936
+#: boot-installer.xml:3023
 #, no-c-format
 msgid "How to investigate and maybe solve issues"
 msgstr "如何调查研究或许可以解决问题"
 
 #. Tag: para
-#: boot-installer.xml:2937
+#: boot-installer.xml:3024
 #, no-c-format
 msgid "If the CD-ROM fails to boot, try the suggestions listed below."
 msgstr "如果从 CD-ROM 引导失败，试试下面所列的建议。"
 
 #. Tag: para
-#: boot-installer.xml:2942
+#: boot-installer.xml:3029
 #, no-c-format
 msgid ""
 "Check that your BIOS actually supports booting from CD-ROM (only an issue "
@@ -3777,7 +3993,7 @@ msgstr ""
 "开支持从 CD 引导。"
 
 #. Tag: para
-#: boot-installer.xml:2949
+#: boot-installer.xml:3036
 #, no-c-format
 msgid ""
 "If you downloaded an iso image, check that the md5sum of that image matches "
@@ -3801,7 +4017,7 @@ msgstr ""
 "用下面的命令。它使用映像的尺寸从 CD-ROM 读取正确的字节数。"
 
 #. Tag: screen
-#: boot-installer.xml:2962
+#: boot-installer.xml:3049
 #, no-c-format
 msgid ""
 "$ dd if=/dev/cdrom | \\\n"
@@ -3823,7 +4039,7 @@ msgstr ""
 "134486016 bytes (134 MB) copied, 97.474 seconds, 1.4 MB/s"
 
 #. Tag: para
-#: boot-installer.xml:2967
+#: boot-installer.xml:3054
 #, no-c-format
 msgid ""
 "If, after the installer has been booted successfully, the CD-ROM is not "
@@ -3842,7 +4058,7 @@ msgstr ""
 "shell。"
 
 #. Tag: para
-#: boot-installer.xml:2979
+#: boot-installer.xml:3066
 #, no-c-format
 msgid ""
 "Switch to VT4 or view the contents of <filename>/var/log/syslog</filename> "
@@ -3854,7 +4070,7 @@ msgstr ""
 "<command>dmesg</command> 的输出。"
 
 #. Tag: para
-#: boot-installer.xml:2986
+#: boot-installer.xml:3073
 #, no-c-format
 msgid ""
 "Check in the output of <command>dmesg</command> if your CD-ROM drive was "
@@ -3882,7 +4098,7 @@ msgstr ""
 "<command>modprobe</command> 手动加载。"
 
 #. Tag: para
-#: boot-installer.xml:3000
+#: boot-installer.xml:3087
 #, no-c-format
 msgid ""
 "Check that there is a device node for your CD-ROM drive under <filename>/dev/"
@@ -3894,7 +4110,7 @@ msgstr ""
 "cdrom0</filename>。"
 
 #. Tag: para
-#: boot-installer.xml:3008
+#: boot-installer.xml:3095
 #, no-c-format
 msgid ""
 "Use the <command>mount</command> command to check if the CD-ROM is already "
@@ -3909,7 +4125,7 @@ msgstr ""
 "</screen></informalexample> 检查命令后面是否有什么错误信息。"
 
 #. Tag: para
-#: boot-installer.xml:3018
+#: boot-installer.xml:3105
 #, no-c-format
 msgid ""
 "Check if DMA is currently enabled: <informalexample><screen>\n"
@@ -3934,7 +4150,7 @@ msgstr ""
 "</screen></informalexample> 确保您所处的目录对应 CD-ROM 驱动器。"
 
 #. Tag: para
-#: boot-installer.xml:3033
+#: boot-installer.xml:3120
 #, no-c-format
 msgid ""
 "If there are any problems during the installation, try checking the "
@@ -3946,13 +4162,13 @@ msgstr ""
 "性。如果 CD-ROM 可以读，该选项可以对其进行测试。"
 
 #. Tag: title
-#: boot-installer.xml:3048
+#: boot-installer.xml:3135
 #, no-c-format
 msgid "Floppy Disk Reliability"
 msgstr "软盘的可靠性"
 
 #. Tag: para
-#: boot-installer.xml:3050
+#: boot-installer.xml:3137
 #, no-c-format
 msgid ""
 "The biggest problem for people using floppy disks to install &debian; seems "
@@ -3961,7 +4177,7 @@ msgstr ""
 "对于用软盘安装 &debian; 的人来说，他们遇到的最大的问题很可能是软盘的可靠性。"
 
 #. Tag: para
-#: boot-installer.xml:3055
+#: boot-installer.xml:3142
 #, no-c-format
 msgid ""
 "The boot floppy is the floppy with the worst problems, because it is read by "
@@ -3977,7 +4193,7 @@ msgstr ""
 "息。"
 
 #. Tag: para
-#: boot-installer.xml:3064
+#: boot-installer.xml:3151
 #, no-c-format
 msgid ""
 "If you are having the installation stall at a particular floppy, the first "
@@ -3992,7 +4208,7 @@ msgstr ""
 "化以后看起来没有错误。如果可能，在别的统上重写这些软盘更好一些。"
 
 #. Tag: para
-#: boot-installer.xml:3073
+#: boot-installer.xml:3160
 #, no-c-format
 msgid ""
 "One user reports he had to write the images to floppy <emphasis>three</"
@@ -4003,7 +4219,7 @@ msgstr ""
 "软盘才算工作良好。"
 
 #. Tag: para
-#: boot-installer.xml:3079
+#: boot-installer.xml:3166
 #, no-c-format
 msgid ""
 "Normally you should not have to download a floppy image again, but if you "
@@ -4014,7 +4230,7 @@ msgstr ""
 "来检验下载的映像是否正确。"
 
 #. Tag: para
-#: boot-installer.xml:3085
+#: boot-installer.xml:3172
 #, no-c-format
 msgid ""
 "Other users have reported that simply rebooting a few times with the same "
@@ -4025,13 +4241,13 @@ msgstr ""
 "有缺陷的硬件或固件软盘驱动器驱动程序造成的。"
 
 #. Tag: title
-#: boot-installer.xml:3094
+#: boot-installer.xml:3181
 #, no-c-format
 msgid "Boot Configuration"
 msgstr "引导配置"
 
 #. Tag: para
-#: boot-installer.xml:3096
+#: boot-installer.xml:3183
 #, no-c-format
 msgid ""
 "If you have problems and the kernel hangs during the boot process, doesn't "
@@ -4044,7 +4260,7 @@ msgstr ""
 "\"/> 讨论。"
 
 #. Tag: para
-#: boot-installer.xml:3105
+#: boot-installer.xml:3192
 #, no-c-format
 msgid ""
 "In some cases, malfunctions can be caused by missing device firmware (see "
@@ -4055,7 +4271,7 @@ msgstr ""
 "firmware\"/> 和 <xref linkend=\"loading-firmware\"/>)。"
 
 #. Tag: para
-#: boot-installer.xml:3116
+#: boot-installer.xml:3203
 #, no-c-format
 msgid ""
 "If software speech synthesis does not work, there is most probably an issue "
@@ -4070,37 +4286,37 @@ msgstr ""
 "台机器上声音可以正常工作的 Linux 系统上(比如，live CD)，运行下面命令的输出。"
 
 #. Tag: userinput
-#: boot-installer.xml:3127
+#: boot-installer.xml:3214
 #, no-c-format
 msgid "dmesg"
 msgstr "dmesg"
 
 #. Tag: userinput
-#: boot-installer.xml:3129
+#: boot-installer.xml:3216
 #, no-c-format
 msgid "lspci"
 msgstr "lspci"
 
 #. Tag: userinput
-#: boot-installer.xml:3131
+#: boot-installer.xml:3218
 #, no-c-format
 msgid "lsmod"
 msgstr "lsmod"
 
 #. Tag: userinput
-#: boot-installer.xml:3133
+#: boot-installer.xml:3220
 #, no-c-format
 msgid "amixer"
 msgstr "amixer"
 
 #. Tag: title
-#: boot-installer.xml:3141 boot-installer.xml:3252
+#: boot-installer.xml:3228 boot-installer.xml:3339
 #, no-c-format
 msgid "Common &arch-title; Installation Problems"
 msgstr "&arch-title; 常见安装问题"
 
 #. Tag: para
-#: boot-installer.xml:3142
+#: boot-installer.xml:3229
 #, no-c-format
 msgid ""
 "There are some common installation problems that can be solved or avoided by "
@@ -4108,7 +4324,7 @@ msgid ""
 msgstr "有一些常见的安装问题，可以通过给安装程序特定的引导参数解决或避免。"
 
 #. Tag: para
-#: boot-installer.xml:3193
+#: boot-installer.xml:3280
 #, no-c-format
 msgid ""
 "If your screen begins to show a weird picture while the kernel boots, eg. "
@@ -4126,13 +4342,13 @@ msgstr ""
 "\"boot-parms\"/> 来获得细节信息。"
 
 #. Tag: title
-#: boot-installer.xml:3207
+#: boot-installer.xml:3294
 #, no-c-format
 msgid "System Freeze During the PCMCIA Configuration Phase"
 msgstr "在 PCMCIA 配置阶段系统停止"
 
 #. Tag: para
-#: boot-installer.xml:3208
+#: boot-installer.xml:3295
 #, no-c-format
 msgid ""
 "Some very old laptop models produced by Dell are known to crash when PCMCIA "
@@ -4150,7 +4366,7 @@ msgstr ""
 "题的资源区段。"
 
 #. Tag: para
-#: boot-installer.xml:3218
+#: boot-installer.xml:3305
 #, no-c-format
 msgid ""
 "Alternatively, you can boot the installer in expert mode. You will then be "
@@ -4170,19 +4386,19 @@ msgstr ""
 "项。注意您在安装程序中，输入这些值的时候必须忽略逗号。"
 
 #. Tag: para
-#: boot-installer.xml:3253
+#: boot-installer.xml:3340
 #, no-c-format
 msgid "There are some common installation problems that are worth mentioning."
 msgstr "有一些常见的安装问题值得解释一下。"
 
 #. Tag: title
-#: boot-installer.xml:3259
+#: boot-installer.xml:3346
 #, no-c-format
 msgid "Misdirected video output"
 msgstr "错误的视频输出"
 
 #. Tag: para
-#: boot-installer.xml:3260
+#: boot-installer.xml:3347
 #, no-c-format
 msgid ""
 "It is fairly common for &arch-title; to have two video cards in one machine, "
@@ -4206,7 +4422,7 @@ msgstr ""
 "<userinput>video=atyfb:off</userinput> 启动安装程序。"
 
 #. Tag: para
-#: boot-installer.xml:3274
+#: boot-installer.xml:3361
 #, no-c-format
 msgid ""
 "Note that you may also have to manually add this parameter to the silo "
@@ -4219,13 +4435,13 @@ msgstr ""
 "xorg.conf</filename> 中的视频驱动。"
 
 #. Tag: title
-#: boot-installer.xml:3285
+#: boot-installer.xml:3372
 #, no-c-format
 msgid "Failure to Boot or Install from CD-ROM"
 msgstr "从 CD-ROM 上引导或安装失败"
 
 #. Tag: para
-#: boot-installer.xml:3286
+#: boot-installer.xml:3373
 #, no-c-format
 msgid ""
 "Some Sparc systems are notoriously difficult to boot from CD-ROM and even if "
@@ -4236,19 +4452,19 @@ msgstr ""
 "费解的错误。SunBlade 系统被报告了很多问题。"
 
 #. Tag: para
-#: boot-installer.xml:3292
+#: boot-installer.xml:3379
 #, no-c-format
 msgid "We recommend to install such systems by netbooting the installer."
 msgstr "我们建议从网络安装这些系统。"
 
 #. Tag: title
-#: boot-installer.xml:3301
+#: boot-installer.xml:3388
 #, no-c-format
 msgid "Interpreting the Kernel Startup Messages"
 msgstr "内核起始信息注解"
 
 #. Tag: para
-#: boot-installer.xml:3303
+#: boot-installer.xml:3390
 #, no-c-format
 msgid ""
 "During the boot sequence, you may see many messages in the form "
@@ -4282,13 +4498,13 @@ msgstr ""
 "linkend=\"kernel-baking\"/>)</phrase>。"
 
 #. Tag: title
-#: boot-installer.xml:3328
+#: boot-installer.xml:3415
 #, no-c-format
 msgid "Reporting Installation Problems"
 msgstr "报告安装问题"
 
 #. Tag: para
-#: boot-installer.xml:3329
+#: boot-installer.xml:3416
 #, no-c-format
 msgid ""
 "If you get through the initial boot phase but cannot complete the install, "
@@ -4305,7 +4521,7 @@ msgstr ""
 "索。如果您正在提交一个 bug 报告，可以报告里附上该信息。"
 
 #. Tag: para
-#: boot-installer.xml:3340
+#: boot-installer.xml:3427
 #, no-c-format
 msgid ""
 "Other pertinent installation messages may be found in <filename>/var/log/</"
@@ -4316,13 +4532,13 @@ msgstr ""
 "新安装的系统启动后，放在 <filename>/var/log/debian-installer/</filename> 里。"
 
 #. Tag: title
-#: boot-installer.xml:3351
+#: boot-installer.xml:3438
 #, no-c-format
 msgid "Submitting Installation Reports"
 msgstr "提交缺陷报告"
 
 #. Tag: para
-#: boot-installer.xml:3352
+#: boot-installer.xml:3439
 #, no-c-format
 msgid ""
 "If you still have problems, please submit an installation report. We also "
@@ -4334,7 +4550,7 @@ msgstr ""
 "这让我们可以尽可能多地了解硬件的配置数量。"
 
 #. Tag: para
-#: boot-installer.xml:3359
+#: boot-installer.xml:3446
 #, no-c-format
 msgid ""
 "Note that your installation report will be published in the Debian Bug "
@@ -4345,7 +4561,7 @@ msgstr ""
 "件列表。确保您使用的邮件地址可以被公开。"
 
 #. Tag: para
-#: boot-installer.xml:3365
+#: boot-installer.xml:3452
 #, no-c-format
 msgid ""
 "If you have a working &debian; system, the easiest way to send an "
@@ -4364,7 +4580,7 @@ msgstr ""
 "command> 命令。"
 
 #. Tag: para
-#: boot-installer.xml:3375
+#: boot-installer.xml:3462
 #, no-c-format
 msgid ""
 "Alternatively you can use this template when filling out installation "
@@ -4449,6 +4665,39 @@ msgstr ""
 "      and ideas you had during the initial install.&gt;\n"
 "</screen></informalexample> 在 bug 报告中，请说明问题所在，包括内核挂起时最后"
 "见到的内核消息。描述进入问题状态所进行的步骤。"
+
+#~ msgid ""
+#~ "When the installer boots, you should be presented with a friendly "
+#~ "graphical screen showing the &debian; logo and a menu: "
+#~ "<informalexample><screen>\n"
+#~ "Installer boot menu\n"
+#~ "\n"
+#~ "Install\n"
+#~ "Graphical install\n"
+#~ "Advanced options             >\n"
+#~ "Help\n"
+#~ "Install with speech synthesis\n"
+#~ "\n"
+#~ "Press ENTER to boot or TAB to edit a menu entry\n"
+#~ "</screen></informalexample> Depending on the installation method you are "
+#~ "using, the <quote>Graphical install</quote> option may not be available. "
+#~ "Bi-arch images additionally have a 64 bit variant for each install "
+#~ "option, right below it, thus almost doubling the number of options."
+#~ msgstr ""
+#~ "安装程序引导后，您应该看到界面友好的图形画面显示着 &debian; 图标和菜单："
+#~ "<informalexample><screen>\n"
+#~ "Installer boot menu\n"
+#~ "\n"
+#~ "Install\n"
+#~ "Graphical install\n"
+#~ "Advanced options             >\n"
+#~ "Help\n"
+#~ "Install with speech synthesis\n"
+#~ "\n"
+#~ "Press ENTER to boot or TAB to edit a menu entry\n"
+#~ "</screen></informalexample> 根据您使用的不同安装方法，<quote>Graphical "
+#~ "install</quote> 选项可能不会出现。双体系(bi-arch)映像会额外有一个 64 位安"
+#~ "装选项，在其下方，因此会有双倍的选项。"
 
 #~ msgid "Booting from CD-ROM"
 #~ msgstr "从 CD 光盘上引导"

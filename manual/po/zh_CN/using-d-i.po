@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: d-i-manual\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2015-01-09 19:07+0000\n"
+"POT-Creation-Date: 2015-04-15 20:29+0000\n"
 "PO-Revision-Date: 2012-11-26 15:04+0800\n"
 "Last-Translator: Ji YongGang <jungleji@gmail.com>\n"
 "Language-Team: debian-chinese-gb <debian-chinese-gb@lists.debian.org>\n"
@@ -1544,13 +1544,22 @@ msgstr ""
 
 #. Tag: para
 #: using-d-i.xml:1083
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "If a hard disk has previously used under Solaris, the partitioner may not "
+#| "detect the size of the drive correctly. Creating a new partition table "
+#| "does not fix this issue. What does help, is to <quote>zero</quote> the "
+#| "first few sectors of the drive: <informalexample><screen>\n"
+#| "# dd if=/dev/zero of=/dev/hd<replaceable>X</replaceable> bs=512 count=2; "
+#| "sync\n"
+#| "</screen></informalexample> Note that this will make any existing data on "
+#| "that disk inaccessible."
 msgid ""
 "If a hard disk has previously used under Solaris, the partitioner may not "
 "detect the size of the drive correctly. Creating a new partition table does "
 "not fix this issue. What does help, is to <quote>zero</quote> the first few "
 "sectors of the drive: <informalexample><screen>\n"
-"# dd if=/dev/zero of=/dev/hd<replaceable>X</replaceable> bs=512 count=2; "
+"# dd if=/dev/zero of=/dev/sd<replaceable>X</replaceable> bs=512 count=2; "
 "sync\n"
 "</screen></informalexample> Note that this will make any existing data on "
 "that disk inaccessible."
@@ -2072,12 +2081,18 @@ msgstr ""
 
 #. Tag: para
 #: using-d-i.xml:1367
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "If you choose guided partitioning for your IA-64 system, there will be an "
+#| "additional partition, formatted as a FAT16 bootable filesystem, for the "
+#| "EFI boot loader. There is also an additional menu item in the formatting "
+#| "menu to manually set up a partition as an EFI boot partition."
 msgid ""
-"If you choose guided partitioning for your IA-64 system, there will be an "
-"additional partition, formatted as a FAT16 bootable filesystem, for the EFI "
-"boot loader. There is also an additional menu item in the formatting menu to "
-"manually set up a partition as an EFI boot partition."
+"If you have booted in EFI mode then within the guided partitioning setup "
+"there will be an additional partition, formatted as a FAT32 bootable "
+"filesystem, for the EFI boot loader. This partition is known as an EFI "
+"System Partition (ESP). There is also an additional menu item in the "
+"formatting menu to manually set up a partition as an ESP."
 msgstr ""
 "倘若您为 IA-64 系统选择了导引式分区，就会有一个额外的分区，该分区格式化为 "
 "FAT16 可引导文件系统，用于 EFI boot loader。同时，菜单里也会加一项，让您可以"
@@ -2096,27 +2111,48 @@ msgstr ""
 
 #. Tag: para
 #: using-d-i.xml:1381
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "The list of partitions might look like this: <informalexample><screen>\n"
+#| "  IDE1 master (hda) - 6.4 GB WDC AC36400L\n"
+#| "        #1 primary   16.4 MB  B f ext2       /boot\n"
+#| "        #2 primary  551.0 MB      swap       swap\n"
+#| "        #3 primary    5.8 GB      ntfs\n"
+#| "           pri/log    8.2 MB      FREE SPACE\n"
+#| "\n"
+#| "  IDE1 slave (hdb) - 80.0 GB ST380021A\n"
+#| "        #1 primary   15.9 MB      ext3\n"
+#| "        #2 primary  996.0 MB      fat16\n"
+#| "        #3 primary    3.9 GB      xfs        /home\n"
+#| "        #5 logical    6.0 GB    f ext3       /\n"
+#| "        #6 logical    1.0 GB    f ext3       /var\n"
+#| "        #7 logical  498.8 MB      ext3\n"
+#| "        #8 logical  551.5 MB      swap       swap\n"
+#| "        #9 logical   65.8 GB      ext2\n"
+#| "</screen></informalexample> This example shows two IDE harddrives divided "
+#| "into several partitions; the first disk has some free space. Each "
+#| "partition line consists of the partition number, its type, size, optional "
+#| "flags, file system, and mountpoint (if any). Note: this particular setup "
+#| "cannot be created using guided partitioning but it does show possible "
+#| "variation that can be achieved using manual partitioning."
 msgid ""
 "The list of partitions might look like this: <informalexample><screen>\n"
-"  IDE1 master (hda) - 6.4 GB WDC AC36400L\n"
+"  SCSI1 (0,0,0) (sda) - 6.4 GB WDC AC36400L\n"
 "        #1 primary   16.4 MB  B f ext2       /boot\n"
 "        #2 primary  551.0 MB      swap       swap\n"
 "        #3 primary    5.8 GB      ntfs\n"
 "           pri/log    8.2 MB      FREE SPACE\n"
 "\n"
-"  IDE1 slave (hdb) - 80.0 GB ST380021A\n"
+"  SCSI2 (1,0,0) (sdb) - 80.0 GB ST380021A\n"
 "        #1 primary   15.9 MB      ext3\n"
 "        #2 primary  996.0 MB      fat16\n"
 "        #3 primary    3.9 GB      xfs        /home\n"
-"        #5 logical    6.0 GB    f ext3       /\n"
+"        #5 logical    6.0 GB    f ext4       /\n"
 "        #6 logical    1.0 GB    f ext3       /var\n"
 "        #7 logical  498.8 MB      ext3\n"
-"        #8 logical  551.5 MB      swap       swap\n"
-"        #9 logical   65.8 GB      ext2\n"
-"</screen></informalexample> This example shows two IDE harddrives divided "
-"into several partitions; the first disk has some free space. Each partition "
-"line consists of the partition number, its type, size, optional flags, file "
+"</screen></informalexample> This example shows two hard drives divided into "
+"several partitions; the first disk has some free space. Each partition line "
+"consists of the partition number, its type, size, optional flags, file "
 "system, and mountpoint (if any). Note: this particular setup cannot be "
 "created using guided partitioning but it does show possible variation that "
 "can be achieved using manual partitioning."
@@ -2286,11 +2322,15 @@ msgstr ""
 
 #. Tag: para
 #: using-d-i.xml:1465
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "If you forget to select and format an EFI boot partition, "
+#| "<command>partman</command> will detect this and will not let you continue "
+#| "until you allocate one."
 msgid ""
-"If you forget to select and format an EFI boot partition, <command>partman</"
-"command> will detect this and will not let you continue until you allocate "
-"one."
+"If you boot in EFI mode but forget to select and format an EFI System "
+"Partition, <command>partman</command> will detect this and will not let you "
+"continue until you allocate one."
 msgstr ""
 "如果您忘记选择和格式化一个 EFI 启动分区 <command>partman</command> 会察觉这一"
 "点，不让您继续操作，直到您划分出这样一个分区。"
@@ -2635,22 +2675,7 @@ msgstr ""
 "<filename>/</filename> 同时 RAID1 给 <filename>/boot</filename> 是一种方式。"
 
 #. Tag: para
-#: using-d-i.xml:1728
-#, no-c-format
-msgid ""
-"Support for MD is a relatively new addition to the installer. You may "
-"experience problems for some RAID levels and in combination with some "
-"bootloaders if you try to use MD for the root (<filename>/</filename>) file "
-"system. For experienced users, it may be possible to work around some of "
-"these problems by executing some configuration or installation steps "
-"manually from a shell."
-msgstr ""
-"在安装程序中支持 MD 是相对新的功能。如果您尝试结合一些 RAID 类型与启动引导器"
-"并将 MD 用于根(<filename>/</filename>)文件系统，您也许会经历一些挫折。对有经"
-"验的用户，从 shell 手动地处理一些配置和安装步骤，也许会绕开这些问题。"
-
-#. Tag: para
-#: using-d-i.xml:1737
+#: using-d-i.xml:1727
 #, no-c-format
 msgid ""
 "Next, you should choose <guimenuitem>Configure software RAID</guimenuitem> "
@@ -2670,7 +2695,7 @@ msgstr ""
 "RAID1)。后续操作会根据您选择的 MD 类型而定。"
 
 #. Tag: para
-#: using-d-i.xml:1750
+#: using-d-i.xml:1740
 #, no-c-format
 msgid ""
 "RAID0 is simple &mdash; you will be issued with the list of available RAID "
@@ -2681,7 +2706,7 @@ msgstr ""
 "组成 MD 的分区。"
 
 #. Tag: para
-#: using-d-i.xml:1757
+#: using-d-i.xml:1747
 #, no-c-format
 msgid ""
 "RAID1 is a bit more tricky. First, you will be asked to enter the number of "
@@ -2698,7 +2723,7 @@ msgstr ""
 "将不会允许您继续下去，直到纠正错误。"
 
 #. Tag: para
-#: using-d-i.xml:1769
+#: using-d-i.xml:1759
 #, no-c-format
 msgid ""
 "RAID5 has a setup procedure similar to RAID1 with the exception that you "
@@ -2708,7 +2733,7 @@ msgstr ""
 "区。"
 
 #. Tag: para
-#: using-d-i.xml:1775
+#: using-d-i.xml:1765
 #, no-c-format
 msgid ""
 "RAID6 also has a setup procedure similar to RAID1 except that at least "
@@ -2718,7 +2743,7 @@ msgstr ""
 "区。"
 
 #. Tag: para
-#: using-d-i.xml:1781
+#: using-d-i.xml:1771
 #, no-c-format
 msgid ""
 "RAID10 again has a setup procedure similar to RAID1 except in expert mode. "
@@ -2736,7 +2761,7 @@ msgstr ""
 "贝数。这些活动设备必须是让所有的拷贝可以分布到不同磁盘。"
 
 #. Tag: para
-#: using-d-i.xml:1795
+#: using-d-i.xml:1785
 #, no-c-format
 msgid ""
 "It is perfectly possible to have several types of MD at once. For example, "
@@ -2752,7 +2777,7 @@ msgstr ""
 "RAID1 (相当可靠的 100 GB 分区用于 <filename>/home</filename>)。"
 
 #. Tag: para
-#: using-d-i.xml:1804
+#: using-d-i.xml:1794
 #, no-c-format
 msgid ""
 "After you set up MD devices to your liking, you can <guimenuitem>Finish</"
@@ -2765,13 +2790,13 @@ msgstr ""
 "您的新 MD 设备，并分配挂载点这样的属性。"
 
 #. Tag: title
-#: using-d-i.xml:1819
+#: using-d-i.xml:1809
 #, no-c-format
 msgid "Configuring the Logical Volume Manager (LVM)"
 msgstr "配置逻辑卷管理(LVM)"
 
 #. Tag: para
-#: using-d-i.xml:1820
+#: using-d-i.xml:1810
 #, no-c-format
 msgid ""
 "If you are working with computers at the level of system administrator or "
@@ -2785,7 +2810,7 @@ msgstr ""
 "或符号链接等方法来折腾。"
 
 #. Tag: para
-#: using-d-i.xml:1828
+#: using-d-i.xml:1818
 #, no-c-format
 msgid ""
 "To avoid the described situation you can use Logical Volume Manager (LVM). "
@@ -2803,7 +2828,7 @@ msgstr ""
 "点在于它可以跨越多个物理磁盘。"
 
 #. Tag: para
-#: using-d-i.xml:1838
+#: using-d-i.xml:1828
 #, no-c-format
 msgid ""
 "Now when you realize you need more space for your old 160GB <filename>/home</"
@@ -2821,7 +2846,7 @@ msgstr ""
 "阅 <ulink url=\"&url-lvm-howto;\">LVM HOWTO</ulink>。"
 
 #. Tag: para
-#: using-d-i.xml:1849
+#: using-d-i.xml:1839
 #, no-c-format
 msgid ""
 "LVM setup in &d-i; is quite simple and completely supported inside "
@@ -2836,7 +2861,7 @@ msgstr ""
 "<guimenuitem>physical volume for LVM</guimenuitem> </menuchoice>"
 
 #. Tag: para
-#: using-d-i.xml:1858
+#: using-d-i.xml:1848
 #, no-c-format
 msgid ""
 "When you return to the main <command>partman</command> screen, you will see "
@@ -2853,7 +2878,7 @@ msgstr ""
 "了 LVM 配置的小结。菜单项本身是与内容相关，只显示可用的操作。可能的操作有："
 
 #. Tag: para
-#: using-d-i.xml:1869
+#: using-d-i.xml:1859
 #, no-c-format
 msgid ""
 "<guimenuitem>Display configuration details</guimenuitem>: shows LVM device "
@@ -2863,43 +2888,43 @@ msgstr ""
 "名称和逻辑卷尺寸等"
 
 #. Tag: guimenuitem
-#: using-d-i.xml:1874
+#: using-d-i.xml:1864
 #, no-c-format
 msgid "Create volume group"
 msgstr "Create volume group"
 
 #. Tag: guimenuitem
-#: using-d-i.xml:1877
+#: using-d-i.xml:1867
 #, no-c-format
 msgid "Create logical volume"
 msgstr "Create logical volume"
 
 #. Tag: guimenuitem
-#: using-d-i.xml:1880
+#: using-d-i.xml:1870
 #, no-c-format
 msgid "Delete volume group"
 msgstr "Delete volume group"
 
 #. Tag: guimenuitem
-#: using-d-i.xml:1883
+#: using-d-i.xml:1873
 #, no-c-format
 msgid "Delete logical volume"
 msgstr "Delete logical volume"
 
 #. Tag: guimenuitem
-#: using-d-i.xml:1886
+#: using-d-i.xml:1876
 #, no-c-format
 msgid "Extend volume group"
 msgstr "Extend volume group"
 
 #. Tag: guimenuitem
-#: using-d-i.xml:1889
+#: using-d-i.xml:1879
 #, no-c-format
 msgid "Reduce volume group"
 msgstr "Reduce volume group"
 
 #. Tag: para
-#: using-d-i.xml:1891
+#: using-d-i.xml:1881
 #, no-c-format
 msgid ""
 "<guimenuitem>Finish</guimenuitem>: return to the main <command>partman</"
@@ -2908,7 +2933,7 @@ msgstr ""
 "<guimenuitem>Finish</guimenuitem>: 返回 <command>partman</command> 主界面"
 
 #. Tag: para
-#: using-d-i.xml:1897
+#: using-d-i.xml:1887
 #, no-c-format
 msgid ""
 "Use the options in that menu to first create a volume group and then create "
@@ -2916,7 +2941,7 @@ msgid ""
 msgstr "使用该菜单内的选项首先创建卷组，然后在里面创建逻辑卷。"
 
 #. Tag: para
-#: using-d-i.xml:1902
+#: using-d-i.xml:1892
 #, no-c-format
 msgid ""
 "After you return to the main <command>partman</command> screen, any created "
@@ -2927,13 +2952,13 @@ msgstr ""
 "通的分区一样(您也应该这样对待它们)。"
 
 #. Tag: title
-#: using-d-i.xml:1916
+#: using-d-i.xml:1906
 #, no-c-format
 msgid "Configuring Encrypted Volumes"
 msgstr "配置加密卷"
 
 #. Tag: para
-#: using-d-i.xml:1917
+#: using-d-i.xml:1907
 #, no-c-format
 msgid ""
 "&d-i; allows you to set up encrypted partitions. Every file you write to "
@@ -2951,7 +2976,7 @@ msgstr ""
 "许可以访问硬盘，但是没有正确的口令，硬盘上的数据看起来就像是随机的字符。"
 
 #. Tag: para
-#: using-d-i.xml:1929
+#: using-d-i.xml:1919
 #, no-c-format
 msgid ""
 "The two most important partitions to encrypt are: the home partition, where "
@@ -2974,7 +2999,7 @@ msgstr ""
 "加载内核。"
 
 #. Tag: para
-#: using-d-i.xml:1944
+#: using-d-i.xml:1934
 #, no-c-format
 msgid ""
 "Please note that the performance of encrypted partitions will be less than "
@@ -2986,7 +3011,7 @@ msgstr ""
 "密和解密。性能将与您的 CPU 速度、选择的加密算法和密钥长度紧密相关。"
 
 #. Tag: para
-#: using-d-i.xml:1951
+#: using-d-i.xml:1941
 #, no-c-format
 msgid ""
 "To use encryption, you have to create a new partition by selecting some free "
@@ -3004,7 +3029,7 @@ msgstr ""
 "guimenu> </menuchoice> 选项。菜单将包含分区的加密选项。"
 
 #. Tag: para
-#: using-d-i.xml:1962
+#: using-d-i.xml:1952
 #, no-c-format
 msgid ""
 "The encryption method supported by &d-i; is <firstterm>dm-crypt</firstterm> "
@@ -3012,7 +3037,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: using-d-i.xml:1971
+#: using-d-i.xml:1961
 #, fuzzy, no-c-format
 #| msgid ""
 #| "First, let's have a look at the options available when you select "
@@ -3030,13 +3055,13 @@ msgstr ""
 "的安全考虑的选择。"
 
 #. Tag: term
-#: using-d-i.xml:1981
+#: using-d-i.xml:1971
 #, no-c-format
 msgid "Encryption: <userinput>aes</userinput>"
 msgstr "Encryption: <userinput>aes</userinput>"
 
 #. Tag: para
-#: using-d-i.xml:1983
+#: using-d-i.xml:1973
 #, no-c-format
 msgid ""
 "This option lets you select the encryption algorithm (<firstterm>cipher</"
@@ -3059,13 +3084,13 @@ msgstr ""
 "纪的敏感信息。"
 
 #. Tag: term
-#: using-d-i.xml:2001
+#: using-d-i.xml:1991
 #, no-c-format
 msgid "Key size: <userinput>256</userinput>"
 msgstr "Key size: <userinput>256</userinput>"
 
 #. Tag: para
-#: using-d-i.xml:2003
+#: using-d-i.xml:1993
 #, no-c-format
 msgid ""
 "Here you can specify the length of the encryption key. With a larger key "
@@ -3077,14 +3102,14 @@ msgstr ""
 "加长度自然会降低性能。cipher 决定可用的密钥长度。"
 
 #. Tag: term
-#: using-d-i.xml:2015
+#: using-d-i.xml:2005
 #, fuzzy, no-c-format
 #| msgid "IV algorithm: <userinput>cbc-essiv:sha256</userinput>"
 msgid "IV algorithm: <userinput>xts-plain64</userinput>"
 msgstr "IV algorithm: <userinput>cbc-essiv:sha256</userinput>"
 
 #. Tag: para
-#: using-d-i.xml:2017
+#: using-d-i.xml:2007
 #, no-c-format
 msgid ""
 "The <firstterm>Initialization Vector</firstterm> or <firstterm>IV</"
@@ -3100,7 +3125,7 @@ msgstr ""
 "复模板推断信息。"
 
 #. Tag: para
-#: using-d-i.xml:2027
+#: using-d-i.xml:2017
 #, fuzzy, no-c-format
 #| msgid ""
 #| "From the provided alternatives, the default <userinput>cbc-essiv:sha256</"
@@ -3118,25 +3143,25 @@ msgstr ""
 "法时，才使用其他的算法。"
 
 #. Tag: term
-#: using-d-i.xml:2039
+#: using-d-i.xml:2029
 #, no-c-format
 msgid "Encryption key: <userinput>Passphrase</userinput>"
 msgstr "Encryption key: <userinput>Passphrase</userinput>"
 
 #. Tag: para
-#: using-d-i.xml:2041
+#: using-d-i.xml:2031
 #, no-c-format
 msgid "Here you can choose the type of the encryption key for this partition."
 msgstr "这里您可以为分区选择所使用的加密密钥类型。"
 
 #. Tag: term
-#: using-d-i.xml:2047
+#: using-d-i.xml:2037
 #, no-c-format
 msgid "Passphrase"
 msgstr "Passphrase"
 
 #. Tag: para
-#: using-d-i.xml:2048
+#: using-d-i.xml:2038
 #, no-c-format
 msgid ""
 "The encryption key will be computed<footnote> <para> Using a passphrase as "
@@ -3149,13 +3174,13 @@ msgstr ""
 "使用时要求输入。"
 
 #. Tag: term
-#: using-d-i.xml:2063
+#: using-d-i.xml:2053
 #, no-c-format
 msgid "Random key"
 msgstr "Random key"
 
 #. Tag: para
-#: using-d-i.xml:2064
+#: using-d-i.xml:2054
 #, no-c-format
 msgid ""
 "A new encryption key will be generated from random data each time you try to "
@@ -3170,7 +3195,7 @@ msgstr ""
 "面临暴力破解，但是除非加密算法中有未知的弱点，这辈子也不会被攻破。)"
 
 #. Tag: para
-#: using-d-i.xml:2073
+#: using-d-i.xml:2063
 #, no-c-format
 msgid ""
 "Random keys are useful for swap partitions because you do not need to bother "
@@ -3187,13 +3212,13 @@ msgstr ""
 "写入到交换分区的数据。"
 
 #. Tag: term
-#: using-d-i.xml:2092
+#: using-d-i.xml:2082
 #, no-c-format
 msgid "Erase data: <userinput>yes</userinput>"
 msgstr "Erase data: <userinput>yes</userinput>"
 
 #. Tag: para
-#: using-d-i.xml:2094
+#: using-d-i.xml:2084
 #, no-c-format
 msgid ""
 "Determines whether the content of this partition should be overwritten with "
@@ -3211,7 +3236,7 @@ msgstr ""
 "备上的数据。</para></footnote>。"
 
 #. Tag: para
-#: using-d-i.xml:2115
+#: using-d-i.xml:2105
 #, no-c-format
 msgid ""
 "After you have selected the desired parameters for your encrypted "
@@ -3226,7 +3251,7 @@ msgstr ""
 "标记分区上的数据，以及写新分区表等动作。对于大的分区，这会花一些时间。"
 
 #. Tag: para
-#: using-d-i.xml:2125
+#: using-d-i.xml:2115
 #, no-c-format
 msgid ""
 "Next you will be asked to enter a passphrase for partitions configured to "
@@ -3240,7 +3265,7 @@ msgstr ""
 "(比如生日、爱好、宠物的名字、以及家里其他成员的名字，等等)。"
 
 #. Tag: para
-#: using-d-i.xml:2134
+#: using-d-i.xml:2124
 #, no-c-format
 msgid ""
 "Before you input any passphrases, you should have made sure that your "
@@ -3260,7 +3285,7 @@ msgstr ""
 "所选择的键盘布局未能正确建立，而且是在为根文件系统输入 passphrase 的时候。"
 
 #. Tag: para
-#: using-d-i.xml:2147
+#: using-d-i.xml:2137
 #, no-c-format
 msgid ""
 "If you selected to use methods other than a passphrase to create encryption "
@@ -3279,7 +3304,7 @@ msgstr ""
 "程在每个要加密的分区重复进行。"
 
 #. Tag: para
-#: using-d-i.xml:2163
+#: using-d-i.xml:2153
 #, fuzzy, no-c-format
 #| msgid ""
 #| "After returning to the main partitioning menu, you will see all encrypted "
@@ -3321,7 +3346,7 @@ msgstr ""
 "您不合适，可以进行修改。"
 
 #. Tag: para
-#: using-d-i.xml:2175
+#: using-d-i.xml:2165
 #, fuzzy, no-c-format
 #| msgid ""
 #| "Pay attention to the identifiers in parentheses (<replaceable>sda2_crypt</"
@@ -3344,7 +3369,7 @@ msgstr ""
 "面的 <xref linkend=\"mount-encrypted-volumes\"/> 说明。"
 
 #. Tag: para
-#: using-d-i.xml:2185
+#: using-d-i.xml:2175
 #, no-c-format
 msgid ""
 "Once you are satisfied with the partitioning scheme, continue with the "
@@ -3352,13 +3377,13 @@ msgid ""
 msgstr "当您满意分区之后，可以继续安装过程。"
 
 #. Tag: title
-#: using-d-i.xml:2196
+#: using-d-i.xml:2186
 #, no-c-format
 msgid "Installing the Base System"
 msgstr "安装基本系统"
 
 #. Tag: para
-#: using-d-i.xml:2197
+#: using-d-i.xml:2187
 #, no-c-format
 msgid ""
 "Although this stage is the least problematic, it consumes a significant "
@@ -3370,7 +3395,7 @@ msgstr ""
 "果您用较慢的计算机或网络，这要花费好一会儿时间。"
 
 #. Tag: para
-#: using-d-i.xml:2210
+#: using-d-i.xml:2200
 #, no-c-format
 msgid ""
 "During installation of the base system, package unpacking and setup messages "
@@ -3385,7 +3410,7 @@ msgstr ""
 "Alt</keycap><keycap>F1</keycap></keycombo>。"
 
 #. Tag: para
-#: using-d-i.xml:2219
+#: using-d-i.xml:2209
 #, no-c-format
 msgid ""
 "The unpack/setup messages generated during this phase are also saved in "
@@ -3396,7 +3421,7 @@ msgstr ""
 "<filename>/var/log/syslog</filename>。"
 
 #. Tag: para
-#: using-d-i.xml:2225
+#: using-d-i.xml:2215
 #, no-c-format
 msgid ""
 "As part of the installation, a &arch-kernel; kernel will be installed. At "
@@ -3409,7 +3434,7 @@ msgstr ""
 "核。"
 
 #. Tag: para
-#: using-d-i.xml:2232
+#: using-d-i.xml:2222
 #, no-c-format
 msgid ""
 "When packages are installed using the package management system, it will by "
@@ -3424,7 +3449,7 @@ msgstr ""
 "看，正常情况下应该安装这些软件。"
 
 #. Tag: para
-#: using-d-i.xml:2242
+#: using-d-i.xml:2232
 #, no-c-format
 msgid ""
 "For technical reasons packages installed during the installation of the base "
@@ -3436,13 +3461,13 @@ msgstr ""
 "</quote>。上面提到的原则只适用于之后的安装过程。"
 
 #. Tag: title
-#: using-d-i.xml:2254
+#: using-d-i.xml:2244
 #, no-c-format
 msgid "Installing Additional Software"
 msgstr "安装额外的软件"
 
 #. Tag: para
-#: using-d-i.xml:2255
+#: using-d-i.xml:2245
 #, no-c-format
 msgid ""
 "At this point you have a usable but limited system. Most users will want to "
@@ -3455,13 +3480,13 @@ msgstr ""
 "装基本系统还要花时间。"
 
 #. Tag: title
-#: using-d-i.xml:2270
+#: using-d-i.xml:2260
 #, no-c-format
 msgid "Configuring apt"
 msgstr "配置 apt"
 
 #. Tag: para
-#: using-d-i.xml:2272
+#: using-d-i.xml:2262
 #, fuzzy, no-c-format
 #| msgid ""
 #| "One of the tools used to install packages on a &debian-gnu; system is a "
@@ -3506,7 +3531,7 @@ msgstr ""
 "软件包管理工具使用。"
 
 #. Tag: para
-#: using-d-i.xml:2295
+#: using-d-i.xml:2285
 #, no-c-format
 msgid ""
 "<command>apt</command> must be configured so that it knows from where to "
@@ -3519,7 +3544,7 @@ msgstr ""
 "并编辑成自己喜欢的地方。"
 
 #. Tag: para
-#: using-d-i.xml:2302
+#: using-d-i.xml:2292
 #, fuzzy, no-c-format
 #| msgid ""
 #| "If you are installing at default priority, the installer will largely "
@@ -3541,7 +3566,7 @@ msgstr ""
 "序程序会自动加上安全镜像，它是 <quote>volatile</quote> 更新服务的镜像。"
 
 #. Tag: para
-#: using-d-i.xml:2311
+#: using-d-i.xml:2301
 #, fuzzy, no-c-format
 #| msgid ""
 #| "If you are installing at a lower priority (e.g. in expert mode), you will "
@@ -3561,13 +3586,13 @@ msgstr ""
 "和 <quote>non-free</quote> 软件仓库里面添加软件包。"
 
 #. Tag: title
-#: using-d-i.xml:2322
+#: using-d-i.xml:2312
 #, no-c-format
 msgid "Installing from more than one CD or DVD"
 msgstr "从多个 CD 或 DVD 安装"
 
 #. Tag: para
-#: using-d-i.xml:2324
+#: using-d-i.xml:2314
 #, no-c-format
 msgid ""
 "If you are installing from a CD or a DVD that is part of a larger set, the "
@@ -3580,7 +3605,7 @@ msgstr ""
 "们里面的软件包了。"
 
 #. Tag: para
-#: using-d-i.xml:2331
+#: using-d-i.xml:2321
 #, no-c-format
 msgid ""
 "If you do not have any additional CDs or DVDs, that is no problem: using "
@@ -3592,7 +3617,7 @@ msgstr ""
 "节说明)，意味着下一步中选择的任务里面并非所有的软件包都会安装。"
 
 #. Tag: para
-#: using-d-i.xml:2339
+#: using-d-i.xml:2329
 #, no-c-format
 msgid ""
 "Packages are included on CDs (and DVDs) in the order of their popularity. "
@@ -3604,7 +3629,7 @@ msgstr ""
 "常用的软件，而最后一张光盘里面包含的是很少有人用到的软件。"
 
 #. Tag: para
-#: using-d-i.xml:2346
+#: using-d-i.xml:2336
 #, no-c-format
 msgid ""
 "It also means that buying or downloading and burning a full CD set is just a "
@@ -3618,7 +3643,7 @@ msgstr ""
 "DVD 的情况类似：只要一张，或者前两张 DVD 就能满足您大部分要求。"
 
 #. Tag: para
-#: using-d-i.xml:2356
+#: using-d-i.xml:2346
 #, no-c-format
 msgid ""
 "If you do scan multiple CDs or DVDs, the installer will prompt you to "
@@ -3633,13 +3658,13 @@ msgstr ""
 "照次序来可以降低出错的几率。"
 
 #. Tag: title
-#: using-d-i.xml:2369
+#: using-d-i.xml:2359
 #, no-c-format
 msgid "Using a network mirror"
 msgstr "使用网络镜像"
 
 #. Tag: para
-#: using-d-i.xml:2371
+#: using-d-i.xml:2361
 #, no-c-format
 msgid ""
 "One question that will be asked during most installs is whether or not to "
@@ -3650,7 +3675,7 @@ msgstr ""
 "默认答案会很好，但还是有一些例外。"
 
 #. Tag: para
-#: using-d-i.xml:2377
+#: using-d-i.xml:2367
 #, no-c-format
 msgid ""
 "If you are <emphasis>not</emphasis> installing from a full CD or DVD or "
@@ -3666,7 +3691,7 @@ msgstr ""
 "<literal>desktop</literal> 任务。"
 
 #. Tag: para
-#: using-d-i.xml:2386
+#: using-d-i.xml:2376
 #, no-c-format
 msgid ""
 "If you are installing from a single full CD or using a full CD image, using "
@@ -3683,7 +3708,7 @@ msgstr ""
 "装，以后(比如，重新启动到新系统)再安装额外的软件包。"
 
 #. Tag: para
-#: using-d-i.xml:2397
+#: using-d-i.xml:2387
 #, no-c-format
 msgid ""
 "If you are installing from a DVD or using a DVD image, any packages needed "
@@ -3696,7 +3721,7 @@ msgstr ""
 "项。"
 
 #. Tag: para
-#: using-d-i.xml:2404
+#: using-d-i.xml:2394
 #, no-c-format
 msgid ""
 "One advantage of adding a network mirror is that updates that have occurred "
@@ -3709,7 +3734,7 @@ msgstr ""
 "可以安装已经更新的内容，确保了系统的安全性和稳定性。。"
 
 #. Tag: para
-#: using-d-i.xml:2411
+#: using-d-i.xml:2401
 #, no-c-format
 msgid ""
 "In summary: selecting a network mirror is generally a good idea, except if "
@@ -3723,26 +3748,26 @@ msgstr ""
 "的数据量取决于"
 
 #. Tag: para
-#: using-d-i.xml:2420
+#: using-d-i.xml:2410
 #, no-c-format
 msgid "the tasks you select in the next step of the installation,"
 msgstr "安装下一步选择的任务，"
 
 #. Tag: para
-#: using-d-i.xml:2425
+#: using-d-i.xml:2415
 #, no-c-format
 msgid "which packages are needed for those tasks,"
 msgstr "这些任务所需的软件包，"
 
 #. Tag: para
-#: using-d-i.xml:2430
+#: using-d-i.xml:2420
 #, no-c-format
 msgid ""
 "which of those packages are present on the CDs or DVDs you have scanned, and"
 msgstr "已检测的 CD 或 DVD 上的软件包，并且"
 
 #. Tag: para
-#: using-d-i.xml:2435
+#: using-d-i.xml:2425
 #, fuzzy, no-c-format
 #| msgid ""
 #| "whether any updated versions of packages included on the CDs or DVDs are "
@@ -3757,7 +3782,7 @@ msgstr ""
 "安全更新的镜像)。"
 
 #. Tag: para
-#: using-d-i.xml:2444
+#: using-d-i.xml:2434
 #, fuzzy, no-c-format
 #| msgid ""
 #| "Note that the last point means that, even if you choose not to use a "
@@ -3774,13 +3799,13 @@ msgstr ""
 "且软件包有安全更新，仍然会从互联网下载更新后的软件包。"
 
 #. Tag: title
-#: using-d-i.xml:2455
+#: using-d-i.xml:2445
 #, no-c-format
 msgid "Choosing a network mirror"
 msgstr "选择网络镜像"
 
 #. Tag: para
-#: using-d-i.xml:2456
+#: using-d-i.xml:2446
 #, no-c-format
 msgid ""
 "If you have selected to use a network mirror during the installation "
@@ -3794,7 +3819,7 @@ msgstr ""
 "列表。通常选择默认的就行。"
 
 #. Tag: para
-#: using-d-i.xml:2464
+#: using-d-i.xml:2454
 #, no-c-format
 msgid ""
 "A mirror can also be specified by hand by choosing <quote>enter information "
@@ -3805,7 +3830,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: using-d-i.xml:2472
+#: using-d-i.xml:2462
 #, no-c-format
 msgid ""
 "If your computer is on an IPv6-only network (which is probably not the case "
@@ -3829,13 +3854,21 @@ msgstr ""
 "快的哪个。"
 
 #. Tag: para
-#: using-d-i.xml:2486
-#, no-c-format
+#: using-d-i.xml:2476
+#, fuzzy, no-c-format
+#| msgid ""
+#| "Another option when choosing to specify the mirror manually is to use "
+#| "<quote>http.debian.net</quote> as your mirror. <quote>http.debian.net</"
+#| "quote> is not a physical mirror but a mirror redirection service, i.e. it "
+#| "automatically refers your system to a real mirror near you in terms of "
+#| "network topology. It takes into account by which protocol you connect to "
+#| "it, i.e. if you use IPv6, it will refer you to an IPv6-capable mirror "
+#| "near you."
 msgid ""
 "Another option when choosing to specify the mirror manually is to use "
-"<quote>http.debian.net</quote> as your mirror. <quote>http.debian.net</"
-"quote> is not a physical mirror but a mirror redirection service, i.e. it "
-"automatically refers your system to a real mirror near you in terms of "
+"<quote>httpredir.debian.org</quote> as your mirror. <quote>httpredir.debian."
+"org</quote> is not a physical mirror but a mirror redirection service, i.e. "
+"it automatically refers your system to a real mirror near you in terms of "
 "network topology. It takes into account by which protocol you connect to it, "
 "i.e. if you use IPv6, it will refer you to an IPv6-capable mirror near you."
 msgstr ""
@@ -3845,13 +3878,13 @@ msgstr ""
 "连接所采用的协议，比如使用 IPv6，它将自动将您引到最近的 IPv6 镜像服务器。"
 
 #. Tag: title
-#: using-d-i.xml:2505
+#: using-d-i.xml:2495
 #, no-c-format
 msgid "Selecting and Installing Software"
 msgstr "选择和安装软件"
 
 #. Tag: para
-#: using-d-i.xml:2507
+#: using-d-i.xml:2497
 #, no-c-format
 msgid ""
 "During the installation process, you are given the opportunity to select "
@@ -3866,7 +3899,7 @@ msgstr ""
 "来快速建立您的计算机应对各种任务。"
 
 #. Tag: para
-#: using-d-i.xml:2516
+#: using-d-i.xml:2506
 #, no-c-format
 msgid ""
 "So, you have the ability to choose <emphasis>tasks</emphasis> first, and "
@@ -3896,7 +3929,7 @@ msgstr ""
 "空间。"
 
 #. Tag: para
-#: using-d-i.xml:2543
+#: using-d-i.xml:2533
 #, no-c-format
 msgid ""
 "Some tasks may be pre-selected based on the characteristics of the computer "
@@ -3907,7 +3940,7 @@ msgstr ""
 "些任务。此时甚至可以不选中任何任务。"
 
 #. Tag: para
-#: using-d-i.xml:2550
+#: using-d-i.xml:2540
 #, no-c-format
 msgid ""
 "In the standard user interface of the installer, you can use the space bar "
@@ -3915,7 +3948,7 @@ msgid ""
 msgstr "在安装程序的标准用户界面下，您可以使用空格键切换任务的选择。"
 
 #. Tag: para
-#: using-d-i.xml:2556
+#: using-d-i.xml:2546
 #, fuzzy, no-c-format
 #| msgid ""
 #| "Unless you are using the special KDE or Xfce/LXDE CDs, the <quote>Desktop "
@@ -3928,7 +3961,7 @@ msgstr ""
 "GNOME 桌面环境。"
 
 #. Tag: para
-#: using-d-i.xml:2561
+#: using-d-i.xml:2551
 #, no-c-format
 msgid ""
 "By default, &d-i; installs the <phrase arch=\"x86\">Gnome</phrase> <phrase "
@@ -3939,7 +3972,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: using-d-i.xml:2569
+#: using-d-i.xml:2559
 #, fuzzy, no-c-format
 #| msgid ""
 #| "Note that this will only work if the packages needed for the desired "
@@ -3962,7 +3995,7 @@ msgstr ""
 "Xfce 或 LXDE 同样适用于 DVD 映象或其他的安装方法。"
 
 #. Tag: para
-#: using-d-i.xml:2579
+#: using-d-i.xml:2569
 #, no-c-format
 msgid ""
 "The various server tasks will install software roughly as follows. Web "
@@ -3971,7 +4004,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: using-d-i.xml:2586
+#: using-d-i.xml:2576
 #, no-c-format
 msgid ""
 "The <quote>Standard system</quote> task will install any package that has a "
@@ -3985,7 +4018,7 @@ msgstr ""
 "并需要一个最小化的系统，您应该让该任务选中。"
 
 #. Tag: para
-#: using-d-i.xml:2594
+#: using-d-i.xml:2584
 #, no-c-format
 msgid ""
 "If during language selection a default locale other than the <quote>C</"
@@ -4002,7 +4035,7 @@ msgstr ""
 "(如果存在)还会安装该桌面对应的本地化软件包。"
 
 #. Tag: para
-#: using-d-i.xml:2604
+#: using-d-i.xml:2594
 #, no-c-format
 msgid ""
 "Once you've selected your tasks, select &BTN-CONT;. At this point, "
@@ -4014,7 +4047,7 @@ msgstr ""
 "选中任务的软件包。假如某个程序需要用户输入信息，它将提示您指定。"
 
 #. Tag: para
-#: using-d-i.xml:2611
+#: using-d-i.xml:2601
 #, no-c-format
 msgid ""
 "You should be aware that especially the Desktop task is very large. "
@@ -4029,7 +4062,7 @@ msgstr ""
 "间。一旦启动，安装软件包过程将无法取消。"
 
 #. Tag: para
-#: using-d-i.xml:2620
+#: using-d-i.xml:2610
 #, no-c-format
 msgid ""
 "Even when packages are included on the CD-ROM, the installer may still "
@@ -4044,13 +4077,13 @@ msgstr ""
 "新)；如果您安装的是测试版本，这会出现在使用旧映像安装时。"
 
 #. Tag: title
-#: using-d-i.xml:2635
+#: using-d-i.xml:2625
 #, no-c-format
 msgid "Making Your System Bootable"
 msgstr "创建启动系统"
 
 #. Tag: para
-#: using-d-i.xml:2637
+#: using-d-i.xml:2627
 #, no-c-format
 msgid ""
 "If you are installing a diskless workstation, obviously, booting off the "
@@ -4063,13 +4096,13 @@ msgstr ""
 "linkend=\"boot-dev-select-sun\"/>。</phrase>"
 
 #. Tag: title
-#: using-d-i.xml:2652
+#: using-d-i.xml:2642
 #, no-c-format
 msgid "Detecting other operating systems"
 msgstr "检测其他的操作系统"
 
 #. Tag: para
-#: using-d-i.xml:2654
+#: using-d-i.xml:2644
 #, no-c-format
 msgid ""
 "Before a boot loader is installed, the installer will attempt to probe for "
@@ -4083,7 +4116,7 @@ msgstr ""
 "&debian; 一起，计算机也将配置为可以启动其他操作系统。"
 
 #. Tag: para
-#: using-d-i.xml:2662
+#: using-d-i.xml:2652
 #, no-c-format
 msgid ""
 "Note that multiple operating systems booting on a single machine is still "
@@ -4097,13 +4130,13 @@ msgstr ""
 "管理器的文档了解更多信息。"
 
 #. Tag: title
-#: using-d-i.xml:2680
+#: using-d-i.xml:2670
 #, no-c-format
 msgid "<command>palo</command>-installer"
 msgstr "<command>palo</command>-installer"
 
 #. Tag: para
-#: using-d-i.xml:2681
+#: using-d-i.xml:2671
 #, no-c-format
 msgid ""
 "The bootloader on PA-RISC is <quote>palo</quote>. <command>PALO</command> is "
@@ -4118,19 +4151,19 @@ msgstr ""
 "<command>PALO</command> 能真正地读 Linux 分区。"
 
 #. Tag: para
-#: using-d-i.xml:2690
+#: using-d-i.xml:2680
 #, no-c-format
 msgid "hppa FIXME ( need more info )"
 msgstr "hppa FIXME ( need more info )"
 
 #. Tag: title
-#: using-d-i.xml:2702
+#: using-d-i.xml:2692 using-d-i.xml:3030
 #, no-c-format
 msgid "Install the <command>Grub</command> Boot Loader on a Hard Disk"
 msgstr "硬盘上 <command>Grub</command> Boot Loader 的安装"
 
 #. Tag: para
-#: using-d-i.xml:2704
+#: using-d-i.xml:2694 using-d-i.xml:3032
 #, no-c-format
 msgid ""
 "The main &architecture; boot loader is called <quote>grub</quote>. Grub is a "
@@ -4141,7 +4174,7 @@ msgstr ""
 "定的 boot loader，它对新手和老手都是一个不错的缺省选择。"
 
 #. Tag: para
-#: using-d-i.xml:2710
+#: using-d-i.xml:2700
 #, no-c-format
 msgid ""
 "By default, grub will be installed into the Master Boot Record (MBR), where "
@@ -4153,7 +4186,7 @@ msgstr ""
 "请参阅 grub 的手册。"
 
 #. Tag: para
-#: using-d-i.xml:2716
+#: using-d-i.xml:2706
 #, no-c-format
 msgid ""
 "If you do not want to install grub, use the &BTN-GOBACK; button to get to "
@@ -4164,13 +4197,13 @@ msgstr ""
 "用的任何 bootloader。"
 
 #. Tag: title
-#: using-d-i.xml:2729
+#: using-d-i.xml:2719
 #, no-c-format
 msgid "Install the <command>LILO</command> Boot Loader on a Hard Disk"
 msgstr "硬盘上 <command>LILO</command> Boot Loader 的安装"
 
 #. Tag: para
-#: using-d-i.xml:2731
+#: using-d-i.xml:2721
 #, no-c-format
 msgid ""
 "The second &architecture; boot loader is called <quote>LILO</quote>. It is "
@@ -4186,7 +4219,7 @@ msgstr ""
 "HOWTO</ulink>。"
 
 #. Tag: para
-#: using-d-i.xml:2741
+#: using-d-i.xml:2731
 #, no-c-format
 msgid ""
 "Currently the LILO installation will only create menu entries for other "
@@ -4199,7 +4232,7 @@ msgstr ""
 "统。"
 
 #. Tag: para
-#: using-d-i.xml:2749
+#: using-d-i.xml:2739
 #, no-c-format
 msgid ""
 "&d-i; offers you three choices on where to install the <command>LILO</"
@@ -4207,13 +4240,13 @@ msgid ""
 msgstr "&d-i; 提供给您三种选择去哪安装 <command>LILO</command> boot loader："
 
 #. Tag: term
-#: using-d-i.xml:2756
+#: using-d-i.xml:2746
 #, no-c-format
 msgid "Master Boot Record (MBR)"
 msgstr "主引导区(MBR)"
 
 #. Tag: para
-#: using-d-i.xml:2756
+#: using-d-i.xml:2746
 #, no-c-format
 msgid ""
 "This way the <command>LILO</command> will take complete control of the boot "
@@ -4221,13 +4254,13 @@ msgid ""
 msgstr "这种方式 <command>LILO</command> 将完全控制启动过程。"
 
 #. Tag: term
-#: using-d-i.xml:2763
+#: using-d-i.xml:2753
 #, no-c-format
 msgid "new &debian; partition"
 msgstr "新 &debian; 分区"
 
 #. Tag: para
-#: using-d-i.xml:2763
+#: using-d-i.xml:2753
 #, no-c-format
 msgid ""
 "Choose this if you want to use another boot manager. <command>LILO</command> "
@@ -4238,26 +4271,30 @@ msgstr ""
 "新 &debian; 分区的起始位置，并能作为第二 boot loader。"
 
 #. Tag: term
-#: using-d-i.xml:2772
+#: using-d-i.xml:2762
 #, no-c-format
 msgid "Other choice"
 msgstr "其它选择"
 
 #. Tag: para
-#: using-d-i.xml:2772
-#, no-c-format
+#: using-d-i.xml:2762
+#, fuzzy, no-c-format
+#| msgid ""
+#| "Useful for advanced users who want to install <command>LILO</command> "
+#| "somewhere else. In this case you will be asked for desired location. You "
+#| "can use traditional device names such as <filename>/dev/hda</filename> or "
+#| "<filename>/dev/sda</filename>."
 msgid ""
 "Useful for advanced users who want to install <command>LILO</command> "
 "somewhere else. In this case you will be asked for desired location. You can "
-"use traditional device names such as <filename>/dev/hda</filename> or "
-"<filename>/dev/sda</filename>."
+"use traditional device names such as <filename>/dev/sda</filename>."
 msgstr ""
 "对于高级用户，把 <command>LILO</command> 安装到其它地方会很有用。这种方式下，"
 "您会被问到需要安装的位置。您可以采用传统的设备命名，如 <filename>/dev/hda</"
 "filename> 或 <filename>/dev/sda</filename>。"
 
 #. Tag: para
-#: using-d-i.xml:2782
+#: using-d-i.xml:2772
 #, no-c-format
 msgid ""
 "If you can no longer boot into Windows 9x (or DOS) after this step, you'll "
@@ -4271,13 +4308,13 @@ msgstr ""
 "录 &mdash; 但这也意味着您要使用其他方法才能启动 &debian;！"
 
 #. Tag: title
-#: using-d-i.xml:2798
+#: using-d-i.xml:2788
 #, no-c-format
 msgid "Install the <command>ELILO</command> Boot Loader on a Hard Disk"
 msgstr "安装 <command>ELILO</command> Boot Loader 到硬盘"
 
 #. Tag: para
-#: using-d-i.xml:2800
+#: using-d-i.xml:2790
 #, no-c-format
 msgid ""
 "The &architecture; boot loader is called <quote>elilo</quote>. It is modeled "
@@ -4302,7 +4339,7 @@ msgstr ""
 "和启动 Linux 内核的工作。"
 
 #. Tag: para
-#: using-d-i.xml:2816
+#: using-d-i.xml:2806
 #, no-c-format
 msgid ""
 "The <quote>elilo</quote> configuration and installation is done as the last "
@@ -4317,13 +4354,13 @@ msgstr ""
 "<emphasis>root</emphasis> 文件系统相同的磁盘。"
 
 #. Tag: title
-#: using-d-i.xml:2828
+#: using-d-i.xml:2818
 #, no-c-format
 msgid "Choose the correct partition!"
 msgstr "选择正确的分区！"
 
 #. Tag: para
-#: using-d-i.xml:2830
+#: using-d-i.xml:2820
 #, no-c-format
 msgid ""
 "The criterion for selecting a partition is that it must be a FAT format "
@@ -4339,13 +4376,13 @@ msgstr ""
 "容！"
 
 #. Tag: title
-#: using-d-i.xml:2845
+#: using-d-i.xml:2835
 #, no-c-format
 msgid "EFI Partition Contents"
 msgstr "EFI 分区内容"
 
 #. Tag: para
-#: using-d-i.xml:2847
+#: using-d-i.xml:2837
 #, no-c-format
 msgid ""
 "The EFI partition is a FAT filesystem format partition on one of the hard "
@@ -4371,13 +4408,13 @@ msgstr ""
 "间，系统更新或重新配置，文件系统中也许会有其他文件。"
 
 #. Tag: filename
-#: using-d-i.xml:2869
+#: using-d-i.xml:2859
 #, no-c-format
 msgid "elilo.conf"
 msgstr "elilo.conf"
 
 #. Tag: para
-#: using-d-i.xml:2870
+#: using-d-i.xml:2860
 #, no-c-format
 msgid ""
 "This is the configuration file read by the boot loader when it starts. It is "
@@ -4388,13 +4425,13 @@ msgstr ""
 "filename> 的复制，其文件名重写成 EFI 分区上的文件。"
 
 #. Tag: filename
-#: using-d-i.xml:2879
+#: using-d-i.xml:2869
 #, no-c-format
 msgid "elilo.efi"
 msgstr "elilo.efi"
 
 #. Tag: para
-#: using-d-i.xml:2880
+#: using-d-i.xml:2870
 #, no-c-format
 msgid ""
 "This is the boot loader program that the <quote>EFI Boot Manager</quote> "
@@ -4407,13 +4444,13 @@ msgstr ""
 "<quote>EFI Boot Manager</quote> 命令菜单。"
 
 #. Tag: filename
-#: using-d-i.xml:2890
+#: using-d-i.xml:2880
 #, no-c-format
 msgid "initrd.img"
 msgstr "initrd.img"
 
 #. Tag: para
-#: using-d-i.xml:2891
+#: using-d-i.xml:2881
 #, no-c-format
 msgid ""
 "This is the initial root filesystem used to boot the kernel. It is a copy of "
@@ -4426,13 +4463,13 @@ msgstr ""
 "filename> 符号链接 <filename>/initrd.img</filename> 指向的文件。"
 
 #. Tag: filename
-#: using-d-i.xml:2903
+#: using-d-i.xml:2893
 #, no-c-format
 msgid "readme.txt"
 msgstr "readme.txt"
 
 #. Tag: para
-#: using-d-i.xml:2904
+#: using-d-i.xml:2894
 #, no-c-format
 msgid ""
 "This is a small text file warning you that the contents of the directory are "
@@ -4443,13 +4480,13 @@ msgstr ""
 "任何本地修改在下次 <filename>/usr/sbin/elilo</filename> 运行时将丢失。"
 
 #. Tag: filename
-#: using-d-i.xml:2914
+#: using-d-i.xml:2904
 #, no-c-format
 msgid "vmlinuz"
 msgstr "vmlinuz"
 
 #. Tag: para
-#: using-d-i.xml:2915
+#: using-d-i.xml:2905
 #, no-c-format
 msgid ""
 "This is the compressed kernel itself. It is a copy of the file referenced in "
@@ -4462,13 +4499,13 @@ msgstr ""
 "<filename>/vmlinuz</filename> 指向的文件。"
 
 #. Tag: title
-#: using-d-i.xml:2935
+#: using-d-i.xml:2925
 #, no-c-format
 msgid "<command>arcboot</command>-installer"
 msgstr "<command>arcboot</command>-installer"
 
 #. Tag: para
-#: using-d-i.xml:2936
+#: using-d-i.xml:2926
 #, no-c-format
 msgid ""
 "The boot loader on SGI machines is <command>arcboot</command>. It has to be "
@@ -4508,13 +4545,13 @@ msgstr ""
 "</screen></informalexample> ，然后键入 <command>boot</command>。"
 
 #. Tag: replaceable
-#: using-d-i.xml:2955
+#: using-d-i.xml:2945
 #, no-c-format
 msgid "scsi"
 msgstr "scsi"
 
 #. Tag: para
-#: using-d-i.xml:2956
+#: using-d-i.xml:2946
 #, no-c-format
 msgid ""
 "is the SCSI bus to be booted from, this is <userinput>0</userinput> for the "
@@ -4522,13 +4559,13 @@ msgid ""
 msgstr "是启动的 SCSI 总线，<userinput>0</userinput> 为板载控制器"
 
 #. Tag: replaceable
-#: using-d-i.xml:2964
+#: using-d-i.xml:2954
 #, no-c-format
 msgid "disk"
 msgstr "disk"
 
 #. Tag: para
-#: using-d-i.xml:2965
+#: using-d-i.xml:2955
 #, no-c-format
 msgid ""
 "is the SCSI ID of the hard disk on which <command>arcboot</command> is "
@@ -4537,13 +4574,13 @@ msgstr "硬盘的 SCSI ID，<command>arcboot</command> 安装在其上"
 
 # index.docbook:1643, index.docbook:1712
 #. Tag: replaceable
-#: using-d-i.xml:2973
+#: using-d-i.xml:2963
 #, no-c-format
 msgid "partnr"
 msgstr "partnr"
 
 #. Tag: para
-#: using-d-i.xml:2974
+#: using-d-i.xml:2964
 #, no-c-format
 msgid ""
 "is the number of the partition on which <filename>/etc/arcboot.conf</"
@@ -4551,13 +4588,13 @@ msgid ""
 msgstr "分区号，<filename>/etc/arcboot.conf</filename> 处于该分区"
 
 #. Tag: replaceable
-#: using-d-i.xml:2982
+#: using-d-i.xml:2972
 #, no-c-format
 msgid "config"
 msgstr "config"
 
 #. Tag: para
-#: using-d-i.xml:2983
+#: using-d-i.xml:2973
 #, no-c-format
 msgid ""
 "is the name of the configuration entry in <filename>/etc/arcboot.conf</"
@@ -4567,13 +4604,13 @@ msgstr ""
 "quote> 。"
 
 #. Tag: title
-#: using-d-i.xml:3004
+#: using-d-i.xml:2994
 #, no-c-format
 msgid "Install <command>Yaboot</command> on a Hard Disk"
 msgstr "安装 <command>Yaboot</command> 至硬盘"
 
 #. Tag: para
-#: using-d-i.xml:3005
+#: using-d-i.xml:2995
 #, no-c-format
 msgid ""
 "Newer (mid 1998 and on) PowerMacs use <command>yaboot</command> as their "
@@ -4591,13 +4628,13 @@ msgstr ""
 "设为启动 &debian-gnu;。"
 
 #. Tag: title
-#: using-d-i.xml:3023
+#: using-d-i.xml:3013
 #, no-c-format
 msgid "Install <command>Quik</command> on a Hard Disk"
 msgstr "安装 <command>Quik</command> 至硬盘"
 
 #. Tag: para
-#: using-d-i.xml:3024
+#: using-d-i.xml:3014
 #, no-c-format
 msgid ""
 "The boot loader for OldWorld Power Macintosh machines is <command>quik</"
@@ -4609,14 +4646,30 @@ msgstr ""
 "您可以将它用于 CHRP。安装程序会自动配置 <command>quik</command>。该配置已知可"
 "以工作在 7200，7300 和 7600 Powermacs，以及一些 Power Computing 克隆。"
 
+#. Tag: para
+#: using-d-i.xml:3038
+#, fuzzy, no-c-format
+#| msgid ""
+#| "By default, grub will be installed into the Master Boot Record (MBR), "
+#| "where it will take over complete control of the boot process. If you "
+#| "prefer, you can install it elsewhere. See the grub manual for complete "
+#| "information."
+msgid ""
+"By default, Grub will be installed into the PReP partition, where it will "
+"over complete control of the boot process."
+msgstr ""
+"缺省情况下，grub 会被装在主引导区(MBR)。如果装在那里的话，它将会完全主宰启动"
+"的整个过程。如果喜欢的话，您可以把 grub 装在其他地方。若要全面和完整的信息，"
+"请参阅 grub 的手册。"
+
 #. Tag: title
-#: using-d-i.xml:3040
+#: using-d-i.xml:3051
 #, no-c-format
 msgid "<command>zipl</command>-installer"
 msgstr "<command>zipl</command>-installer"
 
 #. Tag: para
-#: using-d-i.xml:3041
+#: using-d-i.xml:3052
 #, no-c-format
 msgid ""
 "The boot loader on &arch-title; is <quote>zipl</quote>. <command>ZIPL</"
@@ -4631,13 +4684,13 @@ msgstr ""
 "Commands</quote>，它位于 IBM 的 developerWorks 网站<command>ZIPL</command>。"
 
 #. Tag: title
-#: using-d-i.xml:3058
+#: using-d-i.xml:3069
 #, no-c-format
 msgid "Install the <command>SILO</command> Boot Loader on a Hard Disk"
 msgstr "安装 <command>SILO</command> Boot Loader 到硬盘"
 
 #. Tag: para
-#: using-d-i.xml:3060
+#: using-d-i.xml:3071
 #, no-c-format
 msgid ""
 "The standard &architecture; boot loader is called <quote>silo</quote>. It is "
@@ -4664,13 +4717,13 @@ msgstr ""
 "区启动。这对于安装 GNU/Linux 到一个已经存在 SunOS/Solaris 的系统很有用。"
 
 #. Tag: title
-#: using-d-i.xml:3085
+#: using-d-i.xml:3096
 #, no-c-format
 msgid "Making the system bootable with flash-kernel"
 msgstr ""
 
 #. Tag: para
-#: using-d-i.xml:3086
+#: using-d-i.xml:3097
 #, no-c-format
 msgid ""
 "As there is no common firmware interface on all ARM platforms, the steps "
@@ -4683,7 +4736,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: using-d-i.xml:3097
+#: using-d-i.xml:3108
 #, no-c-format
 msgid ""
 "On devices which boot from internal NOR- or NAND-flash memory, flash-kernel "
@@ -4695,7 +4748,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: using-d-i.xml:3107
+#: using-d-i.xml:3118
 #, no-c-format
 msgid ""
 "For ARM systems that use u-boot as their system firmware and boot the kernel "
@@ -4705,13 +4758,13 @@ msgid ""
 msgstr ""
 
 #. Tag: title
-#: using-d-i.xml:3123
+#: using-d-i.xml:3134
 #, no-c-format
 msgid "Continue Without Boot Loader"
 msgstr "不使用 boot loader 继续进行"
 
 #. Tag: para
-#: using-d-i.xml:3125
+#: using-d-i.xml:3136
 #, no-c-format
 msgid ""
 "This option can be used to complete the installation even when no boot "
@@ -4722,7 +4775,7 @@ msgstr ""
 "是因为不想要(比如，您想使用已经存在的 boot loader)"
 
 #. Tag: para
-#: using-d-i.xml:3132
+#: using-d-i.xml:3143
 #, no-c-format
 msgid ""
 "If you plan to manually configure your bootloader, you should check the name "
@@ -4741,13 +4794,13 @@ msgstr ""
 "filename> 到一个独立的分区，还需要 <filename>/boot</filename> 文件系统。"
 
 #. Tag: title
-#: using-d-i.xml:3149
+#: using-d-i.xml:3160
 #, no-c-format
 msgid "Finishing the Installation"
 msgstr "完成安装"
 
 #. Tag: para
-#: using-d-i.xml:3150
+#: using-d-i.xml:3161
 #, no-c-format
 msgid ""
 "This is the last step in the &debian; installation process during which the "
@@ -4758,13 +4811,13 @@ msgstr ""
 "&d-i; 之后的清理。"
 
 #. Tag: title
-#: using-d-i.xml:3163
+#: using-d-i.xml:3174
 #, no-c-format
 msgid "Setting the System Clock"
 msgstr "设置系统时钟"
 
 #. Tag: para
-#: using-d-i.xml:3165
+#: using-d-i.xml:3176
 #, no-c-format
 msgid ""
 "The installer may ask you if the computer's clock is set to UTC. Normally "
@@ -4776,7 +4829,7 @@ msgstr ""
 "装程序依据是否有其他系统已经安装这类事情，来决定时钟要不要设为 UTC。"
 
 #. Tag: para
-#: using-d-i.xml:3172
+#: using-d-i.xml:3183
 #, no-c-format
 msgid ""
 "In expert mode you will always be able to choose whether or not the clock is "
@@ -4792,7 +4845,7 @@ msgstr ""
 "常设为本地时间。如果您需要多重引导，请选择本地时间而不是 GMT。</phrase>"
 
 #. Tag: para
-#: using-d-i.xml:3183
+#: using-d-i.xml:3194
 #, no-c-format
 msgid ""
 "At this point &d-i; will also attempt to save the current time to the "
@@ -4803,13 +4856,13 @@ msgstr ""
 "决于刚才的选择。"
 
 #. Tag: title
-#: using-d-i.xml:3198
+#: using-d-i.xml:3209
 #, no-c-format
 msgid "Reboot the System"
 msgstr "重新启动系统"
 
 #. Tag: para
-#: using-d-i.xml:3200
+#: using-d-i.xml:3211
 #, no-c-format
 msgid ""
 "You will be prompted to remove the boot media (CD, floppy, etc) that you "
@@ -4820,7 +4873,7 @@ msgstr ""
 "&debian; 系统。"
 
 #. Tag: para
-#: using-d-i.xml:3206
+#: using-d-i.xml:3217
 #, no-c-format
 msgid ""
 "After a final prompt the system will be halted because rebooting is not "
@@ -4832,13 +4885,13 @@ msgstr ""
 "上的 IPL &debian-gnu;，它在安装步骤第一步里被选做根文件系统。"
 
 #. Tag: title
-#: using-d-i.xml:3219
+#: using-d-i.xml:3230
 #, no-c-format
 msgid "Troubleshooting"
 msgstr "排除故障"
 
 #. Tag: para
-#: using-d-i.xml:3220
+#: using-d-i.xml:3231
 #, no-c-format
 msgid ""
 "The components listed in this section are usually not involved in the "
@@ -4849,13 +4902,13 @@ msgstr ""
 "题。"
 
 #. Tag: title
-#: using-d-i.xml:3233
+#: using-d-i.xml:3244
 #, no-c-format
 msgid "Saving the installation logs"
 msgstr "保存安装记录"
 
 #. Tag: para
-#: using-d-i.xml:3235
+#: using-d-i.xml:3246
 #, no-c-format
 msgid ""
 "If the installation is successful, the logfiles created during the "
@@ -4866,7 +4919,7 @@ msgstr ""
 "的 <filename>/var/log/installer/</filename>。"
 
 #. Tag: para
-#: using-d-i.xml:3242
+#: using-d-i.xml:3253
 #, no-c-format
 msgid ""
 "Choosing <guimenuitem>Save debug logs</guimenuitem> from the main menu "
@@ -4880,13 +4933,13 @@ msgstr ""
 "其它系统上研究记录，或者用于报告的附件。"
 
 #. Tag: title
-#: using-d-i.xml:3262
+#: using-d-i.xml:3273
 #, no-c-format
 msgid "Using the Shell and Viewing the Logs"
 msgstr "使用 Shell 查看记录"
 
 #. Tag: para
-#: using-d-i.xml:3264
+#: using-d-i.xml:3275
 #, no-c-format
 msgid ""
 "There are several methods you can use to get a shell while running an "
@@ -4910,13 +4963,13 @@ msgstr ""
 "安装程序。"
 
 #. Tag: para
-#: using-d-i.xml:3282
+#: using-d-i.xml:3293
 #, no-c-format
 msgid "For the graphical installer see also <xref linkend=\"gtk-using\"/>."
 msgstr "对于图形安装程序，请参阅 <xref linkend=\"gtk-using\"/>。"
 
 #. Tag: para
-#: using-d-i.xml:3286
+#: using-d-i.xml:3297
 #, no-c-format
 msgid ""
 "If you cannot switch consoles, there is also an <guimenuitem>Execute a "
@@ -4931,7 +4984,7 @@ msgstr ""
 "到安装程序。"
 
 #. Tag: para
-#: using-d-i.xml:3294
+#: using-d-i.xml:3305
 #, no-c-format
 msgid ""
 "At this point you are booted from the RAM disk, and there is a limited set "
@@ -4947,7 +5000,7 @@ msgstr ""
 "Bourne shell 的克隆，有一些如自动完成与历史纪录这样的好特性。"
 
 #. Tag: para
-#: using-d-i.xml:3303
+#: using-d-i.xml:3314
 #, no-c-format
 msgid ""
 "To edit and view files, use the text editor <command>nano</command>. Log "
@@ -4958,7 +5011,7 @@ msgstr ""
 "以在 <filename>/var/log</filename> 目录找到。"
 
 #. Tag: para
-#: using-d-i.xml:3310
+#: using-d-i.xml:3321
 #, no-c-format
 msgid ""
 "Although you can do basically anything in a shell that the available "
@@ -4969,7 +5022,7 @@ msgstr ""
 "题时进行调试。"
 
 #. Tag: para
-#: using-d-i.xml:3316
+#: using-d-i.xml:3327
 #, no-c-format
 msgid ""
 "Doing things manually from the shell may interfere with the installation "
@@ -4981,13 +5034,13 @@ msgstr ""
 "该让安装程序激活交换分区，而不是在 shell 里面自己动手。"
 
 #. Tag: title
-#: using-d-i.xml:3332
+#: using-d-i.xml:3343
 #, no-c-format
 msgid "Installation Over the Network"
 msgstr "通过网络安装"
 
 #. Tag: para
-#: using-d-i.xml:3334
+#: using-d-i.xml:3345
 #, no-c-format
 msgid ""
 "One of the more interesting components is <firstterm>network-console</"
@@ -5002,7 +5055,7 @@ msgstr ""
 "先建立网络。(您可以使用 <xref linkend=\"automatic-install\"/> 做这部分工作。)"
 
 #. Tag: para
-#: using-d-i.xml:3344
+#: using-d-i.xml:3355
 #, no-c-format
 msgid ""
 "This component is not loaded into the main installation menu by default, so "
@@ -5022,7 +5075,7 @@ msgstr ""
 "SSH</guimenuitem>。"
 
 #. Tag: para
-#: using-d-i.xml:3357
+#: using-d-i.xml:3368
 #, no-c-format
 msgid ""
 "For installations on &arch-title;, this is the default method after setting "
@@ -5030,7 +5083,7 @@ msgid ""
 msgstr "在 &arch-title; 上安装，建立网络之后这是默认的方法。"
 
 #. Tag: para
-#: using-d-i.xml:3362
+#: using-d-i.xml:3373
 #, no-c-format
 msgid ""
 "<phrase arch=\"not-s390\">After selecting this new entry, you</phrase> "
@@ -5049,7 +5102,7 @@ msgstr ""
 "fingerprint。您需要安全地传输该 fingerprint 给那些要继续远程安装的人。"
 
 #. Tag: para
-#: using-d-i.xml:3374
+#: using-d-i.xml:3385
 #, no-c-format
 msgid ""
 "Should you decide to continue with the installation locally, you can always "
@@ -5060,7 +5113,7 @@ msgstr ""
 "他的组件。"
 
 #. Tag: para
-#: using-d-i.xml:3380
+#: using-d-i.xml:3391
 #, no-c-format
 msgid ""
 "Now let's switch to the other side of the wire. As a prerequisite, you need "
@@ -5088,7 +5141,7 @@ msgstr ""
 "确认是否正确。"
 
 #. Tag: para
-#: using-d-i.xml:3397
+#: using-d-i.xml:3408
 #, no-c-format
 msgid ""
 "The <command>ssh</command> server in the installer uses a default "
@@ -5109,7 +5162,7 @@ msgstr ""
 "接在安装过程中的哪一点断开，您在连接之后可能继续，也可能无法继续安装过程。"
 
 #. Tag: para
-#: using-d-i.xml:3410
+#: using-d-i.xml:3421
 #, no-c-format
 msgid ""
 "You may be able to avoid the connection being dropped by adding the option "
@@ -5129,7 +5182,7 @@ msgstr ""
 "需要的时候采用。"
 
 #. Tag: para
-#: using-d-i.xml:3423
+#: using-d-i.xml:3434
 #, no-c-format
 msgid ""
 "If you install several computers in turn and they happen to have the same IP "
@@ -5151,7 +5204,7 @@ msgstr ""
 "footnote>，再重新来过。"
 
 #. Tag: para
-#: using-d-i.xml:3439
+#: using-d-i.xml:3450
 #, no-c-format
 msgid ""
 "After the login you will be presented with an initial screen where you have "
@@ -5168,7 +5221,7 @@ msgstr ""
 "的系统。在安装菜单只能打开一个 SSH 会话，但 shell 可以打开多个。"
 
 #. Tag: para
-#: using-d-i.xml:3449
+#: using-d-i.xml:3460
 #, no-c-format
 msgid ""
 "After you have started the installation remotely over SSH, you should not go "
@@ -5181,13 +5234,13 @@ msgstr ""
 "配置的数据库。结果可能导致安装失败或者安装完成的系统出现问题。"
 
 #. Tag: title
-#: using-d-i.xml:3468
+#: using-d-i.xml:3479
 #, no-c-format
 msgid "Loading Missing Firmware"
 msgstr "加载缺失的固件"
 
 #. Tag: para
-#: using-d-i.xml:3469
+#: using-d-i.xml:3480
 #, no-c-format
 msgid ""
 "As described in <xref linkend=\"hardware-firmware\"/>, some devices require "
@@ -5200,7 +5253,7 @@ msgstr ""
 "强功能就无法使用。"
 
 #. Tag: para
-#: using-d-i.xml:3477
+#: using-d-i.xml:3488
 #, no-c-format
 msgid ""
 "If a device driver requests firmware that is not available, &d-i; will "
@@ -5216,7 +5269,7 @@ msgstr ""
 "序模块。"
 
 #. Tag: para
-#: using-d-i.xml:3487
+#: using-d-i.xml:3498
 #, no-c-format
 msgid ""
 "Which devices are scanned and which file systems are supported depends on "
@@ -5232,7 +5285,7 @@ msgstr ""
 "phrase>"
 
 #. Tag: para
-#: using-d-i.xml:3497
+#: using-d-i.xml:3508
 #, no-c-format
 msgid ""
 "Note that it is possible to skip loading the firmware if you know the device "
@@ -5243,7 +5296,7 @@ msgstr ""
 "固件。"
 
 #. Tag: para
-#: using-d-i.xml:3503
+#: using-d-i.xml:3514
 #, no-c-format
 msgid ""
 "&d-i; only prompts for firmware needed by kernel modules loaded during the "
@@ -5257,13 +5310,13 @@ msgid ""
 msgstr ""
 
 #. Tag: title
-#: using-d-i.xml:3517
+#: using-d-i.xml:3528
 #, no-c-format
 msgid "Preparing a medium"
 msgstr "准备介质"
 
 #. Tag: para
-#: using-d-i.xml:3518
+#: using-d-i.xml:3529
 #, no-c-format
 msgid ""
 "Official CD images do not include non-free firmware. The most common method "
@@ -5283,7 +5336,7 @@ msgstr ""
 "下。推荐使用 FAT 文件系统，因为在安装过程的早期阶段它肯定能被支持。"
 
 #. Tag: para
-#: using-d-i.xml:3531
+#: using-d-i.xml:3542
 #, no-c-format
 msgid ""
 "Tarballs and zip files containing current packages for the most common "
@@ -5298,7 +5351,7 @@ msgstr ""
 "件系统里面。"
 
 #. Tag: para
-#: using-d-i.xml:3545
+#: using-d-i.xml:3556
 #, no-c-format
 msgid ""
 "If the firmware you need is not included in the tarball, you can also "
@@ -5311,7 +5364,7 @@ msgstr ""
 "件。以下概要列出大多数固件软件包，但不保证完整，有些还是非固件软件包："
 
 #. Tag: para
-#: using-d-i.xml:3559
+#: using-d-i.xml:3570
 #, no-c-format
 msgid ""
 "It is also possible to copy individual firmware files to the medium. Loose "
@@ -5322,13 +5375,13 @@ msgstr ""
 "造商那里获得。"
 
 #. Tag: title
-#: using-d-i.xml:3568
+#: using-d-i.xml:3579
 #, no-c-format
 msgid "Firmware and the Installed System"
 msgstr "固件和安装好的系统"
 
 #. Tag: para
-#: using-d-i.xml:3569
+#: using-d-i.xml:3580
 #, no-c-format
 msgid ""
 "Any firmware loaded during the installation will be copied automatically to "
@@ -5343,7 +5396,7 @@ msgstr ""
 "序不同的内核版本，有可能由于版本的偏差造成固件不能加载。"
 
 #. Tag: para
-#: using-d-i.xml:3578
+#: using-d-i.xml:3589
 #, no-c-format
 msgid ""
 "If the firmware was loaded from a firmware package, &d-i; will also install "
@@ -5357,7 +5410,7 @@ msgstr ""
 "做的优点在于如果有固件的新版本存在会自动更新。"
 
 #. Tag: para
-#: using-d-i.xml:3586
+#: using-d-i.xml:3597
 #, no-c-format
 msgid ""
 "If loading the firmware was skipped during the installation, the relevant "
@@ -5368,7 +5421,7 @@ msgstr ""
 "安装好固件或软件包。"
 
 #. Tag: para
-#: using-d-i.xml:3593
+#: using-d-i.xml:3604
 #, no-c-format
 msgid ""
 "If the firmware was loaded from loose firmware files, the firmware copied to "
@@ -5378,6 +5431,18 @@ msgid ""
 msgstr ""
 "如果固件从不严格的固件文件加载，复制到安装好的系统的固件将<emphasis>不会</"
 "emphasis>自动更新，除非对应的固件软件包(如果有的话)在系统安装之后安装。"
+
+#~ msgid ""
+#~ "Support for MD is a relatively new addition to the installer. You may "
+#~ "experience problems for some RAID levels and in combination with some "
+#~ "bootloaders if you try to use MD for the root (<filename>/</filename>) "
+#~ "file system. For experienced users, it may be possible to work around "
+#~ "some of these problems by executing some configuration or installation "
+#~ "steps manually from a shell."
+#~ msgstr ""
+#~ "在安装程序中支持 MD 是相对新的功能。如果您尝试结合一些 RAID 类型与启动引导"
+#~ "器并将 MD 用于根(<filename>/</filename>)文件系统，您也许会经历一些挫折。对"
+#~ "有经验的用户，从 shell 手动地处理一些配置和安装步骤，也许会绕开这些问题。"
 
 #, fuzzy
 #~| msgid ""

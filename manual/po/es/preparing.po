@@ -34,7 +34,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2014-08-05 21:38+0000\n"
+"POT-Creation-Date: 2015-04-15 20:29+0000\n"
 "PO-Revision-Date: 2013-03-08 12:08+0100\n"
 "Last-Translator: Javier Fernández-Sanguino <jfs@debian.org>\n"
 "Language-Team: Debian l10n Spanish <debian-l10n-spanish@lists.debian.org>\n"
@@ -1781,7 +1781,7 @@ msgstr ""
 "configuración."
 
 #. Tag: title
-#: preparing.xml:1138 preparing.xml:1290
+#: preparing.xml:1138 preparing.xml:1479
 #, no-c-format
 msgid "Boot Device Selection"
 msgstr "Selección de dispositivo de arranque"
@@ -1817,10 +1817,21 @@ msgstr ""
 
 #. Tag: para
 #: preparing.xml:1154
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "Most BIOS versions allow to call up a boot menu on system startup in "
+#| "which you select from which device the computer should start for the "
+#| "current session. If this option is available, the BIOS usually displays a "
+#| "short message like <quote>press <keycap>F12</keycap> for boot menu</"
+#| "quote> on system startup. The actual key used to select this menu varies "
+#| "from system to system; commonly used keys are <keycap>F12</keycap>, "
+#| "<keycap>F11</keycap> and <keycap>F8</keycap>. Choosing a device from this "
+#| "menu does not change the default boot order of the BIOS, i.e. you can "
+#| "start once from a USB stick while having configured the internal harddisk "
+#| "as the normal primary boot device."
 msgid ""
-"Most BIOS versions allow to call up a boot menu on system startup in which "
-"you select from which device the computer should start for the current "
+"Most BIOS versions allow you to call up a boot menu on system startup in "
+"which you select from which device the computer should start for the current "
 "session. If this option is available, the BIOS usually displays a short "
 "message like <quote>press <keycap>F12</keycap> for boot menu</quote> on "
 "system startup. The actual key used to select this menu varies from system "
@@ -1845,10 +1856,14 @@ msgstr ""
 
 #. Tag: para
 #: preparing.xml:1168
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "If your BIOS does not provide you with a boot menu to do ad-hoc choices "
+#| "of the current boot device, you have to change your BIOS setup to make "
+#| "the device from which the &d-i; shall be booted the primary boot device."
 msgid ""
 "If your BIOS does not provide you with a boot menu to do ad-hoc choices of "
-"the current boot device, you have to change your BIOS setup to make the "
+"the current boot device, you will have to change your BIOS setup to make the "
 "device from which the &d-i; shall be booted the primary boot device."
 msgstr ""
 "Si la BIOS no proporciona un menú de arranque para realizar selecciones "
@@ -1993,13 +2008,308 @@ msgstr ""
 "nvram."
 
 #. Tag: title
-#: preparing.xml:1257
+#: preparing.xml:1253
+#, no-c-format
+msgid "How to update bare metal ppc64el firmware"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1254
+#, no-c-format
+msgid ""
+"This is an excerpt from <ulink url=\"&url-ibm-powerkvm;\">IBM PowerKVM on "
+"IBM POWER8</ulink>"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1259
+#, no-c-format
+msgid ""
+"Open Power Abstraction Layer (OPAL) is the system firmware in the stack of "
+"POWER processor-based server."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1264
+#, no-c-format
+msgid ""
+"There may be instances when the user might have to upgrade the Power Systems "
+"firmware to a more recent level to acquire new features or additional "
+"support for devices."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1270
+#, no-c-format
+msgid "Make sure that the following requirements are met:"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1275
+#, fuzzy, no-c-format
+#| msgid "Their order on the system."
+msgid "an OS to be running on the system;"
+msgstr "Su orden en el sistema."
+
+#. Tag: para
+#: preparing.xml:1277
+#, no-c-format
+msgid "the .img file of the OPAL level that the user needs to update to;"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1279
+#, no-c-format
+msgid "the machine isn't under HMC control."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1283
+#, no-c-format
+msgid ""
+"Power Systems has two sides of flash to boot firmware from, namely permanent "
+"and temporary. This provides a way to test firmware updates on the temporary "
+"side of the flash before committing the tested changes to the permanent "
+"side, thereby committing the new updates."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1290
+#, no-c-format
+msgid "Perform the following steps for the update:"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1295
+#, no-c-format
+msgid ""
+"Save the level of the existing firmware before really updating. In ASM, in "
+"the system menu, click <command>Service Aids ??? Service Processor Command "
+"Line</command>, and run the following command:"
+msgstr ""
+
+#. Tag: screen
+#: preparing.xml:1299
+#, no-c-format
+msgid "cupdcmd -f"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1300
+#, no-c-format
+msgid ""
+"Download the .img file of the level of firmware to be updated to a location "
+"in the host filesystem. Refer to IBM Fix Central for downloading the image "
+"file."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1304
+#, no-c-format
+msgid ""
+"Verify the image downloaded by running the following command and save the "
+"output."
+msgstr ""
+
+#. Tag: screen
+#: preparing.xml:1307
+#, no-c-format
+msgid "$update_flash -v -f &lt;file_name.img&gt;"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1309
+#, no-c-format
+msgid "Update the firmware by running the following command."
+msgstr ""
+
+#. Tag: screen
+#: preparing.xml:1311
+#, no-c-format
+msgid "$update_flash -f &lt;file_name.img&gt;"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1317
+#, no-c-format
+msgid ""
+"The command reboots the system and therefore, sessions if any, would be lost."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1320
+#, no-c-format
+msgid "Do not reboot or switch off the system until it is back."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1327
+#, no-c-format
+msgid ""
+"Verify the updated firmware level of the temporary side of the flash as in "
+"step 1."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1330
+#, no-c-format
+msgid ""
+"In case the update has to be reverted, the user can do so by running this "
+"command: <informalexample><screen>\n"
+"    $update_flash -r\n"
+"</screen></informalexample> Rejection would reject only the temporary side "
+"of the flash. Therefore, the new level should be committed to the permanent "
+"side only after thorough testing of the new firmware."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1337
+#, no-c-format
+msgid ""
+"The new updated level can be committed to the permanent side of the flash by "
+"running the following command."
+msgstr ""
+
+#. Tag: screen
+#: preparing.xml:1340
+#, no-c-format
+msgid "$update_flash -c"
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1348
+#, no-c-format
+msgid "Updating KVM guest firmware (SLOF)"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1349
+#, no-c-format
+msgid ""
+"Slimline Open Firmware (SLOF) is an implementation of the IEEE 1275 "
+"standard. It can be used as partition firmware for pSeries machines running "
+"on QEMU or KVM."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1356
+#, no-c-format
+msgid ""
+"The package qemu-slof is, in fact, a dependency of package qemu-system-ppc "
+"(which also provides the virtual package qemu-system-ppc64), and can be "
+"installed or updated via <command>apt-get</command> tool on Debian-based "
+"distros. Like so: <informalexample><screen>\n"
+"# apt-get install qemu-slof\n"
+"</screen></informalexample> SLOF can also be installed into rpm-based "
+"distribution systems, given the proper repository or rpm package. "
+"Additionally, the upstream source code is available at http://github.com/"
+"leilihh/SLOF."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1370
+#, no-c-format
+msgid ""
+"Thus, one can use a different SLOF file rather than the default, when "
+"running <command>qemu-system</command>, by adding the command line argument "
+"<userinput>-bios &lt;slof_file&gt; </userinput> when starting qemu."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1380
+#, no-c-format
+msgid "Updating PowerKVM hypervisor"
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1381
+#, no-c-format
+msgid "Instructions for Netboot installation"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1382
+#, no-c-format
+msgid ""
+"You will need a DHCP/TFTP (BOOTP) server, as well as a web server. After "
+"downloading ibm-powerkvm-*-ppc64-service-*.iso, mount loop it and unpack it "
+"into some directory within your HTTP server www root structure (say "
+"wwwroot): <informalexample><screen>\n"
+"# cd &lt;directory-where-the-iso-is&gt;\n"
+"# mkdir ./iso\n"
+"# sudo mount -o loop ibm-powerkvm-*-ppc64-service-*.iso ./iso\n"
+"# cp -a ./iso/* &lt;path-to-wwwroot&gt;\n"
+"</screen></informalexample> Create the petitboot.conf file in a directory "
+"under your tftproot, say /tftproot/powerkvm, with the following contents: "
+"<informalexample><screen>\n"
+"label PowerKVM Automated Install\n"
+"kernel http://YOUR-SERVER-IP/SOME-PATH-TO-wwwroot/ppc/ppc64/vmlinuz\n"
+"initrd http://YOUR-SERVER-IP/SOME-PATH-TO-wwwroot/ppc/ppc64/initrd.img\n"
+"append root=live:http://YOUR-SERVER-IP/SOME-PATH-TO-wwwroot/LiveOS/squashfs."
+"img repo=http://YOUR-SERVER-IP/SOME-PATH-TO-wwwroot/packages rd.dm=0 rd.md=0 "
+"console=hvc0 console=tty0\n"
+"</screen></informalexample> Editing your dhcpd.conf, set this directive at "
+"the beginning: <informalexample><screen>\n"
+"option conf-file code 209 = text;\n"
+"</screen></informalexample> Add the system directive: "
+"<informalexample><screen>\n"
+"host &lt;your-system&gt; {\n"
+"    hardware ethernet &lt;system macaddr&gt;\n"
+"    fixed-address &lt;system ip&gt;;\n"
+"    option host-name \"&lt;system hostname&gt;\";\n"
+"    option conf-file \"&lt;powerkvm/petitboot.conf&gt;\";\n"
+" }\n"
+"</screen></informalexample> Reboot the dhcp server."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1406
+#, no-c-format
+msgid "Boot your PowerLinux machine."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1410
+#, no-c-format
+msgid ""
+"There should be the following option at petitboot (select it): "
+"<informalexample><screen>\n"
+"\"Power KVM Automated Install\" \n"
+"</screen></informalexample> The installer menu should appear automatically."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1421
+#, no-c-format
+msgid "Instructions for DVD"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1422
+#, no-c-format
+msgid ""
+"Boot the ISO ibm-powerkvm-*-ppc64-service-*.iso (either burn a DVD or make "
+"it virtual if using QEMU) and simply wait for the boot."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1425
+#, no-c-format
+msgid ""
+"There should be the following option at petitboot (select it): "
+"<informalexample><screen>\n"
+"\"POWERKVM_LIVECD\" \n"
+"</screen></informalexample> The installer menu should appear automatically."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1446
 #, no-c-format
 msgid "Invoking OpenBoot"
 msgstr "Utilización de OpenBoot"
 
 #. Tag: para
-#: preparing.xml:1259
+#: preparing.xml:1448
 #, no-c-format
 msgid ""
 "OpenBoot provides the basic functions needed to boot the &arch-title; "
@@ -2015,7 +2325,7 @@ msgstr ""
 "máquina, como diagnósticos y programas básicos."
 
 #. Tag: para
-#: preparing.xml:1267
+#: preparing.xml:1456
 #, no-c-format
 msgid ""
 "To get to the boot prompt you need to hold down the <keycap>Stop</keycap> "
@@ -2036,7 +2346,7 @@ msgstr ""
 "nueva línea de órdenes si obtiene la antigua."
 
 #. Tag: para
-#: preparing.xml:1279
+#: preparing.xml:1468
 #, no-c-format
 msgid ""
 "If you are using a serial console, send a break to the machine. With "
@@ -2051,7 +2361,7 @@ msgstr ""
 "programa distinto."
 
 #. Tag: para
-#: preparing.xml:1292
+#: preparing.xml:1481
 #, no-c-format
 msgid ""
 "You can use OpenBoot to boot from specific devices, and also to change your "
@@ -2072,7 +2382,7 @@ msgstr ""
 "\">Referencia de OpenBoot de Sun</ulink>."
 
 #. Tag: para
-#: preparing.xml:1302
+#: preparing.xml:1491
 #, no-c-format
 msgid ""
 "Typically, with newer revisions, you can use OpenBoot devices such as "
@@ -2115,7 +2425,7 @@ msgstr ""
 "\"&url-openboot;\">Referencia de OpenBoot de Sun</ulink>."
 
 #. Tag: para
-#: preparing.xml:1325
+#: preparing.xml:1514
 #, no-c-format
 msgid ""
 "To boot from a specific device, use the command <userinput>boot "
@@ -2146,19 +2456,19 @@ msgstr ""
 "</screen></informalexample> y desde Solaris:"
 
 #. Tag: screen
-#: preparing.xml:1344
+#: preparing.xml:1533
 #, no-c-format
 msgid "eeprom boot-device=disk1:1"
 msgstr "# eeprom boot-device=disk1:1"
 
 #. Tag: title
-#: preparing.xml:1354
+#: preparing.xml:1543
 #, no-c-format
 msgid "BIOS Setup"
 msgstr "Configuración de la BIOS"
 
 #. Tag: para
-#: preparing.xml:1355
+#: preparing.xml:1544
 #, no-c-format
 msgid ""
 "In order to install &debian-gnu; on a &arch-title; or zSeries machine you "
@@ -2182,7 +2492,7 @@ msgstr ""
 "basada en líneas en lugar de caracteres."
 
 #. Tag: para
-#: preparing.xml:1367
+#: preparing.xml:1556
 #, fuzzy, no-c-format
 #| msgid ""
 #| "Linux on this platform runs either natively on the bare machine, in a so-"
@@ -2210,7 +2520,7 @@ msgstr ""
 "de ésta opción y del HMC."
 
 #. Tag: para
-#: preparing.xml:1376
+#: preparing.xml:1565
 #, no-c-format
 msgid ""
 "Before you actually perform an installation, you have to go over some design "
@@ -2236,13 +2546,13 @@ msgstr ""
 "leer los pasos de instalación específicos de &debian;."
 
 #. Tag: title
-#: preparing.xml:1393
+#: preparing.xml:1582
 #, no-c-format
 msgid "Native and LPAR installations"
 msgstr "Instalaciones nativas y LPAR"
 
 #. Tag: para
-#: preparing.xml:1394
+#: preparing.xml:1583
 #, no-c-format
 msgid ""
 "Please refer to chapter 5 of the <ulink url=\"http://www.redbooks.ibm.com/"
@@ -2258,13 +2568,13 @@ msgstr ""
 "Distribuciones</ulink> que describen cómo configurar LPAR para Linux."
 
 #. Tag: title
-#: preparing.xml:1408
+#: preparing.xml:1597
 #, no-c-format
 msgid "Installation as a VM guest"
 msgstr "Instalación como invitado de VM"
 
 #. Tag: para
-#: preparing.xml:1410
+#: preparing.xml:1599
 #, no-c-format
 msgid ""
 "Please refer to chapter 6 of the <ulink url=\"http://www.redbooks.ibm.com/"
@@ -2281,7 +2591,7 @@ msgstr ""
 "ejecutar Linux."
 
 #. Tag: para
-#: preparing.xml:1420
+#: preparing.xml:1609
 #, no-c-format
 msgid ""
 "You need to copy all the files from the <filename>generic</filename> sub-"
@@ -2303,13 +2613,13 @@ msgstr ""
 "filename>, que introducirá los ficheros en el orden correcto."
 
 #. Tag: title
-#: preparing.xml:1437
+#: preparing.xml:1626
 #, no-c-format
 msgid "Setting up an installation server"
 msgstr "Preparación de un servidor de instalación"
 
 #. Tag: para
-#: preparing.xml:1439
+#: preparing.xml:1628
 #, no-c-format
 msgid ""
 "If you don't have a connection to the Internet (either directly or via a web "
@@ -2323,7 +2633,7 @@ msgstr ""
 "usando NFS, HTTP ó FTP."
 
 #. Tag: para
-#: preparing.xml:1447
+#: preparing.xml:1636
 #, no-c-format
 msgid ""
 "The installation server needs to copy the exact directory structure from any "
@@ -2338,19 +2648,19 @@ msgstr ""
 "instalación en un árbol de directorios como éste."
 
 #. Tag: emphasis
-#: preparing.xml:1456
+#: preparing.xml:1645
 #, no-c-format
 msgid "FIXME: more information needed &mdash; from a Redbook?"
 msgstr "FIXME: es necesaria más información &mdash; ¿obtenerla de un Redbook?"
 
 #. Tag: title
-#: preparing.xml:1466
+#: preparing.xml:1655
 #, no-c-format
 msgid "ARM firmware"
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1468
+#: preparing.xml:1657
 #, no-c-format
 msgid ""
 "As already mentioned before, there is unfortunately no standard for system "
@@ -2365,7 +2675,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1480
+#: preparing.xml:1669
 #, no-c-format
 msgid ""
 "As a result even newly sold systems often use a firmware that is based on a "
@@ -2379,13 +2689,44 @@ msgid ""
 msgstr ""
 
 #. Tag: title
-#: preparing.xml:1493
+#: preparing.xml:1682
 #, no-c-format
-msgid "Setting the ethernet MAC address in u-boot"
+msgid "Debian-provided U-Boot (system firmware) images"
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1494
+#: preparing.xml:1683
+#, no-c-format
+msgid ""
+"Debian provides U-Boot images for various armhf systems that can load their "
+"U-Boot from an SD card at &armmp-uboot-img;. The U-Boot builds are offered "
+"in two formats: raw U-Boot components and a ready-made card image that can "
+"easily be written onto an SD card. The raw U-Boot components are provided "
+"for advanced users; the generally recommended way is to use one of the ready-"
+"made SD card images. They are named &lt;system-type&gt;.sdcard.img.gz and "
+"can be written to a card e.g. with <informalexample><screen>zcat &lt;system-"
+"type&gt;.sdcard.img.gz > /dev/SD_CARD_DEVICE</screen></informalexample> As "
+"with all images, please be aware that writing the image to an SD card wipes "
+"all previous contents of the card!"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1698
+#, no-c-format
+msgid ""
+"If Debian provides a U-Boot image for your system, it is recommended that "
+"you use this image instead of the vendor-provided U-Boot, as the version in "
+"Debian is usually newer and has more features."
+msgstr ""
+
+#. Tag: title
+#: preparing.xml:1706
+#, no-c-format
+msgid "Setting the ethernet MAC address in U-Boot"
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1707
 #, no-c-format
 msgid ""
 "The MAC address of every ethernet interface should normally be globally "
@@ -2396,7 +2737,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1502
+#: preparing.xml:1715
 #, no-c-format
 msgid ""
 "In the case of development boards, sometimes the manufacturer wants to avoid "
@@ -2411,7 +2752,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1513
+#: preparing.xml:1726
 #, no-c-format
 msgid ""
 "To avoid conflicts with existing officially-assigned MAC addresses, there is "
@@ -2424,68 +2765,68 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1523
+#: preparing.xml:1736
 #, no-c-format
 msgid ""
-"On systems using u-boot as system firmware, the ethernet MAC address is "
+"On systems using U-Boot as system firmware, the ethernet MAC address is "
 "placed in the <quote>ethaddr</quote> environment variable. It can be checked "
-"at the u-boot command prompt with the command <quote>printenv ethaddr</"
+"at the U-Boot command prompt with the command <quote>printenv ethaddr</"
 "quote> and can be set with the command <quote>setenv ethaddr ca:ff:"
 "ee:12:34:56</quote>. After setting the value, the command <quote>saveenv</"
 "quote> makes the assignment permanent."
 msgstr ""
 
 #. Tag: title
-#: preparing.xml:1534
+#: preparing.xml:1747
 #, no-c-format
-msgid "Kernel/Initrd/Device-Tree relocation issues in u-boot"
+msgid "Kernel/Initrd/Device-Tree relocation issues in U-Boot"
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1535
+#: preparing.xml:1748
 #, no-c-format
 msgid ""
-"On some systems with older u-boot versions there can be problems with "
+"On some systems with older U-Boot versions there can be problems with "
 "properly relocating the Linux kernel, the initial ramdisk and the device-"
-"tree blob in memory during the boot process. In this case, u-boot shows the "
+"tree blob in memory during the boot process. In this case, U-Boot shows the "
 "message <quote>Starting kernel ...</quote>, but the system freezes "
 "afterwards without further output. These issues have been solved with newer "
-"u-boot versions from v2014.07 onwards."
+"U-Boot versions from v2014.07 onwards."
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1544
+#: preparing.xml:1757
 #, no-c-format
 msgid ""
-"If the system has originally used a u-boot version older than v2014.07 and "
+"If the system has originally used a U-Boot version older than v2014.07 and "
 "has been upgraded to a newer version later, the problem might still occur "
-"even after upgrading u-boot. Upgrading u-boot usually does not modify the "
-"existing u-boot environment variables and the fix requires an additional "
-"environment variable (bootm_size) to be set, which u-boot does automatically "
+"even after upgrading U-Boot. Upgrading U-Boot usually does not modify the "
+"existing U-Boot environment variables and the fix requires an additional "
+"environment variable (bootm_size) to be set, which U-Boot does automatically "
 "only on fresh installations without existing environment data. It is "
-"possible to manually set bootm_size to the new u-boot's default value by "
-"running the command <quote>env default bootm_size; saveenv</quote> at the u-"
-"boot prompt."
+"possible to manually set bootm_size to the new U-Boot's default value by "
+"running the command <quote>env default bootm_size; saveenv</quote> at the U-"
+"Boot prompt."
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1555
+#: preparing.xml:1768
 #, no-c-format
 msgid ""
 "Another possibility to circumvent relocation-related problems is to run the "
 "command <quote>setenv fdt_high ffffffff; setenv initrd_high 0xffffffff; "
-"saveenv</quote> at the u-boot prompt to completely disable the relocation of "
+"saveenv</quote> at the U-Boot prompt to completely disable the relocation of "
 "the initial ramdisk and the device-tree blob."
 msgstr ""
 
 #. Tag: title
-#: preparing.xml:1565
+#: preparing.xml:1778
 #, no-c-format
 msgid "Systems with UEFI firmware"
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1566
+#: preparing.xml:1779
 #, no-c-format
 msgid ""
 "UEFI (<quote>Unified Extensible Firmware Interface</quote>) is a new kind of "
@@ -2494,7 +2835,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1572
+#: preparing.xml:1785
 #, no-c-format
 msgid ""
 "Currently most PC systems that use UEFI also have a so-called "
@@ -2503,18 +2844,18 @@ msgid ""
 "BIOS, so that software written for the classic PC BIOS can be used "
 "unchanged. Nonetheless UEFI is intended to one day completely replace the "
 "old PC BIOS without being fully backwards-compatible and there are already a "
-"few systems with UEFI but without CSM."
+"lot of systems with UEFI but without CSM."
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1582
+#: preparing.xml:1795
 #, no-c-format
 msgid ""
 "On systems with UEFI there are a few things to take into consideration when "
 "installing an operating system. The way the firmware loads an operating "
 "system is fundamentally different between the classic BIOS (or UEFI in CSM "
 "mode) and native UEFI. One major difference is the way the harddisk "
-"partitions get recorded on the harddisk. While the classic BIOS and UEFI in "
+"partitions are recorded on the harddisk. While the classic BIOS and UEFI in "
 "CSM mode use a DOS partition table, native UEFI uses a different "
 "partitioning scheme called <quote>GUID Partition Table</quote> (GPT). On a "
 "single disk, for all practical purposes only one of the two can be used and "
@@ -2523,14 +2864,14 @@ msgid ""
 "from a disk with GPT is only possible in native UEFI mode, but using GPT "
 "becomes more and more common as hard disk sizes grow, because the classic "
 "DOS partition table cannot address disks larger than about 2 Terabytes while "
-"GPT allows for by far larger disks. The other major difference between BIOS "
-"(or UEFI in CSM mode) and native UEFI is from where boot code is loaded and "
-"in which format it has to be, so that different bootloaders are needed for "
-"both systems."
+"GPT allows for far larger disks. The other major difference between BIOS (or "
+"UEFI in CSM mode) and native UEFI is the location where boot code is stored "
+"and in which format it has to be. This means that different bootloaders are "
+"needed for each system."
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1602
+#: preparing.xml:1815
 #, no-c-format
 msgid ""
 "The latter becomes important when booting &d-i; on a UEFI system with CSM "
@@ -2549,7 +2890,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1618
+#: preparing.xml:1831
 #, no-c-format
 msgid ""
 "Another UEFI-related topic is the so-called <quote>secure boot</quote> "
@@ -2561,54 +2902,66 @@ msgid ""
 "Microsoft used for signing the Windows bootloader. As the boot code used by "
 "&d-i; is not signed by Microsoft, booting the installer requires prior "
 "deactivation of secure boot in case it is enabled. Secure boot is often "
-"enabled by default on systems that come preinstalled with a 64Bit version of "
-"Windows 8 and there is unfortunately no standard where in the UEFI setup it "
-"can be disabled. On some systems, the option to disable secure boot is only "
-"made visible when a BIOS password has been set by the user, so if you have a "
+"enabled by default on systems that come preinstalled with a 64-bit version "
+"of Windows 8 and there is unfortunately no standard way to disable it in the "
+"UEFI setup. On some systems, the option to disable secure boot is only made "
+"visible when a BIOS password has been set by the user, so if you have a "
 "system with secure boot enabled, but cannot find an option to disable it, "
 "try setting a BIOS password, powercycle the machine and look again for an "
 "appropriate option."
 msgstr ""
 
 #. Tag: title
-#: preparing.xml:1640
+#: preparing.xml:1853
 #, no-c-format
 msgid "Disabling the Windows 8 <quote>fast boot</quote> feature"
 msgstr ""
 
 #. Tag: para
-#: preparing.xml:1641
+#: preparing.xml:1854
 #, no-c-format
 msgid ""
-"Windows 8 offers a feature called <quote>fast boot</quote> to cut down the "
-"time needed to boot itself. Technically, when this feature is enabled, "
-"Windows 8 does not do a real shutdown and a real cold boot afterwards when "
-"ordered to shut down, but instead does something resembling a partial "
-"suspend to disk to reduce the <quote>boot</quote> time. As long as Windows 8 "
-"is the only operating system on the machine, this is unproblematic, but it "
-"can result in problems and data loss when you have a dual boot setup in "
-"which another operating system accesses the same filesystems as Windows 8 "
-"does. In that case the real state of the filesystem can be different from "
-"what Windows 8 believes it to be after the <quote>boot</quote> and this "
-"could cause filesystem corruption upon further write accesses to the "
-"filesystem. Therefore in a dual boot setup, to avoid filesystem corruption "
-"the <quote>fast boot</quote> feature has to be disabled within Windows."
+"Windows 8 offers a feature called <quote>fast boot</quote> to cut down "
+"system startup time. Technically, when this feature is enabled, Windows 8 "
+"does not do a real shutdown and a real cold boot afterwards when ordered to "
+"shut down, but instead does something resembling a partial suspend to disk "
+"to reduce the <quote>boot</quote> time. As long as Windows 8 is the only "
+"operating system on the machine, this is unproblematic, but it can result in "
+"problems and data loss when you have a dual boot setup in which another "
+"operating system accesses the same filesystems as Windows 8 does. In that "
+"case the real state of the filesystem can be different from what Windows 8 "
+"believes it to be after the <quote>boot</quote> and this could cause "
+"filesystem corruption upon further write accesses to the filesystem. "
+"Therefore in a dual boot setup, to avoid filesystem corruption the "
+"<quote>fast boot</quote> feature has to be disabled within Windows."
+msgstr ""
+
+#. Tag: para
+#: preparing.xml:1870
+#, no-c-format
+msgid ""
+"It may also be necessary to disable <quote>fast boot</quote> to even allow "
+"access to UEFI setup to choose to boot another operating system or &d-i;. On "
+"some UEFI systems, the firmware will reduce <quote>boot</quote> time by not "
+"initialising the keyboard controller or USB hardware; in these cases, it is "
+"necessary to boot into Windows and disable this feature to allow for a "
+"change of boot order."
 msgstr ""
 
 #. Tag: title
-#: preparing.xml:1659
+#: preparing.xml:1882
 #, no-c-format
 msgid "Hardware Issues to Watch Out For"
 msgstr "Problemas de hardware a tener en cuenta"
 
 #. Tag: title
-#: preparing.xml:1662
+#: preparing.xml:1885
 #, no-c-format
 msgid "USB BIOS support and keyboards"
 msgstr "Compatibilidad de USB en la BIOS y teclados USB"
 
 #. Tag: para
-#: preparing.xml:1663
+#: preparing.xml:1886
 #, no-c-format
 msgid ""
 "If you have no PS/2-style keyboard, but only a USB model, on some very old "
@@ -2628,13 +2981,13 @@ msgstr ""
 "<quote>Compatibilidad de teclado USB</quote>."
 
 #. Tag: title
-#: preparing.xml:1676
+#: preparing.xml:1899
 #, no-c-format
 msgid "Display-visibility on OldWorld Powermacs"
 msgstr "Visibilidad de la pantalla en Powermacs OldWorld"
 
 #. Tag: para
-#: preparing.xml:1678
+#: preparing.xml:1901
 #, no-c-format
 msgid ""
 "Some OldWorld Powermacs, most notably those with the <quote>control</quote> "
