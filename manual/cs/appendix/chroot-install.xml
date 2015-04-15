@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 69333 -->
+<!-- original version: 69755 -->
 
  <sect1 id="linux-upgrade">
  <title>Jak nainstalovat &debian-gnu; ze stávajícího unixového/linuxového systému</title>
@@ -46,15 +46,15 @@ počítejte s nejméně &task-desktop-lxde-inst; MB.
 </para><para>
 
 Na nových oddílech vytvořte souborové systémy. Například souborový
-systém ext3 na oblasti <filename>/dev/hda6</filename> vytvoříte
+systém ext3 na oblasti <filename>/dev/sda6</filename> vytvoříte
 příkazem:
 
 <informalexample><screen>
-<prompt>#</prompt> <userinput>mke2fs -j /dev/hda6</userinput>
+<prompt>#</prompt> <userinput>mke2fs -j /dev/sda6</userinput>
 </screen></informalexample>
 
 (Ve zbytku návodu budeme předpokládat, že kořenový oddíl je
-<filename>/dev/hda6</filename>.)
+<filename>/dev/sda6</filename>.)
 Jestliže chcete vytvořit systém ext2, vynechejte parametr
 <userinput>-j</userinput>.
 
@@ -64,9 +64,9 @@ Inicializujte a aktivujte odkládací oddíl (nezapomeňte změnit číslo
 oblasti podle skutečnosti):
 
 <informalexample><screen>
-<prompt>#</prompt> <userinput>mkswap /dev/hda5</userinput>
+<prompt>#</prompt> <userinput>mkswap /dev/sda5</userinput>
 <prompt>#</prompt> <userinput>sync</userinput>
-<prompt>#</prompt> <userinput>swapon /dev/hda5</userinput>
+<prompt>#</prompt> <userinput>swapon /dev/sda5</userinput>
 </screen></informalexample>
 
 Připojte budoucí kořenovou oblast (<filename>/</filename>) do adresáře
@@ -75,7 +75,7 @@ nezáleží.
 
 <informalexample><screen>
 <prompt>#</prompt> <userinput>mkdir /mnt/debinst</userinput>
-<prompt>#</prompt> <userinput>mount /dev/hda6 /mnt/debinst</userinput>
+<prompt>#</prompt> <userinput>mount /dev/sda6 /mnt/debinst</userinput>
 </screen></informalexample>
 
 </para><note><para>
@@ -556,27 +556,27 @@ než spuštění:
 
 <informalexample><screen>
 <prompt>#</prompt> <userinput>aptitude install grub-pc</userinput>
-<prompt>#</prompt> <userinput>grub-install /dev/<replaceable>hda</replaceable></userinput>
+<prompt>#</prompt> <userinput>grub-install /dev/<replaceable>sda</replaceable></userinput>
 <prompt>#</prompt> <userinput>update-grub</userinput>
 </screen></informalexample>
 
 Druhý příkaz nainstaluje <command>grub2</command> (v tomto případě do
 hlavního zaváděcího záznamu (MBR) disku
-<literal>hda</literal>). Poslední příkaz vytvoří rozumný a funkční
+<literal>sda</literal>). Poslední příkaz vytvoří rozumný a funkční
 konfigurační soubor <filename>/boot/grub/grub.cfg</filename>.
 
 </para><para arch="any-x86">
 
 V příkladu se předpokládá existence souboru zařízení
-<filename>/dev/hda</filename>.
+<filename>/dev/sda</filename>.
 
 </para><para arch="x86">
 
 Pro inspiraci nabízíme minimální <filename>/etc/lilo.conf</filename>:
 
 <informalexample><screen>
-boot=/dev/<replaceable>hda6</replaceable>
-root=/dev/<replaceable>hda6</replaceable>
+boot=/dev/<replaceable>sda6</replaceable>
+root=/dev/<replaceable>sda6</replaceable>
 install=menu
 delay=20
 lba32
@@ -599,10 +599,10 @@ konfigurační soubor systému, ze kterého jej spouštíte).
 Pro inspiraci nabízíme minimální <filename>/etc/yaboot.conf</filename>:
 
 <informalexample><screen>
-boot=/dev/hda2
+boot=/dev/sda2
 device=hd:
 partition=6
-root=/dev/hda6
+root=/dev/sda6
 magicboot=/usr/lib/yaboot/ofboot
 timeout=50
 image=/vmlinux

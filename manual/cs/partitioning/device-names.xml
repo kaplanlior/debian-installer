@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 64772 -->
+<!-- original version: 69755 -->
 
  <sect1 arch="linux-any" id="device-names">
  <title>Jak Linux pojmenovává pevné disky</title>
@@ -23,39 +23,18 @@ Druhá disketová jednotka je <filename>/dev/fd1</filename>.
 </para></listitem>
 <listitem><para>
 
-První disk na SCSI (podle čísel zařízení na sběrnici) je
-<filename>/dev/sda</filename>.
+První rozpoznaný disk má název <filename>/dev/sda</filename>.
 
 </para></listitem>
 <listitem><para>
 
-Druhý disk na SCSI (vyšší číslo na sběrnici) je
-<filename>/dev/sdb</filename> atd.
+Druhý rozpoznaný disk má název <filename>/dev/sdb</filename> atd.
 
 </para></listitem>
 <listitem><para>
 
 První SCSI CD mechanice odpovídá <filename>/dev/scd0</filename> nebo
 také <filename>/dev/sr0</filename>.
-
-</para></listitem>
-<listitem><para>
-
-Hlavní (master) disk na prvním IDE řadiči se jmenuje
-<filename>/dev/hda</filename>.
-
-</para></listitem>
-<listitem><para>
-
-Podřízený (slave) disk na prvním IDE řadiči je
-<filename>/dev/hdb</filename>.
-
-</para></listitem>
-<listitem><para>
-
-Master a slave diskům na druhém řadiči jsou postupně přiřazeny
-<filename>/dev/hdc</filename> a <filename>/dev/hdd</filename>. Novější
-IDE řadiče mají dva kanály, které se chovají jako dva řadiče.
 
 </para></listitem>
 </itemizedlist>
@@ -77,7 +56,7 @@ Druhé DASD zařízení se jmenuje <filename>/dev/dasdb</filename>, atd.
 
 Oddíly na discích jsou rozlišeny připojením čísla k názvu zařízení:
 <filename>sda1</filename> a <filename>sda2</filename> představují
-první a druhý oddíl prvního SCSI disku.
+první a druhý oddíl prvního disku.
 
 </para><para arch="not-s390">
 
@@ -97,12 +76,11 @@ zpráv, které Linux vypisuje při startu.
 </para><para arch="x86">
 
 Primární oddíly jsou v Linuxu reprezentovány názvem disku a číslem
-oddílu 1 až 4. Například <filename>/dev/hda1</filename> odpovídá
-prvnímu primárnímu oddílu na prvním IDE disku. Logické oddíly jsou
+oddílu 1 až 4. Například <filename>/dev/sda1</filename> odpovídá
+prvnímu primárnímu oddílu na prvním disku. Logické oddíly jsou
 číslovány od 5, takže na stejném disku má první logický oddíl označení
-<filename>/dev/hda5</filename>. Rozšířený oddíl, tj. primární oddíl
+<filename>/dev/sda5</filename>. Rozšířený oddíl, tj. primární oddíl
 obsahující logické oddíly, sám o sobě použitelný není.
-To platí jak pro IDE, tak SCSI disky.
 
 </para><para arch="sparc">
 

@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 69503 -->
+<!-- original version: 69755 -->
 
 <para>
 
@@ -15,7 +15,7 @@ nepomůže. Pomůže však <quote>vynulování</quote> několika prvních
 sektorů disku:
 
 <informalexample><screen>
-<prompt>#</prompt> <userinput>dd if=/dev/zero of=/dev/hd<replaceable>X</replaceable> bs=512 count=2; sync</userinput>
+<prompt>#</prompt> <userinput>dd if=/dev/zero of=/dev/sd<replaceable>X</replaceable> bs=512 count=2; sync</userinput>
 </screen></informalexample>
 
 Mějte na paměti, že tímto znepřístupníte všechna data, která se na
@@ -328,13 +328,15 @@ Pokud jste zvolili automatické rozdělení pomocí (šifrovaného) LVM,
 vytvoří se také malá oblast pro <filename>/boot</filename>. Ostatní
 oblasti, včetně odkládací, budou vytvořeny uvnitř LVM.
 
-</para><para arch="ia64">
+</para><para arch="amd64;arm64;i386">
 
-Na architektuře &arch-title; se při automatickém rozdělení disku
-vytvoří malá zaváděcí oblast pro zavaděč <command>EFI</command>,
-formátovaná souborovým systémem FAT16. Při ručním dělení disku přibude
-ve formátovacím menu položka <guimenuitem>Použít oblast jako zaváděcí
-EFI oblast</guimenuitem>.
+Jestliže jste instalaci na architektuře &arch-title; zavedli v režimu
+EFI, pak se při automatickém rozdělení disku vytvoří malá zaváděcí
+oblast pro zavaděč <command>EFI</command>, formátovaná souborovým
+systémem FAT32. Tato oblast je známá jako <quote>EFI System Partition
+(ESP)</quote>. Při ručním dělení disku přibude ve formátovacím menu
+položka <guimenuitem>Použít oblast jako: systémová oblast
+EFI</guimenuitem>.
 
 </para><para>
 
@@ -343,13 +345,13 @@ informacemi o souborových systémech a přípojných bodech. Seznam
 oblastí může vypadat třeba takto:
 
 <informalexample><screen>
-  IDE1 master (hda) - 6.4 GB WDC AC36400L
+  SCSI1 (0,0,0) (sda) - 6.4 GB WDC AC36400L
        1. primární   32.4 MB  B f ext2       /boot
        2. primární  551.0 MB      swap       swap
        3. primární    5.8 GB      ntfs
           pri/log     8.2 MB      VOLNÉ MÍSTO
 
-  IDE1 slave (hdb) - 80.0 GB ST380021A
+  SCSI2 (1,0,0) (hdb) - 80.0 GB ST380021A
        1. primární   15.9 MB      ext3
        2. primární  996.0 MB      fat16
        3. primární    3.9 GB      xfs        /home
@@ -440,11 +442,11 @@ z rozdělovacího menu vybrat možnost <guimenuitem>Automaticky rozdělit
 disk</guimenuitem> nebo <guimenuitem>Automaticky rozdělit volné
 místo</guimenuitem>.
 
-</para><para arch="ia64">
+</para><para arch="amd64;arm64;i386">
 
-Pokud zapomenete vytvořit a nastavit zaváděcí EFI oblast,
-<command>partman</command> to zjistí a dokud vše nespravíte, nenechá
-vás pokračovat.
+Pokud zavedete instalaci v režimu EFI, ale zapomenete vytvořit
+a nastavit systémovou oblast EFI, <command>partman</command> to zjistí
+a dokud vše nespravíte, nenechá vás pokračovat.
 
 </para><para>
 
