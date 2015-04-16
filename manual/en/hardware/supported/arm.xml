@@ -1,88 +1,31 @@
 <!-- retain these comments for translator revision tracking -->
 <!-- $Id$ -->
 
-
-  <sect2 arch="arm"><title>CPU, Main Boards, and Video Support</title>
-
-<para>
-
-ARM systems are much more heterogeneous than the i386/amd64-based PC
-architecture, so whilst 64-bit ARM machines should boot in a
-standardised way, like PCs, the situation is more complicated for
-32-bit ARM machines.
-
-</para>
-
-<para>
-The ARM architecture is used mainly in so-called
-<quote>systems-on-chip</quote> (SoCs). These SoCs are designed by many
-different companies with vastly varying hardware components even for
-the very basic functionality required to bring the system up. System
-firmware interfaces have been increasingly standardised over time, but
-especially on older hardware firmware/boot interfaces vary a great
-deal, so on these systems the Linux kernel has to take care of many
-system-specific low-level issues which are handled by the mainboard's
-BIOS in the PC world.
-
-</para>
-
-<para>
-At the beginning of the ARM support in the Linux kernel, the hardware
-variety resulted in the requirement of having a separate kernel for
-each ARM system in contrast to the <quote>one-fits-all</quote> kernel
-for PC systems.  As this approach does not scale to a large number of
-different systems, work was done to allow booting with a single ARM
-kernel that can run on different ARM systems.  Support for newer ARM
-systems gets implemented in a way that allows the use of such a
-multiplatform kernel, but for several older systems a separate
-specific kernel is still required.
-</para>
-
-<para>
-Because of this, the standard &debian; distribution only supports
-installation on a selected number of older 32-bit ARM systems in
-addition to the newer (32 and 64-bit) systems which are supported by
-the ARM multiplatform kernels (called 'armmp' on 32-bit armhf, no
-flavour name on 64-bit arm64).
-
-</para>
+  <sect2 arch="arm"><title>Three different ARM ports</title>
 
 <para>
 The ARM architecture has evolved over time and modern ARM processors
 provide features which are not available in older models.  &debian;
-therefore provides three ARM ports: the &debian;/arm64 port for all
-64-bit machines, and the &debian;/armel and the &debian;/armhf ports
-for 32-bit machines.  &debian;/armel targets older ARM processors
-without support for a hardware floating point unit (FPU), while
-&debian;/armhf works only on newer ARM processors which implement at
-least the ARMv7 architecture with version 3 of the ARM vector floating
-point specification (VFPv3).  &debian;/armhf makes use of the extended
-features and performance enhancements available on these models.
-&debian;/arm64 works on processors which implement at least the ARMv8
-architecture (which is 64bit).
+therefore provides three ARM ports to give the best support for a very
+wide range of different machines:
+<itemizedlist>
+  <listitem><para>
+    &debian;/armel targets older 32-bit ARM processors without support
+    for a hardware floating point unit (FPU),
+  </para></listitem>
+  <listitem><para>
+    &debian;/armhf works only on newer 32-bit ARM processors which
+    implement at least the ARMv7 architecture with version 3 of the
+    ARM vector floating point specification (VFPv3). It makes use of
+    the extended features and performance enhancements available on
+    these models.
+  </para></listitem>
+  <listitem><para>
+    &debian;/arm64 works on 64-bit ARM processors which implement at
+    least the ARMv8 architecture.
+  </para></listitem>
+</itemizedlist>
 </para>
-
-<!--
-<para>
-
-While it is technically possible to run the &debian;/armel userland
-programs on modern (ARMv7) ARM processors, they cannot make use of
-several performance-enhancing features of the newer processors, so if
-your hardware fulfils the requirements of running the &debian;/armhf
-port, you should use it instead of the &debian;/armel port.  Mixing of
-armel and armhf packages on the same system is possible (using
-multi-arch), but is not normally recommended, so you need to decide
-which port to use before installing the system. Similarly both the
-32-bit ports (&debian;/armel and &debian;/armhf) will run on 64-bit
-ARMv8 hardware but will treat them as 32-bit machines, limiting
-maximum memory size and various newer hardware features, so you will
-normally want to install &debian;/arm64 on 64-bit capable
-hardware. The situation is a bit like that with i386/amd64 PCs, but
-unlike x86 world, it is rarely sensible to install a 32-bit
-userland on a 64-bit machine for ARM.
-
-</para>
--->
 
 <para>
 Technically, all currently available ARM CPUs can be run in either
@@ -91,35 +34,76 @@ little-endian mode. All of &debian;/arm64, &debian;/armhf and
 &debian;/armel support only little-endian systems.
 </para>
 
-<sect3 arch="arm"><title>Platforms supported by Debian/arm64</title>
+  </sect2>
+
+  <sect2 arch="arm"><title>Variations in ARM CPU designs and support complexity</title>
+
+<para>
+ARM systems are much more heterogeneous than those based on the
+i386/amd64-based PC architecture, so the support situation can be much
+more complicated.
+</para>
+
+<para arch="armel;armhf">
+The ARM architecture is used mainly in so-called
+<quote>system-on-chip</quote> (SoC) designs. These SoCs are designed
+by many different companies with vastly varying hardware components
+even for the very basic functionality required to bring the system
+up. System firmware interfaces have been increasingly standardised
+over time, but especially on older hardware firmware/boot interfaces
+vary a great deal, so on these systems the Linux kernel has to take
+care of many system-specific low-level issues which would be handled
+by the mainboard's BIOS in the PC world.
+</para>
+
+<para arch="armel;armhf">
+At the beginning of the ARM support in the Linux kernel, the hardware
+variety resulted in the requirement of having a separate kernel for
+each ARM system in contrast to the <quote>one-fits-all</quote> kernel
+for PC systems.  As this approach does not scale to a large number of
+different systems, work was done to allow booting with a single ARM
+kernel that can run on different ARM systems.  Support for newer ARM
+systems is now implemented in a way that allows the use of such a
+multiplatform kernel, but for several older systems a separate
+specific kernel is still required. Because of this, the standard
+&debian; distribution only supports installation on a selected number
+of such older ARM systems, alongside the newer systems which are
+supported by the ARM multiplatform kernels (called 'armmp') in
+&debian;/armhf.
+</para>
+
+<para arch="arm64">
+The ARM architecture is used mainly in so-called
+<quote>system-on-chip</quote> (SoC) designs. These SoCs are designed
+by many different companies, often with vastly varying hardware
+components even for the very basic functionality required to bring the
+system up. Older versions of the ARM architecture have seen massive
+differences from one SoC to the next, but ARMv8 (arm64) is much more
+standardised and so is easier for the Linux kernel and other software
+to support.
+</para>
+
+<para arch="arm64">
+Server versions of ARMv8 hardware are typically configured using the
+Unified Extensible Firmware Interface (UEFI) and Advanced
+Configuration and Power Interface (ACPI) standards. These two provide
+common, device-independent ways to boot and configure computer
+hardware. They are also common in the x86 PC world.
+</para>
+
+  </sect2>
+
+<sect2 arch="arm64" id="arm64-supported-platforms"><title>Platforms supported by Debian/arm64</title>
 
   <para>
     Arm64/AArch64/ARMv8 hardware became available quite late in the
-    &debian; &releasename-cap; release cycle so not many platforms have had
-    support merged in the mainline kernel version in this release,
-    which is the main requirement to have &d-i; working on
-    them.
-
+    &debian; &releasename-cap; release cycle so not many platforms had
+    support merged in the mainline kernel version by the time of this
+    release; this is the main requirement to have &d-i; working on
+    them. The following platforms are known to be supported by
+    &debian;/arm64 in this release. There is only one kernel image,
+    which supports all the listed platforms.
   </para>
-
-  <para>
-    The tested platforms are listed below, but in general, the
-    multiplatform support in the arm64 Linux kernel also allows
-    running &d-i; on arm64 systems not explicitly listed below, so
-    long as the kernel used by &d-i; has support for the target
-    system's components and a device-tree file for the target is
-    available.  In these cases, the installer can usually provide a
-    working userland installation, and so long as UEFI is in use, it
-    should be able to make the system bootable as well. If UEFI is not
-    used (some 64-bit machines have been shipped with U-Boot) you will
-    probably also need some manual steps to make the system bootable.
-    
-  </para>
-
-<para>The following platforms are known to be supported by
-&debian;/arm64 in this release. There is only one kernel, which
-supports all the listed platforms.
-</para>
 
   <variablelist>
       <varlistentry>
@@ -127,12 +111,13 @@ supports all the listed platforms.
         <listitem>
           <para>
 	    The APM Mustang was the first Linux-capable ARMv8 system
-	    available. It uses the X-gene SoC, since also used in
-	    other machines, which is an 8-core CPU, with ethernet,
-	    USB, serial. A common form-factor looks just like a
-	    desktop PC box, but many versions are expected. Most of
-	    the hardware is supported in the mainline kernel, but USB
-	    support is lacking in the &releasename-cap; kernel.
+	    available. It uses the X-gene SoC, which has since also
+	    been used in other machines. It is an 8-core CPU, with
+	    ethernet, USB and serial. A common form-factor looks just
+	    like a desktop PC box, but many other versions are
+	    expected in the future. Most of the hardware is supported
+	    in the mainline kernel, but at this point USB support is
+	    lacking in the &releasename-cap; kernel.
           </para>
         </listitem>
       </varlistentry>
@@ -146,8 +131,8 @@ supports all the listed platforms.
 	    RAM, Ethernet, USB, Serial. It was designed for system
 	    bring-up and power testing so is neither small nor cheap,
 	    but was one of the first boards available. All the
-	    hardware is supported in the mainline kernel and in
-	    &releasename-cap;.
+	    on-board hardware is supported in the mainline kernel and
+	    in &releasename-cap;.
           </para>
         </listitem>
       </varlistentry>
@@ -161,10 +146,25 @@ supports all the listed platforms.
     &d-i;. flash-kernel knows how to set up an X-Gene system booting
     with U-Boot.
   </para>
-</sect3>
+
+  <sect3 arch="arm64" id="arm64-other-platforms"><title>Other platforms</title>
+  <para>
+    The multiplatform support in the arm64 Linux kernel may also allow
+    running &d-i; on arm64 systems not explicitly listed above. So
+    long as the kernel used by &d-i; has support for the target
+    system's components, and a device-tree file for that target is
+    available, a new target system may work just fine.  In these
+    cases, the installer can usually provide a working installation,
+    and so long as UEFI is in use, it should be able to make the
+    system bootable as well. If UEFI is not used you may also need to
+    perform some manual configuration steps to make the system
+    bootable.
+  </para>
+  </sect3>
+</sect2>
 
 
-<sect3 arch="arm" id="armhf-armmp-supported-platforms"><title>Platforms supported by Debian/armhf</title>
+<sect2 arch="armhf" id="armhf-armmp-supported-platforms"><title>Platforms supported by Debian/armhf</title>
 
   <para>
   The following systems are known to work with &debian;/armhf using the
@@ -234,7 +234,7 @@ supports all the listed platforms.
             System support for Allwinner sunXi-based devices is limited to
             drivers and device-tree information available in the mainline
             Linux kernel.  The android-derived linux-sunxi.org 3.4 kernel
-            series is not supported by Debian.
+            series is not supported by &debian;.
           </para> 
           <para>
             The mainline Linux kernel generally supports serial console,
@@ -264,7 +264,7 @@ supports all the listed platforms.
             the Cubox-i series is limited to drivers and device-tree
             information available in the mainline Linux kernel; the
             Freescale 3.0 kernel series for the Cubox-i is not supported by
-            Debian.  Available drivers in the mainline kernel include
+            &debian;.  Available drivers in the mainline kernel include
             serial console, ethernet, USB, MMC/SD-card and display
             support over HDMI (console and X11). In addition to that,
             the eSATA port on the Cubox-i4Pro is supported.
@@ -280,7 +280,7 @@ supports all the listed platforms.
             i.MX6 Quad SoC.  System support for it is limited to drivers and
             device-tree information available in the mainline Linux kernel;
             the wandboard-specific 3.0 and 3.10 kernel series from
-            wandboard.org are not supported by Debian.  The mainline kernel
+            wandboard.org are not supported by &debian;.  The mainline kernel
             includes driver support for serial console, display via HDMI
             (console and X11), ethernet, USB, MMC/SD and SATA.  Support for
             the onboard audio options (analog, S/PDIF, HDMI-Audio) and for
@@ -295,13 +295,14 @@ supports all the listed platforms.
 
   <para>
     
-    Generally, the ARM multiplatform support in the Linux kernel allows
-    running &d-i; on armhf systems not explicitly listed above, as long as
-    the kernel used by &d-i; has support for the target system's components
-    and a device-tree file for the target is available.  In these cases, the
-    installer can usually provide a working userland installation, but it
-    probably cannot automatically make the system bootable, as doing that in
-    many cases requires device-specific information.
+    Generally, the ARM multiplatform support in the Linux kernel
+    allows running &d-i; on armhf systems not explicitly listed above,
+    as long as the kernel used by &d-i; has support for the target
+    system's components and a device-tree file for the target is
+    available.  In these cases, the installer can usually provide a
+    working installation, but it may not be able to automatically make
+    the system bootable. Doing that in many cases requires
+    device-specific information.
    
   </para>
   <para>
@@ -311,9 +312,9 @@ supports all the listed platforms.
     &d-i;.
   </para>
 
-</sect3>
+</sect2>
 
-<sect3 arch="arm"><title>Platforms no longer supported by Debian/armhf</title>
+<sect2 arch="armhf" id="armhf-unsupported-platforms"><title>Platforms no longer supported by Debian/armhf</title>
 
 <variablelist>
 <varlistentry>
@@ -321,23 +322,22 @@ supports all the listed platforms.
 <listitem><para>
 
 The EfikaMX platform (Genesi Efika Smartbook and Genesi EfikaMX
-nettop) has been supported in &debian; 7 with a platform-specific
-kernel, but is no longer supported from &debian; 8 onwards.  The code
-required to build the formerly used platform-specific kernel has been
-removed from the upstream Linux kernel source in 2012, so Debian
-cannot provide newer builds. </para><para> Using the armmp
-multiplatform kernel on the EfikaMX platform would require device-tree
-support for it, which is currently not available.
+nettop) was supported in &debian; 7 with a platform-specific kernel,
+but is no longer supported from &debian; 8 onwards.  The code required
+to build the formerly used platform-specific kernel has been removed
+from the upstream Linux kernel source in 2012, so &debian; cannot
+provide newer builds. Using the armmp multiplatform kernel on the
+EfikaMX platform would require device-tree support for it, which is
+currently not available.
 
 </para></listitem>
 </varlistentry>
 </variablelist>
 
+</sect2>
 
-</sect3>
 
-
-<sect3 arch="arm"><title>Platforms supported by Debian/armel</title>
+<sect2 arch="armel" id="armel-supported-platforms"><title>Platforms supported by Debian/armel</title>
 
 <para>
 
@@ -350,17 +350,18 @@ platform-specific kernels.
 <term>IXP4xx</term>
 <listitem><para>   
 
-The Intel IXP4xx processor series is used in network attached storage
-devices like the Linksys NSLU2.
+The Intel IXP4xx processor series is used in commonly used network
+attached storage (NAS) devices like the Linksys NSLU2.
 
 </para><para>
 
-While there is kernel support for this platform in &debian; 8, it is not
-supported by the &d-i;.  It is possible to do a <quote>dist-upgrade</quote>
-from Debian 7 to Debian 8 for existing installations, though.  Due to the
-low amount of RAM that systems based on the IXP4xx usually have, this
-requires that swap space is enabled prior to upgrading. Support for the
-IXP4xx platform will be dropped completely in &debian; 9.
+While there is kernel support for this platform in &debian; 8, it is
+not supported by the &d-i;.  It is possible to do a
+<quote>dist-upgrade</quote> from &debian; 7 to &debian; 8 for existing
+installations, though.  Due to the small amount of RAM that systems
+based on the IXP4xx typically have, this requires that swap space is
+enabled prior to upgrading. Support for the IXP4xx platform will be
+dropped completely in &debian; 9.
 
 </para></listitem>
 </varlistentry>   
@@ -369,15 +370,16 @@ IXP4xx platform will be dropped completely in &debian; 9.
 <term>Kirkwood</term>
 <listitem><para>
 
-Kirkwood is a system on a chip (SoC) from Marvell that integrates an ARM
-CPU, Ethernet, SATA, USB, and other functionality in one chip.  We
-currently support the following Kirkwood based devices: OpenRD
-(OpenRD-Base, OpenRD-Client and OpenRD-Ultimate), <ulink
-url="&url-arm-cyrius-sheevaplug;">plug computers (SheevaPlug, GuruPlug and
-DreamPlug)</ulink>, <ulink url="&url-arm-cyrius-qnap-kirkwood;">QNAP
-Turbo Station</ulink> (all TS-11x, TS-21x and TS-41x models), and LaCie
-NASes (Network Space v2, Network Space Max v2, Internet Space v2, d2
-Network v2, 2Big Network v2 and 5Big Network v2).
+Kirkwood is a system-on-chip (SoC) from Marvell that integrates an ARM
+CPU, Ethernet, SATA, USB, and other functionality in one chip.
+&debian; currently supports the following Kirkwood based devices:
+OpenRD (OpenRD-Base, OpenRD-Client and OpenRD-Ultimate), <ulink
+url="&url-arm-cyrius-sheevaplug;">plug computers (SheevaPlug, GuruPlug
+and DreamPlug)</ulink>, <ulink
+url="&url-arm-cyrius-qnap-kirkwood;">QNAP Turbo Station</ulink> (all
+TS-11x, TS-21x and TS-41x models), and LaCie NASes (Network Space v2,
+Network Space Max v2, Internet Space v2, d2 Network v2, 2Big Network
+v2 and 5Big Network v2).
 
 </para></listitem>
 </varlistentry>
@@ -386,13 +388,14 @@ Network v2, 2Big Network v2 and 5Big Network v2).
 <term>Orion5x</term>
 <listitem><para>
 
-Orion is a system on a chip (SoC) from Marvell that integrates an ARM CPU,
-Ethernet, SATA, USB, and other functionality in one chip. There are many
-Network Attached Storage (NAS) devices on the market that are based on an
-Orion chip. We currently support the following Orion based devices: <ulink
-url="&url-arm-cyrius-kuroboxpro;">Buffalo Kurobox</ulink>, <ulink
-url="&url-arm-cyrius-dns323;">D-Link DNS-323</ulink> and <ulink
-url="&url-arm-cyrius-mv2120;">HP mv2120</ulink>.
+Orion is a system-on-chip (SoC) from Marvell that integrates an ARM
+CPU, Ethernet, SATA, USB, and other functionality in one chip. There
+are many Network Attached Storage (NAS) devices on the market that are
+based on an Orion chip. &debian; currently supports the following
+Orion based devices: <ulink url="&url-arm-cyrius-kuroboxpro;">Buffalo
+Kurobox</ulink>, <ulink url="&url-arm-cyrius-dns323;">D-Link
+DNS-323</ulink> and <ulink url="&url-arm-cyrius-mv2120;">HP
+mv2120</ulink>.
 
 </para></listitem>
 </varlistentry>
@@ -401,8 +404,8 @@ url="&url-arm-cyrius-mv2120;">HP mv2120</ulink>.
 <term>Versatile</term>
 <listitem><para>
 
-The Versatile platform is emulated by QEMU and is therefore a nice way to
-test and run &debian; on ARM if you don't have the hardware.
+The Versatile platform is emulated by QEMU and is therefore a nice way
+to test and run &debian; on ARM if you don't have real hardware.
 
 </para></listitem>
 </varlistentry>
@@ -410,9 +413,9 @@ test and run &debian; on ARM if you don't have the hardware.
 </variablelist>
 
 </para>
-</sect3>
+</sect2>
 
-<sect3 arch="arm"><title>Platforms no longer supported by Debian/armel</title>
+<sect2 arch="armel" id="armel-unsupported-platforms"><title>Platforms no longer supported by Debian/armel</title>
 
 <variablelist>
 <varlistentry>
@@ -436,18 +439,13 @@ platform which make it unsuitable for the installation of newer
 <listitem><para>
 
 The MV78xx0 platform has been used on the Marvell DB-78xx0-BP
-development board.  It was supported in Debian 7 with a platform-specific
-kernel (based on the Linux kernel version 3.2), but is not supported
-any more from Debian 8 onwards.
+development board.  It was supported in &debian; 7 with a
+platform-specific kernel (based on the Linux kernel version 3.2), but
+is not supported any more from &debian; 8 onwards.
 
 </para></listitem>
 </varlistentry>
 
 </variablelist>
 
-
-</sect3>
-
-
-
-  </sect2>
+</sect2>
