@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 69715 -->
+<!-- original version: 69757 -->
 
   <sect2 arch="arm" id="boot-image-formats">
   <title>Formáty zaváděcích obrazů</title>
@@ -25,10 +25,10 @@ s odpovídajícím ramdiskem (<quote>uInitrd</quote>).
 
 </para><para>
 
-Formáty uImage/uInitrd jsou speciálně navrženy pro firmware u-boot,
-který se používá na mnoha ARMových systémech. Starší verze u-bootu
+Formáty uImage/uInitrd jsou speciálně navrženy pro firmware U-boot,
+který se používá na mnoha ARMových systémech. Starší verze U-bootu
 uměly zavádět pouze soubory ve formátu uImage/uInitrd, proto se
-používají hlavně na starších systémech armel. Novější verze u-bootu
+používají hlavně na starších systémech armel. Novější verze U-bootu
 již umí kromě uImage/uInitrd zavádět také standardní linuxová jádra
 a initrd, ale syntaxe se trošku liší.
 
@@ -42,15 +42,38 @@ popis toho konkrétního hardwaru.
 </para>
   </sect2>
 
+  <sect2 arch="armhf" id="armhf-console-setup">
+  <title>Nastavení konzoly</title>
+<para>
+
+Jak archivy pro zavádění ze sítě (<xref
+linkend="boot-armhf-netboot.tar.gz"/>) a z disku (<xref
+linkend="boot-hd-media"/>), tak obrazy SD karet (<xref
+linkend="boot-installer-sd-image"/>) používají (platformově závislou)
+výchozí konzoli, kterou U-boot definuje v proměnné
+<quote>console</quote>. Ve většině případů to je sériová konzole,
+takže na těchto platformách standardně potřebujete pro použití
+instalačního systému sériový kabel.
+
+</para><para>
+
+Na platformách, které podporují též video konzoli, můžete příslušně
+upravit proměnnou U-bootu <quote>console</quote> a spustit tak
+instalační systém na video konzoli.
+
+    </para>
+  </sect2>
+
+
   <sect2 arch="arm" id="boot-tftp"><title>Zavedení z TFTP</title>
 
 &boot-installer-intro-net.xml;
 
    <sect3 arch="arm" id="boot-tftp-uboot">
-   <title>Zavedení z TFTP přes u-boot</title>
+   <title>Zavedení z TFTP přes U-boot</title>
 <para>
 
-Zavedení ze sítě přes firmware u-boot se skládá ze tří kroků:
+Zavedení ze sítě přes firmware U-boot se skládá ze tří kroků:
 nastavení sítě, zavedení obrazů jádra, initrd a dtb do paměti
 a konečně spuštění nahraného jádra.
 
@@ -89,7 +112,7 @@ pevné adresy platné pro všechny.
 
 </para><para>
 
-Na některých systémech si u-boot předdefinovává proměnné prostředí
+Na některých systémech si U-boot předdefinovává proměnné prostředí
 s vhodnými adresami. Jsou to proměnné
 <literal>kernel_addr_r</literal>, <literal>ramdisk_addr_r</literal>
 a <literal>fdt_addr_r</literal>. Zda jsou ve vašem případě nastaveny,
@@ -151,7 +174,7 @@ a pro nativní linuxový formát takto:
 </para><note><para>
 
 Při zavádění standardních linuxových obrazů je důležité nahrát obraz
-úvodního ramdisku až po jádru a dtb, jelikož u-boot automaticky uloží
+úvodního ramdisku až po jádru a dtb, jelikož U-boot automaticky uloží
 do proměnné <literal>filesize</literal> velikost posledně nahraného
 souboru. Aby příkaz <command>bootz</command> fungoval správně,
 potřebuje znát velikost ramdisku, kterou mu předáte právě z proměnné
@@ -170,7 +193,7 @@ parametr <literal>${fdt_addr_r}</literal>.
 stačí jednoduše rozbalit na TFTP server a který obsahuje všechny
 potřebné soubory pro zavádění ze sítě. Součástí je i zaváděcí skript,
 který automatizuje všechny kroky k zavedení instalátoru. Moderní verze
-u-bootu podporují vlastnost automatického zavádění z TFTP, která se
+U-bootu podporují vlastnost automatického zavádění z TFTP, která se
 aktivuje v případě, že neexistuje lokální úložné zařízení (MMC/SD,
 USB, IDE/SATA/SCSI). Předpokladem je, že máte na síti DHCP server,
 který klientovi předá adresu TFTP serveru.
@@ -178,7 +201,7 @@ který klientovi předá adresu TFTP serveru.
 </para><para>
 
 Pokud byste chtěli automatické zavádění z TFTP vyvolat z příkazového
-řádku u-bootu, můžete použít následující příkaz:
+řádku U-bootu, můžete použít následující příkaz:
 
 <informalexample><screen>
 <userinput>run bootcmd_dhcp</userinput>
@@ -187,7 +210,7 @@ Pokud byste chtěli automatické zavádění z TFTP vyvolat z příkazového
 </para><para>
 
 Alternativně můžete dodávaný zaváděcí skript nahrát ručně pomocí
-následujících příkazů u-bootu:
+následujících příkazů U-bootu:
 
 <informalexample><screen>
 <userinput>setenv autoload no</userinput>
@@ -201,10 +224,10 @@ následujících příkazů u-bootu:
   </sect2>
 
   <sect2 arch="arm" id="boot-hd-media">
-  <title>Zavedení z USB klíčenky in u-boot</title>
+  <title>Zavedení z USB klíčenky in U-boot</title>
 <para>
 
-Mnohé moderní verze u-bootu podporují USB a umožňují zavádět
+Mnohé moderní verze U-bootu podporují USB a umožňují zavádět
 z úložných USB zařízení, jako jsou třeba USB klíčenky. Přesný postup
 se ale bohužel liší systém od systému.
 
@@ -219,33 +242,33 @@ zařízení.
 </para><para>
 
 Pro vytvoření USB klíčenky pro instalaci &debian;u musí USB klíčenka
-obsahovat souborový systém podporovaný u-bootem (novější verze obvykle
+obsahovat souborový systém podporovaný U-bootem (novější verze obvykle
 podporují FAT16, FAT32, ext2, ext3 a ext4). Na tento souborový systém
 rozbalte archiv hd-media (viz <xref linkend="where-files"/>)
 a pak přikopírujte ISO obraz prvního instalačního CD/DVD &debian;u.
 
 </para><para>
 
-Framework pro automatické zavádění v novějších verzích u-bootu funguje
+Framework pro automatické zavádění v novějších verzích U-bootu funguje
 podobně jako volby pro zavádění v BIOSu PC, tj. postupně prozkoumá
 seznam možných zaváděcích zařízení, zda na nich nenalezne platný
 zaveditelný obraz a spustí první, který nalezne. Pokud na zařízení
 není nainstalovaný žádný operační systém, mělo by zasunutí USB
 klíčenky a zapnutí systému způsobit zavedení instalačního systému.
-Zavedení z USB můžete také vyvolat ručně na výzvě u-bootu příkazem
+Zavedení z USB můžete také vyvolat ručně na výzvě U-bootu příkazem
 <userinput>run bootcmd_usb0</userinput>.
 
 </para><para>
 
 Jedním problémem, se kterým byste se mohli potkat při zavádění z USB
 a použití sériové konzole, je rozdílné nastavení přenosové rychlosti
-konzoly. Je-li v u-bootu nastavena proměnná console, předá ji zaváděcí
+konzoly. Je-li v U-bootu nastavena proměnná console, předá ji zaváděcí
 skript jádru, aby ji použilo jako primární konzoli a případně
 nastavilo přenosovou rychlost. Na některých platformách specifikuje
 proměnná console i rychlost (např.
 <quote>console=ttyS0,115200</quote>), zatímco na jiných obsahuje pouze
 název zařízení (<quote>console=ttyS0</quote>). Pokud se výchozí
-přenosová rychlost u-bootu (často 115200) liší od výchozí přenosové
+přenosová rychlost U-bootu (často 115200) liší od výchozí přenosové
 rychlosti jádra (tradičních 9600), vede to ve druhém případě
 k nečitelnému výstupu. Pokud to nastane, měli byste ručně upravit
 proměnnou console, aby obsahovala správnou rychlost pro váš systém,
@@ -259,7 +282,7 @@ a pak zavést instalátor příkazem <userinput>run bootcmd_usb0</userinput>.
 <para>
 
 Pro mnoho systémů poskytuje &debian; obrazy SD karet, které obsahují
-u-boot společně s &d-i;em. Tyto obrazy existují ve dvou variantách.
+U-boot společně s &d-i;em. Tyto obrazy existují ve dvou variantách.
 Jedna stahuje balíky ze sítě (&armmp-netboot-sd-img;), druhá slouží
 pro offline instalaci z CD/DVD (&armmp-hd-media-sd-img;). Pro šetření
 přenosového pásma jsou obrazy rozděleny na systémově závislou část
