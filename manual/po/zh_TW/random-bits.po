@@ -748,7 +748,7 @@ msgstr ""
 
 #. Tag: para
 #: random-bits.xml:364
-#, fuzzy, no-c-format
+#, no-c-format
 msgid ""
 "Next, create file systems on the partitions. For example, to create an ext3 "
 "file system on partition <filename>/dev/sda6</filename> (that's our example "
@@ -757,16 +757,16 @@ msgid ""
 "</screen></informalexample> To create an ext2 file system instead, omit "
 "<userinput>-j</userinput>."
 msgstr ""
-"在您的分割區上建立檔案系統。舉例來說，如果要在 <filename>/dev/hda6</"
+"在您的分割區上建立檔案系統。舉例來說，如果要在 <filename>/dev/sda6</"
 "filename> 分割區(以後的例子中，將把它作為 root 分割區) 建立一個 ext3 格式的檔"
 "案系統： <informalexample><screen>\n"
-"# mke2fs -j /dev/hda6\n"
+"# mke2fs -j /dev/sda6\n"
 "</screen></informalexample> 如果想建立的是 ext2 格式的檔案系統，就要去掉 "
 "<userinput>-j</userinput>。"
 
 #. Tag: para
 #: random-bits.xml:374
-#, fuzzy, no-c-format
+#, no-c-format
 msgid ""
 "Initialize and activate swap (substitute the partition number for your "
 "intended &debian; swap partition): <informalexample><screen>\n"
@@ -780,22 +780,22 @@ msgid ""
 msgstr ""
 "初始化並啟用置換分割區(請把分割區編號替換成您希望用作置換分割區的分割區編"
 "號): <informalexample><screen>\n"
-"# mkswap /dev/hda5\n"
+"# mkswap /dev/sda5\n"
 "# sync\n"
-"# swapon /dev/hda5\n"
+"# swapon /dev/sda5\n"
 "</screen></informalexample> 把一個分割區掛載(mount)到 <filename>/mnt/"
 "debinst</filename>(這是安裝的位置，將來作為您新系統的根(<filename>/</"
 "filename>)檔案系統)。掛載點的名稱是任意的，後面的步驟將會用到它。"
 
 #. Tag: screen
 #: random-bits.xml:386
-#, fuzzy, no-c-format
+#, no-c-format
 msgid ""
 "# mkdir /mnt/debinst\n"
 "# mount /dev/<replaceable>sda6</replaceable> /mnt/debinst"
 msgstr ""
 "# mkdir /mnt/debinst\n"
-"# mount /dev/hda6 /mnt/debinst"
+"# mount /dev/sda6 /mnt/debinst"
 
 #. Tag: para
 #: random-bits.xml:389
@@ -1432,7 +1432,7 @@ msgstr "下面有一個簡單的 <filename>/etc/lilo.conf</filename> 例子："
 
 #. Tag: screen
 #: random-bits.xml:751
-#, fuzzy, no-c-format
+#, no-c-format
 msgid ""
 "boot=/dev/<replaceable>sda6</replaceable>\n"
 "root=/dev/<replaceable>sda6</replaceable>\n"
@@ -1443,8 +1443,8 @@ msgid ""
 "initrd=/initrd.img\n"
 "label=Debian"
 msgstr ""
-"boot=/dev/hda6\n"
-"root=/dev/hda6\n"
+"boot=/dev/sda6\n"
+"root=/dev/sda6\n"
 "install=/boot/boot-menu.b\n"
 "delay=20\n"
 "lba32\n"
@@ -1471,20 +1471,7 @@ msgstr ""
 
 #. Tag: para
 #: random-bits.xml:763
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Here is a basic <filename>/etc/yaboot.conf</filename> as an example: "
-#| "<informalexample><screen>\n"
-#| "boot=/dev/hda2\n"
-#| "device=hd:\n"
-#| "partition=6\n"
-#| "root=/dev/hda6\n"
-#| "magicboot=/usr/lib/yaboot/ofboot\n"
-#| "timeout=50\n"
-#| "image=/vmlinux\n"
-#| "label=Debian\n"
-#| "</screen></informalexample> On some machines, you may need to use "
-#| "<userinput>ide0:</userinput> instead of <userinput>hd:</userinput>."
+#, no-c-format
 msgid ""
 "Here is a basic <filename>/etc/yaboot.conf</filename> as an example: "
 "<informalexample><screen>\n"
@@ -1501,10 +1488,10 @@ msgid ""
 msgstr ""
 "下面有一個簡單的 <filename>/etc/yaboot.conf</filename> 例子： "
 "<informalexample><screen>\n"
-"boot=/dev/hda2\n"
+"boot=/dev/sda2\n"
 "device=hd:\n"
 "partition=6\n"
-"root=/dev/hda6\n"
+"root=/dev/sda6\n"
 "magicboot=/usr/lib/yaboot/ofboot\n"
 "timeout=50\n"
 "image=/vmlinux\n"
@@ -1921,56 +1908,17 @@ msgid ""
 "entry <guimenuitem>Configure and start a PPPoE connection</guimenuitem>."
 msgstr ""
 
-#~ msgid "<filename>hda</filename>"
-#~ msgstr "<filename>hda</filename>"
-
-#~ msgid "IDE Hard disk / CD-ROM on the first IDE port (Master)"
-#~ msgstr "在第一個 IDE 埠(Master)的 IDE 硬碟/光碟機"
-
-#~ msgid "<filename>hdb</filename>"
-#~ msgstr "<filename>hdb</filename>"
-
-#~ msgid "IDE Hard disk / CD-ROM on the first IDE port (Slave)"
-#~ msgstr "在第一個 IDE 埠(Slave)的 IDE 硬碟/光碟機"
-
-#~ msgid "<filename>hdc</filename>"
-#~ msgstr "<filename>hdc</filename>"
-
-#~ msgid "IDE Hard disk / CD-ROM on the second IDE port (Master)"
-#~ msgstr "在第二個 IDE 埠(Master)的 IDE 硬碟/光碟機"
-
-#~ msgid "<filename>hdd</filename>"
-#~ msgstr "<filename>hdd</filename>"
-
-#~ msgid "IDE Hard disk / CD-ROM on the second IDE port (Slave)"
-#~ msgstr "在第二個 IDE 埠(Slave)的 IDE 硬碟/光碟機"
-
-#~ msgid "hda1"
-#~ msgstr "hda1"
-
-#~ msgid "hdd15"
-#~ msgstr "hdd15"
-
-#~ msgid "Fifteenth partition of the fourth IDE hard disk"
-#~ msgstr "在第四塊 IDE 硬碟上的第十五個分割區"
-
 #~ msgid "SCSI Hard disk with lowest SCSI ID (e.g. 0)"
 #~ msgstr "SCSI ID 最小(例如 0)的 SCSI 硬碟"
 
 #~ msgid "SCSI Hard disk with next higher SCSI ID (e.g. 1)"
 #~ msgstr "下一個 SCSI ID (例如 1)的 SCSI 硬碟"
 
-#~ msgid "<filename>sdc</filename>"
-#~ msgstr "<filename>sdc</filename>"
-
 #~ msgid "SCSI Hard disk with next higher SCSI ID (e.g. 2)"
 #~ msgstr "下一個 SCSI ID (例如 2)的 SCSI 硬碟"
 
 #~ msgid "First partition of the first SCSI hard disk"
 #~ msgstr "在第一塊 SCSI 硬碟上的第一個分割區"
-
-#~ msgid "sdd10"
-#~ msgstr "sdd10"
 
 #~ msgid "SCSI CD-ROM with the lowest SCSI ID"
 #~ msgstr "SCSI ID 最小的 SCSI 光碟機"

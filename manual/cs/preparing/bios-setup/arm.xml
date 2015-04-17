@@ -29,12 +29,12 @@ platformě ARM téměř nemožné poskytnout obecně platné informace.
   </sect2>
 
   <sect2 arch="armhf" id="armhf-uboot-images">
-  <title>Obrazy U-bootu poskytované &debian;em</title>
+  <title>Obrazy U-Bootu poskytované &debian;em</title>
 <para>
 
-Na &armmp-uboot-img; poskytuje &debian; obrazy U-bootu pro nejrůznější
-armhf systémy, které umí nahrát U-boot z SD karty. U-boot je nabízen
-ve dvou variantách: surové komponenty U-bootu a předpřipravený obraz
+Na &armmp-uboot-img; poskytuje &debian; obrazy U-Bootu pro nejrůznější
+armhf systémy, které umí nahrát U-Boot z SD karty. U-Boot je nabízen
+ve dvou variantách: surové komponenty U-Bootu a předpřipravený obraz
 pro jednoduché zapsání na SD kartu. Surové komponenty jsou zamýšleny
 pro pokročilé uživatele, doporučenou cestou jsou předpřipravené obrazy
 pro SD karty. Obrazy se jmenují
@@ -50,7 +50,7 @@ protože tím smažete veškerý obsah daného zařízení!
 
 </para><para>
 
-Pokud pro svůj systém naleznete obraz U-bootu jak u &debian;u, tak
+Pokud pro svůj systém naleznete obraz U-Bootu jak u &debian;u, tak
 u výrobce systému, doporučujeme použít verzi z &debian;u, jelikož tato
 bývá novější a mívá více vlastností.
 
@@ -59,7 +59,7 @@ bývá novější a mívá více vlastností.
 
 
   <sect2 arch="arm" id="uboot-macsetting">
-  <title>Nastavení ethernetové MAC adresy v U-bootu</title>
+  <title>Nastavení ethernetové MAC adresy v U-Bootu</title>
 <para>
 
 MAC adresa každého ethernetového rozhraní by měla být celosvětově
@@ -92,9 +92,9 @@ začínající hexadecimálním <literal>ca</literal> (jako třeba
 
 </para><para>
 
-Na systémech používajících jako firmware U-boot je ethernetová MAC
+Na systémech používajících jako firmware U-Boot je ethernetová MAC
 adresa umístěna v proměnné prostředí <literal>ethaddr</literal>.
-Adresu můžete zkontrolovat v promptu U-bootu příkazem
+Adresu můžete zkontrolovat v promptu U-Bootu příkazem
 <command>printenv ethaddr</command> a nastavit příkazem
 <command>setenv ethaddr <replaceable>ca:ff:ee:12:34:56</replaceable></command>.
 Po nastavení proměnné můžete hodnotu trvale uložit příkazem
@@ -104,31 +104,31 @@ Po nastavení proměnné můžete hodnotu trvale uložit příkazem
   </sect2>
 
   <sect2 arch="arm" id="uboot-relocation-issues">
-  <title>Problémy s přesunem jádra/initrd/stromu zařízení v U-bootu</title>
+  <title>Problémy s přesunem jádra/initrd/stromu zařízení v U-Bootu</title>
 <para>
 
-Na některých systémech se starší verzí U-bootu se mohou objevit
+Na některých systémech se starší verzí U-Bootu se mohou objevit
 problémy s korektním přesunem linuxového jádra, úvodního ramdisku
 a binárky se stromem zařízení během zavádění. Projevuje se to tak, že
-U-boot vypíše hlášku
+U-Boot vypíše hlášku
 <computeroutput>Starting kernel ...</computeroutput>, ale systém
 dál zamrzne bez jakéhokoliv výstupu. Problém byl vyřešen v novějších
-verzích U-bootu, tj. od verze v2014.07 dále.
+verzích U-Bootu, tj. od verze v2014.07 dále.
 
 </para><para>
 
 Problém se může projevit i v případě, že systém původně používal verzi
-U-bootu starší než v2014.07 a teprv následně byl aktualizován.
-Aktualizace U-bootu totiž obvykle nemění stávající proměnné prostředí
+U-Bootu starší než v2014.07 a teprv následně byl aktualizován.
+Aktualizace U-Bootu totiž obvykle nemění stávající proměnné prostředí
 a oprava problému vyžaduje, aby se nastavila nová proměnná prostředí
-<literal>bootm_size</literal>, což U-boot provádí automaticky pouze
+<literal>bootm_size</literal>, což U-Boot provádí automaticky pouze
 u nových instalací v čistém prostředí. Ručně tuto novou proměnnou
-nastavíte v promptu U-bootu příkazem
+nastavíte v promptu U-Bootu příkazem
 <command>env default bootm_size; saveenv</command>.
 
 </para><para>
 
-Jinou možností, jak obejít problém s přesunem, je v promptu U-bootu
+Jinou možností, jak obejít problém s přesunem, je v promptu U-Bootu
 spustit příkaz
 
 <command>setenv fdt_high ffffffff; setenv initrd_high 0xffffffff; saveenv</command>,

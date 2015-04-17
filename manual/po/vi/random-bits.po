@@ -826,14 +826,7 @@ msgstr ""
 
 #. Tag: para
 #: random-bits.xml:364
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Next, create file systems on the partitions. For example, to create an "
-#| "ext3 file system on partition <filename>/dev/hda6</filename> (that's our "
-#| "example root partition): <informalexample><screen>\n"
-#| "# mke2fs -j /dev/<replaceable>hda6</replaceable>\n"
-#| "</screen></informalexample> To create an ext2 file system instead, omit "
-#| "<userinput>-j</userinput>."
+#, no-c-format
 msgid ""
 "Next, create file systems on the partitions. For example, to create an ext3 "
 "file system on partition <filename>/dev/sda6</filename> (that's our example "
@@ -843,25 +836,15 @@ msgid ""
 "<userinput>-j</userinput>."
 msgstr ""
 "Sau đó, hãy tạo hệ thống tập tin trên những phân vùng. Chẳng hạn, để tạo một "
-"hệ thống tập tin kiểu ext3 trên phân vùng <filename>/dev/hda6</filename> "
+"hệ thống tập tin kiểu ext3 trên phân vùng <filename>/dev/sda6</filename> "
 "(phân vùng gốc mẫu): <informalexample><screen>\n"
-"# mke2fs -j /dev/<replaceable>hda6</replaceable>\n"
+"# mke2fs -j /dev/<replaceable>sda6</replaceable>\n"
 "</screen></informalexample> Còn để tạo hệ thống tập tin kiểu ext2, chỉ cần "
 "bỏ đoạn <userinput>-j</userinput> đi."
 
 #. Tag: para
 #: random-bits.xml:374
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Initialize and activate swap (substitute the partition number for your "
-#| "intended &debian; swap partition): <informalexample><screen>\n"
-#| "# mkswap /dev/<replaceable>hda5</replaceable>\n"
-#| "# sync\n"
-#| "# swapon /dev/<replaceable>hda5</replaceable>\n"
-#| "</screen></informalexample> Mount one partition as <filename>/mnt/"
-#| "debinst</filename> (the installation point, to be the root (<filename>/</"
-#| "filename>) filesystem on your new system). The mount point name is "
-#| "strictly arbitrary, it is referenced later below."
+#, no-c-format
 msgid ""
 "Initialize and activate swap (substitute the partition number for your "
 "intended &debian; swap partition): <informalexample><screen>\n"
@@ -875,9 +858,9 @@ msgid ""
 msgstr ""
 "Sơ khởi và kích hoạt vùng trao đổi (thay thế số thứ tự phân vùng của phân "
 "vùng trao đổi &debian; dự định): <informalexample><screen>\n"
-"# mkswap /dev/<replaceable>hda5</replaceable>\n"
+"# mkswap /dev/<replaceable>sda5</replaceable>\n"
 "# sync\n"
-"# swapon /dev/<replaceable>hda5</replaceable>\n"
+"# swapon /dev/<replaceable>sda5</replaceable>\n"
 "</screen></informalexample> Lắp một phân vùng như là <filename>/mnt/debinst</"
 "filename> (điểm cài đặt, để làm hệ thống tập tin gốc (<filename>/</"
 "filename>) trên hệ thống mới). Tên của điểm lắp là tùy ý chặt chẽ: nó được "
@@ -886,16 +869,13 @@ msgstr ""
 # Literal: don't translate / Nghĩa chữ: đừng dịch
 #. Tag: screen
 #: random-bits.xml:386
-#, fuzzy, no-c-format
-#| msgid ""
-#| "# mkdir /mnt/debinst\n"
-#| "# mount /dev/<replaceable>hda6</replaceable> /mnt/debinst"
+#, no-c-format
 msgid ""
 "# mkdir /mnt/debinst\n"
 "# mount /dev/<replaceable>sda6</replaceable> /mnt/debinst"
 msgstr ""
 "# mkdir /mnt/debinst\n"
-"# mount /dev/<replaceable>hda6</replaceable> /mnt/debinst"
+"# mount /dev/<replaceable>sda6</replaceable> /mnt/debinst"
 
 #. Tag: para
 #: random-bits.xml:389
@@ -1609,17 +1589,7 @@ msgstr ""
 
 #. Tag: para
 #: random-bits.xml:731
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Installing and setting up <classname>grub2</classname> is as easy as: "
-#| "<informalexample><screen>\n"
-#| "# aptitude install grub-pc\n"
-#| "# grub-install /dev/<replaceable>hda</replaceable>\n"
-#| "# update-grub\n"
-#| "</screen></informalexample> The second command will install "
-#| "<command>grub2</command> (in this case in the MBR of <literal>hda</"
-#| "literal>). The last command will create a sane and working <filename>/"
-#| "boot/grub/grub.cfg</filename>."
+#, no-c-format
 msgid ""
 "Installing and setting up <classname>grub2</classname> is as easy as: "
 "<informalexample><screen>\n"
@@ -1634,27 +1604,22 @@ msgstr ""
 "Việc cài đặt và thiết lập <classname>grub2</classname> dễ như sau:"
 "<informalexample><screen>\n"
 "# aptitude install grub-pc\n"
-"# grub-install /dev/<replaceable>hda</replaceable>\n"
+"# grub-install /dev/<replaceable>sda</replaceable>\n"
 "# update-grub\n"
 "</screen></informalexample> Lệnh thứ hai sẽ cài đặt <command>grub2</command> "
-"(trong trường hợp này, vào MBR của <literal>hda</literal>). Lệnh cuối cùng "
+"(trong trường hợp này, vào MBR của <literal>sda</literal>). Lệnh cuối cùng "
 "sẽ tạo một tập tin <filename>/boot/grub/grub.cfg</filename> hợp lý và hoạt "
 "động được."
 
 #. Tag: para
 #: random-bits.xml:741
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Note that this assumes that a <filename>/dev/hda</filename> device file "
-#| "has been created. There are alternative methods to install "
-#| "<command>grub2</command>, but those are outside the scope of this "
-#| "appendix."
+#, no-c-format
 msgid ""
 "Note that this assumes that a <filename>/dev/sda</filename> device file has "
 "been created. There are alternative methods to install <command>grub2</"
 "command>, but those are outside the scope of this appendix."
 msgstr ""
-"Ghi chú rằng ở đây giả sử tập tin thiết bị <filename>/dev/hda</filename> đã "
+"Ghi chú rằng ở đây giả sử tập tin thiết bị <filename>/dev/sda</filename> đã "
 "được tạo. Có những phương pháp khác để cài đặt <command>grub2</command>, "
 "nhưng chúng không nằm trong phạm vi của phụ lục này."
 
@@ -1667,16 +1632,7 @@ msgstr "Ở đây có mẫu <filename>/etc/lilo.conf</filename> cơ bản:"
 # Literal: don't translate / Nghĩa chữ: đừng dịch
 #. Tag: screen
 #: random-bits.xml:751
-#, fuzzy, no-c-format
-#| msgid ""
-#| "boot=/dev/<replaceable>hda6</replaceable>\n"
-#| "root=/dev/<replaceable>hda6</replaceable>\n"
-#| "install=menu\n"
-#| "delay=20\n"
-#| "lba32\n"
-#| "image=/vmlinuz\n"
-#| "initrd=/initrd.img\n"
-#| "label=Debian"
+#, no-c-format
 msgid ""
 "boot=/dev/<replaceable>sda6</replaceable>\n"
 "root=/dev/<replaceable>sda6</replaceable>\n"
@@ -1687,8 +1643,8 @@ msgid ""
 "initrd=/initrd.img\n"
 "label=Debian"
 msgstr ""
-"boot=/dev/<replaceable>hda6</replaceable>\n"
-"root=/dev/<replaceable>hda6</replaceable>\n"
+"boot=/dev/<replaceable>sda6</replaceable>\n"
+"root=/dev/<replaceable>sda6</replaceable>\n"
 "install=menu\n"
 "delay=20\n"
 "lba32\n"
@@ -1717,20 +1673,7 @@ msgstr ""
 
 #. Tag: para
 #: random-bits.xml:763
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Here is a basic <filename>/etc/yaboot.conf</filename> as an example: "
-#| "<informalexample><screen>\n"
-#| "boot=/dev/hda2\n"
-#| "device=hd:\n"
-#| "partition=6\n"
-#| "root=/dev/hda6\n"
-#| "magicboot=/usr/lib/yaboot/ofboot\n"
-#| "timeout=50\n"
-#| "image=/vmlinux\n"
-#| "label=Debian\n"
-#| "</screen></informalexample> On some machines, you may need to use "
-#| "<userinput>ide0:</userinput> instead of <userinput>hd:</userinput>."
+#, no-c-format
 msgid ""
 "Here is a basic <filename>/etc/yaboot.conf</filename> as an example: "
 "<informalexample><screen>\n"
@@ -1747,10 +1690,10 @@ msgid ""
 msgstr ""
 "Ở đây có mẫu <filename>/etc/yaboot.conf</filename> cơ bản: "
 "<informalexample><screen>\n"
-"boot=/dev/hda2\n"
+"boot=/dev/sda2\n"
 "device=hd:\n"
 "partition=6\n"
-"root=/dev/hda6\n"
+"root=/dev/sda6\n"
 "magicboot=/usr/lib/yaboot/ofboot\n"
 "timeout=50\n"
 "image=/vmlinux\n"
@@ -2295,56 +2238,17 @@ msgstr ""
 "chọn mục trình đơn <guimenuitem>Cấu hình và khởi chạy một kết nối PPPoE</"
 "guimenuitem>."
 
-#~ msgid "<filename>hda</filename>"
-#~ msgstr "<filename>hda</filename>"
-
-#~ msgid "IDE Hard disk / CD-ROM on the first IDE port (Master)"
-#~ msgstr "Đĩa cứng/CD-ROM kiểu IDE nằm trên cổng IDE thứ nhất (chính)"
-
-#~ msgid "<filename>hdb</filename>"
-#~ msgstr "<filename>hdb</filename>"
-
-#~ msgid "IDE Hard disk / CD-ROM on the first IDE port (Slave)"
-#~ msgstr "Đĩa cứng/CD-ROM kiểu IDE nằm trên cổng IDE thứ nhất (phụ)"
-
-#~ msgid "<filename>hdc</filename>"
-#~ msgstr "<filename>hdc</filename>"
-
-#~ msgid "IDE Hard disk / CD-ROM on the second IDE port (Master)"
-#~ msgstr "Đĩa cứng/CD-ROM kiểu IDE nằm trên cổng IDE thứ hai (chính)"
-
-#~ msgid "<filename>hdd</filename>"
-#~ msgstr "<filename>hdd</filename>"
-
-#~ msgid "IDE Hard disk / CD-ROM on the second IDE port (Slave)"
-#~ msgstr "Đĩa cứng/CD-ROM kiểu IDE nằm trên cổng IDE thứ hai (phụ)"
-
-#~ msgid "hda1"
-#~ msgstr "hda1"
-
-#~ msgid "hdd15"
-#~ msgstr "hdd15"
-
-#~ msgid "Fifteenth partition of the fourth IDE hard disk"
-#~ msgstr "Phân vùng thứ mười năm nằm trên đĩa cứng KDE thứ tư"
-
 #~ msgid "SCSI Hard disk with lowest SCSI ID (e.g. 0)"
 #~ msgstr "Đĩa cứng kiểu SCSI với mã nhận diện ID SCSI thấp nhất (v.d. 0)"
 
 #~ msgid "SCSI Hard disk with next higher SCSI ID (e.g. 1)"
 #~ msgstr "Đĩa cứng SCSI với ID SCSI cao hơn kế tiếp (v.d. 1)"
 
-#~ msgid "<filename>sdc</filename>"
-#~ msgstr "<filename>sdc</filename>"
-
 #~ msgid "SCSI Hard disk with next higher SCSI ID (e.g. 2)"
 #~ msgstr "Đĩa cứng SCSI với ID SCSI cao hơn kế tiếp (v.d. 2)"
 
 #~ msgid "First partition of the first SCSI hard disk"
 #~ msgstr "Phân vùng thứ nhất nằm trên đĩa cứng kiểu SCSI thứ nhất"
-
-#~ msgid "sdd10"
-#~ msgstr "sdd10"
 
 #~ msgid "SCSI CD-ROM with the lowest SCSI ID"
 #~ msgstr "Đĩa CD-ROM kiểu SCSI với ID SCSI thấp nhất"

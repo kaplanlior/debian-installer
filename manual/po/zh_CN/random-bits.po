@@ -793,14 +793,7 @@ msgstr ""
 
 #. Tag: para
 #: random-bits.xml:364
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Next, create file systems on the partitions. For example, to create an "
-#| "ext3 file system on partition <filename>/dev/hda6</filename> (that's our "
-#| "example root partition): <informalexample><screen>\n"
-#| "# mke2fs -j /dev/<replaceable>hda6</replaceable>\n"
-#| "</screen></informalexample> To create an ext2 file system instead, omit "
-#| "<userinput>-j</userinput>."
+#, no-c-format
 msgid ""
 "Next, create file systems on the partitions. For example, to create an ext3 "
 "file system on partition <filename>/dev/sda6</filename> (that's our example "
@@ -809,26 +802,16 @@ msgid ""
 "</screen></informalexample> To create an ext2 file system instead, omit "
 "<userinput>-j</userinput>."
 msgstr ""
-"下一步，在分区上创建文件系统。例如，在 <filename>/dev/hda6</filename> 分区(以"
+"下一步，在分区上创建文件系统。例如，在 <filename>/dev/sda6</filename> 分区(以"
 "后的例子中，将把它作为 root 分区)建立一个 ext3 格式的文件系统： "
 "<informalexample><screen>\n"
-"# mke2fs -j /dev/<replaceable>hda6</replaceable>\n"
+"# mke2fs -j /dev/<replaceable>sda6</replaceable>\n"
 "</screen></informalexample> 建立 ext2 格式的文件系统，要去掉 <userinput>-j</"
 "userinput>。"
 
 #. Tag: para
 #: random-bits.xml:374
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Initialize and activate swap (substitute the partition number for your "
-#| "intended &debian; swap partition): <informalexample><screen>\n"
-#| "# mkswap /dev/<replaceable>hda5</replaceable>\n"
-#| "# sync\n"
-#| "# swapon /dev/<replaceable>hda5</replaceable>\n"
-#| "</screen></informalexample> Mount one partition as <filename>/mnt/"
-#| "debinst</filename> (the installation point, to be the root (<filename>/</"
-#| "filename>) filesystem on your new system). The mount point name is "
-#| "strictly arbitrary, it is referenced later below."
+#, no-c-format
 msgid ""
 "Initialize and activate swap (substitute the partition number for your "
 "intended &debian; swap partition): <informalexample><screen>\n"
@@ -842,25 +825,22 @@ msgid ""
 msgstr ""
 "初始化并激活交换分区(请把分区号替换成您希望用作 &debian; 交换分区的分区号): "
 "<informalexample><screen>\n"
-"# mkswap /dev/<replaceable>hda5</replaceable>\n"
+"# mkswap /dev/<replaceable>sda5</replaceable>\n"
 "# sync\n"
-"# swapon /dev/<replaceable>hda5</replaceable>\n"
+"# swapon /dev/<replaceable>sda5</replaceable>\n"
 "</screen></informalexample> 把一个分区挂载到 <filename>/mnt/debinst</"
 "filename>(这是安装的位置，将来作为您新系统的根(<filename>/</filename>)文件系"
 "统)。挂载点的名称是任意的，后面的步骤将会用到。"
 
 #. Tag: screen
 #: random-bits.xml:386
-#, fuzzy, no-c-format
-#| msgid ""
-#| "# mkdir /mnt/debinst\n"
-#| "# mount /dev/<replaceable>hda6</replaceable> /mnt/debinst"
+#, no-c-format
 msgid ""
 "# mkdir /mnt/debinst\n"
 "# mount /dev/<replaceable>sda6</replaceable> /mnt/debinst"
 msgstr ""
 "# mkdir /mnt/debinst\n"
-"# mount /dev/<replaceable>hda6</replaceable> /mnt/debinst"
+"# mount /dev/<replaceable>sda6</replaceable> /mnt/debinst"
 
 #. Tag: para
 #: random-bits.xml:389
@@ -1533,17 +1513,7 @@ msgstr ""
 
 #. Tag: para
 #: random-bits.xml:731
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Installing and setting up <classname>grub2</classname> is as easy as: "
-#| "<informalexample><screen>\n"
-#| "# aptitude install grub-pc\n"
-#| "# grub-install /dev/<replaceable>hda</replaceable>\n"
-#| "# update-grub\n"
-#| "</screen></informalexample> The second command will install "
-#| "<command>grub2</command> (in this case in the MBR of <literal>hda</"
-#| "literal>). The last command will create a sane and working <filename>/"
-#| "boot/grub/grub.cfg</filename>."
+#, no-c-format
 msgid ""
 "Installing and setting up <classname>grub2</classname> is as easy as: "
 "<informalexample><screen>\n"
@@ -1557,26 +1527,21 @@ msgid ""
 msgstr ""
 "安装和建立 <classname>grub2</classname> 非常容易：<informalexample><screen>\n"
 "# aptitude install grub-pc\n"
-"# grub-install /dev/<replaceable>hda</replaceable>\n"
+"# grub-install /dev/<replaceable>sda</replaceable>\n"
 "# update-grub\n"
 "</screen></informalexample> 第二个命令将安装 <command>grub2</command> (本例中"
-"是 <literal>hda</literal> 的 MBR)。最后的命令是创建一个可用的 <filename>/"
+"是 <literal>sda</literal> 的 MBR)。最后的命令是创建一个可用的 <filename>/"
 "boot/grub/grub.cfg</filename>。"
 
 #. Tag: para
 #: random-bits.xml:741
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Note that this assumes that a <filename>/dev/hda</filename> device file "
-#| "has been created. There are alternative methods to install "
-#| "<command>grub2</command>, but those are outside the scope of this "
-#| "appendix."
+#, no-c-format
 msgid ""
 "Note that this assumes that a <filename>/dev/sda</filename> device file has "
 "been created. There are alternative methods to install <command>grub2</"
 "command>, but those are outside the scope of this appendix."
 msgstr ""
-"注意，这里假设已经创建了 <filename>/dev/hda</filename> 设备文件。另外一种方法"
+"注意，这里假设已经创建了 <filename>/dev/sda</filename> 设备文件。另外一种方法"
 "是安装 <command>grub2</command>，但它不属于本附录讨论范围。"
 
 #. Tag: para
@@ -1587,16 +1552,7 @@ msgstr "下面有一个简单的<filename>/etc/lilo.conf</filename> 作为例子
 
 #. Tag: screen
 #: random-bits.xml:751
-#, fuzzy, no-c-format
-#| msgid ""
-#| "boot=/dev/<replaceable>hda6</replaceable>\n"
-#| "root=/dev/<replaceable>hda6</replaceable>\n"
-#| "install=menu\n"
-#| "delay=20\n"
-#| "lba32\n"
-#| "image=/vmlinuz\n"
-#| "initrd=/initrd.img\n"
-#| "label=Debian"
+#, no-c-format
 msgid ""
 "boot=/dev/<replaceable>sda6</replaceable>\n"
 "root=/dev/<replaceable>sda6</replaceable>\n"
@@ -1607,8 +1563,8 @@ msgid ""
 "initrd=/initrd.img\n"
 "label=Debian"
 msgstr ""
-"boot=/dev/<replaceable>hda6</replaceable>\n"
-"root=/dev/<replaceable>hda6</replaceable>\n"
+"boot=/dev/<replaceable>sda6</replaceable>\n"
+"root=/dev/<replaceable>sda6</replaceable>\n"
 "install=menu\n"
 "delay=20\n"
 "lba32\n"
@@ -1635,20 +1591,7 @@ msgstr ""
 
 #. Tag: para
 #: random-bits.xml:763
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Here is a basic <filename>/etc/yaboot.conf</filename> as an example: "
-#| "<informalexample><screen>\n"
-#| "boot=/dev/hda2\n"
-#| "device=hd:\n"
-#| "partition=6\n"
-#| "root=/dev/hda6\n"
-#| "magicboot=/usr/lib/yaboot/ofboot\n"
-#| "timeout=50\n"
-#| "image=/vmlinux\n"
-#| "label=Debian\n"
-#| "</screen></informalexample> On some machines, you may need to use "
-#| "<userinput>ide0:</userinput> instead of <userinput>hd:</userinput>."
+#, no-c-format
 msgid ""
 "Here is a basic <filename>/etc/yaboot.conf</filename> as an example: "
 "<informalexample><screen>\n"
@@ -1665,10 +1608,10 @@ msgid ""
 msgstr ""
 "下面有一个简单的<filename>/etc/yaboot.conf</filename> 作为例子： "
 "<informalexample><screen>\n"
-"boot=/dev/hda2\n"
+"boot=/dev/sda2\n"
 "device=hd:\n"
 "partition=6\n"
-"root=/dev/hda6\n"
+"root=/dev/sda6\n"
 "magicboot=/usr/lib/yaboot/ofboot\n"
 "timeout=50\n"
 "image=/vmlinux\n"
@@ -2173,56 +2116,17 @@ msgstr ""
 "信息不正确或有错误出现，安装程序将停止，但可以选择 <guimenuitem>Configure "
 "and start PPPoE connection</guimenuitem> 菜单项重新配置。"
 
-#~ msgid "<filename>hda</filename>"
-#~ msgstr "<filename>hda</filename>"
-
-#~ msgid "IDE Hard disk / CD-ROM on the first IDE port (Master)"
-#~ msgstr "在第一个 IDE 口(Master)的 IDE 硬盘/光驱"
-
-#~ msgid "<filename>hdb</filename>"
-#~ msgstr "<filename>hdb</filename>"
-
-#~ msgid "IDE Hard disk / CD-ROM on the first IDE port (Slave)"
-#~ msgstr "在第一个 IDE 口(Slave)的 IDE 硬盘/光驱"
-
-#~ msgid "<filename>hdc</filename>"
-#~ msgstr "<filename>hdc</filename>"
-
-#~ msgid "IDE Hard disk / CD-ROM on the second IDE port (Master)"
-#~ msgstr "在第二个 IDE 口(Master)的 IDE 硬盘/光驱"
-
-#~ msgid "<filename>hdd</filename>"
-#~ msgstr "<filename>hdd</filename>"
-
-#~ msgid "IDE Hard disk / CD-ROM on the second IDE port (Slave)"
-#~ msgstr "在第二个 IDE 口(Slave)的 IDE 硬盘/光驱"
-
-#~ msgid "hda1"
-#~ msgstr "hda1"
-
-#~ msgid "hdd15"
-#~ msgstr "hdd15"
-
-#~ msgid "Fifteenth partition of the fourth IDE hard disk"
-#~ msgstr "在第四块 IDE 硬盘上的第十五个分区"
-
 #~ msgid "SCSI Hard disk with lowest SCSI ID (e.g. 0)"
 #~ msgstr "SCSI ID (比如 0)最小的 SCSI 硬盘"
 
 #~ msgid "SCSI Hard disk with next higher SCSI ID (e.g. 1)"
 #~ msgstr "下一个 SCSI ID (比如 1)的 SCSI 硬盘"
 
-#~ msgid "<filename>sdc</filename>"
-#~ msgstr "<filename>sdc</filename>"
-
 #~ msgid "SCSI Hard disk with next higher SCSI ID (e.g. 2)"
 #~ msgstr "下一个 SCSI ID (比如 2)的 SCSI 硬盘"
 
 #~ msgid "First partition of the first SCSI hard disk"
 #~ msgstr "在第一块 SCSI 硬盘上的第一个分区"
-
-#~ msgid "sdd10"
-#~ msgstr "sdd10"
 
 #~ msgid "SCSI CD-ROM with the lowest SCSI ID"
 #~ msgstr "SCSI ID 最小的 SCSI 光驱"

@@ -57,8 +57,8 @@ d'uso indipendenti dal prodotto.
 
 
   <sect2 arch="arm" id="uboot-macsetting">
-  <!-- <title>Setting the ethernet MAC address in u-boot</title> -->
-  <title>Impostazione dell'indirizzo MAC in u-boot</title>
+  <!-- <title>Setting the ethernet MAC address in U-Boot</title> -->
+  <title>Impostazione dell'indirizzo MAC in U-Boot</title>
 <para>
 
 <!--
@@ -127,17 +127,17 @@ un indirizzo amministrato localmente.
 </para><para>
 
 <!--
-On systems using u-boot as system firmware, the ethernet MAC address
+On systems using U-Boot as system firmware, the ethernet MAC address
 is placed in the <quote>ethaddr</quote> environment variable.
-It can be checked at the u-boot command prompt with the command
+It can be checked at the U-Boot command prompt with the command
 <quote>printenv ethaddr</quote> and can be set with the command
 <quote>setenv ethaddr ca:ff:ee:12:34:56</quote>.  After setting the value,
 the command <quote>saveenv</quote> makes the assignment permanent.
 -->
 
-Per i sistemi che utilizzano u-boot come firmware di sistema, l'indirizzo
+Per i sistemi che utilizzano U-Boot come firmware di sistema, l'indirizzo
 MAC ethernet è salvato nella variabile d'ambiente <quote>ethaddr</quote>;
-è possibile controllarne il valore dal prompt di u-boot con il comando
+è possibile controllarne il valore dal prompt di U-Boot con il comando
 <quote>printenv ethaddr</quote> e può essere cambiato con il comando
 <quote>setenv ethaddr ca:ff:ee:12:34:56</quote>. Dopo aver impostato il
 nuovo valore, usare il comando <quote>saveenv</quote> per rendere
@@ -148,65 +148,65 @@ permanente la modifica.
 
 
   <sect2 arch="arm" id="uboot-relocation-issues">
-  <!-- <title>Kernel/Initrd/Device-Tree relocation issues in u-boot</title> -->
-  <title>Problemi di rilocazione del Kernel/Initrd/Device-Tree con u-boot</title>
+  <!-- <title>Kernel/Initrd/Device-Tree relocation issues in U-Boot</title> -->
+  <title>Problemi di rilocazione del Kernel/Initrd/Device-Tree con U-Boot</title>
 <para>
 
 <!--
-On some systems with older u-boot versions there can be problems with
+On some systems with older U-Boot versions there can be problems with
 properly relocating the Linux kernel, the initial ramdisk and the
 device-tree blob in memory during the boot process.  In this case,
-u-boot shows the message <quote>Starting kernel ...</quote>,
+U-Boot shows the message <quote>Starting kernel ...</quote>,
 but the system freezes
 afterwards without further output.  These issues have been solved with
-newer u-boot versions from v2014.07 onwards.
+newer U-Boot versions from v2014.07 onwards.
 -->
 
-È possibile che su alcuni sistemi con vecchie versioni di u-boot si
+È possibile che su alcuni sistemi con vecchie versioni di U-Boot si
 verifichino durante il processo d'avvio dei problemi con la rilocazione
 in memoria del kernel Linux, del ramdisk iniziale e del device-tree
-blob. In questo caso, u-boot mostra il messaggio <quote>Starting kernel
+blob. In questo caso, U-Boot mostra il messaggio <quote>Starting kernel
 ...</quote> e poi il sistema si blocca senza altri messaggi. Questi
-problemi sono stati risolti nelle versioni di u-boot successive alla
+problemi sono stati risolti nelle versioni di U-Boot successive alla
 v2014.07.
 
 </para><para>
 
 <!--
-If the system has originally used a u-boot version older than
+If the system has originally used a U-Boot version older than
 v2014.07 and has been upgraded to a newer version later, the problem
-might still occur even after upgrading u-boot.  Upgrading u-boot
-usually does not modify the existing u-boot environment variables and
+might still occur even after upgrading U-Boot.  Upgrading U-Boot
+usually does not modify the existing U-Boot environment variables and
 the fix requires an additional environment variable (bootm_size) to be
-set, which u-boot does automatically only on fresh installations
+set, which U-Boot does automatically only on fresh installations
 without existing environment data.  It is possible to manually set
-bootm_size to the new u-boot's default value by running the command
-<quote>env default bootm_size; saveenv</quote> at the u-boot prompt.
+bootm_size to the new U-Boot's default value by running the command
+<quote>env default bootm_size; saveenv</quote> at the U-Boot prompt.
 -->
 
 Questo problema potrebbe comunque verificarsi anche se il sistema era
-originariamente equipaggiato con una versione di u-boot precedente alla
+originariamente equipaggiato con una versione di U-Boot precedente alla
 v2014.07 e, in seguito, è stato aggiornato a una versione più recente.
-Infatti l'aggiornamento di u-boot solitamente non modifica le variabili
+Infatti l'aggiornamento di U-Boot solitamente non modifica le variabili
 d'ambiente esistenti ma la correzione richiede l'impostazione della nuova
 variabile d'ambiente (bootm_size) che viene creata automticamente solo
 sulle nuove installazioni quindi senza variabili d'ambiente esistenti.
 È possibile impostare manualmente bootm_size al suo valore predefinito
 eseguendo il comando <quote>env default bootm_size; saveenv</quote> dal
-promnpt di u-boot.
+promnpt di U-Boot.
 
 </para><para>
 
 <!--
 Another possibility to circumvent relocation-related problems is to
 run the command <quote>setenv fdt_high ffffffff; setenv initrd_high
-0xffffffff; saveenv</quote> at the u-boot prompt to completely disable
+0xffffffff; saveenv</quote> at the U-Boot prompt to completely disable
 the relocation of the initial ramdisk and the device-tree blob.          
 -->
 
 Un'altra possibilità per prevenire problemi legati alla rilocazione è
 eseguire il comando <quote>setenv fdt_high ffffffff; setenv initrd_high
-0xffffffff; saveenv</quote> dal prompt di u-boot per disattivare
+0xffffffff; saveenv</quote> dal prompt di U-Boot per disattivare
 completamente la rilocazione del ramdisk iniziale e del device-tree blob.
 
 </para>

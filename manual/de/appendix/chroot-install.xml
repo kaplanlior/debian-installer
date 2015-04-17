@@ -61,11 +61,11 @@ installieren möchten).
 
 Dateisysteme auf Ihren Partitionen erzeugen: um ein Dateisystem auf einer
 Partition zu erstellen, zum Beispiel ein ext3-Dateisystem auf
-<filename>/dev/hda6</filename> (dies soll in diesem Beispiel unsere
+<filename>/dev/sda6</filename> (dies soll in diesem Beispiel unsere
 Root-Partition sein):
 
 <informalexample><screen>
-# mke2fs -j /dev/<replaceable>hda6</replaceable>
+# mke2fs -j /dev/<replaceable>sda6</replaceable>
 </screen></informalexample>
 
 Um stattdessen ein ext2-Dateisystem zu erzeugen, lassen Sie das
@@ -77,9 +77,9 @@ Initialisieren und aktivieren Sie den Swap (passen Sie die Partitionsnummer
 für Ihre geplante &debian;-Swap-Partition an):
 
 <informalexample><screen>
-# mkswap /dev/<replaceable>hda5</replaceable>
+# mkswap /dev/<replaceable>sda5</replaceable>
 # sync
-# swapon /dev/<replaceable>hda5</replaceable>
+# swapon /dev/<replaceable>sda5</replaceable>
 </screen></informalexample>
 
 Hängen Sie eine Partition (wahrscheinlich die neue) als <filename>/mnt/debinst</filename> ins
@@ -90,7 +90,7 @@ gewählt; es wird später noch öfter darauf verwiesen.
 
 <informalexample><screen>
 # mkdir /mnt/debinst
-# mount /dev/<replaceable>hda6</replaceable> /mnt/debinst
+# mount /dev/<replaceable>sda6</replaceable> /mnt/debinst
 </screen></informalexample>
 
 </para>
@@ -586,19 +586,19 @@ einfach wie:
 
 <informalexample><screen>
 # aptitude install grub-pc
-# grub-install /dev/<replaceable>hda</replaceable>
+# grub-install /dev/<replaceable>sda</replaceable>
 # update-grub
 </screen></informalexample>
 
 Der zweite Befehl installiert <command>grub2</command> (in diesem Fall in den
-Master Boot Record (MBR) von <literal>hda</literal>). Der letzte Befehl erzeugt
+Master Boot Record (MBR) von <literal>sda</literal>). Der letzte Befehl erzeugt
 eine schöne und funktionsfähige Konfigurationsdatei
 <filename>/boot/grub/grub.cfg</filename>.
 
 </para><para>
 
 Beachten Sie, dass hier davon ausgegangen wird, dass eine Gerätedatei namens
-<filename>/dev/hda</filename> erzeugt worden ist. Es gibt alternative
+<filename>/dev/sda</filename> erzeugt worden ist. Es gibt alternative
 Möglichkeiten, <command>grub2</command> zu installieren, aber das ist nicht
 Thema dieses Anhangs.
 
@@ -607,8 +607,8 @@ Thema dieses Anhangs.
 Hier ein grundsätzliches Beispiel einer <filename>/etc/lilo.conf</filename>:
 
 <informalexample><screen>
-boot=/dev/<replaceable>hda6</replaceable>
-root=/dev/<replaceable>hda6</replaceable>
+boot=/dev/<replaceable>sda6</replaceable>
+root=/dev/<replaceable>sda6</replaceable>
 install=menu
 delay=20
 lba32
@@ -634,10 +634,10 @@ System, von dem aus Sie es aufrufen).
 Hier ein grundsätzliches Beispiel einer <filename>/etc/yaboot.conf</filename>:
 
 <informalexample><screen>
-boot=/dev/hda2
+boot=/dev/sda2
 device=hd:
 partition=6
-root=/dev/hda6
+root=/dev/sda6
 magicboot=/usr/lib/yaboot/ofboot
 timeout=50
 image=/vmlinux

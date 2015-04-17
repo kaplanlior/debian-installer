@@ -95,17 +95,17 @@ o KDE).
 
 <!--
 Next, create file systems on the partitions. For example, to create an
-ext3 file system on partition <filename>/dev/hda6</filename> (that's
+ext3 file system on partition <filename>/dev/sda6</filename> (that's
 our example root partition):
 -->
 
 Poi creare dei file system sulle partizioni appena realizzate. In
 questo esempio si crea un file system ext3 sulla partizione
-<filename>/dev/hda6</filename> (in seguito questa partizione è usata
+<filename>/dev/sda6</filename> (in seguito questa partizione è usata
 come root):
 
 <informalexample><screen>
-# mke2fs -j /dev/<replaceable>hda6</replaceable>
+# mke2fs -j /dev/<replaceable>sda6</replaceable>
 </screen></informalexample>
 
 <!--
@@ -126,9 +126,9 @@ Inizializzare e attivare lo swap (sostituire il numero della partizione
 con quello della partizione destinata allo swap per &debian;):
 
 <informalexample><screen>
-# mkswap /dev/<replaceable>hda5</replaceable>
+# mkswap /dev/<replaceable>sda5</replaceable>
 # sync
-# swapon /dev/<replaceable>hda5</replaceable>
+# swapon /dev/<replaceable>sda5</replaceable>
 </screen></informalexample>
 
 <!--
@@ -145,7 +145,7 @@ del nuovo sistema). Il nome del mount point è arbitrario, quello scelto
 
 <informalexample><screen>
 # mkdir /mnt/debinst
-# mount /dev/<replaceable>hda6</replaceable> /mnt/debinst
+# mount /dev/<replaceable>sda6</replaceable> /mnt/debinst
 </screen></informalexample>
 
 </para>
@@ -907,29 +907,29 @@ molto semplice:
 
 <informalexample><screen>
 # aptitude install grub-pc
-# grub-install /dev/<replaceable>hda</replaceable>
+# grub-install /dev/<replaceable>sda</replaceable>
 # update-grub
 </screen></informalexample>
 
 <!--
 The second command will install <command>grub2</command> (in this case in
-the MBR of <literal>hda</literal>). The last command will create a sane
+the MBR of <literal>sda</literal>). The last command will create a sane
 and working <filename>/boot/grub/grub.cfg</filename>.
 -->
 
 Il secondo comando installa <command>grub2</command> (in questo caso nel MBR
-di <literal>hda</literal>). L'ultimo comando crea un file
+di <literal>sda</literal>). L'ultimo comando crea un file
 <filename>/boot/grub/grub.cfg</filename> corretto e funzionante.
 
 </para><para>
 
 <!--
-Note that this assumes that a <filename>/dev/hda</filename> device file has
+Note that this assumes that a <filename>/dev/sda</filename> device file has
 been created. There are alternative methods to install <command>grub2</command>,
 but those are outside the scope of this appendix.
 -->
 
-Notare che si suppone che il device <filename>/dev/hda</filename>
+Notare che si suppone che il device <filename>/dev/sda</filename>
 sia già stato creato. Esistono anche altri metodi per installare
 <command>grub2</command>, ma questi non rientrano fra gli scopi di
 questa appendice.
@@ -943,8 +943,8 @@ Here is a basic <filename>/etc/lilo.conf</filename> as an example:
 Di seguito un <filename>/etc/lilo.conf</filename> di base come esempio:
 
 <informalexample><screen>
-boot=/dev/<replaceable>hda6</replaceable>
-root=/dev/<replaceable>hda6</replaceable>
+boot=/dev/<replaceable>sda6</replaceable>
+root=/dev/<replaceable>sda6</replaceable>
 install=menu
 delay=20
 lba32
@@ -983,10 +983,10 @@ Here is a basic <filename>/etc/yaboot.conf</filename> as an example:
 Di seguito un <filename>/etc/yaboot.conf</filename> di base come esempio:
 
 <informalexample><screen>
-boot=/dev/hda2
+boot=/dev/sda2
 device=hd:
 partition=6
-root=/dev/hda6
+root=/dev/sda6
 magicboot=/usr/lib/yaboot/ofboot
 timeout=50
 image=/vmlinux

@@ -832,14 +832,7 @@ msgstr ""
 
 #. Tag: para
 #: random-bits.xml:364
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Next, create file systems on the partitions. For example, to create an "
-#| "ext3 file system on partition <filename>/dev/hda6</filename> (that's our "
-#| "example root partition): <informalexample><screen>\n"
-#| "# mke2fs -j /dev/<replaceable>hda6</replaceable>\n"
-#| "</screen></informalexample> To create an ext2 file system instead, omit "
-#| "<userinput>-j</userinput>."
+#, no-c-format
 msgid ""
 "Next, create file systems on the partitions. For example, to create an ext3 "
 "file system on partition <filename>/dev/sda6</filename> (that's our example "
@@ -849,25 +842,15 @@ msgid ""
 "<userinput>-j</userinput>."
 msgstr ""
 "Osioille on luotava tiedostojärjestelmät. Esimerkiksi jos tehdään ext3-"
-"tiedostojärjestelmä osioon <filename>/dev/hda6</filename> (se on esimerkin "
+"tiedostojärjestelmä osioon <filename>/dev/sda6</filename> (se on esimerkin "
 "juuriosio): <informalexample><screen>\n"
-"# mke2fs -j /dev/<replaceable>hda6</replaceable>\n"
+"# mke2fs -j /dev/<replaceable>sda6</replaceable>\n"
 "</screen></informalexample> Jos halutaankin ext2-tiedostojärjestelmä, "
 "jätetään <userinput>-j</userinput> pois."
 
 #. Tag: para
 #: random-bits.xml:374
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Initialize and activate swap (substitute the partition number for your "
-#| "intended &debian; swap partition): <informalexample><screen>\n"
-#| "# mkswap /dev/<replaceable>hda5</replaceable>\n"
-#| "# sync\n"
-#| "# swapon /dev/<replaceable>hda5</replaceable>\n"
-#| "</screen></informalexample> Mount one partition as <filename>/mnt/"
-#| "debinst</filename> (the installation point, to be the root (<filename>/</"
-#| "filename>) filesystem on your new system). The mount point name is "
-#| "strictly arbitrary, it is referenced later below."
+#, no-c-format
 msgid ""
 "Initialize and activate swap (substitute the partition number for your "
 "intended &debian; swap partition): <informalexample><screen>\n"
@@ -881,9 +864,9 @@ msgid ""
 msgstr ""
 "Alustetaan sivutus ja otetaan se käyttöön (korvaa osion numero halutulla "
 "&debian;in sivutusosiolla): <informalexample><screen>\n"
-"# mkswap /dev/<replaceable>hda5</replaceable>\n"
+"# mkswap /dev/<replaceable>sda5</replaceable>\n"
 "# sync\n"
-"# swapon /dev/<replaceable>hda5</replaceable>\n"
+"# swapon /dev/<replaceable>sda5</replaceable>\n"
 "</screen></informalexample> Yksi osio on liitettävä kohtaan <filename>/mnt/"
 "debinst</filename> (asennus tehdään tähän, siitä tulee uuden järjestelmän "
 "juuritiedostojärjestelmä (<filename>/</filename>)). Liitoskohta voi olla "
@@ -891,16 +874,13 @@ msgstr ""
 
 #. Tag: screen
 #: random-bits.xml:386
-#, fuzzy, no-c-format
-#| msgid ""
-#| "# mkdir /mnt/debinst\n"
-#| "# mount /dev/<replaceable>hda6</replaceable> /mnt/debinst"
+#, no-c-format
 msgid ""
 "# mkdir /mnt/debinst\n"
 "# mount /dev/<replaceable>sda6</replaceable> /mnt/debinst"
 msgstr ""
 "# mkdir /mnt/debinst\n"
-"# mount /dev/<replaceable>hda6</replaceable> /mnt/debinst"
+"# mount /dev/<replaceable>sda6</replaceable> /mnt/debinst"
 
 #. Tag: para
 #: random-bits.xml:389
@@ -1621,17 +1601,7 @@ msgstr ""
 
 #. Tag: para
 #: random-bits.xml:731
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Installing and setting up <classname>grub</classname> is as easy as: "
-#| "<informalexample><screen>\n"
-#| "# aptitude install grub\n"
-#| "# grub-install /dev/<replaceable>hda</replaceable>\n"
-#| "# update-grub\n"
-#| "</screen></informalexample> The second command will install "
-#| "<command>grub</command> (in this case in the MBR of <literal>hda</"
-#| "literal>). The last command will create a sane and working <filename>/"
-#| "boot/grub/menu.lst</filename>."
+#, no-c-format
 msgid ""
 "Installing and setting up <classname>grub2</classname> is as easy as: "
 "<informalexample><screen>\n"
@@ -1646,26 +1616,22 @@ msgstr ""
 "<classname>grub</classname>in asentaminen ja asetusten teko on näin helppoa: "
 "<informalexample><screen>\n"
 "# aptitude install grub\n"
-"# grub-install /dev/<replaceable>hda</replaceable>\n"
+"# grub-install /dev/<replaceable>sda</replaceable>\n"
 "# update-grub\n"
 "</screen></informalexample> Toinen komento asentaa <command>grub</command>in "
-"(tässä tapauksessa levyn <literal>hda</literal> pääkäynnistyslohkoon). "
+"(tässä tapauksessa levyn <literal>sda</literal> pääkäynnistyslohkoon). "
 "Viimeinen komento luo järkevän ja toimivan <filename>/boot/grub/menu.lst</"
 "filename>-tiedoston."
 
 #. Tag: para
 #: random-bits.xml:741
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Note that this assumes that a <filename>/dev/hda</filename> device file "
-#| "has been created. There are alternative methods to install <command>grub</"
-#| "command>, but those are outside the scope of this appendix."
+#, no-c-format
 msgid ""
 "Note that this assumes that a <filename>/dev/sda</filename> device file has "
 "been created. There are alternative methods to install <command>grub2</"
 "command>, but those are outside the scope of this appendix."
 msgstr ""
-"Huomaa tässä oletettavan laitetiedoston <filename>/dev/hda</filename> olevan "
+"Huomaa tässä oletettavan laitetiedoston <filename>/dev/sda</filename> olevan "
 "luotu. On muitakin tapoja asentaa <command>grub</command>, mutta niiden "
 "käsittely ei kuulu tähän liitteeseen."
 
@@ -1678,16 +1644,7 @@ msgstr ""
 
 #. Tag: screen
 #: random-bits.xml:751
-#, fuzzy, no-c-format
-#| msgid ""
-#| "boot=/dev/<replaceable>hda6</replaceable>\n"
-#| "root=/dev/<replaceable>hda6</replaceable>\n"
-#| "install=menu\n"
-#| "delay=20\n"
-#| "lba32\n"
-#| "image=/vmlinuz\n"
-#| "initrd=/initrd.img\n"
-#| "label=Debian"
+#, no-c-format
 msgid ""
 "boot=/dev/<replaceable>sda6</replaceable>\n"
 "root=/dev/<replaceable>sda6</replaceable>\n"
@@ -1698,8 +1655,8 @@ msgid ""
 "initrd=/initrd.img\n"
 "label=Debian"
 msgstr ""
-"boot=/dev/<replaceable>hda6</replaceable>\n"
-"root=/dev/<replaceable>hda6</replaceable>\n"
+"boot=/dev/<replaceable>sda6</replaceable>\n"
+"root=/dev/<replaceable>sda6</replaceable>\n"
 "install=menu\n"
 "delay=20\n"
 "lba32\n"
@@ -1729,20 +1686,7 @@ msgstr ""
 
 #. Tag: para
 #: random-bits.xml:763
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Here is a basic <filename>/etc/yaboot.conf</filename> as an example: "
-#| "<informalexample><screen>\n"
-#| "boot=/dev/hda2\n"
-#| "device=hd:\n"
-#| "partition=6\n"
-#| "root=/dev/hda6\n"
-#| "magicboot=/usr/lib/yaboot/ofboot\n"
-#| "timeout=50\n"
-#| "image=/vmlinux\n"
-#| "label=Debian\n"
-#| "</screen></informalexample> On some machines, you may need to use "
-#| "<userinput>ide0:</userinput> instead of <userinput>hd:</userinput>."
+#, no-c-format
 msgid ""
 "Here is a basic <filename>/etc/yaboot.conf</filename> as an example: "
 "<informalexample><screen>\n"
@@ -1759,10 +1703,10 @@ msgid ""
 msgstr ""
 "Tässä on tiedoston <filename>/etc/yaboot.conf</filename> perusversio "
 "malliksi: <informalexample><screen>\n"
-"boot=/dev/hda2\n"
+"boot=/dev/sda2\n"
 "device=hd:\n"
 "partition=6\n"
-"root=/dev/hda6\n"
+"root=/dev/sda6\n"
 "magicboot=/usr/lib/yaboot/ofboot\n"
 "timeout=50\n"
 "image=/vmlinux\n"
@@ -2299,56 +2243,17 @@ msgstr ""
 "tehdä uudelleen valitsemalla valikosta <guimenuitem>Tee PPPoE:n asetukset ja "
 "käynnistä yhteys</guimenuitem>."
 
-#~ msgid "<filename>hda</filename>"
-#~ msgstr "<filename>hda</filename>"
-
-#~ msgid "IDE Hard disk / CD-ROM on the first IDE port (Master)"
-#~ msgstr "IDE kiintolevy / romppuasema ensisijaisessa IDE-väylässä (Isäntä)"
-
-#~ msgid "<filename>hdb</filename>"
-#~ msgstr "<filename>hdb</filename>"
-
-#~ msgid "IDE Hard disk / CD-ROM on the first IDE port (Slave)"
-#~ msgstr "IDE kiintolevy / romppuasema ensisijaisessa IDE-väylässä (orja)"
-
-#~ msgid "<filename>hdc</filename>"
-#~ msgstr "<filename>hdc</filename>"
-
-#~ msgid "IDE Hard disk / CD-ROM on the second IDE port (Master)"
-#~ msgstr "IDE kiintolevy / romppuasema toisessa IDE-väylässä (isäntä)"
-
-#~ msgid "<filename>hdd</filename>"
-#~ msgstr "<filename>hdd</filename>"
-
-#~ msgid "IDE Hard disk / CD-ROM on the second IDE port (Slave)"
-#~ msgstr "IDE kiintolevy / romppuasema toisessa IDE-väylässä (orja)"
-
-#~ msgid "hda1"
-#~ msgstr "hda1"
-
-#~ msgid "hdd15"
-#~ msgstr "hdd15"
-
-#~ msgid "Fifteenth partition of the fourth IDE hard disk"
-#~ msgstr "Neljännen IDE-kiintolevyn viidestoista osio"
-
 #~ msgid "SCSI Hard disk with lowest SCSI ID (e.g. 0)"
 #~ msgstr "SCSI-kiintolevy jolla pienin SCSI ID (alkaa nollasta)"
 
 #~ msgid "SCSI Hard disk with next higher SCSI ID (e.g. 1)"
 #~ msgstr "SCSI-kiintolevy jolla seuraavaksi pienin SCSI ID (esim. 1)"
 
-#~ msgid "<filename>sdc</filename>"
-#~ msgstr "<filename>sdc</filename>"
-
 #~ msgid "SCSI Hard disk with next higher SCSI ID (e.g. 2)"
 #~ msgstr "SCSI-kiintolevy jolla seuraavaksi suurempi SCSI ID (esim. 2)"
 
 #~ msgid "First partition of the first SCSI hard disk"
 #~ msgstr "Ensimmäisen SCSI-kiintolevyn ensimmäinen osio"
-
-#~ msgid "sdd10"
-#~ msgstr "sdd10"
 
 #~ msgid "SCSI CD-ROM with the lowest SCSI ID"
 #~ msgstr "SCSI-romppuasema jolla pienin SCSI ID"

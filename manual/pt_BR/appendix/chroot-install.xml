@@ -57,11 +57,11 @@ o X (mais se você pretende instalar ambientes desktop como GNOME ou KDE).
 </para><para>
 
 A seguir, crie um sistema de arquivos nas partições. Por exemplo, para
-criar um sistema de arquivos ext3 na partição <filename>/dev/hda6</filename>
+criar um sistema de arquivos ext3 na partição <filename>/dev/sda6</filename>
 (esta é nossa partição raiz):
 
 <informalexample><screen>
- # mke2fs -j /dev/<replaceable>hda6</replaceable>
+ # mke2fs -j /dev/<replaceable>sda6</replaceable>
 </screen></informalexample>
 
 Para criar ao invés deste um sistema de arquivos ext2, não utilize
@@ -73,9 +73,9 @@ Inicialize e ative a partição swap (substitua o número da partição
 pela partição que deseja usar para a &debian;):
 
 <informalexample><screen>
- # mkswap /dev/<replaceable>hda5</replaceable>
+ # mkswap /dev/<replaceable>sda5</replaceable>
  # sync
- # swapon /dev/<replaceable>hda5</replaceable>
+ # swapon /dev/<replaceable>sda5</replaceable>
 </screen></informalexample>
 
 Monte uma partição como <filename>/mnt/debinst</filename> (o
@@ -85,7 +85,7 @@ escolha e será referenciado mais adiante no texto.
 
 <informalexample><screen>
  # mkdir /mnt/debinst
- # mount /dev/<replaceable>hda6</replaceable> /mnt/debinst
+ # mount /dev/<replaceable>sda6</replaceable> /mnt/debinst
 </screen></informalexample>
 
 </para>
@@ -583,18 +583,18 @@ Instalar e configurar o <classname>grub</classname> é tão fácil quanto:
 
 <informalexample><screen>
 # aptitude install grub
-# grub-install /dev/<replaceable>hda</replaceable>
+# grub-install /dev/<replaceable>sda</replaceable>
 # update-grub
 </screen></informalexample>
 
 O segundo comando irá instalar o <command>grub</command> (neste caso na MBR
-do <literal>hda</literal>). O último comando criará um arquivo
+do <literal>sda</literal>). O último comando criará um arquivo
 <filename>/boot/grub/menu.lst</filename> são e funcional.
 
 </para><para>
 
 Note que isto assume que um arquivo de dispositivo
-<filename>/dev/hda</filename> foi criado. Há métodos alternativos para instalar
+<filename>/dev/sda</filename> foi criado. Há métodos alternativos para instalar
 o <command>grub</command> mas eles estão fora do escopo deste apêndice.
 
 </para><para arch="x86">
@@ -603,8 +603,8 @@ Aqui está um arquivo <filename>/etc/lilo.conf</filename> básico
 como um exemplo:
 
 <informalexample><screen>
-boot=/dev/<replaceable>hda6</replaceable>
-root=/dev/<replaceable>hda6</replaceable>
+boot=/dev/<replaceable>sda6</replaceable>
+root=/dev/<replaceable>sda6</replaceable>
 install=menu
 delay=20
 lba32
@@ -652,10 +652,10 @@ Aqui está um arquivo <filename>/etc/yaboot.conf</filename> básico
 como exemplo:
 
 <informalexample><screen>
-boot=/dev/hda2
+boot=/dev/sda2
 device=hd:
 partition=6
-root=/dev/hda6
+root=/dev/sda6
 magicboot=/usr/lib/yaboot/ofboot
 timeout=50
 image=/vmlinux

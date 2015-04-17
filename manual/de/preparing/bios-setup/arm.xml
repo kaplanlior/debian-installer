@@ -33,7 +33,7 @@
   </sect2>
 
   <sect2 arch="arm" id="uboot-macsetting">
-    <title>Setzen der Ethernet-MAC-Adresse in u-boot</title>
+    <title>Setzen der Ethernet-MAC-Adresse in U-Boot</title>
     <para>
       Die MAC-Adresse jeder Ethernet-Schnittstelle sollte eigentlich
       global eindeutig sein, und technisch muss sie innerhalb ihrer 
@@ -69,9 +69,9 @@
       verwendet werden kann.
     </para>
     <para>
-      Auf Systemen, die u-boot als System-Firmware nutzen, ist die
+      Auf Systemen, die U-Boot als System-Firmware nutzen, ist die
       Ethernet-MAC-Adresse in der Umgebungsvariablen <quote>ethaddr</quote>
-      abgelegt. Sie kann über den u-boot-Befehlsprompt mit dem
+      abgelegt. Sie kann über den U-Boot-Befehlsprompt mit dem
       Befehl <quote>printenv ethaddr</quote> überprüft und mit
       <quote>setenv ethaddr ca:ff:ee:12:34:56</quote> gesetzt werden.
       Nach dem Ändern des Wertes wird mit dem Befehl
@@ -80,34 +80,34 @@
   </sect2>
 
   <sect2 arch="arm" id="uboot-relocation-issues">
-    <title>Probleme bei der Speicherzuweisung für Kernel/Initrd/Gerätebaum in u-boot</title>
+    <title>Probleme bei der Speicherzuweisung für Kernel/Initrd/Gerätebaum in U-Boot</title>
     <para>
-      Auf einigen Systemen mit älteren u-boot-Versionen können Probleme
+      Auf einigen Systemen mit älteren U-Boot-Versionen können Probleme
       bei der korrekten Speicherzuweisung für Linux-Kernel, Initial-Ramdisk
       und Gerätebaum-Abbild während des Boot-Prozesses
-      auftreten. In diesem Fall zeigt u-boot die Meldung <quote>Starting
+      auftreten. In diesem Fall zeigt U-Boot die Meldung <quote>Starting
       kernel ...</quote> an, aber das System friert danach ohne weitere
-      Ausgabe ein. Diese Probleme wurden in neueren u-boot-Versionen
+      Ausgabe ein. Diese Probleme wurden in neueren U-Boot-Versionen
       ab v2014.07 aufwärts behoben.
     </para>
     <para>
-      Falls das System im Originalzustand eine u-boot-Version älter als
+      Falls das System im Originalzustand eine U-Boot-Version älter als
       v2014.07 genutzt hat und dann auf eine neuere Version aktualisiert
-      wurde, könnte das Problem auch nach dem Upgrade von u-boot noch
-      auftreten. Das Aktualisieren von u-boot modifiziert üblicherweise
+      wurde, könnte das Problem auch nach dem Upgrade von U-Boot noch
+      auftreten. Das Aktualisieren von U-Boot modifiziert üblicherweise
       nicht die vorhandenen Umgebungsvariablen und der Fix zur Fehlerbehebung
       erfordert das Setzen einer zusätzlichen Umgebungsvariable (bootm_size),
       was jedoch nur bei frischen Neuinstallationen ohne vorhandene
-      Umgebungsdaten von u-boot automatisch erledigt wird. Es ist
-      möglich, bootm_size händisch auf den neuen u-boot-Standardwert
+      Umgebungsdaten von U-Boot automatisch erledigt wird. Es ist
+      möglich, bootm_size händisch auf den neuen U-Boot-Standardwert
       zu setzen, indem <quote>env default bootm_size; saveenv</quote>
-      am u-boot-Prompt ausgeführt wird.
+      am U-Boot-Prompt ausgeführt wird.
     </para>
     <para>
       Eine andere Möglichkeit, solche Probleme bei Speicherzuweisungen
       zu verhindern, wäre die Ausführung von
       <quote>setenv fdt_high ffffffff; setenv initrd_high 0xffffffff;
-      saveenv</quote> am u-boot-Prompt; damit wird die
+      saveenv</quote> am U-Boot-Prompt; damit wird die
       dynamische Speicherzuweisung für Initial-Ramdisk und 
       Gerätebaum-Abbild vollständig deaktiviert.         
     </para>

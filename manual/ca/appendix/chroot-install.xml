@@ -54,11 +54,11 @@ algun entorn d'escriptori com el GNOME o el KDE).
 
 A continuació, crear sistemes de fitxers a les vostres particions. Per
 exemple, per crear un sistema de fitxers ext3 a la partició
-<filename>/dev/hda6</filename> (que és el nostre exemple per la
+<filename>/dev/sda6</filename> (que és el nostre exemple per la
 partició arrel):
 
 <informalexample><screen>
-# mke2fs -j /dev/<replaceable>hda6</replaceable>
+# mke2fs -j /dev/<replaceable>sda6</replaceable>
 </screen></informalexample>
 
 Si voleu crear un sistema de fitxers ext2, ometeu <userinput>-j</userinput>.
@@ -69,9 +69,9 @@ Inicialitzeu i activeu l'intercanvi (substituïu el nombre de la partició per
 la vostra partició d'intercanvi de &debian;):
 
 <informalexample><screen>
-# mkswap /dev/<replaceable>hda5</replaceable>
+# mkswap /dev/<replaceable>sda5</replaceable>
 # sync
-# swapon /dev/<replaceable>hda5</replaceable>
+# swapon /dev/<replaceable>sda5</replaceable>
 </screen></informalexample>
 
 Munteu la partició a <filename>/mnt/debinst</filename> (el lloc
@@ -81,7 +81,7 @@ fitxers del nou sistema). El punt de muntatge és arbitrari, i se'n farà
 
 <informalexample><screen>
 # mkdir /mnt/debinst
-# mount /dev/<replaceable>hda6</replaceable> /mnt/debinst
+# mount /dev/<replaceable>sda6</replaceable> /mnt/debinst
 </screen></informalexample>
 
 </para>
@@ -592,18 +592,18 @@ Instal·lar i configurar el <classname>grub</classname> és tan fàcil com:
 
 <informalexample><screen>
 # aptitude install grub
-# grub-install /dev/<replaceable>hda</replaceable>
+# grub-install /dev/<replaceable>sda</replaceable>
 # update-grub
 </screen></informalexample>
 
 La segona ordre instal·larà el <command>grub</command> (en aquest cas al
-MBR de <literal>hda</literal>). L'última ordre crearà un fitxer correcte
+MBR de <literal>sda</literal>). L'última ordre crearà un fitxer correcte
 i funcional a <filename>/boot/grub/menu.lst</filename>.
 
 </para><para>
 
 Tingueu en compte que això assumeix que s'ha creat un fitxer de dispositius
-<filename>/dev/hda</filename>. Hi ha mètodes alternatius per instal·lar
+<filename>/dev/sda</filename>. Hi ha mètodes alternatius per instal·lar
 <command>grub</command>, però aquests estan fora l'abast d'aquest apèndix.
 
 </para><para arch="x86">
@@ -611,8 +611,8 @@ Tingueu en compte que això assumeix que s'ha creat un fitxer de dispositius
 Ací teniu un exemple bàsic de <filename>/etc/lilo.conf</filename>:
 
 <informalexample><screen>
-boot=/dev/<replaceable>hda6</replaceable>
-root=/dev/<replaceable>hda6</replaceable>
+boot=/dev/<replaceable>sda6</replaceable>
+root=/dev/<replaceable>sda6</replaceable>
 install=menu
 delay=20
 lba32
@@ -655,10 +655,10 @@ el <filename>yaboot.conf</filename> relatiu al sistema des d'on l'executeu).
 Un exemple bàsic de <filename>/etc/yaboot.conf</filename> podria ser:
 
 <informalexample><screen>
-boot=/dev/hda2
+boot=/dev/sda2
 device=hd:
 partition=6
-root=/dev/hda6
+root=/dev/sda6
 magicboot=/usr/lib/yaboot/ofboot
 timeout=50
 image=/vmlinux

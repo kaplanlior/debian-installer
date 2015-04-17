@@ -801,14 +801,7 @@ msgstr ""
 
 #. Tag: para
 #: random-bits.xml:364
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Next, create file systems on the partitions. For example, to create an "
-#| "ext3 file system on partition <filename>/dev/hda6</filename> (that's our "
-#| "example root partition): <informalexample><screen>\n"
-#| "# mke2fs -j /dev/<replaceable>hda6</replaceable>\n"
-#| "</screen></informalexample> To create an ext2 file system instead, omit "
-#| "<userinput>-j</userinput>."
+#, no-c-format
 msgid ""
 "Next, create file systems on the partitions. For example, to create an ext3 "
 "file system on partition <filename>/dev/sda6</filename> (that's our example "
@@ -817,26 +810,16 @@ msgid ""
 "</screen></informalexample> To create an ext2 file system instead, omit "
 "<userinput>-j</userinput>."
 msgstr ""
-"그리고 파티션에 파일 시스템을 만드십시오. 예를 들어 <filename>/dev/hda6</"
+"그리고 파티션에 파일 시스템을 만드십시오. 예를 들어 <filename>/dev/sda6</"
 "filename> 파티션에 ext3 파일 시스템을 만드는 경우라면(여기 예제에서 루트 파티"
 "션입니다): <informalexample><screen>\n"
-"# mke2fs -j /dev/<replaceable>hda6</replaceable>\n"
+"# mke2fs -j /dev/<replaceable>sda6</replaceable>\n"
 "</screen></informalexample> ext2 파일 시스템을 만드는 경우라면 <userinput>-"
 "j</userinput> 옵션을 빼십시오."
 
 #. Tag: para
 #: random-bits.xml:374
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Initialize and activate swap (substitute the partition number for your "
-#| "intended &debian; swap partition): <informalexample><screen>\n"
-#| "# mkswap /dev/<replaceable>hda5</replaceable>\n"
-#| "# sync\n"
-#| "# swapon /dev/<replaceable>hda5</replaceable>\n"
-#| "</screen></informalexample> Mount one partition as <filename>/mnt/"
-#| "debinst</filename> (the installation point, to be the root (<filename>/</"
-#| "filename>) filesystem on your new system). The mount point name is "
-#| "strictly arbitrary, it is referenced later below."
+#, no-c-format
 msgid ""
 "Initialize and activate swap (substitute the partition number for your "
 "intended &debian; swap partition): <informalexample><screen>\n"
@@ -850,9 +833,9 @@ msgid ""
 msgstr ""
 "스왑을 다음과 같이 초기화하고 활성화하십시오(파티션 번호는 &debian; 스왑 파티"
 "션에 파티션 번호로 바꾸십시오): <informalexample><screen>\n"
-"# mkswap /dev/<replaceable>hda5</replaceable>\n"
+"# mkswap /dev/<replaceable>sda5</replaceable>\n"
 "# sync\n"
-"# swapon /dev/<replaceable>hda5</replaceable>\n"
+"# swapon /dev/<replaceable>sda5</replaceable>\n"
 "</screen></informalexample> 파티션 <filename>/mnt/debinst</filename> (설치 지"
 "점. 새로운 시스템의 root (<filename>/</filename>) 파일 시스템에 있습니다)에 "
 "마운트하고 하십시오. 엄밀히 말하면 마운트 위치 이름은 아무거나 상관 없습니"
@@ -860,16 +843,13 @@ msgstr ""
 
 #. Tag: screen
 #: random-bits.xml:386
-#, fuzzy, no-c-format
-#| msgid ""
-#| "# mkdir /mnt/debinst\n"
-#| "# mount /dev/<replaceable>hda6</replaceable> /mnt/debinst"
+#, no-c-format
 msgid ""
 "# mkdir /mnt/debinst\n"
 "# mount /dev/<replaceable>sda6</replaceable> /mnt/debinst"
 msgstr ""
 "# mkdir /mnt/debinst\n"
-"# mount /dev/<replaceable>hda6</replaceable> /mnt/debinst"
+"# mount /dev/<replaceable>sda6</replaceable> /mnt/debinst"
 
 #. Tag: para
 #: random-bits.xml:389
@@ -1557,17 +1537,7 @@ msgstr ""
 
 #. Tag: para
 #: random-bits.xml:731
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Installing and setting up <classname>grub2</classname> is as easy as: "
-#| "<informalexample><screen>\n"
-#| "# aptitude install grub-pc\n"
-#| "# grub-install /dev/<replaceable>hda</replaceable>\n"
-#| "# update-grub\n"
-#| "</screen></informalexample> The second command will install "
-#| "<command>grub2</command> (in this case in the MBR of <literal>hda</"
-#| "literal>). The last command will create a sane and working <filename>/"
-#| "boot/grub/grub.cfg</filename>."
+#, no-c-format
 msgid ""
 "Installing and setting up <classname>grub2</classname> is as easy as: "
 "<informalexample><screen>\n"
@@ -1582,26 +1552,21 @@ msgstr ""
 "<classname>grub2</classname> 설정은 다음과 같이 쉽습니다: "
 "<informalexample><screen>\n"
 "# aptitude install grub-pc\n"
-"# grub-install /dev/<replaceable>hda</replaceable>\n"
+"# grub-install /dev/<replaceable>sda</replaceable>\n"
 "# update-grub\n"
 "</screen></informalexample> 두 번째 명령이 <command>grub</command>을 설치합니"
-"다. (이 경우에는 <literal>hda</literal>의 MBR에 설치합니다.) 마지막 명령은 올"
+"다. (이 경우에는 <literal>sda</literal>의 MBR에 설치합니다.) 마지막 명령은 올"
 "바르게 동작하는 <filename>/boot/grub/menu.lst</filename> 파일을 만듭니다."
 
 #. Tag: para
 #: random-bits.xml:741
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Note that this assumes that a <filename>/dev/hda</filename> device file "
-#| "has been created. There are alternative methods to install "
-#| "<command>grub2</command>, but those are outside the scope of this "
-#| "appendix."
+#, no-c-format
 msgid ""
 "Note that this assumes that a <filename>/dev/sda</filename> device file has "
 "been created. There are alternative methods to install <command>grub2</"
 "command>, but those are outside the scope of this appendix."
 msgstr ""
-"앞서 <filename>/dev/hda</filename> 장치 파일을 만들었다고 가정합니다. "
+"앞서 <filename>/dev/sda</filename> 장치 파일을 만들었다고 가정합니다. "
 "<command>grub2</command>를 설치하는 다른 방법도 있지만, 이 부록이 다룰 범위"
 "를 벗어나는 내용입니다."
 
@@ -1613,16 +1578,7 @@ msgstr "다음은 기초적인 <filename>/etc/lilo.conf</filename> 예제입니�
 
 #. Tag: screen
 #: random-bits.xml:751
-#, fuzzy, no-c-format
-#| msgid ""
-#| "boot=/dev/<replaceable>hda6</replaceable>\n"
-#| "root=/dev/<replaceable>hda6</replaceable>\n"
-#| "install=menu\n"
-#| "delay=20\n"
-#| "lba32\n"
-#| "image=/vmlinuz\n"
-#| "initrd=/initrd.img\n"
-#| "label=Debian"
+#, no-c-format
 msgid ""
 "boot=/dev/<replaceable>sda6</replaceable>\n"
 "root=/dev/<replaceable>sda6</replaceable>\n"
@@ -1633,8 +1589,8 @@ msgid ""
 "initrd=/initrd.img\n"
 "label=Debian"
 msgstr ""
-"boot=/dev/<replaceable>hda6</replaceable>\n"
-"root=/dev/<replaceable>hda6</replaceable>\n"
+"boot=/dev/<replaceable>sda6</replaceable>\n"
+"root=/dev/<replaceable>sda6</replaceable>\n"
 "install=menu\n"
 "delay=20\n"
 "lba32\n"
@@ -1662,20 +1618,7 @@ msgstr ""
 
 #. Tag: para
 #: random-bits.xml:763
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Here is a basic <filename>/etc/yaboot.conf</filename> as an example: "
-#| "<informalexample><screen>\n"
-#| "boot=/dev/hda2\n"
-#| "device=hd:\n"
-#| "partition=6\n"
-#| "root=/dev/hda6\n"
-#| "magicboot=/usr/lib/yaboot/ofboot\n"
-#| "timeout=50\n"
-#| "image=/vmlinux\n"
-#| "label=Debian\n"
-#| "</screen></informalexample> On some machines, you may need to use "
-#| "<userinput>ide0:</userinput> instead of <userinput>hd:</userinput>."
+#, no-c-format
 msgid ""
 "Here is a basic <filename>/etc/yaboot.conf</filename> as an example: "
 "<informalexample><screen>\n"
@@ -1692,10 +1635,10 @@ msgid ""
 msgstr ""
 "다음은 기초적인 <filename>/etc/yaboot.conf</filename> 예제입니다: "
 "<informalexample><screen>\n"
-"boot=/dev/hda2\n"
+"boot=/dev/sda2\n"
 "device=hd:\n"
 "partition=6\n"
-"root=/dev/hda6\n"
+"root=/dev/sda6\n"
 "magicboot=/usr/lib/yaboot/ofboot\n"
 "timeout=50\n"
 "image=/vmlinux\n"
@@ -2245,56 +2188,17 @@ msgstr ""
 "류가 발생한 경우에는 설치 프로그램이 멈춥니다. 하지만 <guimenuitem>PPPoE 연"
 "결 설정 및 시작</guimenuitem>을 선택하면 다시 설정을 할 수 있습니다."
 
-#~ msgid "<filename>hda</filename>"
-#~ msgstr "<filename>hda</filename>"
-
-#~ msgid "IDE Hard disk / CD-ROM on the first IDE port (Master)"
-#~ msgstr "첫번째 IDE 포트 마스터에 달린 IDE 하드디스크 / CD-ROM"
-
-#~ msgid "<filename>hdb</filename>"
-#~ msgstr "<filename>hdb</filename>"
-
-#~ msgid "IDE Hard disk / CD-ROM on the first IDE port (Slave)"
-#~ msgstr "첫번째 IDE 포트 슬레이브에 달린 IDE 하드디스크 / CD-ROM"
-
-#~ msgid "<filename>hdc</filename>"
-#~ msgstr "<filename>hdc</filename>"
-
-#~ msgid "IDE Hard disk / CD-ROM on the second IDE port (Master)"
-#~ msgstr "두번째 IDE 포트 마스터에 달린 IDE 하드디스크 / CD-ROM"
-
-#~ msgid "<filename>hdd</filename>"
-#~ msgstr "<filename>hdd</filename>"
-
-#~ msgid "IDE Hard disk / CD-ROM on the second IDE port (Slave)"
-#~ msgstr "두번째 IDE 포트 슬레이브에 달린 IDE 하드디스크 / CD-ROM"
-
-#~ msgid "hda1"
-#~ msgstr "hda1"
-
-#~ msgid "hdd15"
-#~ msgstr "hdd15"
-
-#~ msgid "Fifteenth partition of the fourth IDE hard disk"
-#~ msgstr "네번째 IDE 하드디스크의 열다섯번째 파티션"
-
 #~ msgid "SCSI Hard disk with lowest SCSI ID (e.g. 0)"
 #~ msgstr "SCSI ID가 가장 낮은(0번) SCSI 하드디스크"
 
 #~ msgid "SCSI Hard disk with next higher SCSI ID (e.g. 1)"
 #~ msgstr "SCSI ID가 다음 번호인(1번) SCSI 하드디스크"
 
-#~ msgid "<filename>sdc</filename>"
-#~ msgstr "<filename>sdc</filename>"
-
 #~ msgid "SCSI Hard disk with next higher SCSI ID (e.g. 2)"
 #~ msgstr "SCSI ID가 다음 번호인(2번) SCSI 하드디스크"
 
 #~ msgid "First partition of the first SCSI hard disk"
 #~ msgstr "첫번째 SCSI 하드디스크의 첫번째 파티션"
-
-#~ msgid "sdd10"
-#~ msgstr "sdd10"
 
 #~ msgid "SCSI CD-ROM with the lowest SCSI ID"
 #~ msgstr "SCSI ID가 가장 낮은 SCSI CD-ROM"
