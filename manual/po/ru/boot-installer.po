@@ -86,14 +86,7 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:47
-#, fuzzy, no-c-format
-#| msgid ""
-#| "uImage/uInitrd are image formats designed for the U-Boot firmware that is "
-#| "used on many ARM-based systems. Older U-Boot versions can only boot files "
-#| "in uImage/uInitrd format, so these are often used on older armel systems. "
-#| "Newer U-Boot versions can - besides booting uImages/uInitrds - also boot "
-#| "standard Linux kernels and ramdisk images, but the command syntax to do "
-#| "that is slightly different from that for booting uImages."
+#, no-c-format
 msgid ""
 "uImage/uInitrd are image formats designed for the U-Boot firmware that is "
 "used on many ARM-based systems. Older U-Boot versions can only boot files in "
@@ -198,19 +191,13 @@ msgstr ""
 
 #. Tag: title
 #: boot-installer.xml:108
-#, fuzzy, no-c-format
-#| msgid "TFTP-booting in U-Boot"
+#, no-c-format
 msgid "TFTP-booting in U-Boot"
 msgstr "Загрузка по TFTP из U-Boot"
 
 #. Tag: para
 #: boot-installer.xml:109
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Network booting on systems using the U-Boot firmware consists of three "
-#| "steps: a) configuring the network, b) loading the images (kernel/initial "
-#| "ramdisk/dtb) into memory and c) actually executing the previosly loaded "
-#| "code."
+#, no-c-format
 msgid ""
 "Network booting on systems using the U-Boot firmware consists of three "
 "steps: a) configuring the network, b) loading the images (kernel/initial "
@@ -276,18 +263,7 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:132
-#, fuzzy, no-c-format
-#| msgid ""
-#| "On some systems, U-Boot predefines a set of environment variables with "
-#| "suitable load addresses: kernel_addr_r, ramdisk_addr_r and fdt_addr_r. "
-#| "You can check whether they are defined by running "
-#| "<informalexample><screen>\n"
-#| "printenv kernel_addr_r ramdisk_addr_r fdt_addr_r\n"
-#| "</screen></informalexample> If they are not defined, you have to check "
-#| "your system's documentation for appropriate values and set them manually. "
-#| "For systems based on Allwinner SunXi SOCs (e.g. the Allwinner A10, "
-#| "architecture name <quote>sun4i</quote> or the Allwinner A20, architecture "
-#| "name <quote>sun7i</quote>), you can e.g. use the follwing values:"
+#, no-c-format
 msgid ""
 "On some systems, U-Boot predefines a set of environment variables with "
 "suitable load addresses: kernel_addr_r, ramdisk_addr_r and fdt_addr_r. You "
@@ -345,21 +321,7 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:150
-#, fuzzy, no-c-format
-#| msgid ""
-#| "The third part is setting the kernel commandline and actually executing "
-#| "the loaded code. U-boot passes the content of the <quote>bootargs</quote> "
-#| "environment variable as commandline to the kernel, so any parameters for "
-#| "the kernel and the installer - such as the console device (see <xref "
-#| "linkend=\"boot-console\"/>) or preseeding options (see <xref linkend="
-#| "\"installer-args\"/> and <xref linkend=\"appendix-preseed\"/>) - can be "
-#| "set with a command like <informalexample><screen>\n"
-#| "setenv bootargs console=ttyS0,115200 rootwait panic=10\n"
-#| "</screen></informalexample> The exact command to execute the previously "
-#| "loaded code depends on the image format used. With uImage/uInitrd, the "
-#| "command is <informalexample><screen>\n"
-#| "bootm ${kernel_addr_r} ${ramdisk_addr_r} ${fdt_addr_r}\n"
-#| "</screen></informalexample> and with native Linux images it is"
+#, no-c-format
 msgid ""
 "The third part is setting the kernel commandline and actually executing the "
 "loaded code. U-Boot passes the content of the <quote>bootargs</quote> "
@@ -397,14 +359,7 @@ msgstr "bootz ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}"
 
 #. Tag: para
 #: boot-installer.xml:165
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Note: When booting standard linux images, it is important to load the "
-#| "initial ramdisk image after the kernel and the dtb as U-Boot sets the "
-#| "filesize variable to the size of the last file loaded and the bootz "
-#| "command requires the size of the ramdisk image to work correctly. In case "
-#| "of booting a platform-specific kernel, i.e. a kernel without device-tree, "
-#| "simply omit the ${fdt_addr_r} parameter."
+#, no-c-format
 msgid ""
 "Note: When booting standard linux images, it is important to load the "
 "initial ramdisk image after the kernel and the dtb as U-Boot sets the "
@@ -474,18 +429,13 @@ msgstr ""
 
 #. Tag: title
 #: boot-installer.xml:206
-#, fuzzy, no-c-format
-#| msgid "Booting from a USB stick in U-Boot"
+#, no-c-format
 msgid "Booting from a USB stick in U-Boot"
 msgstr "Загрузка с карты памяти USB из U-Boot"
 
 #. Tag: para
 #: boot-installer.xml:207
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Many modern U-Boot versions have USB support and allow booting from USB "
-#| "mass storage devices such as USB sticks. Unfortunately the exact steps "
-#| "required to do that can vary quite a bit from device to device."
+#, no-c-format
 msgid ""
 "Many modern U-Boot versions have USB support and allow booting from USB mass "
 "storage devices such as USB sticks. Unfortunately the exact steps required "
@@ -513,14 +463,7 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:223
-#, fuzzy, no-c-format
-#| msgid ""
-#| "To build a bootable USB stick for installing &debian;, unpack the hd-"
-#| "media tarball (see <xref linkend=\"where-files\"/>) onto a USB stick "
-#| "formatted with a filesystem supported by the U-Boot version on your "
-#| "device. For modern U-Boot versions, any of FAT16 / FAT32 / ext2 / ext3 / "
-#| "ext4 usually works. Then copy the ISO image file of the first &debian; "
-#| "installation CD or DVD onto the stick."
+#, no-c-format
 msgid ""
 "To build a bootable USB stick for installing &debian;, unpack the hd-media "
 "tarball (see <xref linkend=\"where-files\"/>) onto a USB stick formatted "
@@ -538,15 +481,7 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:233
-#, fuzzy, no-c-format
-#| msgid ""
-#| "The autoboot framework in modern U-Boot versions works similar to the "
-#| "boot ordering options in a PC BIOS, i.e. it checks a list of possible "
-#| "boot devices for a valid boot image and starts the first one it finds. If "
-#| "there is no operating system installed, plugging in the USB stick and "
-#| "powering up the system should result in starting the installer. You can "
-#| "also initiate the USB-boot process any time from the U-Boot prompt by "
-#| "entering the <quote>run usb_boot</quote> command."
+#, no-c-format
 msgid ""
 "The autoboot framework in modern U-Boot versions works similar to the boot "
 "ordering options in a PC BIOS, i.e. it checks a list of possible boot "
@@ -566,23 +501,7 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:243
-#, fuzzy, no-c-format
-#| msgid ""
-#| "One problem that can come up when booting from a USB stick while using a "
-#| "serial console can be a console baudrate mismatch. If a console variable "
-#| "is defined in U-Boot, the &d-i; boot script automatically passes it to "
-#| "the kernel to set the primary console device and, if applicable, the "
-#| "console baudrate. Unfortunately the handling of the console variable "
-#| "varies from platform to platform - on some platforms, the console "
-#| "variable includes the baudrate (as in <quote>console=ttyS0,115200</"
-#| "quote>), while on other platforms the console variable contains only the "
-#| "device (as in <quote>console=ttyS0</quote>). The latter case leads to a "
-#| "garbled console output when the default baudrate differs between U-Boot "
-#| "and the kernel. Modern U-Boot versions often use 115200 baud while the "
-#| "kernel still defaults to the traditional 9600 baud. If this happens, you "
-#| "should manually set the console variable to contain the correct baudrate "
-#| "for your system and then start the installer with the <quote>run "
-#| "usb_boot</quote> command."
+#, no-c-format
 msgid ""
 "One problem that can come up when booting from a USB stick while using a "
 "serial console can be a console baudrate mismatch. If a console variable is "
