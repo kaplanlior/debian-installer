@@ -860,7 +860,7 @@ msgid ""
 "classname> and its configuration file</phrase>."
 msgstr ""
 "這裡有一個單一檔案 <filename>hd-media/boot.img.gz</filename>，其中包含了所有"
-"的安裝程式文件 (包括核心)，以及 <command>SYSLINUX</command> 和它的設定檔案。"
+"的安裝程式文件 (包括核心)，以及 <command>syslinux</command> 和它的設定檔案。"
 "您只需要把它直接解壓縮到您的 USB 隨身碟內即可：<informalexample><screen>\n"
 "# zcat boot.img.gz &gt; /dev/<replaceable>sda</replaceable>\n"
 "</screen></informalexample> 當然，這會刪除設備上現存的所有內容，因此請仔細檢"
@@ -885,9 +885,9 @@ msgstr ""
 
 #. Tag: screen
 #: install-methods.xml:663
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "# zcat boot.img.gz &gt; /dev/<replaceable>sdX</replaceable>"
-msgstr "# install-mbr /dev/<replaceable>sda</replaceable>"
+msgstr "# zcat boot.img.gz &gt; /dev/<replaceable>sdX</replaceable>"
 
 #. Tag: para
 #: install-methods.xml:665
@@ -908,9 +908,9 @@ msgstr ""
 
 #. Tag: screen
 #: install-methods.xml:671
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "# zcat boot.img.gz &gt; /dev/<replaceable>sdX2</replaceable>"
-msgstr "# install-mbr /dev/<replaceable>sda</replaceable>"
+msgstr "# zcat boot.img.gz &gt; /dev/<replaceable>sdX2</replaceable>"
 
 #. Tag: para
 #: install-methods.xml:673
@@ -1000,15 +1000,7 @@ msgstr ""
 
 #. Tag: para
 #: install-methods.xml:736
-#, fuzzy, no-c-format
-#| msgid ""
-#| "In order to start the kernel after booting from the USB stick, we will "
-#| "put a boot loader on the stick. Although any boot loader (e.g. "
-#| "<command>LILO</command>) should work, it's convenient to use "
-#| "<command>SYSLINUX</command>, since it uses a FAT16 partition and can be "
-#| "reconfigured by just editing a text file. Any operating system which "
-#| "supports the FAT file system can be used to make changes to the "
-#| "configuration of the boot loader."
+#, no-c-format
 msgid ""
 "In order to start the kernel after booting from the USB stick, we will put a "
 "boot loader on the stick. Although any boot loader (e.g. <classname>lilo</"
@@ -1018,24 +1010,14 @@ msgid ""
 "can be used to make changes to the configuration of the boot loader."
 msgstr ""
 "為了能在 USB 隨身碟開機後啟動核心，我們要在 USB 隨身碟上放入一個 boot-"
-"loader。儘管任何 boot-loader (例如 <command>LILO</command>) 都應該可以勝任這"
-"個工作，不過還是使用 <command>SYSLINUX</command> 更方便。主要原因是是它可以使"
+"loader。儘管任何 boot-loader (例如 <command>lilo</command>) 都應該可以勝任這"
+"個工作，不過還是使用 <command>syslinux</command> 更方便。主要原因是是它可以使"
 "用 FAT16 分割區，而且只需要編輯一個文字檔案就能對其進行設定。任何支援 FAT 檔"
 "案系統的操作系統可以用來改變 boot-loader 的設定檔案。"
 
 #. Tag: para
 #: install-methods.xml:746
-#, fuzzy, no-c-format
-#| msgid ""
-#| "To put <command>SYSLINUX</command> on the FAT16 partition on your USB "
-#| "stick, install the <classname>syslinux</classname> and <classname>mtools</"
-#| "classname> packages on your system, and do: <informalexample><screen>\n"
-#| "# syslinux /dev/<replaceable>sda1</replaceable>\n"
-#| "</screen></informalexample> Again, take care that you use the correct "
-#| "device name. The partition must not be mounted when starting "
-#| "<command>SYSLINUX</command>. This procedure writes a boot sector to the "
-#| "partition and creates the file <filename>ldlinux.sys</filename> which "
-#| "contains the boot loader code."
+#, no-c-format
 msgid ""
 "To put <classname>syslinux</classname> on the FAT16 partition on your USB "
 "stick, install the <classname>syslinux</classname> and <classname>mtools</"
@@ -1047,12 +1029,12 @@ msgid ""
 "the file <filename>ldlinux.sys</filename> which contains the boot loader "
 "code."
 msgstr ""
-"為了把 <command>SYSLINUX</command> 放到您的 USB 隨身碟的 FAT16 分割區上，請在"
+"為了把 <classname>syslinux</classname> 放到您的 USB 隨身碟的 FAT16 分割區上，請在"
 "您的系統中安裝 <classname>syslinux</classname> 和 <classname>mtools</"
 "classname> 套件，然後執行：<informalexample><screen>\n"
-"# syslinux /dev/<replaceable>sda1</replaceable>\n"
+"# syslinux /dev/<replaceable>sdX1</replaceable>\n"
 "</screen></informalexample> 再提醒一次，請確認您使用的是正確的設備名稱。還"
-"有，一定不能在啟動 <command>SYSLINUX</command> 的時候掛載該分割區，因為在操作"
+"有，一定不能在啟動 <classname>syslinux</classname> 的時候掛載該分割區，因為在操作"
 "過程中會向分割區的開機磁區寫入資料並且建立包含 boot-loader 代碼的 "
 "<filename>ldlinux.sys</filename> 檔案。"
 
@@ -1144,19 +1126,7 @@ msgstr ""
 
 #. Tag: para
 #: install-methods.xml:829
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Most USB sticks do not come pre-configured in such a way that Open "
-#| "Firmware can boot from them, so you will need to repartition the stick. "
-#| "On Mac systems, run <userinput>mac-fdisk /dev/sda</userinput>, initialise "
-#| "a new partition map using the <userinput>i</userinput> command, and "
-#| "create a new partition of type Apple_Bootstrap using the <userinput>C</"
-#| "userinput> command. (Note that the first \"partition\" will always be the "
-#| "partition map itself.) Then type <informalexample><screen>\n"
-#| "$ hformat /dev/<replaceable>sda2</replaceable>\n"
-#| "</screen></informalexample> Take care that you use the correct device "
-#| "name for your USB stick. The <command>hformat</command> command is "
-#| "contained in the <classname>hfsutils</classname> Debian package."
+#, no-c-format
 msgid ""
 "Most USB sticks do not come pre-configured in such a way that Open Firmware "
 "can boot from them, so you will need to repartition the stick. On Mac "
@@ -1172,11 +1142,11 @@ msgid ""
 "the <classname>hfsutils</classname> &debian; package."
 msgstr ""
 "絕大多數 USB 隨身碟的預設設定都不能讓 Open Firmware 從該儲存進行開機，因此您"
-"需要將儲存重新分割。在 Mac 系統上，執行 <userinput>mac-fdisk /dev/sda</"
+"需要將儲存重新分割。在 Mac 系統上，執行 <userinput>mac-fdisk /dev/<replaceable>sdX</replaceable></"
 "userinput>，用 <userinput>i</userinput> 指令初始化新的分割映射，然後使用 "
 "<userinput>C</userinput> 指令建立一個類型為 Apple_Bootstrap 的新分割區。(要注"
 "意的是第一個分割區總是分割映射本身。) 然後鍵入 <informalexample><screen>\n"
-"$ hformat /dev/<replaceable>sda2</replaceable>\n"
+"$ hformat /dev/<replaceable>sdX2</replaceable>\n"
 "</screen></informalexample> 注意請使用正確的 USB 隨身碟設備名稱。 "
 "<command>hformat</command> 指令包含在 <classname>hfsutils</classname> "
 "&debian; 套件中。"
@@ -1198,23 +1168,7 @@ msgstr ""
 
 #. Tag: para
 #: install-methods.xml:855
-#, fuzzy, no-c-format
-#| msgid ""
-#| "The normal <command>ybin</command> tool that comes with <command>yaboot</"
-#| "command> does not yet understand USB storage devices, so you will have to "
-#| "install <command>yaboot</command> by hand using the <classname>hfsutils</"
-#| "classname> tools. Type <informalexample><screen>\n"
-#| "$ hmount /dev/sda2\n"
-#| "$ hcopy -r /usr/lib/yaboot/yaboot :\n"
-#| "$ hattrib -c UNIX -t tbxi :yaboot\n"
-#| "$ hattrib -b :\n"
-#| "$ humount\n"
-#| "</screen></informalexample> Again, take care that you use the correct "
-#| "device name. The partition must not be otherwise mounted during this "
-#| "procedure. This procedure writes the boot loader to the partition, and "
-#| "uses the HFS utilities to mark it in such a way that Open Firmware will "
-#| "boot it. Having done this, the rest of the USB stick may be prepared "
-#| "using the normal Unix utilities."
+#, no-c-format
 msgid ""
 "The normal <command>ybin</command> tool that comes with <command>yaboot</"
 "command> does not yet understand USB storage devices, so you will have to "
@@ -1236,7 +1190,7 @@ msgstr ""
 "能識別 USB 隨身碟設備，因此您不得不手動安裝 <command>yaboot</command>，這可以"
 "透過 <classname>hfsutils</classname> 工具來完成。用法如下： "
 "<informalexample><screen>\n"
-"$ hmount /dev/sda2\n"
+"$ hmount /dev/<replaceable>sdX2</replaceable>\n"
 "$ hcopy -r /usr/lib/yaboot/yaboot :\n"
 "$ hattrib -c UNIX -t tbxi :yaboot\n"
 "$ hattrib -b :\n"
@@ -1742,7 +1696,7 @@ msgstr "設置 RARP 伺服器"
 
 #. Tag: para
 #: install-methods.xml:1213
-#, fuzzy, no-c-format
+#, no-c-format
 msgid ""
 "To set up RARP, you need to know the Ethernet address (a.k.a. the MAC "
 "address) of the client computers to be installed. If you don't know this "
@@ -1756,7 +1710,7 @@ msgstr ""
 "如果您還不知道這個資訊，可以<phrase arch=\"sparc\">從 OpenPROM 的初始化開機資"
 "訊中取得，請使用 OpenBoot <userinput>.enet-addr</userinput> 指令，或者</"
 "phrase>開機進入 <quote>Rescue</quote> 模式 (例如使用回復軟碟) 並且使用 "
-"<userinput>/sbin/ifconfig eth0</userinput> 指令。"
+"<userinput>ip addr show dev eth0</userinput> 指令。"
 
 #. Tag: para
 #: install-methods.xml:1225
