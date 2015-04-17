@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 69503 -->
+<!-- original version: 69755 -->
 
 <para>
 
@@ -317,12 +317,14 @@ wird der Installer zusätzlich eine separate
 Alle anderen Partitionen (inklusive Swap) werden innerhalb der LVM-Partition
 erstellt.
 
-</para><para arch="ia64">
+</para><para arch="amd64;arm64;i386">
 
-Wählen Sie Geführte Partitionierung auf Ihrem IA-64-System, wird eine
-zusätzliche Partition, formatiert als bootfähiges FAT16-Dateisystem, für
-den EFI-Bootloader erstellt. Es gibt ebenfalls einen zusätzlichen Menüpunkt
-im Format-Menü, um eine Partition manuell als EFI-Boot-Partition einzurichten.
+Wenn Sie im EFI-Modus gebootet haben, wird bei der Geführten
+Partitionierung eine zusätzliche Partition, formatiert als boot-fähiges
+FAT32-Dateisystem, für den EFI-Bootloader erstellt. Diese Partition
+ist als EFI System Partition (ESP) bekannt. Es gibt ebenfalls einen
+zusätzlichen Menüpunkt im Format-Menü, um eine Partition manuell als
+ESP einzurichten.
 
 </para><para>
 
@@ -336,25 +338,22 @@ Die Liste der Partitionen sieht in ihrer Struktur ähnlich aus wie diese:
 
 <!-- TODO: show some flags here (lightning, skull, smiley) -->
 <informalexample><screen>
-  IDE1 master (hda) - 6.4 GB WDC AC36400L
+  SCSI1 (0,0,0) (sda) - 6.4 GB WDC AC36400L
         #1 primär    16.4 MB  B f ext2       /boot
         #2 primär   551.0 MB      swap       swap
         #3 primär     5.8 GB      ntfs
            pri/log    8.2 MB      FREIER SPEICHER
 
-  IDE1 slave (hdb) - 80.0 GB ST380021A
+  SCSI2 (1,0,0) (sdb) - 80.0 GB ST380021A
         #1 primär    15.9 MB      ext3
         #2 primär   996.0 MB      fat16
         #3 primär     3.9 GB      xfs        /home
-        #5 logisch    6.0 GB    f ext3       /
+        #5 logisch    6.0 GB    f ext4       /
         #6 logisch    1.0 GB    f ext3       /var
         #7 logisch  498.8 MB      ext3
-        #8 logisch  551.5 MB      swap       swap
-        #9 logisch   65.8 GB      ext2
-
 </screen></informalexample>
 
-Dieses Beispiel zeigt, wie zwei IDE-Festplatten in mehrere Partitionen
+Dieses Beispiel zeigt, wie zwei Festplatten in mehrere Partitionen
 aufgeteilt wurden; die erste Platte enthält noch etwas freien Speicher. Jede
 dieser Zeilen mit jeweils einer Partition besteht aus der Partitionsnummer,
 dem Typ (primär, erweitert, logisch), der Größe, optionalen Markierungen,
@@ -443,11 +442,12 @@ eingebunden werden muss) und eine für <emphasis>Swap</emphasis>. Falls Sie
 vergessen, die Root-Partition einzubinden, gestattet <command>partman</command>
 es nicht, weiterzumachen, bis diese Angelegenheit behoben ist.
 
-</para><para arch="ia64">
+</para><para arch="amd64;arm64;i386">
 
-Falls Sie außerdem keine EFI-Boot-Partition erstellt und formatiert haben, wird
-<command>partman</command> dies ebenfalls erkennen und Sie können nicht
-fortfahren, ehe Sie eine zugewiesen haben.
+Falls Sie im EFI-Modus gebootet, aber vergessen haben, eine EFI System
+Partition auszuwählen und zu formatieren, wird <command>partman</command>
+dies erkennen und lässt Sie nicht weiter fortfahren, bis Sie eine
+zugewiesen haben.
 
 </para><para arch="linux-any">
 

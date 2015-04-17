@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 69709 -->
+<!-- original version: 69774 -->
 
  <sect1 id="hardware-supported">
  <title>Unterstützte Hardware</title>
@@ -134,9 +134,9 @@ dieser Architekturen, auch als <quote>Flavours</quote> bekannt:
 </row>
 
 <row>
-  <entry>IBM PowerPC (Little Endian)</entry>
+  <entry>Power Systems</entry>
   <entry>ppc64el</entry>
-  <entry></entry>
+  <entry>IBM POWER8 oder neuer</entry>
   <entry></entry>
 </row>
 
@@ -207,16 +207,6 @@ der anderen von &debian; unterstützten Architekturen suchen, besuchen Sie
 <ulink url="http://www.debian.org/ports/">Debians Portierungs-Seiten</ulink>.
 
 </para>
-<caution arch="ia64"><para>
-
-Die &arch-title;-Architektur unterstützt nur Intel Itanium-Prozessoren,
-nicht die viel weiter verbreiteten 64-Bit-Prozessoren der Intel 64-Familie
-(inklusive dem Pentium&nbsp;D und dem Core2&nbsp;Duo). Diese Systeme
-werden von der <emphasis>amd64</emphasis>-Architektur unterstützt oder,
-falls Sie eine 32-Bit-Userland-Umgebung bevorzugen, von der
-<emphasis>i386</emphasis>-Architektur.
-
-</para></caution>
 <para condition="new-arch">
 
 Dies ist die erste offizielle Veröffentlichung von &debian-gnu; für die
@@ -239,9 +229,7 @@ zu kontaktieren.
 <!-- supported cpu docs -->
 &supported-amd64.xml;
 &supported-arm.xml;
-&supported-hppa.xml;
 &supported-i386.xml;
-<!--       &supported-ia64.xml;  FIXME: currently missing     -->
 &supported-mips.xml;
 &supported-mipsel.xml;
 &supported-powerpc.xml;
@@ -372,20 +360,50 @@ dazu finden Sie im
 </para>
   </sect2>
 
-  <sect2 id="gfx" arch="not-s390"><title>Grafikkarten-Unterstützung</title>
-<para arch="x86">
+  <sect2 id="gfx" arch="not-s390"><title>Unterstützung für Grafik-Hardware</title>
+
+<para>  
 
 Die Unterstützung für Grafikkarten in &debian; wird bestimmt von der
-zugrundeliegenden Unterstützung im X.Org-X11-System. Auf modernen PCs
-funktioniert die grafische Anzeige normalerweise direkt ohne Probleme.
+zugrundeliegenden Unterstützung im X.Org-X11-System und dem Kernel.
+Basis-Grafikfunktionalitäten über Framebuffer wird durch den Kernel
+bereitgestellt, während Desktop-Umgebungen X11 verwenden.
 Ob erweiterte Funktionen der Grafikkarte, wie 3D-Hardware-Beschleunigung
 oder hardware-beschleunigte Anzeige, verfügbar sind, hängt von der
 letztendig im System verwendeten Grafik-Hardware ab und manchmal ist
 die Installation von zusätzlichen <quote>Firmware</quote>-Images nötig
-(siehe <xref linkend="hardware-firmware"/>). In einigen wenigen Fällen
+(siehe <xref linkend="hardware-firmware"/>).
+
+</para>
+
+<para arch="x86">
+
+Auf modernen PCs funktioniert die grafische Anzeige normalerweise
+direkt ohne weiteres Eingreifen. In einigen wenigen Fällen
 gab es Berichte über Hardware, bei der auch für die grundsätzliche
 Basisfunktionalität der Grafikkarte die Installation von zusätzlicher
 Firmware erforderlich war; dies sind aber seltene Ausnahmen.
+Bei vielen Karten funktioniert auch die 3D-Beschleunigung, ohne dass
+dazu speziell etwas unternommen werden muss. Allerdings gibt es immer
+noch Hardware, die Firmware-Dateien benötigt, um korrekt zu arbeiten.
+
+</para>
+
+<para arch="arm">
+
+Nahezu alle ARM-Maschinen haben die Grafik-Hardware fest eingebaut,
+und nicht als Erweiterungskarte. Es gibt Systeme mit
+Erweiterungssteckplätzen, die auch Grafikkarten aufnehmen können, aber
+diese sind eher Raritäten. Hardware, die entwickelt wurde, um komplett
+ohne eine lokale Grafikanzeige zu arbeiten, ist hier eher die Regel.
+Während eine Basis-Grafikfunktionalität über Framebuffer (durch den
+Kernel bereitgestellt) auf allen Geräten, die Grafik-Hardware haben,
+funktionieren sollte, benötigt 3D-Grafik ausnahmslos Binärtreiber.
+Die Situation ändert sich hier sehr schnell, aber zur Zeit der
+Freigabe von &releasename-cap; sind freie Treiber für nouveau (Nvidia
+Tegra-K1-SoC) und freedreno (Qualcomm Snapdragon-SoCs) in der
+Veröffentlichung enthalten. Andere Hardware benötigt nicht-freie
+Treiber von Drittanbietern.
 
 </para><para>
 

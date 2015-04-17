@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 69217 -->
+<!-- original version: 69747 -->
 
  <sect1 id="pre-install-bios-setup">
  <title>Hardware- und Betriebssystem-Setup vor der Installation</title>
@@ -38,8 +38,8 @@ interne Software; sie ist meistens höchst kritisch in den Boot-Prozess involvie
        das klassische BIOS geschrieben wurde, unverändert weiter
        genutzt werden kann. Nichtsdestotrotz soll UEFI eines Tages
        das alte PC-BIOS ganz ersetzen, ohne dabei vollständig
-       rückwärtskompatibel zu sein; es gibt sogar bereits jetzt Systeme
-       mit UEFI, die kein CSM haben.
+       rückwärtskompatibel zu sein; es gibt sogar bereits jetzt 
+       eine Reihe von Systemen mit UEFI, die kein CSM haben.
     </para>
     <para>
        Auf Systemen mit UEFI gibt es ein paar Dinge, die in Betracht
@@ -62,8 +62,8 @@ interne Software; sie ist meistens höchst kritisch in den Boot-Prozess involvie
        keine Platten größer als 2 Terabyte adressieren kann; GPT jedoch
        erlaubt erheblich größere Festplatten. Der andere große
        Unterschied zwischen BIOS (oder UEFI im CSM-Modus) und nativem
-       UEFI ist, von wo der Boot-Code geladen wird und welches Format
-       er haben muss, so dass für beide Systeme unterschiedliche
+       UEFI ist der Ort, wo der Boot-Code abgelegt ist und welches Format
+       er haben muss. Das bedeutet, dass für beide Systeme unterschiedliche
        Bootloader erforderlich sind.
     </para>
     <para>
@@ -138,6 +138,19 @@ interne Software; sie ist meistens höchst kritisch in den Boot-Prozess involvie
        Dual-Boot-System eine Beschädigung der Dateisysteme zu vermeiden,
        muss daher die <quote>Fast Boot</quote>-Funktionalität in Windows
        deaktiviert werden.
+    </para>
+    <para>
+       Es könnte auch nötig sein, <quote>fast boot</quote> zu
+       deaktivieren, um Zugriff auf das UEFI-Setup erhalten
+       und so ein anderes Betriebssystem oder den &d-i; zum Starten
+       auswählen zu können.
+       Auf einigen UEFI-Systemen könnte die Firmware die zum Booten
+       benötigte Zeit reduzieren, indem Tastatur-Controller oder
+       USB-Hardware nicht initialisiert werden. In diesen Fällen
+       ist es erforderlich, Windows zu booten und dort die
+       <quote>fast boot</quote>-Funktionalität zu deaktivieren,
+       damit Sie die Möglichkeit erhalten, die Boot-Reihenfolge zu
+       ändern.
     </para>
   </sect2>
 

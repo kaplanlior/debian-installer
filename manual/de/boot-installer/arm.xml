@@ -1,7 +1,7 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 69708 -->
+<!-- original version: 69818 -->
 
-  <sect2 arch="arm" id="boot-image-formats">
+  <sect2 arch="armhf;armel" id="boot-image-formats">
     <title>Boot-Image-Formate</title>
     <para>
       Auf ARM-basierten Systemen wird in den meisten Fällen eines
@@ -28,8 +28,107 @@
       sogenannte Gerätebaum-Datei (auch Gerätebaum-Abbild /
       device-tree blob, <quote>dtb</quote>) erforderlich. Diese ist
       spezifisch für jedes unterstützte System und enthält eine
-      Beschreibung der jeweiligen Hardware.
+      Beschreibung der jeweiligen Hardware. Das dtb sollte eigentlich
+      auf dem Gerät von der Firmware bereitgestellt werden, aber in der
+      Praxis muss oft ein neueres geladen werden.
     </para>
+  </sect2>
+
+<!-- leave the following paragraphs untranslated for now due to time constraints-->
+  <sect2 arch="armhf" id="armhf-console-setup">
+    <title>Console configuration</title>
+    <para>
+      The netboot tarball (<xref
+      linkend="boot-armhf-netboot.tar.gz"/>), and the installer
+      SD-card images (<xref linkend="boot-installer-sd-image"/>) use
+      the (platform-specific) default console that is defined by
+      U-Boot in the <quote>console</quote> variable.  In most cases
+      that is a serial console, so on those platforms you by default
+      need a serial console cable to use the installer.
+    </para>
+    <para>
+      On platforms which also support a video console, you can modify the
+      U-Boot <quote>console</quote> variable accordingly if you would like
+      the installer to start on the video console.
+    </para>
+  </sect2>
+
+  <sect2 arch="arm64" id="arm64-console-setup">
+    <title>Console configuration</title>
+    <para>
+      The graphical installer is not enabled on the arm64 &d-i; images
+      for jessie so the serial console is used. The console device
+      should be detected automatically from the firmware, but if it is
+      not then after you boot linux from the GRUB menu you will see a
+      'Booting Linux' message then nothing more.
+    </para>
+    <para>
+      If you hit this issue you will need to set a specific console
+      config on the kernel command line. Hit <userinput>e</userinput>
+      for 'Edit Kernel command-line' at the GRUB menu, and change
+      <informalexample><screen>--- quiet</screen></informalexample> to
+      <informalexample><screen>console=&lt;device&gt;,&lt;speed&gt;</screen></informalexample>
+      e.g. <informalexample><screen>console=ttyAMA0,115200n8</screen></informalexample>
+      When finished hit <keycombo><keycap>Control</keycap>
+      <keycap>x</keycap></keycombo> to continue booting with new
+      setting.
+    </para>
+  </sect2>
+
+  <sect2 arch="arm64" id="juno-installation">
+    <title>Juno Installation</title>
+    <para>
+      Juno has UEFI so the install is straightforward.  The most
+      practical method is installing from USB stick. You need up to
+      date firmware for USB-booting to work. Builds from <ulink
+      url="&url-juno-firmware;">&url-juno-firmware;</ulink> after March
+      2015 tested OK. Consult Juno documentation on firmware updating.
+    </para>
+    <para>
+      Prepare a standard arm64 CD image on a USB stick. Insert it in
+      one of the USB ports on the back. Plug a serial cable into the
+      upper 9-pin serial port on the back. If you need networking
+      (netboot image) plug the ethernet cable into the socket on the
+      front of the machine.
+    </para>
+    <para>
+      Run a serial console at 115200, 8bit no parity, and boot the
+      Juno. It should boot from the USB stick to a GRUB menu.
+      The console config is not correctly detected on Juno so just hitting
+      return will show no kernel output. Set the console to  
+<informalexample><screen>console=ttyAMA0,115200n8</screen></informalexample>
+      as described in (<xref linkend="arm64-console-setup"/>). <keycombo><keycap>Control</keycap>
+<keycap>x</keycap></keycombo> to boot should show you the &d-i; screens,
+      and allow you to proceed with a standard installation.
+    </para>
+  </sect2>
+
+  <sect2 arch="arm64" id="apm-installation">
+    <title>Applied Micro Mustang Installation</title>
+    <para>
+      UEFI is available for this machine but it is normally shipped
+      with U-Boot so you will need to either install UEFI firmware
+      first then use standard boot/install methods, or use U-Boot boot
+      methods. Also USB is not supported in the jessie kernel so
+      installing from a USB stick does not work. You must use a serial
+      console to control the installation because the graphical
+      installer is not enabled on the arm64 architecture.
+    </para>
+    <para>
+      The recommended install method is to copy the &d-i; kernel and
+      initrd onto the hard drive, using the openembedded system
+      supplied with the machine, then boot from that to run the
+      installer. Alternatively use TFTP to get the kernel/dtb/initrd
+      copied over and booted (<xref linkend="boot-tftp-uboot"/>). After
+      installation, manual changes to boot from the installed image
+      are needed.
+    </para>
+    <para>
+      Run a serial console at 115200, 8bit no parity, and boot the
+      machine. Reboot the machine and when you see "Hit any key to
+      stop autoboot:" hit a key to get a Mustang# prompt. Then use
+      U-Boot commands to load and boot the kernel, dtb and initrd.
+     </para>
   </sect2>
 
   <sect2 arch="arm" id="boot-tftp"><title>Booten per TFTP</title>
@@ -141,7 +240,14 @@ bootz ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}
     </sect3>
   </sect2> 
 
-  <sect2 arch="arm" id="boot-hd-media">
+  <sect2 arch="arm64" condition="bootable-usb" id="usb-boot">
+  <title>Booten von USB-Stick mit UEFI</title>
+
+&boot-installer-intro-usb.xml;
+
+  </sect2>
+
+  <sect2 arch="armel;armhf" id="boot-hd-media">
     <title>Booten von USB-Stick in U-Boot</title>
     <para>
        Viele moderne Versionen von U-Boot haben USB-Unterstützung und
