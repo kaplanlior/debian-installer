@@ -345,22 +345,46 @@ section of the kernel config.</phrase>
 </para>
   </sect2>
 
-  <sect2 id="gfx" arch="not-s390"><title>Graphics Card Support</title>
+  <sect2 id="gfx" arch="not-s390"><title>Graphics Hardware Support</title>
+<para>  
+&debian;'s support for graphical interfaces is determined by the
+underlying support found in X.Org's X11 system, and the kernel. Basic
+framebuffer graphics is provided by the kernel, whilst desktop
+environments use X11. Whether advanced graphics card features such as
+3D-hardware acceleration or hardware-accelerated video are available,
+depends on the actual graphics hardware used in the system and in some
+cases on the installation of additional <quote>firmware</quote> images
+(see <xref linkend="hardware-firmware"/>).
+
+</para>
+
 <para arch="x86">
 
-&debian;'s support for graphical interfaces is determined by the
-underlying support found in X.Org's X11 system. On modern PCs,
-having a graphical display usually works out of the box. Whether
-advanced graphics card features such as 3D-hardware acceleration
-or hardware-accelerated video are available, depends on the 
-actual graphics hardware used in the system and in some cases
-on the installation of additional <quote>firmware</quote> images (see <xref
-linkend="hardware-firmware"/>). In very few cases there have
-been reports about hardware on which installation of additional graphics
-card firmware was required even for basic graphics support, but
-these have been rare exceptions.
-</para><para>
-Details on supported graphics cards and pointing devices can be found at
+On modern PCs, having a graphical display usually works out of the
+box.  In very few cases there have been reports about hardware on
+which installation of additional graphics card firmware was required
+even for basic graphics support, but these have been rare exceptions.
+For quite a lot of hardware, 3D acceleration also works well out of
+the box, but there is still some hardware that needs binary blobs to
+work well.
+</para>
+
+<para arch="arm">
+
+Nearly all ARM machines have the graphics hardware built-in, rather
+than being on a plug-in card. Some machines do have expansion slots
+which will take graphics cards, but that is a rarity. Hardware
+designed to be headless with no graphics at all is quite common.
+Whilst basic framebuffer video provided by the kernel should work on
+all devices that have graphics, fast 3D graphics invariably needs
+binary drivers to work. The situation is changing quickly but at
+the time of the &releasename; release free drivers for nouveau (Nvidia
+Tegra K1 SoC) and freedreno (Qualcomm Snapdragon SoCs) are available in
+the release. Other hardware needs non-free drivers from 3rd parties.
+
+</para>
+<para>
+Details on supported graphics hardware and pointing devices can be found at
 <ulink url="&url-xorg;"></ulink>.  &debian; &release; ships
 with X.Org version &x11ver;.
 
