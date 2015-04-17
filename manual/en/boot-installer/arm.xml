@@ -76,13 +76,13 @@
     <title>Juno Installation</title>
     <para>
       Juno has UEFI so the install is straightforward.  The most
-      practical method is installing from USB-stick. You need up to
+      practical method is installing from USB stick. You need up to
       date firmware for USB-booting to work. Builds from <ulink
       url="&url-juno-firmware;">&url-juno-firmware;</ulink> after March
       2015 tested OK. Consult Juno documentation on firmware updating.
     </para>
     <para>
-      Prepare a standard arm64 CD image on a USB-stick. Insert it in
+      Prepare a standard arm64 CD image on a USB stick. Insert it in
       one of the USB ports on the back. Plug a serial cable into the
       upper 9-pin D on the back. If you need networking (netboot
       image) plug the ethernet cable into the socket on the front of
@@ -90,7 +90,7 @@
     </para>
     <para>
       Run a serial console at 115200, 8bit no parity, and boot the
-      Juno. It should boot from the USB-stick to a GRUB menu.
+      Juno. It should boot from the USB stick to a GRUB menu.
       The console config is not correctly detected on Juno so just hitting
       return will show no kernel output. Set the console to  
 <informalexample><screen>console=ttyAMA0,115200n8</screen></informalexample>
@@ -104,10 +104,10 @@
     <title>Applied Micro Mustang Installation</title>
     <para>
       UEFI is available for this machine but it is normally shipped
-      with uboot so you will need to either install UEFI firmware
-      first then use standard boot/install methods, or use uboot boot
+      with U-Boot so you will need to either install UEFI firmware
+      first then use standard boot/install methods, or use U-Boot boot
       methods. Also USB is not supported in the jessie kernel so
-      installing from a USB-stick does not work. You must use a serial
+      installing from a USB stick does not work. You must use a serial
       console to control the installation because the graphical
       installer is not enabled on the arm64 architecture.
     </para>
@@ -124,7 +124,7 @@
       Run a serial console at 115200, 8bit no parity, and boot the
       machine. Reboot the machine and when you see "Hit any key to
       stop autoboot:" hit a key to get a Mustang# prompt. Then use
-      uboot commands to load and boot the kernel, dtb and initrd.
+      U-Boot commands to load and boot the kernel, dtb and initrd.
      </para>
   </sect2>
 
@@ -263,7 +263,7 @@ source ${scriptaddr}
   </sect2> 
 
 
-  <sect2 arch="armel;armhf;arm64" condition="bootable-usb" id="usb-boot">
+  <sect2 arch="arm64" condition="bootable-usb" id="usb-boot">
   <title>Booting from USB Memory Stick with UEFI</title>
 
 &boot-installer-intro-usb.xml;
