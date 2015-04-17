@@ -27,6 +27,9 @@ $(TARGETS): %:
 	mkdir -p "$$arch_destination/$$destsuffix" ; \
 	for format in $$formats; do \
 		if [ "$$format" = html ]; then \
+			mkdir -p "$$arch_destination/$$destsuffix/images" ; \
+			mv ./$$destdir/html/images/* "$$arch_destination/$$destsuffix/images" ; \
+			rmdir ./$$destdir/html/images ; \
 			mv ./$$destdir/html/* "$$arch_destination/$$destsuffix" ; \
 		else \
 			# Do not fail because of missing PDF support for some languages \
