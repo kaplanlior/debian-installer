@@ -5,6 +5,7 @@ TARGETS=$(foreach language,$(languages),$(addprefix $(language).,$(architectures
 all: $(TARGETS)
 
 $(TARGETS): %:
+	set -e ; \
 	target=$@ ; \
 	lang=$${target%.*} ; \
 	lang_id="$$(echo $$lang | tr A-Z a-z | sed "s/_/-/")" ; \
