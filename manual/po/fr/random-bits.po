@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: random-bits\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2015-04-15 20:29+0000\n"
-"PO-Revision-Date: 2015-01-17 19:32+0100\n"
+"PO-Revision-Date: 2015-04-16 19:40+0100\n"
 "Last-Translator: Baptiste Jammet <baptiste@mailoo.org>\n"
 "Language-Team: debian-l10n-french <debian-l10n-french@lists.debian.org>\n"
 "Language: fr\n"
@@ -84,7 +84,7 @@ msgstr "<filename>sda</filename>"
 #: random-bits.xml:38
 #, no-c-format
 msgid "First hard disk"
-msgstr ""
+msgstr "Premier disque dur"
 
 #. Tag: filename
 #: random-bits.xml:40
@@ -96,7 +96,7 @@ msgstr "<filename>sdb</filename>"
 #: random-bits.xml:41
 #, no-c-format
 msgid "Second hard disk"
-msgstr ""
+msgstr "Deuxième disque dur"
 
 #. Tag: filename
 #: random-bits.xml:43
@@ -106,23 +106,23 @@ msgstr "sda1"
 
 #. Tag: entry
 #: random-bits.xml:44
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "First partition of the first IDE hard disk"
 msgid "First partition of the first hard disk"
-msgstr "1re partition sur le premier disque dur IDE"
+msgstr "Première partition du premier disque dur"
 
 #. Tag: filename
 #: random-bits.xml:46
 #, no-c-format
 msgid "sdb7"
-msgstr ""
+msgstr "sdb7"
 
 #. Tag: entry
 #: random-bits.xml:47
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "Tenth partition of the fourth SCSI hard disk"
 msgid "Seventh partition of the second hard disk"
-msgstr "10e partition du quatrième disque SCSI"
+msgstr "Septième partition du deuxième disque dur"
 
 #. Tag: filename
 #: random-bits.xml:53
@@ -134,7 +134,7 @@ msgstr "<filename>sr0</filename>"
 #: random-bits.xml:54
 #, no-c-format
 msgid "First CD-ROM"
-msgstr ""
+msgstr "Premier lecteur de CD-ROM"
 
 #. Tag: filename
 #: random-bits.xml:56
@@ -146,7 +146,7 @@ msgstr "<filename>sr1</filename>"
 #: random-bits.xml:57
 #, no-c-format
 msgid "Second CD-ROM"
-msgstr ""
+msgstr "Deuxième lecteur de CD-ROM"
 
 #. Tag: filename
 #: random-bits.xml:63
@@ -817,6 +817,13 @@ msgstr ""
 #. Tag: para
 #: random-bits.xml:364
 #, no-c-format
+#| msgid ""
+#| "Next, create file systems on the partitions. For example, to create an "
+#| "ext3 file system on partition <filename>/dev/hda6</filename> (that's our "
+#| "example root partition): <informalexample><screen>\n"
+#| "# mke2fs -j /dev/<replaceable>hda6</replaceable>\n"
+#| "</screen></informalexample> To create an ext2 file system instead, omit "
+#| "<userinput>-j</userinput>."
 msgid ""
 "Next, create file systems on the partitions. For example, to create an ext3 "
 "file system on partition <filename>/dev/sda6</filename> (that's our example "
@@ -836,6 +843,16 @@ msgstr ""
 #. Tag: para
 #: random-bits.xml:374
 #, no-c-format
+#| msgid ""
+#| "Initialize and activate swap (substitute the partition number for your "
+#| "intended &debian; swap partition): <informalexample><screen>\n"
+#| "# mkswap /dev/<replaceable>hda5</replaceable>\n"
+#| "# sync\n"
+#| "# swapon /dev/<replaceable>hda5</replaceable>\n"
+#| "</screen></informalexample> Mount one partition as <filename>/mnt/"
+#| "debinst</filename> (the installation point, to be the root (<filename>/</"
+#| "filename>) filesystem on your new system). The mount point name is "
+#| "strictly arbitrary, it is referenced later below."
 msgid ""
 "Initialize and activate swap (substitute the partition number for your "
 "intended &debian; swap partition): <informalexample><screen>\n"
@@ -862,6 +879,9 @@ msgstr ""
 #. Tag: screen
 #: random-bits.xml:386
 #, no-c-format
+#| msgid ""
+#| "# mkdir /mnt/debinst\n"
+#| "# mount /dev/<replaceable>hda6</replaceable> /mnt/debinst"
 msgid ""
 "# mkdir /mnt/debinst\n"
 "# mount /dev/<replaceable>sda6</replaceable> /mnt/debinst"
@@ -1576,6 +1596,16 @@ msgstr ""
 #. Tag: para
 #: random-bits.xml:731
 #, no-c-format
+#| msgid ""
+#| "Installing and setting up <classname>grub2</classname> is as easy as: "
+#| "<informalexample><screen>\n"
+#| "# aptitude install grub-pc\n"
+#| "# grub-install /dev/<replaceable>hda</replaceable>\n"
+#| "# update-grub\n"
+#| "</screen></informalexample> The second command will install "
+#| "<command>grub2</command> (in this case in the MBR of <literal>hda</"
+#| "literal>). The last command will create a sane and working <filename>/"
+#| "boot/grub/grub.cfg</filename>."
 msgid ""
 "Installing and setting up <classname>grub2</classname> is as easy as: "
 "<informalexample><screen>\n"
@@ -1592,20 +1622,25 @@ msgstr ""
 "# aptitude install grub-pc\n"
 "# grub-install /dev/<replaceable>sda</replaceable>\n"
 "# update-grub\n"
-"</screen></informalexample> La deuxième commande installe <command>grub-pc</"
+"</screen></informalexample> La deuxième commande installe <command>grub2</"
 "command> (ici, sur le MBR de <literal>sda</literal>). La dernière commande "
 "crée un fichier <filename>/boot/grub/grub.cfg</filename> fonctionnel."
 
 #. Tag: para
 #: random-bits.xml:741
 #, no-c-format
+#| msgid ""
+#| "Note that this assumes that a <filename>/dev/hda</filename> device file "
+#| "has been created. There are alternative methods to install "
+#| "<command>grub2</command>, but those are outside the scope of this "
+#| "appendix."
 msgid ""
 "Note that this assumes that a <filename>/dev/sda</filename> device file has "
 "been created. There are alternative methods to install <command>grub2</"
 "command>, but those are outside the scope of this appendix."
 msgstr ""
 "On suppose ici qu'un fichier <filename>/dev/sda</filename> a été créé. Il y "
-"a d'autres méthodes pour installer <command>grub-pc</command>, mais elles "
+"a d'autres méthodes pour installer <command>grub2</command>, mais elles "
 "sortent du cadre de cette annexe."
 
 #. Tag: para
@@ -1618,6 +1653,15 @@ msgstr ""
 #. Tag: screen
 #: random-bits.xml:751
 #, no-c-format
+#| msgid ""
+#| "boot=/dev/<replaceable>hda6</replaceable>\n"
+#| "root=/dev/<replaceable>hda6</replaceable>\n"
+#| "install=menu\n"
+#| "delay=20\n"
+#| "lba32\n"
+#| "image=/vmlinuz\n"
+#| "initrd=/initrd.img\n"
+#| "label=Debian"
 msgid ""
 "boot=/dev/<replaceable>sda6</replaceable>\n"
 "root=/dev/<replaceable>sda6</replaceable>\n"
@@ -1659,6 +1703,19 @@ msgstr ""
 #. Tag: para
 #: random-bits.xml:763
 #, no-c-format
+#| msgid ""
+#| "Here is a basic <filename>/etc/yaboot.conf</filename> as an example: "
+#| "<informalexample><screen>\n"
+#| "boot=/dev/hda2\n"
+#| "device=hd:\n"
+#| "partition=6\n"
+#| "root=/dev/hda6\n"
+#| "magicboot=/usr/lib/yaboot/ofboot\n"
+#| "timeout=50\n"
+#| "image=/vmlinux\n"
+#| "label=Debian\n"
+#| "</screen></informalexample> On some machines, you may need to use "
+#| "<userinput>ide0:</userinput> instead of <userinput>hd:</userinput>."
 msgid ""
 "Here is a basic <filename>/etc/yaboot.conf</filename> as an example: "
 "<informalexample><screen>\n"
@@ -2244,17 +2301,56 @@ msgstr ""
 "l'entrée de menu <guimenuitem>Configurer et lancer une connexion PPPoE</"
 "guimenuitem>."
 
+#~ msgid "<filename>hda</filename>"
+#~ msgstr "<filename>hda</filename>"
+
+#~ msgid "IDE Hard disk / CD-ROM on the first IDE port (Master)"
+#~ msgstr "Disque dur IDE ou lecteur CD sur le premier port IDE (maître)"
+
+#~ msgid "<filename>hdb</filename>"
+#~ msgstr "<filename>hdb</filename>"
+
+#~ msgid "IDE Hard disk / CD-ROM on the first IDE port (Slave)"
+#~ msgstr "Disque dur IDE ou lecteur CD sur le premier port IDE (esclave)"
+
+#~ msgid "<filename>hdc</filename>"
+#~ msgstr "<filename>hdc</filename>"
+
+#~ msgid "IDE Hard disk / CD-ROM on the second IDE port (Master)"
+#~ msgstr "Disque dur IDE ou lecteur CD sur le second port IDE (maître)"
+
+#~ msgid "<filename>hdd</filename>"
+#~ msgstr "<filename>hdd</filename>"
+
+#~ msgid "IDE Hard disk / CD-ROM on the second IDE port (Slave)"
+#~ msgstr "Disque dur IDE ou lecteur CD sur le second port IDE (esclave)"
+
+#~ msgid "hda1"
+#~ msgstr "hda1"
+
+#~ msgid "hdd15"
+#~ msgstr "hdd15"
+
+#~ msgid "Fifteenth partition of the fourth IDE hard disk"
+#~ msgstr "15e partition sur le quatrième disque dur IDE"
+
 #~ msgid "SCSI Hard disk with lowest SCSI ID (e.g. 0)"
 #~ msgstr "Disque SCSI avec l'identificateur SCSI le plus bas (p. ex. 0)"
 
 #~ msgid "SCSI Hard disk with next higher SCSI ID (e.g. 1)"
 #~ msgstr "Disque SCSI avec l'identificateur suivant (p. ex. 1)"
 
+#~ msgid "<filename>sdc</filename>"
+#~ msgstr "<filename>sdc</filename>"
+
 #~ msgid "SCSI Hard disk with next higher SCSI ID (e.g. 2)"
 #~ msgstr "Disque SCSI avec l'identificateur suivant (p. ex. 2)"
 
 #~ msgid "First partition of the first SCSI hard disk"
 #~ msgstr "1re partition du premier disque SCSI"
+
+#~ msgid "sdd10"
+#~ msgstr "sdd10"
 
 #~ msgid "SCSI CD-ROM with the lowest SCSI ID"
 #~ msgstr "lecteur CD SCSI avec l'identificateur SCSI le plus bas"

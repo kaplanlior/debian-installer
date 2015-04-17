@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: boot-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2015-04-15 20:29+0000\n"
-"PO-Revision-Date: 2015-03-22 19:51+0100\n"
+"PO-Revision-Date: 2015-04-16 19:49+0100\n"
 "Last-Translator: Baptiste Jammet <baptiste@mailoo.org>\n"
 "Language-Team: debian-l10n-french <debian-l10n-french@lists.debian.org>\n"
 "Language: fr\n"
@@ -79,7 +79,7 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:47
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "uImage/uInitrd are image formats designed for the u-boot firmware that is "
 #| "used on many ARM-based systems. Older u-boot versions can only boot files "
@@ -95,11 +95,11 @@ msgid ""
 "Linux kernels and ramdisk images, but the command syntax to do that is "
 "slightly different from that for booting uImages."
 msgstr ""
-"Les formats d'image uImage/uInitrd sont conçus pour le microprogramme u-boot "
-"utilisé sur de nombreux systèmes ARM. Les anciennes versions de u-boot ne "
+"Les formats d'image uImage/uInitrd sont conçus pour le microprogramme U-Boot "
+"utilisé sur de nombreux systèmes ARM. Les anciennes versions de U-Boot ne "
 "peuvent amorcer que des fichiers au format uImage/uInitrd, qui sont donc "
 "utilisés principalement sur les anciens systèmes. Les versions plus récentes "
-"de u-boot peuvent aussi amorcer les noyaux Linux récents et les initrd (en "
+"de U-Boot peuvent aussi amorcer les noyaux Linux récents et les initrd (en "
 "plus des fichiers uImage/uInitrd), mais la syntaxe est légèrement différente "
 "de celle des uImages."
 
@@ -119,10 +119,10 @@ msgstr ""
 
 #. Tag: title
 #: boot-installer.xml:65
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "Boot Configuration"
 msgid "Console configuration"
-msgstr "Configuration d'amorçage"
+msgstr "Configuration de la console"
 
 #. Tag: para
 #: boot-installer.xml:66
@@ -135,6 +135,13 @@ msgid ""
 "quote> variable. In most cases that is a serial console, so on those "
 "platforms you by default need a serial console cable to use the installer."
 msgstr ""
+"Les archives netboot (<xref linkend=\"boot-armhf-netboot.tar.gz\"/>), hd-"
+"media (<xref linkend=\"boot-hd-media\"/>) et les images de l'installateur "
+"sur cartes SD (<xref linkend=\"boot-installer-sd-image\"/>) utilisent la "
+"console par défaut, définie par U-Boot dans la variable <quote>console</"
+"quote> et spécifique à la plate-forme. Dans la plupart des cas, c'est une "
+"console série. Sur ces plates-formes vous aurez donc besoin d'un câble de "
+"liaison série pour utiliser l'installateur."
 
 #. Tag: para
 #: boot-installer.xml:75
@@ -144,6 +151,9 @@ msgid ""
 "<quote>console</quote> variable accordingly if you would like the installer "
 "to start on the video console."
 msgstr ""
+"Sur les plates-formes qui prennent en charge aussi une console vidéo, vous "
+"pouvez modifier la variable <quote>console</quote> de U-Boot pour que "
+"l'installateur démarre sur la console vidéo."
 
 #. Tag: title
 #: boot-installer.xml:82
@@ -188,14 +198,14 @@ msgstr ""
 
 #. Tag: title
 #: boot-installer.xml:108
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "TFTP-booting in u-boot"
 msgid "TFTP-booting in U-Boot"
-msgstr "Amorcer à partir de TFTP avec u-boot"
+msgstr "Amorcer à partir de TFTP avec U-Boot"
 
 #. Tag: para
 #: boot-installer.xml:109
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Network booting on systems using the u-boot firmware consists of three "
 #| "steps: a) configuring the network, b) loading the images (kernel/initial "
@@ -206,7 +216,7 @@ msgid ""
 "steps: a) configuring the network, b) loading the images (kernel/initial "
 "ramdisk/dtb) into memory and c) actually executing the previosly loaded code."
 msgstr ""
-"Sur les systèmes utilisant le microprogramme u-boot, l'amorçage depuis le "
+"Sur les systèmes utilisant le microprogramme U-Boot, l'amorçage depuis le "
 "réseau est effectué en trois étapes : a) configurer le réseau, b) charger "
 "les images (noyau/initrd/dtb) en mémoire et c) exécuter le code chargé."
 
@@ -266,7 +276,7 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:132
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "On some systems, u-boot predefines a set of environment variables with "
 #| "suitable load addresses: kernel_addr_r, ramdisk_addr_r and fdt_addr_r. "
@@ -289,7 +299,7 @@ msgid ""
 "name <quote>sun4i</quote> or the Allwinner A20, architecture name "
 "<quote>sun7i</quote>), you can e.g. use the follwing values:"
 msgstr ""
-"Sur certains systèmes, u-boot prédéfinit un ensemble de variables "
+"Sur certains systèmes, U-Boot prédéfinit un ensemble de variables "
 "d'environnement avec des adresses de chargement adaptées : kernel_addr_r, "
 "ramdisk_addr_r et fdt_addr_r. Vous pouvez vérifier si elles sont définies en "
 "exécutant : <informalexample><screen>\n"
@@ -336,7 +346,7 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:150
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "The third part is setting the kernel commandline and actually executing "
 #| "the loaded code. U-boot passes the content of the <quote>bootargs</quote> "
@@ -389,7 +399,7 @@ msgstr "bootz ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}"
 
 #. Tag: para
 #: boot-installer.xml:165
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Note: When booting standard linux images, it is important to load the "
 #| "initial ramdisk image after the kernel and the dtb as u-boot sets the "
@@ -406,7 +416,7 @@ msgid ""
 "the ${fdt_addr_r} parameter."
 msgstr ""
 "Note : dans le cas de l'amorçage avec une image Linux standard, il est "
-"important de charger l'initrd après le noyau et le dtb, car u-boot "
+"important de charger l'initrd après le noyau et le dtb, car U-Boot "
 "positionne la variable filesize à la taille du dernier fichier chargé, et la "
 "commande bootz a besoin de la taille de cet initrd pour fonctionner "
 "correctement. Dans le cas de l'amorçage d'un noyau spécifique (c'est-à-dire "
@@ -416,7 +426,7 @@ msgstr ""
 #: boot-installer.xml:176
 #, no-c-format
 msgid "Pre-built netboot tarball"
-msgstr ""
+msgstr "Archive netboot précompilée"
 
 #. Tag: para
 #: boot-installer.xml:177
@@ -431,6 +441,16 @@ msgid ""
 "Prerequisite for using this feature is that you have a dhcp server in your "
 "network which provides the client with the address of the tftp server."
 msgstr ""
+"&debian; fournit une archive précompilée (&armmp-netboot-tarball;) qui peut "
+"être simplement décompressée sur un serveur TFTP et qui contient tout les "
+"fichiers nécessaires à l'amorçage par le réseau (netboot). Elle contient "
+"aussi un script qui automatise toutes les étapes pour lancer l'installateur. "
+"Les versions récentes de U-Boot contiennent une fonctionnalité d'amorçage "
+"automatique par TFTP. Celle ci s'active si il n'y a aucun périphérique local "
+"amorçable (MMC/SD, USB, IDE/SATA/SCSI) en chargeant ce script d'amorçage "
+"depuis le serveur TFTP. Pour utiliser cette fonctionnalité, vous devez avoir "
+"un serveur DHCP dans le réseau qui fournit au client l'adresse du serveur "
+"TFTP."
 
 #. Tag: para
 #: boot-installer.xml:189
@@ -439,12 +459,14 @@ msgid ""
 "If you would like to trigger the tftp autoboot feature from the U-Boot "
 "commandline, you can use the follwing command:"
 msgstr ""
+"Pour démarrer la fonctionnalité d'amorçage automatique par TFTP depuis "
+"l'invite de commande de U-Boot, entrez la commande suivante :"
 
 #. Tag: screen
 #: boot-installer.xml:192
 #, no-c-format
 msgid "run bootcmd_dhcp"
-msgstr ""
+msgstr "run bootcmd_dhcp"
 
 #. Tag: para
 #: boot-installer.xml:194
@@ -453,6 +475,8 @@ msgid ""
 "To manually load the bootscript provided by the tarball, you can "
 "alternatively issue the following commands at the U-Boot prompt:"
 msgstr ""
+"Pour charger manuellement le script d'amorçage fournit par l'archive, entrez "
+"la commande suivante à l'invite de U-Boot :"
 
 #. Tag: screen
 #: boot-installer.xml:198
@@ -463,17 +487,21 @@ msgid ""
 "tftpboot ${scriptaddr} /debian-installer/armhf/tftpboot.scr\n"
 "source ${scriptaddr}"
 msgstr ""
+"setenv autoload no\n"
+"dhcp\n"
+"tftpboot ${scriptaddr} /debian-installer/armhf/tftpboot.scr\n"
+"source ${scriptaddr}"
 
 #. Tag: title
 #: boot-installer.xml:206
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "Booting from a USB stick in u-boot"
 msgid "Booting from a USB stick in U-Boot"
-msgstr "Amorcer sur une clé USB avec u-boot"
+msgstr "Amorcer sur une clé USB avec U-Boot"
 
 #. Tag: para
 #: boot-installer.xml:207
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Many modern u-boot versions have USB support and allow booting from USB "
 #| "mass storage devices such as USB sticks. Unfortunately the exact steps "
@@ -483,7 +511,7 @@ msgid ""
 "storage devices such as USB sticks. Unfortunately the exact steps required "
 "to do that can vary quite a bit from device to device."
 msgstr ""
-"De nombreuses versions récentes de u-boot ont une prise en charge de l'USB "
+"De nombreuses versions récentes de U-Boot ont une prise en charge de l'USB "
 "et permettent d'amorcer depuis un périphérique de stockage USB comme une "
 "clef USB. Malheureusement, la procédure exacte peut varier d'un périphérique "
 "à l'autre."
@@ -498,7 +526,7 @@ msgid ""
 "stick on such systems, but unfortunately not all platforms have adopted this "
 "new framework yet."
 msgstr ""
-"La version 2014.10 de u-boot a introduit un cadre applicatif pour une "
+"La version 2014.10 de U-Boot a introduit un cadre applicatif pour une "
 "gestion commune de la ligne de commande et l'autoboot. Cela permet de "
 "construire des images d'amorçage génériques qui fonctionnent sur tous les "
 "systèmes qui implémentent ce cadre applicatif. L'&d-i; prend en charge "
@@ -507,7 +535,7 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:223
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "To build a bootable USB stick for installing &debian;, unpack the hd-"
 #| "media tarball (see <xref linkend=\"where-files\"/>) onto a USB stick "
@@ -526,13 +554,13 @@ msgstr ""
 "Pour construire une clef USB amorçable pour installer &debian;, décompressez "
 "l'archive tar hd-media (consultez la <xref linkend=\"where-files\"/>) sur "
 "une clef USB formatée avec un système de fichiers pris en charge par la "
-"version de u-boot de votre périphérique. Pour les versions modernes de u-"
-"boot, FAT16, FAT32, ext2, ext3 et ext4 fonctionnent généralement. Ensuite, "
+"version de U-Boot de votre périphérique. Pour les versions modernes de U-"
+"Boot, FAT16, FAT32, ext2, ext3 et ext4 fonctionnent généralement. Ensuite, "
 "copiez l'image ISO du premier CD ou DVD &debian; sur cette clef."
 
 #. Tag: para
 #: boot-installer.xml:233
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "The autoboot framework in modern u-boot versions works similar to the "
 #| "boot ordering options in a PC BIOS, i.e. it checks a list of possible "
@@ -550,18 +578,18 @@ msgid ""
 "the USB-boot process any time from the U-Boot prompt by entering the "
 "<quote>run bootcmd_usb0</quote> command."
 msgstr ""
-"Le cadre applicatif autoboot des versions récentes de u-boot fonctionne de "
+"Le cadre applicatif autoboot des versions récentes de U-Boot fonctionne de "
 "la même façon que l'option d'ordre d'amorçage du BIOS dans un PC, c'est-à-"
 "dire qu'il  cherche, sur une liste des périphériques, une image d'amorçage "
 "valide et démarre la première qu'il trouve. S'il n'y a aucun système "
 "d'exploitation installé, brancher la clef USB et démarrer le système devrait "
 "amorcer l'installateur. Vous pouvez aussi engager l'amorçage USB à n'importe "
 "quel moment en entrant la commande <quote>run bootcmd_usb0</quote> à "
-"l'invite de u-boot."
+"l'invite de U-Boot."
 
 #. Tag: para
 #: boot-installer.xml:243
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "One problem that can come up when booting from a USB stick while using a "
 #| "serial console can be a console baudrate mismatch. If a console variable "
@@ -596,7 +624,7 @@ msgid ""
 msgstr ""
 "Un des problèmes qui peut apparaître en amorçant depuis une clef USB tout en "
 "utilisant une console série est une erreur de vitesse de transmission "
-"(baudrate). Si une variable console est définie dans u-boot, le script "
+"(baudrate). Si une variable console est définie dans U-Boot, le script "
 "d'amorçage de l'&d-i; la passera automatiquement au noyau pour définir la "
 "première console et, si besoin, la fréquence de cette console. "
 "Malheureusement, la gestion de la variable console peut varier d'une plate-"
@@ -604,7 +632,7 @@ msgstr ""
 "<quote>console=ttyS0,115200</quote>), tandis que sur d'autres elle ne "
 "contient que le périphérique (<quote>console=ttyS0</quote>). Le dernier cas "
 "peut mener à une sortie confuse lorsque la fréquence par défaut diffère "
-"entre u-boot et le noyau. Les versions modernes de u-boot utilisent souvent "
+"entre U-Boot et le noyau. Les versions modernes de U-Boot utilisent souvent "
 "115200 bauds alors que le noyau est toujours configuré par défaut à "
 "9600 bauds. Si cela arrivait, vous devriez définir la variable console "
 "manuellement pour qu'elle contienne la fréquence correcte pour votre "
@@ -615,7 +643,7 @@ msgstr ""
 #: boot-installer.xml:264
 #, no-c-format
 msgid "Using pre-built SD-card images with the installer"
-msgstr ""
+msgstr "Utiliser les images précompilées de l'installateur pour cartes SD"
 
 #. Tag: para
 #: boot-installer.xml:265
@@ -630,6 +658,14 @@ msgid ""
 "<quote>firmware.&lt;system-type&gt;.img.gz</quote>, and a system-independent "
 "part named <quote>partition.img.gz</quote>."
 msgstr ""
+"Pour de nombreux systèmes, Debian fournit des images de cartes SD qui "
+"contiennent à la fois U-Boot et l'&d-i;. Ces images sont disponibles en deux "
+"variantes : une qui télécharge les paquets sur le réseau (&armmp-netboot-sd-"
+"img;) et une autre pour des installations sans réseau qui utilise un CD ou "
+"DVD Debian (&armmp-hd-media-sd-img;). Pour économiser l'espace disque et la "
+"bande passante, les images sont construites en deux parties : une partie "
+"dépendante du système appelée <quote>firmware.&lt;type_de_système&gt;.img."
+"gz</quote> et une indépendante appelée <quote>partition.img.gz</quote>."
 
 #. Tag: para
 #: boot-installer.xml:276
@@ -644,6 +680,15 @@ msgid ""
 "firmware.&lt;system-type&gt;.img + partition.img complete_image.img</"
 "screen></informalexample> in a Windows CMD.exe window."
 msgstr ""
+"Pour créer une image complète à partir des deux fichiers, sur un système "
+"Linux vous pouvez utiliser la commande zcat : <informalexample><screen>zcat "
+"firmware.&lt;type_de_système&gt;.img.gz partition.img.gz > complete_image."
+"img</screen></informalexample> Sur les systèmes Windows, vous devrez d'abord "
+"décompresser les deux parties séparément, par exemple avec 7-Zip, et ensuite "
+"les concaténer en exécutant la commande suivante dans une fenêtre de "
+"commande CMD.exe : <informalexample><screen>copy /b firmware.&lt;"
+"type_de_système&gt;.img + partition.img complete_image.img</screen></"
+"informalexample>"
 
 #. Tag: para
 #: boot-installer.xml:290
@@ -657,6 +702,14 @@ msgid ""
 "you must provide the installer with access to the first &debian; CD/DVD on a "
 "separate medium, which can e.g. be a CD/DVD ISO image on a USB stick."
 msgstr ""
+"Écrivez l'image résultante sur une carte SD en exécutant la commande "
+"suivante sur un système Linux : <informalexample><screen>cat complete_image."
+"img > /dev/PÉRIPHÉRIQUE_DE_LA_CARTE_SD</screen></informalexample> Après "
+"avoir branché la carte SD dans le système cible, mettez-le sous tension et "
+"l'installateur se chargera depuis la carte SD. Si vous utilisez la variante "
+"hd-media pour les installations sans le réseau, vous devrez fournir à "
+"l'installateur un accès au premier CD ou DVD &debian; sur un medium distinct "
+"(qui peut être aussi une image ISO de CD ou DVD sur une clef USB)."
 
 #. Tag: para
 #: boot-installer.xml:302
@@ -670,6 +723,14 @@ msgid ""
 "partition layout on the SD card is to let the installer automatically create "
 "one for you (see <xref linkend=\"partman-auto\"/>)."
 msgstr ""
+"Arrivé à l'étape de partitionnement (voyez la <xref linkend=\"di-partition\"/"
+">), vous pourrez supprimer ou remplacer toutes les partitions existantes sur "
+"la carte. Une fois l'installateur démarré, il s'exécute entièrement depuis "
+"la mémoire principale du système et n'a plus besoin d'accéder à la carte SD. "
+"Vous pouvez donc utiliser cette même carte pour installer &debian;. La façon "
+"la plus facile de créer une table de partition sur la carte SD est de "
+"laisser l'installateur le faire automatiquement (voyez la <xref linkend="
+"\"partman-auto\"/>)."
 
 #. Tag: title
 #: boot-installer.xml:443
@@ -679,7 +740,7 @@ msgstr "Amorcer sur une clé USB"
 
 #. Tag: para
 #: boot-installer.xml:449
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Let's assume you have prepared everything from <xref linkend=\"boot-dev-"
 #| "select\"/> and <xref linkend=\"boot-usb-files\"/>. Now just plug your USB "
@@ -716,13 +777,19 @@ msgstr "Amorcer depuis un CD"
 #: boot-installer.xml:469 boot-installer.xml:982 boot-installer.xml:1638
 #: boot-installer.xml:2056
 #, no-c-format
+#| msgid ""
+#| "The easiest route for most people will be to use a set of &debian; CDs. "
+#| "If you have a CD set, and if your machine supports booting directly off "
+#| "the CD, great! Simply <phrase arch=\"x86\"> configure your system for "
+#| "booting off a CD as described in <xref linkend=\"boot-dev-select\"/>, </"
+#| "phrase> insert your CD, reboot, and proceed to the next chapter."
 msgid ""
 "If you have a CD set, and if your machine supports booting directly off the "
 "CD, great! Simply <phrase arch=\"x86\"> configure your system for booting "
 "off a CD as described in <xref linkend=\"boot-dev-select\"/>, </phrase> "
 "insert your CD, reboot, and proceed to the next chapter."
 msgstr ""
-"Si vous avez un "
+"La manière la plus simple est d'utiliser les CD &debian;. Si vous avez un "
 "jeu de CD et si votre machine peut s'amorcer depuis un CD, c'est "
 "parfait&nbsp;! Il suffit <phrase arch=\"x86\"> de configurer votre système "
 "pour amorcer depuis le CD (voyez la <xref linkend=\"boot-dev-select\"/>), </"
@@ -1261,6 +1328,8 @@ msgid ""
 "When the installer boots, you should be presented with a friendly graphical "
 "screen showing the &debian; logo and a menu:"
 msgstr ""
+"Lorsque l'installateur démarre, vous devriez voir un sympathique écran qui "
+"montre le logo &debian; et un menu :"
 
 #. Tag: screen
 #: boot-installer.xml:795
@@ -1274,6 +1343,13 @@ msgid ""
 "Help\n"
 "Install with speech synthesis"
 msgstr ""
+"Installer boot menu\n"
+"\n"
+"Install\n"
+"Graphical install\n"
+"Advanced options             >\n"
+"Help\n"
+"Install with speech synthesis"
 
 #. Tag: para
 #: boot-installer.xml:799
@@ -1282,6 +1358,8 @@ msgid ""
 "This graphical screen will look very slightly different depending on how "
 "your computer has booted (BIOS or UEFI), but the same options will be shown."
 msgstr ""
+"Cet écran sera différent selon le mode d'amorçage de votre système (BIOS ou "
+"UEFI) mais les même options vous serons présentées."
 
 #. Tag: para
 #: boot-installer.xml:807
@@ -1292,6 +1370,10 @@ msgid ""
 "have a 64 bit variant for each install option, right below it, thus almost "
 "doubling the number of options."
 msgstr ""
+"En fonction de la méthode d'installation, l'option <quote>Graphical install</"
+"quote> (installateur graphique) pourrait ne pas être disponible. Les images "
+"multiarchitectures ont aussi une variante 64 bits pour chaque option "
+"d'installation, ce qui double presque le nombre d'options."
 
 #. Tag: para
 #: boot-installer.xml:814
@@ -1324,7 +1406,7 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:828
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "If you wish or need to add any boot parameters for either the installer "
 #| "or the kernel, press &tabkey;. This will display the default boot command "
@@ -1342,12 +1424,12 @@ msgid ""
 "to the boot menu and undo any changes you made."
 msgstr ""
 "Si vous voulez ajouter des paramètres d'amorçage pour l'installateur ou pour "
-"le noyau, appuyez sur la touche &tabkey;. La commande d'amorçage pour "
-"l'entrée du menu choisie est affichée et il est permis d’ajouter des "
-"options. Les écrans d'aide listent les principales options possibles. "
-"Appuyez sur la touche &enterkey; pour lancer l'installateur avec vos "
-"options. Pour revenir au menu et annuler toutes vos saisies, appuyez sur la "
-"touche &escapekey;."
+"le noyau, appuyez sur la touche &tabkey; (amorçage BIOS) ou &ekey; (amorçage "
+"UEFI). La commande d'amorçage pour l'entrée du menu choisie est affichée et "
+"il est permis d’ajouter des options. Les écrans d'aide listent les "
+"principales options possibles. Appuyez sur la touche &enterkey; (BIOS) ou "
+"&f10key; (UEFI) pour lancer l'installateur avec vos options. Pour revenir au "
+"menu et annuler toutes vos saisies, appuyez sur la touche &escapekey;."
 
 #. Tag: para
 #: boot-installer.xml:839
@@ -2886,19 +2968,19 @@ msgstr ""
 #: boot-installer.xml:1968
 #, no-c-format
 msgid "Booting a ppc64el machine"
-msgstr ""
+msgstr "Amorcer une machine ppc64el"
 
 #. Tag: para
 #: boot-installer.xml:1969
 #, no-c-format
 msgid "How to boot a ppc64el machine:"
-msgstr ""
+msgstr "Comment amorcer une machine ppc64el :"
 
 #. Tag: title
 #: boot-installer.xml:1975
 #, no-c-format
 msgid "Petitboot"
-msgstr ""
+msgstr "Petitboot"
 
 #. Tag: para
 #: boot-installer.xml:1976
@@ -2910,6 +2992,13 @@ msgid ""
 "FTP, SFTP, TFTP, NFS, HTTP and HTTPS protocols. Petitboot can boot any "
 "operating system that includes kexec boot support."
 msgstr ""
+"Petitboot est un gestionnaire d'amorçage indépendant de la plate-forme basé "
+"sur la fonction kexec du noyau Linux. Petitboot prend en charge le "
+"chargement du noyau, de l'initrd et de l'arbre de périphériques depuis "
+"n'importe quel système de fichier Linux, et peut aussi charger des fichiers "
+"depuis le réseau en utilisant les protocoles FTP, SFTP, TFTP, HTTP et HTTPS. "
+"Petitboot peut amorcer n'importe quel système d'exploitation prenant en "
+"charge l'amorçage par kexec."
 
 #. Tag: para
 #: boot-installer.xml:1984
@@ -2919,6 +3008,9 @@ msgid ""
 "the system, and can also be configured to use boot information from a DHCP "
 "server."
 msgstr ""
+"Petitboot cherche des fichiers de configuration du gestionnaire d'amorçage "
+"sur les périphériques accessibles du système, et peut aussi être configuré "
+"pour utiliser l'information d'amorçage depuis un serveur DHCP."
 
 #. Tag: para
 #: boot-installer.xml:2035
@@ -2985,6 +3077,18 @@ msgstr "Accessibilité"
 #. Tag: para
 #: boot-installer.xml:2119
 #, no-c-format
+#| msgid ""
+#| "Some users may need specific support because of e.g. some visual "
+#| "impairment. <phrase arch=\"ia64;powerpc;x86\">USB braille displays are "
+#| "detected automatically (not serial displays connected via a serial-to-USB "
+#| "converter), but most other</phrase> <phrase arch=\"arm;hppa;mips;mipsel;"
+#| "sparc\">Most</phrase> accessibility features have to be enabled manually. "
+#| "<phrase arch=\"x86\">On machines that support it, the boot menu emits a "
+#| "beep when it is ready to receive keystrokes.</phrase> Some boot "
+#| "parameters can <phrase arch=\"x86\">then</phrase> be appended to enable "
+#| "accessibility features<phrase arch=\"x86\"> (see also <xref linkend="
+#| "\"boot-screen\"/>)</phrase>. Note that on most architectures the boot "
+#| "loader interprets your keyboard as a QWERTY keyboard."
 msgid ""
 "Some users may need specific support because of e.g. some visual impairment. "
 "<phrase arch=\"ia64;powerpc;ppc64el;x86\">USB braille displays are detected "
@@ -2999,11 +3103,11 @@ msgid ""
 "keyboard."
 msgstr ""
 "Certaines personnes ont besoin d'une aide spéciale, par exemple à cause "
-"d'une déficience visuelle. <phrase arch=\"ia64;powerpc;ppc64el;x86\">Les plages "
-"Braille USB sont détectées automatiquement (sauf les plages série connectées "
-"grâce à un convertisseur série vers USB), mais la plupart des autres</"
-"phrase> <phrase arch=\"arm;hppa;mips;mipsel;sparc\">La plupart des</phrase> "
-"fonctionnalités doivent être activées explicitement. <phrase arch="
+"d'une déficience visuelle. <phrase arch=\"ia64;powerpc;ppc64el;x86\">Les "
+"plages Braille USB sont détectées automatiquement (sauf les plages série "
+"connectées grâce à un convertisseur série vers USB), mais la plupart des "
+"autres</phrase> <phrase arch=\"arm;hppa;mips;mipsel;sparc\">La plupart des</"
+"phrase> fonctionnalités doivent être activées explicitement. <phrase arch="
 "\"x86\">Sur certaines machines, le menu d'amorçage émet un bip quand la "
 "frappe des touches est possible.</phrase> Des paramètres d'amorçage peuvent "
 "<phrase arch=\"x86\">alors</phrase> être ajoutés pour activer les fonctions "
