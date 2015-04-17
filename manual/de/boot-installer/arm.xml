@@ -13,11 +13,11 @@
       Initial-Ramdisk (<quote>uInitrd</quote>).
     </para>
     <para>
-      uImage/uInitrd sind Image-Formate, die für die u-boot-Firmware
+      uImage/uInitrd sind Image-Formate, die für die U-Boot-Firmware
       ausgelegt wurden, welche auf vielen ARM-basierten Systemen
-      eingesetzt ist. Ältere u-boot-Versionen können nur Dateien
+      eingesetzt ist. Ältere U-Boot-Versionen können nur Dateien
       im uImage-/uInitrd-Format booten, daher werden diese Formate oft
-      auf älteren armel-Systemen genutzt. Neuere u-boot-Versionen können -
+      auf älteren armel-Systemen genutzt. Neuere U-Boot-Versionen können -
       neben uImage/uInitrd - auch Standard-Linux-Kernel- und Ramdisk-Images
       booten, aber die Befehlssyntax dafür ist etwas anders als beim
       Booten von uImages.
@@ -37,9 +37,9 @@
 &boot-installer-intro-net.xml;
 
     <sect3 arch="arm" id="boot-tftp-uboot">
-      <title>TFTP-Boot in u-boot</title>
+      <title>TFTP-Boot in U-Boot</title>
       <para>
-       Das Booten von Systemen über das Netzwerk mittels der u-boot-Firmware
+       Das Booten von Systemen über das Netzwerk mittels der U-Boot-Firmware
        erfordert drei Schritte: a) Konfigurieren des Netzwerks, b) Laden
        der Images (Kernel/Initial-Ramdisk/dtb) in den Speicher und c)
        das eigentliche Ausführen des vorher geladenen Codes.
@@ -75,7 +75,7 @@ saveenv
        Regel, welche Adresse hierfür verwendet werden muss.                     
       </para>
       <para>
-       Auf einigen Systemen legt u-boot einige Umgebungsvariablen mit
+       Auf einigen Systemen legt U-Boot einige Umgebungsvariablen mit
        passenden Ladeadressen an: kernel_addr_r, ramdisk_addr_r und
        fdt_addr_r. Sie können überprüfen, ob diese definiert sind,
        indem Sie dies ausführen:
@@ -107,7 +107,7 @@ tftpboot ${ramdisk_addr_r} &lt;dateiname des initial-ramdisk-images&gt;
       </para>
       <para>
        Der dritte Schritt ist das Setzen der Kernel-Befehlszeile
-       und das eigentliche Ausführen des geladenen Codes. u-boot
+       und das eigentliche Ausführen des geladenen Codes. U-Boot
        übergibt den Inhalt der Umgebungsvariable <quote>bootargs</quote>
        als Befehlszeile an den Kernel; also können alle Parameter für
        den Kernel und den Installer - wie z.B. die Konsolen-Gerätedatei
@@ -131,7 +131,7 @@ bootz ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}
       <para>
        Beachten Sie: wenn Sie Standard-Linux-Images booten, ist es
        wichtig, dass das Initial-Ramdisk-Image nach dem Kernel und der
-       DTB geladen wird, da u-boot die filesize-Variable (Dateigröße)
+       DTB geladen wird, da U-Boot die filesize-Variable (Dateigröße)
        auf die Größe der letzten geladenen Datei setzt und der
        bootz-Befehl benötigt die Größe des Ramdisk-Images, um korrekt
        zu arbeiten. Beim Booten eines plattformspezifischen Kernels, also
@@ -142,15 +142,15 @@ bootz ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}
   </sect2> 
 
   <sect2 arch="arm" id="boot-hd-media">
-    <title>Booten von USB-Stick in u-boot</title>
+    <title>Booten von USB-Stick in U-Boot</title>
     <para>
-       Viele moderne Versionen von u-boot haben USB-Unterstützung und
+       Viele moderne Versionen von U-Boot haben USB-Unterstützung und
        erlauben das Booten von USB-Massenspeicher-Geräten wie z.B.
        USB-Sticks. Unglücklicherweise können sich die genauen Schritte, die
        dazu nötig sind, von Gerät zu Gerät ein wenig unterscheiden.
     </para>
     <para>
-       In u-boot v2014.10 wurde das grundlegende Handling für eine
+       In U-Boot v2014.10 wurde das grundlegende Handling für eine
        Kommandozeile sowie ein Rahmenwerk für automatisches Booten
        (autoboot) eingeführt. Dies erlaubt die Erzeugung generischer
        Boot-Images, die auf jedem System funktionieren, das dieses Rahmenwerk
@@ -163,28 +163,28 @@ bootz ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}
        zu erstellen, entpacken Sie das hd-media-Tarball-Archiv (Näheres
        in <xref linkend="where-files"/>) auf einen USB-Stick,
        der mit einem Dateisystem formatiert ist, welches von der
-       u-boot-Version auf Ihrem Gerät unterstützt wird.
-       Bei neueren u-boot-Versionen sollten FAT16, FAT32, ext2, ext3
+       U-Boot-Version auf Ihrem Gerät unterstützt wird.
+       Bei neueren U-Boot-Versionen sollten FAT16, FAT32, ext2, ext3
        und ext4 normalerweise funktionieren. Kopieren Sie dann auch die
        ISO-Image-Datei der ersten &debian;-Installations-CD oder -DVD
        auf den Stick.
     </para>
     <para>
-      Das autoboot-Rahmenwerk in modernen u-boot-Versionen funktioniert
+      Das autoboot-Rahmenwerk in modernen U-Boot-Versionen funktioniert
       ähnlich wie die Optionen für die Bootreihenfolge in einem PC-Bios,
       d.h. auf verschiedenen möglichen Boot-Geräten wird der Reihe nach
       nach einem gültigen Boot-Image gesucht und das erste gefundene wird
       gestartet. Wenn kein Betriebssystem installiert ist, sollte das
       Starten des Systems mit eingestecktem USB-Stick den Installer booten.
       Sie können den USB-Boot-Prozess auch zu jeder Zeit vom
-      u-boot-Prompt aus anstoßen, indem Sie den
+      U-Boot-Prompt aus anstoßen, indem Sie den
       <quote>run bootcmd_usb0</quote>-Befehl ausführen.
     </para>
 
     <para>
        Ein Problem, das beim Booten von einem USB-Stick bei Nutzung der
        seriellen Konsole auftreten könnte, ist eine nicht passende
-       Konsolenbaudrate. Wenn die console-Variable in u-boot definiert
+       Konsolenbaudrate. Wenn die console-Variable in U-Boot definiert
        ist, wird das Boot-Skript des &d-i; diese automatisch an den
        Kernel weiterleiten, um das primäre Konsolengerät und - falls
        anwendbar - die Baudrate einzustellen. Unglücklicherweise
@@ -194,8 +194,8 @@ bootz ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}
        anderen hingegen lediglich den Gerätenamen (z.B.
        <quote>console=ttyS0</quote>). 
        In letzterem Fall kann es zu einer verstümmelten Konsolenausgabe
-       kommen, wenn die Standard-Baudrate bei u-boot und dem Kernel
-       nicht übereinstimmt. Moderne u-boot-Versionen verwenden oft
+       kommen, wenn die Standard-Baudrate bei U-Boot und dem Kernel
+       nicht übereinstimmt. Moderne U-Boot-Versionen verwenden oft
        eine Geschwindigkeit von 115200 Baud, während beim Kernel noch
        der alte traditionelle Wert von 9600 Baud voreingestellt ist.
        Falls dies passiert, sollten Sie die console-Variable händisch
@@ -209,7 +209,7 @@ bootz ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}
     <title>Verwenden von vorbereiteten (pre-built) SD-Karten-Images mit dem Installer</title>
     <para>
        Für eine Reihe von Systemen bietet Debian SD-Karten-Images an,
-       die sowohl u-boot wie auch den &d-i; enthalten. Diese Images gibt es
+       die sowohl U-Boot wie auch den &d-i; enthalten. Diese Images gibt es
        in zwei Varianten - eine für das Herunterladen der Software-Pakete
        über das Netzwerk (verfügbar unter &armmp-netboot-sd-img;) und die
        andere für Offline-Installationen ohne Internet-Verbindung, die

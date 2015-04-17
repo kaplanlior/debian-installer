@@ -24,19 +24,19 @@ insieme al suo ramdisk iniziale (<quote>uInitrd</quote>).
 </para><para>
 
 <!--
-uImage/uInitrd are image formats designed for the u-boot firmware that
-is used on many ARM-based systems. Older u-boot versions can only
+uImage/uInitrd are image formats designed for the U-Boot firmware that
+is used on many ARM-based systems. Older U-Boot versions can only
 boot files in uImage/uInitrd format, so these are often used on
-older armel systems. Newer u-boot versions can - besides booting
+older armel systems. Newer U-Boot versions can - besides booting
 uImages/uInitrds - also boot standard Linux kernels and ramdisk images,
 but the command syntax to do that is slightly different from that
 for booting uImages.
 -->
 
-uImage/uInitrd sono formati pensati per il firmware u-boot, presente
-su molti sistemi ARM. Le versioni di u-boot più vecchie possono avviare
+uImage/uInitrd sono formati pensati per il firmware U-Boot, presente
+su molti sistemi ARM. Le versioni di U-Boot più vecchie possono avviare
 solo file nel formato uImage/uInitrd, quindi spesso sono usate sui
-sistemi armel più vecchi. Le versioni di u-boot più recenti sono in
+sistemi armel più vecchi. Le versioni di U-Boot più recenti sono in
 grado di avviare ovviamente le immagini uImages/uInitrds ma riescono ad
 avviare anche i kernel e i ramdisk in formato Linux, la sintassi del
 comando per avviare le immagini in formato Linux è leggermente diversa
@@ -67,18 +67,18 @@ dell'hardware.
 &boot-installer-intro-net.xml;
 
    <sect3 arch="arm" id="boot-tftp-uboot">
-   <!-- <title>TFTP-booting in u-boot</title> -->
-   <title>Avvio da TFTP con u-boot</title>
+   <!-- <title>TFTP-booting in U-Boot</title> -->
+   <title>Avvio da TFTP con U-Boot</title>
 <para>
 
 <!--
-Network booting on systems using the u-boot firmware consists of
+Network booting on systems using the U-Boot firmware consists of
 three steps: a) configuring the network, b) loading the images
 (kernel/initial ramdisk/dtb) into memory and c) actually executing
 the previosly loaded code.
 -->
 
-L'avvio da rete per i sistemi che usano il firmware u-boot consiste di
+L'avvio da rete per i sistemi che usano il firmware U-Boot consiste di
 tre passi: a) configurazione della rete b) caricamento delle immagini
 (kernel, ramdisk e dtb) in memoria c) l'esecuzione del codice appena
 caricato.
@@ -141,12 +141,12 @@ sistema e non esiste una regola generale su quale indirizzo utilizzare.
 </para><para>
 
 <!--
-On some systems, u-boot predefines a set of environment variables
+On some systems, U-Boot predefines a set of environment variables
 with suitable load addresses: kernel_addr_r, ramdisk_addr_r and
 fdt_addr_r. You can check whether they are defined by running
 -->
 
-Su alcuni sistemi, u-boot predefinisce una serie di varibili d'ambiente
+Su alcuni sistemi, U-Boot predefinisce una serie di varibili d'ambiente
 con gli indirizzi da usare: kernel_addr_r, ramdisk_addr_r e fdt_addr_r.
 È possibile verificare se tali variabili sono state definite con
 
@@ -243,7 +243,7 @@ bootz ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}
 
 <!--
 Note: When booting standard linux images, it is important to load
-the initial ramdisk image after the kernel and the dtb as u-boot
+the initial ramdisk image after the kernel and the dtb as U-Boot
 sets the filesize variable to the size of the last file loaded and
 the bootz command requires the size of the ramdisk image to work
 correctly.  In case of booting a platform-specific kernel, i.e.  a
@@ -251,7 +251,7 @@ kernel without device-tree, simply omit the ${fdt_addr_r} parameter.
 -->
 
 Nota: quando si avviano immagini linux è importante caricare l'immagine
-del ramdisk iniziale dopo il kernel e il dtb poiché u-boot imposta il
+del ramdisk iniziale dopo il kernel e il dtb poiché U-Boot imposta il
 valore della variabile filesize pari alla dimensione dell'ultimo file
 caricato e il comando bootz ha bisogno di conoscere la dimensione
 dell'immagine del ramdisk per funzionare correttamente. Per avviare un
@@ -263,17 +263,17 @@ device-tree, è sufficiente omettere il parametro ${fdt_addr_r}.
   </sect2>
 
   <sect2 arch="arm" id="boot-hd-media">
-  <!-- <title>Booting from a USB stick in u-boot</title> -->
-  <title>Avvio da chiavetta USB in u-boot</title>
+  <!-- <title>Booting from a USB stick in U-Boot</title> -->
+  <title>Avvio da chiavetta USB in U-Boot</title>
 <para>
 
 <!--
-Many modern u-boot versions have USB support and allow booting from
+Many modern U-Boot versions have USB support and allow booting from
 USB mass storage devices such as USB sticks.  Unfortunately the exact
 steps required to do that can vary quite a bit from device to device.
 -->
 
-Molte delle versioni moderne di u-boot hanno il supporto per USB e
+Molte delle versioni moderne di U-Boot hanno il supporto per USB e
 permettono di fare l'avvio da dispositivi di memorizzazione di massa
 USB come le chiavette USB. Sfortunatamente i passi esatti per fare
 l'avvio variano leggermente da dispositivo a dispositivo.
@@ -288,7 +288,7 @@ installation from a USB stick on such systems, but unfortunately not
 all platforms have adopted this new framework yet.
 -->
 
-In u-boot v2014.10 sono stati introdotti una gestione comune della riga
+In U-Boot v2014.10 sono stati introdotti una gestione comune della riga
 di comando e l'infrastruttura autoboot. Ciò permette di creare immagini
 d'avvio generiche che funzionano su qualsiasi sistema con tale framework.
 Il &d-i; può fare l'installazione a partire da una chiavetta USB su tali
@@ -300,8 +300,8 @@ nuova infrastruttura.
 <!--
 To build a bootable USB stick for installing &debian;, unpack the
 hd-media tarball (see <xref linkend="where-files"/>) onto a
-USB stick formatted with a filesystem supported by the u-boot version
-on your device.  For modern u-boot versions, any of FAT16 / FAT32 /
+USB stick formatted with a filesystem supported by the U-Boot version
+on your device.  For modern U-Boot versions, any of FAT16 / FAT32 /
 ext2 / ext3 / ext4 usually works. Then copy the ISO image file of the
 first &debian; installation CD or DVD onto the stick.
 -->
@@ -309,31 +309,31 @@ first &debian; installation CD or DVD onto the stick.
 Per creare una chiavetta USB con la quale installare &debian; occorre
 prima scompattare l'archivio tar hd-media (consultare <xref
 linkend="where-files"/>) su una chiavetta USB formattata con uno dei
-filesystem supportati dalla versione di u-boot del proprio dispositivo
-(le versioni più recenti di u-boot suportano FAT16 / FAT32 / ext2 /
+filesystem supportati dalla versione di U-Boot del proprio dispositivo
+(le versioni più recenti di U-Boot suportano FAT16 / FAT32 / ext2 /
 ext3 / ext4), poi copiare il file dell'immagine ISO del primo CD o DVD
 d'installazione &debian; sulla chiavetta.
 
 </para><para>
 
 <!--
-The autoboot framework in modern u-boot versions works similar to the
+The autoboot framework in modern U-Boot versions works similar to the
 boot ordering options in a PC BIOS, i.e.  it checks a list of possible
 boot devices for a valid boot image and starts the first one it finds.
 If there is no operating system installed, plugging in the USB stick
 and powering up the system should result in starting the installer.
-You can also initiate the USB-boot process any time from the u-boot
+You can also initiate the USB-boot process any time from the U-Boot
 prompt by entering the <quote>run bootcmd_usb0</quote> command.
 -->
 
-L'infrastruttura autoboot delle recenti versioni di u-boot funziona in
+L'infrastruttura autoboot delle recenti versioni di U-Boot funziona in
 modo similare alla opzione sull'ordine di avvio del BIOS dei PC, cioè
 ricerca nell'elenco dei dispositivi da cui è possibile fare l'avvio il
 primo che contiene un'immagine avviabile e la fa partire. Se non è
 installato alcun sistema operativo, inserendo una chiavetta USB e
 l'accensione del sistema dovrebbe comportare l'avvio dell'installatore.
 È anche possibile iniziare il processo d'avvio da USB in qualsiasi
-momento inserendo dal prompt di u-boot il comando
+momento inserendo dal prompt di U-Boot il comando
 <quote>run bootcmd_usb0</quote>.
 
 
@@ -342,7 +342,7 @@ momento inserendo dal prompt di u-boot il comando
 <!--
 One problem that can come up when booting from a USB stick while using
 a serial console can be a console baudrate mismatch.  If a console
-variable is defined in u-boot, the &d-i; boot script automatically
+variable is defined in U-Boot, the &d-i; boot script automatically
 passes it to the kernel to set the primary console device and, if
 applicable, the console baudrate.  Unfortunately the handling of the
 console variable varies from platform to platform - on some platforms,
@@ -350,8 +350,8 @@ the console variable includes the baudrate (as in
 <quote>console=ttyS0,115200</quote>), while on other platforms the
 console variable contains only the device (as in
 <quote>console=ttyS0</quote>).  The latter case leads to a garbled
-console output when the default baudrate differs between u-boot and
-the kernel.  Modern u-boot versions often use 115200 baud while the
+console output when the default baudrate differs between U-Boot and
+the kernel.  Modern U-Boot versions often use 115200 baud while the
 kernel still defaults to the traditional 9600 baud. If this happens,
 you should manually set the console variable to contain the correct
 baudrate for your system and then start the installer with the
@@ -360,7 +360,7 @@ baudrate for your system and then start the installer with the
 
 Un problema che può verificarsi durante l'avvio da una chiavetta USB
 quando è collegata una console seriale è un disallineamento della
-velocità di comunicazione. Se in u-boot è definita la varibile console,
+velocità di comunicazione. Se in U-Boot è definita la varibile console,
 lo script di avvio del &d-i; ne passa automaticamente il valore al
 kernel in modo da impostare il device della console primaria e, se
 possibile, la velocità di trasmissione. Sfortunatamente la gestione
@@ -369,8 +369,8 @@ la varibile contiene anche la velocità (come in
 <quote>console=ttyS0,115200</quote>), invece su altre la varibile
 contiene solo il device (come in <quote>console=ttyS0</quote>). In
 quest'ultimo caso è possibile avere dell'output confuso sulla console
-qual ora la velocità predefinita di u-boot sia diversa da quella del
-kernel. Le versioni recenti di u-boot spesso utilizzano 115200 baud
+qual ora la velocità predefinita di U-Boot sia diversa da quella del
+kernel. Le versioni recenti di U-Boot spesso utilizzano 115200 baud
 mentre il kernel tutt'ora utilizza i tradizionali 9600 baud. In questo
 caso è necessario impostare manualmente la varibile console in modo che
 contenga anche la velocità di trasmissione adatta al sistema e avviare
