@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: preparing\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2015-04-15 20:29+0000\n"
-"PO-Revision-Date: 2015-04-18 10:39+0100\n"
+"PO-Revision-Date: 2015-04-18 13:24+0100\n"
 "Last-Translator: Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team: Portuguese <kde-i18n-doc@kde.org>\n"
 "Language: pt\n"
@@ -1974,6 +1974,9 @@ msgid ""
 "firmware to a more recent level to acquire new features or additional "
 "support for devices."
 msgstr ""
+"Poderão haver circunstâncias em que o utilizador tenha de actualizar o "
+"firmware dos Power Systems para um nível mais recente de forma a adquirir "
+"funcionalidades ou suporte adicional para os dispositivos."
 
 #. Tag: para
 #: preparing.xml:1270
@@ -2234,12 +2237,40 @@ msgid ""
 " }\n"
 "</screen></informalexample> Reboot the dhcp server."
 msgstr ""
+"Irá necessitar de um servidor de DHCP/TFTP (BOOTP), assim como de um servidor "
+"web. Após fazer obter o ibm-powerkvm-*-ppc64-service-*.iso, monte-o como loop "
+"e desenpacote-o para um directório dentro da raiz www do servidor HTTP "
+"(digamos wwwroot):<informalexample><screen>\n"
+"# cd &lt;directory-where-the-iso-is&gt;\n"
+"# mkdir ./iso\n"
+"# sudo mount -o loop ibm-powerkvm-*-ppc64-service-*.iso ./iso\n"
+"# cp -a ./iso/* &lt;path-to-wwwroot&gt;\n"
+"</screen></informalexample> Criar o ficheiro petitboot.conf file num directório "
+"sob a sua tftproot, digamos /tftproot/powerkvm, com o seguinte conteúdo: "
+"<informalexample><screen>\n"
+"label PowerKVM Automated Install\n"
+"kernel http://YOUR-SERVER-IP/SOME-PATH-TO-wwwroot/ppc/ppc64/vmlinuz\n"
+"initrd http://YOUR-SERVER-IP/SOME-PATH-TO-wwwroot/ppc/ppc64/initrd.img\n"
+"append root=live:http://YOUR-SERVER-IP/SOME-PATH-TO-wwwroot/LiveOS/squashfs."
+"img repo=http://YOUR-SERVER-IP/SOME-PATH-TO-wwwroot/packages rd.dm=0 rd.md=0 "
+"console=hvc0 console=tty0\n"
+"</screen></informalexample> Editar o seu dhcpd.conf, definir esta directiva no início: <informalexample><screen>\n"
+"option conf-file code 209 = text;\n"
+"</screen></informalexample> Acrescentar a directiva de sistema: "
+"<informalexample><screen>\n"
+"host &lt;your-system&gt; {\n"
+"    hardware ethernet &lt;system macaddr&gt;\n"
+"    fixed-address &lt;system ip&gt;;\n"
+"    option host-name \"&lt;system hostname&gt;\";\n"
+"    option conf-file \"&lt;powerkvm/petitboot.conf&gt;\";\n"
+" }\n"
+"</screen></informalexample> Reboot the dhcp server."
 
 #. Tag: para
 #: preparing.xml:1406
 #, no-c-format
 msgid "Boot your PowerLinux machine."
-msgstr ""
+msgstr "Arrancar a sua máquina PowerLinux."
 
 #. Tag: para
 #: preparing.xml:1410
@@ -2250,12 +2281,16 @@ msgid ""
 "\"Power KVM Automated Install\" \n"
 "</screen></informalexample> The installer menu should appear automatically."
 msgstr ""
-
+"Deverá existir a seguinte opção no petitboot (escolha a): "
+"<informalexample><screen>\n"
+"\"Power KVM Automated Install\" \n"
+"</screen></informalexample> Deverá aparecer automaticamente o menu do instalador."
+ 
 #. Tag: title
 #: preparing.xml:1421
 #, no-c-format
 msgid "Instructions for DVD"
-msgstr ""
+msgstr "Instruções para DVD"
 
 #. Tag: para
 #: preparing.xml:1422
@@ -2264,6 +2299,8 @@ msgid ""
 "Boot the ISO ibm-powerkvm-*-ppc64-service-*.iso (either burn a DVD or make "
 "it virtual if using QEMU) and simply wait for the boot."
 msgstr ""
+"Arranque o ISO ibm-powerkvm-*-ppc64-service-*.iso (quer gravando-o um DVD ou "
+"tornando-o virtual se utilizar QEMU) e simplesmente aguarde que arranque."
 
 #. Tag: para
 #: preparing.xml:1425
@@ -2274,6 +2311,10 @@ msgid ""
 "\"POWERKVM_LIVECD\" \n"
 "</screen></informalexample> The installer menu should appear automatically."
 msgstr ""
+"Deverá existir a seguinte opção no petitboot (escolha-a): "
+"<informalexample><screen>\n"
+"\"POWERKVM_LIVECD\" \n"
+"</screen></informalexample> O menu do instalador deverá aparecer automaticamente."
 
 #. Tag: title
 #: preparing.xml:1446
@@ -2673,7 +2714,7 @@ msgstr ""
 #: preparing.xml:1682
 #, no-c-format
 msgid "Debian-provided U-Boot (system firmware) images"
-msgstr ""
+msgstr "Imagens U-Boot (firmware de sistema) disponibilizadas em Debian"
 
 #. Tag: para
 #: preparing.xml:1683
@@ -2868,7 +2909,7 @@ msgstr ""
 
 #. Tag: para
 #: preparing.xml:1785
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Currently most PC systems that use UEFI also have a so-called "
 #| "<quote>Compatibility Support Module</quote> (CSM) in the firmware, which "
@@ -2889,14 +2930,14 @@ msgstr ""
 "Actualmente a maioria dos sistemas PC que utilizam UEFI também têm o chamado "
 "<quote>Compatibility Support Module</quote> (CSM) no firmware, o qual "
 "disponibiliza exactamente o mesmo interface a um sistema operativo como a "
-"clássica BIOS de PC para que o software escrito para a BIOS do PC possa ser "
-"utilizado sem alterações. No entanto é suposto a UEFI destina-se a um dia "
-"substituir a antiga BIOS do PC sem ser totalmente retro-compatível e existem "
-"já alguns sistemas com UEFI mas sem CSM."
+"clássica BIOS de PC, de modo a que o software escrito para a clássica BIOS do "
+"PC possa ser utilizado sem alterações. No entanto é suposto um dia a UEFI "
+"substituir completamente a antiga BIOS do PC sem ser totalmente "
+"retro-compatível e existem já muitos sistemas com UEFI mas sem CSM."
 
 #. Tag: para
 #: preparing.xml:1795
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "On systems with UEFI there are a few things to take into consideration "
 #| "when installing an operating system. The way the firmware loads an "
@@ -2935,7 +2976,7 @@ msgid ""
 "needed for each system."
 msgstr ""
 "Em sistemas com UEFI existem algumas coisas a ter em consideração quando "
-"instalar o sistema operativo. A forma como o firmware carrega um sistema "
+"instalar um sistema operativo. A forma como o firmware carrega um sistema "
 "operativo é fundamentalmente diferente entre a BIOS clássica (ou UEFI em "
 "modo CSM) e o UEFI nativo. Uma diferença maior é a forma como as partições "
 "do disco rígido são guardadas no disco rígido. Enquanto que a BIOS clássica "
@@ -2946,12 +2987,12 @@ msgstr ""
 "diferentes num disco, todos têm por isso de utilizar o mesmo tipo de tabela "
 "de partições. Arrancar a partir de um disco com GPT apenas é possível em "
 "modo UEFI nativo, mas a utilização de GPT torna-se cada vez mais vulgar "
-"conforme o tamanho dos discos rígidos aumenta, já que a tabela de partições "
-"DOS clássica não consegue endereçar discos maiores do que 2 Terabytes "
+"conforme o tamanho dos discos rígidos aumenta, já que a clássica tabela de "
+"partições de DOS não consegue endereçar discos maiores do que 2 Terabytes "
 "enquanto que GPT permite de longe discos maiores. Outra diferença maior "
 "entre a BIOS (ou UEFI em modo CSM) e UEFI nativo é a partir de onde é "
-"carregado o código de arranque e em que formato tem que estar, por isso são "
-"necessários diferentes gestores de arranque para ambos os sistemas."
+"guardado o código de arranque e em que formato tem que estar. Isto significa "
+"que são necessários gestores de arranque diferentes para cada sistema."
 
 #. Tag: para
 #: preparing.xml:1815
