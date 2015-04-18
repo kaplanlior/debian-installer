@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 69744 -->
+<!-- original version: 69774 -->
 
  <sect1 id="hardware-supported">
  <title>Podporovaná zařízení</title>
@@ -338,17 +338,40 @@ v sekci <guimenu>&smp-config-section;</guimenu> položku
 
   <sect2 id="gfx" arch="not-s390">
   <title>Podpora grafických karet</title>
-<para arch="x86">
+<para>
 
 Podpora grafických karet v grafickém režimu závisí na tom, zda pro
-kartu existuje ovladač v projektu X.Org. Na moderních počítačích by
-měl grafický režim fungovat zcela automaticky. Podpora pokročilých
-vlastností, jako je hardwarová akcelerace 3D a videa, závisí na
-použitém hardwaru a v některých případech i na instalaci dodatečného
-<quote>firmware</quote> (viz <xref linkend="hardware-firmware"/>).
-Byly zaznamenány i případy, kdy byl firmware pro grafickou kartu
-vyžadován i pro základní podporu grafického režimu, ale to se jednalo
-o výjimky.
+kartu existuje ovladač v projektu X.Org a v jádru. Základní podpora
+grafického framebufferu je poskytována jádrem, desktopová prostředí
+používají X.org. Podpora pokročilých vlastností, jako je hardwarová
+akcelerace 3D a videa, závisí na použitém hardwaru a v některých
+případech i na instalaci dodatečného <quote>firmware</quote> (viz
+<xref linkend="hardware-firmware"/>).
+
+</para><para arch="x86">
+
+Na moderních počítačích by měl grafický režim fungovat zcela
+automaticky. Sice byly zaznamenány případy, kdy byl firmware pro
+grafickou kartu vyžadován i pro základní podporu grafického režimu,
+ale to se jednalo o výjimky. Pro spoustu hardwaru funguje zcela
+automaticky i akcelerace 3D, ovšem stále existuje hardware, který pro
+správnou funkčnost vyžaduje <quote>binární blob</quote>
+(nezdokumentovaná hromada binárního kódu, o kterém není jisté, co
+vlastně dělá).
+
+</para><para arch="arm">
+
+Téměř všechny ARMové počítače mají grafický hardware zabudovaný přímo
+v sobě. Počítače se slotem pro zasunutí samostatné grafické karty
+existují, ale je jich jako šafránu. Naopak celkem běžný je hardware
+navržený zcela bez grafického výstupu.
+
+Základní zobrazování přes jaderný framebuffer by mělo fungovat na
+všech zařízeních s grafickým hardwarem, avšak rychlá 3D grafika nutně
+vyžaduje binární ovladače. Situace se mění docela rychle, ale v době
+vydání &releasename; jsou k dispozici svobodné ovladače pro nouveau
+(SoC Nvidia Tegra K1) a freedreno (SoC Qualcomm Snapdragon). Ostatní
+hardware vyžaduje nesvobodné ovladače třetích stran.
 
 </para><para>
 

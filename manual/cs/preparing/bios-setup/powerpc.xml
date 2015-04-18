@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 54285 -->
+<!-- original version: 69732 -->
 
   <sect2 arch="powerpc" id="invoking-openfirmware">
   <title>Vyvolání OpenFirmwaru</title>
@@ -50,3 +50,271 @@ V MacOS utilitu rozbalte, spusťte a tlačítkem
 
 </para>
   </sect2>
+
+  <sect2 arch="ppc64el;powerpc" id="update-firmware">
+  <title>Jak aktualizovat firmware na ppc64el</title>
+<para>
+
+Jedná se o výtah z dokumentu
+<ulink url="&url-ibm-powerkvm;">IBM PowerKVM on IBM POWER8</ulink>
+
+</para><para>
+
+Open Power Abstraction Layer (OPAL) je systémový firmware na serverech
+založených na procesorech POWER.
+
+</para><para>
+
+Někdy je vhodné aktualizovat firmware na novější verzi, což může
+přinést nové vlastnosti nebo podporu dalších zařízení.
+
+</para><para>
+
+Před aktualizací se ujistěte, že jsou splněny následující podmínky:
+
+<itemizedlist>
+<listitem><para>
+
+Na počítači běží OS.
+
+</para></listitem>
+<listitem><para>
+
+Máte .img soubor s OPALem verze, na kterou chcete aktualizovat.
+
+</para></listitem>
+<listitem><para>
+
+Počítač není pod kontrolou HMC.
+
+</para></listitem>
+</itemizedlist>
+</para><para>
+
+Power Systems mají flash paměť rozdělenou na dvě části - trvalou
+a dočasnou. Díky tomu můžete vyzkoušet aktualizaci firmwaru v dočasné
+části a po otestování, že vše funguje, můžete provedené změny přenést
+z dočasné do trvalé části paměti.
+
+</para><para>
+
+Aktualizaci OPALu provedete následovně:
+
+<orderedlist>
+<listitem><para>
+
+Před aktualizací si uložte úroveň současného firmwaru. V systémovém
+menu ASM klikněte na <guimenu>Service Aids</guimenu>, zvolte
+<guimenuitem>Service Processor Command Line</guimenuitem> a spusťte
+následující příkaz:
+
+<informalexample><screen>
+<userinput>cupdcmd -f</userinput>
+</screen></informalexample>
+
+</para></listitem>
+<listitem><para>
+
+Stáhněte si .img soubor s firmwarem, na který chcete aktualizovat,
+někam do souborového systému. Ohledně stažení souboru konzultujte IBM
+Fix Central.
+
+</para><para>
+
+Ověřte stažený obraz firmwaru následujícím příkazem a výstup si uložte.
+
+<informalexample><screen>
+<prompt>$</prompt> <userinput>update_flash -v -f <replaceable>firmware.img</replaceable></userinput>
+</screen></informalexample>
+
+</para></listitem>
+<listitem><para>
+
+Aktualizujte firmware příkazem
+
+<informalexample><screen>
+<prompt>$</prompt> <userinput>update_flash -f <replaceable>firmware.img</replaceable></userinput>
+</screen></informalexample>
+
+</para><note><para>
+
+ <itemizedlist>
+ <listitem><para>
+
+  Příkaz restartuje systém, případná probíhající sezení budou ztracena.
+
+ </para></listitem>
+ <listitem><para>
+
+  Nerestartujte a nevypínejte systém, dokud znovu nenaběhne.
+
+ </para></listitem>
+ </itemizedlist>
+
+</para></note></listitem>
+<listitem><para>
+
+Ověřte verzi aktualizovaného firmware v dočasné části flash paměti
+stejně jako v kroku 1.
+
+</para></listitem>
+<listitem><para>
+
+Pokud je z nějakého důvodu potřeba vrátit aktualizaci zpět, můžete
+tak učinit příkazem
+
+<informalexample><screen>
+<prompt>$</prompt> <userinput>update_flash -r</userinput>
+</screen></informalexample>
+
+Návrat je možný pouze v dočasné části flash paměti, takže byste měli
+novou verzi firmwaru před zápisem do permanentní části důkladně
+otestovat.
+
+</para><para>
+
+Novou verzi můžete zapsat do permanentní části paměti příkazem
+
+<informalexample><screen>
+<prompt>$</prompt> <userinput>update_flash -c</userinput>
+</screen></informalexample>
+
+</para></listitem>
+</orderedlist>
+
+</para>
+  </sect2>
+
+  <sect2 arch="ppc64el;powerpc">
+  <title>Aktualizace firmwaru KVM hosta (SLOF)</title>
+<para>
+
+Slimline Open Firmware (SLOF) je implementací standardu IEEE 1275 a dá
+se použít jako firmware pro hosty na počítačích řady pSeries běžících
+pod QEMU nebo KVM.
+
+</para><para>
+
+Balík <classname>qemu-slof</classname> je závislostí balíku
+<classname>qemu-system-ppc</classname> (který též poskytuje virtuální
+balík <classname>qemu-system-ppc64</classname>) a na systémech
+založených na Debianu se dá nainstalovat pomocí
+<command>apt-get</command>:
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>apt-get install qemu-slof</userinput>
+</screen></informalexample>
+
+SLOF se samozřejmě dá nainstalovat i na systémech používajících
+balíčkovací systém RPM, jen je potřeba přidat správný repositář.
+Zdrojový kód je dostupný na <ulink
+url="http://github.com/leilihh/SLOF"></ulink>.
+
+</para><para>
+
+Při používání <command>qemu-system</command> si můžete volit mezi
+různými SLOF tak, že při startu qemu za příkaz přidáte parametr
+<userinput>-bios <replaceable>slof_soubor</replaceable></userinput>.
+
+</para>
+  </sect2>
+
+  <sect2 arch="ppc64el">
+  <title>Aktualizace hypervizoru PowerKVM</title>
+
+   <sect3 arch="ppc64el">
+   <title>Návod pro instalaci ze sítě</title>
+<para>
+
+Budete potřebovat funkční DHCP/TFTP (BOOTP) server a webový server.
+Po stažení obrazu
+<filename>ibm-powerkvm-*-ppc64-service-*.iso</filename>, jej připojte
+a rozbalte obsah do podadresáře v kořenovém www adresáři vašeho
+webového serveru.
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>cd <replaceable>adresář-s-iso-souborem</replaceable></userinput>
+<prompt>#</prompt> <userinput>mkdir ./iso</userinput>
+<prompt>#</prompt> <userinput>sudo mount -o loop ibm-powerkvm-*-ppc64-service-*.iso ./iso</userinput>
+<prompt>#</prompt> <userinput>cp -a ./iso/* <replaceable>cesta-k-www-root</replaceable></userinput>
+</screen></informalexample>
+
+V podadresáři kořenového adresáře TFTP serveru
+(např. <filename>/tftproot/powerkvm</filename>) vytvořte soubor
+<filename>petitboot.conf</filename> s následujícím obsahem:
+
+<informalexample><screen>
+label PowerKVM Automated Install
+kernel http://<replaceable>IP-adresa-serveru</replaceable>/<replaceable>cesta-k-wwwroot</replaceable>/ppc/ppc64/vmlinuz
+initrd http://<replaceable>IP-adresa-serveru</replaceable>/<replaceable>cesta-k-wwwroot</replaceable>/ppc/ppc64/initrd.img
+append root=live:http://<replaceable>IP-adresa-serveru</replaceable>/<replaceable>cesta-k-wwwroot</replaceable>/LiveOS/squashfs.img repo=http://<replaceable>IP-adresa-serveru</replaceable>/<replaceable>cesta-k-wwwroot</replaceable>/packages rd.dm=0 rd.md=0 console=hvc0 console=tty0
+</screen></informalexample>
+
+Na začátek souboru <filename>dhcpd.conf</filename> přidejte nastavení:
+
+<informalexample><screen>
+option conf-file code 209 = text;
+</screen></informalexample>
+
+a dále vytvořte záznam:
+
+<informalexample><screen>
+host <replaceable>váš-systém</replaceable> {
+    hardware ethernet <replaceable>mac-adresa-systému</replaceable>;
+    fixed-address <replaceable>ip-adresa-systému</replaceable>;
+    option host-name "<replaceable>jméno-systému</replaceable>";
+    option conf-file "<replaceable>powerkvm/petitboot.conf</replaceable>";
+ }
+</screen></informalexample>
+
+Restartujte DHCP server, aby se načetlo nové nastavení.
+
+</para><para>
+
+Nastartujte počítač PowerLinux.
+
+</para><para>
+
+Petitboot by měl nabídnout následující volbu:
+
+<informalexample><screen>
+"Power KVM Automated Install"
+</screen></informalexample>
+
+Po jejím výběru by se měl automaticky objevit instalační systém.
+
+</para>
+   </sect3>
+
+   <sect3 arch="ppc64el">
+   <title>Návod pro DVD</title>
+<para>
+
+Zaveďte ISO <filename>ibm-powerkvm-*-ppc64-service-*.iso</filename>
+(buď z vypáleného DVD nebo při použití QEMU z obrazu) a počkejte, než
+se systém zavede.
+
+</para><para>
+
+Petitboot by měl nabídnout následující volbu:
+
+<informalexample><screen>
+"POWERKVM_LIVECD"
+</screen></informalexample>
+
+Po jejím výběru by se měl automaticky objevit instalační systém.
+
+</para>
+   </sect3>
+  </sect2>
+
+<!-- commented out for now, since there is no content
+  <sect2 arch="ppc64el">
+  <title>Aktualizace hypervizoru PowerVM</title>
+<para>
+
+FIXME: add some useful content here
+
+</para>
+  </sect2>
+-->

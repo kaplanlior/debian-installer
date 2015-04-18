@@ -1,7 +1,7 @@
 <!-- $Id$ -->
-<!-- original version: 69757 -->
+<!-- original version: 69818 -->
 
-  <sect2 arch="arm" id="boot-image-formats">
+  <sect2 arch="armhf;armel" id="boot-image-formats">
   <title>Formáty zaváděcích obrazů</title>
 <para>
 
@@ -25,19 +25,21 @@ s odpovídajícím ramdiskem (<quote>uInitrd</quote>).
 
 </para><para>
 
-Formáty uImage/uInitrd jsou speciálně navrženy pro firmware U-boot,
-který se používá na mnoha ARMových systémech. Starší verze U-bootu
-uměly zavádět pouze soubory ve formátu uImage/uInitrd, proto se
-používají hlavně na starších systémech armel. Novější verze U-bootu
-již umí kromě uImage/uInitrd zavádět také standardní linuxová jádra
-a initrd, ale syntaxe se trošku liší.
+Formáty uImage/uInitrd jsou speciálně navrženy pro firmware U-Boot,
+který se používá na mnoha (většinou starších 32 bitových) ARMových
+systémech. Starší verze U-Bootu uměly zavádět pouze soubory ve formátu
+uImage/uInitrd, proto se používají hlavně na starších systémech
+armel. Novější verze U-Bootu již umí kromě uImage/uInitrd zavádět také
+standardní linuxová jádra a initrd, ale syntaxe se trošku liší.
 
 </para><para>
 
 Na systémech používajících multiplatformní jádro je kromě jádra
 a initrd ještě zapotřebí soubor se stromem zařízení (device-tree blob,
 <quote>dtb</quote>), který je specifický pro každý systém a obsahuje
-popis toho konkrétního hardwaru.
+popis toho konkrétního hardwaru. dtb by měl být obsažen přímo ve
+firmwaru zařízení, ale ve skutečnosti je často třeba nahrát novější
+verzi.
 
 </para>
   </sect2>
@@ -46,34 +48,123 @@ popis toho konkrétního hardwaru.
   <title>Nastavení konzoly</title>
 <para>
 
-Jak archivy pro zavádění ze sítě (<xref
-linkend="boot-armhf-netboot.tar.gz"/>) a z disku (<xref
-linkend="boot-hd-media"/>), tak obrazy SD karet (<xref
-linkend="boot-installer-sd-image"/>) používají (platformově závislou)
-výchozí konzoli, kterou U-boot definuje v proměnné
-<quote>console</quote>. Ve většině případů to je sériová konzole,
-takže na těchto platformách standardně potřebujete pro použití
-instalačního systému sériový kabel.
+Archiv pro zavádění ze sítě (<xref
+linkend="boot-armhf-netboot.tar.gz"/>) a obrazy SD karet
+s instalátorem (<xref linkend="boot-installer-sd-image"/>) používají
+(platformově závislou) výchozí konzoli, kterou U-Boot definuje
+v proměnné <quote>console</quote>. Ve většině případů to je sériová
+konzole, takže na těchto platformách standardně potřebujete pro
+použití instalačního systému sériový kabel.
 
 </para><para>
 
 Na platformách, které podporují též video konzoli, můžete příslušně
-upravit proměnnou U-bootu <quote>console</quote> a spustit tak
+upravit proměnnou U-Bootu <quote>console</quote> a spustit tak
 instalační systém na video konzoli.
 
     </para>
   </sect2>
 
+  <sect2 arch="arm64" id="arm64-console-setup">
+  <title>Nastavení konzoly</title>
+<para>
+
+Na architektuře arm64 nemají obrazy &d-i;u pro Jessie povolen grafický
+instalátor, tudíž se používá sériová konzole. Firmware by měl konzoli
+rozpoznat automaticky, avšak pokud automatika selže, po zavedení
+Linuxu z GRUBu uvidíte hlášku <computeroutput>Booting
+Linux</computeroutput> a dál už nic.
+
+</para><para>
+
+Jestliže to je i váš případ, musíte parametry konzoly nastavit
+ručně. V nabídce GRUBu stiskněte klávesu <keycap>e</keycap> pro
+editaci příkazové řádky a upravte část
+<informalexample><screen>--- quiet</screen></informalexample> do podoby
+<informalexample><screen>console=<replaceable>zařízení</replaceable>,<replaceable>rychlost</replaceable></screen></informalexample>
+například:
+<informalexample><screen>console=ttyAMA0,115200n8</screen></informalexample>
+
+Následně stiskněte kombinaci <keycombo><keycap>Control</keycap>
+<keycap>x</keycap></keycombo>, čímž bude zavádění pokračovat s novým
+nastavením.
+
+</para>
+  </sect2>
+
+  <sect2 arch="arm64" id="juno-installation">
+  <title>Instalace na Juno</title>
+<para>
+
+Juno používá UEFI, takže je instalace celkem přímočará.
+Nejpraktičtější je instalace z USB klíčenky, ovšem aby zavádění z USB
+fungovalo, potřebujete aktuální firmware. Sestavení z <ulink
+url="&url-juno-firmware;">&url-juno-firmware;</ulink> po březnu 2015
+je ověřeno, že funguje. Více o aktualizaci firmwaru se dozvíte
+v dokumentaci k Juno.
+
+</para><para>
+
+Nachystejte si standardní USB klíčenku s obrazem arm64 CD a vložte ji
+do jednoho ze zadních USB portů. Následně připojte sériový kabel do
+horního 9 pinového sériového portu. Vyžadujete-li síťové připojení,
+zapojte ethernetový kabel do zdířky na přední straně.
+
+</para><para>
+
+Spusťte sériovou konzoli s rychlostí 115200, 8 bitů bez parity a Juno
+zapněte.  Juno by mělo nastartovat z USB klíčenky do nabídky GRUBu.
+Nastavení konzoly na Junu zlobí, takže prosté pokračování klávesou
+&enterkey; nezobrazí žádný výstup. Nejprve musíte podle (<xref
+linkend="arm64-console-setup"/>) nastavit konzoli na
+<informalexample><screen>console=ttyAMA0,115200n8</screen></informalexample>
+a teprve pak lze pokračovat v běžné instalaci.
+
+</para>
+  </sect2>
+
+  <sect2 arch="arm64" id="apm-installation">
+  <title>Instalace na Applied Micro Mustang</title>
+<para>
+
+Tento počítač se běžně dodává s U-Bootem, ale je dostupný i UEFI
+firmware. Budete se tedy muset rozhodnout, zda nejprve nainstalujete
+UEFI firmware a pak použijete standardní způsob instalace, nebo zda
+použijete U-Boot a jeho metody. Jádro v Jessie nepodporuje USB, takže
+instalace z USB klíčenky zde nebude fungovat. Pro ovládání
+instalačního systému budete muset použít sériovou konzoli, protože
+grafická instalace není na architektuře amd64 povolena.
+
+</para><para>
+
+Doporučený postup instalace je pomocí openembedded systému dodávaného
+s počítačem nakopírovat &d-i;, jádro a initrd na pevný disk a pak
+z těchto souborů zavést instalační systém. Alternativně můžete jádro,
+dtb a initrd získat a zavést ze sítě protokolem TFTP (viz část <xref
+linkend="boot-tftp-uboot"/>). Po dokončení instalace je třeba ruční
+zásah, aby bylo možno nově nainstalovaný systém zavést.
+
+</para><para>
+
+Spusťte sériovou konzoli s rychlostí 115200, 8 bitů bez parity
+a počítač zapněte. Restartujte počítač a až se zobrazí hláška
+<computeroutput>Hit any key to stop autoboot</computeroutput>,
+stiskněte libovolnou klávesu. Objeví se výzva
+<computeroutput>Mustang#</computeroutput>, kde můžete použít příkazy
+U-Bootu pro nahrání a zavedení jádra, dtb a initrd.
+
+</para>
+  </sect2>
 
   <sect2 arch="arm" id="boot-tftp"><title>Zavedení z TFTP</title>
 
 &boot-installer-intro-net.xml;
 
    <sect3 arch="arm" id="boot-tftp-uboot">
-   <title>Zavedení z TFTP přes U-boot</title>
+   <title>Zavedení z TFTP přes U-Boot</title>
 <para>
 
-Zavedení ze sítě přes firmware U-boot se skládá ze tří kroků:
+Zavedení ze sítě přes firmware U-Boot se skládá ze tří kroků:
 nastavení sítě, zavedení obrazů jádra, initrd a dtb do paměti
 a konečně spuštění nahraného jádra.
 
@@ -112,7 +203,7 @@ pevné adresy platné pro všechny.
 
 </para><para>
 
-Na některých systémech si U-boot předdefinovává proměnné prostředí
+Na některých systémech si U-Boot předdefinovává proměnné prostředí
 s vhodnými adresami. Jsou to proměnné
 <literal>kernel_addr_r</literal>, <literal>ramdisk_addr_r</literal>
 a <literal>fdt_addr_r</literal>. Zda jsou ve vašem případě nastaveny,
@@ -147,7 +238,7 @@ serveru a nahrát je do paměti příkazy:
 
 </para><para>
 
-Nyní zbývá nastavit parametry jádra a spustit ho. U-boot předá jádru
+Nyní zbývá nastavit parametry jádra a spustit ho. U-Boot předá jádru
 parametry přes proměnnou prostředí <literal>bootargs</literal>, takže
 do ní nastavte veškeré potřebné parametry jádra a instalačního
 systému, jako je třeba konzole (<xref linkend="boot-console"/>) nebo
@@ -174,7 +265,7 @@ a pro nativní linuxový formát takto:
 </para><note><para>
 
 Při zavádění standardních linuxových obrazů je důležité nahrát obraz
-úvodního ramdisku až po jádru a dtb, jelikož U-boot automaticky uloží
+úvodního ramdisku až po jádru a dtb, jelikož U-Boot automaticky uloží
 do proměnné <literal>filesize</literal> velikost posledně nahraného
 souboru. Aby příkaz <command>bootz</command> fungoval správně,
 potřebuje znát velikost ramdisku, kterou mu předáte právě z proměnné
@@ -193,7 +284,7 @@ parametr <literal>${fdt_addr_r}</literal>.
 stačí jednoduše rozbalit na TFTP server a který obsahuje všechny
 potřebné soubory pro zavádění ze sítě. Součástí je i zaváděcí skript,
 který automatizuje všechny kroky k zavedení instalátoru. Moderní verze
-U-bootu podporují vlastnost automatického zavádění z TFTP, která se
+U-Bootu podporují vlastnost automatického zavádění z TFTP, která se
 aktivuje v případě, že neexistuje lokální úložné zařízení (MMC/SD,
 USB, IDE/SATA/SCSI). Předpokladem je, že máte na síti DHCP server,
 který klientovi předá adresu TFTP serveru.
@@ -201,7 +292,7 @@ který klientovi předá adresu TFTP serveru.
 </para><para>
 
 Pokud byste chtěli automatické zavádění z TFTP vyvolat z příkazového
-řádku U-bootu, můžete použít následující příkaz:
+řádku U-Bootu, můžete použít následující příkaz:
 
 <informalexample><screen>
 <userinput>run bootcmd_dhcp</userinput>
@@ -210,7 +301,7 @@ Pokud byste chtěli automatické zavádění z TFTP vyvolat z příkazového
 </para><para>
 
 Alternativně můžete dodávaný zaváděcí skript nahrát ručně pomocí
-následujících příkazů U-bootu:
+následujících příkazů U-Bootu:
 
 <informalexample><screen>
 <userinput>setenv autoload no</userinput>
@@ -223,11 +314,18 @@ následujících příkazů U-bootu:
     </sect3>
   </sect2>
 
-  <sect2 arch="arm" id="boot-hd-media">
-  <title>Zavedení z USB klíčenky in U-boot</title>
+  <sect2 arch="arm64" condition="bootable-usb" id="usb-boot">
+  <title>Zavedení z USB klíčenky přes UEFI</title>
+
+&boot-installer-intro-usb.xml;
+
+  </sect2>
+
+  <sect2 arch="armel;armhf" id="boot-hd-media">
+  <title>Zavedení z USB klíčenky přes U-Boot</title>
 <para>
 
-Mnohé moderní verze U-bootu podporují USB a umožňují zavádět
+Mnohé moderní verze U-Bootu podporují USB a umožňují zavádět
 z úložných USB zařízení, jako jsou třeba USB klíčenky. Přesný postup
 se ale bohužel liší systém od systému.
 
@@ -242,33 +340,33 @@ zařízení.
 </para><para>
 
 Pro vytvoření USB klíčenky pro instalaci &debian;u musí USB klíčenka
-obsahovat souborový systém podporovaný U-bootem (novější verze obvykle
+obsahovat souborový systém podporovaný U-Bootem (novější verze obvykle
 podporují FAT16, FAT32, ext2, ext3 a ext4). Na tento souborový systém
 rozbalte archiv hd-media (viz <xref linkend="where-files"/>)
 a pak přikopírujte ISO obraz prvního instalačního CD/DVD &debian;u.
 
 </para><para>
 
-Framework pro automatické zavádění v novějších verzích U-bootu funguje
+Framework pro automatické zavádění v novějších verzích U-Bootu funguje
 podobně jako volby pro zavádění v BIOSu PC, tj. postupně prozkoumá
 seznam možných zaváděcích zařízení, zda na nich nenalezne platný
 zaveditelný obraz a spustí první, který nalezne. Pokud na zařízení
 není nainstalovaný žádný operační systém, mělo by zasunutí USB
 klíčenky a zapnutí systému způsobit zavedení instalačního systému.
-Zavedení z USB můžete také vyvolat ručně na výzvě U-bootu příkazem
+Zavedení z USB můžete také vyvolat ručně na výzvě U-Bootu příkazem
 <userinput>run bootcmd_usb0</userinput>.
 
 </para><para>
 
 Jedním problémem, se kterým byste se mohli potkat při zavádění z USB
 a použití sériové konzole, je rozdílné nastavení přenosové rychlosti
-konzoly. Je-li v U-bootu nastavena proměnná console, předá ji zaváděcí
+konzoly. Je-li v U-Bootu nastavena proměnná console, předá ji zaváděcí
 skript jádru, aby ji použilo jako primární konzoli a případně
 nastavilo přenosovou rychlost. Na některých platformách specifikuje
 proměnná console i rychlost (např.
 <quote>console=ttyS0,115200</quote>), zatímco na jiných obsahuje pouze
 název zařízení (<quote>console=ttyS0</quote>). Pokud se výchozí
-přenosová rychlost U-bootu (často 115200) liší od výchozí přenosové
+přenosová rychlost U-Bootu (často 115200) liší od výchozí přenosové
 rychlosti jádra (tradičních 9600), vede to ve druhém případě
 k nečitelnému výstupu. Pokud to nastane, měli byste ručně upravit
 proměnnou console, aby obsahovala správnou rychlost pro váš systém,
@@ -282,7 +380,7 @@ a pak zavést instalátor příkazem <userinput>run bootcmd_usb0</userinput>.
 <para>
 
 Pro mnoho systémů poskytuje &debian; obrazy SD karet, které obsahují
-U-boot společně s &d-i;em. Tyto obrazy existují ve dvou variantách.
+U-Boot společně s &d-i;em. Tyto obrazy existují ve dvou variantách.
 Jedna stahuje balíky ze sítě (&armmp-netboot-sd-img;), druhá slouží
 pro offline instalaci z CD/DVD (&armmp-hd-media-sd-img;). Pro šetření
 přenosového pásma jsou obrazy rozděleny na systémově závislou část
