@@ -133,7 +133,8 @@ create_html () {
 
     # Copy the custom css stylesheet to the destination directory
     cp $stylesheet_css $destdir/html/
-    cp -r $stylesheet_images_dir $destdir/html/images
+    mkdir $destdir/html/images
+    cp $stylesheet_images_dir/* $destdir/html/images
 
     return 0
 }
