@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 69220 -->
+<!-- original version: 69757 -->
 
   <sect2 arch="arm" id="arm-firmware-overview">
   <!-- <title>ARM firmware</title> -->
@@ -51,6 +51,62 @@ aspetti. Inoltre, anche il nome dei dispositivi montati non è
 consistente tra le versioni modificate dai produttori dello stesso
 firmware e quindi per i sistemi ARM è impossibile fornire istruzioni
 d'uso indipendenti dal prodotto.
+
+</para>
+  </sect2>
+
+  <sect2 arch="armhf" id="armhf-uboot-images">
+  <!-- <title>Debian-provided U-Boot (system firmware) images</title> -->
+  <title>Immgini di U-Boot (firmware di sistema) preparate da Debian</title>
+<para>
+
+<!--
+Debian provides U-Boot images for various armhf systems that can load
+their U-Boot from an SD card at &armmp-uboot-img;.  The U-Boot builds
+are offered in two formats: raw U-Boot components and a ready-made
+card image that can easily be written onto an SD card.  The raw U-Boot
+components are provided for advanced users; the generally recommended
+way is to use one of the ready-made SD card images.  They are named
+&lt;system-type&gt;.sdcard.img.gz and can be written to a card e.g. 
+with
+-->
+
+Debian distribuisce da &armmp-uboot-img; delle immagini di U-Boot per
+i vari sistemi armhf in grado di caricare U-Boot da una scheda SD. Le
+immagini di U-Boot sono create in due formati: con i componenti in
+formato grezzo oppure in formato pronto per le schede, più facile da
+scrivere su schede SD. I componenti di U-Boot grezzi sono forniti per
+gli utenti più evoluti; in generale il metodo consigliato è usare una
+delle immagini pronte per le schede SD. Il nome delle immagini è
+&lt;tipo-sistema&gt;.sdcard.img.gz ed è possibile scriverle su una
+scheda con questo comando:
+
+<!--
+<informalexample><screen>zcat &lt;system-type&gt;.sdcard.img.gz > /dev/SD_CARD_DEVICE</screen></informalexample>
+-->
+
+<informalexample><screen>zcat &lt;tipo-sistema&gt;.sdcard.img.gz > /dev/DEVICE_SCHEDA_SD</screen></informalexample>
+
+<!--
+As with all images, please be aware that writing the image to an SD
+card wipes all previous contents of the card!
+-->
+
+Come per tutte le immagini, la scrittura dell'immagine sulla scheda
+SD sovrascrive completamente il contenuto della scheda!
+
+</para><para>
+
+<!--
+If Debian provides a U-Boot image for your system, it is recommended
+that you use this image instead of the vendor-provided U-Boot, as the
+version in Debian is usually newer and has more features.
+-->
+
+Se è disponibile una immagine U-Boot per il proprio sistema, si
+raccomanda di usare quell'immagine al posto di U-Boot fornito dal
+produttore perché solitamennte la versione Debian è più recente ed
+ha più funzionalità.
 
 </para>
   </sect2>

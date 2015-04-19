@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 69503 -->
+<!-- original version: 69755 -->
 
 <para>
 
@@ -29,7 +29,7 @@ risolve questo problema. Quello che risolve è un azzeramento dei primi
 settori del disco:
 
 <informalexample><screen>
-# dd if=/dev/zero of=/dev/hd<replaceable>X</replaceable> bs=512 count=2; sync
+# dd if=/dev/zero of=/dev/sd<replaceable>X</replaceable> bs=512 count=2; sync
 </screen></informalexample>
 
 <!--
@@ -532,21 +532,22 @@ l'installatore crea una partizione <filename>/boot</filename> separata.
 Le altre partizioni, compresa la partizione di swap, sono create
 all'interno della partizione LVM.
 
-</para><para arch="ia64">
+</para><para arch="amd64;arm64;i386">
 
 <!--
-If you choose guided partitioning for your IA-64 system, there
-will be an additional partition, formatted as a FAT16 bootable filesystem,
-for the EFI boot loader.
-There is also an additional menu item in the formatting menu to manually
-set up a partition as an EFI boot partition.
+If you have booted in EFI mode then within the guided partitioning
+setup there will be an additional partition, formatted as a FAT32
+bootable filesystem, for the EFI boot loader. This partition is known
+as an EFI System Partition (ESP). There is also an additional menu
+item in the formatting menu to manually set up a partition as an ESP.
 -->
 
-Se si sceglie il partizionamento guidato su un sistema IA-64 viene
-allocata un'ulteriore partizione avviabile, formattata con un file system
-FAT16, per il boot loader EFI. C'è anche un'apposita voce nel menu per la
-formattazione che serve a impostare una partizione come quella d'avvio
-per EFI.
+Facendo l'avvio in madlità UEFI allora il partizionamento guidato
+alloca un'ulteriore partizione formattata con un file system FAT32
+per il boot loader EFI. Tale partizione è conosciuta come ESP (EFI
+System Partition). C'è anche un'apposita voce nel menu per la
+formattazione che serve a impostare manualmente una partizione come
+una ESP.
 
 </para><para>
 
@@ -569,13 +570,13 @@ The list of partitions might look like this:
 L'elenco delle partizioni dovrebbe assomigliare a questo:
 
 <informalexample><screen>
-  IDE1 master (hda) - 6.4 GB WDC AC36400L
+  IDE1 master (sda) - 6.4 GB WDC AC36400L
         #1 primary   16.4 MB  B f ext2       /boot
         #2 primary  551.0 MB      swap       swap
         #3 primary    5.8 GB      ntfs
            pri/log    8.2 MB      FREE SPACE
 
-  IDE1 slave (hdb) - 80.0 GB ST380021A
+  IDE1 slave (sdb) - 80.0 GB ST380021A
         #1 primary   15.9 MB      ext3
         #2 primary  996.0 MB      fat16
         #3 primary    3.9 GB      xfs        /home
@@ -587,15 +588,15 @@ L'elenco delle partizioni dovrebbe assomigliare a questo:
 </screen></informalexample>
 
 <!--
-This example shows two IDE harddrives divided into several partitions;
-the first disk has some free space. Each partition line consists of the
-partition number, its type, size, optional flags, file system, and
-mountpoint (if any). Note: this particular setup cannot be created using
-guided partitioning but it does show possible variation that can be achieved
-using manual partitioning.
+This example shows two hard drives divided into several partitions;
+the first disk has some free space. Each partition line consists of
+the partition number, its type, size, optional flags, file system, and
+mountpoint (if any). Note: this particular setup cannot be created
+using guided partitioning but it does show possible variation that can
+be achieved using manual partitioning.
 -->
 
-Questo esempio mostra due dischi IDE divisi in parecchie partizioni; il
+Questo esempio mostra due dischi divisi in parecchie partizioni; il
 primo disco dispone anche di un po' di spazio libero. In ogni riga che
 corrisponde a una partizione è riportato numero, tipo, dimensione, flag
 opzionali, file system e mount point (se assegnato) della partizione.
@@ -745,17 +746,17 @@ e una per l'area di <emphasis>swap</emphasis>. Se non si dichiara un
 file system di root <command>partman</command> impedisce l'avanzamento
 dell'installazione.
 
-</para><para arch="ia64">
+</para><para arch="amd64;arm64;i386">
 
 <!--
-If you forget to select and format an EFI boot partition,
-<command>partman</command> will detect this and will not let you continue
-until you allocate one.
+If you boot in EFI mode but forget to select and format an EFI System
+Partition, <command>partman</command> will detect this and will not
+let you continue until you allocate one.
 -->
 
-Se si scorda la scelta o la formattazione una partizione d'avvio EFI,
-<command>partman</command> rileva questo errore e impedisce il proseguimento
-dell'installazione fino a quando non ne viene allocata una.
+Facendo l'avvio in madlità UEFI e scordandosi di formattare una partizione
+d'avvio EFI, <command>partman</command> rileva questo errore e impedisce
+l'avanzamento dell'installazione fino a quando non ne viene allocata una.
 
 </para><para arch="linux-any">
 

@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 69217 -->
+<!-- original version: 69747 -->
 
  <sect1 id="pre-install-bios-setup">
  <!-- <title>Pre-Installation Hardware and Operating System Setup</title> -->
@@ -56,7 +56,7 @@ which provides excatly the same interfaces to an operating system as a
 classic PC BIOS, so that software written for the classic PC BIOS
 can be used unchanged.  Nonetheless UEFI is intended to one day
 completely replace the old PC BIOS without being fully
-backwards-compatible and there are already a few systems with UEFI but
+backwards-compatible and there are already a lot of systems with UEFI but
 without CSM.
 -->
 
@@ -66,7 +66,7 @@ che fornisce al sistema operativo esattamente le stesse interfacce del
 BIOS di un PC, in questo modo è possibile usare su sistemi UEFI il
 software scritto per il BIOS classico senza alcuna modifica. Ciononostante
 UEFI è pensato per rimpiazzare completamente il vecchio BIOS senza la
-completa compatibilità all'indietro ed esistono già alcuni sistemi UEFI
+completa compatibilità all'indietro ed esistono già molti sistemi UEFI
 senza CSM.
 
 </para><para>
@@ -76,7 +76,7 @@ On systems with UEFI there are a few things to take into consideration
 when installing an operating system.  The way the firmware loads an
 operating system is fundamentally different between the classic BIOS
 (or UEFI in CSM mode) and native UEFI.  One major difference is the
-way the harddisk partitions get recorded on the harddisk.  While the
+way the harddisk partitions are recorded on the harddisk.  While the
 classic BIOS and UEFI in CSM mode use a DOS partition table,
 native UEFI uses a different partitioning scheme called <quote>GUID
 Partition Table</quote> (GPT).  On a single disk, for all practical
@@ -86,16 +86,17 @@ therefore use the same type of partition table.  Booting from a disk
 with GPT is only possible in native UEFI mode, but using GPT becomes
 more and more common as hard disk sizes grow, because the classic DOS
 partition table cannot address disks larger than about 2 Terabytes
-while GPT allows for by far larger disks.  The other major difference
-between BIOS (or UEFI in CSM mode) and native UEFI is from where boot
-code is loaded and in which format it has to be, so that different
-bootloaders are needed for both systems.
+while GPT allows for far larger disks.  The other major difference
+between BIOS (or UEFI in CSM mode) and native UEFI is the location where boot
+code is stored and in which format it has to be. This means that different
+bootloaders are needed for each system.
 -->
 
 Sui sistemi UEFI è necessario prendere alcuni accorgimenti per
-l'installazione del sistema operativo. Il firmware di sistema carica il
-sistema operativo in modi notevolmente diversi tra il classico BIOS (o
-UEFI in modalità CSM) e UEFI in modalità nativa. La differenza principale
+l'installazione del sistema operativo. La modalità con la quale il
+firmware di sistema carica il sistema operativo è notevolmente diversa
+tra il classico BIOS (o UEFI in modalità CSM) e UEFI in modalità nativa.
+La differenza principale
 è come le partizioni del disco sono scritte sul disco. Il BIOS classico e
 UEFI in modalità CSM usano una tabella della partizioni DOS, la modalità
 UEFI nativa utilizza uno schema di partizionamento diverso chiamato GPT
@@ -104,12 +105,12 @@ usare solo una delle due e, nel caso di sistemi con più sistemi operativi
 installati su un unico disco, tutti i sistemi operativi devono
 obbligatoriamente utilizzare lo stesso tipo di tabella delle partizioni.
 L'avvio da un disco con GPT è possibile solo usando UEFI in modalità
-nativa; l'uso di GPT diventa sempre più comune con il crescere della
+nativa; l'uso di GPT è diventato sempre più comune con il crescere della
 dimensione dei dischi poiché la tabella delle partizioni DOS non supporta
 dischi più grandi di circa 2 Terabyte invece GPT gestisce dischi molto
 più grandi. Un'altra importante differenza tra BIOS (o UEFI in modalità
-CSM) e UEFI in modalità nativa è da dove viene caricato il programma di
-avvio e in quale formato deve essere, quindi è necessario usare un
+CSM) e UEFI in modalità nativa è dove è memorizzato il programma di
+avvio e in quale formato deve essere. Ciò comporta che è necessario usare un
 bootloader specifico per ciascun sistema.
 
 </para><para>
@@ -161,9 +162,9 @@ UEFI systems with secure boot is a key from Microsoft used for signing
 the Windows bootloader.  As the boot code used by &d-i; is not signed
 by Microsoft, booting the installer requires prior deactivation of
 secure boot in case it is enabled.  Secure boot is often enabled by
-default on systems that come preinstalled with a 64Bit version of
-Windows 8 and there is unfortunately no standard where in the UEFI
-setup it can be disabled.  On some systems, the option to disable
+default on systems that come preinstalled with a 64-bit version of
+Windows 8 and there is unfortunately no standard way to disable it
+in the UEFI setup.  On some systems, the option to disable
 secure boot is only made visible when a BIOS password has been set by
 the user, so if you have a system with secure boot enabled, but cannot
 find an option to disable it, try setting a BIOS password, powercycle
@@ -181,8 +182,8 @@ Microsoft usata per firmare il bootloader di Windows. Dato che il codice
 di avvio utilizzato da &d-i; non è firmato da Microsoft, per avviare
 l'installatore è necessario disattivare preventivamente, se è attivo,
 il secure boot. Il secure boot è spesso attivo sui sistemi su i quali è
-preinstallato Windows 8 a 64Bit, purtroppo non c'è un modo standardizzato
-nella configurazione UEFI per disabilitarlo. Su alcuni sistemi la
+preinstallato Windows 8 a 64-bit, purtroppo non c'è un modo standard
+per disabilitarlo nella configurazione UEFI. Su alcuni sistemi la
 possibilità di disattivare il secure boot è visibile solo dopo aver
 impostato una password per il BIOS, quindi se il secure boot è attivo e
 non si riesce a trovare l'opzione per disattivarlo, provare a impostare
@@ -198,8 +199,8 @@ ricerca dell'opzione.
 <para>
 
 <!--
-Windows 8 offers a feature called <quote>fast boot</quote> to cut down the time
-needed to boot itself.  Technically, when this feature is enabled,
+Windows 8 offers a feature called <quote>fast boot</quote> to cut down system
+startup time.  Technically, when this feature is enabled,
 Windows 8 does not do a real shutdown and a real cold boot afterwards
 when ordered to shut down, but instead does something resembling a
 partial suspend to disk to reduce the <quote>boot</quote> time.  As long as Windows
@@ -214,20 +215,40 @@ filesystem corruption the <quote>fast boot</quote> feature has to be disabled
 within Windows.
 -->
 
-Windows 8 dispone di una funzionalità per ridurre il tempo necessario
-all'avvio chiamata <quote>fast boot</quote>. Tecnicamente, quando questa
+Windows 8 dispone di una funzionalità per ridurre il tempo
+d'avvio chiamata <quote>fast boot</quote>. Tecnicamente, quando questa
 funzione è attiva, Windows 8 non esegue un vero spegnimento né l'avvio
 successivo riparte da freddo, ciò che accade assomiglia a una sospensione
 parziale sul disco, questo riduce il tempo di avvio. Se Windows 8 è
 l'unico sistema presente sul disco, non ci sono problemi, invece se sono
 installati altri sistemi operativi che accedono agli stessi filesystem a
-cui accede Windows 8 potrebbe verificarsi dei problemi e delle perdite di
-dati. Infatti potrebbe accadere che lo stato reale del filesystem potrebbe
-essere diverso da quello che Windows 8 si aspetta che sia al riavvio e
-questo potrebbe causare la corruzione del filesystem al successivo accesso
-in scrittura al filesystem. Quindi in configurazioni dual boot per evitare
-corruzioni del filesystem è necessario disattivare da Windows la
-funzionalità <quote>fast boot</quote>.
+cui accede Windows 8 potrebbero verificarsi dei problemi e delle perdite
+di dati. Infatti potrebbe accadere che al riavvio di Windows 8 lo stato
+reale del filesystem sia diverso da quello atteso, ciò potrebbe causare
+la corruzione del filesystem al successivo accesso in scrittura al
+filesystem. Quindi in configurazioni dual boot, per evitare corruzioni
+del filesystem, è necessario disattivare da Windows la funzionalità
+<quote>fast boot</quote>.
+
+</para><para>
+
+<!--
+It may also be necessary to disable <quote>fast boot</quote> to
+even allow access to UEFI setup to choose to boot another
+operating system or &d-i;. On some UEFI systems, the firmware
+will reduce <quote>boot</quote> time by not initialising the
+keyboard controller or USB hardware; in these cases, it is
+necessary to boot into Windows and disable this feature to allow
+for a change of boot order.
+-->
+
+Potrebbe anche essere necessario disattivare il <quote>fast boot</quote>
+persino per accedere alla configurazione di UEFI che permette di
+scegliere l'avvio di un Sistema Operativo differente oppure il &d-i;.
+Su alcuni sistemi UEFI, il firmware riduce il tempo di avvio non
+inizializzando il controller della tastiera e dell'hardwre USB; in
+questo caso è necessario avviare Windows e disattivare il <quote>fast
+boot</quote> per consentire di cambiare l'ordine d'avvio.
 
 </para>
   </sect2>

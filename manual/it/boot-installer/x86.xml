@@ -1,104 +1,19 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 69675 -->
+<!-- original version: 69749 -->
+
+  <sect2 arch="any-x86" condition="bootable-usb" id="usb-boot">
+  <!-- <title>Booting from USB Memory Stick</title> -->
+  <title>Avvio da chiavetta USB</title>
+
+&boot-installer-intro-usb.xml;
+
+  </sect2>
 
   <sect2 arch="any-x86">
   <!-- <title>Booting from a CD-ROM</title> -->
   <title>Avvio da CD-ROM</title>
 
 &boot-installer-intro-cd.xml;
-
-<!-- We'll comment the following section until we know exact layout -->
-<!--
-CD #1 of official &debian; CD-ROM sets for &arch-title; will present a
-<prompt>boot:</prompt> prompt on most hardware. Press
-<keycap>F4</keycap> to see the list of kernel options available
-from which to boot. Just type your chosen flavor name (idepci,
-vanilla, compact, bf24) at the <prompt>boot:</prompt> prompt
-followed by &enterkey;.
-
-Il primo CD della serie ufficiale di CD-ROM &debian; per &arch-title; presenta
-sulla maggior parte dell'hardware il prompt <prompt>boot:</prompt>.
-Premere <keycap>F4</keycap> per vedere l'elenco delle opzioni di avvio
-disponibili, al prompt <prompt>boot:</prompt> inserire il nome della
-versione (idepci, vanilla, compact o bf24) e poi premere &enterkey;.
-
-</para><para>
-
-If your hardware doesn't support booting of multiple images, put one
-of the other CDs in the drive. It appears that most SCSI CD-ROM drives
-do not support <command>isolinux</command> multiple image booting, so users
-with SCSI CD-ROMs should try either CD2 (vanilla) or CD3 (compact),
-or CD5 (bf2.4).
-
-Se il proprio hardware non supporta l'avvio di più immagini inserire uno
-degli altri CD nel lettore. Pare che la maggior parte dei lettori CD-ROM
-SCSI non supportino l'avvio delle immagini multiple
-<command>isolinux</command>, quindi gli utenti con lettori SCSI devono
-usare direttamente uno fra il CD2 (vanilla), il CD3 (compact) o il CD5
-(bf2.4).
-
-</para><para>
-
-CD's 2 through 5 will each boot a
-different ``flavor'' depending on which CD-ROM is
-inserted. See <xref linkend="kernel-choice"/> for a discussion of the
-different flavors.  Here's how the flavors are laid out on the
-different CD-ROMs:
-
-I CD da 2 a 5 fanno partire versioni diverse a seconda del CD-ROM
-inserito. Si consulti <xref linkend="kernel-choice"/> per la descrizione
-delle differenze fra le versioni, di seguito è descritto come sono
-distribuite le varie versioni sui CD-ROM.
-
-<variablelist>
-<varlistentry>
-<term>CD 1</term><listitem><para>
-
-Allows a selection of kernel images to boot from (the idepci flavor is
-the default if no selection is made).
-
-Permette la scelta delle immagini del kernel da avviare (la versione
-predefinita è <quote>idepci</quote>).
-
-</para></listitem></varlistentry>
-<varlistentry>
-<term>CD 2</term><listitem><para>
-
-Boots the <quote>vanilla</quote> flavor.
-
-Avvia la versione <quote>vanilla</quote>.
-
-</para></listitem></varlistentry>
-<varlistentry>
-<term>CD 3</term><listitem><para>
-
-Boots the <quote>compact</quote> flavor.
-
-Avvia la versione <quote>compact</quote>.
-
-</para></listitem></varlistentry>
-<varlistentry>
-<term>CD 4</term><listitem><para>
-
-Boots the <quote>idepci</quote> flavor.
-
-Avvia la versione <quote>idepci</quote>.
-
-</para></listitem></varlistentry>
-<varlistentry>
-<term>CD 5</term><listitem><para>
-
-Boots the <quote>bf2.4</quote> flavor.
-
-Avvia la versione <quote>bf2.4</quote>.
-
-</para></listitem></varlistentry>
-
- </variablelist>
-
-</para><para>
-
--->
 
   </sect2>
 
@@ -417,32 +332,6 @@ D'ora in poi non ci sono differenze fra <command>GRUB</command> e
 </para>
   </sect2>
 
-  <sect2 arch="any-x86" condition="bootable-usb" id="usb-boot">
-  <!-- <title>Booting from USB Memory Stick</title> -->
-  <title>Avvio da chiavetta USB</title>
-<para>
-
-<!--
-Let's assume you have prepared everything from <xref
-linkend="boot-dev-select"/> and <xref linkend="boot-usb-files"/>.  Now
-just plug your USB stick into some free USB connector and reboot the
-computer.  The system should boot up, and unless you have used the flexible
-way to build the stick and not enabled it, you should be presented with the
-<prompt>boot:</prompt> prompt.  Here you can enter optional boot arguments, or
-just hit &enterkey;.
--->
-
-Una volta che tutto è stato preparato seguendo
-<xref linkend="boot-dev-select"/> e <xref linkend="boot-usb-files"/>,
-inserire la chiavetta USB in uno qualsiasi dei connettori USB liberi e
-riavviare la macchina. Il sistema si dovrebbe avviare e, a meno di aver
-usato il metodo flessibile e di non averlo abilitato, presentare il
-prompt <prompt>boot:</prompt>. Dal prompt è possibile inserire dei
-parametri opzionali oppure premere &enterkey;.
-
-</para>
-  </sect2>
-
   <sect2 arch="x86" condition="supports-floppy-boot" id="floppy-boot">
   <!-- <title>Booting from Floppies</title> -->
   <title>Avvio da dischetti</title>
@@ -656,10 +545,24 @@ Graphical install
 Advanced options             >
 Help
 Install with speech synthesis
-
-Press ENTER to boot or TAB to edit a menu entry
 </screen></informalexample>
+</para>
 
+<note><para>
+
+<!--
+This graphical screen will look very slightly different depending on
+how your computer has booted (BIOS or UEFI), but the same options will
+be shown.
+-->
+
+Questa schermata può apparire leggermente diversa in base alla modalità
+con cui è stato avviato il computer (BIOS oppure UEFI) ma le voci
+disponibili saranno comunque le stesse.
+
+</para></note>
+
+<para>
 <!--
 Depending on the installation method you are using, the <quote>Graphical
 install</quote> option may not be available. Bi-arch images additionally have a
@@ -706,22 +609,25 @@ ripristino o per le installazioni automatiche.
 </para><para>
 
 <!--
-If you wish or need to add any boot parameters for either the installer
-or the kernel, press &tabkey;. This will display the default boot command
-for the selected menu entry and allow to add additional options. The help
-screens (see below) list some common possible options. Press &enterkey; to
-boot the installer with your options; pressing &escapekey; will return you
-to the boot menu and undo any changes you made.
+If you wish or need to add any boot parameters for either the
+installer or the kernel, press &tabkey; (BIOS boot) or &ekey; (UEFI
+boot). This will display the boot command for the selected menu entry
+and allow you to edit it to suit your needs.  The help screens (see
+below) list some common possible options. Press &enterkey; (BIOS boot)
+or &f10key; (UEFI boot) to boot the installer with your options;
+pressing &escapekey; will return you to the boot menu and undo any
+changes you made.
 -->
 
 Se si desidera oppure si ha la necessità di aggiungere dei parametri di
-avvio per l'installatore o per il kernel, premere &tabkey;. Questo fa
-mostrare il comando di avvio predefinito relativo alla voce del menu
-attualmente selezionata e permette di inserire ulteriori opzioni. Nelle
-schermate di aiuto (vedi sotto) sono elencate alcune delle opzioni più
-comuni. Premere &enterkey; per avviare l'installatore con le proprie
-opzioni; con &escapekey; si ritorna al menu di avvio annullando tutte
-le modifiche fatte.
+avvio per l'installatore o per il kernel, premere &tabkey; (avvio BIOS)
+oppure &ekey; (avvio UEFI). Questo mostra il comando di avvio predefinito
+relativo alla voce del menu attualmente selezionata e permette di
+aggiungere altre opzioni. Nelle schermate di aiuto (vedi sotto) sono
+elencate alcune delle opzioni più comuni. Premere &enterkey; (avvio BIOS)
+oppure &f10key; (avvio UEFI) per avviare l'installatore con le nuove
+opzioni; con &escapekey; si ritorna al menu di avvio annullando tutte le
+modifiche fatte.
 
 </para><para>
 
