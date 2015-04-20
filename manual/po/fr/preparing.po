@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: preparing\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2015-04-15 20:29+0000\n"
-"PO-Revision-Date: 2015-04-17 11:31+0100\n"
+"PO-Revision-Date: 2015-04-20 15:16+0100\n"
 "Last-Translator: Baptiste Jammet <baptiste@mailoo.org>\n"
 "Language-Team: debian-l10n-french <debian-l10n-french@lists.debian.org>\n"
 "Language: fr\n"
@@ -2000,12 +2000,17 @@ msgid ""
 "side of the flash before committing the tested changes to the permanent "
 "side, thereby committing the new updates."
 msgstr ""
+"Les machines Power Systems ont deux parties de mémoire d'où charger le "
+"microcode, une permanente et une temporaire. Cela permet de tester les mises "
+"à jour du microcode dans la mémoire temporaire avant d'envoyer les "
+"modifications testée dans la mémoire permanente et, grâce à cela, utiliser "
+"ces mise à jour."
 
 #. Tag: para
 #: preparing.xml:1290
 #, no-c-format
 msgid "Perform the following steps for the update:"
-msgstr ""
+msgstr "Pour la mise à jour, voici les étapes à effectuer :"
 
 #. Tag: para
 #: preparing.xml:1295
@@ -2015,12 +2020,15 @@ msgid ""
 "the system menu, click <command>Service Aids ??? Service Processor Command "
 "Line</command>, and run the following command:"
 msgstr ""
+"Sauvergardez la version actuelle avant de faire la mise à jour. Dans le menu "
+"system de ASM, cliquez sur <command>Service Aids ??? Service Processor "
+"Command Line</command> et lancez la commande suivante :"
 
 #. Tag: screen
 #: preparing.xml:1299
 #, no-c-format
 msgid "cupdcmd -f"
-msgstr ""
+msgstr "cupdcmd -f"
 
 #. Tag: para
 #: preparing.xml:1300
@@ -2030,6 +2038,9 @@ msgid ""
 "in the host filesystem. Refer to IBM Fix Central for downloading the image "
 "file."
 msgstr ""
+"Téléchargez le fichier .img de la version du microcode vers laquelle migrer "
+"sur le système de fichiers hôte.Veuillez vous référer au Fix Central d'IBM "
+"pour télécharger le fichier image."
 
 #. Tag: para
 #: preparing.xml:1304
@@ -2038,24 +2049,26 @@ msgid ""
 "Verify the image downloaded by running the following command and save the "
 "output."
 msgstr ""
+"Vérifiez l'image chargées en lançant la commande suivante et en enregistrant "
+"la sortie :"
 
 #. Tag: screen
 #: preparing.xml:1307
 #, no-c-format
 msgid "$update_flash -v -f &lt;file_name.img&gt;"
-msgstr ""
+msgstr "$update_flash -v -f &lt;nom_de_fichier.img&gt;"
 
 #. Tag: para
 #: preparing.xml:1309
 #, no-c-format
 msgid "Update the firmware by running the following command."
-msgstr ""
+msgstr "Mettez à jour le microcode en exécutant la commande suivante :"
 
 #. Tag: screen
 #: preparing.xml:1311
 #, no-c-format
 msgid "$update_flash -f &lt;file_name.img&gt;"
-msgstr ""
+msgstr "$update_flash -f &lt;nom_de_fichier.img&gt;"
 
 #. Tag: para
 #: preparing.xml:1317
@@ -2063,12 +2076,14 @@ msgstr ""
 msgid ""
 "The command reboots the system and therefore, sessions if any, would be lost."
 msgstr ""
+"Cett commande redémarre le système et, par conséquence, les sessions seront "
+"perdues."
 
 #. Tag: para
 #: preparing.xml:1320
 #, no-c-format
 msgid "Do not reboot or switch off the system until it is back."
-msgstr ""
+msgstr "Ne redémarrez ni n'éteignez le système tant qu'il n'est pas réamorcé."
 
 #. Tag: para
 #: preparing.xml:1327
@@ -2077,6 +2092,8 @@ msgid ""
 "Verify the updated firmware level of the temporary side of the flash as in "
 "step 1."
 msgstr ""
+"Vérifiez la version du microcode dans la mémoire temporaire de la mémoire, "
+"comme à la première étape."
 
 #. Tag: para
 #: preparing.xml:1330
@@ -2089,6 +2106,12 @@ msgid ""
 "of the flash. Therefore, the new level should be committed to the permanent "
 "side only after thorough testing of the new firmware."
 msgstr ""
+"Dans le cas ou la mise à jour doit être annulée, cela peut être fait en "
+"exécutant <informalexample><screen>\n"
+"    $update_flash -r\n"
+"</screen></informalexample> Cela n'affectera que la mémoire temporaire. "
+"Autrement, la nouvelle version ne devrait être envoyée dans la mémoire "
+"permanente qu'après avoir suffisamment testé le nouveau microcode."
 
 #. Tag: para
 #: preparing.xml:1337
@@ -2097,18 +2120,20 @@ msgid ""
 "The new updated level can be committed to the permanent side of the flash by "
 "running the following command."
 msgstr ""
+"La nouvelle version peut être envoyée dans la mémoire permanente en "
+"exécutant la commande suivante :"
 
 #. Tag: screen
 #: preparing.xml:1340
 #, no-c-format
 msgid "$update_flash -c"
-msgstr ""
+msgstr "$update_flash -c"
 
 #. Tag: title
 #: preparing.xml:1348
 #, no-c-format
 msgid "Updating KVM guest firmware (SLOF)"
-msgstr ""
+msgstr "Mise à jour du microcode invité de KVM (SLOF)"
 
 #. Tag: para
 #: preparing.xml:1349
@@ -2118,6 +2143,9 @@ msgid ""
 "standard. It can be used as partition firmware for pSeries machines running "
 "on QEMU or KVM."
 msgstr ""
+"Slimline Open Firmware (SLOF) est une implémentation du standard IEEE 1275. "
+"Il peut être utilisé comme microcode de partition pour les machines pSeries "
+"s'exécutant dans QEMU ou KVM."
 
 #. Tag: para
 #: preparing.xml:1356
@@ -2133,6 +2161,14 @@ msgid ""
 "Additionally, the upstream source code is available at http://github.com/"
 "leilihh/SLOF."
 msgstr ""
+"La paquetqemu-slof est en fait une dépendance du paquet qemu-system-ppc (qui "
+"fournit aussi le paquet virtuel qemu-system-ppc64) et peut être installé ou "
+"mis à jour avec <command>apt-get</command> sur les distributions basées sur "
+"Debian :<informalexample><screen>\n"
+"# apt-get install qemu-slof\n"
+"</screen></informalexample> SLOF peut aussi être installé sur les "
+"distributions basées sur rpm. De plus, le code source amont est disponible à "
+"l'adresse http://github.com/leilihh/SLOF."
 
 #. Tag: para
 #: preparing.xml:1370
@@ -2142,18 +2178,21 @@ msgid ""
 "running <command>qemu-system</command>, by adding the command line argument "
 "<userinput>-bios &lt;slof_file&gt; </userinput> when starting qemu."
 msgstr ""
+"Il est possible d'utiliser un fichier SLOF différent de celui par défaut en "
+"ajoutant l'argument <userinput>-bios &lt;fichier_slof&gt; </userinput> à la "
+"commande <command>qemu-system</command>."
 
 #. Tag: title
 #: preparing.xml:1380
 #, no-c-format
 msgid "Updating PowerKVM hypervisor"
-msgstr ""
+msgstr "Mise à jour de l'hyperviseur PowerKVM"
 
 #. Tag: title
 #: preparing.xml:1381
 #, no-c-format
 msgid "Instructions for Netboot installation"
-msgstr ""
+msgstr "Instructions pour les installations de type netboot"
 
 #. Tag: para
 #: preparing.xml:1382
@@ -2189,12 +2228,41 @@ msgid ""
 " }\n"
 "</screen></informalexample> Reboot the dhcp server."
 msgstr ""
+"Vous aurez besoin d'un serveur DHCP/TFTP (BOOTP) ainsi que d'un serveur web. "
+"Après avoir téléchargé l'image ibm-powerkvm-*-ppc64-service-*.iso, montez-la "
+"et décompressez-la dans la structure www de votre serveur HTTP (par exemple "
+"wwwroot) : <informalexample><screen>\n"
+"# cd &lt;répertoire_de_l_image&gt;\n"
+"# mkdir ./iso\n"
+"# sudo mount -o loop ibm-powerkvm-*-ppc64-service-*.iso ./iso\n"
+"# cp -a ./iso/* &lt;chemin_vers_wwwroot&gt;\n"
+"</screen></informalexample> Créez le fichier petitboot.conf dans un "
+"répertoire de votre serveur TFTP (par exemple (/tftproot/powerkvm) contenant "
+"ce qui suit : <informalexample><screen>\n"
+"label PowerKVM Automated Install\n"
+"kernel http://IP_DU_SERVEUR/chemin_vers_wwwroot/ppc/ppc64/vmlinuz\n"
+"initrd http://IP_DU_SERVEUR/chemin_vers_wwwroot/ppc/ppc64/initrd.img\n"
+"append root=live:http://IP_DU_SERVEUR/chemin_vers_wwwroot/LiveOS/squashfs."
+"img repo=http://IP_DU_SERVEUR/chemin_vers_wwwroot/packages rd.dm=0 rd.md=0 "
+"console=hvc0 console=tty0\n"
+"</screen></informalexample> Éditez votre fichier dhcpd.conf et ajoutez ces "
+"directives au début : <informalexample><screen>\n"
+"option conf-file code 209 = text;\n"
+"</screen></informalexample> Ajoutez la directive système : "
+"<informalexample><screen>\n"
+"host &lt;your-system&gt; {\n"
+"    hardware ethernet &lt;adrsse_MAC_du_système&gt;\n"
+"    fixed-address &lt;adresse_IP_du_système&gt;;\n"
+"    option host-name \"&lt;hostname_du_système&gt;\";\n"
+"    option conf-file \"&lt;powerkvm/petitboot.conf&gt;\";\n"
+" }\n"
+"</screen></informalexample> Redémarrez votre serveur DHCP."
 
 #. Tag: para
 #: preparing.xml:1406
 #, no-c-format
 msgid "Boot your PowerLinux machine."
-msgstr ""
+msgstr "Démarrez votre machine PowerLinux"
 
 #. Tag: para
 #: preparing.xml:1410
@@ -2205,12 +2273,17 @@ msgid ""
 "\"Power KVM Automated Install\" \n"
 "</screen></informalexample> The installer menu should appear automatically."
 msgstr ""
+"L'option suivante devrait vous être présentée dans le menu petitboot : "
+"<informalexample><screen>\n"
+"\"Power KVM Automated Install\" \n"
+"</screen></informalexample> Le menu de l'installateur devrait ensuite "
+"apparaître."
 
 #. Tag: title
 #: preparing.xml:1421
 #, no-c-format
 msgid "Instructions for DVD"
-msgstr ""
+msgstr "Instructions pour les DVD"
 
 #. Tag: para
 #: preparing.xml:1422
@@ -2219,6 +2292,8 @@ msgid ""
 "Boot the ISO ibm-powerkvm-*-ppc64-service-*.iso (either burn a DVD or make "
 "it virtual if using QEMU) and simply wait for the boot."
 msgstr ""
+"Amorcez sur l'image ISO ibm-powerkvm-*-ppc64-service-*.iso (gravée sur un "
+"DVD ou virtualisée si utilisée dans QEMU) et attendez le démarrage."
 
 #. Tag: para
 #: preparing.xml:1425
@@ -2229,6 +2304,11 @@ msgid ""
 "\"POWERKVM_LIVECD\" \n"
 "</screen></informalexample> The installer menu should appear automatically."
 msgstr ""
+"L'option suivante devrait vous être présentée dans le menu petitboot : "
+"<informalexample><screen>\n"
+"\"POWERKVM_LIVECD\" \n"
+"</screen></informalexample> Le menu de l'installateur devrait ensuite "
+"apparaître."
 
 #. Tag: title
 #: preparing.xml:1446
@@ -2633,7 +2713,7 @@ msgstr ""
 #: preparing.xml:1682
 #, no-c-format
 msgid "Debian-provided U-Boot (system firmware) images"
-msgstr ""
+msgstr "Images U-Boot fournies par Debian (microcode système)"
 
 #. Tag: para
 #: preparing.xml:1683
@@ -2650,6 +2730,17 @@ msgid ""
 "with all images, please be aware that writing the image to an SD card wipes "
 "all previous contents of the card!"
 msgstr ""
+"Debian fournit des images U-Boot à &armmp-uboot-img;, pour divers systèmes "
+"armhf qui peuvent charger U-Boot depuis une carte SD. Les images U-Boot sont "
+"fournies dans deux format : les composants bruts U-Boot ou une image toute "
+"faite et prête à être écrite sur une carte SD. Les composants bruts sont "
+"destinés aux utilisateurs confirmés car la méthode recommandée est "
+"d'utiliser une des images précompilées. Ces dernières sont appelées &lt;"
+"type_de_système&gt;.sdcard.img.gz et peuvent être écrites sur une carte par "
+"exemple avec : <informalexample><screen>zcat &lt;type_de_système&gt;.sdcard."
+"img.gz > /dev/PÉRIPHÉRIQUE_DE_CARTE_SD</screen></informalexample> Comme pour "
+"toutes les images, soyez conscient que cela supprimera tout ce qu'il y avait "
+"sur la carte !"
 
 #. Tag: para
 #: preparing.xml:1698
@@ -2659,6 +2750,10 @@ msgid ""
 "you use this image instead of the vendor-provided U-Boot, as the version in "
 "Debian is usually newer and has more features."
 msgstr ""
+"Si Debian fornit une image U-Boot pour votre système, il est recommandé "
+"d'utiliser cette image plutôt qu'une version de U-Boot du distributeur, car "
+"la version de Debian est généralement plus à jour et contient plus de "
+"fonctionnalités."
 
 #. Tag: title
 #: preparing.xml:1706
@@ -3016,6 +3111,13 @@ msgid ""
 "necessary to boot into Windows and disable this feature to allow for a "
 "change of boot order."
 msgstr ""
+"Il peut aussi être nécessaire de désactiver la fonction <quote>fast boot</"
+"quote> pour permettre l'accès à la configuration UEFI et choisir d'amorcer "
+"un autre système d'exploitation ou l'&d-i;. Sur certains systèmes UEFI, le "
+"microcode peut réduire la durée du <quote>boot</quote> en n'initialisant pas "
+"le contrôleur de clavier ou le matériel USB. Dans ce cas, il est nécessaire "
+"de démarrer Windows po désactiver cette fonctionnalité et autoriser un "
+"changement de l'ordre d'amorçage."
 
 #. Tag: title
 #: preparing.xml:1882
