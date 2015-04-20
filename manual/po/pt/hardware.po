@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: hardware\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2015-04-15 20:29+0000\n"
-"PO-Revision-Date: 2015-04-17 22:02+0100\n"
+"PO-Revision-Date: 2015-04-20 20:25+0100\n"
 "Last-Translator: Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team: Portuguese <kde-i18n-doc@kde.org>\n"
 "Language: pt\n"
@@ -83,7 +83,7 @@ msgstr "Arquitecturas Suportadas"
 
 #. Tag: para
 #: hardware.xml:42
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "&debian; GNU/Linux &release; supports eight major architectures and "
 #| "several variations of each architecture known as <quote>flavors</quote>."
@@ -91,7 +91,7 @@ msgid ""
 "&debian; GNU/Linux &release; supports ten major architectures and several "
 "variations of each architecture known as <quote>flavors</quote>."
 msgstr ""
-"&debian; GNU/Linux &release; suporta oito arquitecturas de maior relevo e "
+"&debian; GNU/Linux &release; suporta dez arquitecturas de maior relevo e "
 "várias variações de cada arquitectura conhecidas por <quote>flavors</quote>."
 
 #. Tag: entry
@@ -486,10 +486,14 @@ msgid ""
 "architecture, so whilst 64-bit ARM machines should boot in a standardised "
 "way, like PCs, the situation is more complicated for 32-bit ARM machines."
 msgstr ""
+"Os sistemas ARM são muito mais heterógeneos do que as arquitecturas PC "
+"i386/amd64, por isso enquanto que as máquinas ARM de 64-bit devem arrancar "
+"de forma standard, tal como nos PCs, a situação é mais complicadas para as "
+"máquinas ARM de 32-bit."
 
 #. Tag: para
 #: hardware.xml:279
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "ARM systems are a lot more heterogenous than the i386/amd64-based PC "
 #| "architecture, where all systems share a common system firmware (BIOS or/"
@@ -511,21 +515,19 @@ msgid ""
 "kernel has to take care of many system-specific low-level issues which are "
 "handled by the mainboard's BIOS in the PC world."
 msgstr ""
-"Os sistemas ARM são muito mais heterógeneos do que os baseados na "
-"arquitectura i386/amd64 PC, onde todos os sistemas partilham um firmware de "
-"sistema comum (BIOS ou/e UEFI) que lida com a inicialização do hardware "
-"específico da placa, de forma standard. A arquitectura ARM é utilizada nos "
-"chamados <quote>systems-on-chip</quote> (SoCs). Estes SOCs são desenhados "
-"por muitas companhias diferentes com vastos componentes de hardware "
-"diferentes mesmo para as funcionalidades básicas necessárias para arrancar o "
-"sistema. Os sistemas que os utilizam normalmente faltam-lhes um interface de "
-"firmware de sistema comum e por isso, nos sistemas ARM o kernel Linux tem de "
-"tomar conta de muitos tópicos de baixo nível específicos do sistema que são "
-"lidados pela BIOS da placa base no mundo PC."
+"A arquitectura ARM é utilizada nos chamados <quote>systems-on-chip</quote> "
+"(SoCs). Estes SOCs são desenhados por muitas empresas diferentes com vastos "
+"componentes de hardware diferentes mesmo para as funcionalidades básicas "
+"necessárias para arrancar o sistema. Os interfaces de firmware de sistema "
+"tem sido standardizado ao longo do tempo, mas espcialmente em hardware mais "
+"antigo os interfaces de firmware/arranque podem variar muito, por isso, "
+"nesses sistemas, o kernel Linux tem de tomar conta de muitos tópicos de "
+"baixo nível específicos do sistema que são lidados pela BIOS da placa base "
+"no mundo PC."
 
 #. Tag: para
 #: hardware.xml:292
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "At the beginning of the ARM support in the Linux kernel, this resulted in "
 #| "the requirement of having a seperate kernel for each ARM system in "
@@ -548,17 +550,15 @@ msgid ""
 "allows the use of such a multiplatform kernel, but for several older systems "
 "a separate specific kernel is still required."
 msgstr ""
-"No inicio do suporte ARM no kernel Linux, isto resultou na necessidade de "
-"ter um kernel separado para cada sistema ARM em contraste com o kernel "
-"<quote>one-fits-all</quote> para sistemas PC. Como esta abordagem não escala "
-"para um número grande de sistemas diferentes, começou o trabalho para "
-"disponibilizar um kernel ARM que possa correr em vários sistemas ARM "
-"diferentes. O suporte para sistemas ARM mais recentes é implementado de "
-"forma a utilizar um kernel multi-plataforma, mas para vários sistemas mais "
-"antigos ainda é necessário um kernel específico em separado. Devido a isto, "
-"a distribuição standard de &debian; apenas suporta a instalação num número "
-"de sistemas ARM antigos além dos novos sistemas que são suportados pelo "
-"kernel ARM multi-plataforma (armmp)."
+"No inicio do suporte ARM no kernel Linux, a variedade de hardware resultou "
+"na necessidade de ter um kernel separado para cada sistema ARM em contraste "
+"com o kernel <quote>one-fits-all</quote> para sistemas PC. Como esta "
+"abordagem não escala para um número grande de sistemas diferentes, foi feito "
+"trabalho para permitir arrancar um único kernel ARM que possa correr em "
+"diversos sistemas ARM diferentes. O suporte para sistemas ARM mais recentes "
+"é implementado de forma a utilizar um kernel multi-plataforma, mas para "
+"vários sistemas mais antigos ainda é necessário um kernel específico em "
+"separado."
 
 #. Tag: para
 #: hardware.xml:304
@@ -570,10 +570,14 @@ msgid ""
 "multiplatform kernels (called 'armmp' on 32-bit armhf, no flavour name on 64-"
 "bit arm64)."
 msgstr ""
+"Devido a isto, a distribuição standard &debian; suporta apenas a instalação "
+"de um determinado número de máquinas ARM 32-bit mais antigas além dos novos "
+"sistemas (32 e 64-bit) que são suportados pelos kernel multi-plataforma ARM "
+"(chamado 'armmp' em armhf de 32-bit, sem nome de flavour em arm64 de 64-bit)."
 
 #. Tag: para
 #: hardware.xml:313
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "The ARM architecture has evolved over time and modern ARM processors "
 #| "provide features which are not available in older models. &debian; "
@@ -599,18 +603,19 @@ msgid ""
 msgstr ""
 "A arquitectura ARM evoluiu ao longo do tempo e os modernos processadores ARM "
 "disponibilizam funcionalidades que não estão disponíveis em modelos mais "
-"antigos. Por isso &debian; disponibiliza dois ports ARM, o port &debian;/"
-"armel e o port &debian;/armhf. &debian;/armel tem como alvo os processadores "
-"ARM antigos sem suporte de unidade de virgula flutuante por hardware (FPU) "
-"enquanto que &debian;/armhf funciona em processadores ARM mais recentes que "
-"implementam pelo menos a arquitectura ARMv7 com a versão 3 da especificação "
-"de vector de vírgula flutuante ARM (VFPv3). &debian;/armhf utiliza as "
-"funcionalidades expandidas e melhorias de performance disponíveis nestes "
-"modelos."
+"antigos. Por isso &debian; disponibiliza três ports ARM, o port &debian;/"
+"arm64 para todas as máquinas de 64-bit, &debian;/armel e o port &debian;/"
+"armhf. &debian;/armel tem como alvo os processadores ARM antigos sem suporte "
+"de unidade de virgula flutuante por hardware (FPU) enquanto que &debian;/"
+"armhf funciona em processadores ARM mais recentes que implementam pelo menos "
+"a arquitectura ARMv7 com a versão 3 da especificação de vector de vírgula "
+"flutuante ARM (VFPv3). &debian;/armhf utiliza as funcionalidades expandidas "
+"e melhorias de performance disponíveis nestes modelos em processadores que "
+"implementam pelo menos a arquitectura ARMv8 (que é 64bit)."
 
 #. Tag: para
 #: hardware.xml:350
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Technically, several ARM CPUs can be run in either endian mode (big or "
 #| "little), but in practice the vast majority of currently available systems "
@@ -622,10 +627,10 @@ msgid ""
 "mode. All of &debian;/arm64, &debian;/armhf and &debian;/armel support only "
 "little-endian systems."
 msgstr ""
-"Tecnicamente, vários CPUs ARM podem correr em qualquer modo endian (big ou "
-"little), mas na prática a vasta maioria dos actuais sistemas utilizam o modo "
-"little-endian. &debian;/armhf e &debian;/armel suportam apenas sistemas "
-"little-endian."
+"Tecnicamente, todos os actuais CPUs ARM disponíveis podem correr em qualquer "
+"modo endian (big ou little), mas na prática a vasta maioria utiliza o modo "
+"little-endian. &debian;/armhf, &debian;/armhf e &debian;/armel suportam "
+"apenas sistemas little-endian."
 
 #. Tag: title
 #: hardware.xml:357
@@ -642,10 +647,14 @@ msgid ""
 "merged in the mainline kernel version in this release, which is the main "
 "requirement to have &d-i; working on them."
 msgstr ""
+"O hardware Arm64/AArch64/ARMv8 tornou-se disponível bastante tarde no ciclo "
+"de lançamento da &debian; &releasename-cap; por isso não muitas plataformas "
+"tiverem o suporte fundido na versão do kernel oficial deste lançamento, o "
+"que é o principal requisito para ter o &d-i; a funcionar nestes."
 
 #. Tag: para
 #: hardware.xml:368
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Generally, the ARM multiplatform support in the Linux kernel allows "
 #| "running &d-i; on armhf systems not explicitly listed above, as long as "
@@ -665,17 +674,20 @@ msgid ""
 "have been shipped with U-Boot) you will probably also need some manual steps "
 "to make the system bootable."
 msgstr ""
-"Normalmente, o suporte multiplataforma ARM no kernel Linux permite correr o "
-"&d-i; em sistemas armhf não listados explicitamente acima, desde que o "
-"kernel utilizado pelo &d-i; tenha suporte para os componentes do sistema "
-"alvo e que esteja disponível o ficheiro device-tree para o alvo. Nesses "
-"casos, o instalador geralmente pode disponibilizar um instalação funcional "
-"de utilizador, mas provavelmente não conseguirá tornar o sistema iniciável, "
-"já que em muitos casos necessita de informação específica da plataforma."
+"As plataformas testadas estão listadas abaixo, mas no geral, o suporte "
+"multi-plataforma no kernel arm64 de Linux também permite correr o &d-i; em "
+"sistemas arm64 não explicitamente listados abaixo, por isso desde que o "
+"kernel utilizado pelo &d-i; tenha suporte para os componentes dos sistemas "
+"alvo e que esteja disponível um ficheiro device-tree para o alvo. Nesses "
+"casos, o instalador pode normalmente fornecer uma instalação funcional, e "
+"desde que o UEFI esteja em uso, deve ser capaz de tornar também o sistema "
+"iniciável. Se não for utilizado UEFI (algumas máquinas de 64-bit foram "
+"lançadas com U-Boot) irá provavelmente necessitar também de alguns passos "
+"manuais para tornar o sistema iniciável."
 
 #. Tag: para
 #: hardware.xml:382
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "The following platforms are supported by &debian;/armel; they require "
 #| "platform-specific kernels."
@@ -683,8 +695,9 @@ msgid ""
 "The following platforms are known to be supported by &debian;/arm64 in this "
 "release. There is only one kernel, which supports all the listed platforms."
 msgstr ""
-"As seguintes plataformas são suportados por &debian;/armel; necessitam de "
-"kernels específicos para a plataforma."
+"As seguintes plataformas são conhecidas por serem suportadas por "
+"&debian;/arm64 neste lançamento. Existe apenas um kernel, o qual suporta "
+"todas as plataformas listadas."
 
 #. Tag: term
 #: hardware.xml:389
@@ -703,6 +716,12 @@ msgid ""
 "the mainline kernel, but USB support is lacking in the &releasename-cap; "
 "kernel."
 msgstr ""
+"O APM Mustang foi o primeiro sistema ARMv8 disponível capaz de Linux. Utiliza "
+"o SoC X-gene, já que é utilizado em outras máquinas, o qual tem um CPU de 8 "
+"cores, com ethernet, USB e série. É um fator de forma comum tal como a caixa "
+"do desktop PC, mas são esperadas muitas versões. A maioria do hardware é "
+"suportada no kernel original Linux, mas falta o suporte USB no kernel "
+"&releasename-cap;."
 
 #. Tag: term
 #: hardware.xml:404
@@ -720,10 +739,14 @@ msgid ""
 "cheap, but was one of the first boards available. All the hardware is "
 "supported in the mainline kernel and in &releasename-cap;."
 msgstr ""
+"Juno é uma placa de desenvolvimento com 6-core (2xA57, 4xA53) ARMv8-A 800Mhz "
+"CPU, Mali (T624) graphics, 8GB DDR3 RAM, Ethernet, USB, Série. Não é nem "
+"pequeno nem barato, mas foi uma das primeiras placas disponíveis. Todo o "
+"hardware é suportado no kernel oficial e em &releasename-cap;."
 
 #. Tag: para
 #: hardware.xml:420
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "When using &d-i; on such systems, you have to manually make the system "
 #| "bootable at the end of the installation, e.g. by running the required "
@@ -734,9 +757,10 @@ msgid ""
 "commands in a shell started from within &d-i;. flash-kernel knows how to set "
 "up an X-Gene system booting with U-Boot."
 msgstr ""
-"Ao utilizar o &d-i; em tais sistemas, tem de manualmente fazer com que o "
-"sistema arranque no final da instalação, e.g. correr os comandos necessários "
-"na shell iniciada a partir do &d-i;."
+"Ao utilizar o &d-i; em sistemas que não sejam UEFI, tem de manualmente fazer "
+"com que o sistema arranque no final da instalação, e.g. ao correr os comandos "
+"necessários na shell iniciada a partir do &d-i;. O flash-kernel sabe como "
+"configurar o sistema X-Gene para arrancar com U-Boot."
 
 #. Tag: title
 #: hardware.xml:430
@@ -976,7 +1000,7 @@ msgstr ""
 
 #. Tag: para
 #: hardware.xml:570
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "When using &d-i; on such systems, you have to manually make the system "
 #| "bootable at the end of the installation, e.g. by running the required "
@@ -988,7 +1012,7 @@ msgid ""
 msgstr ""
 "Ao utilizar o &d-i; em tais sistemas, tem de manualmente fazer com que o "
 "sistema arranque no final da instalação, e.g. correr os comandos necessários "
-"na shell iniciada a partir do &d-i;."
+"numa shell iniciada a partir do &d-i;."
 
 #. Tag: title
 #: hardware.xml:579
@@ -1072,6 +1096,13 @@ msgid ""
 "that swap space is enabled prior to upgrading. Support for the IXP4xx "
 "platform will be dropped completely in &debian; 9."
 msgstr ""
+"Apesar de haver suporte do kernel para esta plataforma em &debian; 8 não é "
+"suportado pelo &d-i;. Apesar disso é possível fazer um <quote>dist-upgrade"
+"</quote> a partir de Debian 7 para 8 em instalações existentes. Devido à "
+"pouca quantidade de memória que normalmente os sistemas baseados em IXP4xx "
+"têm, é necessário que o espaço de swap esteja activo antes da actualização. "
+"O suporte para a plataforma IXP4xx será abandonado completamente em &debian; "
+"9." 
 
 #. Tag: term
 #: hardware.xml:632
@@ -3188,7 +3219,7 @@ msgstr "CD-ROM/DVD-ROM/BD-ROM"
 
 #. Tag: para
 #: hardware.xml:2046
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Whenever you see <quote>CD-ROM</quote> in this manual, it applies to both "
 #| "CD-ROMs and DVD-ROMs, because both technologies are really the same from "
@@ -3198,9 +3229,9 @@ msgid ""
 "CD-ROMs, DVD-ROMs and BD-ROMs, because all these technologies are really the "
 "same from the operating system's point of view."
 msgstr ""
-"Cada vez que vir <quote>CD-ROM</quote> neste manual, aplica-se tanto a CD-"
-"ROMs como a DVD-ROMs, porque ambas as tecnologias, do ponto de vista do "
-"sistema operativo, são o mesmo."
+"Sempre que vir <quote>CD-ROM</quote> neste manual, aplica-se a todos os CD-"
+"ROMs, DVD-ROMs e BD-ROMs, porque todas estas tecnologias são a mesma coisa "
+"do ponto de vista do sistema operativo."
 
 #. Tag: para
 #: hardware.xml:2052
@@ -3212,7 +3243,7 @@ msgstr ""
 
 #. Tag: para
 #: hardware.xml:2056
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "USB CD-ROM drives are also supported, as are FireWire devices that are "
 #| "supported by the ohci1394 and sbp2 drivers."
@@ -3220,8 +3251,8 @@ msgid ""
 "On PCs SATA, IDE/ATAPI, USB and SCSI CD-ROMs are supported, as are FireWire "
 "devices that are supported by the ohci1394 and sbp2 drivers."
 msgstr ""
-"As drives de CD-ROM USB também são suportadas, assim como os dispositivos "
-"FireWire que são suportados pelos drivers ohci1394 e sbp2."
+"São suportados em PCs os leitores SATA, IDE/ATAPI, USB e CD-ROM, tal como "
+"dispositivos FireWire que sejam suportados pelos drivers ohci1394 e sbp2."
 
 #. Tag: para
 #: hardware.xml:2071
