@@ -1,7 +1,7 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 69679 -->
+<!-- original version: 69818 -->
 
-  <sect2 arch="arm" id="boot-image-formats">
+  <sect2 arch="armhf;armel" id="boot-image-formats">
   <!-- <title>Boot image formats</title> -->
   <title>Formati delle immagini d'avvio</title>
 <para>
@@ -25,7 +25,7 @@ insieme al suo ramdisk iniziale (<quote>uInitrd</quote>).
 
 <!--
 uImage/uInitrd are image formats designed for the U-Boot firmware that
-is used on many ARM-based systems. Older U-Boot versions can only
+is used on many ARM-based systems (mostly 32-bit ones). Older U-Boot versions can only
 boot files in uImage/uInitrd format, so these are often used on
 older armel systems. Newer U-Boot versions can - besides booting
 uImages/uInitrds - also boot standard Linux kernels and ramdisk images,
@@ -34,7 +34,8 @@ for booting uImages.
 -->
 
 uImage/uInitrd sono formati pensati per il firmware U-Boot, presente
-su molti sistemi ARM. Le versioni di U-Boot più vecchie possono avviare
+su molti sistemi ARM (principalmente quelli a 32-bit). Le versioni
+di U-Boot più vecchie possono avviare
 solo file nel formato uImage/uInitrd, quindi spesso sono usate sui
 sistemi armel più vecchi. Le versioni di U-Boot più recenti sono in
 grado di avviare ovviamente le immagini uImages/uInitrds ma riescono ad
@@ -48,14 +49,229 @@ da quella del comando per avviare le immagini uImage.
 For systems using a multiplatform kernel, besides kernel and initial
 ramdisk a so-called device-tree file (or device-tree blob,
 <quote>dtb</quote>) is needed. It is specific to each supported system
-and contains a description of the particular hardware.
+and contains a description of the particular hardware. The dtb
+should be supplied on the device by the firmware, but in practice a
+newer one often needs to be loaded.
 -->
 
 Per i sistemi che usano un kernel multipiattaforma, oltre al kernel e
 al ramdisk, è necessario anche un cosiddetto file con l'albero dei
 dispositivi (device-tree oppure device-tree blob, <quote>dtb</quote>).
 Tale file è specifico per ciscun sistema e contiene la descrizione
-dell'hardware.
+dell'hardware. Normalmente il dtb è fornito dal firmware del dispositivo
+ma, in pratica, è necessario caricarne uno più recente.
+
+</para>
+  </sect2>
+
+  <sect2 arch="armhf" id="armhf-console-setup">
+  <!-- <title>Console configuration</title> -->
+  <title>Configurazione della console</title>
+<para>
+
+<!--
+The netboot tarball (<xref
+linkend="boot-armhf-netboot.tar.gz"/>), and the installer
+SD-card images (<xref linkend="boot-installer-sd-image"/>) use
+the (platform-specific) default console that is defined by
+U-Boot in the <quote>console</quote> variable.  In most cases
+that is a serial console, so on those platforms you by default
+need a serial console cable to use the installer.
+-->
+
+Il tarball per l'avvio da rete (<xref
+linkend="boot-armhf-netboot.tar.gz"/>) e le immagini delle
+schede SD con l'installatore (<xref linkend="boot-installer-sd-image"/>)
+utilizzano la console predefinita (specifica di ciascuna piattaforma)
+definita nella variabile <quote>console</quote> di U-Boot. Nella maggior
+parte dei casi è una console seriale e quindi su tali piattaforme è 
+necessario un cavo per console seriale per utilizzare l'installatore.
+
+</para><para>
+
+<!--
+On platforms which also support a video console, you can modify the
+U-Boot <quote>console</quote> variable accordingly if you would like
+the installer to start on the video console.
+-->
+
+Sulle piattaforme che supportano una console video è possibile
+modificare la variabile <quote>console</quote> di U-Boot in modo da
+avviare l'installatore in una console video.
+
+</para>
+  </sect2>
+
+  <sect2 arch="arm64" id="arm64-console-setup">
+  <!-- <title>Console configuration</title> -->
+  <title>Configurazione della console</title>
+<para>
+
+<!--
+The graphical installer is not enabled on the arm64 &d-i; images
+for jessie so the serial console is used. The console device
+should be detected automatically from the firmware, but if it is
+not then after you boot linux from the GRUB menu you will see a
+'Booting Linux' message then nothing more.
+-->
+
+L'installatore grafico non è disponibile nelle immagini arm64 del &d-i;
+per jessie e quindi occorre usare una console seriale. Il device della
+console dovrebbe essere rilevato automaticamente dal firmware ma se non
+lo fosse dopo l'avvio di linux dal menu di GRUB appare il messaggio
+<quote>Booting Linux</quote> e nulla più.
+
+</para><para>
+
+<!--
+If you hit this issue you will need to set a specific console
+config on the kernel command line. Hit <userinput>e</userinput>
+for 'Edit Kernel command-line' at the GRUB menu, and change
+<informalexample><screen>- - - quiet</screen></informalexample> to
+<informalexample><screen>console=&lt;device&gt;,&lt;speed&gt;</screen></informalexample>
+e.g. <informalexample><screen>console=ttyAMA0,115200n8</screen></informalexample>
+When finished hit <keycombo><keycap>Control</keycap>
+<keycap>x</keycap></keycombo> to continue booting with new
+setting.
+-->
+
+Nel caso si verifichi questo problema occorre passare la configurazione
+della console nella riga di comando del kernel. Nel menu di GRUB premere
+<userinput>e</userinput> per <quote>Edit Kernel command-line</quote> e
+modificare <informalexample><screen>--- quiet</screen></informalexample> in
+<informalexample><screen>console=&lt;device&gt;,&lt;speed&gt;</screen></informalexample>
+per esempio <informalexample><screen>console=ttyAMA0,115200n8</screen></informalexample>.
+Fatta la modifica premere <keycombo><keycap>Control</keycap>
+<keycap>x</keycap></keycombo> per continuare l'avvio con la nuova
+configurazione.
+
+</para>
+  </sect2>
+
+  <sect2 arch="arm64" id="juno-installation">
+  <!-- <title>Juno Installation</title> -->
+  <title>Installazione su Juno</title>
+<para>
+
+<!--
+Juno has UEFI so the install is straightforward.  The most
+practical method is installing from USB stick. You need up to
+date firmware for USB-booting to work. Builds from <ulink
+url="&url-juno-firmware;">&url-juno-firmware;</ulink> after March
+2015 tested OK. Consult Juno documentation on firmware updating.
+-->
+
+Juno dispone di UEFI quindi l'installazione è diretta. Il modo più
+pratico è l'installare da una chiavetta USB. Per eseguire l'avvio da
+dispositivo USB è necessario aggiornare il firmware. I firmware in
+<ulink url="&url-juno-firmware;">&url-juno-firmware;</ulink> creati
+dopo Marzo 2015 sono stati verificati e funzionano. Consultare la
+documentazione di Juno su come aggiornare il firmware.
+
+</para><para>
+
+<!--
+Prepare a standard arm64 CD image on a USB stick. Insert it in
+one of the USB ports on the back. Plug a serial cable into the
+upper 9-pin serial port on the back. If you need networking
+(netboot image) plug the ethernet cable into the socket on the
+front of the machine.
+-->
+	  
+Preparare un'immagine del CD arm64 su una chiavetta USB. Inserirla in
+una delle porte USB sul retro e collegare un cavo seriale nella porta
+a 9 pin in alto. Se è necessario accedere alla rete (con l'immagine
+netboot) inserire il cavo Ethernet nel connettore sul davanti della
+macchina.
+
+</para><para>
+
+<!--
+Run a serial console at 115200, 8bit no parity, and boot the
+Juno. It should boot from the USB stick to a GRUB menu.
+The console config is not correctly detected on Juno so just hitting
+return will show no kernel output. Set the console to  
+-->
+
+Attivare la console seriale a 115200, 8 bit, senza parità e poi avviare
+Juno. Dovrebbe avviarsi dalla chiavetta USB e mostrare il menu di GRUB.
+La configurazione della console non è rilevata correttamente quindi
+premere Invio per vedere l'output del kernel. Per impostare la console
+
+<informalexample><screen>
+console=ttyAMA0,115200n8
+</screen></informalexample>
+
+<!--
+as described in (<xref linkend="arm64-console-setup"/>). <keycombo><keycap>Control</keycap>
+<keycap>x</keycap></keycombo> to boot should show you the &d-i; screens,
+and allow you to proceed with a standard installation.
+-->
+
+come descritto in <xref linkend="arm64-console-setup"/>. Per avviare il
+&d-i; premere <keycombo><keycap>Control</keycap><keycap>x</keycap></keycombo>
+e continuare con l'installazione standard.
+
+</para>
+  </sect2>
+
+  <sect2 arch="arm64" id="apm-installation">
+  <!-- <title>Applied Micro Mustang Installation</title> -->
+  <title>Installazione su Applied Micro Mustang</title>
+<para>
+
+<!--
+UEFI is available for this machine but it is normally shipped
+with U-Boot so you will need to either install UEFI firmware
+first then use standard boot/install methods, or use U-Boot boot
+methods. Also USB is not supported in the jessie kernel so
+installing from a USB stick does not work. You must use a serial
+console to control the installation because the graphical
+installer is not enabled on the arm64 architecture.
+-->
+
+Per queste macchine è possibile usare UEFI e normalmente sono
+equipaggiate con U-Boot quindi sarà possibile installare prima
+il firmware UEFI e poi usare i metodi d'avvio e d'installazione
+standard, oppure usare uno dei metodi d'avvio con U-Boot. Inoltre
+il supporto per USB non è presente nel kernel di jessie e quindi
+l'installazione da chiavetta USB non funziona. È necessario usare una
+console seriale per controllare l'installazione perché l'installatore
+grafico non è disponibile sull'architettura arm64.
+
+</para><para>
+
+<!--
+The recommended install method is to copy the &d-i; kernel and
+initrd onto the hard drive, using the openembedded system
+supplied with the machine, then boot from that to run the
+installer. Alternatively use TFTP to get the kernel/dtb/initrd
+copied over and booted (<xref linkend="boot-tftp-uboot"/>). After
+installation, manual changes to boot from the installed image
+are needed.
+-->
+
+Il metodo d'installazione raccomandato è copiare il kernel e l'initrd
+del &d-i; sul disco fisso utilizzando il sistema openembedded
+fornito insieme alla macchina poi avviare ed eseguire l'installatore.
+In alternativa usare TFTP per copiare e avviare kernel/dtb/initrd
+(<xref linkend="boot-tftp-uboot"/>). Dopo l'installazione occorre
+modificare manualmente la configurazione per l'avvio.
+
+</para><para>
+
+<!--
+Run a serial console at 115200, 8bit no parity, and boot the
+machine. Reboot the machine and when you see "Hit any key to
+stop autoboot:" hit a key to get a Mustang# prompt. Then use
+U-Boot commands to load and boot the kernel, dtb and initrd.
+-->
+
+Attivare la console seriale a 115200, 8 bit, senza parità e poi avviare
+la macchina. Riavviare la macchina e quando appare <quote>Hit any key to
+stop autoboot:</quote> premere un tasto qualsiare per avere il prompt
+Mustang#. Poi usare i comandi U-Boot per caricare e avviare kernel, dtb
+e initrd.
 
 </para>
   </sect2>
@@ -260,9 +476,78 @@ device-tree, è sufficiente omettere il parametro ${fdt_addr_r}.
 
 </para>
    </sect3>
+
+   <sect3 arch="armhf" id="boot-armhf-netboot.tar.gz">
+   <!-- <title>Pre-built netboot tarball</title> -->
+   <title>Tarball preconfezionato per avvio da rete</title>
+<para>
+
+<!--
+&debian; provides a pre-built tarball (&armmp-netboot-tarball;)
+that can simply be unpacked on your tftp server and contains
+all files necessary for netbooting.  It also includes a boot
+script that automates all steps to load the installer.  Modern
+U-Boot versions contain a tftp autoboot feature that becomes
+active if there is no bootable local storage device (MMC/SD,
+USB, IDE/SATA/SCSI) and then loads this boot script from the
+tftp server.  Prerequisite for using this feature is that you
+have a dhcp server in your network which provides the client
+with the address of the tftp server.
+-->
+
+&debian; fornisce un tarball preconfezionato (&armmp-netboot-tarball;)
+da scompattare sul proprio server tftp che contiene tutti i file
+necessari per l'avvio da rete. Contiene anche uno script di avvio che
+automatizza tutti i passi per caricare l'installatore. Le versioni di
+U-Boot recenti dispongono della funzione di avvio automatico tftp, tale
+funzione si attiva quando non ci sono altri dispositivi locali (MMC/SD,
+USB, IDE/SATA/SCSI) dai quali è possibile fare l'avvio e poi carica lo
+script di avvio dal server tftp. Per usare questa funzione è necessario
+che nella rete sia presente un server dhcp che fornisce al client
+l'indirizzo del server tftp.
+
+</para><para>
+
+<!--
+If you would like to trigger the tftp autoboot feature from the
+U-Boot commandline, you can use the follwing command:
+-->
+
+Per far scattare la funzione di avvio automatico tftp dalla riga di
+comando di U-Boot è possibile usare il comando seguente:
+
+<informalexample><screen>run bootcmd_dhcp</screen></informalexample>
+
+</para><para>
+
+<!--
+To manually load the bootscript provided by the tarball, you can
+alternatively issue the following commands at the U-Boot prompt:
+-->
+
+Per caricare manualmente lo script di avvio fornito nel tarball è
+possibile anche usare il seguente comando dal prompt di U-Boot:
+
+<informalexample><screen>
+setenv autoload no
+dhcp
+tftpboot ${scriptaddr} /debian-installer/armhf/tftpboot.scr
+source ${scriptaddr}
+</screen></informalexample>
+
+</para>
+   </sect3>
   </sect2>
 
-  <sect2 arch="arm" id="boot-hd-media">
+  <sect2 arch="arm64" condition="bootable-usb" id="usb-boot">
+  <!-- <title>Booting from USB Memory Stick with UEFI</title> -->
+  <title>Avvio da chiavetta USB con UEFI</title>
+
+&boot-installer-intro-usb.xml;
+
+  </sect2>
+
+  <sect2 arch="armel;armhf" id="boot-hd-media">
   <!-- <title>Booting from a USB stick in U-Boot</title> -->
   <title>Avvio da chiavetta USB in U-Boot</title>
 <para>
@@ -336,7 +621,6 @@ l'accensione del sistema dovrebbe comportare l'avvio dell'installatore.
 momento inserendo dal prompt di U-Boot il comando
 <quote>run bootcmd_usb0</quote>.
 
-
 </para><para>
 
 <!--
@@ -375,6 +659,129 @@ mentre il kernel tutt'ora utilizza i tradizionali 9600 baud. In questo
 caso è necessario impostare manualmente la varibile console in modo che
 contenga anche la velocità di trasmissione adatta al sistema e avviare
 l'installatore con il comando <quote>run bootcmd_usb0</quote>.
+
+</para>
+  </sect2>
+
+  <sect2 arch="armhf" id="boot-installer-sd-image">
+  <!-- <title>Using pre-built SD-card images with the installer</title> -->
+  <title>Uso di immagini per schede SD precompilate con l'installatore</title>
+<para>
+
+<!--
+For a number of systems, Debian provides SD card images that contain
+both U-Boot and the &d-i;.  These images are provided in two variants
+- one for downloading the software packages over the network
+(available at &armmp-netboot-sd-img;) and one for offline
+installations using a Debian CD/DVD (available at
+&armmp-hd-media-sd-img;).  To save space and network bandwidth, the
+images consist of two parts - a system-dependent part named
+<quote>firmware.&lt;system-type&gt;.img.gz</quote>, and a
+system-independent part named <quote>partition.img.gz</quote>.
+-->
+
+Per un certo numero di sistemi Debian fornisce delle immagini di
+schede SD contenenti U-Boot e &d-i;. Tali immagini sono create in due
+varianti, una che scarica i pacchetti software dalla rete (disponibile
+da &armmp-netboot-sd-img;) e l'altra chiamata hd-media per le
+installazioni senza un collegamento di rete e ha bisogno di un CD/DVD
+Debian (disponibile da &armmp-hd-media-sd-img;). Per risparmiare spazio
+e traffico di rete le immagini consistono di due parti: la prima parte
+dipende dal sistema è chiamata
+<quote>firmware.&lt;tipo-sistema&gt;.img.gz</quote>, la seconda parte
+indipendente dal sistema è chiamata <quote>partition.img.gz</quote>.
+
+</para><para>
+
+<!--
+To create a complete image from the two parts on Linux systems, you
+can use zcat as follows:
+-->
+
+Su sistemi Linux per unire le due parti e creare un'immagine completa
+è possibile usare zcat in questo modo:
+
+<!--
+<informalexample><screen>zcat firmware.&lt;system-type&gt;.img.gz partition.img.gz > complete_image.img</screen></informalexample>
+-->
+
+<informalexample><screen>zcat firmware.&lt;tipo-sistema&gt;.img.gz partition.img.gz > immagine_completa.img</screen></informalexample>
+
+<!--
+On Windows systems, you have to first decompress the two parts
+separately, which can be done e.g.  by using 7-Zip, and then
+concatenate the decompressed parts together by running the command
+-->
+
+Su sistemi windows è necessario prima decomprimere ciascuna delle due
+parti, ciò può essere fatto usando per esempio 7-Zip e poi unire assieme
+le due parti eseguendo il comando
+
+<!--
+<informalexample><screen>copy /b firmware.&lt;system-type&gt;.img + partition.img complete_image.img</screen></informalexample>
+-->
+
+<informalexample><screen>copy /b firmware.&lt;tipo-sistema&gt;.img + partition.img immagine_completa.img</screen></informalexample>
+
+<!--
+in a Windows CMD.exe window.
+-->
+
+da una finestra con il prompt dei comandi di Windows.
+
+</para><para>
+
+<!--
+Write the resulting image onto an SD card, e.g. by running the
+following command on a Linux system:
+-->
+
+Scrivere l'immagine risultante su una scheda SD, su un sistema Linux
+con il seguente comando:
+
+<!--
+<informalexample><screen>cat complete_image.img > /dev/SD_CARD_DEVICE</screen></informalexample>
+-->
+
+<informalexample><screen>cat immagine_completa.img > /dev/DEVICE_SCHEDA_SD</screen></informalexample>
+
+<!--
+After plugging the SD card into the target system and powering the
+system up, the installer is loaded from the SD card.  If you use the
+hd-media variant for offline installations, you must provide the
+installer with access to the first &debian; CD/DVD on a separate
+medium, which can e.g. be a CD/DVD ISO image on a USB stick.
+-->
+
+Inserire la scheda SD nel sistema e poi accenderlo, l'installatore
+verrà caricato dalla scheda SD. Con la variante hd-media per le
+installazioni senza un collegamento alla rete è necessario fornire
+all'installatore l'accesso al primo CD/DVD &debian; su un altro
+supporto che, per esempio, può essere l'immagine ISO del CD/DVD
+su una chiavetta USB.
+
+</para><para>
+
+<!--
+When you come to the partitioning step in the installer (see <xref
+linkend="di-partition"/>), you can delete or replace any previous
+partitions on the card.  Once the installer is started, it runs
+completely in the system's main memory and does not need to access the
+SD card anymore, so you can use the full card for installing &debian;. 
+The easiest way to create a proper partition layout on the SD card is
+to let the installer automatically create one for you (see
+<xref linkend="partman-auto"/>).
+-->
+
+Usando l'installatore, durante il passo relativo al partizionamento
+(vedere <xref linkend="di-partition"/>), è possibile cancellare o
+sostituire qualsiasi partizione presente sulla scheda. Infatti, una
+volta avviato, l'installatore viene completamente caricato in memoria
+e non ha più bisogno di accedere alla scheda SD quindi è possibile
+scegliere di installare &debian; sulla stessa scheda. Il modo più
+semplice per partizionare al meglio la scheda SD è lasciare che sia
+l'installatore a creare automaticamente le partizioni (vedere <xref
+linkend="partman-auto"/>).
 
 </para>
   </sect2>
