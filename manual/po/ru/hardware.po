@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hardware\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2015-04-15 20:29+0000\n"
+"POT-Creation-Date: 2015-05-04 18:16+0000\n"
 "PO-Revision-Date: 2015-03-19 20:20+0300\n"
 "Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
@@ -473,25 +473,83 @@ msgstr "Поддержка ЦП"
 msgid "Both AMD64 and Intel 64 processors are supported."
 msgstr "Поддерживаются процессоры AMD64 и Intel 64."
 
-# index.docbook:227, index.docbook:661, index.docbook:759, index.docbook:778, index.docbook:821, index.docbook:863, index.docbook:917, index.docbook:1061, index.docbook:1467
 #. Tag: title
-#: hardware.xml:268 hardware.xml:723 hardware.xml:780 hardware.xml:838
-#: hardware.xml:868 hardware.xml:1311
+#: hardware.xml:267
 #, no-c-format
-msgid "CPU, Main Boards, and Video Support"
-msgstr "Поддерживаемые процессоры, материнские платы и видеокарты"
+msgid "Three different ARM ports"
+msgstr ""
 
 #. Tag: para
-#: hardware.xml:270
+#: hardware.xml:269
 #, no-c-format
 msgid ""
-"ARM systems are much more heterogeneous than the i386/amd64-based PC "
-"architecture, so whilst 64-bit ARM machines should boot in a standardised "
-"way, like PCs, the situation is more complicated for 32-bit ARM machines."
+"The ARM architecture has evolved over time and modern ARM processors provide "
+"features which are not available in older models. &debian; therefore "
+"provides three ARM ports to give the best support for a very wide range of "
+"different machines:"
+msgstr ""
+
+#. Tag: para
+#: hardware.xml:275
+#, no-c-format
+msgid ""
+"&debian;/armel targets older 32-bit ARM processors without support for a "
+"hardware floating point unit (FPU),"
 msgstr ""
 
 #. Tag: para
 #: hardware.xml:279
+#, no-c-format
+msgid ""
+"&debian;/armhf works only on newer 32-bit ARM processors which implement at "
+"least the ARMv7 architecture with version 3 of the ARM vector floating point "
+"specification (VFPv3). It makes use of the extended features and performance "
+"enhancements available on these models."
+msgstr ""
+
+#. Tag: para
+#: hardware.xml:286
+#, no-c-format
+msgid ""
+"&debian;/arm64 works on 64-bit ARM processors which implement at least the "
+"ARMv8 architecture."
+msgstr ""
+
+#. Tag: para
+#: hardware.xml:293
+#, fuzzy, no-c-format
+#| msgid ""
+#| "Technically, several ARM CPUs can be run in either endian mode (big or "
+#| "little), but in practice the vast majority of currently available systems "
+#| "uses little-endian mode. Both &debian;/armhf and &debian;/armel support "
+#| "only little-endian systems."
+msgid ""
+"Technically, all currently available ARM CPUs can be run in either endian "
+"mode (big or little), but in practice the vast majority use little-endian "
+"mode. All of &debian;/arm64, &debian;/armhf and &debian;/armel support only "
+"little-endian systems."
+msgstr ""
+"Технически, некоторые процессоры ARM могут работать с любым порядком "
+"адресации памяти (прямым или обратным). Однако, почти каждая современная "
+"реализация системы использует режим little-endian. Архитектуры &debian;/"
+"armhf и &debian;/armel поддерживают только адресацию little-endian."
+
+#. Tag: title
+#: hardware.xml:302
+#, no-c-format
+msgid "Variations in ARM CPU designs and support complexity"
+msgstr ""
+
+#. Tag: para
+#: hardware.xml:304
+#, no-c-format
+msgid ""
+"ARM systems are much more heterogeneous than those based on the i386/amd64-"
+"based PC architecture, so the support situation can be much more complicated."
+msgstr ""
+
+#. Tag: para
+#: hardware.xml:310
 #, fuzzy, no-c-format
 #| msgid ""
 #| "ARM systems are a lot more heterogenous than the i386/amd64-based PC "
@@ -505,14 +563,14 @@ msgstr ""
 #| "ARM systems the Linux kernel has to take care of many system-specific low-"
 #| "level issues which are handled by the mainboard's BIOS in the PC world."
 msgid ""
-"The ARM architecture is used mainly in so-called <quote>systems-on-chip</"
-"quote> (SoCs). These SoCs are designed by many different companies with "
-"vastly varying hardware components even for the very basic functionality "
-"required to bring the system up. System firmware interfaces have been "
-"increasingly standardised over time, but especially on older hardware "
-"firmware/boot interfaces vary a great deal, so on these systems the Linux "
-"kernel has to take care of many system-specific low-level issues which are "
-"handled by the mainboard's BIOS in the PC world."
+"The ARM architecture is used mainly in so-called <quote>system-on-chip</"
+"quote> (SoC) designs. These SoCs are designed by many different companies "
+"with vastly varying hardware components even for the very basic "
+"functionality required to bring the system up. System firmware interfaces "
+"have been increasingly standardised over time, but especially on older "
+"hardware firmware/boot interfaces vary a great deal, so on these systems the "
+"Linux kernel has to take care of many system-specific low-level issues which "
+"would be handled by the mainboard's BIOS in the PC world."
 msgstr ""
 "Системы ARM намного разнообразнее, чем архитектура ПК на основе i386/amd64, "
 "в которой все машины имеют однообразную системную микропрограмму (BIOS или/и "
@@ -526,7 +584,7 @@ msgstr ""
 "выполняются BIOS материнской платы в мире ПК PC."
 
 #. Tag: para
-#: hardware.xml:292
+#: hardware.xml:322
 #, fuzzy, no-c-format
 #| msgid ""
 #| "At the beginning of the ARM support in the Linux kernel, this resulted in "
@@ -546,9 +604,12 @@ msgid ""
 "system in contrast to the <quote>one-fits-all</quote> kernel for PC systems. "
 "As this approach does not scale to a large number of different systems, work "
 "was done to allow booting with a single ARM kernel that can run on different "
-"ARM systems. Support for newer ARM systems gets implemented in a way that "
+"ARM systems. Support for newer ARM systems is now implemented in a way that "
 "allows the use of such a multiplatform kernel, but for several older systems "
-"a separate specific kernel is still required."
+"a separate specific kernel is still required. Because of this, the standard "
+"&debian; distribution only supports installation on a selected number of "
+"such older ARM systems, alongside the newer systems which are supported by "
+"the ARM multiplatform kernels (called 'armmp') in &debian;/armhf."
 msgstr ""
 "В начале поддержки ARM требовалось отдельное ядро Linux для каждой системы, "
 "а не <quote>одно для всех</quote> ядро для систем PC. Так как такое решение "
@@ -561,167 +622,105 @@ msgstr ""
 "мультиплатформенным ядром ARM (armmp)."
 
 #. Tag: para
-#: hardware.xml:304
+#: hardware.xml:338
+#, fuzzy, no-c-format
+#| msgid ""
+#| "ARM systems are a lot more heterogenous than the i386/amd64-based PC "
+#| "architecture, where all systems share a common system firmware (BIOS or/"
+#| "and UEFI) which handles the board-specific basic hardware initialization "
+#| "in a standardized way. The ARM architecture is used mainly in so-called "
+#| "<quote>systems-on-chip</quote> (SOCs). These SOCs are designed by many "
+#| "different companies with vastly varying hardware components even for the "
+#| "very basic functionality required to bring the system up. Systems using "
+#| "them usually lack a common system firmware interface and as a result, on "
+#| "ARM systems the Linux kernel has to take care of many system-specific low-"
+#| "level issues which are handled by the mainboard's BIOS in the PC world."
+msgid ""
+"The ARM architecture is used mainly in so-called <quote>system-on-chip</"
+"quote> (SoC) designs. These SoCs are designed by many different companies, "
+"often with vastly varying hardware components even for the very basic "
+"functionality required to bring the system up. Older versions of the ARM "
+"architecture have seen massive differences from one SoC to the next, but "
+"ARMv8 (arm64) is much more standardised and so is easier for the Linux "
+"kernel and other software to support."
+msgstr ""
+"Системы ARM намного разнообразнее, чем архитектура ПК на основе i386/amd64, "
+"в которой все машины имеют однообразную системную микропрограмму (BIOS или/и "
+"UEFI), инициализирующую основные аппаратные компоненты стандартным образом. "
+"В архитектуре ARM используется так называемая <quote>система на кристалле</"
+"quote> (SOC). Эти SOC, разрабатываемые многими разными компаниями, содержат "
+"сильно отличающиеся компоненты, используемые даже для основных задач, "
+"которые нужны для запуска системы. Машины, использующие их, не содержат "
+"основной системной микропрограммы и в результате в системах ARM ядро Linux "
+"выполняет множество системо-зависимых низкоуровневых задач, которые "
+"выполняются BIOS материнской платы в мире ПК PC."
+
+#. Tag: para
+#: hardware.xml:349
 #, no-c-format
 msgid ""
-"Because of this, the standard &debian; distribution only supports "
-"installation on a selected number of older 32-bit ARM systems in addition to "
-"the newer (32 and 64-bit) systems which are supported by the ARM "
-"multiplatform kernels (called 'armmp' on 32-bit armhf, no flavour name on 64-"
-"bit arm64)."
+"Server versions of ARMv8 hardware are typically configured using the Unified "
+"Extensible Firmware Interface (UEFI) and Advanced Configuration and Power "
+"Interface (ACPI) standards. These two provide common, device-independent "
+"ways to boot and configure computer hardware. They are also common in the "
+"x86 PC world."
 msgstr ""
-
-#. Tag: para
-#: hardware.xml:313
-#, fuzzy, no-c-format
-#| msgid ""
-#| "The ARM architecture has evolved over time and modern ARM processors "
-#| "provide features which are not available in older models. &debian; "
-#| "therefore provides two ARM ports, the &debian;/armel and the &debian;/"
-#| "armhf port. &debian;/armel targets older ARM processors without support "
-#| "for a hardware floating point unit (FPU), while &debian;/armhf works only "
-#| "on newer ARM processors which implement at least the ARMv7 architecture "
-#| "with version 3 of the ARM vector floating point specification (VFPv3). "
-#| "&debian;/armhf makes use of the extended features and performance "
-#| "enhancements available on these models."
-msgid ""
-"The ARM architecture has evolved over time and modern ARM processors provide "
-"features which are not available in older models. &debian; therefore "
-"provides three ARM ports: the &debian;/arm64 port for all 64-bit machines, "
-"and the &debian;/armel and the &debian;/armhf ports for 32-bit machines. "
-"&debian;/armel targets older ARM processors without support for a hardware "
-"floating point unit (FPU), while &debian;/armhf works only on newer ARM "
-"processors which implement at least the ARMv7 architecture with version 3 of "
-"the ARM vector floating point specification (VFPv3). &debian;/armhf makes "
-"use of the extended features and performance enhancements available on these "
-"models. &debian;/arm64 works on processors which implement at least the "
-"ARMv8 architecture (which is 64bit)."
-msgstr ""
-"Архитектура ARM постоянно развивается и современные процессоры ARM "
-"предоставляют возможности, которых не было в старых моделях. Из-за этого в "
-"&debian; есть два переноса ARM — &debian;/armel и &debian;/armhf. &debian;/"
-"armel предназначен для старых процессоров ARM без поддержки блока аппаратной "
-"плавающей запятой (FPU), а &debian;/armhf работает только на новых "
-"процессорах ARM, которые реализуют, как минимум, архитектуру ARMv7 версии 3 "
-"спецификации векторной плавающей запятой ARM (VFPv3). &debian;/armhf "
-"позволяет использовать дополнительные возможности и улучшения "
-"производительности, доступные в этих моделях."
-
-#. Tag: para
-#: hardware.xml:350
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Technically, several ARM CPUs can be run in either endian mode (big or "
-#| "little), but in practice the vast majority of currently available systems "
-#| "uses little-endian mode. Both &debian;/armhf and &debian;/armel support "
-#| "only little-endian systems."
-msgid ""
-"Technically, all currently available ARM CPUs can be run in either endian "
-"mode (big or little), but in practice the vast majority use little-endian "
-"mode. All of &debian;/arm64, &debian;/armhf and &debian;/armel support only "
-"little-endian systems."
-msgstr ""
-"Технически, некоторые процессоры ARM могут работать с любым порядком "
-"адресации памяти (прямым или обратным). Однако, почти каждая современная "
-"реализация системы использует режим little-endian. Архитектуры &debian;/"
-"armhf и &debian;/armel поддерживают только адресацию little-endian."
 
 #. Tag: title
-#: hardware.xml:357
+#: hardware.xml:359
 #, no-c-format
 msgid "Platforms supported by Debian/arm64"
 msgstr "Платформы, поддерживаемые Debian/arm64"
 
 #. Tag: para
-#: hardware.xml:359
+#: hardware.xml:361
 #, no-c-format
 msgid ""
 "Arm64/AArch64/ARMv8 hardware became available quite late in the &debian; "
-"&releasename-cap; release cycle so not many platforms have had support "
-"merged in the mainline kernel version in this release, which is the main "
-"requirement to have &d-i; working on them."
+"&releasename-cap; release cycle so not many platforms had support merged in "
+"the mainline kernel version by the time of this release; this is the main "
+"requirement to have &d-i; working on them. The following platforms are known "
+"to be supported by &debian;/arm64 in this release. There is only one kernel "
+"image, which supports all the listed platforms."
+msgstr ""
+
+#. Tag: term
+#: hardware.xml:373
+#, no-c-format
+msgid "Applied Micro (APM) Mustang/X-Gene"
 msgstr ""
 
 #. Tag: para
-#: hardware.xml:368
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Generally, the ARM multiplatform support in the Linux kernel allows "
-#| "running &d-i; on armhf systems not explicitly listed above, as long as "
-#| "the kernel used by &d-i; has support for the target system's components "
-#| "and a device-tree file for the target is available. In these cases, the "
-#| "installer can usually provide a working userland installation, but it "
-#| "probably cannot automatically make the system bootable, as doing that in "
-#| "many cases requires device-specific information."
+#: hardware.xml:375
+#, no-c-format
 msgid ""
-"The tested platforms are listed below, but in general, the multiplatform "
-"support in the arm64 Linux kernel also allows running &d-i; on arm64 systems "
-"not explicitly listed below, so long as the kernel used by &d-i; has support "
-"for the target system's components and a device-tree file for the target is "
-"available. In these cases, the installer can usually provide a working "
-"userland installation, and so long as UEFI is in use, it should be able to "
-"make the system bootable as well. If UEFI is not used (some 64-bit machines "
-"have been shipped with U-Boot) you will probably also need some manual steps "
-"to make the system bootable."
+"The APM Mustang was the first Linux-capable ARMv8 system available. It uses "
+"the X-gene SoC, which has since also been used in other machines. It is an 8-"
+"core CPU, with ethernet, USB and serial. A common form-factor looks just "
+"like a desktop PC box, but many other versions are expected in the future. "
+"Most of the hardware is supported in the mainline kernel, but at this point "
+"USB support is lacking in the &releasename-cap; kernel."
 msgstr ""
-"В основном, мультиплатформенная поддержка ARM в ядре Linux позволяет "
-"запускать &d-i; на системах armhf, не описанных выше, если в ядре, "
-"используемом &d-i; есть поддержка аппаратных частей и файла дерева устройств "
-"для целевой машины. В этих случаях программа установки, обычно, способна "
-"предоставить работающую пользовательскую установку, но, вероятно, не сможет "
-"автоматически сделать систему загрузочной, так как для этого часто требуется "
-"информация об устройстве."
-
-#. Tag: para
-#: hardware.xml:382
-#, fuzzy, no-c-format
-#| msgid ""
-#| "The following platforms are supported by &debian;/armel; they require "
-#| "platform-specific kernels."
-msgid ""
-"The following platforms are known to be supported by &debian;/arm64 in this "
-"release. There is only one kernel, which supports all the listed platforms."
-msgstr ""
-"&debian;/armel поддерживает перечисленные далее платформы; для них требуются "
-"специальные ядра."
 
 #. Tag: term
 #: hardware.xml:389
 #, no-c-format
-msgid "Applied Micro (APM) Mustang/X-Gene"
+msgid "ARM Juno Development Platform"
 msgstr ""
 
 #. Tag: para
 #: hardware.xml:391
 #, no-c-format
 msgid ""
-"The APM Mustang was the first Linux-capable ARMv8 system available. It uses "
-"the X-gene SoC, since also used in other machines, which is an 8-core CPU, "
-"with ethernet, USB, serial. A common form-factor looks just like a desktop "
-"PC box, but many versions are expected. Most of the hardware is supported in "
-"the mainline kernel, but USB support is lacking in the &releasename-cap; "
-"kernel."
-msgstr ""
-
-#. Tag: term
-#: hardware.xml:404
-#, no-c-format
-msgid "ARM Juno Development Platform"
-msgstr ""
-
-#. Tag: para
-#: hardware.xml:406
-#, no-c-format
-msgid ""
 "Juno is a capable development board with a 6-core (2xA57, 4xA53) ARMv8-A "
 "800Mhz CPU, Mali (T624) graphics, 8GB DDR3 RAM, Ethernet, USB, Serial. It "
 "was designed for system bring-up and power testing so is neither small nor "
-"cheap, but was one of the first boards available. All the hardware is "
-"supported in the mainline kernel and in &releasename-cap;."
+"cheap, but was one of the first boards available. All the on-board hardware "
+"is supported in the mainline kernel and in &releasename-cap;."
 msgstr ""
 
 #. Tag: para
-#: hardware.xml:420
+#: hardware.xml:405
 #, fuzzy, no-c-format
 #| msgid ""
 #| "When using &d-i; on such systems, you have to manually make the system "
@@ -736,6 +735,42 @@ msgstr ""
 "При использовании &d-i; на таких системах вам придётся вручную сделать "
 "систему загрузочной в конце установки, например запустив необходимые команды "
 "и оболочки , запущенной из &d-i;."
+
+#. Tag: title
+#: hardware.xml:413
+#, fuzzy, no-c-format
+#| msgid "multiplatform"
+msgid "Other platforms"
+msgstr "multiplatform"
+
+#. Tag: para
+#: hardware.xml:414
+#, fuzzy, no-c-format
+#| msgid ""
+#| "Generally, the ARM multiplatform support in the Linux kernel allows "
+#| "running &d-i; on armhf systems not explicitly listed above, as long as "
+#| "the kernel used by &d-i; has support for the target system's components "
+#| "and a device-tree file for the target is available. In these cases, the "
+#| "installer can usually provide a working userland installation, but it "
+#| "probably cannot automatically make the system bootable, as doing that in "
+#| "many cases requires device-specific information."
+msgid ""
+"The multiplatform support in the arm64 Linux kernel may also allow running "
+"&d-i; on arm64 systems not explicitly listed above. So long as the kernel "
+"used by &d-i; has support for the target system's components, and a device-"
+"tree file for that target is available, a new target system may work just "
+"fine. In these cases, the installer can usually provide a working "
+"installation, and so long as UEFI is in use, it should be able to make the "
+"system bootable as well. If UEFI is not used you may also need to perform "
+"some manual configuration steps to make the system bootable."
+msgstr ""
+"В основном, мультиплатформенная поддержка ARM в ядре Linux позволяет "
+"запускать &d-i; на системах armhf, не описанных выше, если в ядре, "
+"используемом &d-i; есть поддержка аппаратных частей и файла дерева устройств "
+"для целевой машины. В этих случаях программа установки, обычно, способна "
+"предоставить работающую пользовательскую установку, но, вероятно, не сможет "
+"автоматически сделать систему загрузочной, так как для этого часто требуется "
+"информация об устройстве."
 
 #. Tag: title
 #: hardware.xml:430
@@ -866,11 +901,16 @@ msgstr "PineRiver Mini X-Plus"
 
 #. Tag: para
 #: hardware.xml:496
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "System support for Allwinner sunXi-based devices is limited to drivers "
+#| "and device-tree information available in the mainline Linux kernel. The "
+#| "android-derived linux-sunxi.org 3.4 kernel series is not supported by "
+#| "Debian."
 msgid ""
 "System support for Allwinner sunXi-based devices is limited to drivers and "
 "device-tree information available in the mainline Linux kernel. The android-"
-"derived linux-sunxi.org 3.4 kernel series is not supported by Debian."
+"derived linux-sunxi.org 3.4 kernel series is not supported by &debian;."
 msgstr ""
 "В системах на основе Allwinner sunXi поддерживаются только устройства, для "
 "которых есть драйверы и информация в дереве устройств в основной ветви ядра "
@@ -931,7 +971,7 @@ msgid ""
 "Freescale i.MX6 SoC family. System support for the Cubox-i series is limited "
 "to drivers and device-tree information available in the mainline Linux "
 "kernel; the Freescale 3.0 kernel series for the Cubox-i is not supported by "
-"Debian. Available drivers in the mainline kernel include serial console, "
+"&debian;. Available drivers in the mainline kernel include serial console, "
 "ethernet, USB, MMC/SD-card and display support over HDMI (console and X11). "
 "In addition to that, the eSATA port on the Cubox-i4Pro is supported."
 msgstr ""
@@ -951,12 +991,21 @@ msgstr "Wandboard Quad"
 
 #. Tag: para
 #: hardware.xml:541
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "The Wandboard Quad is a development board based on the Freescale i.MX6 "
+#| "Quad SoC. System support for it is limited to drivers and device-tree "
+#| "information available in the mainline Linux kernel; the wandboard-"
+#| "specific 3.0 and 3.10 kernel series from wandboard.org are not supported "
+#| "by Debian. The mainline kernel includes driver support for serial "
+#| "console, display via HDMI (console and X11), ethernet, USB, MMC/SD and "
+#| "SATA. Support for the onboard audio options (analog, S/PDIF, HDMI-Audio) "
+#| "and for the onboard WLAN/Bluetooth module is not available in &debian; 8."
 msgid ""
 "The Wandboard Quad is a development board based on the Freescale i.MX6 Quad "
 "SoC. System support for it is limited to drivers and device-tree information "
 "available in the mainline Linux kernel; the wandboard-specific 3.0 and 3.10 "
-"kernel series from wandboard.org are not supported by Debian. The mainline "
+"kernel series from wandboard.org are not supported by &debian;. The mainline "
 "kernel includes driver support for serial console, display via HDMI (console "
 "and X11), ethernet, USB, MMC/SD and SATA. Support for the onboard audio "
 "options (analog, S/PDIF, HDMI-Audio) and for the onboard WLAN/Bluetooth "
@@ -973,14 +1022,22 @@ msgstr ""
 
 #. Tag: para
 #: hardware.xml:559
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "Generally, the ARM multiplatform support in the Linux kernel allows "
+#| "running &d-i; on armhf systems not explicitly listed above, as long as "
+#| "the kernel used by &d-i; has support for the target system's components "
+#| "and a device-tree file for the target is available. In these cases, the "
+#| "installer can usually provide a working userland installation, but it "
+#| "probably cannot automatically make the system bootable, as doing that in "
+#| "many cases requires device-specific information."
 msgid ""
 "Generally, the ARM multiplatform support in the Linux kernel allows running "
 "&d-i; on armhf systems not explicitly listed above, as long as the kernel "
 "used by &d-i; has support for the target system's components and a device-"
 "tree file for the target is available. In these cases, the installer can "
-"usually provide a working userland installation, but it probably cannot "
-"automatically make the system bootable, as doing that in many cases requires "
+"usually provide a working installation, but it may not be able to "
+"automatically make the system bootable. Doing that in many cases requires "
 "device-specific information."
 msgstr ""
 "В основном, мультиплатформенная поддержка ARM в ядре Linux позволяет "
@@ -992,7 +1049,7 @@ msgstr ""
 "информация об устройстве."
 
 #. Tag: para
-#: hardware.xml:570
+#: hardware.xml:571
 #, fuzzy, no-c-format
 #| msgid ""
 #| "When using &d-i; on such systems, you have to manually make the system "
@@ -1008,42 +1065,41 @@ msgstr ""
 "и оболочки , запущенной из &d-i;."
 
 #. Tag: title
-#: hardware.xml:579
+#: hardware.xml:580
 #, no-c-format
 msgid "Platforms no longer supported by Debian/armhf"
 msgstr "Платформы, больше не поддерживаемые Debian/armhf"
 
 #. Tag: term
-#: hardware.xml:583
+#: hardware.xml:584
 #, no-c-format
 msgid "EfikaMX"
 msgstr "EfikaMX"
 
 #. Tag: para
-#: hardware.xml:584
-#, no-c-format
+#: hardware.xml:585
+#, fuzzy, no-c-format
+#| msgid ""
+#| "The EfikaMX platform (Genesi Efika Smartbook and Genesi EfikaMX nettop) "
+#| "has been supported in &debian; 7 with a platform-specific kernel, but is "
+#| "no longer supported from &debian; 8 onwards. The code required to build "
+#| "the formerly used platform-specific kernel has been removed from the "
+#| "upstream Linux kernel source in 2012, so Debian cannot provide newer "
+#| "builds."
 msgid ""
-"The EfikaMX platform (Genesi Efika Smartbook and Genesi EfikaMX nettop) has "
-"been supported in &debian; 7 with a platform-specific kernel, but is no "
-"longer supported from &debian; 8 onwards. The code required to build the "
-"formerly used platform-specific kernel has been removed from the upstream "
-"Linux kernel source in 2012, so Debian cannot provide newer builds."
+"The EfikaMX platform (Genesi Efika Smartbook and Genesi EfikaMX nettop) was "
+"supported in &debian; 7 with a platform-specific kernel, but is no longer "
+"supported from &debian; 8 onwards. The code required to build the formerly "
+"used platform-specific kernel has been removed from the upstream Linux "
+"kernel source in 2012, so &debian; cannot provide newer builds. Using the "
+"armmp multiplatform kernel on the EfikaMX platform would require device-tree "
+"support for it, which is currently not available."
 msgstr ""
 "Платформа EfikaMX (Genesi Efika Smartbook и Genesi EfikaMX nettop) "
 "поддерживалась в &debian; 7 с отдельным ядром, но больше не поддерживается, "
 "начиная с &debian; 8. Необходимый для сборки код ранее использовавшегося "
 "отдельного ядра платформы, был удалён из исходного кода ядра Linux в 2012 "
 "году, поэтому Debian не может предоставлять новых сборки."
-
-#. Tag: para
-#: hardware.xml:591
-#, no-c-format
-msgid ""
-"Using the armmp multiplatform kernel on the EfikaMX platform would require "
-"device-tree support for it, which is currently not available."
-msgstr ""
-"Для работы мультиплатформенного ядра armmp на платформе EfikaMX требуется "
-"поддержка дерева устройств, но в данный момент она отсутствует."
 
 #. Tag: title
 #: hardware.xml:603
@@ -1069,10 +1125,13 @@ msgstr "IXP4xx"
 
 #. Tag: para
 #: hardware.xml:614
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "The Intel IXP4xx processor series is used in network attached storage "
+#| "devices like the Linksys NSLU2."
 msgid ""
-"The Intel IXP4xx processor series is used in network attached storage "
-"devices like the Linksys NSLU2."
+"The Intel IXP4xx processor series is used in commonly used network attached "
+"storage (NAS) devices like the Linksys NSLU2."
 msgstr ""
 "Процессоры Intel серии IXP4xx используются в подключаемых к сети хранилищах, "
 "например Linksys NSLU2."
@@ -1083,25 +1142,35 @@ msgstr ""
 msgid ""
 "While there is kernel support for this platform in &debian; 8, it is not "
 "supported by the &d-i;. It is possible to do a <quote>dist-upgrade</quote> "
-"from Debian 7 to Debian 8 for existing installations, though. Due to the low "
-"amount of RAM that systems based on the IXP4xx usually have, this requires "
-"that swap space is enabled prior to upgrading. Support for the IXP4xx "
-"platform will be dropped completely in &debian; 9."
+"from &debian; 7 to &debian; 8 for existing installations, though. Due to the "
+"small amount of RAM that systems based on the IXP4xx typically have, this "
+"requires that swap space is enabled prior to upgrading. Support for the "
+"IXP4xx platform will be dropped completely in &debian; 9."
 msgstr ""
 
 #. Tag: term
-#: hardware.xml:632
+#: hardware.xml:633
 #, no-c-format
 msgid "Kirkwood"
 msgstr "Kirkwood"
 
 #. Tag: para
-#: hardware.xml:633
-#, no-c-format
+#: hardware.xml:634
+#, fuzzy, no-c-format
+#| msgid ""
+#| "Kirkwood is a system on a chip (SoC) from Marvell that integrates an ARM "
+#| "CPU, Ethernet, SATA, USB, and other functionality in one chip. We "
+#| "currently support the following Kirkwood based devices: OpenRD (OpenRD-"
+#| "Base, OpenRD-Client and OpenRD-Ultimate), <ulink url=\"&url-arm-cyrius-"
+#| "sheevaplug;\">plug computers (SheevaPlug, GuruPlug and DreamPlug)</"
+#| "ulink>, <ulink url=\"&url-arm-cyrius-qnap-kirkwood;\">QNAP Turbo Station</"
+#| "ulink> (all TS-11x, TS-21x and TS-41x models), and LaCie NASes (Network "
+#| "Space v2, Network Space Max v2, Internet Space v2, d2 Network v2, 2Big "
+#| "Network v2 and 5Big Network v2)."
 msgid ""
-"Kirkwood is a system on a chip (SoC) from Marvell that integrates an ARM "
-"CPU, Ethernet, SATA, USB, and other functionality in one chip. We currently "
-"support the following Kirkwood based devices: OpenRD (OpenRD-Base, OpenRD-"
+"Kirkwood is a system-on-chip (SoC) from Marvell that integrates an ARM CPU, "
+"Ethernet, SATA, USB, and other functionality in one chip. &debian; currently "
+"supports the following Kirkwood based devices: OpenRD (OpenRD-Base, OpenRD-"
 "Client and OpenRD-Ultimate), <ulink url=\"&url-arm-cyrius-sheevaplug;\">plug "
 "computers (SheevaPlug, GuruPlug and DreamPlug)</ulink>, <ulink url=\"&url-"
 "arm-cyrius-qnap-kirkwood;\">QNAP Turbo Station</ulink> (all TS-11x, TS-21x "
@@ -1119,22 +1188,30 @@ msgstr ""
 "Space v2, d2 Network v2, 2Big Network v2 и 5Big Network v2)."
 
 #. Tag: term
-#: hardware.xml:649
+#: hardware.xml:651
 #, no-c-format
 msgid "Orion5x"
 msgstr "Orion5x"
 
 #. Tag: para
-#: hardware.xml:650
-#, no-c-format
+#: hardware.xml:652
+#, fuzzy, no-c-format
+#| msgid ""
+#| "Orion is a system on a chip (SoC) from Marvell that integrates an ARM "
+#| "CPU, Ethernet, SATA, USB, and other functionality in one chip. There are "
+#| "many Network Attached Storage (NAS) devices on the market that are based "
+#| "on an Orion chip. We currently support the following Orion based devices: "
+#| "<ulink url=\"&url-arm-cyrius-kuroboxpro;\">Buffalo Kurobox</ulink>, "
+#| "<ulink url=\"&url-arm-cyrius-dns323;\">D-Link DNS-323</ulink> and <ulink "
+#| "url=\"&url-arm-cyrius-mv2120;\">HP mv2120</ulink>."
 msgid ""
-"Orion is a system on a chip (SoC) from Marvell that integrates an ARM CPU, "
+"Orion is a system-on-chip (SoC) from Marvell that integrates an ARM CPU, "
 "Ethernet, SATA, USB, and other functionality in one chip. There are many "
 "Network Attached Storage (NAS) devices on the market that are based on an "
-"Orion chip. We currently support the following Orion based devices: <ulink "
-"url=\"&url-arm-cyrius-kuroboxpro;\">Buffalo Kurobox</ulink>, <ulink url="
-"\"&url-arm-cyrius-dns323;\">D-Link DNS-323</ulink> and <ulink url=\"&url-arm-"
-"cyrius-mv2120;\">HP mv2120</ulink>."
+"Orion chip. &debian; currently supports the following Orion based devices: "
+"<ulink url=\"&url-arm-cyrius-kuroboxpro;\">Buffalo Kurobox</ulink>, <ulink "
+"url=\"&url-arm-cyrius-dns323;\">D-Link DNS-323</ulink> and <ulink url=\"&url-"
+"arm-cyrius-mv2120;\">HP mv2120</ulink>."
 msgstr ""
 "Orion &mdash; это система в микросхеме (SoC) производства Marvell, где в "
 "один чип встроены процессор ARM, Ethernet, SATA, USB и другие элементы. На "
@@ -1145,35 +1222,38 @@ msgstr ""
 "<ulink url=\"&url-arm-cyrius-mv2120;\">HP mv2120</ulink>."
 
 #. Tag: term
-#: hardware.xml:664
+#: hardware.xml:667
 #, no-c-format
 msgid "<term>Versatile</term>"
 msgstr "<term>Versatile</term>"
 
 #. Tag: para
-#: hardware.xml:665
-#, no-c-format
+#: hardware.xml:668
+#, fuzzy, no-c-format
+#| msgid ""
+#| "The Versatile platform is emulated by QEMU and is therefore a nice way to "
+#| "test and run &debian; on ARM if you don't have the hardware."
 msgid ""
 "The Versatile platform is emulated by QEMU and is therefore a nice way to "
-"test and run &debian; on ARM if you don't have the hardware."
+"test and run &debian; on ARM if you don't have real hardware."
 msgstr ""
 "Платформа Versatile эмулируется QEMU и поэтому замечательно подходит для "
 "тестирования и запуска &debian; на ARM, если у вас нет такой аппаратуры."
 
 #. Tag: title
-#: hardware.xml:678
+#: hardware.xml:681
 #, no-c-format
 msgid "Platforms no longer supported by Debian/armel"
 msgstr "Платформы, больше не поддерживаемые Debian/armel"
 
 #. Tag: term
-#: hardware.xml:682
+#: hardware.xml:685
 #, no-c-format
 msgid "IOP32x"
 msgstr "IOP32x"
 
 #. Tag: para
-#: hardware.xml:683
+#: hardware.xml:686
 #, no-c-format
 msgid ""
 "Intel's I/O Processor (IOP) line is found in a number of products related to "
@@ -1193,26 +1273,39 @@ msgstr ""
 "установить новые выпуски &debian;."
 
 #. Tag: term
-#: hardware.xml:698
+#: hardware.xml:701
 #, no-c-format
 msgid "MV78xx0"
 msgstr "MV78xx0"
 
 #. Tag: para
-#: hardware.xml:699
-#, no-c-format
+#: hardware.xml:702
+#, fuzzy, no-c-format
+#| msgid ""
+#| "The MV78xx0 platform has been used on the Marvell DB-78xx0-BP development "
+#| "board. It was supported in Debian 7 with a platform-specific kernel "
+#| "(based on the Linux kernel version 3.2), but is not supported any more "
+#| "from Debian 8 onwards."
 msgid ""
 "The MV78xx0 platform has been used on the Marvell DB-78xx0-BP development "
-"board. It was supported in Debian 7 with a platform-specific kernel (based "
-"on the Linux kernel version 3.2), but is not supported any more from Debian "
-"8 onwards."
+"board. It was supported in &debian; 7 with a platform-specific kernel (based "
+"on the Linux kernel version 3.2), but is not supported any more from "
+"&debian; 8 onwards."
 msgstr ""
 "Платформа MV78xx0 использовалась в плате разработчика Marvell DB-78xx0-BP. "
 "Она поддерживалась в Debian 7 отдельным ядром (на основе ядра Linux версии "
 "3.2), но больше не поддерживается, начиная с Debian 8."
 
+# index.docbook:227, index.docbook:661, index.docbook:759, index.docbook:778, index.docbook:821, index.docbook:863, index.docbook:917, index.docbook:1061, index.docbook:1467
+#. Tag: title
+#: hardware.xml:721 hardware.xml:778 hardware.xml:836 hardware.xml:866
+#: hardware.xml:1309
+#, no-c-format
+msgid "CPU, Main Boards, and Video Support"
+msgstr "Поддерживаемые процессоры, материнские платы и видеокарты"
+
 #. Tag: para
-#: hardware.xml:724
+#: hardware.xml:722
 #, no-c-format
 msgid ""
 "Complete information concerning supported peripherals can be found at <ulink "
@@ -1225,13 +1318,13 @@ msgstr ""
 
 # index.docbook:787, index.docbook:893
 #. Tag: title
-#: hardware.xml:732 hardware.xml:815
+#: hardware.xml:730 hardware.xml:813
 #, no-c-format
 msgid "<title>CPU</title>"
 msgstr "<title>Центральный процессор</title>"
 
 #. Tag: para
-#: hardware.xml:733
+#: hardware.xml:731
 #, no-c-format
 msgid ""
 "Nearly all x86-based (IA-32) processors still in use in personal computers "
@@ -1245,7 +1338,7 @@ msgstr ""
 "и Intel P4 Xeon."
 
 #. Tag: para
-#: hardware.xml:740
+#: hardware.xml:738
 #, no-c-format
 msgid ""
 "However, &debian; GNU/Linux &releasename; will <emphasis>not</emphasis> run "
@@ -1265,7 +1358,7 @@ msgstr ""
 "аппаратных проблем."
 
 #. Tag: para
-#: hardware.xml:752
+#: hardware.xml:750
 #, no-c-format
 msgid ""
 "If your system has a 64-bit processor from the AMD64 or Intel 64 families, "
@@ -1278,13 +1371,13 @@ msgstr ""
 "i386."
 
 #. Tag: title
-#: hardware.xml:761
+#: hardware.xml:759
 #, no-c-format
 msgid "I/O Bus"
 msgstr "Шина ввода-вывода (I/O)"
 
 #. Tag: para
-#: hardware.xml:762
+#: hardware.xml:760
 #, no-c-format
 msgid ""
 "The system bus is the part of the motherboard which allows the CPU to "
@@ -1300,7 +1393,7 @@ msgstr ""
 "персональные компьютеры, продаваемые в последние годы, имеют одну из них."
 
 #. Tag: para
-#: hardware.xml:781
+#: hardware.xml:779
 #, no-c-format
 msgid ""
 "&debian; on &arch-title; supports the following platforms: <itemizedlist> "
@@ -1333,7 +1426,7 @@ msgstr ""
 "list-subscribe;\">список рассылки debian-&arch-listname;</ulink>."
 
 #. Tag: para
-#: hardware.xml:816
+#: hardware.xml:814
 #, no-c-format
 msgid ""
 "On SGI IP22, SGI Indy, Indigo 2 and Challenge S with R4000, R4400, R4600 and "
@@ -1347,7 +1440,7 @@ msgstr ""
 "R5000."
 
 #. Tag: para
-#: hardware.xml:822
+#: hardware.xml:820
 #, no-c-format
 msgid ""
 "Some MIPS machines can be operated in both big and little endian mode. For "
@@ -1359,7 +1452,7 @@ msgstr ""
 "документации по архитектуре mipsel."
 
 #. Tag: para
-#: hardware.xml:839
+#: hardware.xml:837
 #, no-c-format
 msgid ""
 "&debian; on &arch-title; supports the following platforms: <itemizedlist> "
@@ -1383,7 +1476,7 @@ msgstr ""
 "list-subscribe;\">список рассылки debian-&arch-listname;</ulink>."
 
 #. Tag: para
-#: hardware.xml:869
+#: hardware.xml:867
 #, no-c-format
 msgid ""
 "For &debian-gnu; &release; only the PMac (Power-Macintosh or PowerMac) and "
@@ -1393,13 +1486,13 @@ msgstr ""
 "Macintosh или PowerMac) и PreP."
 
 #. Tag: title
-#: hardware.xml:890
+#: hardware.xml:888
 #, no-c-format
 msgid "Kernel Flavours"
 msgstr "Варианты ядер"
 
 #. Tag: para
-#: hardware.xml:892
+#: hardware.xml:890
 #, no-c-format
 msgid ""
 "There are two flavours of the powerpc kernel in &debian;, based on the CPU "
@@ -1409,13 +1502,13 @@ msgstr ""
 "процессора:"
 
 #. Tag: term
-#: hardware.xml:899
+#: hardware.xml:897
 #, no-c-format
 msgid "<term>powerpc</term>"
 msgstr "<term>powerpc</term>"
 
 #. Tag: para
-#: hardware.xml:900
+#: hardware.xml:898
 #, no-c-format
 msgid ""
 "This kernel flavour supports the PowerPC 601, 603, 604, 740, 750, and 7400 "
@@ -1427,31 +1520,31 @@ msgstr ""
 "один из этих процессоров."
 
 #. Tag: term
-#: hardware.xml:910
+#: hardware.xml:908
 #, no-c-format
 msgid "powerpc-smp"
 msgstr "powerpc-smp"
 
 #. Tag: para
-#: hardware.xml:911
+#: hardware.xml:909
 #, no-c-format
 msgid "All Apple PowerMac G4 SMP machines."
 msgstr "Все мультипроцессорные машины Apple PowerMac G4."
 
 #. Tag: term
-#: hardware.xml:919
+#: hardware.xml:917
 #, no-c-format
 msgid "power64"
 msgstr "power64"
 
 #. Tag: para
-#: hardware.xml:920
+#: hardware.xml:918
 #, no-c-format
 msgid "The power64 kernel flavour supports the following CPUs:"
 msgstr "Вариант ядра power64 ядра поддерживает следующие процессоры:"
 
 #. Tag: para
-#: hardware.xml:924
+#: hardware.xml:922
 #, no-c-format
 msgid ""
 "The POWER3 processor is used in older IBM 64-bit server systems: known "
@@ -1463,7 +1556,7 @@ msgstr ""
 "7044-260 и 7044-270."
 
 #. Tag: para
-#: hardware.xml:930
+#: hardware.xml:928
 #, no-c-format
 msgid ""
 "The POWER4 processor is used in more recent IBM 64-bit server systems: known "
@@ -1473,7 +1566,7 @@ msgstr ""
 "IBM: pSeries 615, 630, 650, 655, 670 и 690."
 
 #. Tag: para
-#: hardware.xml:935
+#: hardware.xml:933
 #, no-c-format
 msgid ""
 "Systems using the PPC970 processor (Apple G5, YDL PowerStation, IBM "
@@ -1485,19 +1578,19 @@ msgstr ""
 "ядра."
 
 #. Tag: para
-#: hardware.xml:941
+#: hardware.xml:939
 #, no-c-format
 msgid "Newer IBM systems using POWER5, POWER6, and POWER7 processors."
 msgstr "Новые системы IBM с процессорами POWER5, POWER6 и POWER7."
 
 #. Tag: title
-#: hardware.xml:974
+#: hardware.xml:972
 #, no-c-format
 msgid "Power Macintosh (pmac) subarchitecture"
 msgstr "Субархитектура Power Macintosh (pmac)"
 
 #. Tag: para
-#: hardware.xml:976
+#: hardware.xml:974
 #, no-c-format
 msgid ""
 "Apple (and briefly a few other manufacturers &mdash; Power Computing, for "
@@ -1511,7 +1604,7 @@ msgstr ""
 "&debian;), OldWorld и NewWorld."
 
 #. Tag: para
-#: hardware.xml:983
+#: hardware.xml:981
 #, no-c-format
 msgid ""
 "OldWorld systems are most Power Macintoshes with a floppy drive and a PCI "
@@ -1526,7 +1619,7 @@ msgstr ""
 "систем G3 бежевого цвета, которые также относятся к OldWorld."
 
 #. Tag: para
-#: hardware.xml:991
+#: hardware.xml:989
 #, no-c-format
 msgid ""
 "The so called NewWorld PowerMacs are any PowerMacs in translucent colored "
@@ -1542,7 +1635,7 @@ msgstr ""
 "RAM</quote> для MacOS и производятся с середины 1998 года."
 
 #. Tag: para
-#: hardware.xml:999
+#: hardware.xml:997
 #, no-c-format
 msgid ""
 "Specifications for Apple hardware are available at <ulink url=\"http://www."
@@ -1557,398 +1650,398 @@ msgstr ""
 
 # index.docbook:1216, index.docbook:1351, index.docbook:1395, index.docbook:1424
 #. Tag: entry
-#: hardware.xml:1015 hardware.xml:1150 hardware.xml:1194 hardware.xml:1227
+#: hardware.xml:1013 hardware.xml:1148 hardware.xml:1192 hardware.xml:1225
 #, no-c-format
 msgid "Model Name/Number"
 msgstr "Наименование/номер модели"
 
 #. Tag: entry
-#: hardware.xml:1016
+#: hardware.xml:1014
 #, no-c-format
 msgid "Generation"
 msgstr "Поколение"
 
 #. Tag: entry
-#: hardware.xml:1022
+#: hardware.xml:1020
 #, no-c-format
 msgid "Apple"
 msgstr "Apple"
 
 #. Tag: entry
-#: hardware.xml:1023
+#: hardware.xml:1021
 #, no-c-format
 msgid "iMac Bondi Blue, 5 Flavors, Slot Loading"
 msgstr "iMac Bondi Blue, 5 видов, Slot Loading"
 
 # index.docbook:1225, index.docbook:1228, index.docbook:1231, index.docbook:1234, index.docbook:1237, index.docbook:1240, index.docbook:1243, index.docbook:1246, index.docbook:1249, index.docbook:1252, index.docbook:1255, index.docbook:1258, index.docbook:1261, index.docbook:1264, index.docbook:1267, index.docbook:1270
 #. Tag: entry
-#: hardware.xml:1024 hardware.xml:1027 hardware.xml:1030 hardware.xml:1033
-#: hardware.xml:1036 hardware.xml:1039 hardware.xml:1042 hardware.xml:1045
-#: hardware.xml:1048 hardware.xml:1051 hardware.xml:1054 hardware.xml:1057
-#: hardware.xml:1060 hardware.xml:1063 hardware.xml:1066 hardware.xml:1069
+#: hardware.xml:1022 hardware.xml:1025 hardware.xml:1028 hardware.xml:1031
+#: hardware.xml:1034 hardware.xml:1037 hardware.xml:1040 hardware.xml:1043
+#: hardware.xml:1046 hardware.xml:1049 hardware.xml:1052 hardware.xml:1055
+#: hardware.xml:1058 hardware.xml:1061 hardware.xml:1064 hardware.xml:1067
 #, no-c-format
 msgid "NewWorld"
 msgstr "NewWorld"
 
 #. Tag: entry
-#: hardware.xml:1026
+#: hardware.xml:1024
 #, no-c-format
 msgid "iMac Summer 2000, Early 2001"
 msgstr "iMac лето 2000, начало 2001"
 
 #. Tag: entry
-#: hardware.xml:1029
+#: hardware.xml:1027
 #, no-c-format
 msgid "iMac G5"
 msgstr "iMac G5"
 
 #. Tag: entry
-#: hardware.xml:1032
+#: hardware.xml:1030
 #, no-c-format
 msgid "iBook, iBook SE, iBook Dual USB"
 msgstr "iBook, iBook SE, iBook Dual USB"
 
 #. Tag: entry
-#: hardware.xml:1035
+#: hardware.xml:1033
 #, no-c-format
 msgid "iBook2"
 msgstr "iBook2"
 
 #. Tag: entry
-#: hardware.xml:1038
+#: hardware.xml:1036
 #, no-c-format
 msgid "iBook G4"
 msgstr "iBook G4"
 
 #. Tag: entry
-#: hardware.xml:1041
+#: hardware.xml:1039
 #, no-c-format
 msgid "Power Macintosh Blue and White (B&amp;W) G3"
 msgstr "Power Macintosh Blue и White (B&amp;W) G3"
 
 #. Tag: entry
-#: hardware.xml:1044
+#: hardware.xml:1042
 #, no-c-format
 msgid "Power Macintosh G4 PCI, AGP, Cube"
 msgstr "Power Macintosh G4 PCI, AGP, Cube"
 
 #. Tag: entry
-#: hardware.xml:1047
+#: hardware.xml:1045
 #, no-c-format
 msgid "Power Macintosh G4 Gigabit Ethernet"
 msgstr "Power Macintosh G4 Gigabit Ethernet"
 
 #. Tag: entry
-#: hardware.xml:1050
+#: hardware.xml:1048
 #, no-c-format
 msgid "Power Macintosh G4 Digital Audio, Quicksilver"
 msgstr "Power Macintosh G4 Digital Audio, Quicksilver"
 
 #. Tag: entry
-#: hardware.xml:1053
+#: hardware.xml:1051
 #, no-c-format
 msgid "Power Macintosh G5"
 msgstr "Power Macintosh G5"
 
 #. Tag: entry
-#: hardware.xml:1056
+#: hardware.xml:1054
 #, no-c-format
 msgid "PowerBook G3 FireWire Pismo (2000)"
 msgstr "PowerBook G3 FireWire Pismo (2000)"
 
 #. Tag: entry
-#: hardware.xml:1059
+#: hardware.xml:1057
 #, no-c-format
 msgid "PowerBook G3 Lombard (1999)"
 msgstr "PowerBook G3 Lombard (1999)"
 
 #. Tag: entry
-#: hardware.xml:1062
+#: hardware.xml:1060
 #, no-c-format
 msgid "PowerBook G4 Titanium"
 msgstr "PowerBook G4 Titanium"
 
 #. Tag: entry
-#: hardware.xml:1065
+#: hardware.xml:1063
 #, no-c-format
 msgid "PowerBook G4 Aluminum"
 msgstr "PowerBook G4 Aluminum"
 
 #. Tag: entry
-#: hardware.xml:1068
+#: hardware.xml:1066
 #, no-c-format
 msgid "Xserve G5"
 msgstr "Xserve G5"
 
 #. Tag: entry
-#: hardware.xml:1071
+#: hardware.xml:1069
 #, no-c-format
 msgid "Performa 4400, 54xx, 5500"
 msgstr "Performa 4400, 54xx, 5500"
 
 # index.docbook:1273, index.docbook:1276, index.docbook:1279, index.docbook:1282, index.docbook:1285, index.docbook:1288, index.docbook:1291, index.docbook:1294, index.docbook:1297, index.docbook:1300, index.docbook:1303, index.docbook:1306, index.docbook:1312, index.docbook:1315, index.docbook:1321, index.docbook:1327, index.docbook:1333
 #. Tag: entry
-#: hardware.xml:1072 hardware.xml:1075 hardware.xml:1078 hardware.xml:1081
-#: hardware.xml:1084 hardware.xml:1087 hardware.xml:1090 hardware.xml:1093
-#: hardware.xml:1096 hardware.xml:1099 hardware.xml:1102 hardware.xml:1105
-#: hardware.xml:1111 hardware.xml:1114 hardware.xml:1120 hardware.xml:1126
-#: hardware.xml:1132
+#: hardware.xml:1070 hardware.xml:1073 hardware.xml:1076 hardware.xml:1079
+#: hardware.xml:1082 hardware.xml:1085 hardware.xml:1088 hardware.xml:1091
+#: hardware.xml:1094 hardware.xml:1097 hardware.xml:1100 hardware.xml:1103
+#: hardware.xml:1109 hardware.xml:1112 hardware.xml:1118 hardware.xml:1124
+#: hardware.xml:1130
 #, no-c-format
 msgid "OldWorld"
 msgstr "OldWorld"
 
 #. Tag: entry
-#: hardware.xml:1074
+#: hardware.xml:1072
 #, no-c-format
 msgid "Performa 6360, 6400, 6500"
 msgstr "Performa 6360, 6400, 6500"
 
 #. Tag: entry
-#: hardware.xml:1077
+#: hardware.xml:1075
 #, no-c-format
 msgid "Power Macintosh 4400, 5400"
 msgstr "Power Macintosh 4400, 5400"
 
 #. Tag: entry
-#: hardware.xml:1080
+#: hardware.xml:1078
 #, no-c-format
 msgid "Power Macintosh 7200, 7300, 7500, 7600"
 msgstr "Power Macintosh 7200, 7300, 7500, 7600"
 
 #. Tag: entry
-#: hardware.xml:1083
+#: hardware.xml:1081
 #, no-c-format
 msgid "Power Macintosh 8200, 8500, 8600"
 msgstr "Power Macintosh 8200, 8500, 8600"
 
 #. Tag: entry
-#: hardware.xml:1086
+#: hardware.xml:1084
 #, no-c-format
 msgid "Power Macintosh 9500, 9600"
 msgstr "Power Macintosh 9500, 9600"
 
 #. Tag: entry
-#: hardware.xml:1089
+#: hardware.xml:1087
 #, no-c-format
 msgid "Power Macintosh (Beige) G3 Minitower"
 msgstr "Power Macintosh (Beige) G4 Minitower"
 
 #. Tag: entry
-#: hardware.xml:1092
+#: hardware.xml:1090
 #, no-c-format
 msgid "Power Macintosh (Beige) Desktop, All-in-One"
 msgstr "Power Macintosh (Beige) Desktop, All-in-One"
 
 #. Tag: entry
-#: hardware.xml:1095
+#: hardware.xml:1093
 #, no-c-format
 msgid "PowerBook 2400, 3400, 3500"
 msgstr "PowerBook 2400, 3400, 3500"
 
 #. Tag: entry
-#: hardware.xml:1098
+#: hardware.xml:1096
 #, no-c-format
 msgid "PowerBook G3 Wallstreet (1998)"
 msgstr "PowerBook G3 Wallstreet (1998)"
 
 #. Tag: entry
-#: hardware.xml:1101
+#: hardware.xml:1099
 #, no-c-format
 msgid "Twentieth Anniversary Macintosh"
 msgstr "Twentieth Anniversary Macintosh"
 
 #. Tag: entry
-#: hardware.xml:1104
+#: hardware.xml:1102
 #, no-c-format
 msgid "Workgroup Server 7250, 7350, 8550, 9650, G3"
 msgstr "Workgroup Server 7250, 7350, 8550, 9650, G3"
 
 #. Tag: entry
-#: hardware.xml:1109
+#: hardware.xml:1107
 #, no-c-format
 msgid "Power Computing"
 msgstr "Power Computing"
 
 #. Tag: entry
-#: hardware.xml:1110
+#: hardware.xml:1108
 #, no-c-format
 msgid "PowerBase, PowerTower / Pro, PowerWave"
 msgstr "PowerBase, PowerTower / Pro, PowerWave"
 
 #. Tag: entry
-#: hardware.xml:1113
+#: hardware.xml:1111
 #, no-c-format
 msgid "PowerCenter / Pro, PowerCurve"
 msgstr "PowerCenter / Pro, PowerCurve"
 
 # index.docbook:990, index.docbook:995
 #. Tag: entry
-#: hardware.xml:1118
+#: hardware.xml:1116
 #, no-c-format
 msgid "UMAX"
 msgstr "UMAX"
 
 #. Tag: entry
-#: hardware.xml:1119
+#: hardware.xml:1117
 #, no-c-format
 msgid "C500, C600, J700, S900"
 msgstr "C500, C600, J700, S900"
 
 #. Tag: entry
-#: hardware.xml:1124
+#: hardware.xml:1122
 #, no-c-format
 msgid "<entry>APS</entry>"
 msgstr "<entry>APS</entry>"
 
 #. Tag: entry
-#: hardware.xml:1125
+#: hardware.xml:1123
 #, no-c-format
 msgid "APS Tech M*Power 604e/2000"
 msgstr "APS Tech M*Power 604e/2000"
 
 # index.docbook:1331, index.docbook:1357
 #. Tag: entry
-#: hardware.xml:1130 hardware.xml:1156
+#: hardware.xml:1128 hardware.xml:1154
 #, no-c-format
 msgid "Motorola"
 msgstr "Motorola"
 
 #. Tag: entry
-#: hardware.xml:1131
+#: hardware.xml:1129
 #, no-c-format
 msgid "Starmax 3000, 4000, 5000, 5500"
 msgstr "Starmax 3000, 4000, 5000, 5500"
 
 #. Tag: title
-#: hardware.xml:1140
+#: hardware.xml:1138
 #, no-c-format
 msgid "PReP subarchitecture"
 msgstr "Субархитектура PReP"
 
 #. Tag: entry
-#: hardware.xml:1157
+#: hardware.xml:1155
 #, no-c-format
 msgid "Firepower, PowerStack Series E, PowerStack II"
 msgstr "Firepower, PowerStack Series E, PowerStack II"
 
 #. Tag: entry
-#: hardware.xml:1159
+#: hardware.xml:1157
 #, no-c-format
 msgid "MPC 7xx, 8xx"
 msgstr "MPC 7xx, 8xx"
 
 #. Tag: entry
-#: hardware.xml:1161
+#: hardware.xml:1159
 #, no-c-format
 msgid "MTX, MTX+"
 msgstr "MTX, MTX+"
 
 #. Tag: entry
-#: hardware.xml:1163
+#: hardware.xml:1161
 #, no-c-format
 msgid "MVME2300(SC)/24xx/26xx/27xx/36xx/46xx"
 msgstr "MVME2300(SC)/24xx/26xx/27xx/36xx/46xx"
 
 #. Tag: entry
-#: hardware.xml:1165
+#: hardware.xml:1163
 #, no-c-format
 msgid "MCP(N)750"
 msgstr "MCP(N)750"
 
 # index.docbook:1370, index.docbook:1401
 #. Tag: entry
-#: hardware.xml:1169 hardware.xml:1200
+#: hardware.xml:1167 hardware.xml:1198
 #, no-c-format
 msgid "IBM RS/6000"
 msgstr "IBM RS/6000"
 
 #. Tag: entry
-#: hardware.xml:1170
+#: hardware.xml:1168
 #, no-c-format
 msgid "40P, 43P"
 msgstr "40P, 43P"
 
 #. Tag: entry
-#: hardware.xml:1172
+#: hardware.xml:1170
 #, no-c-format
 msgid "Power 830/850/860 (6070, 6050)"
 msgstr "Power 830/850/860 (6070, 6050)"
 
 #. Tag: entry
-#: hardware.xml:1174
+#: hardware.xml:1172
 #, no-c-format
 msgid "6030, 7025, 7043"
 msgstr "6030, 7025, 7043"
 
 # index.docbook:328, index.docbook:341, index.docbook:342
 #. Tag: entry
-#: hardware.xml:1176
+#: hardware.xml:1174
 #, no-c-format
 msgid "p640"
 msgstr "B164"
 
 #. Tag: title
-#: hardware.xml:1184
+#: hardware.xml:1182
 #, no-c-format
 msgid "CHRP subarchitecture"
 msgstr "Субархитектура CHRP"
 
 #. Tag: entry
-#: hardware.xml:1201
+#: hardware.xml:1199
 #, no-c-format
 msgid "B50, 43P-150, 44P"
 msgstr "B50, 43P-150, 44P"
 
 #. Tag: entry
-#: hardware.xml:1204
+#: hardware.xml:1202
 #, no-c-format
 msgid "Genesi"
 msgstr "Genesi"
 
 #. Tag: entry
-#: hardware.xml:1205
+#: hardware.xml:1203
 #, no-c-format
 msgid "Pegasos I, Pegasos II"
 msgstr "Pegasos I, Pegasos II"
 
 #. Tag: entry
-#: hardware.xml:1208
+#: hardware.xml:1206
 #, no-c-format
 msgid "Fixstars"
 msgstr "Fixstars"
 
 #. Tag: entry
-#: hardware.xml:1209
+#: hardware.xml:1207
 #, no-c-format
 msgid "YDL PowerStation"
 msgstr "YDL PowerStation"
 
 #. Tag: title
-#: hardware.xml:1217
+#: hardware.xml:1215
 #, no-c-format
 msgid "APUS subarchitecture (unsupported)"
 msgstr "Субархитектура APUS (не поддерживается)"
 
 #. Tag: entry
-#: hardware.xml:1233
+#: hardware.xml:1231
 #, no-c-format
 msgid "Amiga Power-UP Systems (APUS)"
 msgstr "Amiga Power-UP Systems (APUS)"
 
 #. Tag: entry
-#: hardware.xml:1234
+#: hardware.xml:1232
 #, no-c-format
 msgid "A1200, A3000, A4000"
 msgstr "A1200, A3000, A4000"
 
 #. Tag: title
-#: hardware.xml:1242
+#: hardware.xml:1240
 #, no-c-format
 msgid "Nubus PowerMac subarchitecture (unsupported)"
 msgstr "Субархитектура Nubus PowerMac (не поддерживается)"
 
 #. Tag: para
-#: hardware.xml:1244
+#: hardware.xml:1242
 #, no-c-format
 msgid ""
 "NuBus systems are not currently supported by &debian;/powerpc. The "
@@ -1974,13 +2067,13 @@ msgstr ""
 "получить на <ulink url=\"http://nubus-pmac.sourceforge.net/\"></ulink>."
 
 #. Tag: title
-#: hardware.xml:1281
+#: hardware.xml:1279
 #, no-c-format
 msgid "Non-PowerPC Macs"
 msgstr "Не-PowerPC Macи"
 
 #. Tag: para
-#: hardware.xml:1283
+#: hardware.xml:1281
 #, no-c-format
 msgid ""
 "Macintosh computers using the 680x0 series of processors are <emphasis>not</"
@@ -1998,7 +2091,7 @@ msgstr ""
 "например, Mac IIcx, LCIII или Quadra 950."
 
 #. Tag: para
-#: hardware.xml:1292
+#: hardware.xml:1290
 #, no-c-format
 msgid ""
 "This model range started with the Mac II (Mac II, IIx, IIcx, IIci, IIsi, "
@@ -2013,7 +2106,7 @@ msgstr ""
 "660AV, 700, 800, 840AV, 900, 950) и завершается Performa 200-640CD."
 
 #. Tag: para
-#: hardware.xml:1300
+#: hardware.xml:1298
 #, no-c-format
 msgid ""
 "In laptops, it started with the Mac Portable, then the PowerBook 100-190cs "
@@ -2025,50 +2118,50 @@ msgstr ""
 "смотрите раздел выше)."
 
 #. Tag: title
-#: hardware.xml:1314
+#: hardware.xml:1312
 #, fuzzy, no-c-format
 #| msgid "CPU/Machine types"
 msgid "Machines"
 msgstr "Типы процессоров/машин"
 
 #. Tag: para
-#: hardware.xml:1317
+#: hardware.xml:1315
 #, no-c-format
 msgid "S822L"
 msgstr ""
 
 #. Tag: para
-#: hardware.xml:1322
+#: hardware.xml:1320
 #, no-c-format
 msgid "S821L"
 msgstr ""
 
 #. Tag: para
-#: hardware.xml:1327
+#: hardware.xml:1325
 #, no-c-format
 msgid "S822"
 msgstr ""
 
 #. Tag: para
-#: hardware.xml:1332
+#: hardware.xml:1330
 #, no-c-format
 msgid "S821"
 msgstr ""
 
 #. Tag: para
-#: hardware.xml:1337
+#: hardware.xml:1335
 #, no-c-format
 msgid "TYAN GN70-BP010"
 msgstr ""
 
 #. Tag: title
-#: hardware.xml:1352
+#: hardware.xml:1350
 #, no-c-format
 msgid "zSeries and System z machine types"
 msgstr "машины типа System z и zSeries"
 
 #. Tag: para
-#: hardware.xml:1353
+#: hardware.xml:1351
 #, no-c-format
 msgid ""
 "Since &debian; Squeeze, support for booting in ESA/390 mode was dropped. "
@@ -2092,13 +2185,13 @@ msgstr ""
 "\">System z</trademark></ulink>."
 
 #. Tag: title
-#: hardware.xml:1370
+#: hardware.xml:1368
 #, no-c-format
 msgid "PAV and HyperPAV"
 msgstr "PAV и HyperPAV"
 
 #. Tag: para
-#: hardware.xml:1371
+#: hardware.xml:1369
 #, no-c-format
 msgid ""
 "PAV and HyperPAV are supported transparently, multipathing is not needed to "
@@ -2114,13 +2207,13 @@ msgstr ""
 
 # index.docbook:227, index.docbook:661, index.docbook:759, index.docbook:778, index.docbook:821, index.docbook:863, index.docbook:917, index.docbook:1061, index.docbook:1467
 #. Tag: title
-#: hardware.xml:1387
+#: hardware.xml:1385
 #, no-c-format
 msgid "CPU and Main Boards Support"
 msgstr "Поддержка процессоров и материнских плат"
 
 #. Tag: para
-#: hardware.xml:1388
+#: hardware.xml:1386
 #, no-c-format
 msgid ""
 "Sparc-based hardware is divided into a number of different subarchitectures, "
@@ -2134,13 +2227,13 @@ msgstr ""
 "можно ожидать по каждой из них."
 
 #. Tag: term
-#: hardware.xml:1399
+#: hardware.xml:1397
 #, no-c-format
 msgid "sun4, sun4c, sun4d, sun4m"
 msgstr "sun4, sun4c, sun4d, sun4m"
 
 #. Tag: para
-#: hardware.xml:1401
+#: hardware.xml:1399
 #, no-c-format
 msgid ""
 "None of these 32-bit sparc subarchitectures (sparc32) is supported. For a "
@@ -2153,7 +2246,7 @@ msgstr ""
 "wikipedia.org/wiki/SPARCstation\">странице Wikipedia SPARCstation</ulink>."
 
 #. Tag: para
-#: hardware.xml:1408
+#: hardware.xml:1406
 #, no-c-format
 msgid ""
 "The last &debian; release to support sparc32 was Etch, but even then only "
@@ -2165,13 +2258,13 @@ msgstr ""
 "ранних выпусках."
 
 #. Tag: term
-#: hardware.xml:1418
+#: hardware.xml:1416
 #, no-c-format
 msgid "sun4u"
 msgstr "sun4u"
 
 #. Tag: para
-#: hardware.xml:1420
+#: hardware.xml:1418
 #, no-c-format
 msgid ""
 "This subarchitecture includes all 64-bit machines (sparc64) based on the "
@@ -2189,13 +2282,13 @@ msgstr ""
 "конфигурациях соответственно."
 
 #. Tag: term
-#: hardware.xml:1433
+#: hardware.xml:1431
 #, no-c-format
 msgid "sun4v"
 msgstr "sun4v"
 
 #. Tag: para
-#: hardware.xml:1435
+#: hardware.xml:1433
 #, no-c-format
 msgid ""
 "This is the newest addition to the Sparc family, which includes machines "
@@ -2209,7 +2302,7 @@ msgstr ""
 "поддерживаются. Используйте ядро sparc64-smp."
 
 #. Tag: para
-#: hardware.xml:1446
+#: hardware.xml:1444
 #, no-c-format
 msgid ""
 "Note that Fujitsu's SPARC64 CPUs used in PRIMEPOWER family of servers are "
@@ -2219,13 +2312,13 @@ msgstr ""
 "PRIMEPOWER не поддерживаются из-за недостаточной поддержки ядром Linux."
 
 #. Tag: title
-#: hardware.xml:1455
+#: hardware.xml:1453
 #, no-c-format
 msgid "Laptops"
 msgstr "Ноутбуки"
 
 #. Tag: para
-#: hardware.xml:1456
+#: hardware.xml:1454
 #, no-c-format
 msgid ""
 "From a technical point of view, laptops are normal PCs, so all information "
@@ -2251,13 +2344,13 @@ msgstr ""
 
 # index.docbook:1600, index.docbook:1625, index.docbook:1648
 #. Tag: title
-#: hardware.xml:1473 hardware.xml:1493 hardware.xml:1520 hardware.xml:1543
+#: hardware.xml:1471 hardware.xml:1491 hardware.xml:1518 hardware.xml:1541
 #, no-c-format
 msgid "Multiple Processors"
 msgstr "Несколько процессоров"
 
 #. Tag: para
-#: hardware.xml:1474
+#: hardware.xml:1472
 #, no-c-format
 msgid ""
 "Multiprocessor support &mdash; also called <quote>symmetric multiprocessing</"
@@ -2277,7 +2370,7 @@ msgstr ""
 "<quote>ядрами</quote>."
 
 #. Tag: para
-#: hardware.xml:1484
+#: hardware.xml:1482
 #, no-c-format
 msgid ""
 "The standard &debian; &release; kernel image has been compiled with SMP "
@@ -2287,7 +2380,7 @@ msgstr ""
 "без проблем работает в системах без SMP."
 
 #. Tag: para
-#: hardware.xml:1495
+#: hardware.xml:1493
 #, no-c-format
 msgid ""
 "Multiprocessor support &mdash; also called <quote>symmetric multiprocessing</"
@@ -2305,7 +2398,7 @@ msgstr ""
 "SMP в однопроцессорных системах."
 
 #. Tag: para
-#: hardware.xml:1504
+#: hardware.xml:1502
 #, no-c-format
 msgid ""
 "Having multiple processors in a computer was originally only an issue for "
@@ -2320,7 +2413,7 @@ msgstr ""
 "более вычислительными блоками, называемыми <quote>ядрами</quote>."
 
 #. Tag: para
-#: hardware.xml:1511
+#: hardware.xml:1509
 #, no-c-format
 msgid ""
 "The 586 flavour of the &debian; kernel image packages for &arch-title; is "
@@ -2330,7 +2423,7 @@ msgstr ""
 "поддержки SMP."
 
 #. Tag: para
-#: hardware.xml:1521
+#: hardware.xml:1519
 #, no-c-format
 msgid ""
 "Multiprocessor support &mdash; also called <quote>symmetric multiprocessing</"
@@ -2347,7 +2440,7 @@ msgstr ""
 "использовать только первый процессор."
 
 #. Tag: para
-#: hardware.xml:1530
+#: hardware.xml:1528
 #, no-c-format
 msgid ""
 "In order to take advantage of multiple processors, you'll have to replace "
@@ -2364,7 +2457,7 @@ msgstr ""
 "<quote>&smp-config-section;</quote> в настройках ядра.</phrase>"
 
 #. Tag: para
-#: hardware.xml:1544
+#: hardware.xml:1542
 #, no-c-format
 msgid ""
 "Multiprocessor support &mdash; also called <quote>symmetric multiprocessing</"
@@ -2383,7 +2476,7 @@ msgstr ""
 "будет использовать только первый процессор."
 
 #. Tag: para
-#: hardware.xml:1554
+#: hardware.xml:1552
 #, no-c-format
 msgid ""
 "In order to take advantage of multiple processors, you should check to see "
@@ -2395,7 +2488,7 @@ msgstr ""
 "ядром."
 
 #. Tag: para
-#: hardware.xml:1560
+#: hardware.xml:1558
 #, no-c-format
 msgid ""
 "You can also build your own customized kernel to support SMP.<phrase arch="
@@ -2411,25 +2504,35 @@ msgstr ""
 "секции <quote>&smp-config-section;</quote> конфигурации ядра.</phrase>"
 
 #. Tag: title
-#: hardware.xml:1571
-#, no-c-format
-msgid "Graphics Card Support"
+#: hardware.xml:1569
+#, fuzzy, no-c-format
+#| msgid "Graphics Card Support"
+msgid "Graphics Hardware Support"
 msgstr "Поддержка видеокарт"
 
 #. Tag: para
-#: hardware.xml:1572
-#, no-c-format
+#: hardware.xml:1570
+#, fuzzy, no-c-format
+#| msgid ""
+#| "&debian;'s support for graphical interfaces is determined by the "
+#| "underlying support found in X.Org's X11 system. On modern PCs, having a "
+#| "graphical display usually works out of the box. Whether advanced graphics "
+#| "card features such as 3D-hardware acceleration or hardware-accelerated "
+#| "video are available, depends on the actual graphics hardware used in the "
+#| "system and in some cases on the installation of additional "
+#| "<quote>firmware</quote> images (see <xref linkend=\"hardware-firmware\"/"
+#| ">). In very few cases there have been reports about hardware on which "
+#| "installation of additional graphics card firmware was required even for "
+#| "basic graphics support, but these have been rare exceptions."
 msgid ""
 "&debian;'s support for graphical interfaces is determined by the underlying "
-"support found in X.Org's X11 system. On modern PCs, having a graphical "
-"display usually works out of the box. Whether advanced graphics card "
-"features such as 3D-hardware acceleration or hardware-accelerated video are "
-"available, depends on the actual graphics hardware used in the system and in "
-"some cases on the installation of additional <quote>firmware</quote> images "
-"(see <xref linkend=\"hardware-firmware\"/>). In very few cases there have "
-"been reports about hardware on which installation of additional graphics "
-"card firmware was required even for basic graphics support, but these have "
-"been rare exceptions."
+"support found in X.Org's X11 system, and the kernel. Basic framebuffer "
+"graphics is provided by the kernel, whilst desktop environments use X11. "
+"Whether advanced graphics card features such as 3D-hardware acceleration or "
+"hardware-accelerated video are available, depends on the actual graphics "
+"hardware used in the system and in some cases on the installation of "
+"additional <quote>firmware</quote> images (see <xref linkend=\"hardware-"
+"firmware\"/>)."
 msgstr ""
 "Поддержка графического интерфейса в &debian; полностью зависит от поддержки "
 "этого интерфейса системой X.Org X11. Графические карты современных ПК, "
@@ -2442,10 +2545,42 @@ msgstr ""
 "графических функций, но это скорее исключение."
 
 #. Tag: para
-#: hardware.xml:1585
+#: hardware.xml:1582
 #, no-c-format
 msgid ""
-"Details on supported graphics cards and pointing devices can be found at "
+"On modern PCs, having a graphical display usually works out of the box. In "
+"very few cases there have been reports about hardware on which installation "
+"of additional graphics card firmware was required even for basic graphics "
+"support, but these have been rare exceptions. For quite a lot of hardware, "
+"3D acceleration also works well out of the box, but there is still some "
+"hardware that needs binary blobs to work well."
+msgstr ""
+
+#. Tag: para
+#: hardware.xml:1593
+#, no-c-format
+msgid ""
+"Nearly all ARM machines have the graphics hardware built-in, rather than "
+"being on a plug-in card. Some machines do have expansion slots which will "
+"take graphics cards, but that is a rarity. Hardware designed to be headless "
+"with no graphics at all is quite common. Whilst basic framebuffer video "
+"provided by the kernel should work on all devices that have graphics, fast "
+"3D graphics invariably needs binary drivers to work. The situation is "
+"changing quickly but at the time of the &releasename; release free drivers "
+"for nouveau (Nvidia Tegra K1 SoC) and freedreno (Qualcomm Snapdragon SoCs) "
+"are available in the release. Other hardware needs non-free drivers from 3rd "
+"parties."
+msgstr ""
+
+#. Tag: para
+#: hardware.xml:1607
+#, fuzzy, no-c-format
+#| msgid ""
+#| "Details on supported graphics cards and pointing devices can be found at "
+#| "<ulink url=\"&url-xorg;\"></ulink>. &debian; &release; ships with X.Org "
+#| "version &x11ver;."
+msgid ""
+"Details on supported graphics hardware and pointing devices can be found at "
 "<ulink url=\"&url-xorg;\"></ulink>. &debian; &release; ships with X.Org "
 "version &x11ver;."
 msgstr ""
@@ -2454,13 +2589,13 @@ msgstr ""
 "поставляется с X.Org версии &x11ver;."
 
 #. Tag: para
-#: hardware.xml:1590
+#: hardware.xml:1612
 #, no-c-format
 msgid "The X.Org X Window System is only supported on the SGI Indy and the O2."
 msgstr "X.Org X Window System поддерживается только на SGI Indy и O2."
 
 #. Tag: para
-#: hardware.xml:1595
+#: hardware.xml:1617
 #, no-c-format
 msgid ""
 "Most graphics options commonly found on Sparc-based machines are supported. "
@@ -2480,7 +2615,7 @@ msgstr ""
 "том, как активировать карту."
 
 #. Tag: para
-#: hardware.xml:1605
+#: hardware.xml:1627
 #, no-c-format
 msgid ""
 "It is not uncommon for a Sparc machine to have two graphics cards in a "
@@ -2509,13 +2644,13 @@ msgstr ""
 "загрузкой системы."
 
 #. Tag: title
-#: hardware.xml:1627
+#: hardware.xml:1649
 #, no-c-format
 msgid "Network Connectivity Hardware"
 msgstr "Аппаратура для подключения к сети"
 
 #. Tag: para
-#: hardware.xml:1628
+#: hardware.xml:1650
 #, no-c-format
 msgid ""
 "Almost any network interface card (NIC) supported by the &arch-kernel; "
@@ -2531,7 +2666,7 @@ msgstr ""
 "\"i386\">Также поддерживается много старых карт ISA.</phrase>"
 
 #. Tag: para
-#: hardware.xml:1638
+#: hardware.xml:1660
 #, no-c-format
 msgid ""
 "This includes a lot of generic PCI cards (for systems that have PCI) and the "
@@ -2541,61 +2676,61 @@ msgstr ""
 "NIC от Sun:"
 
 #. Tag: para
-#: hardware.xml:1644
+#: hardware.xml:1666
 #, no-c-format
 msgid "Sun LANCE"
 msgstr "Sun LANCE"
 
 #. Tag: para
-#: hardware.xml:1649
+#: hardware.xml:1671
 #, no-c-format
 msgid "Sun Happy Meal"
 msgstr "Sun Happy Meal"
 
 #. Tag: para
-#: hardware.xml:1654
+#: hardware.xml:1676
 #, no-c-format
 msgid "Sun BigMAC"
 msgstr "Sun BigMAC"
 
 #. Tag: para
-#: hardware.xml:1659
+#: hardware.xml:1681
 #, no-c-format
 msgid "Sun QuadEthernet"
 msgstr "Sun QuadEthernet"
 
 #. Tag: para
-#: hardware.xml:1664
+#: hardware.xml:1686
 #, no-c-format
 msgid "MyriCOM Gigabit Ethernet"
 msgstr "MyriCOM Gigabit Ethernet"
 
 #. Tag: para
-#: hardware.xml:1671
+#: hardware.xml:1693
 #, no-c-format
 msgid "The list of supported network devices is:"
 msgstr "Список поддерживаемых сетевых устройств:"
 
 #. Tag: para
-#: hardware.xml:1676
+#: hardware.xml:1698
 #, no-c-format
 msgid "Channel to Channel (CTC) and ESCON connection (real or emulated)"
 msgstr "Channel to Channel (CTC) или ESCON connection (реальная или эмуляция)"
 
 #. Tag: para
-#: hardware.xml:1681
+#: hardware.xml:1703
 #, no-c-format
 msgid "OSA-2 Token Ring/Ethernet and OSA-Express Fast Ethernet (non-QDIO)"
 msgstr "OSA-2 Token Ring/Ethernet или OSA-Express Fast Ethernet (не-QDIO)"
 
 #. Tag: para
-#: hardware.xml:1686
+#: hardware.xml:1708
 #, no-c-format
 msgid "OSA-Express in QDIO mode, HiperSockets and Guest-LANs"
 msgstr "OSA-Express в режиме QDIO, HiperSockets и Guest-LANs"
 
 #. Tag: para
-#: hardware.xml:1695
+#: hardware.xml:1717
 #, no-c-format
 msgid ""
 "On &arch-title;, most built-in Ethernet devices are supported and modules "
@@ -2605,19 +2740,19 @@ msgstr ""
 "предоставляются модули для дополнительных устройств PCI и USB."
 
 #. Tag: para
-#: hardware.xml:1700
+#: hardware.xml:1722
 #, no-c-format
 msgid "ISDN is supported, but not during the installation."
 msgstr "ISDN поддерживается, но не во время установки."
 
 #. Tag: title
-#: hardware.xml:1707
+#: hardware.xml:1729
 #, no-c-format
 msgid "Wireless Network Cards"
 msgstr "Карты для беспроводных сетей"
 
 #. Tag: para
-#: hardware.xml:1708
+#: hardware.xml:1730
 #, no-c-format
 msgid ""
 "Wireless networking is in general supported as well and a growing number of "
@@ -2629,7 +2764,7 @@ msgstr ""
 "для работы многих из них требуется загрузка микропрограммы."
 
 #. Tag: para
-#: hardware.xml:1715
+#: hardware.xml:1737
 #, no-c-format
 msgid ""
 "If firmware is needed, the installer will prompt you to load firmware. See "
@@ -2641,7 +2776,7 @@ msgstr ""
 "загрузить микропрограмму во время установки."
 
 #. Tag: para
-#: hardware.xml:1720
+#: hardware.xml:1742
 #, no-c-format
 msgid ""
 "Wireless NICs that are not supported by the official &arch-kernel; kernel "
@@ -2653,7 +2788,7 @@ msgstr ""
 "время установки."
 
 #. Tag: para
-#: hardware.xml:1725
+#: hardware.xml:1747
 #, no-c-format
 msgid ""
 "If there is a problem with wireless and there is no other NIC you can use "
@@ -2671,7 +2806,7 @@ msgstr ""
 "микропрограмму, которые требуются, и настроить сеть вручную."
 
 #. Tag: para
-#: hardware.xml:1735
+#: hardware.xml:1757
 #, no-c-format
 msgid ""
 "In some cases the driver you need may not be available as a &debian; "
@@ -2689,13 +2824,13 @@ msgstr ""
 "от Windows.</phrase>"
 
 #. Tag: title
-#: hardware.xml:1749
+#: hardware.xml:1771
 #, no-c-format
 msgid "Known Issues for &arch-title;"
 msgstr "Известные проблемы под &arch-title;"
 
 #. Tag: para
-#: hardware.xml:1750
+#: hardware.xml:1772
 #, no-c-format
 msgid ""
 "There are a couple of issues with specific network cards that are worth "
@@ -2705,13 +2840,13 @@ msgstr ""
 "стоит упомянуть."
 
 #. Tag: title
-#: hardware.xml:1757
+#: hardware.xml:1779
 #, no-c-format
 msgid "Conflict between tulip and dfme drivers"
 msgstr "Конфликт драйверов tulip и dfme"
 
 #. Tag: para
-#: hardware.xml:1759
+#: hardware.xml:1781
 #, no-c-format
 msgid ""
 "There are various PCI network cards that have the same PCI identification, "
@@ -2729,7 +2864,7 @@ msgstr ""
 "то NIC может не работать или работать плохо."
 
 #. Tag: para
-#: hardware.xml:1769
+#: hardware.xml:1791
 #, no-c-format
 msgid ""
 "This is a common problem on Netra systems with a Davicom (DEC-Tulip "
@@ -2743,7 +2878,7 @@ msgstr ""
 "делается смотрите в <xref linkend=\"module-blacklist\"/>)."
 
 #. Tag: para
-#: hardware.xml:1777
+#: hardware.xml:1799
 #, no-c-format
 msgid ""
 "An alternative solution during the installation is to switch to a shell and "
@@ -2762,13 +2897,13 @@ msgstr ""
 "перезапуске системы."
 
 #. Tag: title
-#: hardware.xml:1790
+#: hardware.xml:1812
 #, no-c-format
 msgid "Sun B100 blade"
 msgstr "Sun B100 blade"
 
 #. Tag: para
-#: hardware.xml:1792
+#: hardware.xml:1814
 #, no-c-format
 msgid ""
 "The <literal>cassini</literal> network driver does not work with Sun B100 "
@@ -2778,13 +2913,13 @@ msgstr ""
 "blade."
 
 #. Tag: title
-#: hardware.xml:1807
+#: hardware.xml:1829
 #, no-c-format
 msgid "Braille Displays"
 msgstr "Дисплеи Брайля"
 
 #. Tag: para
-#: hardware.xml:1808
+#: hardware.xml:1830
 #, no-c-format
 msgid ""
 "Support for braille displays is determined by the underlying support found "
@@ -2802,13 +2937,13 @@ msgstr ""
 "classname> версии &brlttyver;."
 
 #. Tag: title
-#: hardware.xml:1822
+#: hardware.xml:1844
 #, no-c-format
 msgid "Hardware Speech Synthesis"
 msgstr "Устройства речевого синтеза"
 
 #. Tag: para
-#: hardware.xml:1823
+#: hardware.xml:1845
 #, no-c-format
 msgid ""
 "Support for hardware speech synthesis devices is determined by the "
@@ -2829,13 +2964,13 @@ msgstr ""
 "&release; включена <classname>speakup</classname> версии &speakupver;."
 
 #. Tag: title
-#: hardware.xml:1843
+#: hardware.xml:1865
 #, no-c-format
 msgid "Peripherals and Other Hardware"
 msgstr "Периферия и другое оборудование"
 
 #. Tag: para
-#: hardware.xml:1844
+#: hardware.xml:1866
 #, no-c-format
 msgid ""
 "&arch-kernel; supports a large variety of hardware devices such as mice, "
@@ -2847,7 +2982,7 @@ msgstr ""
 "этих устройств не требуется для установки системы."
 
 #. Tag: para
-#: hardware.xml:1850
+#: hardware.xml:1872
 #, no-c-format
 msgid ""
 "USB hardware generally works fine. On some very old PC systems some USB "
@@ -2861,7 +2996,7 @@ msgstr ""
 "клавиатуры и мыши USB работают без специальных настроек."
 
 #. Tag: para
-#: hardware.xml:1859
+#: hardware.xml:1881
 #, no-c-format
 msgid ""
 "Package installations from XPRAM and tape are not supported by this system. "
@@ -2873,13 +3008,13 @@ msgstr ""
 "сети с использованием NFS, HTTP или FTP."
 
 #. Tag: title
-#: hardware.xml:1872
+#: hardware.xml:1894
 #, no-c-format
 msgid "Devices Requiring Firmware"
 msgstr "Устройства, которым требуются микропрограммы"
 
 #. Tag: para
-#: hardware.xml:1873
+#: hardware.xml:1895
 #, no-c-format
 msgid ""
 "Besides the availability of a device driver, some hardware also requires so-"
@@ -2901,7 +3036,7 @@ msgstr ""
 "установить в систему файл с соответствующей микропрограммой."
 
 #. Tag: para
-#: hardware.xml:1884
+#: hardware.xml:1906
 #, no-c-format
 msgid ""
 "On many older devices which require firmware to work, the firmware file was "
@@ -2917,7 +3052,7 @@ msgstr ""
 "каждом запуске."
 
 #. Tag: para
-#: hardware.xml:1892
+#: hardware.xml:1914
 #, no-c-format
 msgid ""
 "In most cases firmware is non-free according to the criteria used by the "
@@ -2935,7 +3070,7 @@ msgstr ""
 "пакета в архиве в разделе non-free."
 
 #. Tag: para
-#: hardware.xml:1901
+#: hardware.xml:1923
 #, no-c-format
 msgid ""
 "However, this does not mean that such hardware cannot be used during an "
@@ -2953,7 +3088,7 @@ msgstr ""
 "firmware\"/>."
 
 #. Tag: para
-#: hardware.xml:1910
+#: hardware.xml:1932
 #, no-c-format
 msgid ""
 "If the &d-i; prompts for a firmware file and you do not have this firmware "
@@ -2973,13 +3108,13 @@ msgstr ""
 "использующими драйвер tg3)."
 
 #. Tag: title
-#: hardware.xml:1927
+#: hardware.xml:1949
 #, no-c-format
 msgid "Purchasing Hardware Specifically for GNU/&arch-kernel;"
 msgstr "Покупка аппаратного обеспечения специально для GNU/&arch-kernel;"
 
 #. Tag: para
-#: hardware.xml:1929
+#: hardware.xml:1951
 #, no-c-format
 msgid ""
 "There are several vendors, who ship systems with &debian; or other "
@@ -2995,7 +3130,7 @@ msgstr ""
 "данное аппаратное обеспечение хорошо поддерживается GNU/Linux."
 
 #. Tag: para
-#: hardware.xml:1937
+#: hardware.xml:1959
 #, no-c-format
 msgid ""
 "If you do have to buy a machine with Windows bundled, carefully read the "
@@ -3011,7 +3146,7 @@ msgstr ""
 "об этом."
 
 #. Tag: para
-#: hardware.xml:1945
+#: hardware.xml:1967
 #, no-c-format
 msgid ""
 "Whether or not you are purchasing a system with &arch-kernel; bundled, or "
@@ -3029,13 +3164,13 @@ msgstr ""
 "Поддержите дружественных к &arch-kernel; продавцов аппаратного обеспечения."
 
 #. Tag: title
-#: hardware.xml:1956
+#: hardware.xml:1978
 #, no-c-format
 msgid "Avoid Proprietary or Closed Hardware"
 msgstr "Избегайте собственнического или закрытого аппаратного обеспечения"
 
 #. Tag: para
-#: hardware.xml:1957
+#: hardware.xml:1979
 #, no-c-format
 msgid ""
 "Some hardware manufacturers simply won't tell us how to write drivers for "
@@ -3053,7 +3188,7 @@ msgstr ""
 "работать под &arch-kernel;."
 
 #. Tag: para
-#: hardware.xml:1967
+#: hardware.xml:1989
 #, no-c-format
 msgid ""
 "In many cases there are standards (or at least some de-facto standards) "
@@ -3078,7 +3213,7 @@ msgstr ""
 "соответствует стандартам."
 
 #. Tag: para
-#: hardware.xml:1979
+#: hardware.xml:2001
 #, no-c-format
 msgid ""
 "In other fields, among them e.g. printers, this is unfortunately not the "
@@ -3100,7 +3235,7 @@ msgstr ""
 "драйверы без исходного кода, предоставляемые производителями."
 
 #. Tag: para
-#: hardware.xml:1990
+#: hardware.xml:2012
 #, no-c-format
 msgid ""
 "Even if there is a vendor-provided closed-source driver for such hardware "
@@ -3127,7 +3262,7 @@ msgstr ""
 "операционной системы, в которой будете его использовать."
 
 #. Tag: para
-#: hardware.xml:2003
+#: hardware.xml:2025
 #, no-c-format
 msgid ""
 "You can help improve this situation by encouraging manufacturers of closed "
@@ -3139,13 +3274,13 @@ msgstr ""
 "написания свободных драйверов для их оборудования."
 
 #. Tag: title
-#: hardware.xml:2018
+#: hardware.xml:2040
 #, no-c-format
 msgid "Installation Media"
 msgstr "Установочные носители"
 
 #. Tag: para
-#: hardware.xml:2020
+#: hardware.xml:2042
 #, no-c-format
 msgid ""
 "This section will help you determine which different media types you can use "
@@ -3161,13 +3296,13 @@ msgstr ""
 "когда прочитаете эту главу."
 
 #. Tag: title
-#: hardware.xml:2030
+#: hardware.xml:2052
 #, no-c-format
 msgid "Floppies"
 msgstr "Дискеты"
 
 #. Tag: para
-#: hardware.xml:2031
+#: hardware.xml:2053
 #, no-c-format
 msgid ""
 "In some cases, you'll have to do your first boot from floppy disks. "
@@ -3179,19 +3314,19 @@ msgstr ""
 "высокой плотности (1440 килобайт)."
 
 #. Tag: para
-#: hardware.xml:2037
+#: hardware.xml:2059
 #, no-c-format
 msgid "For CHRP, floppy support is currently broken."
 msgstr "В настоящий момент поддержка дискет для CHRP не работает."
 
 #. Tag: title
-#: hardware.xml:2044
+#: hardware.xml:2066
 #, no-c-format
 msgid "CD-ROM/DVD-ROM/BD-ROM"
 msgstr "CD-ROM/DVD-ROM/BD-ROM"
 
 #. Tag: para
-#: hardware.xml:2046
+#: hardware.xml:2068
 #, fuzzy, no-c-format
 #| msgid ""
 #| "Whenever you see <quote>CD-ROM</quote> in this manual, it applies to both "
@@ -3207,13 +3342,13 @@ msgstr ""
 "технологии с точки зрения операционной системы одинаковы."
 
 #. Tag: para
-#: hardware.xml:2052
+#: hardware.xml:2074
 #, no-c-format
 msgid "CD-ROM based installation is supported for most architectures."
 msgstr "Установка с CD-ROM поддерживается для большинства архитектур."
 
 #. Tag: para
-#: hardware.xml:2056
+#: hardware.xml:2078
 #, fuzzy, no-c-format
 #| msgid ""
 #| "USB CD-ROM drives are also supported, as are FireWire devices that are "
@@ -3226,7 +3361,7 @@ msgstr ""
 "которые поддерживаются драйверами ohci1394 и sbp2."
 
 #. Tag: para
-#: hardware.xml:2071
+#: hardware.xml:2093
 #, no-c-format
 msgid ""
 "On SGI machines, booting from CD-ROM requires a SCSI CD-ROM drive capable of "
@@ -3246,13 +3381,13 @@ msgstr ""
 "<quote>System installation</quote> в микропрограмме."
 
 #. Tag: title
-#: hardware.xml:2085
+#: hardware.xml:2107
 #, no-c-format
 msgid "USB Memory Stick"
 msgstr "Карта памяти USB"
 
 #. Tag: para
-#: hardware.xml:2087
+#: hardware.xml:2109
 #, no-c-format
 msgid ""
 "USB flash disks a.k.a. USB memory sticks have become a commonly used and "
@@ -3270,13 +3405,13 @@ msgstr ""
 "стандартным методом установки новой операционной системы."
 
 #. Tag: title
-#: hardware.xml:2099
+#: hardware.xml:2121
 #, no-c-format
 msgid "Network"
 msgstr "Сеть"
 
 #. Tag: para
-#: hardware.xml:2101
+#: hardware.xml:2123
 #, no-c-format
 msgid ""
 "The network can be used during the installation to retrieve files needed for "
@@ -3295,7 +3430,7 @@ msgstr ""
 "вы сможете выполнить после завершения установки."
 
 #. Tag: para
-#: hardware.xml:2111
+#: hardware.xml:2133
 #, no-c-format
 msgid ""
 "You can also <emphasis>boot</emphasis> the installation system over the "
@@ -3317,7 +3452,7 @@ msgstr ""
 "предпочтительным на &arch-title;.</phrase>"
 
 #. Tag: para
-#: hardware.xml:2124
+#: hardware.xml:2146
 #, no-c-format
 msgid ""
 "Diskless installation, using network booting from a local area network and "
@@ -3327,13 +3462,13 @@ msgstr ""
 "локальной сети и монтированием всех локальных файловых систем через NFS."
 
 #. Tag: title
-#: hardware.xml:2133
+#: hardware.xml:2155
 #, no-c-format
 msgid "Hard Disk"
 msgstr "Жёсткий диск"
 
 #. Tag: para
-#: hardware.xml:2135
+#: hardware.xml:2157
 #, no-c-format
 msgid ""
 "Booting the installation system directly from a hard disk is another option "
@@ -3348,7 +3483,7 @@ msgstr ""
 "случаях, если недоступны остальные методы."
 
 #. Tag: para
-#: hardware.xml:2142
+#: hardware.xml:2164
 #, no-c-format
 msgid ""
 "Although the &arch-title; does not allow booting from SunOS (Solaris), you "
@@ -3358,13 +3493,13 @@ msgstr ""
 "можете установить систему из раздела SunOS (слои UFS)."
 
 #. Tag: title
-#: hardware.xml:2151
+#: hardware.xml:2173
 #, no-c-format
 msgid "Un*x or GNU system"
 msgstr "Система Un*x или GNU"
 
 #. Tag: para
-#: hardware.xml:2153
+#: hardware.xml:2175
 #, no-c-format
 msgid ""
 "If you are running another Unix-like system, you could use it to install "
@@ -3384,13 +3519,13 @@ msgstr ""
 "только опытным пользователям, если недоступны остальные методы."
 
 #. Tag: title
-#: hardware.xml:2166
+#: hardware.xml:2188
 #, no-c-format
 msgid "Supported Storage Systems"
 msgstr "Поддерживаемые системы хранения"
 
 #. Tag: para
-#: hardware.xml:2168
+#: hardware.xml:2190
 #, no-c-format
 msgid ""
 "The &debian; installer contains a kernel which is built to maximize the "
@@ -3400,7 +3535,7 @@ msgstr ""
 "увеличение количества систем, на которых бы оно запускалось."
 
 #. Tag: para
-#: hardware.xml:2172
+#: hardware.xml:2194
 #, no-c-format
 msgid ""
 "Generally, the &debian; installation system includes support for IDE (also "
@@ -3413,7 +3548,7 @@ msgstr ""
 "файловые системы FAT, Win-32 расширения FAT (VFAT) и NTFS."
 
 #. Tag: para
-#: hardware.xml:2189
+#: hardware.xml:2211
 #, no-c-format
 msgid ""
 "Any storage system supported by the Linux kernel is also supported by the "
@@ -3437,7 +3572,7 @@ msgstr ""
 "SPARC</ulink>."
 
 #. Tag: para
-#: hardware.xml:2222
+#: hardware.xml:2244
 #, no-c-format
 msgid ""
 "Any storage system supported by the Linux kernel is also supported by the "
@@ -3449,7 +3584,7 @@ msgstr ""
 "поддерживает гибкие диски на системах CHRP вообще."
 
 #. Tag: para
-#: hardware.xml:2228
+#: hardware.xml:2250
 #, no-c-format
 msgid ""
 "Any storage system supported by the Linux kernel is also supported by the "
@@ -3461,7 +3596,7 @@ msgstr ""
 "поддерживает дисководы."
 
 #. Tag: para
-#: hardware.xml:2234
+#: hardware.xml:2256
 #, no-c-format
 msgid ""
 "Any storage system supported by the Linux kernel is also supported by the "
@@ -3471,7 +3606,7 @@ msgstr ""
 "также системой загрузки."
 
 #. Tag: para
-#: hardware.xml:2239
+#: hardware.xml:2261
 #, no-c-format
 msgid ""
 "Any storage system supported by the Linux kernel is also supported by the "
@@ -3483,13 +3618,13 @@ msgstr ""
 "старой схемой дисков Linux (ldl) и новой общей схемой дисков S/390 (cdl)."
 
 #. Tag: title
-#: hardware.xml:2256
+#: hardware.xml:2278
 #, no-c-format
 msgid "Memory and Disk Space Requirements"
 msgstr "Требования к памяти и дисковому пространству"
 
 #. Tag: para
-#: hardware.xml:2258
+#: hardware.xml:2280
 #, no-c-format
 msgid ""
 "You must have at least &minimum-memory; of memory and &minimum-fs-size; of "
@@ -3503,7 +3638,7 @@ msgstr ""
 "смотрите в <xref linkend=\"minimum-hardware-reqts\"/>."
 
 #. Tag: para
-#: hardware.xml:2265
+#: hardware.xml:2287
 #, no-c-format
 msgid ""
 "Installation on systems with less memory<footnote condition=\"gtk\"> <para> "
@@ -3522,6 +3657,60 @@ msgstr ""
 "загрузкой текстовой и графической программой установки, то должна быть "
 "выбрана обычная. </para> </footnote> или дискового пространства может быть "
 "возможна, но только для опытных пользователей."
+
+#, fuzzy
+#~| msgid ""
+#~| "The ARM architecture has evolved over time and modern ARM processors "
+#~| "provide features which are not available in older models. &debian; "
+#~| "therefore provides two ARM ports, the &debian;/armel and the &debian;/"
+#~| "armhf port. &debian;/armel targets older ARM processors without support "
+#~| "for a hardware floating point unit (FPU), while &debian;/armhf works "
+#~| "only on newer ARM processors which implement at least the ARMv7 "
+#~| "architecture with version 3 of the ARM vector floating point "
+#~| "specification (VFPv3). &debian;/armhf makes use of the extended features "
+#~| "and performance enhancements available on these models."
+#~ msgid ""
+#~ "The ARM architecture has evolved over time and modern ARM processors "
+#~ "provide features which are not available in older models. &debian; "
+#~ "therefore provides three ARM ports: the &debian;/arm64 port for all 64-"
+#~ "bit machines, and the &debian;/armel and the &debian;/armhf ports for 32-"
+#~ "bit machines. &debian;/armel targets older ARM processors without support "
+#~ "for a hardware floating point unit (FPU), while &debian;/armhf works only "
+#~ "on newer ARM processors which implement at least the ARMv7 architecture "
+#~ "with version 3 of the ARM vector floating point specification (VFPv3). "
+#~ "&debian;/armhf makes use of the extended features and performance "
+#~ "enhancements available on these models. &debian;/arm64 works on "
+#~ "processors which implement at least the ARMv8 architecture (which is "
+#~ "64bit)."
+#~ msgstr ""
+#~ "Архитектура ARM постоянно развивается и современные процессоры ARM "
+#~ "предоставляют возможности, которых не было в старых моделях. Из-за этого "
+#~ "в &debian; есть два переноса ARM — &debian;/armel и &debian;/armhf. "
+#~ "&debian;/armel предназначен для старых процессоров ARM без поддержки "
+#~ "блока аппаратной плавающей запятой (FPU), а &debian;/armhf работает "
+#~ "только на новых процессорах ARM, которые реализуют, как минимум, "
+#~ "архитектуру ARMv7 версии 3 спецификации векторной плавающей запятой ARM "
+#~ "(VFPv3). &debian;/armhf позволяет использовать дополнительные возможности "
+#~ "и улучшения производительности, доступные в этих моделях."
+
+#, fuzzy
+#~| msgid ""
+#~| "The following platforms are supported by &debian;/armel; they require "
+#~| "platform-specific kernels."
+#~ msgid ""
+#~ "The following platforms are known to be supported by &debian;/arm64 in "
+#~ "this release. There is only one kernel, which supports all the listed "
+#~ "platforms."
+#~ msgstr ""
+#~ "&debian;/armel поддерживает перечисленные далее платформы; для них "
+#~ "требуются специальные ядра."
+
+#~ msgid ""
+#~ "Using the armmp multiplatform kernel on the EfikaMX platform would "
+#~ "require device-tree support for it, which is currently not available."
+#~ msgstr ""
+#~ "Для работы мультиплатформенного ядра armmp на платформе EfikaMX требуется "
+#~ "поддержка дерева устройств, но в данный момент она отсутствует."
 
 #~ msgid "IBM PowerPC (little endian)"
 #~ msgstr "IBM PowerPC (с обратным порядком байтов)"
