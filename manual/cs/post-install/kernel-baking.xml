@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 64916 -->
+<!-- original version: 69849 -->
 
  <sect1 arch="linux-any" id="kernel-baking"><title>Kompilace nového jádra</title>
 <para>
@@ -127,17 +127,17 @@ zdrojových textů a vynulujete předchozí nastavení balíku
 </para><para>
 
 Kompilaci jádra provedete příkazem <userinput>fakeroot
-make-kpkg --initrd --revision=jadro.1.0
-kernel_image</userinput>. Číslo verze si můžete zvolit podle vlastní
-úvahy, slouží pouze k vaší orientaci v připravených
-balících. Kompilace zabere chvíli času, záleží na výpočetním výkonu
-vašeho počítače.
+make-kpkg --initrd --revision=<replaceable>1.0.moje</replaceable>
+kernel_image</userinput>. Číslo verze <quote>1.0.moje</quote> si
+můžete zvolit podle vlastní úvahy, slouží pouze k vaší orientaci
+v připravených balících. Kompilace zabere chvíli času, záleží na
+výpočetním výkonu vašeho počítače.
 
 </para><para>
 
 Až kompilace skončí, jádro nainstalujete jako každý jiný balík. Jako
 root napište <userinput>dpkg -i
-../&kernelpackage;-&kernelversion;-<replaceable>podarchitektura</replaceable>_jadro.1.0_&architecture;.deb</userinput>.
+../&kernelpackage;-&kernelversion;-<replaceable>podarchitektura</replaceable>_1.0.moje_&architecture;.deb</userinput>.
 <replaceable>podarchitektura</replaceable> je volitelné upřesnění
 architektury, <phrase arch="x86"> např. <quote>686</quote>,
 </phrase> které jste zadali při konfiguraci
