@@ -34,100 +34,119 @@
     </para>
   </sect2>
 
-<!-- leave the following paragraphs untranslated for now due to time constraints-->
   <sect2 arch="armhf" id="armhf-console-setup">
-    <title>Console configuration</title>
+    <title>Konfiguration der Konsole</title>
     <para>
-      The netboot tarball (<xref
-      linkend="boot-armhf-netboot.tar.gz"/>), and the installer
-      SD-card images (<xref linkend="boot-installer-sd-image"/>) use
-      the (platform-specific) default console that is defined by
-      U-Boot in the <quote>console</quote> variable.  In most cases
-      that is a serial console, so on those platforms you by default
-      need a serial console cable to use the installer.
+      Das netboot-Tarball-Archiv (<xref
+      linkend="boot-armhf-netboot.tar.gz"/>) und die SD-Karten-Images
+      des Installers (<xref linkend="boot-installer-sd-image"/>) 
+      nutzen die (plattform-spezifische) Standardkonsole, die von
+      U-Boot in der Variable <quote>console</quote> definiert wird.
+      In den meisten Fällen ist das eine serielle Konsole, daher
+      benötigen Sie auf diesen Plattformen standardmäßig ein
+      serielles Konsolenkabel, um den Installer nutzen zu können.
     </para>
     <para>
-      On platforms which also support a video console, you can modify the
-      U-Boot <quote>console</quote> variable accordingly if you would like
-      the installer to start on the video console.
+      Auf Plattformen, die auch eine Video-Konsole unterstützen,
+      können Sie die <quote>console</quote>-Variable von U-Boot
+      entsprechend anpassen, wenn Sie möchten, dass der Installer
+      auf der Video-Konsole startet.
     </para>
   </sect2>
 
   <sect2 arch="arm64" id="arm64-console-setup">
-    <title>Console configuration</title>
+    <title>Konfiguration der Konsole</title>
     <para>
-      The graphical installer is not enabled on the arm64 &d-i; images
-      for jessie so the serial console is used. The console device
-      should be detected automatically from the firmware, but if it is
-      not then after you boot linux from the GRUB menu you will see a
-      'Booting Linux' message then nothing more.
+      Der grafische Installer ist auf den arm64 &d-i;-Images für
+      Jessie nicht aktiviert, daher wird die serielle Konsole verwendet.
+      Das Konsolengerät sollte automatisch durch die Firmware
+      erkannt werden; falls dies jedoch nicht funktioniert, sehen Sie
+      nach dem Booten von Linux über das GRUB-Menü nur die
+      Nachricht <quote>Booting Linux</quote> und danach weiter nichts.
     </para>
     <para>
-      If you hit this issue you will need to set a specific console
-      config on the kernel command line. Hit <userinput>e</userinput>
-      for 'Edit Kernel command-line' at the GRUB menu, and change
-      <informalexample><screen>--- quiet</screen></informalexample> to
-      <informalexample><screen>console=&lt;device&gt;,&lt;speed&gt;</screen></informalexample>
-      e.g. <informalexample><screen>console=ttyAMA0,115200n8</screen></informalexample>
-      When finished hit <keycombo><keycap>Control</keycap>
-      <keycap>x</keycap></keycombo> to continue booting with new
-      setting.
+      In diesem Fall müssen Sie eine Konfiguration für eine
+      spezielle Konsole auf der Kernel-Befehlszeile setzen. Drücken
+      Sie im GRUB-Menü <userinput>e</userinput> für
+      <quote>Edit kernel command-line</quote> und ändern Sie
+      <informalexample><screen>--- quiet</screen></informalexample> in
+      <informalexample><screen>console=&lt;gerät&gt;,&lt;geschwindigkeit&gt;</screen>
+</informalexample>, also z.B.
+      <informalexample><screen>console=ttyAMA0,115200n8</screen></informalexample>.
+      Drücken Sie danach <keycombo><keycap>Strg</keycap>
+      <keycap>x</keycap></keycombo>, um das Booten mit der neuen
+      Einstellung fortzusetzen.
     </para>
   </sect2>
 
   <sect2 arch="arm64" id="juno-installation">
-    <title>Juno Installation</title>
+    <title>Installation auf Juno</title>
     <para>
-      Juno has UEFI so the install is straightforward.  The most
-      practical method is installing from USB stick. You need up to
-      date firmware for USB-booting to work. Builds from <ulink
-      url="&url-juno-firmware;">&url-juno-firmware;</ulink> after March
-      2015 tested OK. Consult Juno documentation on firmware updating.
+      Juno ist ein UEFI-System, daher ist die Installation ziemlich
+      einfach. Die praktischste Methode ist die Installation von einem
+      USB-Stick. Sie benötigen eine aktuelle Firmware, um von USB
+      booten zu können. Builds von <ulink
+      url="&url-juno-firmware;">&url-juno-firmware;</ulink> mit einem
+      Datum nach März 2015 wurden diesbezüglich erfolgreich getestet.
+      Konsultieren Sie die Juno-Dokumentation, wie Sie ein Update der
+      Firmware durchführen.
     </para>
     <para>
-      Prepare a standard arm64 CD image on a USB stick. Insert it in
-      one of the USB ports on the back. Plug a serial cable into the
-      upper 9-pin serial port on the back. If you need networking
-      (netboot image) plug the ethernet cable into the socket on the
-      front of the machine.
+      Bereiten Sie ein Standard-arm64-CD-Image auf einem USB-Stick
+      vor. Stecken Sie ihn in einen der USB-Ports auf der Rückseite ein.
+      Schließen Sie ein serielles Kabel an den oberen 9-poligen seriellen
+      Anschluß auf der Rückseite an. Falls Sie eine Netzwerkverbindung
+      benötigen (z.B. bei einem netboot-Image), stecken Sie ein
+      Ethernet-Kabel in den Anschluß auf der Vorderseite des Juno ein.
     </para>
     <para>
-      Run a serial console at 115200, 8bit no parity, and boot the
-      Juno. It should boot from the USB stick to a GRUB menu.
-      The console config is not correctly detected on Juno so just hitting
-      return will show no kernel output. Set the console to  
-<informalexample><screen>console=ttyAMA0,115200n8</screen></informalexample>
-      as described in (<xref linkend="arm64-console-setup"/>). <keycombo><keycap>Control</keycap>
-<keycap>x</keycap></keycombo> to boot should show you the &d-i; screens,
-      and allow you to proceed with a standard installation.
+      Starten Sie jetzt eine serielle Konsole mit 115200 + 8Bit ohne
+      Parität und booten Sie den Juno.
+      Er sollte von dem USB-Stick booten und ein GRUB-Menü anzeigen.
+      Die Konfiguration der Konsole wird auf dem Juno nicht korrekt
+      detektiert, daher bekommen Sie keine Kernel-Ausgabe, wenn Sie
+      einfach nur Enter drücken. Setzen Sie die Konsole auf
+      <informalexample><screen>console=ttyAMA0,115200n8</screen></informalexample>,
+      wie in (<xref linkend="arm64-console-setup"/>) beschrieben.
+      Ein anschließendes Drücken von
+      <keycombo><keycap>Strg</keycap><keycap>x</keycap></keycombo>
+      sollte den &d-i; zur Anzeige bringen; fahren Sie nun wie
+      bei einer normalen Installation fort.
     </para>
   </sect2>
 
   <sect2 arch="arm64" id="apm-installation">
-    <title>Applied Micro Mustang Installation</title>
+    <title>Installation auf Applied Micro Mustang</title>
     <para>
-      UEFI is available for this machine but it is normally shipped
-      with U-Boot so you will need to either install UEFI firmware
-      first then use standard boot/install methods, or use U-Boot boot
-      methods. Also USB is not supported in the jessie kernel so
-      installing from a USB stick does not work. You must use a serial
-      console to control the installation because the graphical
-      installer is not enabled on the arm64 architecture.
+      Für dieses Gerät ist UEFI verfügbar, allerdings wird es
+      normalerweise mit U-Boot ausgeliefert. Daher können Sie
+      entweder zunächst UEFI-Firmware installieren und dann
+      Standard-Boot- und Installationsmethoden verwenden, oder
+      Sie nutzen Methoden, um mit U-Boot zu booten. Auch wird
+      vom Jessie-Kernel kein USB unterstützt, daher ist eine
+      Installation von USB-Stick nicht möglich.
+      Sie müssen eine serielle Konsole verwenden, um die Installation
+      durchzuführen, da der grafische Installer auf der arm64-Architektur
+      nicht aktiviert ist.
     </para>
     <para>
-      The recommended install method is to copy the &d-i; kernel and
-      initrd onto the hard drive, using the openembedded system
-      supplied with the machine, then boot from that to run the
-      installer. Alternatively use TFTP to get the kernel/dtb/initrd
-      copied over and booted (<xref linkend="boot-tftp-uboot"/>). After
-      installation, manual changes to boot from the installed image
-      are needed.
+      Die empfohlene Methode zur Installation ist, Kernel und
+      initrd des &d-i; auf die Festplatte zu kopieren (nutzen
+      Sie dazu das openembedded-System, das dem Gerät beiliegt),
+      und booten Sie anschließend von der Festplatte, um den
+      Installer zu starten. Alternativ können Sie TFTP verwenden,
+      um Kernel, dtb und initrd rüber zu kopieren und zu booten
+      (<xref linkend="boot-tftp-uboot"/>). Nach der Installation
+      sind manuelle Änderungen nötig, um von dem installierten
+      Image zu booten.
     </para>
     <para>
-      Run a serial console at 115200, 8bit no parity, and boot the
-      machine. Reboot the machine and when you see "Hit any key to
-      stop autoboot:" hit a key to get a Mustang# prompt. Then use
-      U-Boot commands to load and boot the kernel, dtb and initrd.
+      Starten Sie eine serielle Konsole mit 115200 + 8Bit ohne
+      Parität und booten Sie das Gerät. Sobald Sie nach dem Neustart
+      die Anzeige <quote>Hit any key to stop autoboot:</quote> sehen,
+      drücken Sie eine Taste, um einen Mustang#-Prompt zu bekommen.
+      Verwenden Sie dann die entsprechenden U-Boot-Befehle, um
+      Kernel, dtb und initrd zu laden und zu booten.
      </para>
   </sect2>
 
@@ -240,27 +259,30 @@ bootz ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}
     </sect3>
 
     <sect3 arch="armhf" id="boot-armhf-netboot.tar.gz">
-      <title>Pre-built netboot tarball</title>
+      <title>Vorkonfiguriertes netboot-Tarball-Archiv</title>
       <para>
-        &debian; provides a pre-built tarball (&armmp-netboot-tarball;)
-        that can simply be unpacked on your tftp server and contains
-        all files necessary for netbooting.  It also includes a boot
-        script that automates all steps to load the installer.  Modern
-        U-Boot versions contain a tftp autoboot feature that becomes
-        active if there is no bootable local storage device (MMC/SD,
-        USB, IDE/SATA/SCSI) and then loads this boot script from the
-        tftp server.  Prerequisite for using this feature is that you
-        have a dhcp server in your network which provides the client
-        with the address of the tftp server.
+        &debian; stellt ein vorkonfiguriertes Tarball-Archiv
+        (&armmp-netboot-tarball;) bereit, das Sie einfach auf Ihren
+        TFTP-Server entpacken können; es enthält alle für das
+        Netbooting benötigten Dateien. Außerdem ist ein Boot-Skript
+        enthalten, das alle zum Laden des Installers erforderlichen
+        Schritte automatisiert. Moderne U-Boot-Versionen haben eine
+        TFTP-Autoboot-Funktion, die aktiv wird, wenn kein lokales
+        boot-fähiges Speichermedium (MMC/SD-Karte, USB, IDE/SATA/SCSI)
+        verfügbar ist; es lädt dann dieses Boot-Skript vom TFTP-Server.
+        Voraussetzung für die Verwendung dieser Funktionalität ist,
+        dass Sie einen DHCP-Server in Ihrem Netzwerk haben, der den
+        Client mit der Adresse des TFTP-Servers versorgt.
       </para>
       <para>
-        If you would like to trigger the tftp autoboot feature from the
-        U-Boot commandline, you can use the follwing command:
+        Möchten Sie die TFTP-Autoboot-Funktion von der U-Boot-Befehlszeile
+        aus anstoßen, können Sie folgenden Befehl nutzen:
         <informalexample><screen>run bootcmd_dhcp</screen></informalexample>
       </para>
       <para>
-        To manually load the bootscript provided by the tarball, you can
-        alternatively issue the following commands at the U-Boot prompt:
+        Um alternativ das Boot-Skript aus dem Tarball-Archiv händisch
+        zu laden, können Sie auch diese Befehle am U-Boot-Prompt
+        ausführen:
 
 <informalexample><screen>
 setenv autoload no
