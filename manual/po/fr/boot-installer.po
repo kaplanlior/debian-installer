@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: boot-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2015-05-04 18:16+0000\n"
-"PO-Revision-Date: 2015-05-04 20:27+0200\n"
+"PO-Revision-Date: 2015-05-06 20:25+0100\n"
 "Last-Translator: Baptiste Jammet <baptiste@mailoo.org>\n"
 "Language-Team: debian-l10n-french <debian-l10n-french@lists.debian.org>\n"
 "Language: fr\n"
@@ -79,14 +79,15 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:48
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "uImage/uInitrd are image formats designed for the U-Boot firmware that is "
-#| "used on many ARM-based systems. Older U-Boot versions can only boot files "
-#| "in uImage/uInitrd format, so these are often used on older armel systems. "
-#| "Newer U-Boot versions can - besides booting uImages/uInitrds - also boot "
-#| "standard Linux kernels and ramdisk images, but the command syntax to do "
-#| "that is slightly different from that for booting uImages."
+#| "used on many ARM-based systems{+ (mostly 32-bit ones)+}. Older U-Boot "
+#| "versions can only boot files in uImage/uInitrd format, so these are often "
+#| "used on older armel systems. Newer U-Boot versions can - besides booting "
+#| "uImages/uInitrds - also boot standard Linux kernels and ramdisk images, "
+#| "but the command syntax to do that is slightly different from that for "
+#| "booting uImages."
 msgid ""
 "uImage/uInitrd are image formats designed for the U-Boot firmware that is "
 "used on many ARM-based systems (mostly 32-bit ones). Older U-Boot versions "
@@ -97,21 +98,23 @@ msgid ""
 "uImages."
 msgstr ""
 "Les formats d'image uImage/uInitrd sont conçus pour le microprogramme U-Boot "
-"utilisé sur de nombreux systèmes ARM. Les anciennes versions de U-Boot ne "
-"peuvent amorcer que des fichiers au format uImage/uInitrd, qui sont donc "
-"utilisés principalement sur les anciens systèmes. Les versions plus récentes "
-"de U-Boot peuvent aussi amorcer les noyaux Linux récents et les initrd (en "
-"plus des fichiers uImage/uInitrd), mais la syntaxe est légèrement différente "
-"de celle des uImages."
+"utilisé sur de nombreux systèmes ARM (principalement sur les systèmes "
+"32 bits). Les anciennes versions de U-Boot ne peuvent amorcer que des "
+"fichiers au format uImage/uInitrd, qui sont donc utilisés principalement sur "
+"les anciens systèmes. Les versions plus récentes de U-Boot peuvent aussi "
+"amorcer les noyaux Linux récents et les initrd (en plus des fichiers uImage/"
+"uInitrd), mais la syntaxe est légèrement différente de celle des uImages."
 
 #. Tag: para
 #: boot-installer.xml:57
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "For systems using a multiplatform kernel, besides kernel and initial "
 #| "ramdisk a so-called device-tree file (or device-tree blob, <quote>dtb</"
 #| "quote>) is needed. It is specific to each supported system and contains a "
-#| "description of the particular hardware."
+#| "description of the particular hardware.{+ The dtb should be supplied on "
+#| "the device by the firmware, but in practice a newer one often needs to be "
+#| "loaded.+}"
 msgid ""
 "For systems using a multiplatform kernel, besides kernel and initial ramdisk "
 "a so-called device-tree file (or device-tree blob, <quote>dtb</quote>) is "
@@ -122,7 +125,9 @@ msgstr ""
 "Pour les systèmes utilisant un noyau multiplate-forme, un fichier appelé "
 "arbre de périphériques (<quote>device-tree blob, dtb</quote>) est requis en "
 "plus du noyau et de l'initrd. Ce fichier est spécifique à chaque système et "
-"contient une description d'un matériel particulier."
+"contient une description d'un matériel particulier. L'arbre de périphérique "
+"devrait être fournit par le micrologiciel, mais, en pratique, il est souvent "
+"nécessaire d'en charger un plus récent."
 
 #. Tag: title
 #: boot-installer.xml:68 boot-installer.xml:86
@@ -132,15 +137,15 @@ msgstr "Configuration de la console"
 
 #. Tag: para
 #: boot-installer.xml:69
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
-#| "The netboot tarball (<xref linkend=\"boot-armhf-netboot.tar.gz\"/>), the "
-#| "hd-media tarball (<xref linkend=\"boot-hd-media\"/>) and the installer SD-"
-#| "card images (<xref linkend=\"boot-installer-sd-image\"/>) use the "
-#| "(platform-specific) default console that is defined by U-Boot in the "
-#| "<quote>console</quote> variable. In most cases that is a serial console, "
-#| "so on those platforms you by default need a serial console cable to use "
-#| "the installer."
+#| "The netboot tarball (<xref linkend=\"boot-armhf-netboot.tar.gz\"/>), {-"
+#| "the hd-media tarball (<xref linkend=\"boot-hd-media\"/>) -}and the "
+#| "installer SD-card images (<xref linkend=\"boot-installer-sd-image\"/>) "
+#| "use the (platform-specific) default console that is defined by U-Boot in "
+#| "the <quote>console</quote> variable. In most cases that is a serial "
+#| "console, so on those platforms you by default need a serial console cable "
+#| "to use the installer."
 msgid ""
 "The netboot tarball (<xref linkend=\"boot-armhf-netboot.tar.gz\"/>), and the "
 "installer SD-card images (<xref linkend=\"boot-installer-sd-image\"/>) use "
@@ -149,13 +154,12 @@ msgid ""
 "on those platforms you by default need a serial console cable to use the "
 "installer."
 msgstr ""
-"Les archives netboot (<xref linkend=\"boot-armhf-netboot.tar.gz\"/>), hd-"
-"media (<xref linkend=\"boot-hd-media\"/>) et les images de l'installateur "
-"sur cartes SD (<xref linkend=\"boot-installer-sd-image\"/>) utilisent la "
-"console par défaut, définie par U-Boot dans la variable <quote>console</"
-"quote> et spécifique à la plate-forme. Dans la plupart des cas, c'est une "
-"console série. Sur ces plates-formes vous aurez donc besoin d'un câble de "
-"liaison série pour utiliser l'installateur."
+"Les archives netboot (<xref linkend=\"boot-armhf-netboot.tar.gz\"/>) et les "
+"images de l'installateur sur cartes SD (<xref linkend=\"boot-installer-sd-"
+"image\"/>) utilisent la console par défaut, définie par U-Boot dans la "
+"variable <quote>console</quote> et spécifique à la plate-forme. Dans la "
+"plupart des cas, c'est une console série. Sur ces plates-formes vous aurez "
+"donc besoin d'un câble de liaison série pour utiliser l'installateur."
 
 #. Tag: para
 #: boot-installer.xml:78
@@ -178,6 +182,11 @@ msgid ""
 "automatically from the firmware, but if it is not then after you boot linux "
 "from the GRUB menu you will see a 'Booting Linux' message then nothing more."
 msgstr ""
+"L'installateur graphique n'est pas activé dans les images de l'installateur "
+"de Jessie pour l'architecture arm64. La console série est utilisée à la "
+"place. Le périphérique de console devrait être détecté par le microcode, "
+"mais si ça n'est pas le cas, après avoir démarré Linux depuis le menu de "
+"GRUB, vous verrez le message « Booting Linux » mais rien d'autre."
 
 #. Tag: para
 #: boot-installer.xml:94
@@ -192,13 +201,22 @@ msgid ""
 "When finished hit <keycombo><keycap>Control</keycap> <keycap>x</keycap></"
 "keycombo> to continue booting with new setting."
 msgstr ""
+"Si vous observez ce problème, vous devrez définir une configuration "
+"spécifique de la console sur la ligne de commande du noyau. Entrez "
+"<userinput>e</userinput> pour « Éditer la ligne de commande du noyau » au "
+"menu de GRUB, et remplacez <informalexample><screen>--- quiet</screen></"
+"informalexample> par <informalexample><screen>console=&lt;périphérique&gt;,"
+"&lt;vitesse&gt;</screen></informalexample> Par exemple "
+"<informalexample><screen>console=ttyAMA0,115200n8</screen></informalexample> "
+"Après cela, entrez <keycombo><keycap>Control</keycap> <keycap>x</keycap></"
+"keycombo> pour amorcer avec les nouveaux paramètres."
 
 #. Tag: title
 #: boot-installer.xml:108
-#, fuzzy, no-c-format
-#| msgid "Submitting Installation Reports"
+#, no-c-format
+#| msgid "{-Submitting-}{+Juno+} Installation{- Reports-}"
 msgid "Juno Installation"
-msgstr "Faire un rapport de bogue"
+msgstr "Installation sur Juno"
 
 #. Tag: para
 #: boot-installer.xml:109
@@ -210,6 +228,13 @@ msgid ""
 "ulink> after March 2015 tested OK. Consult Juno documentation on firmware "
 "updating."
 msgstr ""
+"Juno est un système UEFI et l'installation devrait donc être relativement "
+"simple. La méthode la plus pratique est d'installer depuis une clef USB. "
+"Vous aurez besoin d'un microcode à jour pour faire fonctionner l'amorçage "
+"par USB. Les constructions de <ulink url=\"&url-juno-firmware;\">&url-juno-"
+"firmware;</ulink> postérieures à mars 2015 ont été testées avec succès. "
+"Veuillez consulter la documentation des systèmes Juno pour la mise à jour du "
+"microcode."
 
 #. Tag: para
 #: boot-installer.xml:116
@@ -220,6 +245,11 @@ msgid ""
 "on the back. If you need networking (netboot image) plug the ethernet cable "
 "into the socket on the front of the machine."
 msgstr ""
+"Préparez une image CD standard pour arm64 sur une clef USB. Insérez la clef "
+"dans un des ports disponibles à l'arrière. Branchez un cable de liaison "
+"série dans le port série à 9 broches supérieur à l'arrière. Si vous avez "
+"besoin du réseau (pour les images netboot), branchez le câble dans la prise "
+"de devant."
 
 #. Tag: para
 #: boot-installer.xml:123
@@ -234,12 +264,22 @@ msgid ""
 "should show you the &d-i; screens, and allow you to proceed with a standard "
 "installation."
 msgstr ""
+"Exécutez une console série à 115200 bauds, 8 bits, aucun bit de parité, et "
+"amorcez la carte Juno. Celle-ci devrait amorcer depuis la clef USB et "
+"présenter un menu GRUB. La configuration de la console n'est pas "
+"correctement détectée sur les cartes Juno et saisir « Entrée » ne devrait "
+"pas montrer la sortie du noyau. Réglez la console à "
+"<informalexample><screen>console=ttyAMA0,115200n8</screen></informalexample> "
+"comme décrit dans la <xref linkend=\"arm64-console-setup\"/>. Entrez "
+"<keycombo><keycap>Control</keycap> <keycap>x</keycap></keycombo> à "
+"l'amorçage pour voir les écrans de l'&d-i; et démarrer une installation "
+"standard. "
 
 #. Tag: title
 #: boot-installer.xml:136
 #, no-c-format
 msgid "Applied Micro Mustang Installation"
-msgstr ""
+msgstr "Installation sur Applied Micro Mustang"
 
 #. Tag: para
 #: boot-installer.xml:137
@@ -252,6 +292,13 @@ msgid ""
 "a serial console to control the installation because the graphical installer "
 "is not enabled on the arm64 architecture."
 msgstr ""
+"UEFI est disponible sur cette machine, mais elle est souvent fournie avec U-"
+"Boot. Vous devrez donc d'abord installer le microcode UEFI pour démarrer une "
+"installation standard, ou utiliser la méthode avec U-Boot. De plus, l'USB "
+"n'est pas pris en charge dans le noyau de Jessie, ce qui empêche "
+"l'installation par USB. Vous devrez utiliser une console série pour "
+"effectuer l'installation car l'installateur graphisue n'est pas activé pour "
+"l'architecture arm64."
 
 #. Tag: para
 #: boot-installer.xml:146
@@ -264,6 +311,13 @@ msgid ""
 ">). After installation, manual changes to boot from the installed image are "
 "needed."
 msgstr ""
+"La méthode recommandée est de copier le noyau de l'&d-i; et l'initrd sur le "
+"disque dur en utilisant le système openembedded fourni avec la machine, puis "
+"d'amorcer depuis ce disque pour effectuer l'installation. Autrement, "
+"utilisez TFTP pour obtenir le noyau, l'initrd et l'arbre de périphérique et "
+"démarrez la machine (<xref linkend=\"boot-tftp-uboot\"/>). Après "
+"l'installation, des changements seront à fiare pour amorcer depuis le "
+"système installé."
 
 #. Tag: para
 #: boot-installer.xml:155
@@ -274,6 +328,11 @@ msgid ""
 "get a Mustang# prompt. Then use U-Boot commands to load and boot the kernel, "
 "dtb and initrd."
 msgstr ""
+"Exécutez une console série à 115200 bauds, 8 bits, aucun bit de parité, et "
+"amorcez la machine. Redémarrez la machine et lorsque vous lisez « Hit any "
+"key to stop autoboot: », pressez une touche pour obtenir une invite "
+"Mustang#. Utilisez ensuite les commandes U-Boot pour charger et démarrer le "
+"noyau, l'arbre de périphérique et l'initrd."
 
 #. Tag: title
 #: boot-installer.xml:164
@@ -576,14 +635,14 @@ msgstr ""
 
 #. Tag: title
 #: boot-installer.xml:288
-#, fuzzy, no-c-format
-#| msgid "Booting from USB Memory Stick"
+#, no-c-format
+#| msgid "Booting from USB Memory Stick{+ with UEFI+}"
 msgid "Booting from USB Memory Stick with UEFI"
-msgstr "Amorcer sur une clé USB"
+msgstr "Amorcer sur une clé USB avec UEFI"
 
 #. Tag: para
 #: boot-installer.xml:294 boot-installer.xml:553
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "If your computer will boot from USB, this will probably be the easiest "
 #| "route for installation. Assuming you have prepared everything from <xref "
@@ -591,8 +650,8 @@ msgstr "Amorcer sur une clé USB"
 #| "just plug your USB stick into some free USB connector and reboot the "
 #| "computer. The system should boot up, and unless you have used the "
 #| "flexible way to build the stick and not enabled it, you should be "
-#| "presented with a graphical boot menu. Here you can select various "
-#| "installer options, or just hit &enterkey;."
+#| "presented with a graphical boot menu{+ (on hardware that supports it)+}. "
+#| "Here you can select various installer options, or just hit &enterkey;."
 msgid ""
 "If your computer will boot from USB, this will probably be the easiest route "
 "for installation. Assuming you have prepared everything from <xref linkend="
@@ -603,13 +662,15 @@ msgid ""
 "hardware that supports it). Here you can select various installer options, "
 "or just hit &enterkey;."
 msgstr ""
-"Supposons que tout a été préparé comme l'expliquent la <xref linkend=\"boot-"
-"dev-select\"/> et la <xref linkend=\"boot-usb-files\"/>. Branchez maintenant "
-"votre clé USB dans un port libre et relancez la machine. Le système devrait "
-"se lancer et, sauf si vous avez utilisé la méthode flexible pour créer la "
-"clé et que vous ne l'avez pas activée, une invite <prompt>boot:</prompt> "
-"devrait apparaître. Maintenant, vous pouvez saisir des paramètres optionnels "
-"ou simplement appuyer sur la touche &enterkey;."
+"Si votre machine peut amorcer depuis l'USB, cela sera la méthode la plus "
+"simple. Supposons que tout a été préparé comme l'expliquent la <xref linkend="
+"\"boot-dev-select\"/> et la <xref linkend=\"boot-usb-files\"/>. Branchez "
+"maintenant votre clé USB dans un port libre et relancez la machine. Le "
+"système devrait se lancer et, sauf si vous avez utilisé la méthode flexible "
+"pour créer la clé et que vous ne l'avez pas activée, un menu d'amorçage "
+"devrait apparaître (sur les matériels pris en charge). Maintenant, vous "
+"pouvez choisir différentes options de l'installateur, ou simplement appuyer "
+"sur la touche &enterkey;."
 
 #. Tag: title
 #: boot-installer.xml:310
@@ -1437,8 +1498,8 @@ msgstr ""
 "Pour une installation normale, sélectionnez l'entrée <quote>Graphical "
 "install</quote> ou l'entrée <quote>Install</quote> en utilisant les touches "
 "avec flèche du clavier ou en tapant la première lettre en surbrillance. "
-"L'entrée <quote>Install</quote> est pré-sélectionnée. Vous pouvez "
-"maintenant appuyer sur la touche &enterkey; pour lancer l'installateur."
+"L'entrée <quote>Install</quote> est pré-sélectionnée. Vous pouvez maintenant "
+"appuyer sur la touche &enterkey; pour lancer l'installateur."
 
 #. Tag: para
 #: boot-installer.xml:927
