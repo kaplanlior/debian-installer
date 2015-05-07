@@ -849,7 +849,8 @@ d-i debian-installer/locale string de_DE
 #d-i debian-installer/language string en
 #d-i debian-installer/country string NL
 #d-i debian-installer/locale string en_GB.UTF-8
-# Geben Sie optional zusätzliche Gebietsschemata an, die generiert werden sollen.
+# Geben Sie optional zusätzliche Gebietsschemata an, die generiert werden
+# sollen.
 #d-i localechooser/supported-locales multiselect en_US.UTF-8, nl_NL.UTF-8
 </screen></informalexample>
 
@@ -991,9 +992,9 @@ d-i netcfg/wireless_wep string
 #d-i netcfg/dhcp_hostname string radish
 
 # Falls nicht-freie Firmware benötigt wird für Netzwerk- oder andere
-# Hardware, können Sie den Installer so konfigurieren, dass immer versucht wird,
-# die Firmware zu laden, ohne Nachfrage (true). Oder Sie ändern dies auf false,
-# wenn überhaupt nicht danach gefragt werden soll.
+# Hardware, können Sie den Installer so konfigurieren, dass immer versucht
+# wird, die Firmware zu laden, ohne Nachfrage (true). Oder Sie ändern dies
+# auf false, wenn überhaupt nicht danach gefragt werden soll.
 #d-i hw-detect/load_firmware boolean true
 </screen></informalexample>
 
@@ -1218,11 +1219,11 @@ Voreinstellung nutzen.
 # wenn partman-auto/method (weiter unten) nicht gesetzt ist.
 #d-i partman-auto/init_automatically_partition select biggest_free
 
-# Alternativ können Sie eine Festplatte angeben, die partitioniert werden soll.
-# Falls das System nur eine einzige Festplatte enthält, wird der Installer diese
-# standardmäßig verwenden, aber andernfalls muss der Gerätename der Platte im
-# traditionellen Format (nicht devfs) angegeben werden (z.B. /dev/sda,
-# nicht jedoch etwas wie /dev/discs/disc0/disc).
+# Alternativ können Sie eine Festplatte angeben, die partitioniert werden
+# soll. Falls das System nur eine einzige Festplatte enthält, wird der
+# Installer diese standardmäßig verwenden, aber andernfalls muss der
+# Gerätename der Platte im traditionellen Format (nicht devfs) angegeben
+# werden (z.B. /dev/sda, nicht jedoch etwas wie /dev/discs/disc0/disc).
 # Um z.B. die erste SCSI/SATA-Festplatte zu nutzen, kann die folgende Zeile
 # verwendet werden:
 #d-i partman-auto/disk string /dev/sda
@@ -1233,9 +1234,9 @@ Voreinstellung nutzen.
 # - crypto:  LVM mit einer verschlüsselten Partition verwenden
 d-i partman-auto/method string lvm
 
-# Falls eine der Festplatten, die automatisch partitioniert werden sollen, eine
-# alte LVM-Konfiguration enthält, wird dem Benutzer normalerweise eine Warnung
-# angezeigt. Diese kann aber durch Voreinstellung unterdrückt werden...
+# Falls eine der Festplatten, die automatisch partitioniert werden sollen,
+# eine alte LVM-Konfiguration enthält, wird dem Benutzer normalerweise eine
+# Warnung angezeigt. Diese kann aber durch Voreinstellung unterdrückt werden.
 d-i partman-lvm/device_remove_lvm boolean true
 # Das Gleiche gilt für bereits existierende Software-RAID-Arrays:
 d-i partman-md/device_remove_md boolean true
@@ -1329,7 +1330,8 @@ und nicht miteinander kollidieren), liegt beim Benutzer! Schauen Sie in
 # Festplatten die gleiche Größe haben.
 #d-i partman-auto/disk string /dev/sda /dev/sdb
 
-# Als nächstes müssen Sie die zu nutzenden physikalischen Partitionen einrichten.
+# Als nächstes müssen Sie die zu nutzenden physikalischen Partitionen
+# einrichten.
 #d-i partman-auto/expert_recipe string \
 #      multiraid ::                                         \
 #              1000 5000 4000 raid                          \
@@ -1431,8 +1433,9 @@ Installation des Kernels.
 
 <informalexample role="example"><screen>
 # APT konfigurieren, dass empfohlene (recommended) Pakete nicht automatisch
-# installiert werden. Die Verwendung dieser Option kann zu einem unvollständigen
-# System führen und sollte nur von sehr erfahrenen Anwendern genutzt werden.
+# installiert werden. Die Verwendung dieser Option kann zu einem
+# unvollständigen System führen und sollte nur von sehr erfahrenen
+# Anwendern genutzt werden.
 #d-i base-installer/install-recommends boolean false
 
 # Das Kernel-Image-(Meta-)Paket, das installiert werden soll; "none" kann

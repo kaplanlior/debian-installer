@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 69220 -->
+<!-- original version: 69757 -->
 
 
   <sect2 arch="arm" id="arm-firmware-overview"><title>ARM-Firmware</title>
@@ -29,6 +29,34 @@
       konsistent zwischen hersteller-modifizierten Versionen der gleichen
       Firmware, daher ist es nahezu unmöglich, nützliche geräteunabhängige
       Dokumentation für ARM-basierte Systeme bereitzustellen.
+    </para>
+  </sect2>
+
+  <sect2 arch="armhf" id="armhf-uboot-images">
+    <title>Durch Debian bereitgestellte U-Boot-Images (System-Firmware)</title>
+    <para>
+       Debian stellt für verschiedene armhf-Systeme, die ihr U-Boot
+       von einer SD-Karte laden können, U-Boot-Images bereit
+       (siehe &armmp-uboot-img;).
+       Die U-Boot-Builds werden in zwei Formaten angeboten:
+       als rohe U-Boot-Komponenten und als fertige Images, die einfach
+       auf eine SD-Karte geschrieben werden können.
+       Die Variante mit den rohen U-Boot-Komponenten ist für
+       erfahrene Benutzer gedacht; der grundsätzlich empfohlene Weg ist
+       die Verwendung der fertigen SD-Karten-Images.
+       Sie sind nach dem Schema &lt;systemtyp&gt;.sdcard.img.gz
+       benannt und können wie folgt auf eine Karte geschrieben werden:
+
+      <informalexample><screen>zcat &lt;systemtyp&gt;.sdcard.img.gz > /dev/SD_KARTEN_GERAET</screen></informalexample>
+
+       Wie immer beim Schreiben von Images sollten Sie auch hier bedenken, dass
+       dadurch alle vorherigen Inhalte auf der Karte gelöscht werden!
+    </para>
+    <para>
+       Wenn Debian ein U-Boot-Image für Ihr System anbietet, wird empfohlen,
+       dass Sie dieses Image verwenden statt einem vom Gerätehersteller
+       angebotenen U-Boot, da die Version in Debian für gewöhnlich neuer
+       ist und daher mehr Funktionen bietet.
     </para>
   </sect2>
 
