@@ -75,6 +75,9 @@ sub aggregate {
 					$notes="";
 				}
 				$date=~s/[^A-Za-z0-9: ]//g; # untrusted string
+				# date -u seems to generate stuff that date -d doesn't consume, so
+				# work around this by switching day and month if appropriate:
+				$date=~s/^(\S+) +(\d+) +(\D+) +(.*)/$1 $3 $2 $4/;
 				my $shortdate=`TZ=GMT LANG=C date -d '$date' '+%b %d %H:%M'`;
 				chomp $shortdate;
 				if (! length $shortdate) {
