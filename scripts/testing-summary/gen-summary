@@ -96,7 +96,8 @@ if (!$ENV{NOSYNC}) {
 	unlink 'Dates';
 	`wget -q -O Dates https://release.debian.org/britney/data-b2/Dates`;
 	# - hints
-	unlink <hints/*>;
+	rmtree "hints";	
+	mkdir "hints";
 	my $hints_url = 'https://release.debian.org/britney/hints/';
 	`wget -q -O hints/index.html $hints_url`;
 	open my $hints_file, '<', 'hints/index.html'
