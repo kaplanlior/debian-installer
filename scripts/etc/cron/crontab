@@ -6,10 +6,11 @@
 MAILTO=bubulle,kibi
 DI=/home/d-i/trunk
 
-DAILY_IMAGES_DIR=/srv/d-i.debian.org/www/daily-images
+WWW=/srv/d-i.debian.org/www
+DAILY_IMAGES_DIR=$WWW/daily-images
 DAILY_LOGS_DIR=/home/d-i/daily-build-logs.git
 
-00 1 * * * cd $DI/scripts; svn -q up; ./daily-build-aggregator /srv/d-i.debian.org/www/daily-images/build-logs ; ~/bin/push-www
+00 1 * * * cd $DI/scripts; svn -q up; ./daily-build-aggregator $WWW/daily-images/build-logs ; ~/bin/push-www
 05 * * * * cd $DI/scripts; svn -q up; ./daily-build-manager sync-logs $DAILY_IMAGES_DIR $DAILY_LOGS_DIR; cd $DAILY_LOGS_DIR; git push -q origin HEAD
 10 0 */10 * * cd $DI/scripts; svn -q up; ./daily-build-manager clean-old-logs   $DAILY_LOGS_DIR
 40 0 *    * * cd $DI/scripts; svn -q up; ./daily-build-manager clean-old-images $DAILY_IMAGES_DIR
@@ -23,12 +24,12 @@ DAILY_LOGS_DIR=/home/d-i/daily-build-logs.git
 
 0 22 * * * cd $DI; mr -q up ; nice -n 19 $DI/scripts/l10n/l10n-sync --levels=6 --online --commit $DI
 
-0 23 * * * cd $DI/manual && svn -q up ; cd build && destination=/srv/d-i.debian.org/www/manual ./build.sh >/dev/null ; ~/bin/push-www
+0 23 * * * cd $DI/manual && svn -q up ; cd build && destination=$WWW/manual ./build.sh >/dev/null ; ~/bin/push-www
 
 # Let the last */4 entry call push-www:
-10 */4 * * * cd $DI; mr -q up; cd scripts; ./git-summary > /srv/d-i.debian.org/www/git-summary.html
-15 */4 * * * cd $DI; ./scripts/l10n/scan-trans > /srv/d-i.debian.org/www/translations.txt
-30 */4 * * * cd $DI/scripts; mr -q up; ./kernel-summary /srv/d-i.debian.org/www/kernel-summary.html
-55 */4 * * * cd $DI; mr -q up ; cd $DI/scripts/testing-summary; svn -q up; ./gen-summary /srv/mirrors/debian > /srv/d-i.debian.org/www/testing-summary.html ; ~/bin/push-www
+10 */4 * * * cd $DI; mr -q up; cd scripts; ./git-summary > $WWW/git-summary.html
+15 */4 * * * cd $DI; ./scripts/l10n/scan-trans > $WWW/translations.txt
+30 */4 * * * cd $DI/scripts; mr -q up; ./kernel-summary $WWW/kernel-summary.html
+55 */4 * * * cd $DI; mr -q up ; cd $DI/scripts/testing-summary; svn -q up; ./gen-summary /srv/mirrors/debian > $WWW/testing-summary.html ; ~/bin/push-www
 
-0 5,11,17,23 * * * cd $DI/scripts; mr -q up; ./edos4udebs-wrapper /srv/mirrors/debian edos.tmp /srv/d-i.debian.org/www/edos ; ~/bin/push-www
+0 5,11,17,23 * * * cd $DI/scripts; mr -q up; ./edos4udebs-wrapper /srv/mirrors/debian edos.tmp $WWW/edos ; ~/bin/push-www
