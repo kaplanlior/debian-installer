@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: boot-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2015-05-07 17:01+0000\n"
-"PO-Revision-Date: 2015-05-04 20:30+0200\n"
+"PO-Revision-Date: 2015-05-09 13:01+0100\n"
 "Last-Translator: Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
 "Language: pt\n"
@@ -83,7 +83,7 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:48
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "uImage/uInitrd are image formats designed for the U-Boot firmware that is "
 #| "used on many ARM-based systems. Older U-Boot versions can only boot files "
@@ -101,16 +101,17 @@ msgid ""
 "uImages."
 msgstr ""
 "uImage/uInitrd são formatos de imagens desenhados para o firmware U-Boot que "
-"é utilizado em muitos sistemas ARM. As versões mais antigas de U-Boot apenas "
-"podem arrancar com o formato uImage/uInitrd, por isso estes são vulgarmente "
-"utilizados em sistemas armel antigos. As novas versões U-Boot podem - além "
-"de arrancar uImages/uInitrds - também arrancar kernels Linux standard e "
-"imagens ramdisk, mas a sintaxe de comando para o fazer é ligeiramente "
-"diferente da para arrancar a partir de uImages."
+"é utilizado em muitos sistemas baseados em ARM (na maioria os de 32-bit). As "
+"versões mais antigas de U-Boot apenas podem arrancar ficheiros no formato "
+"uImage/uInitrd, por isso estes são normalmente utilizados em sistemas armel "
+"mais antigos. As novas versões U-Boot podem - além de arrancar "
+"uImages/uInitrds - também arrancar kernels Linux standard e imagens ramdisk, "
+"mas a sintaxe de comando para o fazer é ligeiramente diferente da para "
+"arrancar a partir de uImages."
 
 #. Tag: para
 #: boot-installer.xml:57
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "For systems using a multiplatform kernel, besides kernel and initial "
 #| "ramdisk a so-called device-tree file (or device-tree blob, <quote>dtb</"
@@ -123,10 +124,12 @@ msgid ""
 "of the particular hardware. The dtb should be supplied on the device by the "
 "firmware, but in practice a newer one often needs to be loaded."
 msgstr ""
-"Para sistemas que utilizem um kernel multi-plataforma, além do kernel e um "
-"ramdisk inicial, é necessário um chamado ficheiro device-tree, <quote>dtb</"
-"quote>. É especifico de cada sistema suportado e contém uma descrição do "
-"hardware próprio."
+"Para sistemas que utilizem um kernel multi-plataforma, além do kernel e "
+"ramdisk inicial, é necessário o chamado ficheiro device-tree (ou blob "
+"device-tree, <quote>dtb</quote>). É especifico de cada sistema suportado e "
+"contém uma descrição do hardware próprio. O dtb pode ser fornecido com o "
+"spositivo pelo firmware, mas na prática normalmente tem de ser carregado um "
+"is recente."
 
 #. Tag: title
 #: boot-installer.xml:68 boot-installer.xml:86
@@ -136,7 +139,7 @@ msgstr "Configuração da consola"
 
 #. Tag: para
 #: boot-installer.xml:69
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "The netboot tarball (<xref linkend=\"boot-armhf-netboot.tar.gz\"/>), the "
 #| "hd-media tarball (<xref linkend=\"boot-hd-media\"/>) and the installer SD-"
@@ -153,13 +156,13 @@ msgid ""
 "on those platforms you by default need a serial console cable to use the "
 "installer."
 msgstr ""
-"O tarball netboot (<xref linkend=\"boot-armhf-netboot.tar.gz\"/>), o tarball "
-"de media hd-media (<xref linkend=\"boot-hd-media\"/>) e as imagens para "
-"cartão SD do instalador (<xref linkend=\"boot-installer-sd-image\"/>) "
-"utilizam a consola predefinida (específica da plataforma) que é definida "
-"pelo U-Boot na variável <quote>console</quote>. Na maioria dos casos é uma "
-"consola série, por isso nessas plataformas, por omissão, irá necessitar de "
-"um cabo série de consola para utilizar o instalador."
+"O tarball netboot (<xref linkend=\"boot-armhf-netboot.tar.gz\"/>), e as "
+"imagens para cartão SD do instalador (<xref "
+"linkend=\"boot-installer-sd-image\"/>) utilizam a consola predefinida "
+"(específica da plataforma) que é definida pelo U-Boot na variável <quote>"
+"console</quote>. Na maioria dos casos é uma consola série, por isso nessas "
+"plataformas irá necessitar por predefinição de um cabo série de consola "
+"para utilizar o instalador."
 
 #. Tag: para
 #: boot-installer.xml:78
@@ -183,6 +186,11 @@ msgid ""
 "from the GRUB menu you will see a <quote>Booting Linux</quote> message, then "
 "nothing more."
 msgstr ""
+"O instalador gráfico não está activo por defeito nas imagens &d-i; arm64 para "
+"jessie por isso é utilizada a consola série. O dispositivo de consola deve "
+"ser detectado automaticamente pelo firmware, mas se não for então quando "
+"arrancar o linux a partir do menu do GRUB irá ver a mensagem <quote>Booting "
+"Linux</quote>, e depois mais nada."
 
 #. Tag: para
 #: boot-installer.xml:94
@@ -197,13 +205,21 @@ msgid ""
 "screen></informalexample>. When finished hit <keycombo><keycap>Control</"
 "keycap> <keycap>x</keycap></keycombo> to continue booting with new setting."
 msgstr ""
-
+"Se tiver este problema irá necessitar de definir uma configuração especifica "
+"de consola na linha de comandos do kernel. Carregue em <userinput>e"
+"</userinput> para <quote>Edit Kernel command-line</quote> no menu do GRUB, e "
+"altere <informalexample><screen>--- quiet</screen></informalexample> para "
+"<informalexample><screen>console=&lt;device&gt;,&lt;speed&gt;</screen></"
+"informalexample> e.g. <informalexample><screen>console=ttyAMA0,115200n8</"
+"screen></informalexample>. Quando terminar carregue em <keycombo><keycap>Control</"
+"keycap> <keycap>x</keycap></keycombo> para continuar a arrancar com a nova definição."
+m
 #. Tag: title
 #: boot-installer.xml:108
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "Submitting Installation Reports"
 msgid "Juno Installation"
-msgstr "Submeter Relatórios de Instalação"
+msgstr "Instalação do Juno"
 
 #. Tag: para
 #: boot-installer.xml:109
