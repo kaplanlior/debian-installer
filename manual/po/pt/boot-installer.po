@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: boot-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2015-05-07 17:01+0000\n"
-"PO-Revision-Date: 2015-05-10 19:23+0100\n"
+"PO-Revision-Date: 2015-05-11 19:17+0100\n"
 "Last-Translator: Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team: Portuguese <traduz@debianpt.org>\n"
 "Language: pt\n"
@@ -247,6 +247,10 @@ msgid ""
 "on the back. If you need networking (netboot image) plug the ethernet cable "
 "into the socket on the front of the machine."
 msgstr ""
+"Prepare uma imagem standard de CD arm64 numa pen USB. Insira-a numa das "
+"portas USB que estão atrás. Ligue o cabo série na porta série de 9 pinos, "
+"atrás. Se necessitar de rede (imagem netboot) ligue o cabo de rede na porta "
+"na parte da frente da máquina."
 
 #. Tag: para
 #: boot-installer.xml:123
@@ -261,12 +265,21 @@ msgid ""
 "should show you the &d-i; screens, and allow you to proceed with a standard "
 "installation."
 msgstr ""
+"Utilize uma consola série a 115200, 8bit sem paridade, e arranque o Juno. "
+"Deverá arrancar a partir da pen USB e ir para um menu do GRUB. A "
+"configuração da consola não é correctamente detectada no Juno por isso "
+"simplesmente carregar em Enter não irá mostrar a saída do kernel. Defina a "
+"consola para <informalexample><screen>console=ttyAMA0,115200n8</screen>"
+"</informalexample> conforme é descrito em (<xref "
+"linkend=\"arm64-console-setup\"/>). <keycombo><keycap>Control</keycap> "
+"<keycap>x</keycap></keycombo> para arrancar e deve mostrar-lhe os ecrãs do "
+"&d-i; e permitir proceder com a instalação standard."
 
 #. Tag: title
 #: boot-installer.xml:136
 #, no-c-format
 msgid "Applied Micro Mustang Installation"
-msgstr ""
+msgstr "Instalação do Applied Micro Mustang"
 
 #. Tag: para
 #: boot-installer.xml:137
@@ -279,6 +292,13 @@ msgid ""
 "a serial console to control the installation because the graphical installer "
 "is not enabled on the arm64 architecture."
 msgstr ""
+"Está disponível UEFI para esta máquina mas é normalmente lançado com U-Boot "
+"por isso irá necessitar de instalar primeiro o firmware UEFI e depois "
+"utilizar os métodos de arranque/instalação standard, ou utilizar os métodos "
+"de arranque por U-Boot. Além disso o USB não é suportado no kernel jessie por "
+"isso instalar a partir de uma pen USB não iria funcionar. Terá de utilizar "
+"uma consola série para controlar a instalação pois o instalador gráfico não "
+"está activo na arquitectura arm64."
 
 #. Tag: para
 #: boot-installer.xml:146
@@ -291,6 +311,12 @@ msgid ""
 ">). After installation, manual changes to boot from the installed image are "
 "needed."
 msgstr ""
+"O método de instalação recomendado é copiar o kernel e o initrd do &d-i; "
+"para o disco rígido, utilizando o sistema openembedded fornecido com a "
+"máquina, e depois arrancar daí e correr o instalador. Em alternativa, pode "
+"utilizar TFTP para obter o kernel/dtb/initrd e arrancar (<xref "
+"linkend=\"boot-tftp-uboot\"/>). Após a instalação, são necessárias "
+"alterações manuais para arrancar a partir da imagem instalada."
 
 #. Tag: para
 #: boot-installer.xml:155
@@ -301,7 +327,11 @@ msgid ""
 "hit a key to get a Mustang# prompt. Then use U-Boot commands to load and "
 "boot the kernel, dtb and initrd."
 msgstr ""
-
+"Corra uma consola série a 115200, 8bit sem paridade, e arranque a máquina. "
+"Reinicie a máquina e quando vir <quote>Hit any key to stop autoboot:</quote> "
+"carregue numa tecla para obter uma prompt Mustang#. Depois utilize os "
+"comandos U-Boot para carregar e iniciar o kernel, dtb e initrd."
+ 
 #. Tag: title
 #: boot-installer.xml:164
 #, no-c-format
