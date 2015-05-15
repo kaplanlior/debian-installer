@@ -2,14 +2,15 @@
 # This file is distributed under the same license as debian-installer.
 #
 # Felipe Augusto van de Wiel (faw) <faw@debian.org>, 2008-2012.
+# Adriano Rafael Gomes <adrianorg@arg.eti.br>, 2010-2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-13 22:01+0000\n"
-"PO-Revision-Date: 2012-06-27 01:39-0300\n"
-"Last-Translator: Felipe Augusto van de Wiel (faw) <faw@debian.org>\n"
+"PO-Revision-Date: 2015-05-15 15:49-0300\n"
+"Last-Translator: Adriano Rafael Gomes <adrianorg@arg.eti.br>\n"
 "Language-Team: Brazilian Portuguese <debian-l10n-portuguese@lists.debian."
 "org>\n"
 "Language: pt_BR\n"
@@ -23,7 +24,7 @@ msgstr ""
 #: ../partman-base.templates:60001
 #, no-c-format
 msgid "ZFS pool %s, volume %s"
-msgstr "ZFS pool %s, volume %s"
+msgstr "Pool ZFS %s, volume %s"
 
 #. Type: text
 #. Description
@@ -63,7 +64,6 @@ msgstr "biosgrub"
 #. Description
 #. :sl5:
 #: ../partman-basicfilesystems.templates:60001
-#, fuzzy
 #| msgid ""
 #| "Your boot partition has not been configured with the ext2 or ext3 file "
 #| "system. This is needed by your machine in order to boot. Please go back "
@@ -74,14 +74,13 @@ msgid ""
 "file system."
 msgstr ""
 "Sua partição de inicialização não foi configurada com o sistema de arquivos "
-"ext2 ou ext3. Isto é necessário para que seu computador possa ser "
-"inicializado. Por favor, volte e use o sistema de arquivos ext2 ou ext3."
+"ext2. Isto é necessário para que seu computador possa ser inicializado. Por "
+"favor, volte e use o sistema de arquivos ext2."
 
 #. Type: boolean
 #. Description
 #. :sl5:
 #: ../partman-basicfilesystems.templates:61001
-#, fuzzy
 #| msgid ""
 #| "Your boot partition is not located on the first primary partition of your "
 #| "hard disk. This is needed by your machine in order to boot.  Please go "
@@ -93,8 +92,8 @@ msgid ""
 msgstr ""
 "Sua partição de inicialização não está localizada na primeira partição de "
 "seu disco rígido. Isso é necessário para que seu computador possa ser "
-"inicializado. Por favor, volte e use sua primeira partição primária como uma "
-"partição de inicialização."
+"inicializado. Por favor, volte e use sua primeira partição como uma partição "
+"de inicialização."
 
 #. Type: text
 #. Description
@@ -110,7 +109,7 @@ msgid ""
 msgstr ""
 "Para que seja possível iniciar seu novo sistema, o firmware em seu sistema "
 "Itanium carrega o carregador de inicialização de sua partição EFI privada no "
-"disco rígido. Daí, o carregador de inicialização carrega o sistema "
+"disco rígido. O carregador de inicialização então carrega o sistema "
 "operacional da mesma partição. Uma partição EFI possui um sistema de "
 "arquivos formatado como FAT16 e a \"flag\" de inicialização definida. A "
 "maioria das instalações colocam a partição EFI na primeira partição primária "
@@ -123,10 +122,9 @@ msgstr ""
 #. Description
 #. :sl5:
 #: ../partman-efi.templates:2001 ../partman-efi.templates:4001
-#, fuzzy
 #| msgid "EFI boot partition"
 msgid "EFI System Partition"
-msgstr "Partição de inicialização EFI"
+msgstr "Partição de Sistema EFI"
 
 #. Type: boolean
 #. Description
@@ -142,7 +140,7 @@ msgstr "Nenhuma partição EFI foi encontrada."
 #. Up to 10 character positions
 #: ../partman-efi.templates:5001
 msgid "ESP"
-msgstr ""
+msgstr "ESP"
 
 #. Type: text
 #. Description
@@ -162,7 +160,6 @@ msgstr "Partição EFI muito pequena"
 #. Description
 #. :sl5:
 #: ../partman-efi.templates:8001
-#, fuzzy
 #| msgid ""
 #| "EFI boot partitions on this architecture cannot be created with a size "
 #| "less than 35 MB. Please make the EFI boot partition larger."
@@ -170,18 +167,17 @@ msgid ""
 "EFI System Partitions on this architecture cannot be created with a size "
 "less than 35 MB. Please make the EFI System Partition larger."
 msgstr ""
-"Partições EFI de inicialização nesta arquitetura não podem ser criada com "
-"menos do que 35 MB de tamanho. Por favor, aumente o tamanho da partição EFI "
-"de inicialização."
+"Partições de Sistema EFI nesta arquitetura não podem ser criadas com menos "
+"do que 35 MB de tamanho. Por favor, aumente o tamanho da Partição de Sistema "
+"EFI."
 
 #. Type: boolean
 #. Description
 #. :sl5:
 #: ../partman-efi.templates:9001
-#, fuzzy
 #| msgid "Abort the installation"
 msgid "Force UEFI installation?"
-msgstr "Abortar a instalação"
+msgstr "Forçar a instalação UEFI?"
 
 #. Type: boolean
 #. Description
@@ -194,6 +190,11 @@ msgid ""
 "might be difficult to reboot the machine into any BIOS-mode operating "
 "systems later."
 msgstr ""
+"O firmware desta máquina iniciou o instalador no modo UEFI, mas parece que "
+"podem existir sistemas operacionais já instalados usando o \"modo de "
+"compatibilidade BIOS\". Se você continuar a instalar o Debian no modo UEFI, "
+"poderá ser difícil reinicializar a máquina em quaisquer sistemas "
+"operacionais no modo BIOS posteriormente."
 
 #. Type: boolean
 #. Description
@@ -205,6 +206,11 @@ msgid ""
 "If you wish to keep the option to boot an existing operating system, you "
 "should choose NOT to force UEFI installation here."
 msgstr ""
+"Se você deseja instalar no modo UEFI e não se importa sobre manter a "
+"habilidade de inicializar um dos sistemas existentes, você tem a opção de "
+"forçar isso aqui. Se você deseja manter a opção de inicializar um sistema "
+"operacional existente, você deverá escolher NÃO forçar a instalação UEFI "
+"aqui."
 
 #. Type: error
 #. Description
@@ -222,7 +228,7 @@ msgstr ""
 #. :sl5:
 #: ../partconf.templates:2001
 msgid "No file systems found"
-msgstr "Nenhuma sistema de arquivos encontrado"
+msgstr "Nenhum sistema de arquivos encontrado"
 
 #. Type: error
 #. Description
@@ -232,7 +238,7 @@ msgid ""
 "No usable file systems were found. You may need to load additional kernel "
 "modules."
 msgstr ""
-"Nenhum sistema de arquivo utilizável foi encontrado. Você pode precisar "
+"Nenhum sistema de arquivos utilizável foi encontrado. Você pode precisar "
 "carregar módulos de kernel adicionais."
 
 #. Type: select
@@ -277,7 +283,7 @@ msgstr "Criar área de troca (swap)"
 #. :sl5:
 #: ../partconf.templates:4002 ../partconf.templates:5002
 msgid "Action on ${PARTITION}:"
-msgstr "Agir em ${PARTITION}:"
+msgstr "Ação em ${PARTITION}:"
 
 #. Type: select
 #. Description
@@ -289,8 +295,8 @@ msgid ""
 "swap space."
 msgstr ""
 "Esta partição parece já possuir um sistema de arquivos (${FSTYPE}). Você "
-"pode escolher entre deixar o sistema de arquivos intacto, criar um sistema "
-"de arquivos ou criar uma área de troca (swap)."
+"pode escolher entre deixar o sistema de arquivos intacto, criar um novo "
+"sistema de arquivos ou criar uma área de troca (swap)."
 
 #. Type: select
 #. Description
@@ -422,7 +428,7 @@ msgstr "Partição atribuída para ${MOUNT}"
 #. :sl5:
 #: ../partconf.templates:12001
 msgid "Mounting a partition on ${MOUNT} makes no sense. Please change this."
-msgstr "Montar uma partição em ${MOUNT} não faz sentido. Por favor mude isso."
+msgstr "Montar uma partição em ${MOUNT} não faz sentido. Por favor, mude isso."
 
 #. Type: error
 #. Description
@@ -440,7 +446,7 @@ msgid ""
 "all but one of them."
 msgstr ""
 "Você não pode atribuir diversas partições para o mesmo ponto de montagem. "
-"Por favor, mude todas as atribuições das partições menos uma."
+"Por favor, mude todas as atribuições das partições, exceto uma."
 
 #. Type: boolean
 #. Description
@@ -500,7 +506,7 @@ msgid ""
 "Please check the error log on the third console or /var/log/messages for "
 "more information."
 msgstr ""
-"Por favor confira o log de erros no terceiro console ou o arquivo /var/log/"
+"Por favor, confira o log de erros no terceiro console ou o arquivo /var/log/"
 "messages para mais informações."
 
 #. Type: error
@@ -647,9 +653,7 @@ msgstr "qeth: OSA-Espress em modo QDIO / HiperSockets"
 #. :sl5:
 #: ../s390-netdevice.templates:1001
 msgid "iucv: Inter-User Communication Vehicle - available for VM guests only"
-msgstr ""
-"iucv: Veículo de Comunicação Inter-Usuário - disponível somente para "
-"convidados (\"guests\") VM"
+msgstr "iucv: Veículo de Comunic. Inter-Usuário - apenas para guests VM"
 
 #. Type: select
 #. Choices
@@ -875,7 +879,7 @@ msgid ""
 "removed from incoming IPv4 packets. Using the card in layer2 mode will make "
 "it keep the MAC addresses of IPv4 packets."
 msgstr ""
-"Por padrão, placas OSA-Express usam modo camada3 (\"layer3\"). Neste modo "
+"Por padrão, placas OSA-Express usam modo camada3 (\"layer3\"). Neste modo, "
 "cabeçalhos LLC são removidos dos pacotes IPv4 que chegam. Usar a placa no "
 "modo camada2 (\"layer2\") fará com que os endereços MAC sejam mantidos nos "
 "pacotes IPv4."
