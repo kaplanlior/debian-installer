@@ -277,7 +277,7 @@ if (! -f $sources_dump) {
     foreach my $line (@modified) {
         my ($package, $old, $new) = @{$line};
         print STDERR "DEBUG: lookup: $package ($old to $new)\n";
-        my $ping = $ua->head("http://packages.qa.debian.org/$package");
+        my $ping = $ua->head("https://tracker.debian.org/pkg/$package");
         if ($ping->is_success) {
             my $source = $ping->request->uri;
             $source =~ s{.*/(.*)\.html$}{$1};
@@ -460,7 +460,7 @@ __END__
     <a href="http://packages.debian.org/src:<TMPL_VAR NAME="SOURCE_NEWEST">">Package Information</a>
   </li>
   <li>
-    <a href="http://packages.qa.debian.org/<TMPL_VAR NAME="SOURCE_NEWEST">">Package Developer Information</a>
+    <a href="http://tracker.debian.org/pkg/<TMPL_VAR NAME="SOURCE_NEWEST">">Package Developer Information</a>
   </li>
   <li>
     <a href="http://bugs.debian.org/src:<TMPL_VAR NAME="SOURCE_NEWEST">">Bug Information</a>
