@@ -375,7 +375,7 @@ if (open (UNWANTED, $unwanted_file)) {
 		if ($line =~ /^(\S+)\s+(\S+)\s+(.*)$/) {
 			my ($package, $version, $reason) = ($1, $2, $3);
 			# Expand Message-IDs:
-			$reason =~ s{<MID:([^>]+)>}{<a href="http://lists.debian.org/$1">&lt;$1&gt;</a>}g;
+			$reason =~ s{<MID:([^>]+)>}{<a href="https://lists.debian.org/$1">&lt;$1&gt;</a>}g;
 			$unwanted{$package}{version} = $version;
 			$unwanted{$package}{reason} = $reason;
 		}
@@ -454,7 +454,7 @@ foreach my $package (sort keys %seenpackages) {
 	my $row='';
 	my $class='';
 	foreach my $transition (keys %{$transitions{$package}}) {
-		$row .= "<tr class=##CLASS##><td><a href=\"http://packages.qa.debian.org/$package\">$package</a></td>";
+		$row .= "<tr class=##CLASS##><td><a href=\"https://packages.qa.debian.org/$package\">$package</a></td>";
 		if (exists $has_debs{$package} && $has_debs{$package}==1) {
 			$row .= "<td align=\"center\">x</td>";
 		} else {
@@ -474,14 +474,14 @@ foreach my $package (sort keys %seenpackages) {
 			else {
 				push @vers, $version;
 				if ($dist eq 'testing') {
-					$row .= "<td><a href=\"http://release.debian.org/migration/testing.pl?package=" . encode_str($package) . "\">$version</a></td>";
+					$row .= "<td><a href=\"https://release.debian.org/migration/testing.pl?package=" . encode_str($package) . "\">$version</a></td>";
 				}
 				else {
 					my $unwanted_bits='';
 					if ($unwanted{$package} && $unwanted{$package}{version} ne $version) {
 						$unwanted_bits = '<br>' . $unwanted{$package}{version} . ': ' . $unwanted{$package}{reason};
 					}
-					$row .= "<td><a href=\"http://packages.debian.org/changelog:$package\">$version</a>$unwanted_bits</td>";
+					$row .= "<td><a href=\"https://packages.debian.org/changelog:$package\">$version</a>$unwanted_bits</td>";
 					$unstable_version = $version;
 				}
 			}
@@ -503,9 +503,9 @@ foreach my $package (sort keys %seenpackages) {
 			$class = 'unblocked';
 		}
 
-		$row .= "<td><a href=\"http://release.debian.org/migration/testing.pl?package=$package\">t</a>
-               <a href=\"http://buildd.debian.org/status/package.php?p=$package\">b</a>
-               <a href=\"http://packages.qa.debian.org/$package\">s</a></td>";
+		$row .= "<td><a href=\"https://release.debian.org/migration/testing.pl?package=$package\">t</a>
+               <a href=\"https://buildd.debian.org/status/package.php?p=$package\">b</a>
+               <a href=\"https://packages.qa.debian.org/$package\">s</a></td>";
 
 		my $commits = '?';
 		my $gitdir = "../../packages/$package";
@@ -566,8 +566,8 @@ Those files, along with the <code>gen-summary</code> script live under
 <p>
 See also:
 <ul>
-  <li><a href="http://ftp-master.debian.org/testing/hints/">britney hint files (release managers)</a></li>
-  <li><a href="http://ftp-master.debian.org/d-i">consistency check of sources of udebs</a></li>
+  <li><a href="https://release.debian.org/britney/hints/">britney hint files (release managers)</a></li>
+  <li><a href="https://ftp-master.debian.org/d-i">consistency check of sources of udebs</a></li>
 </ul>
 <hr>
 $date
