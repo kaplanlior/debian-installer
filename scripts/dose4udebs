@@ -339,7 +339,7 @@ if (%old) {
         if not $changed{$suite}{$state};
 
       $diff .= "$states{$state} in $suite\n";
-      for my $package (sort keys $changed{$suite}{$state}) {
+      for my $package (sort keys %{ $changed{$suite}{$state} }) {
         $diff .= sprintf "  %-40s %s\n", $package, $changed{$suite}{$state}{$package};
         $stats{$state}+=split ' ', $changed{$suite}{$state}{$package};
       }
