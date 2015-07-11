@@ -1,5 +1,11 @@
 #!/usr/bin/perl
-# © 2013 Cyril Brulebois <kibi@debian.org>
+# © 2013-2015 Cyril Brulebois <kibi@debian.org>
+#
+# NOTE: The first version of this script used edos (in wheezy) before
+# it got replaced with dose (in jessie). Supporting both doesn't seem
+# too interesting since the whole point is running that on the current
+# d-i.debian.org host. If the edos-based version is needed at some
+# point, it's sufficient to roll back to svn revision 70000.
 
 use strict;
 use warnings;
@@ -18,7 +24,7 @@ my $store = 1;
 my $mail;
 my $index_output = 'index.html';
 my $diff_output = 'diff.txt';
-my $workdir = 'edos.tmp';
+my $workdir = 'dose.tmp';
 my $mirror = "/srv/ftp.debian.org/ftp";
 GetOptions(
   "sync!"   => \$sync,
@@ -119,7 +125,7 @@ for my $suite (@suites) {
       }
     }
 
-    # Call edos, explaining issues.
+    # Call dose, explaining issues.
     my $current;
     my $alt;
     my $graph = "digraph {\n";
@@ -285,7 +291,7 @@ write_file("$workdir/$index_output", $html);
 
 
 ### Text summary, diff against previous state
-my $memory = "$workdir/edos.storable";
+my $memory = "$workdir/dose.storable";
 my %old = (-f $memory) ? %{ retrieve($memory) } : ();
 
 if (%old) {
@@ -361,7 +367,7 @@ if (%old) {
           encoding => "quoted-printable",
           charset  => "UTF-8",
         },
-        body_str => "$diff\nFull status: http://d-i.debian.org/edos/\n",
+        body_str => "$diff\nFull status: http://d-i.debian.org/dose/\n",
       );
       sendmail($message);
     }
