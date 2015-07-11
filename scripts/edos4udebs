@@ -167,6 +167,36 @@ for my $suite (@suites) {
         # too many things to ignore to list them all
       }
     }
+
+    # dose doesn't mentioned packages providing virtual ones, so do
+    # the lookup manually:
+    open my $udeb, '<', $udeb_file
+      or die "unable to open $udeb_file";
+    my %providers;
+    my $realpkg;
+    while (my $line = <$udeb>) {
+      if ($line =~ /^Package: (\S+)$/) {
+        $realpkg = $1;
+      }
+      elsif ($line =~ /^Provides: (.*)$/) {
+        my $provides = $1;
+        foreach my $p (split(/, /, $provides)) {
+          push @{$providers{$p}}, $realpkg;
+        }
+      }
+    }
+    close $udeb
+      or die "unable to close $udeb_file";
+
+    foreach my $pkg (uniq sort @involved) {
+      if (grep { $_ eq $pkg } keys %providers) {
+        foreach my $realpkg (@{$providers{$pkg}}) {
+          push @deps, "\"$pkg\" -> \"$realpkg\" [color=blue]";
+        }
+        push @deps, "\"$pkg\" [shape=ellipse,color=blue]";
+      }
+    }
+
     $graph .= join "\n", uniq sort @deps;
 
     # Special style for known, buggy packages:
