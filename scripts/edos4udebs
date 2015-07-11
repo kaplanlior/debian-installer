@@ -126,29 +126,45 @@ for my $suite (@suites) {
     $graph .= "node[shape=box];\n";
     my @deps;
     my @involved;
-    for my $line (`edos-debcheck -quiet -failures -explain < $udeb_file`) {
-      if ($line =~ /^(\S+)\s.*: FAILED$/) {
-        my $package = $1;
+    my $mode;
+    my $package;
+    my $problem;
+    for my $line (`dose-debcheck --quiet --failures --explain $udeb_file`) {
+      if ($line =~ /^report:$/ or $line =~ /^ -$/) {
+        $mode = undef;
+        next;
+      }
+      elsif ($line =~ /^  package: (\S+)/) {
+        $package = $1;
         push @{$failed{$package}}, $arch;
       }
-      # FIXME: Sadly, "one of" can have a single child, so treat both case the same way for now:
-      #elsif ($line =~ /^  (\S+)\s.* depends on one of:$/) {
-      #  my $package = $1;
-      #  $current = "$package-|";
-      #  $graph .= "\"$package\" -> \"$package-|\"\n";
-      #}
-      elsif ($line =~ /^  (\S+)\s.* depends on (missing|one of):$/) {
-        my $package = $1;
-        $current = $package;
+      elsif ($line =~ /^\s+(missing|depchain):$/) {
+        $mode = $1;
+      }
+      elsif ($line =~ /^  \s+package: (\S+)$/) {
+        $current = $1;
         push @involved, $current;
       }
-      elsif ($line =~ /^  - (\S+)\s.*$/) {
-        my $package = $1;
-        push @deps, "\"$current\" -> \"$package\"";
-        push @involved, $package;
+      elsif ($line =~ /^\s+depends: (\S+)\s.*$/) {
+        # don't consider version, thanks to \s.*
+        my $depends = $1;
+        if ($mode ne 'depchain') {
+            print "woops, getting a depends while not being in depchain mode\n";
+        }
+        push @deps, "\"$current\" -> \"$depends\"";
+        push @involved, $depends;
+      }
+      elsif ($line =~ /^\s+unsat-dependency: (\S+)\s.*$/) {
+        # don't consider version, thanks to \s.*
+        my $unsat_dep = $1;
+        if ($mode ne 'missing') {
+            print "woops, getting an unsat-dependency while not being in missing mode\n";
+        }
+        push @deps, "\"$current\" -> \"$unsat_dep\"";
+        push @involved, $unsat_dep;
       }
       else {
-        die "Unable to parse line: $line";
+        # too many things to ignore to list them all
       }
     }
     $graph .= join "\n", uniq sort @deps;
