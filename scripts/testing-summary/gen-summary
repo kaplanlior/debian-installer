@@ -448,8 +448,9 @@ my $numcols=9 + @dists;
 foreach my $package (sort keys %seenpackages) {
 	my $row='';
 	my $class='';
+	my $uri_pkg = uri_escape($package);
 	foreach my $transition (keys %{$transitions{$package}}) {
-		$row .= "<tr class=##CLASS##><td><a href=\"https://tracker.debian.org/pkg/$package\">$package</a></td>";
+		$row .= "<tr class=##CLASS##><td><a href=\"https://tracker.debian.org/pkg/$uri_pkg\">$package</a></td>";
 		if (exists $has_debs{$package} && $has_debs{$package}==1) {
 			$row .= "<td align=\"center\">x</td>";
 		} else {
@@ -469,14 +470,14 @@ foreach my $package (sort keys %seenpackages) {
 			else {
 				push @vers, $version;
 				if ($dist eq 'testing') {
-					$row .= "<td><a href=\"https://release.debian.org/migration/testing.pl?package=" . uri_escape($package) . "\">$version</a></td>";
+					$row .= "<td><a href=\"https://release.debian.org/migration/testing.pl?package=$uri_pkg\">$version</a></td>";
 				}
 				else {
 					my $unwanted_bits='';
 					if ($unwanted{$package} && $unwanted{$package}{version} ne $version) {
 						$unwanted_bits = '<br>' . $unwanted{$package}{version} . ': ' . $unwanted{$package}{reason};
 					}
-					$row .= "<td><a href=\"https://packages.debian.org/changelog:$package\">$version</a>$unwanted_bits</td>";
+					$row .= "<td><a href=\"https://packages.debian.org/changelog:$uri_pkg\">$version</a>$unwanted_bits</td>";
 					$unstable_version = $version;
 				}
 			}
@@ -498,9 +499,9 @@ foreach my $package (sort keys %seenpackages) {
 			$class = 'unblocked';
 		}
 
-		$row .= "<td><a href=\"https://release.debian.org/migration/testing.pl?package=$package\">t</a>
-               <a href=\"https://buildd.debian.org/status/package.php?p=$package\">b</a>
-               <a href=\"https://tracker.debian.org/pkg/$package\">s</a></td>";
+		$row .= "<td><a href=\"https://release.debian.org/migration/testing.pl?package=$uri_pkg\">t</a>
+               <a href=\"https://buildd.debian.org/status/package.php?p=$uri_pkg\">b</a>
+               <a href=\"https://tracker.debian.org/pkg/$uri_pkg\">s</a></td>";
 
 		my $commits = '?';
 		my $gitdir = "../../packages/$package";
