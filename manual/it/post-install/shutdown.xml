@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 64829 -->
+<!-- original version: 69993 -->
 
  <sect1 id="shutdown">
  <!-- <title>Shutting down the system</title> -->
@@ -30,23 +30,53 @@ Alternatively you can press the key combination <keycombo>
 <keycap>Ctrl</keycap> <keycap>Alt</keycap> <keycap>Del</keycap> </keycombo>
 <phrase arch="powerpc"> or <keycombo> <keycap>Control</keycap>
 <keycap>Shift</keycap> <keycap>Power</keycap> </keycombo> on Macintosh
-systems</phrase>. A last option is to log in as root and type one of the
-commands <command>poweroff</command>, <command>halt</command> or
-<command>shutdown -h now</command> if either of the key combinations do not
-work or you prefer to type commands; use <command>reboot</command> to reboot
-the system.
+systems</phrase>.
+If the key combinations do not work, a last option is to log in as root
+and type the necessary commands.
+Use <command>reboot</command> to reboot the system.
+Use <command>halt</command> to halt the system without powering it off
+<footnote>
 -->
 
 In alternativa è possibile premere la combinazione di tasti <keycombo>
-<keycap>Ctrl</keycap> <keycap>Alt</keycap> <keycap>Canc</keycap> </keycombo>
-<phrase arch="powerpc"> oppure <keycombo> <keycap>Control</keycap>
+<keycap>Ctrl</keycap> <keycap>Alt</keycap> <keycap>Canc</keycap>
+</keycombo><phrase arch="powerpc"> oppure <keycombo> <keycap>Control</keycap>
 <keycap>Shift</keycap> <keycap>Power</keycap> </keycombo> sui sistemi
-Macintosh</phrase>. Come ultima possibilità, nel caso le combinazioni di
-tasti non funzionino o si preferisca digitare dei comandi, si può fare
-il login come root ed eseguire uno dei seguenti comandi
-<command>poweroff</command>, <command>halt</command> o
-<command>shutdown -h now</command>; usare <command>reboot</command> per
-riavviare il sistema.
+Macintosh</phrase>. Se le combinazioni di tasti non funzionano, è
+possibile fare il login come root ed eseguire uno dei seguenti comandi:
+<command>reboot</command> per riavviare il sistema,
+<command>halt</command> per arrrestare il sistema senza
+spegnerlo<footnote>
+
+<para>
+
+<!--
+Under the SysV init system <command>halt</command> had the same
+effect as <command>poweroff</command>, but with systemd as init
+system (the default in jessie) their effects are different.
+-->
+
+Con il sistema init SysV i comandi <command>halt</command> e
+<command>poweroff</command> avevano lo stesso effetto, invece con
+il sistema init systemd (predefinito in jessie) danno un risultato
+diverso.
+
+</para>
+
+<!-->
+</footnote>.
+To power off the machine, use <command>poweroff</command>
+or <command>shutdown -h now</command>.
+The systemd init system provides additional commands that perform
+the same functions; for example <command>systemctl reboot</command>
+or <command>systemctl poweroff</command>.
+-->
+
+</footnote>. Per spegnere la macchina usare <command>poweroff</command>
+oppure <command>shutdown -h now</command>. Il sistema init systemd
+fornisce anche altri comandi per la effettuare la stessa operazione; per
+esempio <command>systemctl reboot</command> oppure <command>systemctl
+poweroff</command>.
 
 </para>
  </sect1>
