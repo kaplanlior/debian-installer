@@ -8,6 +8,7 @@ use Email::Sender::Simple qw(sendmail);
 use List::MoreUtils qw(uniq);
 use Sort::Versions;
 use LWP::UserAgent;
+use XML::LibXML;
 
 
 sub colorize_flavours {
@@ -87,19 +88,28 @@ sub build_status {
   my $response = $ua->get($buildurl);
   my %builds;
   if ($response->is_success) {
-    foreach my $line (split /\n/, $response->content) {
-      # FIXME: The above match is fragile, but that'll do for now:
-      if ($line =~ m{<tr>.*<td>.*<a href="[^"]+">(.+?)</a>.*?</td><td.*?class="status ([^"]+)".*?</td><td>(.+?)</td>}) {
-        my ($arch, $status, $time) = ($1, $2, $3);
-        # Adjust status and precision:
-        $status =~ s/^status-//;
+    # Avoid hardcoding column id:
+    my $xml = XML::LibXML->load_html(string => $response->content);
+    my @columns = $xml->findnodes('//table[@class="data"]/tr/th/text()');
+    my %col_lookup;
+    foreach my $i (0 .. $#columns) {
+        $col_lookup{$columns[$i]} = $i;
+    }
+
+    foreach my $line ($xml->findnodes('//table[@class="data"]/tr')) {
+        my @cells = $line->findnodes('./td');
+        next if ! @cells;
+        next if $#cells < 2;
+
+        my $arch   = $cells[ $col_lookup{Architecture} ]->textContent();
+        my $status = $cells[ $col_lookup{Status}       ]->textContent();
+        my $time   = $cells[ $col_lookup{For}          ]->textContent();
+
+        $arch =~ s/^\s+|\s+$//g;
         $time =~ s/\s+\d+m$//;
-        my %color = ( installed => 'darkgreen', building => 'darkorange', needsbuild => 'darkorange',  buildattempted => 'red'   );
-        my %label = ( installed => 'Installed', building => 'Building'  , needsbuild => 'Needs-Build', buildattempted => 'Failed');
+        my %color = ( Installed => 'darkgreen', Building => 'darkorange', 'Needs-Build' => 'darkorange',  'Failed' => 'red', 'Build-Attempted' => 'red' );
         my $c = $color{$status} || 'black';
-        my $l = $label{$status} || $status;
-        $builds{$arch} = "<span style=\"color: $c\">$l ($time)</span>";
-      }
+        $builds{$arch} = "<span style=\"color: $c\">$status ($time)</span>";
     }
     $html .= "<tr>\n";
     $html .= "<th>Build</th>\n";
