@@ -138,6 +138,11 @@ my $html = << 'EOS';
   </head>
   <body>
 EOS
+
+# Make this cumulative across dists as builds can be disappearing from
+# experimental (decruft), and we would miss Build-Attempted/Failed
+# cases:
+my @allarchs;
 foreach my $dist (qw(testing unstable experimental)) {
   # FIXME: A few hours can happen until a built package can be seen
   # here. Another option would be ssh {ftp-master,release}.d.o dak ls
@@ -146,7 +151,6 @@ foreach my $dist (qw(testing unstable experimental)) {
   exit 1
     if $? != 0;
   my @allabis;
-  my @allarchs;
   my %v;
   foreach my $line (@lines) {
     next
