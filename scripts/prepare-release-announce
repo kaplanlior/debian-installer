@@ -77,7 +77,7 @@ open my $report, '>', $report_filename
 
 ### Determine release architectures:
 # FIXME: This is awful!
-my $ra = `rmadison -s testing -b deb bash`;
+my $ra = `rmadison -u debian -s testing -b deb bash`;
 chomp $ra;
 $ra =~ s/^.* \| //;
 my @ra = split ', ', $ra;
