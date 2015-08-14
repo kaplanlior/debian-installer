@@ -280,7 +280,7 @@ if (! -f $sources_dump) {
         my $ping = $ua->head("https://tracker.debian.org/pkg/$package");
         if ($ping->is_success) {
             my $source = $ping->request->uri;
-            $source =~ s{.*/(.*)\.html$}{$1};
+            $source =~ s{.*/(.*)$}{$1};
             push @{$sources{$source}{binaries}}, "$package";
             $sources{$source}{min} = $old
                 if not $sources{$source}{min} or
