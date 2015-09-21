@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 69900 -->
+<!-- original version: 69983 -->
 
   <sect2 arch="arm"><title>Drei verschiedene ARM-Portierungen</title>
 
@@ -205,7 +205,7 @@ die von Debian/armhf unterstützt werden</title>
   <variablelist>
 
       <varlistentry>
-        <term>Freescale MX53 Quickstart-Board</term>
+        <term>Freescale MX53 Quickstart-Board (MX53-LOCO-Board)</term>
         <listitem>
           <para>   
             Das IMX53QSB ist ein Entwickler-Board, das auf dem
@@ -286,8 +286,7 @@ eingebettete (embedded) Systeme</term>
              technisch gesehen auch ohne native Display-Treiber
              möglich. <quote>simplefb</quote> ist dabei für die Initialisierung
              der Display-Hardware auf den <quote>U-Boot</quote>-Bootloader
-             angewiesen, allerdings wird dies durch die U-Boot-Version in
-             &debian; 8 nicht unterstützt.
+             angewiesen.
           </para>
         </listitem>
       </varlistentry>
@@ -393,28 +392,6 @@ erfordern plattform-spezifische Kernel.
 <variablelist>
 
 <varlistentry>
-<term>IXP4xx</term>
-<listitem><para>   
-
-Die Intel-IXP4xx-Prozessor-Serie wird in NAS-Geräten
-(Network-Attached-Storage-Systeme &ndash; Geräte, die Speicherplatz im 
-Netzwerk zur Verfügung stellen) wie dem Linksys NSLU2 eingesetzt.
-
-</para><para>
-
-Während für diese Plattform Kernel-Unterstützung in &debian; 8 vorhanden
-ist, wird sie nicht durch den &d-i; unterstützt. Es ist allerdings möglich,
-bei vorhandenen Installationen ein <quote>dist-upgrade</quote>
-(System-Upgrade) von &debian; 7 auf &debian; 8 durchzuführen.
-Aufgrund des kleinen RAM-Speichers, den die IXP4xx-Systeme haben, ist
-es aber erforderlich, dass vor dem Upgrade der Swap-Speicher aktiviert
-wird. Die Unterstützung für die IXP4xx-Plattform wird in &debian; 9
-komplett entfallen.
-
-</para></listitem>
-</varlistentry>   
-
-<varlistentry>
 <term>Kirkwood</term>
 <listitem><para>
 
@@ -425,9 +402,10 @@ unterstützt derzeit folgende Kirkwood-basierte Geräte: OpenRD
 (OpenRD-Base, OpenRD-Client und OpenRD-Ultimate), <ulink
 url="&url-arm-cyrius-sheevaplug;">Plug-Computer (SheevaPlug, GuruPlug und
 DreamPlug)</ulink>, <ulink url="&url-arm-cyrius-qnap-kirkwood;">QNAP
-Turbo Station</ulink> (alle TS-11x-, TS-21x- und TS-41x-Modelle) sowie
-LaCie NAS-Geräte (Network Space v2, Network Space Max v2, Internet Space v2, d2
-Network v2, 2Big Network v2 und 5Big Network v2).
+Turbo Station</ulink> (alle TS-11x-/TS-12x-, HS-210-, TS-21x-/TS-22x- und
+TS-41x-/TS-42x-Modelle sowie
+LaCie-NAS-Geräte (Network Space v2, Network Space Max v2, Internet Space v2,
+d2 Network v2, 2Big Network v2 und 5Big Network v2).
 
 </para></listitem>
 </varlistentry>
@@ -442,9 +420,8 @@ in einem Chip vereint. Es gibt viele Network-Attached-Storage-Geräte (NAS-Syste
 Geräte, die Speicherplatz im Netzwerk zur Verfügung stellen) auf dem Markt,
 die auf dem Orion-Chip basieren. &debian; unterstützt derzeit die folgenden
 Orion-basierten Geräte: <ulink
-url="&url-arm-cyrius-kuroboxpro;">Buffalo Kurobox</ulink>, <ulink
-url="&url-arm-cyrius-dns323;">D-Link DNS-323</ulink> und <ulink
-url="&url-arm-cyrius-mv2120;">HP mv2120</ulink>.
+url="&url-arm-cyrius-kuroboxpro;">Buffalo Kurobox</ulink>
+und <ulink url="&url-arm-cyrius-mv2120;">HP mv2120</ulink>.
 
 </para></listitem>
 </varlistentry>
@@ -465,34 +442,31 @@ Hardware nicht zur Verfügung steht.
 </para>
 </sect2>
 
-<sect2 arch="armel" id="armel-unsupported-platforms"><title>Plattformen, die
+<sect2 arch="armel" id="armel-unsupported-platforms"><title>Plattformen
+und Geräte, die
 nicht mehr von Debian/armel unterstützt werden</title>
 
 <variablelist>
 <varlistentry>
-<term>IOP32x</term>
+<term>IXP4xx</term>
 <listitem><para>
 
-Intels I/O-Prozessor-Serie (IOP) ist in einer Reihe von Produkten für
-Datenspeicherung und -verarbeitung zu finden, wie z.B. in dem <ulink
-url="&url-arm-cyrius-glantank;">GLAN Tank</ulink> von IO-Data und dem
-<ulink url="&url-arm-cyrius-n2100;">Thecus N2100</ulink>.
-Die IOP32x-Plattform wurde in &debian; 7 unterstützt, aber ab &debian; 8
-wird sie aufgrund von Hardware-Einschränkungen der Plattform,
-die sie für die Installation neuerer &debian;-Veröffentlichungen
-ungeeignet machen, nicht mehr unterstützt.
+Die Unterstützung für die Intel-IXP4xx-Plattform wurde in &debian; 9
+entfernt. Das Linksys-Gerät NSLU2 ist ein IXP4xx-basiertes Gerät und
+wird daher nicht mehr unterstützt.
 
 </para></listitem>
 </varlistentry>
 
 <varlistentry>
-<term>MV78xx0</term>
+<term>Orion5x</term>
 <listitem><para>
 
-Die MV78xx0-Plattform wurde auf dem Marvell DB-78xx0-BP
-Development-Board eingesetzt. Sie wurde in &debian; 7 mit einem
-plattform-spezifischen Kernel (basierend auf dem Linux-Kernel Version 3.2)
-unterstützt, wird jedoch ab &debian; 8 nicht mehr unterstützt.
+Die Unterstützung für die Orion5x-basierten Geräte D-Link DNS-323
+und Conceptronic CH3SNAS wurde in &debian; 9 entfernt.
+Der Linux-Kernel passt nicht mehr in den Flash-Speicher dieser Geräte.
+Andere Orion-Geräte wie Buffalo Kurobox und HP mv2120 werden noch
+weiter unterstützt.
 
 </para></listitem>
 </varlistentry>
