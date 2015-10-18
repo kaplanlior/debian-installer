@@ -999,16 +999,16 @@ d-i mirror/http/proxy string
 
 The password for the root account and name and password for a first regular
 user's account can be preseeded. For the passwords you can use either clear
-text values or MD5 <emphasis>hashes</emphasis>.
+text values or crypt(3) <emphasis>hashes</emphasis>.
 
 </para>
 <warning><para>
 
 Be aware that preseeding passwords is not completely secure as everyone
 with access to the preconfiguration file will have the knowledge of these
-passwords. Using MD5 hashes is considered slightly better in terms of
-security but it might also give a false sense of security as access to a
-MD5 hash allows for brute force attacks.
+passwords. Storing hashed passwords is considered secure unless a weak
+hashing algorithm like DES or MD5 is used which allow for bruteforce
+attacks. Recommended password hashing algorithms are SHA-256 and SHA512.
 
 </para></warning>
 
@@ -1022,8 +1022,8 @@ MD5 hash allows for brute force attacks.
 # Root password, either in clear text
 #d-i passwd/root-password password r00tme
 #d-i passwd/root-password-again password r00tme
-# or encrypted using an MD5 hash.
-#d-i passwd/root-password-crypted password [MD5 hash]
+# or encrypted using a crypt(3)  hash.
+#d-i passwd/root-password-crypted password [crypt(3) hash]
 
 # To create a normal user account.
 #d-i passwd/user-fullname string Debian User
@@ -1031,8 +1031,8 @@ MD5 hash allows for brute force attacks.
 # Normal user's password, either in clear text
 #d-i passwd/user-password password insecure
 #d-i passwd/user-password-again password insecure
-# or encrypted using an MD5 hash.
-#d-i passwd/user-password-crypted password [MD5 hash]
+# or encrypted using a crypt(3) hash.
+#d-i passwd/user-password-crypted password [crypt(3) hash]
 # Create the first user with the specified UID instead of the default.
 #d-i passwd/user-uid string 1010
 
@@ -1054,7 +1054,7 @@ authentication or <command>sudo</command>).
 </para><para>
 
 The following command (available from the <classname>whois</classname> package)
-can be used to generate an MD5 hash for a password:
+can be used to generate a SHA-512 based crypt(3) hash for a password:
 
 <informalexample><screen>
 mkpasswd -m sha-512
