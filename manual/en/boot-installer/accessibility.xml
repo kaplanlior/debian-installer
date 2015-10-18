@@ -57,17 +57,21 @@ url="&url-brltty-driver-help;"><classname>brltty</classname> website</ulink>.
 
 Serial braille displays cannot safely be automatically detected
 (since that may damage some of them). You thus need to append the
-<userinput>brltty=<replaceable>driver</replaceable>,<replaceable>port</replaceable>,<replaceable>table</replaceable></userinput>
-boot parameter to tell <classname>brltty</classname> which driver it
+<userinput>brltty=<replaceable>driver</replaceable>,<replaceable>port</replaceable></userinput>
+boot parameter to tell <classname>brltty</classname> which driver and port it
 should use. <replaceable>driver</replaceable> should be replaced by the
 two-letter driver code for your terminal (see the
 <ulink url="&url-brltty-manual;">BRLTTY manual</ulink>).
 <replaceable>port</replaceable> should be replaced by the name of the
 serial port the display is connected to, <userinput>ttyS0</userinput> is
-the default, <userinput>ttyUSB0</userinput> can be typically used when using a serial-to-USB converter. <replaceable>table</replaceable> is the name of the
+the default, <userinput>ttyUSB0</userinput> can be typically used when using a serial-to-USB converter.
+A third parameter can be provided, to choose the name of the
 braille table to be used (see the <ulink url="&url-brltty-manual;">BRLTTY
 manual</ulink>); the English table is the default. Note that the table can
-be changed later by entering the preference menu. Documentation on key
+be changed later by entering the preference menu. A fourth parameter
+can be provided to pass parameters to the braille driver, such as
+<userinput>protocol=foo</userinput> which is needed for some rare models.
+Documentation on key
 bindings for braille devices is available on the <ulink
 url="&url-brltty-driver-help;"><classname>brltty</classname> website</ulink>.
 
