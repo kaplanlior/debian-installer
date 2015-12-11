@@ -60,7 +60,7 @@ EOF
 
 	./hooks/post-update
 
-	git config --replace-all hooks.mailinglist "debian-installer_cvs@packages.qa.debian.org"
+	git config --replace-all hooks.mailinglist "dispatch+debian-installer_vcs@tracker.debian.org"
 	git config --replace-all hooks.replyto "debian-boot@lists.debian.org"
 	# remove obsolete CIA hook
 	git config --unset hooks.cia-project || [ $? = 5 ]  # do not die when not set
