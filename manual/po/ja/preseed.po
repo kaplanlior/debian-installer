@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2015-05-25 11:27+0000\n"
+"POT-Creation-Date: 2015-12-24 22:15+0000\n"
 "PO-Revision-Date: 2013-10-06 22:57+0900\n"
 "Last-Translator: KURASAWA Nozomu (nabetaro) <nabetaro@debian.or.jp>\n"
 "Language-Team: Japanese <debian-japanese@lists.debian.org>\n"
@@ -31,7 +31,7 @@ msgstr ""
 "トールを自動化するものです。"
 
 #. Tag: para
-#: preseed.xml:23 preseed.xml:698
+#: preseed.xml:23 preseed.xml:701
 #, no-c-format
 msgid ""
 "The configuration fragments used in this appendix are also available as an "
@@ -116,7 +116,7 @@ msgid "initrd"
 msgstr "initrd"
 
 #. Tag: entry
-#: preseed.xml:70 preseed.xml:538
+#: preseed.xml:70 preseed.xml:541
 #, no-c-format
 msgid "file"
 msgstr "file"
@@ -135,8 +135,8 @@ msgstr "CD/DVD"
 
 #. Tag: entry
 #: preseed.xml:77 preseed.xml:78 preseed.xml:79 preseed.xml:89 preseed.xml:91
-#: preseed.xml:94 preseed.xml:95 preseed.xml:99 preseed.xml:100
-#: preseed.xml:104 preseed.xml:106 preseed.xml:109 preseed.xml:111
+#: preseed.xml:94 preseed.xml:95 preseed.xml:99 preseed.xml:100 preseed.xml:104
+#: preseed.xml:106 preseed.xml:109 preseed.xml:111
 #, no-c-format
 msgid "<entry>yes</entry>"
 msgstr "<entry>yes</entry>"
@@ -197,14 +197,24 @@ msgstr "generic"
 
 #. Tag: para
 #: preseed.xml:117
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "An important difference between the preseeding methods is the point at "
+#| "which the preconfiguration file is loaded and processed. For initrd "
+#| "preseeding this is right at the start of the installation, before the "
+#| "first question is even asked. For file preseeding this is after the CD or "
+#| "CD image has been loaded. For network preseeding it is only after the "
+#| "network has been configured."
 msgid ""
 "An important difference between the preseeding methods is the point at which "
 "the preconfiguration file is loaded and processed. For initrd preseeding "
 "this is right at the start of the installation, before the first question is "
-"even asked. For file preseeding this is after the CD or CD image has been "
-"loaded. For network preseeding it is only after the network has been "
-"configured."
+"even asked. Preseeding from the kernel command line happens just after. It "
+"is thus possible to override configuration set in the initrd by editing the "
+"kernel command line (either in the bootloader configuration or manually at "
+"boot time for bootloaders that allow it). For file preseeding this is after "
+"the CD or CD image has been loaded. For network preseeding it is only after "
+"the network has been configured."
 msgstr ""
 "preseed 方法の重要な違いは、事前設定ファイルを読込・処理するポイントです。"
 "initrd preseed では、インストールの始め (最初の質問が行われる前) に読み込まれ"
@@ -212,7 +222,7 @@ msgstr ""
 "preseed では、ネットワークの設定の後でないと読み込まれません。"
 
 #. Tag: para
-#: preseed.xml:126
+#: preseed.xml:129
 #, fuzzy, no-c-format
 #| msgid ""
 #| "Obviously, any questions that have been processed before the "
@@ -234,7 +244,7 @@ msgstr ""
 "問が出ないようにする方法を提供しています。"
 
 #. Tag: para
-#: preseed.xml:135
+#: preseed.xml:138
 #, fuzzy, no-c-format
 #| msgid ""
 #| "In order to avoid the questions that would normally appear before the "
@@ -261,13 +271,13 @@ msgstr ""
 "auto\"/> をご覧ください。"
 
 #. Tag: title
-#: preseed.xml:149
+#: preseed.xml:152
 #, no-c-format
 msgid "Limitations"
 msgstr "制限"
 
 #. Tag: para
-#: preseed.xml:150
+#: preseed.xml:153
 #, no-c-format
 msgid ""
 "Although most questions used by &d-i; can be preseeded using this method, "
@@ -281,13 +291,13 @@ msgstr ""
 "いと言うことです。"
 
 #. Tag: title
-#: preseed.xml:224
+#: preseed.xml:227
 #, no-c-format
 msgid "Using preseeding"
 msgstr "preseed の利用"
 
 #. Tag: para
-#: preseed.xml:225
+#: preseed.xml:228
 #, no-c-format
 msgid ""
 "You will first need to create a preconfiguration file and place it in the "
@@ -307,7 +317,7 @@ msgstr ""
 "は、この文書では扱いません。&d-i; の開発者向け文書を当たってください。"
 
 #. Tag: para
-#: preseed.xml:236
+#: preseed.xml:239
 #, no-c-format
 msgid ""
 "An example preconfiguration file that you can use as basis for your own "
@@ -319,13 +329,13 @@ msgstr ""
 "います。"
 
 #. Tag: title
-#: preseed.xml:245
+#: preseed.xml:248
 #, no-c-format
 msgid "Loading the preconfiguration file"
 msgstr "事前設定ファイルの読み込み"
 
 #. Tag: para
-#: preseed.xml:246
+#: preseed.xml:249
 #, no-c-format
 msgid ""
 "If you are using initrd preseeding, you only have to make sure a file named "
@@ -338,7 +348,7 @@ msgstr ""
 "このファイルがあるか自動的にチェックし、読み込みます。"
 
 #. Tag: para
-#: preseed.xml:253
+#: preseed.xml:256
 #, no-c-format
 msgid ""
 "For the other preseeding methods you need to tell the installer what file to "
@@ -363,7 +373,7 @@ msgstr ""
 "filename> 行の最後にパラメータを追加します。</phrase>"
 
 #. Tag: para
-#: preseed.xml:266
+#: preseed.xml:269
 #, no-c-format
 msgid ""
 "If you do specify the preconfiguration file in the bootloader configuration, "
@@ -381,7 +391,7 @@ msgstr ""
 "タイムアウトを <literal>0</literal> にします。</phrase>"
 
 #. Tag: para
-#: preseed.xml:275
+#: preseed.xml:278
 #, no-c-format
 msgid ""
 "To make sure the installer gets the right preconfiguration file, you can "
@@ -395,7 +405,7 @@ msgstr ""
 "ストーラは事前設定ファイルを使用しません。"
 
 #. Tag: screen
-#: preseed.xml:284
+#: preseed.xml:287
 #, fuzzy, no-c-format
 #| msgid ""
 #| "Boot parameters to specify:\n"
@@ -445,7 +455,7 @@ msgstr ""
 "  preseed/file/checksum=5da499872becccfeda2c4872f9171c3d"
 
 #. Tag: para
-#: preseed.xml:286
+#: preseed.xml:289
 #, no-c-format
 msgid ""
 "Note that <filename>preseed/url</filename> can be shortened to just "
@@ -460,13 +470,13 @@ msgstr ""
 "<filename>preseed-md5</filename> に短縮できることに注意してください。"
 
 #. Tag: title
-#: preseed.xml:297
+#: preseed.xml:300
 #, no-c-format
 msgid "Using boot parameters to preseed questions"
 msgstr "preseed が質問するブートパラメータの利用"
 
 #. Tag: para
-#: preseed.xml:298
+#: preseed.xml:301
 #, no-c-format
 msgid ""
 "If a preconfiguration file cannot be used to preseed some steps, the install "
@@ -477,7 +487,7 @@ msgstr ""
 "ストーラ起動時のコマンドラインに与えることで、インストールを自動で行えます。"
 
 #. Tag: para
-#: preseed.xml:304
+#: preseed.xml:307
 #, no-c-format
 msgid ""
 "Boot parameters can also be used if you do not really want to use "
@@ -488,7 +498,7 @@ msgstr ""
 "使用します。有用な使用法のサンプルが、このマニュアルの別の場所にあります。"
 
 #. Tag: para
-#: preseed.xml:310
+#: preseed.xml:313
 #, no-c-format
 msgid ""
 "To set a value to be used inside &d-i;, just pass "
@@ -523,7 +533,7 @@ msgstr ""
 "ベースにコピーされず、関連パッケージの設定中使用されません。"
 
 #. Tag: para
-#: preseed.xml:333
+#: preseed.xml:336
 #, no-c-format
 msgid ""
 "Normally, preseeding a question in this way will mean that the question will "
@@ -537,7 +547,7 @@ msgstr ""
 "seenflag\"/> もご覧ください。"
 
 #. Tag: para
-#: preseed.xml:340
+#: preseed.xml:343
 #, no-c-format
 msgid ""
 "Note that some variables that are frequently set at the boot prompt have a "
@@ -554,7 +564,7 @@ msgstr ""
 "スがあり、これは <literal>tasksel:tasksel/first</literal> に変換されます。"
 
 #. Tag: para
-#: preseed.xml:349
+#: preseed.xml:352
 #, no-c-format
 msgid ""
 "A <quote>---</quote> in the boot options has special meaning. Kernel "
@@ -570,7 +580,7 @@ msgstr ""
 "的にフィルタをかけます。"
 
 #. Tag: para
-#: preseed.xml:358
+#: preseed.xml:361
 #, no-c-format
 msgid ""
 "Current linux kernels (2.6.9 and later) accept a maximum of 32 command line "
@@ -584,7 +594,7 @@ msgstr ""
 "ます (以前のカーネルではこの数字がもっと少ないです)。"
 
 #. Tag: para
-#: preseed.xml:366
+#: preseed.xml:369
 #, no-c-format
 msgid ""
 "For most installations some of the default options in your bootloader "
@@ -596,7 +606,7 @@ msgstr ""
 "るかもしれません。これにより preseed 用にもっとオプションを追加できます。"
 
 #. Tag: para
-#: preseed.xml:373
+#: preseed.xml:376
 #, no-c-format
 msgid ""
 "It may not always be possible to specify values with spaces for boot "
@@ -606,13 +616,13 @@ msgstr ""
 "うまくいくとは限りません。"
 
 #. Tag: title
-#: preseed.xml:382
+#: preseed.xml:385
 #, no-c-format
 msgid "Auto mode"
 msgstr "自動モード"
 
 #. Tag: para
-#: preseed.xml:383
+#: preseed.xml:386
 #, no-c-format
 msgid ""
 "There are several features of &debian; Installer that combine to allow "
@@ -624,7 +634,7 @@ msgstr ""
 "いくつかあります。"
 
 #. Tag: para
-#: preseed.xml:389
+#: preseed.xml:392
 #, no-c-format
 msgid ""
 "This is enabled by using the <literal>Automated install</literal> boot "
@@ -642,7 +652,7 @@ msgstr ""
 "linkend=\"boot-screen\"/>を見てください。</phrase>"
 
 #. Tag: para
-#: preseed.xml:398
+#: preseed.xml:401
 #, no-c-format
 msgid ""
 "To illustrate this, here are some examples that can be used at the boot "
@@ -667,7 +677,7 @@ msgstr ""
 "を取得するようになります。"
 
 #. Tag: para
-#: preseed.xml:412
+#: preseed.xml:415
 #, no-c-format
 msgid ""
 "The last part of that url (<literal>d-i/&releasename;/./preseed.cfg</"
@@ -702,7 +712,7 @@ msgstr ""
 "late_command.sh</literal> からファイルを取得します。"
 
 #. Tag: para
-#: preseed.xml:432
+#: preseed.xml:435
 #, no-c-format
 msgid ""
 "If there is no local DHCP or DNS infrastructure, or if you do not want to "
@@ -725,13 +735,13 @@ msgstr ""
 "</screen></informalexample> この方法は次のように動作します。"
 
 #. Tag: para
-#: preseed.xml:445
+#: preseed.xml:448
 #, no-c-format
 msgid "if the URL is missing a protocol, http is assumed,"
 msgstr "URL が見つからない場合、http だと仮定します。"
 
 #. Tag: para
-#: preseed.xml:448
+#: preseed.xml:451
 #, no-c-format
 msgid ""
 "if the hostname section contains no periods, it has the domain derived from "
@@ -740,7 +750,7 @@ msgstr ""
 "ホスト名セクションにピリオドがなければ、DHCP から引き出して追加します。"
 
 #. Tag: para
-#: preseed.xml:452
+#: preseed.xml:455
 #, no-c-format
 msgid ""
 "if there's no <literal>/</literal>'s after the hostname, then the default "
@@ -749,7 +759,7 @@ msgstr ""
 "ホスト名の後に <literal>/</literal> がなければ、デフォルトパスを追加します。"
 
 #. Tag: para
-#: preseed.xml:458
+#: preseed.xml:461
 #, no-c-format
 msgid ""
 "In addition to specifying the url, you can also specify settings that do not "
@@ -774,7 +784,7 @@ msgstr ""
 "ステムのタイプや、地域化を指定するのに使用できます。"
 
 #. Tag: para
-#: preseed.xml:472
+#: preseed.xml:475
 #, no-c-format
 msgid ""
 "It is of course possible to extend this concept, and if you do, it is "
@@ -793,7 +803,7 @@ msgstr ""
 "す。"
 
 #. Tag: para
-#: preseed.xml:482
+#: preseed.xml:485
 #, no-c-format
 msgid ""
 "The <literal>auto</literal> boot choice is not yet defined on all arches. "
@@ -817,7 +827,7 @@ msgstr ""
 "うになります。"
 
 #. Tag: para
-#: preseed.xml:496
+#: preseed.xml:499
 #, no-c-format
 msgid ""
 "Additional options that may be of interest while attempting to automate an "
@@ -831,7 +841,7 @@ msgstr ""
 "待つようになります。"
 
 #. Tag: para
-#: preseed.xml:505
+#: preseed.xml:508
 #, no-c-format
 msgid ""
 "An extensive example of how to use this framework, including example scripts "
@@ -846,13 +856,13 @@ msgstr ""
 "たくさんのすばらしい効果があります。"
 
 #. Tag: title
-#: preseed.xml:516
+#: preseed.xml:519
 #, no-c-format
 msgid "Aliases useful with preseeding"
 msgstr "preseed で利用できるエイリアス"
 
 #. Tag: para
-#: preseed.xml:517
+#: preseed.xml:520
 #, no-c-format
 msgid ""
 "The following aliases can be useful when using (auto mode) preseeding. Note "
@@ -866,271 +876,271 @@ msgstr ""
 "<literal>interface=eth0</literal> のようにです。"
 
 #. Tag: entry
-#: preseed.xml:530
+#: preseed.xml:533
 #, no-c-format
 msgid "priority"
 msgstr "priority"
 
 #. Tag: entry
-#: preseed.xml:530
+#: preseed.xml:533
 #, no-c-format
 msgid "debconf/priority"
 msgstr "debconf/priority"
 
 #. Tag: entry
-#: preseed.xml:531
+#: preseed.xml:534
 #, no-c-format
 msgid "<entry>fb</entry>"
 msgstr "<entry>fb</entry>"
 
 #. Tag: entry
-#: preseed.xml:531
+#: preseed.xml:534
 #, no-c-format
 msgid "debian-installer/framebuffer"
 msgstr "debian-installer/framebuffer"
 
 #. Tag: entry
-#: preseed.xml:532
+#: preseed.xml:535
 #, no-c-format
 msgid "language"
 msgstr "language"
 
 #. Tag: entry
-#: preseed.xml:532
+#: preseed.xml:535
 #, no-c-format
 msgid "debian-installer/language"
 msgstr "debian-installer/language"
 
 #. Tag: entry
-#: preseed.xml:533
+#: preseed.xml:536
 #, no-c-format
 msgid "country"
 msgstr "country"
 
 #. Tag: entry
-#: preseed.xml:533
+#: preseed.xml:536
 #, no-c-format
 msgid "debian-installer/country"
 msgstr "debian-installer/country"
 
 #. Tag: entry
-#: preseed.xml:534
+#: preseed.xml:537
 #, no-c-format
 msgid "locale"
 msgstr "locale"
 
 #. Tag: entry
-#: preseed.xml:534
+#: preseed.xml:537
 #, no-c-format
 msgid "debian-installer/locale"
 msgstr "debian-installer/locale"
 
 #. Tag: entry
-#: preseed.xml:535
+#: preseed.xml:538
 #, no-c-format
 msgid "theme"
 msgstr "theme"
 
 #. Tag: entry
-#: preseed.xml:535
+#: preseed.xml:538
 #, no-c-format
 msgid "debian-installer/theme"
 msgstr "debian-installer/theme"
 
 #. Tag: entry
-#: preseed.xml:536
+#: preseed.xml:539
 #, no-c-format
 msgid "auto"
 msgstr "auto"
 
 #. Tag: entry
-#: preseed.xml:536
+#: preseed.xml:539
 #, no-c-format
 msgid "auto-install/enable"
 msgstr "auto-install/enable"
 
 #. Tag: entry
-#: preseed.xml:537
+#: preseed.xml:540
 #, no-c-format
 msgid "classes"
 msgstr "classes"
 
 #. Tag: entry
-#: preseed.xml:537
+#: preseed.xml:540
 #, no-c-format
 msgid "auto-install/classes"
 msgstr "auto-install/classes"
 
 #. Tag: entry
-#: preseed.xml:538
+#: preseed.xml:541
 #, no-c-format
 msgid "preseed/file"
 msgstr "preseed/file"
 
 #. Tag: entry
-#: preseed.xml:539
+#: preseed.xml:542
 #, no-c-format
 msgid "<entry>url</entry>"
 msgstr "<entry>url</entry>"
 
 #. Tag: entry
-#: preseed.xml:539
+#: preseed.xml:542
 #, no-c-format
 msgid "preseed/url"
 msgstr "preseed/url"
 
 #. Tag: entry
-#: preseed.xml:540
+#: preseed.xml:543
 #, no-c-format
 msgid "domain"
 msgstr "domain"
 
 #. Tag: entry
-#: preseed.xml:540
+#: preseed.xml:543
 #, no-c-format
 msgid "netcfg/get_domain"
 msgstr "netcfg/get_domain"
 
 #. Tag: entry
-#: preseed.xml:541
+#: preseed.xml:544
 #, no-c-format
 msgid "hostname&nbsp;&nbsp;&nbsp;"
 msgstr "hostname&nbsp;&nbsp;&nbsp;"
 
 #. Tag: entry
-#: preseed.xml:541
+#: preseed.xml:544
 #, no-c-format
 msgid "netcfg/get_hostname"
 msgstr "netcfg/get_hostname"
 
 #. Tag: entry
-#: preseed.xml:542
+#: preseed.xml:545
 #, no-c-format
 msgid "interface"
 msgstr "interface"
 
 #. Tag: entry
-#: preseed.xml:542
+#: preseed.xml:545
 #, no-c-format
 msgid "netcfg/choose_interface"
 msgstr "netcfg/choose_interface"
 
 #. Tag: entry
-#: preseed.xml:543
+#: preseed.xml:546
 #, no-c-format
 msgid "protocol"
 msgstr "protocol"
 
 #. Tag: entry
-#: preseed.xml:543
+#: preseed.xml:546
 #, no-c-format
 msgid "mirror/protocol"
 msgstr "mirror/protocol"
 
 #. Tag: entry
-#: preseed.xml:544
+#: preseed.xml:547
 #, no-c-format
 msgid "suite"
 msgstr "suite"
 
 #. Tag: entry
-#: preseed.xml:544
+#: preseed.xml:547
 #, no-c-format
 msgid "mirror/suite"
 msgstr "mirror/suite"
 
 #. Tag: entry
-#: preseed.xml:545
+#: preseed.xml:548
 #, no-c-format
 msgid "modules"
 msgstr "modules"
 
 #. Tag: entry
-#: preseed.xml:545
+#: preseed.xml:548
 #, no-c-format
 msgid "anna/choose_modules"
 msgstr "anna/choose_modules"
 
 #. Tag: entry
-#: preseed.xml:546
+#: preseed.xml:549
 #, no-c-format
 msgid "recommends"
 msgstr "recommends"
 
 #. Tag: entry
-#: preseed.xml:546
+#: preseed.xml:549
 #, no-c-format
 msgid "base-installer/install-recommends"
 msgstr "base-installer/install-recommends"
 
 #. Tag: entry
-#: preseed.xml:547
+#: preseed.xml:550
 #, no-c-format
 msgid "tasks"
 msgstr "tasks"
 
 #. Tag: entry
-#: preseed.xml:547
+#: preseed.xml:550
 #, no-c-format
 msgid "tasksel:tasksel/first"
 msgstr "tasksel:tasksel/first"
 
 #. Tag: entry
-#: preseed.xml:548
+#: preseed.xml:551
 #, no-c-format
 msgid "desktop"
 msgstr "desktop"
 
 #. Tag: entry
-#: preseed.xml:548
+#: preseed.xml:551
 #, no-c-format
 msgid "tasksel:tasksel/desktop"
 msgstr "tasksel:tasksel/desktop"
 
 #. Tag: entry
-#: preseed.xml:549
+#: preseed.xml:552
 #, no-c-format
 msgid "dmraid"
 msgstr "dmraid"
 
 #. Tag: entry
-#: preseed.xml:549
+#: preseed.xml:552
 #, no-c-format
 msgid "disk-detect/dmraid/enable"
 msgstr "disk-detect/dmraid/enable"
 
 #. Tag: entry
-#: preseed.xml:550
+#: preseed.xml:553
 #, no-c-format
 msgid "keymap"
 msgstr "keymap"
 
 #. Tag: entry
-#: preseed.xml:550
+#: preseed.xml:553
 #, no-c-format
 msgid "keyboard-configuration/xkb-keymap"
 msgstr "keyboard-configuration/xkb-keymap"
 
 #. Tag: entry
-#: preseed.xml:551
+#: preseed.xml:554
 #, no-c-format
 msgid "preseed-md5"
 msgstr "preseed-md5"
 
 #. Tag: entry
-#: preseed.xml:551
+#: preseed.xml:554
 #, no-c-format
 msgid "preseed/file/checksum"
 msgstr "preseed/file/checksum"
 
 #. Tag: title
-#: preseed.xml:558
+#: preseed.xml:561
 #, no-c-format
 msgid "Using a DHCP server to specify preconfiguration files"
 msgstr "事前設定ファイルを指定するための DHCP の利用方法"
 
 #. Tag: para
-#: preseed.xml:559
+#: preseed.xml:562
 #, no-c-format
 msgid ""
 "It's also possible to use DHCP to specify a preconfiguration file to "
@@ -1149,7 +1159,7 @@ msgstr ""
 "す。"
 
 #. Tag: screen
-#: preseed.xml:570
+#: preseed.xml:573
 #, no-c-format
 msgid ""
 "if substring (option vendor-class-identifier, 0, 3) = \"d-i\" {\n"
@@ -1161,7 +1171,7 @@ msgstr ""
 "}"
 
 #. Tag: para
-#: preseed.xml:572
+#: preseed.xml:575
 #, no-c-format
 msgid ""
 "Note that the above example limits this filename to DHCP clients that "
@@ -1175,7 +1185,7 @@ msgstr ""
 "ンストールするのではなく、特定のホストに対して行うようにもできます。"
 
 #. Tag: para
-#: preseed.xml:579
+#: preseed.xml:582
 #, no-c-format
 msgid ""
 "A good way to use the DHCP preseeding is to only preseed values specific to "
@@ -1191,13 +1201,13 @@ msgstr ""
 "&debian; の完全自動インストールは、充分注意しなければ行うべきではありません。"
 
 #. Tag: title
-#: preseed.xml:593
+#: preseed.xml:596
 #, no-c-format
 msgid "Creating a preconfiguration file"
 msgstr "事前設定ファイルの作成"
 
 #. Tag: para
-#: preseed.xml:594
+#: preseed.xml:597
 #, no-c-format
 msgid ""
 "The preconfiguration file is in the format used by the <command>debconf-set-"
@@ -1209,13 +1219,13 @@ msgstr ""
 "トは以下のようになります。"
 
 #. Tag: screen
-#: preseed.xml:600
+#: preseed.xml:603
 #, no-c-format
 msgid "&lt;owner&gt; &lt;question name&gt; &lt;question type&gt; &lt;value&gt;"
 msgstr "&lt;所有者&gt; &lt;質問名&gt; &lt;質問タイプ&gt; &lt;値&gt;"
 
 #. Tag: para
-#: preseed.xml:602
+#: preseed.xml:605
 #, no-c-format
 msgid ""
 "There are a few rules to keep in mind when writing a preconfiguration file."
@@ -1224,7 +1234,7 @@ msgstr ""
 "ださい"
 
 #. Tag: para
-#: preseed.xml:609
+#: preseed.xml:612
 #, no-c-format
 msgid ""
 "Put only a single space or tab between type and value: any additional "
@@ -1235,7 +1245,7 @@ msgstr ""
 "したままにしてください。"
 
 #. Tag: para
-#: preseed.xml:613
+#: preseed.xml:616
 #, no-c-format
 msgid ""
 "A line can be split into multiple lines by appending a backslash "
@@ -1250,7 +1260,7 @@ msgstr ""
 "て、サポートしていません。"
 
 #. Tag: para
-#: preseed.xml:620
+#: preseed.xml:623
 #, no-c-format
 msgid ""
 "For debconf variables (templates) used only in the installer itself, the "
@@ -1267,7 +1277,7 @@ msgstr ""
 "テムの debconf データベースに伝播させます。"
 
 #. Tag: para
-#: preseed.xml:628
+#: preseed.xml:631
 #, no-c-format
 msgid ""
 "Most questions need to be preseeded using the values valid in English and "
@@ -1278,7 +1288,7 @@ msgstr ""
 "(<classname>partman</classname> など) 訳した値を使用できる質問もあります。"
 
 #. Tag: para
-#: preseed.xml:634
+#: preseed.xml:637
 #, no-c-format
 msgid ""
 "Some questions take a code as value instead of the English text that is "
@@ -1288,7 +1298,7 @@ msgstr ""
 "るものがあります。"
 
 #. Tag: para
-#: preseed.xml:640
+#: preseed.xml:643
 #, no-c-format
 msgid ""
 "The easiest way to create a preconfiguration file is to use the example file "
@@ -1298,7 +1308,7 @@ msgstr ""
 "にあるサンプルファイルを元にして作業することです。"
 
 #. Tag: para
-#: preseed.xml:645
+#: preseed.xml:648
 #, no-c-format
 msgid ""
 "An alternative method is to do a manual installation and then, after "
@@ -1312,7 +1322,7 @@ msgstr ""
 "を 1 ファイルに出力してください。"
 
 #. Tag: screen
-#: preseed.xml:652
+#: preseed.xml:655
 #, no-c-format
 msgid ""
 "$ debconf-get-selections --installer &gt; <replaceable>file</replaceable>\n"
@@ -1322,7 +1332,7 @@ msgstr ""
 "$ debconf-get-selections &gt;&gt; <replaceable>file</replaceable>"
 
 #. Tag: para
-#: preseed.xml:654
+#: preseed.xml:657
 #, no-c-format
 msgid ""
 "However, a file generated in this manner will have some items that should "
@@ -1333,7 +1343,7 @@ msgstr ""
 "どのユーザはサンプルファイルから始めるのがよいでしょう。"
 
 #. Tag: para
-#: preseed.xml:662
+#: preseed.xml:665
 #, no-c-format
 msgid ""
 "This method relies on the fact that, at the end of the installation, the "
@@ -1348,7 +1358,7 @@ msgstr ""
 "デフォルトでは root にのみ読み込みが許可されています。"
 
 #. Tag: para
-#: preseed.xml:670
+#: preseed.xml:673
 #, no-c-format
 msgid ""
 "The directory <filename>/var/log/installer</filename> and all files in it "
@@ -1360,7 +1370,7 @@ msgstr ""
 "除されます。"
 
 #. Tag: para
-#: preseed.xml:678
+#: preseed.xml:681
 #, no-c-format
 msgid ""
 "To check possible values for questions, you can use <command>nano</command> "
@@ -1376,7 +1386,7 @@ msgstr ""
 "い。"
 
 #. Tag: para
-#: preseed.xml:686
+#: preseed.xml:689
 #, no-c-format
 msgid ""
 "To check if the format of your preconfiguration file is valid before "
@@ -1388,13 +1398,13 @@ msgstr ""
 "replaceable></command> が使えます。"
 
 #. Tag: title
-#: preseed.xml:697
+#: preseed.xml:700
 #, no-c-format
 msgid "Contents of the preconfiguration file (for &releasename;)"
 msgstr "事前設定ファイルの内容 (&releasename; 用)"
 
 #. Tag: para
-#: preseed.xml:703
+#: preseed.xml:706
 #, no-c-format
 msgid ""
 "Note that this example is based on an installation for the Intel x86 "
@@ -1409,7 +1419,7 @@ msgstr ""
 "のアーキテクチャ用に適切な debconf 設定で置き換える必要があるでしょう。"
 
 #. Tag: para
-#: preseed.xml:711
+#: preseed.xml:714
 #, no-c-format
 msgid ""
 "Details on how the different Debian Installer components actually work can "
@@ -1419,13 +1429,13 @@ msgstr ""
 "詳細は、<xref linkend=\"module-details\"/> にあります。"
 
 #. Tag: title
-#: preseed.xml:719
+#: preseed.xml:722
 #, no-c-format
 msgid "Localization"
 msgstr "地域化"
 
 #. Tag: para
-#: preseed.xml:720
+#: preseed.xml:723
 #, no-c-format
 msgid ""
 "Setting localization values will only work if you are using initrd "
@@ -1436,7 +1446,7 @@ msgstr ""
 "の方法では、この質問をされた後にしか事前設定ファイルを読み込めません。"
 
 #. Tag: para
-#: preseed.xml:726
+#: preseed.xml:729
 #, no-c-format
 msgid ""
 "The locale can be used to specify both language and country and can be any "
@@ -1453,7 +1463,7 @@ msgstr ""
 "replaceable></userinput> としてください。"
 
 #. Tag: para
-#: preseed.xml:735
+#: preseed.xml:738
 #, no-c-format
 msgid ""
 "Although this method is very easy to use, it does not allow preseeding of "
@@ -1474,7 +1484,7 @@ msgstr ""
 "ブートパラメータで指定できます。"
 
 #. Tag: screen
-#: preseed.xml:750
+#: preseed.xml:753
 #, no-c-format
 msgid ""
 "# Preseeding only locale sets language, country and locale.\n"
@@ -1498,7 +1508,7 @@ msgstr ""
 "#d-i localechooser/supported-locales multiselect en_US.UTF-8, nl_NL.UTF-8"
 
 #. Tag: para
-#: preseed.xml:752
+#: preseed.xml:755
 #, no-c-format
 msgid ""
 "Keyboard configuration consists of selecting a keymap and (for non-latin "
@@ -1514,7 +1524,7 @@ msgstr ""
 "configuration</command> を実行することでのみ有効になります。"
 
 #. Tag: screen
-#: preseed.xml:760
+#: preseed.xml:763
 #, no-c-format
 msgid ""
 "# Keyboard selection.\n"
@@ -1526,7 +1536,7 @@ msgstr ""
 "# d-i keyboard-configuration/toggle select No toggling"
 
 #. Tag: para
-#: preseed.xml:762
+#: preseed.xml:765
 #, no-c-format
 msgid ""
 "To skip keyboard configuration, preseed <classname>keymap</classname> with "
@@ -1538,13 +1548,13 @@ msgstr ""
 "ネルのキーマップが有効になったままとなります。"
 
 #. Tag: title
-#: preseed.xml:774
+#: preseed.xml:777
 #, no-c-format
 msgid "Network configuration"
 msgstr "ネットワーク設定"
 
 #. Tag: para
-#: preseed.xml:775
+#: preseed.xml:778
 #, no-c-format
 msgid ""
 "Of course, preseeding the network configuration won't work if you're loading "
@@ -1559,7 +1569,7 @@ msgstr ""
 "タは、カーネルブートパラメータで渡すことになります。"
 
 #. Tag: para
-#: preseed.xml:783
+#: preseed.xml:786
 #, no-c-format
 msgid ""
 "If you need to pick a particular interface when netbooting before loading a "
@@ -1571,7 +1581,7 @@ msgstr ""
 "replaceable></userinput> のようにブートパラメータを使用してください。"
 
 #. Tag: para
-#: preseed.xml:789
+#: preseed.xml:792
 #, no-c-format
 msgid ""
 "Although preseeding the network configuration is normally not possible when "
@@ -1590,19 +1600,19 @@ msgstr ""
 "いうものです。"
 
 #. Tag: screen
-#: preseed.xml:799
+#: preseed.xml:802
 #, no-c-format
 msgid "kill-all-dhcp; netcfg"
 msgstr "kill-all-dhcp; netcfg"
 
 #. Tag: para
-#: preseed.xml:801
+#: preseed.xml:804
 #, no-c-format
 msgid "The following debconf variables are relevant for network configuration."
 msgstr "以下の debconf 変数は、ネットワークの設定と関係があります。"
 
 #. Tag: screen
-#: preseed.xml:807
+#: preseed.xml:810
 #, no-c-format
 msgid ""
 "# Disable network configuration entirely. This is useful for cdrom\n"
@@ -1742,7 +1752,7 @@ msgstr ""
 "#d-i hw-detect/load_firmware boolean true"
 
 #. Tag: para
-#: preseed.xml:809
+#: preseed.xml:812
 #, no-c-format
 msgid ""
 "Please note that <command>netcfg</command> will automatically determine the "
@@ -1763,13 +1773,13 @@ msgstr ""
 "できます。"
 
 #. Tag: title
-#: preseed.xml:825
+#: preseed.xml:828
 #, no-c-format
 msgid "Network console"
 msgstr "ネットワークコンソール"
 
 #. Tag: screen
-#: preseed.xml:827
+#: preseed.xml:830
 #, no-c-format
 msgid ""
 "# Use the following settings if you wish to make use of the network-console\n"
@@ -1789,13 +1799,13 @@ msgstr ""
 "#d-i network-console/password-again password r00tme"
 
 #. Tag: title
-#: preseed.xml:832
+#: preseed.xml:835
 #, no-c-format
 msgid "Mirror settings"
 msgstr "ミラーサイト設定"
 
 #. Tag: para
-#: preseed.xml:833
+#: preseed.xml:836
 #, no-c-format
 msgid ""
 "Depending on the installation method you use, a mirror may be used to "
@@ -1809,7 +1819,7 @@ msgstr ""
 "できます。"
 
 #. Tag: para
-#: preseed.xml:840
+#: preseed.xml:843
 #, no-c-format
 msgid ""
 "The parameter <classname>mirror/suite</classname> determines the suite for "
@@ -1819,7 +1829,7 @@ msgstr ""
 "用の組を設定します。"
 
 #. Tag: para
-#: preseed.xml:845
+#: preseed.xml:848
 #, no-c-format
 msgid ""
 "The parameter <classname>mirror/udeb/suite</classname> determines the suite "
@@ -1836,7 +1846,7 @@ msgstr ""
 "トーラは、自動的に正しい値を設定しますので、設定する必要はありません。"
 
 #. Tag: screen
-#: preseed.xml:856
+#: preseed.xml:859
 #, no-c-format
 msgid ""
 "# If you select ftp, the mirror/country string does not need to be set.\n"
@@ -1864,32 +1874,42 @@ msgstr ""
 "#d-i mirror/udeb/suite string testing"
 
 #. Tag: title
-#: preseed.xml:861
+#: preseed.xml:864
 #, no-c-format
 msgid "Account setup"
 msgstr "アカウント設定"
 
 #. Tag: para
-#: preseed.xml:862
-#, no-c-format
+#: preseed.xml:865
+#, fuzzy, no-c-format
+#| msgid ""
+#| "The password for the root account and name and password for a first "
+#| "regular user's account can be preseeded. For the passwords you can use "
+#| "either clear text values or MD5 <emphasis>hashes</emphasis>."
 msgid ""
 "The password for the root account and name and password for a first regular "
 "user's account can be preseeded. For the passwords you can use either clear "
-"text values or MD5 <emphasis>hashes</emphasis>."
+"text values or crypt(3) <emphasis>hashes</emphasis>."
 msgstr ""
 "root アカウント用のパスワードや、最初のユーザアカウントの名前・パスワードは "
 "preseed できます。パスワードには、平文か MD5 <emphasis>ハッシュ</emphasis>の"
 "どちらかを使用できます。"
 
 #. Tag: para
-#: preseed.xml:869
-#, no-c-format
+#: preseed.xml:872
+#, fuzzy, no-c-format
+#| msgid ""
+#| "Be aware that preseeding passwords is not completely secure as everyone "
+#| "with access to the preconfiguration file will have the knowledge of these "
+#| "passwords. Using MD5 hashes is considered slightly better in terms of "
+#| "security but it might also give a false sense of security as access to a "
+#| "MD5 hash allows for brute force attacks."
 msgid ""
 "Be aware that preseeding passwords is not completely secure as everyone with "
 "access to the preconfiguration file will have the knowledge of these "
-"passwords. Using MD5 hashes is considered slightly better in terms of "
-"security but it might also give a false sense of security as access to a MD5 "
-"hash allows for brute force attacks."
+"passwords. Storing hashed passwords is considered secure unless a weak "
+"hashing algorithm like DES or MD5 is used which allow for bruteforce "
+"attacks. Recommended password hashing algorithms are SHA-256 and SHA512."
 msgstr ""
 "パスワードを知っている事前設定ファイルに誰でもアクセスできるため、preseed の"
 "パスワードは、完全に安全というわけではないことを知っておいてください。MD5 "
@@ -1898,8 +1918,35 @@ msgstr ""
 "ん。"
 
 #. Tag: screen
-#: preseed.xml:879
-#, no-c-format
+#: preseed.xml:882
+#, fuzzy, no-c-format
+#| msgid ""
+#| "# Skip creation of a root account (normal user account will be able to\n"
+#| "# use sudo).\n"
+#| "#d-i passwd/root-login boolean false\n"
+#| "# Alternatively, to skip creation of a normal user account.\n"
+#| "#d-i passwd/make-user boolean false\n"
+#| "\n"
+#| "# Root password, either in clear text\n"
+#| "#d-i passwd/root-password password r00tme\n"
+#| "#d-i passwd/root-password-again password r00tme\n"
+#| "# or encrypted using an MD5 hash.\n"
+#| "#d-i passwd/root-password-crypted password [MD5 hash]\n"
+#| "\n"
+#| "# To create a normal user account.\n"
+#| "#d-i passwd/user-fullname string Debian User\n"
+#| "#d-i passwd/username string debian\n"
+#| "# Normal user's password, either in clear text\n"
+#| "#d-i passwd/user-password password insecure\n"
+#| "#d-i passwd/user-password-again password insecure\n"
+#| "# or encrypted using an MD5 hash.\n"
+#| "#d-i passwd/user-password-crypted password [MD5 hash]\n"
+#| "# Create the first user with the specified UID instead of the default.\n"
+#| "#d-i passwd/user-uid string 1010\n"
+#| "\n"
+#| "# The user account will be added to some standard initial groups. To\n"
+#| "# override that, use this.\n"
+#| "#d-i passwd/user-default-groups string audio cdrom video"
 msgid ""
 "# Skip creation of a root account (normal user account will be able to\n"
 "# use sudo).\n"
@@ -1910,8 +1957,8 @@ msgid ""
 "# Root password, either in clear text\n"
 "#d-i passwd/root-password password r00tme\n"
 "#d-i passwd/root-password-again password r00tme\n"
-"# or encrypted using an MD5 hash.\n"
-"#d-i passwd/root-password-crypted password [MD5 hash]\n"
+"# or encrypted using a crypt(3)  hash.\n"
+"#d-i passwd/root-password-crypted password [crypt(3) hash]\n"
 "\n"
 "# To create a normal user account.\n"
 "#d-i passwd/user-fullname string Debian User\n"
@@ -1919,8 +1966,8 @@ msgid ""
 "# Normal user's password, either in clear text\n"
 "#d-i passwd/user-password password insecure\n"
 "#d-i passwd/user-password-again password insecure\n"
-"# or encrypted using an MD5 hash.\n"
-"#d-i passwd/user-password-crypted password [MD5 hash]\n"
+"# or encrypted using a crypt(3) hash.\n"
+"#d-i passwd/user-password-crypted password [crypt(3) hash]\n"
 "# Create the first user with the specified UID instead of the default.\n"
 "#d-i passwd/user-uid string 1010\n"
 "\n"
@@ -1956,7 +2003,7 @@ msgstr ""
 "#d-i passwd/user-default-groups string audio cdrom video"
 
 #. Tag: para
-#: preseed.xml:881
+#: preseed.xml:884
 #, no-c-format
 msgid ""
 "The <classname>passwd/root-password-crypted</classname> and "
@@ -1975,30 +2022,31 @@ msgstr ""
 "利です。"
 
 #. Tag: para
-#: preseed.xml:891
+#: preseed.xml:894
 #, fuzzy, no-c-format
 #| msgid ""
 #| "The following command can be used to generate an MD5 hash for a password:"
 msgid ""
 "The following command (available from the <classname>whois</classname> "
-"package) can be used to generate an MD5 hash for a password:"
+"package) can be used to generate a SHA-512 based crypt(3) hash for a "
+"password:"
 msgstr ""
 "以下のコマンドを、パスワードの MD5 ハッシュを生成するのに利用できます。"
 
 #. Tag: screen
-#: preseed.xml:896
+#: preseed.xml:899
 #, no-c-format
 msgid "mkpasswd -m sha-512"
 msgstr "mkpasswd -m sha-512"
 
 #. Tag: title
-#: preseed.xml:902
+#: preseed.xml:905
 #, no-c-format
 msgid "Clock and time zone setup"
 msgstr "時計と時間帯の設定"
 
 #. Tag: screen
-#: preseed.xml:904
+#: preseed.xml:907
 #, no-c-format
 msgid ""
 "# Controls whether or not the hardware clock is set to UTC.\n"
@@ -2026,13 +2074,13 @@ msgstr ""
 "#d-i clock-setup/ntp-server string ntp.example.com"
 
 #. Tag: title
-#: preseed.xml:909
+#: preseed.xml:912
 #, no-c-format
 msgid "Partitioning"
 msgstr "パーティション分割"
 
 #. Tag: para
-#: preseed.xml:910
+#: preseed.xml:913
 #, no-c-format
 msgid ""
 "Using preseeding to partition the harddisk is limited to what is supported "
@@ -2048,7 +2096,7 @@ msgstr ""
 "スタムレシピ、事前設定ファイルに書いたレシピから選択できます。"
 
 #. Tag: para
-#: preseed.xml:918
+#: preseed.xml:921
 #, no-c-format
 msgid ""
 "Preseeding of advanced partition setups using RAID, LVM and encryption is "
@@ -2060,7 +2108,7 @@ msgstr ""
 "な、完全な柔軟性があるわけではありません。"
 
 #. Tag: para
-#: preseed.xml:924
+#: preseed.xml:927
 #, no-c-format
 msgid ""
 "The examples below only provide basic information on the use of recipes. For "
@@ -2079,7 +2127,7 @@ msgstr ""
 "とに、サポートする機能が変更されることがありますので、注意してください。"
 
 #. Tag: para
-#: preseed.xml:938
+#: preseed.xml:941
 #, no-c-format
 msgid ""
 "The identification of disks is dependent on the order in which their drivers "
@@ -2091,13 +2139,13 @@ msgstr ""
 "なければなりません。"
 
 #. Tag: title
-#: preseed.xml:947
+#: preseed.xml:950
 #, no-c-format
 msgid "Partitioning example"
 msgstr "パーティション分割の例"
 
 #. Tag: screen
-#: preseed.xml:949
+#: preseed.xml:952
 #, fuzzy, no-c-format
 #| msgid ""
 #| "# If the system has free space you can choose to only partition that "
@@ -2330,13 +2378,13 @@ msgstr ""
 "d-i partman/confirm_nooverwrite boolean true"
 
 #. Tag: title
-#: preseed.xml:953
+#: preseed.xml:956
 #, no-c-format
 msgid "Partitioning using RAID"
 msgstr "RAID を用いたパーティション分割"
 
 #. Tag: para
-#: preseed.xml:954
+#: preseed.xml:957
 #, no-c-format
 msgid ""
 "You can also use preseeding to set up partitions on software RAID arrays. "
@@ -2348,7 +2396,7 @@ msgstr ""
 "成、スペアデバイスの指定です。"
 
 #. Tag: para
-#: preseed.xml:960
+#: preseed.xml:963
 #, no-c-format
 msgid ""
 "If you are using RAID 1, you can preseed grub to install to all devices used "
@@ -2358,7 +2406,7 @@ msgstr ""
 "preseed で探せます。<xref linkend=\"preseed-bootloader\"/> をご覧ください。"
 
 #. Tag: para
-#: preseed.xml:967
+#: preseed.xml:970
 #, no-c-format
 msgid ""
 "This type of automated partitioning is easy to get wrong. It is also "
@@ -2374,7 +2422,7 @@ msgstr ""
 "い。"
 
 #. Tag: screen
-#: preseed.xml:977
+#: preseed.xml:980
 #, no-c-format
 msgid ""
 "# The method should be set to \"raid\".\n"
@@ -2478,13 +2526,13 @@ msgstr ""
 "d-i partman/confirm_nooverwrite boolean true"
 
 #. Tag: title
-#: preseed.xml:982
+#: preseed.xml:985
 #, no-c-format
 msgid "Controlling how partitions are mounted"
 msgstr "パーティションマウント法の制御"
 
 #. Tag: para
-#: preseed.xml:983
+#: preseed.xml:986
 #, no-c-format
 msgid ""
 "Normally, filesystems are mounted using a universally unique identifier "
@@ -2502,7 +2550,7 @@ msgstr ""
 "マウントされます。"
 
 #. Tag: para
-#: preseed.xml:992
+#: preseed.xml:995
 #, no-c-format
 msgid ""
 "Devices with stable names, such as LVM logical volumes, will continue to use "
@@ -2512,7 +2560,7 @@ msgstr ""
 "され続けます。"
 
 #. Tag: para
-#: preseed.xml:999
+#: preseed.xml:1002
 #, no-c-format
 msgid ""
 "Traditional device names may change based on the order in which the kernel "
@@ -2527,7 +2575,7 @@ msgstr ""
 "す。こうなってしまうと、起動時の挙動が不定になってしまいます。"
 
 #. Tag: screen
-#: preseed.xml:1009
+#: preseed.xml:1012
 #, no-c-format
 msgid ""
 "# The default is to mount by UUID, but you can also choose \"traditional\" "
@@ -2545,13 +2593,13 @@ msgstr ""
 "#d-i partman/mount_style select uuid"
 
 #. Tag: title
-#: preseed.xml:1015
+#: preseed.xml:1018
 #, no-c-format
 msgid "Base system installation"
 msgstr "基本システムのインストール"
 
 #. Tag: para
-#: preseed.xml:1016
+#: preseed.xml:1019
 #, no-c-format
 msgid ""
 "There is actually not very much that can be preseeded for this stage of the "
@@ -2562,8 +2610,20 @@ msgstr ""
 "カーネルのインストールに関するものだけです。"
 
 #. Tag: screen
-#: preseed.xml:1023
-#, no-c-format
+#: preseed.xml:1026
+#, fuzzy, no-c-format
+#| msgid ""
+#| "# Configure APT to not install recommended packages by default. Use of "
+#| "this\n"
+#| "# option can result in an incomplete system and should only be used by "
+#| "very\n"
+#| "# experienced users.\n"
+#| "#d-i base-installer/install-recommends boolean false\n"
+#| "\n"
+#| "# The kernel image (meta) package to be installed; \"none\" can be used "
+#| "if no\n"
+#| "# kernel is to be installed.\n"
+#| "#d-i base-installer/kernel/image string &kernelpackage;-586"
 msgid ""
 "# Configure APT to not install recommended packages by default. Use of this\n"
 "# option can result in an incomplete system and should only be used by very\n"
@@ -2573,7 +2633,7 @@ msgid ""
 "# The kernel image (meta) package to be installed; \"none\" can be used if "
 "no\n"
 "# kernel is to be installed.\n"
-"#d-i base-installer/kernel/image string &kernelpackage;-586"
+"#d-i base-installer/kernel/image string &kernelpackage;-686"
 msgstr ""
 "# Configure APT to not install recommended packages by default. Use of this\n"
 "# option can result in an incomplete system and should only be used by very\n"
@@ -2586,13 +2646,13 @@ msgstr ""
 "#d-i base-installer/kernel/image string &kernelpackage;-586"
 
 #. Tag: title
-#: preseed.xml:1028
+#: preseed.xml:1031
 #, no-c-format
 msgid "Apt setup"
 msgstr "apt 設定"
 
 #. Tag: para
-#: preseed.xml:1029
+#: preseed.xml:1032
 #, no-c-format
 msgid ""
 "Setup of the <filename>/etc/apt/sources.list</filename> and basic "
@@ -2605,7 +2665,7 @@ msgstr ""
 "に、他の (ローカルな) リポジトリを追加できます。"
 
 #. Tag: screen
-#: preseed.xml:1037
+#: preseed.xml:1040
 #, fuzzy, no-c-format
 #| msgid ""
 #| "# You can choose to install non-free and contrib software.\n"
@@ -2691,13 +2751,13 @@ msgstr ""
 "#d-i debian-installer/allow_unauthenticated boolean true"
 
 #. Tag: title
-#: preseed.xml:1042
+#: preseed.xml:1045
 #, no-c-format
 msgid "Package selection"
 msgstr "パッケージ選択"
 
 #. Tag: para
-#: preseed.xml:1043
+#: preseed.xml:1046
 #, no-c-format
 msgid ""
 "You can choose to install any combination of tasks that are available. "
@@ -2707,84 +2767,84 @@ msgstr ""
 "スクを以下に書き出します。"
 
 #. Tag: para
-#: preseed.xml:1051
+#: preseed.xml:1054
 #, fuzzy, no-c-format
 #| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>standard</userinput> (standard tools)"
 msgstr "<userinput>desktop</userinput>"
 
 #. Tag: para
-#: preseed.xml:1054
+#: preseed.xml:1057
 #, fuzzy, no-c-format
 #| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>desktop</userinput> (graphical desktop)"
 msgstr "<userinput>desktop</userinput>"
 
 #. Tag: para
-#: preseed.xml:1057
+#: preseed.xml:1060
 #, fuzzy, no-c-format
 #| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>gnome-desktop</userinput> (Gnome desktop)"
 msgstr "<userinput>desktop</userinput>"
 
 #. Tag: para
-#: preseed.xml:1060
+#: preseed.xml:1063
 #, fuzzy, no-c-format
 #| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>xfce-desktop</userinput> (XFCE desktop)"
 msgstr "<userinput>desktop</userinput>"
 
 #. Tag: para
-#: preseed.xml:1063
+#: preseed.xml:1066
 #, fuzzy, no-c-format
 #| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>kde-desktop</userinput> (KDE desktop)"
 msgstr "<userinput>desktop</userinput>"
 
 #. Tag: para
-#: preseed.xml:1066
+#: preseed.xml:1069
 #, fuzzy, no-c-format
 #| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>cinnamon-desktop</userinput> (Cinnamon desktop)"
 msgstr "<userinput>desktop</userinput>"
 
 #. Tag: para
-#: preseed.xml:1069
+#: preseed.xml:1072
 #, fuzzy, no-c-format
 #| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>mate-desktop</userinput> (MATE desktop)"
 msgstr "<userinput>desktop</userinput>"
 
 #. Tag: para
-#: preseed.xml:1072
+#: preseed.xml:1075
 #, fuzzy, no-c-format
 #| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>lxde-desktop</userinput> (LXDE desktop)"
 msgstr "<userinput>desktop</userinput>"
 
 #. Tag: para
-#: preseed.xml:1075
+#: preseed.xml:1078
 #, fuzzy, no-c-format
 #| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>web-server</userinput> (web server)"
 msgstr "<userinput>desktop</userinput>"
 
 #. Tag: para
-#: preseed.xml:1078
+#: preseed.xml:1081
 #, fuzzy, no-c-format
 #| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>print-server</userinput> (print server)"
 msgstr "<userinput>desktop</userinput>"
 
 #. Tag: para
-#: preseed.xml:1081
+#: preseed.xml:1084
 #, fuzzy, no-c-format
 #| msgid "<userinput>desktop</userinput>"
 msgid "<userinput>ssh-server</userinput> (SSH server)"
 msgstr "<userinput>desktop</userinput>"
 
 #. Tag: para
-#: preseed.xml:1086
+#: preseed.xml:1089
 #, no-c-format
 msgid ""
 "You can also choose to install no tasks, and force the installation of a set "
@@ -2796,7 +2856,7 @@ msgstr ""
 "クは常に含めるのをお勧めします。"
 
 #. Tag: para
-#: preseed.xml:1092
+#: preseed.xml:1095
 #, no-c-format
 msgid ""
 "If you want to install some individual packages in addition to packages "
@@ -2811,7 +2871,7 @@ msgstr ""
 "か空白で区切ったパッケージのリストを取れます。"
 
 #. Tag: screen
-#: preseed.xml:1102
+#: preseed.xml:1105
 #, no-c-format
 msgid ""
 "#tasksel tasksel/first multiselect standard, web-server, kde-desktop\n"
@@ -2843,13 +2903,13 @@ msgstr ""
 "#popularity-contest popularity-contest/participate boolean false"
 
 #. Tag: title
-#: preseed.xml:1107
+#: preseed.xml:1110
 #, no-c-format
 msgid "Boot loader installation"
 msgstr "ブートローダのインストール"
 
 #. Tag: screen
-#: preseed.xml:1109
+#: preseed.xml:1112
 #, fuzzy, no-c-format
 #| msgid ""
 #| "<phrase arch=\"linux-any\"># Grub is the default boot loader (for x86). "
@@ -2985,7 +3045,7 @@ msgstr ""
 "#d-i debian-installer/add-kernel-opts string nousb"
 
 #. Tag: para
-#: preseed.xml:1111
+#: preseed.xml:1114
 #, no-c-format
 msgid ""
 "An MD5 hash for a password for <classname>grub</classname> can be generated "
@@ -2997,13 +3057,13 @@ msgstr ""
 "\"preseed-account\"/> にあるコマンドを使用して生成します。"
 
 #. Tag: title
-#: preseed.xml:1121
+#: preseed.xml:1124
 #, no-c-format
 msgid "Finishing up the installation"
 msgstr "インストールの仕上げ"
 
 #. Tag: screen
-#: preseed.xml:1123
+#: preseed.xml:1126
 #, no-c-format
 msgid ""
 "# During installations from serial console, the regular virtual consoles\n"
@@ -3043,13 +3103,13 @@ msgstr ""
 "#d-i debian-installer/exit/poweroff boolean true"
 
 #. Tag: title
-#: preseed.xml:1128
+#: preseed.xml:1131
 #, no-c-format
 msgid "Preseeding other packages"
 msgstr "他パッケージの preseed"
 
 #. Tag: screen
-#: preseed.xml:1130
+#: preseed.xml:1133
 #, no-c-format
 msgid ""
 "# Depending on what software you choose to install, or if things go wrong\n"
@@ -3069,19 +3129,19 @@ msgstr ""
 "#   debconf-get-selections >> file"
 
 #. Tag: title
-#: preseed.xml:1137
+#: preseed.xml:1140
 #, no-c-format
 msgid "Advanced options"
 msgstr "高度なオプション"
 
 #. Tag: title
-#: preseed.xml:1140
+#: preseed.xml:1143
 #, no-c-format
 msgid "Running custom commands during the installation"
 msgstr "インストール中のカスタムコマンド実行"
 
 #. Tag: para
-#: preseed.xml:1141
+#: preseed.xml:1144
 #, no-c-format
 msgid ""
 "A very powerful and flexible option offered by the preconfiguration tools is "
@@ -3091,7 +3151,7 @@ msgstr ""
 "るといった、とても強力で柔軟なオプションが存在します。"
 
 #. Tag: para
-#: preseed.xml:1147
+#: preseed.xml:1150
 #, no-c-format
 msgid ""
 "When the filesystem of the target system is mounted, it is available in "
@@ -3100,7 +3160,7 @@ msgid ""
 msgstr ""
 
 #. Tag: screen
-#: preseed.xml:1155
+#: preseed.xml:1158
 #, no-c-format
 msgid ""
 "# d-i preseeding is inherently not secure. Nothing in the installer checks\n"
@@ -3148,13 +3208,13 @@ msgstr ""
 "#d-i preseed/late_command string apt-install zsh; in-target chsh -s /bin/zsh"
 
 #. Tag: title
-#: preseed.xml:1160
+#: preseed.xml:1163
 #, no-c-format
 msgid "Using preseeding to change default values"
 msgstr "preseed を用いたデフォルト値変更"
 
 #. Tag: para
-#: preseed.xml:1161
+#: preseed.xml:1164
 #, no-c-format
 msgid ""
 "It is possible to use preseeding to change the default answer for a "
@@ -3180,7 +3240,7 @@ msgstr ""
 "やデバッグにも便利です。"
 
 #. Tag: para
-#: preseed.xml:1175
+#: preseed.xml:1178
 #, no-c-format
 msgid ""
 "Note that the <quote>d-i</quote> owner should only be used for variables "
@@ -3194,7 +3254,7 @@ msgstr ""
 "<xref linkend=\"preseed-bootparms\"/> の脚注をご覧ください。"
 
 #. Tag: para
-#: preseed.xml:1182
+#: preseed.xml:1185
 #, no-c-format
 msgid ""
 "If you are preseeding using boot parameters, you can make the installer ask "
@@ -3217,7 +3277,7 @@ msgstr ""
 "果を及ぼしません。"
 
 #. Tag: para
-#: preseed.xml:1192
+#: preseed.xml:1195
 #, no-c-format
 msgid ""
 "For more debugging information, use the boot parameter "
@@ -3231,13 +3291,13 @@ msgstr ""
 "トールスクリプトの動作について、より詳細な情報を出力してくれます。"
 
 #. Tag: title
-#: preseed.xml:1204
+#: preseed.xml:1207
 #, no-c-format
 msgid "Chainloading preconfiguration files"
 msgstr "事前設定ファイルのチェーンロード"
 
 #. Tag: para
-#: preseed.xml:1205
+#: preseed.xml:1208
 #, no-c-format
 msgid ""
 "It is possible to include other preconfiguration files from a "
@@ -3252,7 +3312,7 @@ msgstr ""
 "を指定する、という使い方ができます。"
 
 #. Tag: screen
-#: preseed.xml:1215
+#: preseed.xml:1218
 #, no-c-format
 msgid ""
 "# More than one file can be listed, separated by spaces; all will be\n"
@@ -3302,7 +3362,7 @@ msgstr ""
 "#d-i preseed/run string foo.sh"
 
 #. Tag: para
-#: preseed.xml:1217
+#: preseed.xml:1220
 #, no-c-format
 msgid ""
 "It is also possible to chainload from the initrd or file preseeding phase, "
