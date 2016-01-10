@@ -754,9 +754,12 @@ found in <xref linkend="module-details"/>.
   <title>Localization</title>
 <para>
 
-Setting localization values will only work if you are using initrd preseeding.
-With all other methods the preconfiguration file will only be loaded after
-these questions have been asked.
+During a normal install the questions about localization are asked first,
+so these values can only be preseeded via the initrd or kernel boot
+parameter methods. Auto mode (<xref linkend="preseed-auto"/>) includes
+the setting of <literal>auto-install/enable=true</literal> (normally via
+the <literal>auto</literal> preseed alias).  This delays the asking of
+the localisation questions, so that they can be preseeded by any method.
 
 </para><para>
 
