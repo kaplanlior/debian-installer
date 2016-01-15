@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 70043 -->
+<!-- original version: 70122 -->
 
 <!--
 Be carefull with the format of this file as it is parsed to generate
@@ -121,9 +121,14 @@ verschiedenen Installationsarten nutzen können.
 Ein wichtiger Unterschied zwischen den Voreinstellungsmethoden ist der
 Zeitpunkt, zu dem die Voreinstellungsdatei geladen und bearbeitet wird. Beim
 Voreinstellen per initrd ist dies direkt bei Start der Installation, noch
-bevor die erste Frage gestellt wird. Beim Voreinstellen über
-eine Voreinstellungsdatei (file) passiert
-dies, nachdem die CD oder das CD-Image geladen wurde. Beim Voreinstellen
+bevor die erste Frage gestellt wird. Bei
+Voreinstellung über die Kernel-Befehlszeile findet es direkt danach statt.
+Es ist daher möglich, die in der initrd festgesetzte Konfiguration über
+die Kernel-Befehlszeile wieder zu überschreiben (entweder über die
+Konfiguration des Bootloaders oder händisch beim Booten, falls der
+Bootloader dies erlaubt). Beim Voreinstellen über
+eine Voreinstellungsdatei (file) wird sie geladen,
+nachdem die CD oder das CD-Image geladen wurde. Beim Voreinstellen
 per Netzwerk kann die Datei erst geladen werden, nachdem das Netzwerk
 konfiguriert wurde.
 
@@ -807,9 +812,13 @@ funktionieren, finden Sie in <xref linkend="module-details"/>.
   <title>Lokalisierung</title>
 <para>
 
-Lokalisierungswerte voreinzustellen funktioniert nur, wenn Sie Voreinstellung
-per initrd benutzen. Bei allen anderen Methoden wird die Voreinstellungsdatei
-geladen, nachdem diese Fragen gestellt wurden.
+Bei einer normalen Installation sind die Fragen, die als allererstes
+gestellt werden, die über die Lokalisierung, daher können diese Werte nur
+initrd oder Kernel-Befehlszeile voreingestellt werden.
+Die Installation im Auto-Modus (<xref linkend="preseed-auto"/>) enthält die
+Einstellung <literal>auto-install/enable=true</literal> (normalerweise über den
+Alias <literal>auto</literal>). Diese verzögert die Fragen zur Lokalisierung,
+so dass diese dann über jegliche Methode voreingestellt werden können.
 
 </para><para>
 
