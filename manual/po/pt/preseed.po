@@ -1,13 +1,13 @@
 # Portuguese translation of the Debian Installer Manual
 #
 # Miguel Figueiredo <elmig@debianpt.org> & Marco Ferra <mferra@sdf.lonestar.org>, 2005, 2006.
-# Miguel Figueiredo <elmig@debianpt.org>, 2006-2015.
+# Miguel Figueiredo <elmig@debianpt.org>, 2006-2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: preseed\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2015-12-24 22:15+0000\n"
-"PO-Revision-Date: 2015-05-25 20:02+0100\n"
+"PO-Revision-Date: 2016-01-31 18:10+0000\n"
 "Last-Translator: Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team: Portuguese <kde-i18n-doc@kde.org>\n"
 "Language: pt\n"
@@ -207,7 +207,7 @@ msgstr "genérico"
 
 #. Tag: para
 #: preseed.xml:117
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "An important difference between the preseeding methods is the point at "
 #| "which the preconfiguration file is loaded and processed. For initrd "
@@ -226,12 +226,16 @@ msgid ""
 "the CD or CD image has been loaded. For network preseeding it is only after "
 "the network has been configured."
 msgstr ""
-"Uma diferença importante entre os métodos de preseed é a altura em que o "
+"Uma diferença importante entre os métodos de preseed é o momento em que o "
 "ficheiro de pré-configuração é carregado e processado. Para o preseed por "
 "initrd isto acontece logo no início da instalação, mesmo antes de ser "
-"colocada a primeira questão. Para preseed por ficheiro isto acontece após "
-"ter sido carregado o CD ou a imagem de CD. Para o preseed por rede acontece "
-"apenas após ter sido configurada a rede."
+"colocada a primeira questão. Preseeding a partir da linha de comandos do "
+"kernel acontece logo após. É por isso possível ultrapassar a configuração "
+"definida no initrd ao editar a linha de comandos do kernel (quer na "
+"configuração do gestor de arranque ou manualmente no arranque para os "
+"gestores de arranque que o permitam). Para o preseed por ficheiro isto "
+"acontece após ter sido carregado o CD ou a imagem de CD. Para o preseed por "
+"rede acontece apenas após ter sido configurada a rede."
 
 #. Tag: para
 #: preseed.xml:129
@@ -1937,7 +1941,7 @@ msgstr "Configuração de contas"
 
 #. Tag: para
 #: preseed.xml:865
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "The password for the root account and name and password for a first "
 #| "regular user's account can be preseeded. For the passwords you can use "
@@ -1947,13 +1951,13 @@ msgid ""
 "user's account can be preseeded. For the passwords you can use either clear "
 "text values or crypt(3) <emphasis>hashes</emphasis>."
 msgstr ""
-"À password para a conta de root, ao nome e à password para a primeira conta "
-"normal podem ser feitos preseed. Para as passwords pode utilizar valores em "
-"texto simples ou <emphasis>hashes</emphasis> MD5."
+"À palavra-passe para a conta de root, ao nome e à password para a primeira "
+"conta normal de utilizados podem ser feitos preseed. Para as palavras-passe "
+"pode utilizar valores em texto simples ou <emphasis>hashes</emphasis> crypt(3)."
 
 #. Tag: para
 #: preseed.xml:872
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Be aware that preseeding passwords is not completely secure as everyone "
 #| "with access to the preconfiguration file will have the knowledge of these "
@@ -1967,15 +1971,16 @@ msgid ""
 "hashing algorithm like DES or MD5 is used which allow for bruteforce "
 "attacks. Recommended password hashing algorithms are SHA-256 and SHA512."
 msgstr ""
-"Tenha em atenção que o preseed de passwords não é completamente seguro já "
-"que todos os que tiverem acesso ao ficheiro de pré-configuração ficam a "
-"conhecer essas passwords. Utilizar hashes MD5 é considerado ligeiramente "
-"melhor em termos de segurança mas também pode dar um falso sentido de "
-"segurança já que o acesso a hashes MD5 permite ataques \"à bruta\"."
+"Tenha em atenção que o preseed de palavras-passe não é completamente seguro "
+"já que todos os que tiverem acesso ao ficheiro de pré-configuração ficam a "
+"conhecer essas palavras-passe. Guardar palavras-passe hashed é considerado "
+"seguro a menos que seja utilizado um algoritmo fraco de hashing como o DES "
+"ou MD5 que permite ataques \"à bruta\". Os algoritmos de hashing de "
+"palavras-passe recomendados são SHA-256 e SHA512."
 
 #. Tag: screen
 #: preseed.xml:882
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "# Skip creation of a root account (normal user account will be able to\n"
 #| "# use sudo).\n"
@@ -2034,14 +2039,14 @@ msgstr ""
 "# Saltar a criação de uma conta root (a conta normal de utilizador\n"
 "# poderá utilizar o sudo).\n"
 "#d-i passwd/root-login boolean false\n"
-"# Em alternativa, para saltar a criação da conta normal de utilizador.\n"
+"# Em alternativa, para saltar a criação da conta de utilizador normal.\n"
 "#d-i passwd/make-user boolean false\n"
 "\n"
-"# Password de root, quer em texto simples\n"
+"# Palavra-passe de root, quer em texto simples\n"
 "#d-i passwd/root-password password r00tme\n"
 "#d-i passwd/root-password-again password r00tme\n"
-"# ou encriptada utilizando um hash de MD5.\n"
-"#d-i passwd/root-password-crypted password [MD5 hash]\n"
+"# ou encriptada utilizando uma hash crypt(3).\n"
+"#d-i passwd/root-password-crypted password [crypt(3) hash]\n"
 "\n"
 "# Para criar uma conta normal de utilizador.\n"
 "#d-i passwd/user-fullname string Debian User\n"
@@ -2049,14 +2054,14 @@ msgstr ""
 "# Password de utilizador normal, em texto simples\n"
 "#d-i passwd/user-password password insecure\n"
 "#d-i passwd/user-password-again password insecure\n"
-"# ou encriptada utilizando uma hash MD5.\n"
-"#d-i passwd/user-password-crypted password [MD5 hash]\n"
+"# ou encriptada utilizando uma hash crypt(3).\n"
+"#d-i passwd/user-password-crypted password [crypt(3) hash]\n"
 "# Criar o primeiro utilizador com o UID especificado em vez do valor\n"
 "# pré-definido\n"
 "#d-i passwd/user-uid string 1010\n"
 "\n"
 "# A conta de utilizador será acrescentada a alguns grupos standard\n"
-"# iniciais. Para saltar isso, utilize isto.\n"
+"# iniciais. Para ultrapassar isso, utilize isto.\n"
 "#d-i passwd/user-default-groups string audio cdrom video"
 
 #. Tag: para
@@ -2081,7 +2086,7 @@ msgstr ""
 
 #. Tag: para
 #: preseed.xml:894
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "The following command (available from the <classname>whois</classname> "
 #| "package) can be used to generate an MD5 hash for a password:"
@@ -2091,7 +2096,8 @@ msgid ""
 "password:"
 msgstr ""
 "Pode ser utilizado o seguinte comando (disponível a partir do pacote "
-"<classname>whois</classname>) para gerar um hash MD5 para uma palavra-passe:"
+"<classname>whois</classname>) para gerar um hash SHA-512 baseado em crypt(3) "
+"para uma palavra-passe:"
 
 #. Tag: screen
 #: preseed.xml:899
