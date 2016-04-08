@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: random-bits.xml\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2015-04-15 20:29+0000\n"
+"POT-Creation-Date: 2016-04-08 20:25+0000\n"
 "PO-Revision-Date: 2015-05-17 15:40+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: Korean <debian-l10n-korean@lists.debian.org>\n"
@@ -768,7 +768,12 @@ msgid ""
 "installation. You should also keep in mind that this procedure only gives "
 "the basic steps to set up a system. Additional installation and/or "
 "configuration steps may be needed."
-msgstr "대부분 수동으로 해야 하므로, 시스템의 대부분의 기본 설정을 직접 해야 할 수도 있습니다. 일반적인 설치를 할 경우보다 &debian; 및 &arch-kernel;에 대한 지식이 많이 필요합니다. 또 이렇게 설치해서 일반적인 설치와 똑같은 시스템이 될 것으로 기대할 수 없습니다. 또 시스템의 기본적인 단계에 지나지 않습니다. 추가로 설치 및 설정이 필요하게 될지도 모릅니다."
+msgstr ""
+"대부분 수동으로 해야 하므로, 시스템의 대부분의 기본 설정을 직접 해야 할 수도 "
+"있습니다. 일반적인 설치를 할 경우보다 &debian; 및 &arch-kernel;에 대한 지식"
+"이 많이 필요합니다. 또 이렇게 설치해서 일반적인 설치와 똑같은 시스템이 될 것"
+"으로 기대할 수 없습니다. 또 시스템의 기본적인 단계에 지나지 않습니다. 추가로 "
+"설치 및 설정이 필요하게 될지도 모릅니다."
 
 #. Tag: title
 #: random-bits.xml:355
@@ -1006,13 +1011,15 @@ msgid ""
 "install the <classname>ncurses-term</classname> package to get support for "
 "it."
 msgstr ""
-"이제 디스크에 진정한 &debian; 시스템을(많이 작지만) 손에 넣었습니다. 거기에 <command>chroot</command>하십시오: <informalexample><screen>\n"
+"이제 디스크에 진정한 &debian; 시스템을(많이 작지만) 손에 넣었습니다. 거기에 "
+"<command>chroot</command>하십시오: <informalexample><screen>\n"
 "# LANG=C.UTF-8 chroot /mnt/debinst /bin/bash\n"
 "</screen></informalexample> chroot 후, &debian; 기본 시스템과 호환되는\n"
 "터미널 정의가 필요할 수 있습니다. 예를 들어 다음과 같이합니다.\n"
 "<informalexample><screen>\n"
 "# export TERM=<replaceable>xterm-color</replaceable>\n"
-"</screen></informalexample> TERM 값에 따라 <classname>ncurses-term</classname> 패키지를 설치해야 할 수도 있습니다."
+"</screen></informalexample> TERM 값에 따라 <classname>ncurses-term</"
+"classname> 패키지를 설치해야 할 수도 있습니다."
 
 #. Tag: title
 #: random-bits.xml:508
@@ -1057,9 +1064,14 @@ msgstr ""
 
 #. Tag: screen
 #: random-bits.xml:528
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "# apt-get install makedev\n"
+#| "# mount none /proc -t proc\n"
+#| "# cd /dev\n"
+#| "# MAKEDEV generic"
 msgid ""
-"# apt-get install makedev\n"
+"# apt install makedev\n"
 "# mount none /proc -t proc\n"
 "# cd /dev\n"
 "# MAKEDEV generic"
@@ -1139,9 +1151,11 @@ msgid ""
 "customary. If you didn't use <userinput>mount -a</userinput>, be sure to "
 "mount proc before continuing:"
 msgstr ""
-"<filename>/etc/fstab</filename>를 만들어야 합니다. <informalexample><screen>\n"
+"<filename>/etc/fstab</filename>를 만들어야 합니다. "
+"<informalexample><screen>\n"
 "# editor /etc/fstab\n"
-"</screen></informalexample>다음 예제를 필요에 맞게 편집할 수 있습니다. <informalexample><screen>\n"
+"</screen></informalexample>다음 예제를 필요에 맞게 편집할 수 있습니다. "
+"<informalexample><screen>\n"
 " # /etc/fstab: static file system information.\n"
 "#\n"
 "# file system    mount point   type    options                  dump pass\n"
@@ -1158,15 +1172,23 @@ msgstr ""
 "/dev/XXX         /var          ext3    rw,nosuid,nodev          0    2\n"
 "/dev/XXX         /usr          ext3    rw,nodev                 0    2\n"
 "/dev/XXX         /home         ext3    rw,nosuid,nodev          0    2\n"
-"</screen></informalexample> <filename>/etc/fstab</filename>에서 지정한 파일 시스템을 모두 마운트 <userinput>mount-a</userinput>라고 합니다. 또한 파일 시스템을 하나하나 마운트하려면 다음과 같이하십시오: <informalexample><screen>\n"
+"</screen></informalexample> <filename>/etc/fstab</filename>에서 지정한 파일 "
+"시스템을 모두 마운트 <userinput>mount-a</userinput>라고 합니다. 또한 파일 시"
+"스템을 하나하나 마운트하려면 다음과 같이하십시오: <informalexample><screen>\n"
 "# mount /path   # e.g.: mount /usr\n"
-" </screen></informalexample> 현재 &debian; 시스템에서 이동식 미디어의 마운트 지점을 <filename>/media</filename>하고 있지만, <filename>/</filename>에 심볼릭 링크를 호환 유지하고 있습니다. 다음 예제와 같이 필요한 경우 작성하십시오: <informalexample><screen> \n"
+" </screen></informalexample> 현재 &debian; 시스템에서 이동식 미디어의 마운트 "
+"지점을 <filename>/media</filename>하고 있지만, <filename>/</filename>에 심볼"
+"릭 링크를 호환 유지하고 있습니다. 다음 예제와 같이 필요한 경우 작성하십시오: "
+"<informalexample><screen> \n"
 " # cd /media\n"
 "# mkdir cdrom0\n"
 "# ln -s cdrom0 cdrom\n"
 "# cd /\n"
 "# ln -s media/cdrom\n"
-"</screen></informalexample> proc 파일 시스템은 어디서나 몇 번이라도 장착할 수 있지만, 관습으로 <filename>/proc</filename>에 마운트합니다. <userinput>mount -a</userinput>를 사용하지 않으면 다음과 같이 진행하기 전에 꼭 proc을 마운트하십시오."
+"</screen></informalexample> proc 파일 시스템은 어디서나 몇 번이라도 장착할 "
+"수 있지만, 관습으로 <filename>/proc</filename>에 마운트합니다. "
+"<userinput>mount -a</userinput>를 사용하지 않으면 다음과 같이 진행하기 전에 "
+"꼭 proc을 마운트하십시오."
 
 #. Tag: screen
 #: random-bits.xml:576
@@ -1369,7 +1391,18 @@ msgstr "APT 설정하기"
 
 #. Tag: para
 #: random-bits.xml:654
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "Debootstrap will have created a very basic <filename>/etc/apt/sources."
+#| "list</filename> that will allow installing additional packages. However, "
+#| "you may want to add some additional sources, for example for source "
+#| "packages and security updates: <informalexample><screen>\n"
+#| "deb-src http://ftp.us.debian.org/debian &releasename; main\n"
+#| "\n"
+#| "deb http://security.debian.org/ &releasename;/updates main\n"
+#| "deb-src http://security.debian.org/ &releasename;/updates main\n"
+#| "</screen></informalexample> Make sure to run <userinput>aptitude update</"
+#| "userinput> after you have made changes to the sources list."
 msgid ""
 "Debootstrap will have created a very basic <filename>/etc/apt/sources.list</"
 "filename> that will allow installing additional packages. However, you may "
@@ -1379,7 +1412,7 @@ msgid ""
 "\n"
 "deb http://security.debian.org/ &releasename;/updates main\n"
 "deb-src http://security.debian.org/ &releasename;/updates main\n"
-"</screen></informalexample> Make sure to run <userinput>aptitude update</"
+"</screen></informalexample> Make sure to run <userinput>apt update</"
 "userinput> after you have made changes to the sources list."
 msgstr ""
 "debootstrap은 아주 기본적인 <filename>/etc/apt/sources.list</filename> 파일"
@@ -1401,13 +1434,21 @@ msgstr "로캘 및 키보드 설정하기"
 
 #. Tag: para
 #: random-bits.xml:671
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "To configure your locale settings to use a language other than English, "
+#| "install the <classname>locales</classname> support package and configure "
+#| "it. Currently the use of UTF-8 locales is recommended. "
+#| "<informalexample><screen>\n"
+#| "# aptitude install locales\n"
+#| "# dpkg-reconfigure locales\n"
+#| "</screen></informalexample> To configure your keyboard (if needed):"
 msgid ""
 "To configure your locale settings to use a language other than English, "
 "install the <classname>locales</classname> support package and configure it. "
 "Currently the use of UTF-8 locales is recommended. "
 "<informalexample><screen>\n"
-"# aptitude install locales\n"
+"# apt install locales\n"
 "# dpkg-reconfigure locales\n"
 "</screen></informalexample> To configure your keyboard (if needed):"
 msgstr ""
@@ -1420,9 +1461,12 @@ msgstr ""
 
 #. Tag: screen
 #: random-bits.xml:681
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "# aptitude install console-setup\n"
+#| "# dpkg-reconfigure keyboard-configuration"
 msgid ""
-"# aptitude install console-setup\n"
+"# apt install console-setup\n"
 "# dpkg-reconfigure keyboard-configuration"
 msgstr ""
 "# aptitude install console-setup\n"
@@ -1456,8 +1500,9 @@ msgstr ""
 
 #. Tag: screen
 #: random-bits.xml:699
-#, no-c-format
-msgid "# apt-cache search &kernelpackage;"
+#, fuzzy, no-c-format
+#| msgid "# apt-cache search &kernelpackage;"
+msgid "# apt search &kernelpackage;"
 msgstr "# apt-cache search &kernelpackage;"
 
 #. Tag: para
@@ -1468,8 +1513,10 @@ msgstr "다음 패키지 이름을 사용하려면 커널 패키지를 설치합
 
 #. Tag: screen
 #: random-bits.xml:705
-#, no-c-format
-msgid "# aptitude install &kernelpackage;-<replaceable>arch-etc</replaceable>"
+#, fuzzy, no-c-format
+#| msgid ""
+#| "# aptitude install &kernelpackage;-<replaceable>arch-etc</replaceable>"
+msgid "# apt install &kernelpackage;-<replaceable>arch-etc</replaceable>"
 msgstr "# aptitude install &kernelpackage;-<replaceable>arch-etc</replaceable>"
 
 #. Tag: title
@@ -1480,12 +1527,17 @@ msgstr "부트로더 설정하기"
 
 #. Tag: para
 #: random-bits.xml:712
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "To make your &debian-gnu; system bootable, set up your boot loader to "
+#| "load the installed kernel with your new root partition. Note that "
+#| "<command>debootstrap</command> does not install a boot loader, though you "
+#| "can use <command>aptitude</command> inside your &debian; chroot to do so."
 msgid ""
 "To make your &debian-gnu; system bootable, set up your boot loader to load "
 "the installed kernel with your new root partition. Note that "
-"<command>debootstrap</command> does not install a boot loader, though you "
-"can use <command>aptitude</command> inside your &debian; chroot to do so."
+"<command>debootstrap</command> does not install a boot loader, but you can "
+"use <command>apt</command> inside your &debian; chroot to do so."
 msgstr ""
 "&debian-gnu; 시스템을 시작하려면 설치한 커널을 루트 파티션에서 읽어들이도록 "
 "부트로더를 설치하십시오. <command>debootstrap</command> 부트 로더를 설치하지 "
@@ -1518,11 +1570,21 @@ msgstr ""
 
 #. Tag: para
 #: random-bits.xml:731
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "Installing and setting up <classname>grub2</classname> is as easy as: "
+#| "<informalexample><screen>\n"
+#| "# aptitude install grub-pc\n"
+#| "# grub-install /dev/<replaceable>sda</replaceable>\n"
+#| "# update-grub\n"
+#| "</screen></informalexample> The second command will install "
+#| "<command>grub2</command> (in this case in the MBR of <literal>sda</"
+#| "literal>). The last command will create a sane and working <filename>/"
+#| "boot/grub/grub.cfg</filename>."
 msgid ""
 "Installing and setting up <classname>grub2</classname> is as easy as: "
 "<informalexample><screen>\n"
-"# aptitude install grub-pc\n"
+"# apt install grub-pc\n"
 "# grub-install /dev/<replaceable>sda</replaceable>\n"
 "# update-grub\n"
 "</screen></informalexample> The second command will install <command>grub2</"
@@ -1635,12 +1697,33 @@ msgstr "원격 접근: SSH 설치 및 접근 설정"
 
 #. Tag: para
 #: random-bits.xml:777
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "In case you can login to the system via console, you can skip this "
+#| "section. If the system should be accessible via the network later on, you "
+#| "need to install SSH and set up access. <informalexample><screen>\n"
+#| "# aptitude install ssh\n"
+#| "</screen></informalexample> Root login with password is disabled by "
+#| "default, so setting up access can be done by setting a password and re-"
+#| "enable root login with password: <informalexample><screen>\n"
+#| "# passwd\n"
+#| "# editor /etc/ssh/sshd_config\n"
+#| "</screen></informalexample> This is the option to be enabled: "
+#| "<informalexample><screen>\n"
+#| "PermitRootLogin yes\n"
+#| "</screen></informalexample> Access can also be set up by adding an ssh "
+#| "key to the root account: <informalexample><screen>\n"
+#| "# mkdir /root/.ssh\n"
+#| "# cat &lt;&lt; EOF &gt; /root/.ssh/authorized_keys\n"
+#| "ssh-rsa ....\n"
+#| "EOF\n"
+#| "</screen></informalexample> Lastly, access can be set up by adding a non-"
+#| "root user and setting a password:"
 msgid ""
 "In case you can login to the system via console, you can skip this section. "
 "If the system should be accessible via the network later on, you need to "
 "install SSH and set up access. <informalexample><screen>\n"
-"# aptitude install ssh\n"
+"# apt install ssh\n"
 "</screen></informalexample> Root login with password is disabled by default, "
 "so setting up access can be done by setting a password and re-enable root "
 "login with password: <informalexample><screen>\n"
@@ -1697,15 +1780,23 @@ msgstr "마지막 처리"
 
 #. Tag: para
 #: random-bits.xml:807
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "As mentioned earlier, the installed system will be very basic. If you "
+#| "would like to make the system a bit more mature, there is an easy method "
+#| "to install all packages with <quote>standard</quote> priority: "
+#| "<informalexample><screen>\n"
+#| "# tasksel install standard\n"
+#| "</screen></informalexample> Of course, you can also just use "
+#| "<command>aptitude</command> to install packages individually."
 msgid ""
 "As mentioned earlier, the installed system will be very basic. If you would "
 "like to make the system a bit more mature, there is an easy method to "
 "install all packages with <quote>standard</quote> priority: "
 "<informalexample><screen>\n"
 "# tasksel install standard\n"
-"</screen></informalexample> Of course, you can also just use "
-"<command>aptitude</command> to install packages individually."
+"</screen></informalexample> Of course, you can also just use <command>apt</"
+"command> to install packages individually."
 msgstr ""
 "앞에서 말한 것처럼, 설치한 시스템은 아주 기초적인 시스템입니다. 시스템을 좀 "
 "더 괜찮게 만드려면, 쉬운 방법으로 <quote>standard</quote> 우선 순위의 모든 패"
@@ -1728,8 +1819,9 @@ msgstr ""
 
 #. Tag: screen
 #: random-bits.xml:824
-#, no-c-format
-msgid "# aptitude clean"
+#, fuzzy, no-c-format
+#| msgid "# aptitude clean"
+msgid "# apt clean"
 msgstr "# aptitude clean"
 
 #. Tag: title
