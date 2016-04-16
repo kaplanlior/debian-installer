@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: random-bits\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2016-04-08 20:25+0000\n"
-"PO-Revision-Date: 2015-04-18 11:00+0100\n"
+"PO-Revision-Date: 2016-04-16 19:00+0100\n"
 "Last-Translator: Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team: Portuguese <kde-i18n-doc@kde.org>\n"
 "Language: pt\n"
@@ -1089,7 +1089,7 @@ msgstr ""
 
 #. Tag: screen
 #: random-bits.xml:528
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "# apt-get install makedev\n"
 #| "# mount none /proc -t proc\n"
@@ -1101,7 +1101,7 @@ msgid ""
 "# cd /dev\n"
 "# MAKEDEV generic"
 msgstr ""
-"# apt-get install makedev\n"
+"# apt install makedev\n"
 "# mount none /proc -t proc\n"
 "# cd /dev\n"
 "# MAKEDEV generic"
@@ -1412,7 +1412,7 @@ msgstr "Configurar o Apt"
 
 #. Tag: para
 #: random-bits.xml:654
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Debootstrap will have created a very basic <filename>/etc/apt/sources."
 #| "list</filename> that will allow installing additional packages. However, "
@@ -1437,16 +1437,16 @@ msgid ""
 "userinput> after you have made changes to the sources list."
 msgstr ""
 "O debootstrap terá criado um <filename>/etc/apt/sources.list</filename> "
-"muito básico que permitirá instalar pacotes adicionais. No entanto, você "
+"muito básico que irá permitir instalar pacotes adicionais. No entanto, você "
 "poderá querer acrescentar algumas fontes adicionais, por exemplo para "
-"pacotes de código fonte e actualizações de segurança: "
+"pacotes de código-fonte e actualizações de segurança: "
 "<informalexample><screen>\n"
 "deb-src http://ftp.us.debian.org/debian &releasename; main\n"
 "\n"
 "deb http://security.debian.org/ &releasename;/updates main\n"
 "deb-src http://security.debian.org/ &releasename;/updates main\n"
-"</screen></informalexample> Assegure-se que corre <userinput>aptitude "
-"update</userinput> depois de ter feito alterações á lista de fontes."
+"</screen></informalexample> Assegure-se que corre <userinput>apt update"
+"</userinput> depois de ter feito alterações á lista de fontes."
 
 #. Tag: title
 #: random-bits.xml:670
@@ -1456,7 +1456,7 @@ msgstr "Configurar os Locales e o Teclado"
 
 #. Tag: para
 #: random-bits.xml:671
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "To configure your locale settings to use a language other than English, "
 #| "install the <classname>locales</classname> support package and configure "
@@ -1476,14 +1476,15 @@ msgid ""
 msgstr ""
 "Para configurar as suas definições de locale para utilizar outro idioma que "
 "não o Inglês, instale o pacote de suporte <classname>locales</classname> e "
-"configure-o: <informalexample><screen>\n"
-"# aptitude install locales\n"
+"configure-o. Atualmente é recomendado utilizar locales UTF-8. "
+"<informalexample><screen>\n"
+"# apt install locales\n"
 "# dpkg-reconfigure locales\n"
 "</screen></informalexample> Para configurar o seu teclado (se necessário):"
 
 #. Tag: screen
 #: random-bits.xml:681
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "# aptitude install console-setup\n"
 #| "# dpkg-reconfigure keyboard-configuration"
@@ -1491,7 +1492,7 @@ msgid ""
 "# apt install console-setup\n"
 "# dpkg-reconfigure keyboard-configuration"
 msgstr ""
-"# aptitude install console-setup\n"
+"# apt install console-setup\n"
 "# dpkg-reconfigure keyboard-configuration"
 
 #. Tag: para
@@ -1523,10 +1524,10 @@ msgstr ""
 
 #. Tag: screen
 #: random-bits.xml:699
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "# apt-cache search &kernelpackage;"
 msgid "# apt search &kernelpackage;"
-msgstr "# apt-cache search &kernelpackage;"
+msgstr "# apt search &kernelpackage;"
 
 #. Tag: para
 #: random-bits.xml:701
@@ -1538,11 +1539,11 @@ msgstr ""
 
 #. Tag: screen
 #: random-bits.xml:705
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "# aptitude install &kernelpackage;-<replaceable>arch-etc</replaceable>"
 msgid "# apt install &kernelpackage;-<replaceable>arch-etc</replaceable>"
-msgstr "# aptitude install &kernelpackage;-<replaceable>arch-etc</replaceable>"
+msgstr "# apt install &kernelpackage;-<replaceable>arch-etc</replaceable>"
 
 #. Tag: title
 #: random-bits.xml:711
@@ -1552,7 +1553,7 @@ msgstr "Configurar o Boot Loader"
 
 #. Tag: para
 #: random-bits.xml:712
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "To make your &debian-gnu; system bootable, set up your boot loader to "
 #| "load the installed kernel with your new root partition. Note that "
@@ -1564,11 +1565,10 @@ msgid ""
 "<command>debootstrap</command> does not install a boot loader, but you can "
 "use <command>apt</command> inside your &debian; chroot to do so."
 msgstr ""
-"Para tornar o seu sistema &debian-gnu; iniciável, prepare o gestor de "
-"arranque para carregar o kernel instalado com a sua nova partição raiz. Note "
-"que o <command>debootstrap</command> não instala um gestor de arranque, "
-"embora possa utilizar o <command>aptitude</command> dentro do seu chroot "
-"&debian; para o fazer."
+"Para tornar o seu sistema &debian-gnu; iniciável, faça o gestor de arranque "
+"carregar o kernel instalado com a sua nova partição raiz. Note que o "
+"<command>debootstrap</command> não instala um gestor de arranque, mas pode "
+"utilizar o <command>apt</command> dentro do seu chroot &debian; para o fazer."
 
 #. Tag: para
 #: random-bits.xml:719
@@ -1596,7 +1596,7 @@ msgstr ""
 
 #. Tag: para
 #: random-bits.xml:731
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Installing and setting up <classname>grub2</classname> is as easy as: "
 #| "<informalexample><screen>\n"
@@ -1620,7 +1620,7 @@ msgid ""
 msgstr ""
 "Instalar e configurar o <classname>grub2</classname> é tão fácil como: "
 "<informalexample><screen>\n"
-"# aptitude install grub-pc\n"
+"# apt install grub-pc\n"
 "# grub-install /dev/<replaceable>sda</replaceable>\n"
 "# update-grub\n"
 "</screen></informalexample> O segundo comando irá instalar o <command>grub2</"
@@ -1724,7 +1724,7 @@ msgstr "Acesso remoto: Instalar SSH e definir o acesso"
 
 #. Tag: para
 #: random-bits.xml:777
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "In case you can login to the system via console, you can skip this "
 #| "section. If the system should be accessible via the network later on, you "
@@ -1772,7 +1772,7 @@ msgstr ""
 "secção. Se o sistema deve posteriormente ser acessível através da rede, "
 "então necessita instalar SSH e definir o seu acesso. "
 "<informalexample><screen>\n"
-"# aptitude install ssh\n"
+"# apt install ssh\n"
 "</screen></informalexample> Por predefinição o login de root com palavra-"
 "passe está inactivo, por isso configurar o acesso pode ser feito definindo "
 "uma palavra-passe e activando o login de root com palavra-passe: "
@@ -1809,7 +1809,7 @@ msgstr "Últimos toques"
 
 #. Tag: para
 #: random-bits.xml:807
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "As mentioned earlier, the installed system will be very basic. If you "
 #| "would like to make the system a bit more mature, there is an easy method "
@@ -1827,13 +1827,13 @@ msgid ""
 "</screen></informalexample> Of course, you can also just use <command>apt</"
 "command> to install packages individually."
 msgstr ""
-"Como mencionado anteriormente, o sistema instalado será muito básico. Se "
-"quiser tornar o sistema um pouco mais maduro, existe um método fácil para "
+"Tal como mencionado anteriormente, o sistema instalado irá ser muito básico. "
+"Se quiser tornar o sistema um pouco mais maduro, existe um método fácil para "
 "instalar todos os pacotes com a prioridade <quote>standard</quote>: "
 "<informalexample><screen>\n"
 "# tasksel install standard\n"
 "</screen></informalexample> Claro que, pode também usar simplesmente o "
-"<command>aptitude</command> para instalar pacotes individualmente."
+"<command>apt</command> para instalar pacotes individualmente."
 
 #. Tag: para
 #: random-bits.xml:818
@@ -1849,10 +1849,10 @@ msgstr ""
 
 #. Tag: screen
 #: random-bits.xml:824
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "# aptitude clean"
 msgid "# apt clean"
-msgstr "# aptitude clean"
+msgstr "# apt clean"
 
 #. Tag: title
 #: random-bits.xml:835
