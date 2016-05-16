@@ -173,10 +173,15 @@ for p_dir in `real_contents packages_list | sort `; do
 	if [ ! -d $package/$version/po ]; then
 		mkdir -p $package/$version
 		pushd $package/$version >/dev/null
-		git clone $GITREPO/$package
-		pushd $package
-		git checkout -b tag $version || { echo "Unable to find $version in $package"; exit 1; }
-		popd
+		if [ "$package" != "yaboot-installer" ]; then
+			git clone $GITREPO/$package
+			pushd $package
+			git checkout -b tag $version || { echo "Unable to find $version in $package"; exit 1; }
+			popd
+		else
+			apt-get source $package=$version
+			mv $package-*/ $package
+		fi
 		cp -r $package/debian/po .
 	else
 		pushd $package/$version >/dev/null
