@@ -173,12 +173,18 @@ for p_dir in `real_contents packages_list | sort `; do
 	if [ ! -d $package/$version/po ]; then
 		mkdir -p $package/$version
 		pushd $package/$version >/dev/null
-		if [ "$package" != "yaboot-installer" ]; then
+		if [ ! -f "../../$package.workaround" ]; then
 			git clone $GITREPO/$package
 			pushd $package
-			git checkout -b tag $version || { echo "Unable to find $version in $package"; exit 1; }
+			git checkout -b tag $version || {
+				echo "Unable to find $version in $package; you might try:";
+				echo "  touch $package.workaround";
+				echo "  rm -rf $package/$version/$package";
+				exit 1;
+			}
 			popd
 		else
+			echo "Using apt-get source since $package.workaround exists"
 			apt-get source $package=$version
 			mv $package-*/ $package
 		fi
