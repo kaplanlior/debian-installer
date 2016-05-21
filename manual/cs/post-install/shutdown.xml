@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 64829 -->
+<!-- original version: 69993 -->
 
  <sect1 id="shutdown">
  <title>Vypínání systému</title>
@@ -26,10 +26,22 @@ Na konzoli můžete použít klávesovou kombinaci
 </phrase>.
 
 Pokud žádná z předchozích možností nefungovala, můžete se přihlásit
-jako uživatel root a zkusit některý z příkazů
-<userinput>poweroff</userinput>, <userinput>halt</userinput> nebo
-<userinput>shutdown -h now</userinput>. Pro restart systému použijte
-příkaz <userinput>reboot</userinput>.
+jako uživatel root a zadat příslušný příkaz ručně.
+
+Systém restartujete příkazem <command>reboot</command>, zastavíte
+příkazem <command>halt</command> (bez vypnutí napájení) a zcela
+vypnete příkazem <command>poweroff</command><footnote><para>
+
+S dřívějším init systémem SysV se příkaz <command>halt</command>
+choval stejně jako <command>poweroff</command>, ale s init systémem
+systemd (výchozí od &debian;u 8) se jejich chování změnilo.
+
+</para></footnote> nebo <command>shutdown -h now</command>.
+
+Nový init systém systemd nabízí podobné příkazy se stejnou
+funkcionalitou, a sice <command>systemctl reboot</command>,
+<command>systemctl halt</command> a <command>systemctl
+poweroff</command>.
 
 </para>
  </sect1>

@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 69732 -->
+<!-- original version: 70074 -->
 
  <sect1 id="boot-installer-accessibility" arch="not-s390">
  <title>Zpřístupnění</title>
@@ -63,20 +63,23 @@ stránkách <classname>brltty</classname></ulink>.
 Braillovy řádky připojené na sériový port nelze rozpoznat automaticky,
 protože by to některé modely mohlo poškodit. Musíte tedy použít
 zaváděcí parametr
-<userinput>brltty=<replaceable>ovladač</replaceable>,<replaceable>port</replaceable>,<replaceable>tabulka</replaceable></userinput>,
-kterým <classname>brltty</classname> řeknete, který ovladač má použít.
-<replaceable>ovladač</replaceable> je dvoupísmenný kód ovladače
-připojeného řádku (viz <ulink url="&url-brltty-manual;">příručka
-k BRLTTY</ulink>). <replaceable>port</replaceable> je název
-sériového portu, ke kterému je řádek připojen; výchozí hodnotou je
+<userinput>brltty=<replaceable>ovladač</replaceable>,<replaceable>port</replaceable></userinput>,
+kterým <classname>brltty</classname> řeknete, který ovladač a port má
+použít.  <replaceable>ovladač</replaceable> je dvoupísmenný kód
+ovladače připojeného řádku (viz <ulink
+url="&url-brltty-manual;">příručka
+k BRLTTY</ulink>). <replaceable>port</replaceable> je název sériového
+portu, ke kterému je řádek připojen; výchozí hodnotou je
 <userinput>ttyS0</userinput>. Při použití USB převodníku se port
-obvykle jmenuje <userinput>ttyUSB0</userinput>.
-<replaceable>tabulka</replaceable> určuje braillovu tabulku pro daný
-jazyk (viz <ulink url="&url-brltty-manual;">příručka k BRLTTY
-</ulink>); výchozí je anglická tabulka. Tabulku můžete změnit i
-později v nastaveních <classname>brltty</classname>. Dokumentaci
-ohledně rozložení kláves
-naleznete <ulink url="&url-brltty-driver-help;">na
+obvykle jmenuje <userinput>ttyUSB0</userinput>. Volitelný třetí
+parametr určuje braillovu tabulku pro daný jazyk (viz <ulink
+url="&url-brltty-manual;">příručka k BRLTTY </ulink>); výchozí je
+anglická tabulka. Tabulku můžete změnit i později v nastaveních
+<classname>brltty</classname>. Čtvrtým parametrem lze předat parametry
+ovladači braillova řádku
+(např. <userinput>protocol=<replaceable>xzy</replaceable></userinput>),
+což je potřeba u některých raritních kousků. Dokumentaci ohledně
+rozložení kláves naleznete <ulink url="&url-brltty-driver-help;">na
 stránkách <classname>brltty</classname></ulink>.
 
 </para>
@@ -168,6 +171,18 @@ přidáním zaváděcího parametru stiskem klávesy
 Uživatelé se zhoršeným zrakem mohou při instalaci použít vysoce
 kontrastní téma, které by mělo zlepšit čitelnost. Pro zapnutí
 stačí přidat zaváděcí parametr <userinput>theme=dark</userinput>.
+
+</para>
+  </sect2>
+
+  <sect2><title>Změna velikosti písma</title>
+<para>
+
+Grafický instalátor obsahuje základní podporu pro změnu velikosti
+písma. Klávesovými zkratkami <keycombo><keycap>Control</keycap>
+<keycap>+</keycap></keycombo> resp.
+<keycombo><keycap>Control</keycap> <keycap>-</keycap></keycombo> lze
+velikost písma zvětšit, resp. zmenšit.
 
 </para>
   </sect2>

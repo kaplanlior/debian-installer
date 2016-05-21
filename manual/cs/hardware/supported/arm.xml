@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 69900 -->
+<!-- original version: 70118 -->
 
   <sect2 arch="arm">
   <title>Tři hlavní ARM porty</title>
@@ -175,7 +175,7 @@ používajícím multiplatformní jádro <literal>armmp</literal>:
 <variablelist>
 
 <varlistentry>
-<term>Freescale MX53 Quick Start Board</term>
+<term>Freescale MX53 Quick Start Board (MX53 LOCO Board)</term>
 <listitem><para>
 
 IMX53QSB je vývojářská deska založená na SoC i.MX53.
@@ -249,8 +249,7 @@ sun<replaceable>X</replaceable>i.
 
 Použití lokálního displeje bez nativních ovladačů je technicky možné
 přes infrastrukturu <quote>simplefb</quote>, která spoléhá na to, že
-se o inicializaci zobrazovacího hardwaru postará zavaděč U-Boot. To
-ale verze U-Bootu dodávaná s &debian;em 8 nepodporuje.
+se o inicializaci zobrazovacího hardwaru postará zavaděč U-Boot.
 
 </para></listitem>
 </varlistentry>
@@ -339,38 +338,32 @@ vyžadují specifická jádra.
 
 <variablelist>
 <varlistentry>
-<term>IXP4xx</term>
-<listitem><para>
-
-Řada Intel procesorů IXP4xx se používá v síťových úložištích jako
-Linksys NSLU2.
-
-</para><para>
-
-I když &d-i; tuto platformu nepodporuje, je stále možné aktualizovat
-systém z předchozího &debian;u 7 na &debian; 8 pomocí
-<quote>dist-upgrade</quote>. Kvůli typicky malé operační paměti,
-kterou bývají systémy IXP4xx vybaveny, bude třeba před zahájením
-aktualizace povolit odkládací prostor (swap). V &debian;u 9 bude
-podpora platformy IXP4xx odstraněna úplně.
-
-</para></listitem>
-</varlistentry>
-
-<varlistentry>
 <term>Kirkwood</term>
 <listitem><para>
 
 Orion je řešení typu vše v jednom (SoC &mdash; System on a Chip) od
 Marvelu, které v jediném čipu integruje procesor ARM, ethernet, SATA,
 USB a další funkcionalitu. V současné době podporujeme následující
-zařízení založené na Kirkwoodu: OpenRD (OpenRD-Base, OpenRD-Client
-a OpenRD-Ultimate), <ulink url="&url-arm-cyrius-sheevaplug;">zásuvkové
-počítače (SheevaPlug, GuruPlug a DreamPlug)</ulink>, <ulink
-url="&url-arm-cyrius-qnap-kirkwood;">QNAP Turbo Station</ulink>
-(všechny modely TS-11x, TS-21x a TS-41x) a NASy LaCie (Network Space
-v2, Network Space Max v2, Internet Space v2, d2 Network v2, 2Big
-Network v2 a 5Big Network v2).
+zařízení založené na Kirkwoodu:
+
+<itemizedlist>
+  <listitem><para>
+    <ulink url="&url-arm-cyrius-sheevaplug;">zásuvkové počítače
+    (SheevaPlug, GuruPlug, DreamPlug a Seagate FreeAgent
+    DockStar)</ulink>
+  </para></listitem>
+  <listitem><para>
+    <ulink url="&url-arm-cyrius-qnap-kirkwood;">QNAP Turbo Station</ulink>
+    (všechny modely TS-11x/TS-12x, HS-210, TS-21x/TS-22x a TS-41x/TS-42x)
+  </para></listitem>
+  <listitem><para>
+    NASy LaCie (Network Space v2, Network Space Max v2, Internet Space
+    v2, d2 Network v2, 2Big Network v2 a 5Big Network v2)
+  </para></listitem>
+  <listitem><para>
+    OpenRD (OpenRD-Base, OpenRD-Client a OpenRD-Ultimate)
+  </para></listitem>
+</itemizedlist>
 
 </para></listitem>
 </varlistentry>
@@ -385,8 +378,9 @@ USB a další funkcionalitu. Na trhu existuje mnoho NAS zařízení
 (Network Attached Storage) založených právě na tomto čipu. V současné
 době podporujeme
 <ulink url="&url-arm-cyrius-kuroboxpro;">Buffalo Kurobox</ulink>,
-<ulink url="&url-arm-cyrius-dns323;">D-Link DNS-323</ulink> a
-<ulink url="&url-arm-cyrius-mv2120;">HP mv2120</ulink>.
+<ulink url="&url-arm-cyrius-mv2120;">HP mv2120</ulink> a
+<ulink url="&url-arm-cyrius-qnap;">QNAP TS-109, TS-209, TS-409,
+TS-409U a jejich varianty</ulink>.
 
 </para></listitem>
 </varlistentry>
@@ -407,31 +401,27 @@ nedisponujete příslušným hardwarem.
   </sect2>
 
   <sect2 arch="arm">
-  <title>Platformy dále nepodporované v &debian;/armel</title>
+  <title>Platformy a zařízení dále nepodporované v &debian;/armel</title>
 
 <variablelist>
 <varlistentry>
-<term>IOP32x</term>
+<term>IXP4xx</term>
 <listitem><para>
 
-Intelovskou řadu I/O procesorů (IOP) můžete nalézt v řadě produktů
-spojených s ukládáním a zpracováváním dat, jako <ulink
-url="&url-arm-cyrius-glantank;">GLAN Tank</ulink> od IO-Data a <ulink
-url="&url-arm-cyrius-n2100;">Thecus N2100</ulink>. &debian; podporoval
-platformu IOP32x v &debian;u 7, ale kvůli hardwarovým omezením této
-platformy není vhodné instalovat novější vydání.
+Podpora pro platformu Intel IXP4xx byla odstraněna v &debian;u 9. Na
+této platformě byl založen populární Linksys NSLU2.
 
 </para></listitem>
 </varlistentry>
 
 <varlistentry>
-<term>MV78xx0</term>
+<term>Orion5x</term>
 <listitem><para>
 
-Platforma MV78xx0 se používala na vývojářské desce Marvell DB-78xx0-BP.
-&debian; podporoval tuto platformu ještě v &debian;u 7, se speciálním
-jádrem založeným na Linuxu 3.2, ale to už od &debian;u verze 8 není
-možné.
+S &debian;em 9 byla z platformy Orion5x odebrána podpora pro zařízení
+D-Link DNS-323 a Conceptronic CH3SNAS, protože se linuxové jádro na
+těchto zařízeních již nevešlo do flash paměti. Ostatní Orion zařízení
+jako Buffalo Kurobox a HP mv2120 jsou nadále podporovány.
 
 </para></listitem>
 </varlistentry>

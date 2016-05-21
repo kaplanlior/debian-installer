@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 69755 -->
+<!-- original version: 70188 -->
 
  <sect1 id="linux-upgrade">
  <title>Jak nainstalovat &debian-gnu; ze stávajícího unixového/linuxového systému</title>
@@ -231,7 +231,7 @@ Několik možných postupů:
 V chrootu vytvořte základní sadu statických souborů zařízení příkazy:
 
 <informalexample><screen>
-<prompt>#</prompt> <userinput>apt-get install makedev</userinput>
+<prompt>#</prompt> <userinput>apt install makedev</userinput>
 <prompt>#</prompt> <userinput>mount none /proc -t proc</userinput>
 <prompt>#</prompt> <userinput>cd /dev</userinput>
 <prompt>#</prompt> <userinput>MAKEDEV generic</userinput>
@@ -469,7 +469,7 @@ deb-src http://security.debian.org/ &releasename;/updates main
 </screen></informalexample>
 
 Po úpravách seznamu zdrojů nezapomeňte spustit příkaz
-<userinput>aptitude update</userinput>.
+<userinput>apt update</userinput>.
 
 </para>
    </sect3>
@@ -483,14 +483,14 @@ nainstalovat a nastavit balík pro podporu národních prostředí. V
 současnosti se doporučuje použít prostředí v kódování UTF-8.
 
 <informalexample><screen>
-<prompt>#</prompt> <userinput>aptitude install locales</userinput>
+<prompt>#</prompt> <userinput>apt install locales</userinput>
 <prompt>#</prompt> <userinput>dpkg-reconfigure locales</userinput>
 </screen></informalexample>
 
 Pokud je to potřeba, můžete nakonfigurovat klávesnici:
 
 <informalexample><screen>
-<prompt>#</prompt> <userinput>aptitude install console-setup</userinput>
+<prompt>#</prompt> <userinput>apt install console-setup</userinput>
 <prompt>#</prompt> <userinput>dpkg-reconfigure keyboard-configuration</userinput>
 </screen></informalexample>
 
@@ -512,7 +512,7 @@ nainstalovat jádro (a možná zavaděč). Následujícím příkazem zjistíte
 dostupná připravená jádra:
 
 <informalexample><screen>
-<prompt>#</prompt> <userinput>apt-cache search &kernelpackage;</userinput>
+<prompt>#</prompt> <userinput>apt search &kernelpackage;</userinput>
 </screen></informalexample>
 
 </para><para>
@@ -520,7 +520,7 @@ dostupná připravená jádra:
 Poté balík s vybraným jádrem nainstalujte.
 
 <informalexample><screen>
-<prompt>#</prompt> <userinput>aptitude install &kernelpackage;-<replaceable>arch-atd</replaceable></userinput>
+<prompt>#</prompt> <userinput>apt install &kernelpackage;-<replaceable>arch-atd</replaceable></userinput>
 </screen></informalexample>
 
 </para>
@@ -530,11 +530,11 @@ Poté balík s vybraným jádrem nainstalujte.
 <title>Nastavení zavaděče</title>
 <para>
 
-Abyste mohli zavádět svůj &debian-gnu;, nastavte v zavaděči, aby nahrál
-instalované jádro s novou kořenovou oblastí. Pamatujte, že
-<command>debootstrap</command> zavaděč neinstaluje, takže jej budete
-muset doinstalovat zvlášť (např. pomocí <command>aptitude</command>
-uvnitř chrootovaného prostředí).
+Abyste mohli zavádět svůj &debian-gnu;, nastavte v zavaděči, aby
+nahrál instalované jádro s novou kořenovou oblastí.
+<command>debootstrap</command> sám o sobě zavaděč neinstaluje, takže
+jej budete muset doinstalovat zvlášť (např. pomocí
+<command>apt</command> uvnitř chrootovaného prostředí).
 
 </para><para arch="any-x86">
 
@@ -555,7 +555,7 @@ Instalace a nastavení <classname>grub2</classname> není složitější
 než spuštění:
 
 <informalexample><screen>
-<prompt>#</prompt> <userinput>aptitude install grub-pc</userinput>
+<prompt>#</prompt> <userinput>apt install grub-pc</userinput>
 <prompt>#</prompt> <userinput>grub-install /dev/<replaceable>sda</replaceable></userinput>
 <prompt>#</prompt> <userinput>update-grub</userinput>
 </screen></informalexample>
@@ -624,7 +624,7 @@ přeskočit. Jestliže však má být počítač dostupný přes síť, měli by
 nainstalovat SSH a nastavit přístup.
 
 <informalexample><screen>
-<prompt>#</prompt> <userinput>aptitude install ssh</userinput>
+<prompt>#</prompt> <userinput>apt install ssh</userinput>
 </screen></informalexample>
 
 Uživatel root má implicitně zakázané přihlášení pomocí hesla. Pokud mu
@@ -676,7 +676,7 @@ doinstalujte alespoň balíky s prioritou <quote>standardní</quote>:
 </screen></informalexample>
 
 Nic vám samozřejmě nebrání nainstalovat jednotlivé balíky pomocí
-<command>aptitude</command>.
+<command>apt</command>.
 
 </para><para>
 
@@ -685,7 +685,7 @@ Po instalaci zůstanou stažené .deb soubory v adresáři
 uvolnit jejich smazáním:
 
 <informalexample><screen>
-<prompt>#</prompt> <userinput>aptitude clean</userinput>
+<prompt>#</prompt> <userinput>apt clean</userinput>
 </screen></informalexample>
 
 </para>

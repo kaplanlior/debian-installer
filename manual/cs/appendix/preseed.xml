@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 69755 -->
+<!-- original version: 70122 -->
 
 <!--
 Be carefull with the format of this file as it is parsed to generate
@@ -117,9 +117,13 @@ s kterými způsoby instalací.
 
 U jednotlivých způsobů přednastavení je významný okamžik, kdy je
 soubor nahrán a zpracován. Pro initrd to je okamžitě po startu
-instalace, ještě před první otázkou. Přednastavení v lokálním souboru
-se načte po připojení CD nebo jeho obrazu. Přednastavení ze sítě je
-evidentně dostupné až po nastavení sítě.
+instalace, ještě před první otázkou. Přednastavení pomocí zaváděcích
+parametrů jádra se děje hned poté a je tedy možné přepsat odpověd
+nachystanou v initrd přidáním parametru na příkazovou řádku jádra
+(buď v konfiguračním souboru zavaděče, nebo ručně při zavádění).
+Přednastavení v lokálním souboru se načte po připojení CD nebo jeho
+obrazu. Přednastavení ze sítě je evidentně dostupné až po nastavení
+sítě.
 
 </para><para>
 
@@ -801,9 +805,14 @@ pracují, naleznete v kapitole <xref linkend="module-details"/>.
   <title>Lokalizace</title>
 <para>
 
-Nastavení lokalizačních proměnných bude fungovat pouze v případě,
-když používáte přednastavení přes initrd. U ostatních způsobů se totiž
-soubor s přednastavením nahraje až po zobrazení těchto otázek.
+Nastavení lokalizačních proměnných bude fungovat pouze v případě, když
+používáte přednastavení přes initrd, nebo pomocí zaváděcích parametrů
+jádra. U ostatních způsobů se totiž soubor s přednastavením nahraje až
+po zobrazení těchto otázek.
+
+Výjimkou je automatický režim (<xref linkend="preseed-auto"/>), který
+odsune otázky ohledně lokalizace na později a umožní je tak
+přednastavit všemi známými způsoby.
 
 </para><para>
 
@@ -1050,15 +1059,16 @@ d-i mirror/http/proxy string
 
 Instalační systém umožňuje přednastavit jak heslo uživatele root, tak
 jméno a heslo prvního běžného uživatele systému. Heslo můžete zadat
-buď v nešifrované podobě, nebo jako MD5 <emphasis>hash</emphasis>.
+buď v nešifrované podobě, nebo jako crypt(3) <emphasis>hash</emphasis>.
 
 </para><warning><para>
 
 Přednastavení hesel není bezpečné, protože kdokoliv s přístupem
 k souboru s přednastavením si tato hesla může přečíst. Z pohledu
-bezpečnosti je použití MD5 hashů lepší, ovšem poskytují pouze falešný
-pocit bezpečí, protože přístup k MD5 hashi znamená možnost útoků
-hrubou silou.
+bezpečnosti je použití hashů lepší, ovšem vzhledem k možným útokům
+hrubou silou je třeba zvolit silný algoritmus jako SHA-256 nebo
+SHA512. Dřívější hashovací algoritmy jako DES a MD5 jsou považovány za
+slabé.
 
 </para></warning>
 
@@ -1072,8 +1082,8 @@ hrubou silou.
 # Rootovo heslo v čitelném tvaru
 #d-i passwd/root-password password r00tme
 #d-i passwd/root-password-again password r00tme
-# nebo šifrované pomocí MD5 hashe.
-#d-i passwd/root-password-crypted password [MD5 hash]
+# nebo šifrované pomocí crypt(3) hashe.
+#d-i passwd/root-password-crypted password [crypt(3) hash]
 
 # Vytvoření účtu běžného uživatele.
 #d-i passwd/user-fullname string Jan Novak
@@ -1081,8 +1091,8 @@ hrubou silou.
 # Heslo běžného uživatele v čitelném tvaru
 #d-i passwd/user-password password nebezpecne
 #d-i passwd/user-password-again password nebezpecne
-# nebo šifrované pomocí MD5 hashe.
-#d-i passwd/user-password-crypted password [MD5 hash]
+# nebo šifrované pomocí crypt(3) hashe.
+#d-i passwd/user-password-crypted password [crypt(3) hash]
 # Nastaví UID běžného uživatele (jinak se použije výchozí hodnota).
 #d-i passwd/user-uid string 1010
 # Uživatelský účet bude automaticky přidán do několika standardních
@@ -1102,7 +1112,7 @@ přes SSH klíče).
 
 </para><para>
 
-MD5 hash hesla můžete vygenerovat následujícím příkazem (z balíku
+SHA-512 hash hesla můžete vygenerovat následujícím příkazem (z balíku
 <classname>whois</classname>):
 
 <informalexample><screen>
@@ -1423,6 +1433,9 @@ a dříve zodpovězenými otázkami. Volitelně můžete přidat další
 # známým gpg klíčem. Tímto nastavením můžete autentizaci potlačit.
 # Varování: Nebezpečné, není doporučeno.
 #d-i debian-installer/allow_unauthenticated boolean true
+
+# Odkomentujte pro přidání další architektury, zde i386
+#d-i apt-setup/multiarch string i386
 </screen></informalexample>
 
   </sect2>
