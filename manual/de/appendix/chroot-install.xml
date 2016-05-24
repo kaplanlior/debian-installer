@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 69755 -->
+<!-- original version: 70188 -->
 
  <sect1 id="linux-upgrade">
  <title>&debian-gnu; von einem anderen Unix/Linux-System aus installieren</title>
@@ -260,7 +260,7 @@ erzeugen Sie einen Standardsatz von statischen Gerätedateien, indem Sie
 (nach dem Chroot) Folgendes ausführen:
 
 <informalexample><screen>
-# apt-get install makedev
+# apt install makedev
 # mount none /proc -t proc
 # cd /dev
 # MAKEDEV generic
@@ -497,8 +497,8 @@ deb http://security.debian.org/ &releasename;/updates main
 deb-src http://security.debian.org/ &releasename;/updates main
 </screen></informalexample>
 
-Denken Sie daran, <userinput>aptitude update</userinput> auszuführen, nachdem
-Sie Änderungen in der sources.list-Datei gemacht haben.
+Denken Sie daran, <userinput>apt update</userinput> auszuführen, nachdem
+Sie die Datei sources.list geändert haben.
 
 </para>
    </sect3>
@@ -513,14 +513,14 @@ und konfigurieren es. Es wird die Verwendung von UTF-8-Gebietsschemata
 empfohlen.
 
 <informalexample><screen>
-# aptitude install locales
+# apt install locales
 # dpkg-reconfigure locales
 </screen></informalexample>
 
 Um Ihre Tastatur zu konfigurieren (falls nötig):
  
 <informalexample><screen>
-# aptitude install console-setup
+# apt install console-setup
 # dpkg-reconfigure keyboard-configuration
 </screen></informalexample>
 
@@ -542,7 +542,7 @@ einen &arch-kernel;-Kernel und einen Bootloader. Sie finden verfügbare, bereits
 fertig paketierte Kernel mit dem Befehl
 
 <informalexample><screen>
-# apt-cache search &kernelpackage;
+# apt search &kernelpackage;
 </screen></informalexample>
 
 </para><para>
@@ -550,7 +550,7 @@ fertig paketierte Kernel mit dem Befehl
 Installieren Sie einen Kernel Ihrer Wahl, indem Sie seinen Paketnamen benutzen:
 
 <informalexample><screen>
-# aptitude install &kernelpackage;-<replaceable>arch-etc</replaceable>
+# apt install &kernelpackage;-<replaceable>arch-etc</replaceable>
 </screen></informalexample>
 
  </para>
@@ -563,7 +563,7 @@ Installieren Sie einen Kernel Ihrer Wahl, indem Sie seinen Paketnamen benutzen:
 Um Ihr &debian-gnu;-System boot-fähig zu machen, richten Sie Ihren Bootloader ein,
 so dass er den installierten Kernel mit Ihrer neuen Root-Partition startet.
 Bedenken Sie, dass <command>debootstrap</command> keinen Bootloader installiert,
-allerdings können Sie aptitude in Ihrer &debian;-chroot-Umgebung benutzen, um
+allerdings können Sie <command>apt</command> in Ihrer &debian;-chroot-Umgebung benutzen, um
 dies zu erledigen.
 
 </para><para arch="any-x86">
@@ -585,7 +585,7 @@ Die Installation und Einrichtung von <classname>grub2</classname> ist so
 einfach wie:
 
 <informalexample><screen>
-# aptitude install grub-pc
+# apt install grub-pc
 # grub-install /dev/<replaceable>sda</replaceable>
 # update-grub
 </screen></informalexample>
@@ -660,7 +660,7 @@ das Netzwerk erreichbar sein soll, müssen Sie SSH installieren und einen
 Zugang einrichten:
 
 <informalexample><screen>
-# aptitude install ssh
+# apt install ssh
 </screen></informalexample>
 
 Das Login als root ist standardmäßig deaktiviert, daher können Sie
@@ -711,7 +711,7 @@ bisschen ausgereifter wird, gibt es eine einfache Methode, alle Pakete mit
 # tasksel install standard
 </screen></informalexample>
 
-Sie können natürlich auch einfach <command>aptitude</command> benutzen,
+Sie können natürlich auch einfach <command>apt</command> benutzen,
 um individuell Pakete zu installieren.
 
 </para><para>
@@ -722,7 +722,7 @@ etliches an Festplattenspeicher wieder freigeben, indem Sie folgendes
 ausführen:
 
 <informalexample><screen>
-# aptitude clean
+# apt clean
 </screen></informalexample>
 
 </para>
