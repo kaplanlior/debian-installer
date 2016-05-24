@@ -1091,11 +1091,6 @@ msgstr ""
 #. Tag: screen
 #: random-bits.xml:528
 #, no-c-format
-#| msgid ""
-#| "# apt-get install makedev\n"
-#| "# mount none /proc -t proc\n"
-#| "# cd /dev\n"
-#| "# MAKEDEV generic"
 msgid ""
 "# apt install makedev\n"
 "# mount none /proc -t proc\n"
@@ -1423,17 +1418,6 @@ msgstr "Configurer Apt"
 #. Tag: para
 #: random-bits.xml:654
 #, no-c-format
-#| msgid ""
-#| "Debootstrap will have created a very basic <filename>/etc/apt/sources."
-#| "list</filename> that will allow installing additional packages. However, "
-#| "you may want to add some additional sources, for example for source "
-#| "packages and security updates: <informalexample><screen>\n"
-#| "deb-src http://ftp.us.debian.org/debian &releasename; main\n"
-#| "\n"
-#| "deb http://security.debian.org/ &releasename;/updates main\n"
-#| "deb-src http://security.debian.org/ &releasename;/updates main\n"
-#| "</screen></informalexample> Make sure to run <userinput>aptitude update</"
-#| "userinput> after you have made changes to the sources list."
 msgid ""
 "Debootstrap will have created a very basic <filename>/etc/apt/sources.list</"
 "filename> that will allow installing additional packages. However, you may "
@@ -1455,9 +1439,9 @@ msgstr ""
 "\n"
 "deb http://security.debian.org/ &releasename;/updates main\n"
 "deb-src http://security.debian.org/ &releasename;/updates main\n"
-"</screen></informalexample> N'oubliez pas de lancer <userinput>apt "
-"update</userinput> après avoir modifié le fichier <filename>/etc/apt/sources."
-"list</filename>."
+"</screen></informalexample> N'oubliez pas de lancer <userinput>apt update</"
+"userinput> après avoir modifié le fichier <filename>/etc/apt/sources.list</"
+"filename>."
 
 #. Tag: title
 #: random-bits.xml:670
@@ -1468,14 +1452,6 @@ msgstr "Configurer les locales et le clavier"
 #. Tag: para
 #: random-bits.xml:671
 #, no-c-format
-#| msgid ""
-#| "To configure your locale settings to use a language other than English, "
-#| "install the <classname>locales</classname> support package and configure "
-#| "it. Currently the use of UTF-8 locales is recommended. "
-#| "<informalexample><screen>\n"
-#| "# aptitude install locales\n"
-#| "# dpkg-reconfigure locales\n"
-#| "</screen></informalexample> To configure your keyboard (if needed):"
 msgid ""
 "To configure your locale settings to use a language other than English, "
 "install the <classname>locales</classname> support package and configure it. "
@@ -1496,9 +1472,6 @@ msgstr ""
 #. Tag: screen
 #: random-bits.xml:681
 #, no-c-format
-#| msgid ""
-#| "# aptitude install console-setup\n"
-#| "# dpkg-reconfigure keyboard-configuration"
 msgid ""
 "# apt install console-setup\n"
 "# dpkg-reconfigure keyboard-configuration"
@@ -1536,7 +1509,6 @@ msgstr ""
 #. Tag: screen
 #: random-bits.xml:699
 #, no-c-format
-#| msgid "# apt-cache search &kernelpackage;"
 msgid "# apt search &kernelpackage;"
 msgstr "# apt search &kernelpackage;"
 
@@ -1549,8 +1521,6 @@ msgstr "Installez alors le noyau de votre choix en utilisant son nom&nbsp;:"
 #. Tag: screen
 #: random-bits.xml:705
 #, no-c-format
-#| msgid ""
-#| "# aptitude install &kernelpackage;-<replaceable>arch-etc</replaceable>"
 msgid "# apt install &kernelpackage;-<replaceable>arch-etc</replaceable>"
 msgstr "# apt install &kernelpackage;-<replaceable>arch-etc</replaceable>"
 
@@ -1563,11 +1533,6 @@ msgstr "Configurer le programme d'amorçage"
 #. Tag: para
 #: random-bits.xml:712
 #, no-c-format
-#| msgid ""
-#| "To make your &debian-gnu; system bootable, set up your boot loader to "
-#| "load the installed kernel with your new root partition. Note that "
-#| "<command>debootstrap</command> does not install a boot loader, though you "
-#| "can use <command>aptitude</command> inside your &debian; chroot to do so."
 msgid ""
 "To make your &debian-gnu; system bootable, set up your boot loader to load "
 "the installed kernel with your new root partition. Note that "
@@ -1609,16 +1574,6 @@ msgstr ""
 #. Tag: para
 #: random-bits.xml:731
 #, no-c-format
-#| msgid ""
-#| "Installing and setting up <classname>grub2</classname> is as easy as: "
-#| "<informalexample><screen>\n"
-#| "# aptitude install grub-pc\n"
-#| "# grub-install /dev/<replaceable>sda</replaceable>\n"
-#| "# update-grub\n"
-#| "</screen></informalexample> The second command will install "
-#| "<command>grub2</command> (in this case in the MBR of <literal>sda</"
-#| "literal>). The last command will create a sane and working <filename>/"
-#| "boot/grub/grub.cfg</filename>."
 msgid ""
 "Installing and setting up <classname>grub2</classname> is as easy as: "
 "<informalexample><screen>\n"
@@ -1738,27 +1693,6 @@ msgstr "Accès distant : installer SSH et configurer l'accès"
 #. Tag: para
 #: random-bits.xml:777
 #, no-c-format
-#| msgid ""
-#| "In case you can login to the system via console, you can skip this "
-#| "section. If the system should be accessible via the network later on, you "
-#| "need to install SSH and set up access. <informalexample><screen>\n"
-#| "# aptitude install ssh\n"
-#| "</screen></informalexample> Root login with password is disabled by "
-#| "default, so setting up access can be done by setting a password and re-"
-#| "enable root login with password: <informalexample><screen>\n"
-#| "# passwd\n"
-#| "# editor /etc/ssh/sshd_config\n"
-#| "</screen></informalexample> This is the option to be enabled: "
-#| "<informalexample><screen>\n"
-#| "PermitRootLogin yes\n"
-#| "</screen></informalexample> Access can also be set up by adding an ssh "
-#| "key to the root account: <informalexample><screen>\n"
-#| "# mkdir /root/.ssh\n"
-#| "# cat &lt;&lt; EOF &gt; /root/.ssh/authorized_keys\n"
-#| "ssh-rsa ....\n"
-#| "EOF\n"
-#| "</screen></informalexample> Lastly, access can be set up by adding a non-"
-#| "root user and setting a password:"
 msgid ""
 "In case you can login to the system via console, you can skip this section. "
 "If the system should be accessible via the network later on, you need to "
@@ -1823,14 +1757,6 @@ msgstr "Touches finales"
 #. Tag: para
 #: random-bits.xml:807
 #, no-c-format
-#| msgid ""
-#| "As mentioned earlier, the installed system will be very basic. If you "
-#| "would like to make the system a bit more mature, there is an easy method "
-#| "to install all packages with <quote>standard</quote> priority: "
-#| "<informalexample><screen>\n"
-#| "# tasksel install standard\n"
-#| "</screen></informalexample> Of course, you can also just use "
-#| "<command>aptitude</command> to install packages individually."
 msgid ""
 "As mentioned earlier, the installed system will be very basic. If you would "
 "like to make the system a bit more mature, there is an easy method to "
@@ -1862,7 +1788,6 @@ msgstr ""
 #. Tag: screen
 #: random-bits.xml:824
 #, no-c-format
-#| msgid "# aptitude clean"
 msgid "# apt clean"
 msgstr "# apt clean"
 
