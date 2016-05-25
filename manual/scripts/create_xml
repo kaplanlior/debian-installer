@@ -59,7 +59,19 @@ for ORIGXML in `find $SOURCEDIR -name "*.xml"` ; do
             echo "Error: error $RC while executing msgconv"
             continue
         fi
-        po2xml $ORIGXML /tmp/tmp.po.$$ > $XML
+        msgattrib \
+            --translated \
+            --no-fuzzy \
+            --output-file="/tmp/tmp.po2.$$" \
+            "/tmp/tmp.po.$$" \
+        ;
+        RC=$?
+        if [ $RC -ne 0 ] ; then
+            RET=$RC
+            echo "Error: error $RC while executing msgattrib"
+            continue
+        fi
+        po2xml $ORIGXML /tmp/tmp.po2.$$ > $XML
         RC=$?
         if [ $RC -ne 0 ] ; then
             RET=$RC
