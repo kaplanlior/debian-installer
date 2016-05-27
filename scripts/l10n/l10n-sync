@@ -187,9 +187,9 @@ po_get_header() {
 # The complex sed expression is to allow for the fact that a header may span
 # two lines; spanning three lines is not supported
 po_replace_header() {
-	local key=$1
-	local value=$2
-	local file=$3
+	local key="$1"
+	local value="$2"
+	local file="$3"
 	sed -i "/^\"$key:/ N; s/^\"$key.*\\\\n\"\(\n.*\|$\)/\"$key: $value\\\\n\"\1/" \
 		$file
 }
