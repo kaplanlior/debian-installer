@@ -219,13 +219,7 @@ msgstr ""
 
 #. Tag: para
 #: preseed.xml:129
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Obviously, any questions that have been processed before the "
-#| "preconfiguration file is loaded cannot be preseeded (this will include "
-#| "questions that are only displayed at medium or low priority, like the "
-#| "first hardware detection run). <xref linkend=\"preseed-bootparms\"/> "
-#| "offers a way to avoid these questions being asked."
+#, no-c-format
 msgid ""
 "Obviously, any questions that have been processed before the "
 "preconfiguration file is loaded cannot be preseeded (this will include "
@@ -234,22 +228,15 @@ msgid ""
 "from being asked is to preseed them through the boot parameters, as "
 "described in <xref linkend=\"preseed-bootparms\"/>."
 msgstr ""
-"言うまでもなく、事前設定ファイルが読み込まれる前に処理される質問は、preseed "
-"できません。(最初のハードウェア検出のように、優先度が中や低でしか表示されない"
-"質問も含んでいます) <xref linkend=\"preseed-bootparms\"/> では、そういった質"
-"問が出ないようにする方法を提供しています。"
+"言うまでもなく、事前設定ファイルが読み込まれる前に処理される質問は preseed で"
+"きません (最初のハードウェア検出のように、優先度が中や低でしか表示されない質"
+"問も同様です)。あまり便利ではありませんが <xref linkend=\"preseed-bootparms"
+"\"/> で説明しているように、ブートパラメータを経由して preseed することでそう"
+"いった質問が出ないようにする方法があります。"
 
 #. Tag: para
 #: preseed.xml:138
-#, fuzzy, no-c-format
-#| msgid ""
-#| "In order to avoid the questions that would normally appear before the "
-#| "preseeding occurs, you can start the installer in <quote>auto</quote> "
-#| "mode. This delays questions that would normally be asked too early for "
-#| "preseeding (i.e. language, country and keyboard selection) until after "
-#| "the network comes up, thus allowing them to be preseeded. It also runs "
-#| "the installation at critical priority, which avoids many unimportant "
-#| "questions. See <xref linkend=\"preseed-auto\"/> for details."
+#, no-c-format
 msgid ""
 "In order to easily avoid the questions that would normally appear before the "
 "preseeding occurs, you can start the installer in <quote>auto</quote> mode. "
@@ -259,9 +246,9 @@ msgid ""
 "at critical priority, which avoids many unimportant questions. See <xref "
 "linkend=\"preseed-auto\"/> for details."
 msgstr ""
-"preseed が起動する前に、通常現れる質問を回避するのに、<quote>自動</quote> "
-"モードでインストーラを起動できます。これによりネットワークの設定が終わるま"
-"で、preseed の前に行われる質問 (言語、国、キーボード選択など) を遅らせ、"
+"preseed が起動する前に、通常現れる質問を簡単に回避するのに、<quote>自動</"
+"quote> モードでインストーラを起動できます。これによりネットワークの設定が終わ"
+"るまで、preseed の前に行われる質問 (言語、国、キーボード選択など) を遅らせ、"
 "preseed にその質問を含められます。また、インストールの優先度を最重要で行うた"
 "め、大量にある重要でない質問を回避できます。詳細は <xref linkend=\"preseed-"
 "auto\"/> をご覧ください。"
@@ -1894,7 +1881,7 @@ msgstr ""
 
 #. Tag: screen
 #: preseed.xml:885
-#, fuzzy, no-c-format
+#, no-c-format
 msgid ""
 "# Skip creation of a root account (normal user account will be able to\n"
 "# use sudo).\n"
@@ -1932,8 +1919,8 @@ msgstr ""
 "# Root password, either in clear text\n"
 "#d-i passwd/root-password password r00tme\n"
 "#d-i passwd/root-password-again password r00tme\n"
-"# or encrypted using an MD5 hash.\n"
-"#d-i passwd/root-password-crypted password [MD5 hash]\n"
+"# or encrypted using a crypt(3)  hash.\n"
+"#d-i passwd/root-password-crypted password [crypt(3) hash]\n"
 "\n"
 "# To create a normal user account.\n"
 "#d-i passwd/user-fullname string Debian User\n"
@@ -1941,8 +1928,8 @@ msgstr ""
 "# Normal user's password, either in clear text\n"
 "#d-i passwd/user-password password insecure\n"
 "#d-i passwd/user-password-again password insecure\n"
-"# or encrypted using an MD5 hash.\n"
-"#d-i passwd/user-password-crypted password [MD5 hash]\n"
+"# or encrypted using a crypt(3) hash.\n"
+"#d-i passwd/user-password-crypted password [crypt(3) hash]\n"
 "# Create the first user with the specified UID instead of the default.\n"
 "#d-i passwd/user-uid string 1010\n"
 "\n"
@@ -2598,80 +2585,69 @@ msgstr ""
 
 #. Tag: para
 #: preseed.xml:1057
-#, fuzzy, no-c-format
-#| msgid "<userinput>desktop</userinput>"
+#, no-c-format
 msgid "<userinput>standard</userinput> (standard tools)"
-msgstr "<userinput>desktop</userinput>"
+msgstr "<userinput>standard</userinput> (標準ツール)"
 
 #. Tag: para
 #: preseed.xml:1060
-#, fuzzy, no-c-format
-#| msgid "<userinput>desktop</userinput>"
+#, no-c-format
 msgid "<userinput>desktop</userinput> (graphical desktop)"
-msgstr "<userinput>desktop</userinput>"
+msgstr "<userinput>desktop</userinput> (グラフィカルデスクトップ)"
 
 #. Tag: para
 #: preseed.xml:1063
-#, fuzzy, no-c-format
-#| msgid "<userinput>desktop</userinput>"
+#, no-c-format
 msgid "<userinput>gnome-desktop</userinput> (Gnome desktop)"
-msgstr "<userinput>desktop</userinput>"
+msgstr "<userinput>gnome-desktop</userinput> (Gnome デスクトップ)"
 
 #. Tag: para
 #: preseed.xml:1066
-#, fuzzy, no-c-format
-#| msgid "<userinput>desktop</userinput>"
+#, no-c-format
 msgid "<userinput>xfce-desktop</userinput> (XFCE desktop)"
-msgstr "<userinput>desktop</userinput>"
+msgstr "<userinput>xfce-desktop</userinput> (XFCE デスクトップ)"
 
 #. Tag: para
 #: preseed.xml:1069
-#, fuzzy, no-c-format
-#| msgid "<userinput>desktop</userinput>"
+#, no-c-format
 msgid "<userinput>kde-desktop</userinput> (KDE desktop)"
-msgstr "<userinput>desktop</userinput>"
+msgstr "<userinput>kde-desktop</userinput> (KDE デスクトップ)"
 
 #. Tag: para
 #: preseed.xml:1072
-#, fuzzy, no-c-format
-#| msgid "<userinput>desktop</userinput>"
+#, no-c-format
 msgid "<userinput>cinnamon-desktop</userinput> (Cinnamon desktop)"
-msgstr "<userinput>desktop</userinput>"
+msgstr "<userinput>cinnamon-desktop</userinput> (Cinnamon デスクトップ)"
 
 #. Tag: para
 #: preseed.xml:1075
-#, fuzzy, no-c-format
-#| msgid "<userinput>desktop</userinput>"
+#, no-c-format
 msgid "<userinput>mate-desktop</userinput> (MATE desktop)"
-msgstr "<userinput>desktop</userinput>"
+msgstr "<userinput>mate-desktop</userinput> (MATE デスクトップp)"
 
 #. Tag: para
 #: preseed.xml:1078
-#, fuzzy, no-c-format
-#| msgid "<userinput>desktop</userinput>"
+#, no-c-format
 msgid "<userinput>lxde-desktop</userinput> (LXDE desktop)"
-msgstr "<userinput>desktop</userinput>"
+msgstr "<userinput>lxde-desktop</userinput> (LXDE デスクトップ)"
 
 #. Tag: para
 #: preseed.xml:1081
-#, fuzzy, no-c-format
-#| msgid "<userinput>desktop</userinput>"
+#,  no-c-format
 msgid "<userinput>web-server</userinput> (web server)"
-msgstr "<userinput>desktop</userinput>"
+msgstr "<userinput>web-server</userinput> (web サーバ)"
 
 #. Tag: para
 #: preseed.xml:1084
-#, fuzzy, no-c-format
-#| msgid "<userinput>desktop</userinput>"
+#, no-c-format
 msgid "<userinput>print-server</userinput> (print server)"
-msgstr "<userinput>desktop</userinput>"
+msgstr "<userinput>print-server</userinput> (印刷サーバ)"
 
 #. Tag: para
 #: preseed.xml:1087
-#, fuzzy, no-c-format
-#| msgid "<userinput>desktop</userinput>"
+#, no-c-format
 msgid "<userinput>ssh-server</userinput> (SSH server)"
-msgstr "<userinput>desktop</userinput>"
+msgstr "<userinput>ssh-server</userinput> (SSH サーバ)"
 
 #. Tag: para
 #: preseed.xml:1092
@@ -2948,6 +2924,9 @@ msgid ""
 "<filename>/target</filename>. If an installation CD is used, when it is "
 "mounted it is available in <filename>/cdrom</filename>."
 msgstr ""
+"ターゲットシステムのファイルシステムがマウントされると <filename>/target</"
+"filename> 以下で利用できるようになります。インストールCDを利用している場合は"
+"マウント後には <filename>/cdrom</filename> 以下で利用できるようになります。"
 
 #. Tag: screen
 #: preseed.xml:1161

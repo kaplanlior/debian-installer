@@ -1661,10 +1661,9 @@ msgstr ""
 
 #. Tag: title
 #: random-bits.xml:776
-#, fuzzy, no-c-format
-#| msgid "Remote access: Installing SSH and setting a password"
+#, no-c-format
 msgid "Remote access: Installing SSH and setting up access"
-msgstr "リモートアクセス: SSH のインストールとパスワード設定"
+msgstr "リモートアクセス: SSH のインストールとアクセス方法の設定"
 
 #. Tag: para
 #: random-bits.xml:777
@@ -1691,6 +1690,25 @@ msgid ""
 "</screen></informalexample> Lastly, access can be set up by adding a non-"
 "root user and setting a password:"
 msgstr ""
+"コンソール経由でシステムにログインできる場合はこの節を飛ばせます。後でネット"
+"ワーク経由でシステムにアクセスできるようにする必要がある場合は SSH をインス"
+"トールしてアクセス方法を用意する必要があります。<informalexample><screen>\n"
+"# apt install ssh\n"
+"</screen></informalexample> パスワードによる root のログインはデフォルトで無"
+"効になっているため、パスワードを設定してパスワードによる root のログインを有"
+"効にしてアクセス方法を用意します: <informalexample><screen>\n"
+"# passwd\n"
+"# editor /etc/ssh/sshd_config\n"
+"</screen></informalexample> 有効にするオプション: <informalexample><screen>\n"
+"PermitRootLogin yes\n"
+"</screen></informalexample> root アカウントに SSH の鍵を追加してアクセス方法"
+"を用意することもできます: <informalexample><screen>\n"
+"# mkdir /root/.ssh\n"
+"# cat &lt;&lt; EOF &gt; /root/.ssh/authorized_keys\n"
+"ssh-rsa ....\n"
+"EOF\n"
+"</screen></informalexample> 最後に、root ユーザを追加してパスワードを設定して"
+"アクセス方法を用意することもできます:"
 
 #. Tag: screen
 #: random-bits.xml:801
@@ -1699,6 +1717,8 @@ msgid ""
 "# adduser joe\n"
 "# passwd joe"
 msgstr ""
+"# adduser joe\n"
+"# passwd joe"
 
 #. Tag: title
 #: random-bits.xml:806

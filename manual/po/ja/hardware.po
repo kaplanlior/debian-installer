@@ -198,37 +198,37 @@ msgstr "armhf"
 #: hardware.xml:89
 #, no-c-format
 msgid "multiplatform"
-msgstr ""
+msgstr "複数プラットフォーム対応"
 
 #. Tag: entry
 #: hardware.xml:90
 #, no-c-format
 msgid "armmp"
-msgstr ""
+msgstr "armmp"
 
 #. Tag: entry
 #: hardware.xml:92
 #, no-c-format
 msgid "multiplatform for LPAE-capable systems"
-msgstr ""
+msgstr "LPAE 対応システム向けの複数プラットフォーム対応"
 
 #. Tag: entry
 #: hardware.xml:93
 #, no-c-format
 msgid "armmp-lpae"
-msgstr ""
+msgstr "armmp-lpae"
 
 #. Tag: entry
 #: hardware.xml:97
 #, no-c-format
 msgid "64bit ARM"
-msgstr ""
+msgstr "64bit ARM"
 
 #. Tag: entry
 #: hardware.xml:98
 #, no-c-format
 msgid "arm64"
-msgstr ""
+msgstr "arm64"
 
 #. Tag: entry
 #: hardware.xml:104
@@ -348,13 +348,13 @@ msgstr "Power Systems"
 #: hardware.xml:141
 #, no-c-format
 msgid "ppc64el"
-msgstr ""
+msgstr "ppc64el"
 
 #. Tag: entry
 #: hardware.xml:142
 #, no-c-format
 msgid "IBM POWER8 or newer machines"
-msgstr ""
+msgstr "IBM POWER8 以降のマシン"
 
 #. Tag: entry
 #: hardware.xml:167
@@ -447,6 +447,9 @@ msgid ""
 "provides three ARM ports to give the best support for a very wide range of "
 "different machines:"
 msgstr ""
+"ARMアーキテクチャは時間とともに進化し、今のARMプロセッサでは旧型では利用でき"
+"なかった機能を提供しています。&debian; ではそのため、幅広い種類のマシンを可能"
+"な限りサポートできるように3つのARM移植版を提供しています:"
 
 #. Tag: para
 #: hardware.xml:242
@@ -465,6 +468,10 @@ msgid ""
 "specification (VFPv3). It makes use of the extended features and performance "
 "enhancements available on these models."
 msgstr ""
+"&debian;/armhf は最低でも ARMv7 アーキテクチャにARMベクトル浮動小数点演算仕様"
+"のバージョン3 (VFPv3) を実装した新しい32ビットのARMプロセッサでのみ動作します。"
+"&debian;/armhf ではそういったモデルで拡張された機能や性能拡張を利用するように"
+"なっています。"
 
 #. Tag: para
 #: hardware.xml:253
@@ -501,6 +508,8 @@ msgid ""
 "ARM systems are much more heterogeneous than those based on the i386/amd64-"
 "based PC architecture, so the support situation can be much more complicated."
 msgstr ""
+"ARMシステムは i386/amd64 ベースのPCアーキテクチャと比べてかなり異質なので、サ"
+"ポート状況ははるかに複雑になります。"
 
 #. Tag: para
 #: hardware.xml:277
@@ -533,6 +542,17 @@ msgid ""
 "the ARM multiplatform kernels (called <quote>armmp</quote>) in &debian;/"
 "armhf."
 msgstr ""
+"Linux カーネルでのARMサポート初期に、ハードウェアの種類が多いことからPCシステ"
+"ムでの<quote>1つで万能</quote>のカーネルとは対照的に、ARMシステムごとに別個の"
+"カーネルが必要となりました。この方法は大量の異なるシステムに対応させるには向"
+"かないため、異なるARMシステムでも動作する単一のARMカーネルをブートできるよう"
+"にする作業が行われました。より新しいARMシステムのサポートはこういった複数プ"
+"ラットフォーム対応カーネルを利用できるようにする方法で実装されるようになりま"
+"したが、古い複数のシステムでは専用のカーネルが必要なままです。そのため、標準"
+"の &debian; ディストリビューションではそういった古いARMシステムについては特定"
+"のものへのインストールだけをサポートします。新しいシステムは &debian;/armhf "
+"で、(<quote>armmp</quote> と呼ばれる) 複数プラットフォーム対応カーネルにより"
+"サポートされます。"
 
 #. Tag: para
 #: hardware.xml:305
@@ -546,6 +566,12 @@ msgid ""
 "ARMv8 (arm64) is much more standardised and so is easier for the Linux "
 "kernel and other software to support."
 msgstr ""
+"ARMアーキテクチャはいわゆる <quote>systems-on-chip</quote> (SoC) で主に利用さ"
+"れています。こういったSoCは多くの様々な企業により設計され、そのハードウェアの"
+"構成要素はシステムの起動に必要となるような非常に基本的な機能までが非常に様々"
+"です。古いARMアーキテクチャでは、あるSoCからその後継機の間でも大規模に変更さ"
+"れることがありました。しかし ARMv8 (arm64) では標準化が大きく進み、Linux カー"
+"ネルやその他のソフトウェアのサポートが容易になっています。"
 
 #. Tag: para
 #: hardware.xml:316
@@ -562,7 +588,7 @@ msgstr ""
 #: hardware.xml:326
 #, no-c-format
 msgid "Platforms supported by Debian/arm64"
-msgstr ""
+msgstr "Debian/arm64 によりサポートされているプラットフォーム"
 
 #. Tag: para
 #: hardware.xml:328
@@ -623,10 +649,9 @@ msgstr ""
 
 #. Tag: title
 #: hardware.xml:380
-#, fuzzy, no-c-format
-#| msgid "The supported platforms are:"
+#, no-c-format
 msgid "Other platforms"
-msgstr "サポートするプラットフォームは以下のものです。"
+msgstr "他のプラットフォーム:"
 
 #. Tag: para
 #: hardware.xml:381
@@ -646,7 +671,7 @@ msgstr ""
 #: hardware.xml:397
 #, no-c-format
 msgid "Platforms supported by Debian/armhf"
-msgstr ""
+msgstr "Debian/armhf でサポートされるプラットフォーム"
 
 #. Tag: para
 #: hardware.xml:399
@@ -655,18 +680,21 @@ msgid ""
 "The following systems are known to work with &debian;/armhf using the "
 "multiplatform (armmp) kernel:"
 msgstr ""
+"以下のシステムは複数プラットフォーム対応 (armmp) カーネルを使って &debian;/"
+"armhf が動作することがわかっています:"
 
+# Translator's NOTE: www.freescale.com/ja/webapp/sps/site/prod_summary.jsp?code=IMX53QSB
 #. Tag: term
 #: hardware.xml:406
 #, no-c-format
 msgid "Freescale MX53 Quick Start Board (MX53 LOCO Board)"
-msgstr ""
+msgstr "フリースケール MX53 クイック・スタート・ボード (MX53 LOCO Board)"
 
 #. Tag: para
 #: hardware.xml:408
 #, no-c-format
 msgid "The IMX53QSB is a development board based on the i.MX53 SoC."
-msgstr ""
+msgstr "IMX53QSB は i.MX53 SoC ベースの開発ボードです。"
 
 #. Tag: term
 #: hardware.xml:415
@@ -681,12 +709,14 @@ msgid ""
 "The Versatile Express is a development board series from ARM consisting of a "
 "baseboard which can be equipped with various CPU daughter boards."
 msgstr ""
+"Versatile Express は様々なCPUドーターボードを搭載できるベースボードで構成され"
+"るARMの開発ボードシリーズです。"
 
 #. Tag: term
 #: hardware.xml:426
 #, no-c-format
 msgid "Certain Allwinner sunXi-based development boards and embedded systems"
-msgstr ""
+msgstr "Allwinner sunXi ベースの一部の開発ボード及び組み込みシステム"
 
 #. Tag: para
 #: hardware.xml:429
@@ -698,36 +728,41 @@ msgid ""
 "codename <quote>sun7i</quote>) SoCs. Full installer support is currently "
 "available for the following sunXi-based systems:"
 msgstr ""
+"armmp カーネルは Allwinner A10 (アーキテクチャコード名 <quote>sun4i</quote>) "
+"や A10s/A13 (アーキテクチャコード名 <quote>sun5i</quote>)、A20 (アーキテク"
+"チャコード名 <quote>sun7i</quote>) SoC を基にした複数の開発用ボードや組み込み"
+"システムをサポートします。現在、以下の sunXi ベースのシステムでインストーラの"
+"完全サポートが利用できます:"
 
 #. Tag: para
 #: hardware.xml:437
 #, no-c-format
 msgid "Cubietech Cubieboard 1 + 2 / Cubietruck"
-msgstr ""
+msgstr "Cubietech Cubieboard 1 + 2 / Cubietruck"
 
 #. Tag: para
 #: hardware.xml:440
 #, no-c-format
 msgid "LeMaker Banana Pi and Banana Pro"
-msgstr ""
+msgstr "LeMaker Banana Pi 及び Banana Pro"
 
 #. Tag: para
 #: hardware.xml:443
 #, no-c-format
 msgid "LinkSprite pcDuino and pcDuino3"
-msgstr ""
+msgstr "LinkSprite pcDuino 及び pcDuino3"
 
 #. Tag: para
 #: hardware.xml:446
 #, no-c-format
 msgid "Mele A1000"
-msgstr ""
+msgstr "Mele A1000"
 
 #. Tag: para
 #: hardware.xml:449
 #, no-c-format
 msgid "Miniand Hackberry"
-msgstr ""
+msgstr "Miniand Hackberry"
 
 #. Tag: para
 #: hardware.xml:452
@@ -737,12 +772,15 @@ msgid ""
 "Olinuxino Micro / A20-Olinuxino-LIME / A20-Olinuxino-LIME2 / A20-Olinuxino "
 "Micro"
 msgstr ""
+"Olimex A10-Olinuxino-LIME / A10s-Olinuxino Micro / A13-Olinuxino / A13-"
+"Olinuxino Micro / A20-Olinuxino-LIME / A20-Olinuxino-LIME2 / A20-Olinuxino "
+"Micro"
 
 #. Tag: para
 #: hardware.xml:457
 #, no-c-format
 msgid "PineRiver Mini X-Plus"
-msgstr ""
+msgstr "PineRiver Mini X-Plus"
 
 #. Tag: para
 #: hardware.xml:463
@@ -752,6 +790,9 @@ msgid ""
 "device-tree information available in the mainline Linux kernel. The android-"
 "derived linux-sunxi.org 3.4 kernel series is not supported by &debian;."
 msgstr ""
+"Allwinner sunXi ベースの機器のシステムサポートは 主流側 Linux カーネルで利用"
+"できるドライバやデバイスツリーの情報に限られています。android 派生の linux-"
+"sunxi.org 3.4 系列のカーネルは &debian; ではサポートしていません。"
 
 #. Tag: para
 #: hardware.xml:469
@@ -763,6 +804,11 @@ msgid ""
 "these SoCs. The NAND flash memory that is built into some sunXi-based "
 "systems is not supported."
 msgstr ""
+"主流側の Linux カーネルでは通常、Allwinner A10 や A10s/A13、A20 SoC に搭載さ"
+"れたシリアルコンソールやイーサネット、SATA、USB、MMC/SD カードをサポートしま"
+"すが、ディスプレイ (HDMI/VGA/LCD) のネイティブドライバや SoC に組み込まれてい"
+"るオーディオハードウェアはサポートしません。sunXi を基にした一部のシステムに"
+"搭載されている NAND フラッシュメモリはサポートされません。"
 
 #. Tag: para
 #: hardware.xml:477
@@ -778,7 +824,7 @@ msgstr ""
 #: hardware.xml:488
 #, no-c-format
 msgid "SolidRun Cubox-i2eX / Cubox-i4Pro"
-msgstr ""
+msgstr "SolidRun Cubox-i2eX / Cubox-i4Pro"
 
 #. Tag: para
 #: hardware.xml:490
@@ -792,12 +838,19 @@ msgid ""
 "ethernet, USB, MMC/SD-card and display support over HDMI (console and X11). "
 "In addition to that, the eSATA port on the Cubox-i4Pro is supported."
 msgstr ""
+"Cubox-i シリーズはフリースケール i.MX6 SoC ファミリを基にした小型、立方体型の"
+"システム群です。Cubox-i シリーズのシステムサポートは主流側の Linux カーネルで"
+"利用できるドライバやデバイスツリーの情報に限られています。Cubox-i 向けのフ"
+"リースケール 3.0 シリーズのカーネルは &debian; ではサポートしていません。主流"
+"側のカーネルで利用できるドライバではシリアルコンソールやイーサネット、USB、"
+"MMC/SD カード、HDMI 経由のディスプレイを (コンソールと X11) でサポートしてい"
+"ます。以上に加え、Cubox-i4Pro の eSATA ポートもサポートしています。"
 
 #. Tag: term
 #: hardware.xml:505
 #, no-c-format
 msgid "Wandboard Quad"
-msgstr ""
+msgstr "Wandboard Quad"
 
 #. Tag: para
 #: hardware.xml:507
@@ -825,6 +878,12 @@ msgid ""
 "automatically make the system bootable. Doing that in many cases requires "
 "device-specific information."
 msgstr ""
+"Linux カーネルのARMの複数プラットフォーム対応では通常 &d-i; で利用されるカー"
+"ネルで対象システムの構成要素をサポートしていて対象システム向けのデバイスツ"
+"リーファイルが利用可能である限りは、上に明示的に列挙されていない armhf システ"
+"ムで &d-i; を実行できます。その場合、インストーラは機能するようには通常できま"
+"すが、システムを自動でブート可能にすることはできないかもしれません。それには"
+"多くの場合デバイス特有の情報が必要となります。"
 
 #. Tag: para
 #: hardware.xml:537
@@ -834,18 +893,21 @@ msgid ""
 "bootable at the end of the installation, e.g. by running the required "
 "commands in a shell started from within &d-i;."
 msgstr ""
+"そういったシステムで &d-i; を利用する場合、インストールの最後に例えば &d-i; "
+"から起動したシェルで必要となコマンドを実行し、手作業によりシステムをブート可"
+"能にする必要があるかもしれません。"
 
 #. Tag: title
 #: hardware.xml:546
 #, no-c-format
 msgid "Platforms no longer supported by Debian/armhf"
-msgstr ""
+msgstr "Debian/armhf によりサポートされなくなったプラットフォーム"
 
 #. Tag: term
 #: hardware.xml:550
 #, no-c-format
 msgid "EfikaMX"
-msgstr ""
+msgstr "EfikaMX"
 
 #. Tag: para
 #: hardware.xml:551
@@ -859,12 +921,19 @@ msgid ""
 "armmp multiplatform kernel on the EfikaMX platform would require device-tree "
 "support for it, which is currently not available."
 msgstr ""
+"EfikaMX プラットフォーム (Genesi Efika Smartbook 及び Genesi EfikaMX nettop) "
+"は &debian; 7 でプラットフォーム特有のカーネルによりサポートされましたが、"
+"&debian; 8 以降ではサポートされません。以前に利用されていたプラットフォーム特"
+"有のカーネルをビルドするのに必要なコードが上流の Linux カーネルソースから "
+"2012 年に削除されたため、&debian; で新しいビルドを提供することはできません。"
+"EfikaMX で armmp 複数プラットフォーム対応カーネルを利用するにはデバイスツリー"
+"でサポートしている必要がありますが、現在利用できるようにはなっていません。"
 
 #. Tag: title
 #: hardware.xml:569
 #, no-c-format
 msgid "Platforms supported by Debian/armel"
-msgstr ""
+msgstr "Debian/armel でサポートされるプラットフォーム"
 
 #. Tag: para
 #: hardware.xml:571
@@ -873,6 +942,8 @@ msgid ""
 "The following platforms are supported by &debian;/armel; they require "
 "platform-specific kernels."
 msgstr ""
+"以下のプラットフォームが、プラットフォーム特有のカーネルを必要とする "
+"&debian;/armel; によりサポートされています。"
 
 #. Tag: term
 #: hardware.xml:579
@@ -965,7 +1036,7 @@ msgstr ""
 #: hardware.xml:638
 #, no-c-format
 msgid "Platforms and devices no longer supported by Debian/armel"
-msgstr ""
+msgstr "Debian/armel によりサポートされなくなったプラットフォームやデバイス"
 
 #. Tag: term
 #: hardware.xml:642
@@ -1130,20 +1201,7 @@ msgstr ""
 
 #. Tag: para
 #: hardware.xml:782
-#, fuzzy, no-c-format
-#| msgid ""
-#| "&debian; on &arch-title; supports the following platforms: <itemizedlist> "
-#| "<listitem><para> Cobalt Microserver: only MIPS based Cobalt machines are "
-#| "covered here. This includes the Cobalt RaQ, Qube2 and RaQ2, and the "
-#| "Gateway Microserver. </para></listitem> <listitem><para> MIPS Malta: this "
-#| "platform is emulated by QEMU and is therefore a nice way to test and run "
-#| "&debian; on MIPS if you don't have the hardware. </para></listitem> </"
-#| "itemizedlist> Complete information regarding supported mips/mipsel "
-#| "machines can be found at the <ulink url=\"&url-linux-mips;\">Linux-MIPS "
-#| "homepage</ulink>. In the following, only the systems supported by the "
-#| "&debian; installer will be covered. If you are looking for support for "
-#| "other subarchitectures, please contact the <ulink url=\"&url-list-"
-#| "subscribe;\"> debian-&arch-listname; mailing list</ulink>."
+#, no-c-format
 msgid ""
 "&debian; on &arch-title; supports the following platforms: <itemizedlist> "
 "<listitem><para> MIPS Malta: this platform is emulated by QEMU and is "
@@ -1156,17 +1214,14 @@ msgid ""
 "list-subscribe;\"> debian-&arch-listname; mailing list</ulink>."
 msgstr ""
 "&arch-title; では、&debian; は以下のプラットフォームをサポートしています。"
-"<itemizedlist> <listitem><para> Cobalt Microserver: ここでは MIPS ベースの "
-"Cobalt マシン (Cobalt RaQ, Qube2, RaQ2, Gateway Microserver) のみを対象としま"
-"す。</para></listitem> <listitem><para> MIPS Malta: このプラットフォームは "
-"QEMU でエミュレートされており、そのためハードウェアがなくても MIPS での "
-"&debian; のテストや実行を行う良い方法です。</para></listitem> </"
-"itemizedlist> mips/mipsel マシンサポートについての完全な情報は、<ulink url="
-"\"&url-linux-mips;\">Linux-MIPS homepage</ulink> にあります。以下では、"
-"&debian; インストーラでサポートされているシステムについてのみ対象にしていま"
-"す。その他のサブアーキテクチャのサポートが必要な場合は、<ulink url=\"&url-"
-"list-subscribe;\"> debian-&arch-listname; メーリングリスト</ulink> に連絡して"
-"ください。"
+"<itemizedlist> <listitem><para> MIPS Malta: このプラットフォームは QEMU でエ"
+"ミュレートされており、そのためハードウェアがなくても MIPS での &debian; のテ"
+"ストや実行を行う良い方法です。</para></listitem> </itemizedlist> mips/mipsel "
+"マシンサポートについての完全な情報は、<ulink url=\"&url-linux-mips;\">Linux-"
+"MIPS homepage</ulink> にあります。以下では、&debian; インストーラでサポートさ"
+"れているシステムについてのみ対象にしています。その他のサブアーキテクチャのサ"
+"ポートが必要な場合は、<ulink url=\"&url-list-subscribe;\"> debian-&arch-"
+"listname; メーリングリスト</ulink> に連絡してください。"
 
 #. Tag: para
 #: hardware.xml:812
@@ -1803,40 +1858,39 @@ msgstr ""
 
 #. Tag: title
 #: hardware.xml:1257
-#, fuzzy, no-c-format
-#| msgid "CPU/Machine types"
+#, no-c-format
 msgid "Machines"
-msgstr "CPU/マシンタイプ"
+msgstr "マシン"
 
 #. Tag: para
 #: hardware.xml:1260
 #, no-c-format
 msgid "S822L"
-msgstr ""
+msgstr "S822L"
 
 #. Tag: para
 #: hardware.xml:1265
 #, no-c-format
 msgid "S821L"
-msgstr ""
+msgstr "S821L"
 
 #. Tag: para
 #: hardware.xml:1270
 #, no-c-format
 msgid "S822"
-msgstr ""
+msgstr "S822"
 
 #. Tag: para
 #: hardware.xml:1275
 #, no-c-format
 msgid "S821"
-msgstr ""
+msgstr "S821"
 
 #. Tag: para
 #: hardware.xml:1280
 #, no-c-format
 msgid "TYAN GN70-BP010"
-msgstr ""
+msgstr "TYAN GN70-BP010"
 
 #. Tag: title
 #: hardware.xml:1295
@@ -1944,7 +1998,7 @@ msgstr ""
 #: hardware.xml:1361
 #, no-c-format
 msgid "sun4u"
-msgstr ""
+msgstr "sun4u"
 
 #. Tag: para
 #: hardware.xml:1363
@@ -1967,7 +2021,7 @@ msgstr ""
 #: hardware.xml:1376
 #, no-c-format
 msgid "sun4v"
-msgstr ""
+msgstr "sun4v"
 
 #. Tag: para
 #: hardware.xml:1378
@@ -2032,16 +2086,7 @@ msgstr "マルチプロセッサ"
 
 #. Tag: para
 #: hardware.xml:1417
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Multiprocessor support &mdash; also called <quote>symmetric "
-#| "multiprocessing</quote> or SMP &mdash; is available for this "
-#| "architecture. Having multiple processors in a computer was originally "
-#| "only an issue for high-end server systems but has become quite common in "
-#| "recent years even for rather low-end desktop computers and laptops with "
-#| "the introduction of so called <quote>multi-core</quote> processors. These "
-#| "contain two or more processor units, called <quote>cores</quote>, in one "
-#| "physical chip."
+#, no-c-format
 msgid ""
 "Multiprocessor support &mdash; also called <quote>symmetric multiprocessing</"
 "quote> or SMP &mdash; is available for this architecture. Having multiple "
@@ -2054,10 +2099,9 @@ msgstr ""
 "このアーキテクチャでは、マルチプロセッササポート (<quote>対称型マルチプロセッ"
 "シング</quote> や SMP とも呼ばれる) が利用できます。もともと、複数のプロセッ"
 "サがあるコンピュータは、ハイエンドサーバシステムのみのものでしたが、近年では"
-"<quote>マルチコア</quote>と呼ばれるプロセッサを使用したローエンドコンピュータ"
-"やラップトップコンピュータの登場により、本当に当たり前のものになりました。こ"
-"れには、1 つの物理的なチップに、<quote>コア</quote>と呼ばれる複数のプロセッサ"
-"ユニットが搭載されています。"
+"<quote>マルチコア</quote>と呼ばれるプロセッサの登場により、どこでも当たり前の"
+"ものになりました。これには、1 つの物理的なチップに、<quote>コア</quote>と呼ば"
+"れる複数のプロセッサユニットが搭載されています。"
 
 #. Tag: para
 #: hardware.xml:1427
@@ -2088,13 +2132,7 @@ msgstr ""
 
 #. Tag: para
 #: hardware.xml:1447
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Having multiple processors in a computer was originally only an issue for "
-#| "high-end server systems but has become quite common in recent years even "
-#| "for rather low-end desktop computers and laptops with the introduction of "
-#| "so called <quote>multi-core</quote> processors. These contain two or more "
-#| "processor units, called <quote>cores</quote>, in one physical chip."
+#, no-c-format
 msgid ""
 "Having multiple processors in a computer was originally only an issue for "
 "high-end server systems but has become common in recent years nearly "
@@ -2102,11 +2140,10 @@ msgid ""
 "processors. These contain two or more processor units, called <quote>cores</"
 "quote>, in one physical chip."
 msgstr ""
-"もともと、複数のプロセッサがあるコンピュータは、ハイエンドサーバシステムのみ"
-"のものでしたが、近年では<quote>マルチコア</quote>と呼ばれるプロセッサを使用し"
-"たローエンドコンピュータやラップトップコンピュータの登場により、本当に当たり"
-"前のものになりました。これには、1 つの物理的なチップに、<quote>コア</quote>と"
-"呼ばれる複数のプロセッサユニットが搭載されています。"
+"もともと、複数のプロセッサがあるコンピュータはハイエンドサーバシステムのみの"
+"ものでしたが、近年では<quote>マルチコア</quote>と呼ばれるプロセッサの登場によ"
+"り、どこでも当たり前のものになりました。これには、1 つの物理的なチップに、"
+"<quote>コア</quote>と呼ばれる複数のプロセッサユニットが搭載されています。"
 
 #. Tag: para
 #: hardware.xml:1459
@@ -2638,19 +2675,15 @@ msgstr "周辺機器やその他のハードウェア"
 
 #. Tag: para
 #: hardware.xml:1806
-#, fuzzy, no-c-format
-#| msgid ""
-#| "&arch-kernel; supports a large variety of hardware devices such as mice, "
-#| "printers, scanners, PCMCIA and USB devices. However, most of these "
-#| "devices are not required while installing the system."
+#, no-c-format
 msgid ""
 "&arch-kernel; supports a large variety of hardware devices such as mice, "
 "printers, scanners, PCMCIA/CardBus/ExpressCard and USB devices. However, "
 "most of these devices are not required while installing the system."
 msgstr ""
-"&arch-kernel; は、マウス、プリンタ、スキャナ、PCMCIA、USB デバイスなどの様々"
-"なハードウェアに幅広く対応しています。しかし、システムのインストールに、これ"
-"らのデバイスが必要なわけではありません。"
+"&arch-kernel; は、マウス、プリンタ、スキャナ、PCMCIA/CardBus/ExpressCard、"
+"USB デバイスなどの様々なハードウェアに幅広く対応しています。しかし、システム"
+"のインストールに、これらのデバイスが必要なわけではありません。"
 
 #. Tag: para
 #: hardware.xml:1812

@@ -57,10 +57,9 @@ msgstr ""
 
 #. Tag: title
 #: boot-installer.xml:39
-#, fuzzy, no-c-format
-#| msgid "Booting from Firmware"
+#, no-c-format
 msgid "Boot image formats"
-msgstr "ファームウェアからの起動"
+msgstr "ブート用イメージのフォーマット"
 
 #. Tag: para
 #: boot-installer.xml:40
@@ -72,6 +71,11 @@ msgid ""
 "or b) uImage-format kernels (<quote>uImage</quote>) in conjunction with "
 "corresponding initial ramdisks (<quote>uInitrd</quote>)."
 msgstr ""
+"ARMベースのシステムではほとんどの場合、ブート用イメージに2つのフォーマット: "
+"a) 標準的な Linux 初期RAMディスク (<quote>initrd.gz</quote>) と併用する標準的"
+"な Linux zImage フォーマットのカーネル (<quote>vmlinuz</quote>)、または b) 対"
+"応する初期RAMディスク (<quote>uInitrd</quote>) と併用する uImage フォーマット"
+"のカーネル (<quote>uImage</quote>) のどちらかを利用します。"
 
 #. Tag: para
 #: boot-installer.xml:48
@@ -85,6 +89,13 @@ msgid ""
 "command syntax to do that is slightly different from that for booting "
 "uImages."
 msgstr ""
+"uImage/uInitrd はARMベースのシステムの多く (ほとんどが32ビットシステムです) "
+"で利用されている U-Boot ファームウェア向けに設計されたイメージフォーマットで"
+"す。古いバージョンの U-Boot でブートできるのは uImage/uInitrd フォーマットの"
+"ファイルだけなので、古い armel システムではこの形式がよく利用されています。新"
+"しいバージョンの U-Boot では - uImage/uInitrd のブート以外に - 標準的な "
+"Linux カーネル及びRAMディスクイメージもブートできますが、そのためのコマンド書"
+"式は uImage のブートとはわずかに異なります。"
 
 #. Tag: para
 #: boot-installer.xml:57
@@ -96,13 +107,18 @@ msgid ""
 "of the particular hardware. The dtb should be supplied on the device by the "
 "firmware, but in practice a newer one often needs to be loaded."
 msgstr ""
+"複数プラットフォーム対応カーネルを利用するシステムでは、カーネルと初期RAMディ"
+"スク以外にいわゆるデバイスツリーファイル (デバイスツリー blob <quote>device-"
+"tree blob, dtb</quote>) が必要です。これはサポートする各システムごとに特有の"
+"もので、特定のハードウェアの概要が収録されています。dtb はファームウェアによ"
+"ってデバイスに提供されるはずですが、実際にはもっと新しい dtb をロードする必要"
+"があることはよくあります。"
 
 #. Tag: title
 #: boot-installer.xml:68 boot-installer.xml:86
-#, fuzzy, no-c-format
-#| msgid "Boot Configuration"
+#, no-c-format
 msgid "Console configuration"
-msgstr "起動設定"
+msgstr "コンソール設定"
 
 #. Tag: para
 #: boot-installer.xml:69
@@ -152,10 +168,9 @@ msgstr ""
 
 #. Tag: title
 #: boot-installer.xml:108
-#, fuzzy, no-c-format
-#| msgid "Submitting Installation Reports"
+#, no-c-format
 msgid "Juno Installation"
-msgstr "インストールレポートの送信"
+msgstr "Juno のインストール"
 
 #. Tag: para
 #: boot-installer.xml:109
@@ -236,22 +251,19 @@ msgstr ""
 #: boot-installer.xml:164
 #, no-c-format
 msgid "Booting by TFTP"
-msgstr "TFTP からの起動"
+msgstr "TFTP による起動"
 
 #. Tag: para
 #: boot-installer.xml:170 boot-installer.xml:832 boot-installer.xml:1467
 #: boot-installer.xml:1651 boot-installer.xml:1973 boot-installer.xml:2121
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Booting from the network requires that you have a network connection and "
-#| "a TFTP network boot server (DHCP, RARP, or BOOTP)."
+#, no-c-format
 msgid ""
 "Booting from the network requires that you have a network connection and a "
 "TFTP network boot server (and probably also a DHCP, RARP, or BOOTP server "
 "for automatic network configuration)."
 msgstr ""
-"ネットワークからの起動には、ネットワーク接続と TFTP ネットワークブートサーバ "
-"(DHCP, RARP, BOOTP) が必要です。"
+"ネットワークからの起動には、ネットワーク接続と TFTP ネットワークブートサーバ"
+"が (自動化でのネットワーク設定には恐らく DHCP, RARP, BOOTP も) 必要です。"
 
 #. Tag: para
 #: boot-installer.xml:176 boot-installer.xml:838 boot-installer.xml:1473
@@ -266,22 +278,19 @@ msgstr ""
 #. Tag: para
 #: boot-installer.xml:181 boot-installer.xml:843 boot-installer.xml:1478
 #: boot-installer.xml:1662 boot-installer.xml:1984 boot-installer.xml:2132
-#, fuzzy, no-c-format
-#| msgid ""
-#| "The installation method to support network booting is described in <xref "
-#| "linkend=\"install-tftp\"/>."
+#, no-c-format
 msgid ""
 "The server-side setup to support network booting is described in <xref "
 "linkend=\"install-tftp\"/>."
 msgstr ""
-"ネットワーク起動をサポートするインストール方法は、<xref linkend=\"install-"
-"tftp\"/> で説明します。"
+"ネットワーク起動をサポートするためのサーバ側の準備については、<xref "
+"linkend=\"install-tftp\"/> で説明します。"
 
 #. Tag: title
 #: boot-installer.xml:190
 #, no-c-format
 msgid "TFTP-booting in U-Boot"
-msgstr ""
+msgstr "U-Boot での TFTP のブート"
 
 #. Tag: para
 #: boot-installer.xml:191
@@ -291,6 +300,9 @@ msgid ""
 "steps: a) configuring the network, b) loading the images (kernel/initial "
 "ramdisk/dtb) into memory and c) actually executing the previosly loaded code."
 msgstr ""
+"U-Boot ファームウェアを採用したシステムでのネットワークブートは3つの段階から"
+"構成されます: a) ネットワークの設定、b) イメージ (カーネル/初期RAMディスク/"
+"dtb) のメモリへの読み込み、c) 前段階で読み込んだコードを実際に実行。"
 
 #. Tag: para
 #: boot-installer.xml:197
@@ -310,12 +322,24 @@ msgid ""
 "</screen></informalexample> If you prefer, you can make these settings "
 "permanent by running"
 msgstr ""
+"最初にネットワークを設定する必要があります。DHCP により自動的に設定する場合:"
+"<informalexample><screen>\n"
+"setenv autoload no\n"
+"dhcp\n"
+"</screen></informalexample> あるいは手作業により複数の環境変数を設定する場合:"
+"<informalexample><screen>\n"
+"setenv ipaddr <クライアントのIPアドレス>\n"
+"setenv netmask <netmask>\n"
+"setenv serverip <tftp サーバのIPアドレス>\n"
+"setenv dnsip <名前サーバのIPアドレス>\n"
+"setenv gatewayip <デフォルトゲートウェイのIPアドレス>\n"
+"</screen></informalexample> 希望により、恒久的な設定にすることもできます:"
 
 #. Tag: screen
 #: boot-installer.xml:204
 #, no-c-format
 msgid "saveenv"
-msgstr ""
+msgstr "saveenv"
 
 #. Tag: para
 #: boot-installer.xml:206
@@ -327,6 +351,11 @@ msgid ""
 "the memory map can vary from system to system, so there is no general rule "
 "which addresses can be used for this."
 msgstr ""
+"その後はイメージ (カーネル/初期RAMディスク/dtb) をメモリに読み込む必要があり"
+"ます。これは tftpboot コマンドで行いますが、イメージが記憶されているメモリの"
+"アドレスを指定する必要があります。残念ながらメモリの割り当てはシステムにより"
+"異なる可能性があるため、どのアドレスを利用できるというような原則はありませ"
+"ん。"
 
 #. Tag: para
 #: boot-installer.xml:214
@@ -342,6 +371,15 @@ msgid ""
 "name <quote>sun4i</quote> or the Allwinner A20, architecture name "
 "<quote>sun7i</quote>), you can e.g. use the follwing values:"
 msgstr ""
+"システムによっては読み込みに適するアドレスをセットした環境変数群を U-Boot が"
+"事前に定義しているものがあります: kernel_addr_r、ramdisk_addr_r、fdt_addr_r。"
+"定義されているかどうかは、<informalexample><screen>\n"
+"printenv kernel_addr_r ramdisk_addr_r fdt_addr_r\n"
+"</screen></informalexample> を実行することで確認できます。定義されていない場"
+"合はシステムの文書で適切な値を確認して手作業によりセットする必要があります。"
+"Allwinner SunXi SOC ベースのシステム (例えば Allwinner A10、アーキテクチャ名"
+"<quote>sun4i</quote>や Allwinner A20、アーキテクチャ名<quote>sun7i</quote>) "
+"では、例えば以下の値を利用できます:"
 
 #. Tag: screen
 #: boot-installer.xml:225
@@ -351,14 +389,18 @@ msgid ""
 "setenv fdt_addr_r 0x47000000\n"
 "setenv ramdisk_addr_r 0x48000000"
 msgstr ""
+"setenv kernel_addr_r 0x46000000\n"
+"setenv fdt_addr_r 0x47000000\n"
+"setenv ramdisk_addr_r 0x48000000"
 
+# Translator's NOTE: latter part is after the code
 #. Tag: para
 #: boot-installer.xml:227
 #, no-c-format
 msgid ""
 "When the load addresses are defined, you can load the images into memory "
 "from the previously defined tftp server with"
-msgstr ""
+msgstr "読み込むアドレスが定義されていれば"
 
 #. Tag: screen
 #: boot-installer.xml:230
@@ -368,7 +410,12 @@ msgid ""
 "tftpboot ${fdt_addr_r} &lt;filename of the dtb&gt;\n"
 "tftpboot ${ramdisk_addr_r} &lt;filename of the initial ramdisk image&gt;"
 msgstr ""
+"tftpboot ${kernel_addr_r} &lt;カーネルイメージのファイル名&gt;\n"
+"tftpboot ${fdt_addr_r} &lt;dtbのファイル名&gt;\n"
+"tftpboot ${ramdisk_addr_r} &lt;初期RAMディスクイメージのファイル名&gt;"
 
+# Translator's NOTE: first part is subsequence
+# Translator's NOTE: last part continues to after the code
 #. Tag: para
 #: boot-installer.xml:232
 #, no-c-format
@@ -387,13 +434,27 @@ msgid ""
 "bootm ${kernel_addr_r} ${ramdisk_addr_r} ${fdt_addr_r}\n"
 "</screen></informalexample> and with native Linux images it is"
 msgstr ""
+"を実行することにより、前に定義した tftp サーバからイメージをメモリに読み込め"
+"ます。3つ目の部分はカーネルコマンドラインの設定で、読み込んだコードを実際に実"
+"行します。U-Boot は <quote>bootargs</quote> 環境変数の内容をカーネルにコマン"
+"ドラインとして渡すので、カーネルやインストーラへの任意のパラメータ - 例えば"
+"コンソールデバイス (<xref linkend=\"boot-console\"/> 参照) や preseed のオプ"
+"ション (<xref linkend=\"installer-args\"/> 及び <xref linkend=\"appendix-"
+"preseed\"/> 参照) - を <informalexample><screen>\n"
+"setenv bootargs console=ttyS0,115200 rootwait panic=10\n"
+"</screen></informalexample> のようなコマンドでセットできます。前に読み込んだ"
+"コードを実行する実際のコマンドは利用するイメージのフォーマットに依存します。"
+"uImage/uInitrd の場合、コマンドは <informalexample><screen>\n"
+"bootm ${kernel_addr_r} ${ramdisk_addr_r} ${fdt_addr_r}\n"
+"</screen></informalexample> となり、ネイティブの Linux イメージの場合は"
 
 #. Tag: screen
 #: boot-installer.xml:245
 #, no-c-format
 msgid "bootz ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}"
-msgstr ""
+msgstr "bootz ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}"
 
+# Translator's NOTE: first part is subsequence
 #. Tag: para
 #: boot-installer.xml:247
 #, no-c-format
@@ -405,6 +466,12 @@ msgid ""
 "a platform-specific kernel, i.e. a kernel without device-tree, simply omit "
 "the ${fdt_addr_r} parameter."
 msgstr ""
+"となります。注意: 標準的な linux イメージをブートする場合、カーネルとdtbを読"
+"み込んでから初期RAMディスクイメージを読み込むことが重要となります。U-Boot が"
+"最後に読み込んだファイルのサイズを filesize 変数にセットするのと bootz コマン"
+"ドが正常に動作するためにはRAMディスクイメージのサイズが必要となるためです。プ"
+"ラットフォーム特有のカーネル、つまりデバイスツリー無しでカーネルをブートする"
+"場合には ${fdt_addr_r} パラメータは省略できます。"
 
 #. Tag: title
 #: boot-installer.xml:258
@@ -460,22 +527,13 @@ msgstr ""
 
 #. Tag: title
 #: boot-installer.xml:288
-#, fuzzy, no-c-format
-#| msgid "Booting from USB Memory Stick"
+#, no-c-format
 msgid "Booting from USB Memory Stick with UEFI"
-msgstr "USB メモリからの起動"
+msgstr "UEFI を利用した USB メモリからの起動"
 
 #. Tag: para
 #: boot-installer.xml:294 boot-installer.xml:553
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Let's assume you have prepared everything from <xref linkend=\"boot-dev-"
-#| "select\"/> and <xref linkend=\"boot-usb-files\"/>. Now just plug your USB "
-#| "stick into some free USB connector and reboot the computer. The system "
-#| "should boot up, and unless you have used the flexible way to build the "
-#| "stick and not enabled it, you should be presented with the <prompt>boot:</"
-#| "prompt> prompt. Here you can enter optional boot arguments, or just hit "
-#| "&enterkey;."
+#, no-c-format
 msgid ""
 "If your computer will boot from USB, this will probably be the easiest route "
 "for installation. Assuming you have prepared everything from <xref linkend="
@@ -486,19 +544,20 @@ msgid ""
 "hardware that supports it). Here you can select various installer options, "
 "or just hit &enterkey;."
 msgstr ""
-"さて、<xref linkend=\"boot-dev-select\"/> と <xref linkend=\"boot-usb-files"
-"\"/> の内容すべてを準備しました。それでは USB コネクタに USB メモリを差し込ん"
-"で、コンピュータを再起動してください。システムが起動し、USB メモリを作成する"
-"のに柔軟な方法で有効にしていない、などという事がなければ、<prompt>boot:</"
-"prompt> プロンプトが表示されるはずです。ここで、オプションのブート引数を入力"
-"するか、単に &enterkey; を押してください。"
+"USB からブートできるコンピュータの場合はおそらくこれが最も簡単なインストール"
+"方法です。 さて、<xref linkend=\"boot-dev-select\"/> と <xref linkend=\"boot-"
+"usb-files\"/> の内容すべてを準備しました。それでは USB コネクタに USB メモリ"
+"を差し込んで、コンピュータを再起動してください。システムが起動し、USB メモリ"
+"を作成するのに柔軟な方法で有効にしていない、などという事がなければ、グラフィ"
+"カルなブートメニューが (それをサポートしているハードウェアでは) 表示されるは"
+"ずです。ここで様々なインストールオプションを選択するか、単に &enterkey; を押"
+"してください。"
 
 #. Tag: title
 #: boot-installer.xml:310
-#, fuzzy, no-c-format
-#| msgid "Booting from USB memory stick"
+#, no-c-format
 msgid "Booting from a USB stick in U-Boot"
-msgstr "USB メモリからの起動"
+msgstr "U-Boot でのUSB メモリからの起動"
 
 #. Tag: para
 #: boot-installer.xml:311
@@ -2833,7 +2892,7 @@ msgstr ""
 #: boot-installer.xml:2244
 #, no-c-format
 msgid "Installer front-end"
-msgstr ""
+msgstr "インストーラフロントエンド"
 
 #. Tag: para
 #: boot-installer.xml:2245
@@ -2846,6 +2905,11 @@ msgid ""
 "documentation for <userinput>DEBIAN_FRONTEND</userinput> in <xref linkend="
 "\"installer-args\"/>."
 msgstr ""
+"&debian; インストーラは質問方法にアクセシビリティの異なる複数のフロントエンド"
+"をサポートしています: 特に挙げると <userinput>text</userinput> では平文のテキ"
+"ストを使い、一方 <userinput>newt</userinput> ではテキストベースのダイアログ"
+"ボックスを使います。ブートプロンプトで選択できます。詳しくは <xref linkend=\""
+"installer-args\"/> の <userinput>DEBIAN_FRONTEND</userinput> を見てください。"
 
 #. Tag: title
 #: boot-installer.xml:2257

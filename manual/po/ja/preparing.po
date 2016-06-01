@@ -1915,10 +1915,9 @@ msgstr ""
 
 #. Tag: para
 #: preparing.xml:1275
-#, fuzzy, no-c-format
-#| msgid "Their order on the system."
+#, no-c-format
 msgid "an OS to be running on the system;"
-msgstr "システムでの接続順序"
+msgstr "システムで実行するOS"
 
 #. Tag: para
 #: preparing.xml:1277
@@ -2510,7 +2509,7 @@ msgstr "FIXME: more information needed &mdash; from a Redbook?"
 #: preparing.xml:1656
 #, no-c-format
 msgid "ARM firmware"
-msgstr ""
+msgstr "ARM ファームウェア"
 
 #. Tag: para
 #: preparing.xml:1658
@@ -2526,6 +2525,14 @@ msgid ""
 "extensions back to the mainline firmware developers, so their changes are "
 "not integrated into newer versions of the original firmware."
 msgstr ""
+"既に触れたように、残念ながら ARM システムのシステムファームウェアには標準とな"
+"るものがありません。名義上同一のファームウェアを利用していても、システムが異"
+"なれば挙動はかなり異なることがあります。これは ARM アーキテクチャを採用してい"
+"る機器の大半が組み込みシステムであり、製造者は通常独自の変更を相当に加えた"
+"バージョンのファームウェアをビルドし、機器特有のパッチを収録しているという事"
+"実に起因します。残念ながら製造者が変更や拡張を主流側のファームウェア開発者に"
+"送らないことが多く、そのため製造者による変更が元のファームウェアの新しいバー"
+"ジョンにはなかなか取り入れられません。"
 
 #. Tag: para
 #: preparing.xml:1670
@@ -2540,6 +2547,13 @@ msgid ""
 "impossible to provide usable product-independend instructions for ARM-based "
 "systems."
 msgstr ""
+"結果として新しく販売されているシステムであっても、製造者により改変された1年以"
+"上古いバージョンのファームウェアを基にしたファームウェアを使っていることが多"
+"く、一方で主流側のコードはその間に大きく進化して追加の機能を提供していたり、"
+"ある面で異なる挙動を取るということがあります。それに加え、オンボードデバイス"
+"の命名方法は異なる製造者が改変したバージョン間では同一のファームウェアであっ"
+"ても一貫性がなく、そのためARMベースのシステムで製品に依存せずに利用できる命令"
+"を提供するのはほぼ不可能です。"
 
 #. Tag: title
 #: preparing.xml:1683
@@ -2576,7 +2590,7 @@ msgstr ""
 #: preparing.xml:1707
 #, no-c-format
 msgid "Setting the ethernet MAC address in U-Boot"
-msgstr ""
+msgstr "U-Boot でのイーサネット MAC アドレスの設定"
 
 #. Tag: para
 #: preparing.xml:1708
@@ -2588,6 +2602,11 @@ msgid ""
 "addresses from a centrally-administered pool (for which a fee has to be "
 "paid) and preconfigures one of these addresses on each item sold."
 msgstr ""
+"通常、全イーサネットインターフェイスのMACアドレスが全体で一意であるべきで、技"
+"術的にはイーサネットブロードキャストドメイン内で一意でないといけません。それ"
+"を実現するために製造者は通常、中央管理されている (対価を払う必要のある) MAC "
+"アドレスブロックを割り当てられ、そのアドレスの中から1つを、販売する各製品に事"
+"前設定します。"
 
 #. Tag: para
 #: preparing.xml:1716
@@ -2603,6 +2622,15 @@ msgid ""
 "DHCP based on the MAC address of the requesting client would obviously not "
 "work reliably."
 msgstr ""
+"開発用ボードの場合、製造者が対価の支払いを避けたいために全体で一意なアドレス"
+"が提供されないこともあります。その場合はユーザ自身でシステムの MAC アドレスを"
+"決めないといけません。イーサネットインターフェイスの MAC アドレスが決められて"
+"いない場合、ネットワークドライバによっては MAC アドレスを無作為に生成します。"
+"そうして生成された MAC アドレスはブートのたびに変わる可能性があり、変更が発生"
+"した場合、ユーザが手作業によりアドレスをセットしなくてもネットワークアクセス"
+"は可能でしょうが、例えばリクエストしたクライアントの MAC アドレスを基にして "
+"DHCP により半固定の IP アドレスを割り当てるような場合の動作に信頼性が失われる"
+"のは明らかです。"
 
 #. Tag: para
 #: preparing.xml:1727
@@ -2616,6 +2644,12 @@ msgid ""
 "that e.g. any address starting with hexadecimal ca (such as ca:ff:"
 "ee:12:34:56) can be used as a locally administered address."
 msgstr ""
+"公式に割り当てられている既存の MAC アドレスとの競合を回避するため、いわゆる"
+"<quote>ローカル管理用</quote>アドレスとして予約されているアドレス領域がありま"
+"す。アドレスの第1バイトの特定の2ビットの値が決められています (英語版 "
+"Wikipedia の記事<quote>MAC_address</quote>に良い説明があります)。事実上これは"
+"例えば 16 進数 ca から始まる任意のアドレス (ca:ff:ee:12:34:56 等) をローカル"
+"管理用アドレスとして利用できるということになります。"
 
 #. Tag: para
 #: preparing.xml:1737
@@ -2628,12 +2662,17 @@ msgid ""
 "ee:12:34:56</quote>. After setting the value, the command <quote>saveenv</"
 "quote> makes the assignment permanent."
 msgstr ""
+"システムのファームウェアとして U-Boot を使っているシステムでは、イーサネット "
+"MAC アドレスは<quote>ethaddr</quote>環境変数にセットされています。U-Boot のコ"
+"マンドプロンプトでコマンド<quote>printenv ethaddr</quote>により確認、コマンド"
+"<quote>setenv ethaddr ca:ff:ee:12:34:56</quote>によりセットできます。値の設定"
+"後にコマンド<quote>saveenv</quote>を実行するとその割り当てが恒久的になります。"
 
 #. Tag: title
 #: preparing.xml:1748
 #, no-c-format
 msgid "Kernel/Initrd/Device-Tree relocation issues in U-Boot"
-msgstr ""
+msgstr "U-Boot でのカーネル/initrd/デバイスツリーの再配置問題"
 
 #. Tag: para
 #: preparing.xml:1749
@@ -2646,6 +2685,12 @@ msgid ""
 "afterwards without further output. These issues have been solved with newer "
 "U-Boot versions from v2014.07 onwards."
 msgstr ""
+"以前のバージョンの U-Boot を利用しているシステムの一部ではブートの過程で "
+"Linux カーネルや初期 RAM ディスク、デバイスツリー blob のメモリへの再配置に不"
+"具合がある可能性があります。その場合 U-Boot は<quote>Starting kernel ...</"
+"quote>というメッセージを表示しますがシステムはそれ以上出力することなくフリー"
+"ズします。この問題は v2014.07 以降の新しいバージョンの U-Boot では解決されて"
+"います。"
 
 #. Tag: para
 #: preparing.xml:1758
@@ -2661,6 +2706,14 @@ msgid ""
 "running the command <quote>env default bootm_size; saveenv</quote> at the U-"
 "Boot prompt."
 msgstr ""
+"システムが元々 v2014.07 よりも古いバージョンの U-Boot を利用していたもので後"
+"から新しいバージョンにアップグレードした場合、U-Boot のアップグレード後でも問"
+"題が引き続き発生するかもしれません。U-Boot のアップグレードでは通常既存の U-"
+"Boot 環境変数を変更せず、この問題の修正には追加の環境変数 (bootm_size) をセッ"
+"トする必要があり、既存の環境データの存在しない新規インストール処理でのみ U-"
+"Boot は自動的にそれをセットします。コマンド<quote>env default bootm_size; "
+"saveenv</quote>を U-Boot のプロンプトで手作業により実行することで U-Boot の新"
+"しいデフォルト値に bootm_size をセットできます。"
 
 #. Tag: para
 #: preparing.xml:1769
@@ -2671,12 +2724,16 @@ msgid ""
 "saveenv</quote> at the U-Boot prompt to completely disable the relocation of "
 "the initial ramdisk and the device-tree blob."
 msgstr ""
+"再配置関連の問題を回避する別の策として、コマンド<quote>setenv fdt_high "
+"ffffffff; setenv initrd_high 0xffffffff; saveenv</quote>を U-Boot プロンプト"
+"で実行して初期 RAM ディスク、デバイスツリー blob の再配置を完全に無効化する方"
+"法があります。"
 
 #. Tag: title
 #: preparing.xml:1779
 #, no-c-format
 msgid "Systems with UEFI firmware"
-msgstr ""
+msgstr "UEFI ファームウェアを利用しているシステム"
 
 #. Tag: para
 #: preparing.xml:1780
@@ -2686,6 +2743,9 @@ msgid ""
 "system firmware that is used on many modern systems and is - among other "
 "uses - intended to replace the classic PC BIOS."
 msgstr ""
+"UEFI (<quote>Unified Extensible Firmware Interface</quote>) は新しい種類のシ"
+"ステムファームウェアで、現代的なシステムの多くで採用され、- 他の用途もありま"
+"すが - 伝統的な PC BIOS の置き換えを意図しています。"
 
 #. Tag: para
 #: preparing.xml:1786
@@ -2699,6 +2759,13 @@ msgid ""
 "old PC BIOS without being fully backwards-compatible and there are already a "
 "lot of systems with UEFI but without CSM."
 msgstr ""
+"現在 UEFI を採用しているほとんどの PC システムでファームウェアのいわゆる"
+"<quote>互換性サポートモジュール</quote> (CSM、Compatibility Support Module) "
+"を備えています。これは伝統的な PC BIOS として全く同一のインターフェイスをオペ"
+"レーティングシステムに提供するため、伝統的な PC BIOS 向けに書かれたソフトウェ"
+"アを変更せずそのまま使えます。UEFI は完全な後方互換性を維持せず古い PC BIOS "
+"をいつか完全に置き換えることを意図していますが、UEFI を採用していながら CSM "
+"を備えていないシステムも既に多数存在します。"
 
 #. Tag: para
 #: preparing.xml:1796
@@ -2722,6 +2789,23 @@ msgid ""
 "and in which format it has to be. This means that different bootloaders are "
 "needed for each system."
 msgstr ""
+"UEFI を備えたシステムでオペレーティングシステムをインストールする際に留意して"
+"おくべきことがいくつかあります。ファームウェアがオペレーティングシステムを読"
+"み込む方法が BIOS (や UEFI の CSM モード) とネイティブ UEFI とでは根本的に異"
+"なります。第一に大きな違いはハードディスクのパーティションをハードディスクに"
+"記録する方法です。伝統的な BIOS と UEFI の CSM モードでは DOS パーティション"
+"テーブルを利用しますがネイティブ UEFI では<quote>GUID パーティションテーブル"
+"</quote> (GPT、GUID Partition Table) と呼ばれる、異なるパーティション方式を採"
+"用しています。1つのディスクで現実的な目的に利用できるのは2つのうちの1つだけで"
+"あり、そのため1つのディスクで異なるオペレーティングシステムのマルチブートを用"
+"意する場合は同じ種類のパーティションテーブルをその全オペレーティングシステム"
+"で使わないといけません。GPT を採用したディスクからのブートはネイティブ UEFI "
+"モードでのみ可能ですが、ハードディスク容量増大により GPT の採用がますます一般"
+"的になっています。これは伝統的な DOS パーティションテーブルでは容量が約2テラ"
+"バイト以上のディスクには対応できないのに対して GPT では圧倒的に大容量のディス"
+"クに対応できるからです。BIOS (や UEFI の CSM モード) とネイティブ UEFI との他"
+"の大きな違いとしてブートコードを保存する位置とそのコードの形式があり、そのた"
+"め異なるシステムでは異なるブートローダが必要です。"
 
 #. Tag: para
 #: preparing.xml:1816
@@ -2741,6 +2825,19 @@ msgid ""
 "the user can select whether booting shall happen in CSM or in native UEFI "
 "mode."
 msgstr ""
+"UEFI システムの CSM で &d-i; をブートする場合には後者が重要になります。これ"
+"は &d-i; が BIOS から起動されたのかネイティブ UEFI システムから起動されたのか"
+"確認して対応するブートローダをインストールするためです。通常これは単純にうま"
+"く機能しますが、マルチブート環境では問題が起きる可能性があります。一部の "
+"UEFI システムで CSM を利用した場合、脱着可能機器のデフォルトのブートモード"
+"が、ハードディスクからブートしたときに実際に利用されるものとは異なる可能性が"
+"あるためです。そのため、別のインストール済みオペレーティングシステムをハード"
+"ディスクからブートする際に利用するモードとは異なるモードでインストーラを USB "
+"メモリからブートした場合、適切でないブートローダがインストールされ、インス"
+"トール完了後にシステムがブート不可能になるかもしれません。システムによっては"
+"ブートデバイスをファームウェアのブートメニューから選択する際に各デバイスにつ"
+"いて別個の選択を提示し、CSM からブートするのかネイティブ UEFI モードからブー"
+"トするのかユーザが選択できるようにしています。"
 
 #. Tag: para
 #: preparing.xml:1832
@@ -2763,12 +2860,28 @@ msgid ""
 "try setting a BIOS password, powercycle the machine and look again for an "
 "appropriate option."
 msgstr ""
+"UEFI に関連する他の話題としてはいわゆる <quote>セキュアブート</quote>機構があ"
+"ります。セキュアブートというのは UEFI 実装の機能で、暗号的に特定の鍵により署"
+"名済みのコードの読み込み、実行だけをファームウェアに許可します。結果として "
+"(潜在的に悪意のある) 署名されていないあるいは未知の鍵により署名されたブート"
+"コードを全て阻止します。現実的にはセキュアブートを採用しているほとんどの "
+"UEFI システムでデフォルトで受け付ける鍵は Windows ブートローダの署名に利用さ"
+"れている Microsoft の鍵だけです。&d-i; により利用されるブートコードは "
+"Microsoft により署名されていないため、インストーラのブートにはセキュアブート"
+"が有効になっている場合には事前に無効化する必要があります。64ビット版の "
+"Windows 8 がプレインストールされているシステムではセキュアブートがデフォルト"
+"で有効化されていることが多く、UEFI の設定からそれを無効化する手順には残念なが"
+"ら標準的なものがありません。一部のシステムではセキュアブートを無効化するオプ"
+"ションが、BIOS パスワードがユーザによりセットされている場合にのみ見えるように"
+"なるものもあります。そのため、セキュアブートが有効化されているシステムで無効"
+"化するオプションを見つけられない場合は一旦 BIOS パスワードを設定してマシンの"
+"電源を入れ直し、再びそれらしいオプションがないか探してみてください。"
 
 #. Tag: title
 #: preparing.xml:1854
 #, no-c-format
 msgid "Disabling the Windows 8 <quote>fast boot</quote> feature"
-msgstr ""
+msgstr "Windows 8 の<quote>高速スタートアップ</quote>機能の無効化"
 
 #. Tag: para
 #: preparing.xml:1855
@@ -2788,6 +2901,19 @@ msgid ""
 "Therefore in a dual boot setup, to avoid filesystem corruption the "
 "<quote>fast boot</quote> feature has to be disabled within Windows."
 msgstr ""
+"Windows 8 では<quote>高速スタートアップ</quote>と呼ばれる、システム起動にか"
+"かる時間を短縮する機能を提供しています。技術的には、この機能を有効化すると "
+"Windows 8 はシャットダウンを指示したときに実際のシャットダウンやその後の実際"
+"のコールドブートを行わず、代わりにディスクへの部分サスペンドのようなことを行"
+"い<quote>ブート</quote>時間を短縮します。Windows 8 がそのマシンの唯一のオペ"
+"レーティングシステムである限りこれは問題にはなりませんが、Windows 8 と同一の"
+"ファイルシステムに別のオペレーティングシステムがアクセスするデュアルブート環"
+"境では問題となりデータ消失の可能性があります。その場合、<quote>ブート</quote>"
+"後にはファイルシステムの実際の状態が  Windows 8 がそうであると信じている状態"
+"とは異なる可能性があり、そのファイルシステムへの書き込みアクセスがさらに起き"
+"るとファイルシステムの破損を引き起こす可能性があります。したがって、デュアル"
+"ブート環境でファイルシステムの破損を避けるためには<quote>高速スタートアップ</"
+"quote>機能を Windows 内で無効化する必要があります。"
 
 #. Tag: para
 #: preparing.xml:1871
