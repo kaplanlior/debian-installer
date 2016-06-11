@@ -436,7 +436,7 @@ msgstr "AMD64 と Intel 64 プロセッサの両方をサポートしていま�
 #: hardware.xml:234
 #, no-c-format
 msgid "Three different ARM ports"
-msgstr ""
+msgstr "3つの異なるARM移植版"
 
 #. Tag: para
 #: hardware.xml:236
@@ -458,6 +458,8 @@ msgid ""
 "&debian;/armel targets older 32-bit ARM processors without support for a "
 "hardware floating point unit (FPU),"
 msgstr ""
+"&debian;/armel はハードウェア浮動小数点演算ユニット (FPU) をサポートしない、"
+"古い32ビットのARMプロセッサを対象としています。"
 
 #. Tag: para
 #: hardware.xml:246
@@ -480,6 +482,8 @@ msgid ""
 "&debian;/arm64 works on 64-bit ARM processors which implement at least the "
 "ARMv8 architecture."
 msgstr ""
+"&debian;/arm64 は ARMv8 以降のアーキテクチャを実装する64ビットのARMプロセッサ"
+"で動作します。"
 
 #. Tag: para
 #: hardware.xml:260
@@ -499,7 +503,7 @@ msgstr ""
 #: hardware.xml:269
 #, no-c-format
 msgid "Variations in ARM CPU designs and support complexity"
-msgstr ""
+msgstr "ARM CPU の設計のばらつきとそのサポートの複雑さ"
 
 #. Tag: para
 #: hardware.xml:271
@@ -524,6 +528,14 @@ msgid ""
 "Linux kernel has to take care of many system-specific low-level issues which "
 "would be handled by the mainboard's BIOS in the PC world."
 msgstr ""
+"ARMアーキテクチャはいわゆる <quote>systems-on-chip</quote> (SoC) で主に利用さ"
+"れています。こういったSoCは多くの様々な企業により設計され、そのハードウェアの"
+"構成要素はシステムの起動に必要となるような非常に基本的な機能までが非常に様々"
+"です。システムファームウェアのインターフェイスは時とともに標準化が進みました"
+"が、特に古いハードウェアではファームウェアやブート用インターフェイスは非常に"
+"様々であるため、PCの世界ではマザーボードの BIOS が扱うようなシステム固有の低"
+"レベルの問題についても、そういったシステムでは Linux カーネルが担当しないとい"
+"けない、ということになります。"
 
 #. Tag: para
 #: hardware.xml:289
@@ -583,6 +595,11 @@ msgid ""
 "ways to boot and configure computer hardware. They are also common in the "
 "x86 PC world."
 msgstr ""
+"サーバ版の ARMv8 ハードウェアは通常、Unified Extensible Firmware Interface "
+"(UEFI) 及び Advanced Configuration and Power Interface (ACPI) 標準を使って設"
+"定されます。この2つにより、一般的で機器に依存しない方法でコンピュータハード"
+"ウェアをブート、設定できるようになります。これは x86 PC の世界でも共通してい"
+"ます。"
 
 #. Tag: title
 #: hardware.xml:326
@@ -601,12 +618,19 @@ msgid ""
 "to be supported by &debian;/arm64 in this release. There is only one kernel "
 "image, which supports all the listed platforms."
 msgstr ""
+"Arm64/AArch64/ARMv8 ハードウェアは &debian; &releasename-cap; リリースサイク"
+"ルのかなり終盤になって利用できるようになったため、このリリース時点までの主流"
+"側カーネルのバージョンでサポートがマージされているプラットフォームはあまり多"
+"くありません。これは &d-i; を使えるようにするための大きな要件なのです。以下の"
+"プラットフォームはこのリリースの &debian;/arm64 でサポートされていることがわ"
+"かっています。挙げられているプラットフォームは全て、ただ一つのカーネルイメー"
+"ジでサポートします。"
 
 #. Tag: term
 #: hardware.xml:340
 #, no-c-format
 msgid "Applied Micro (APM) Mustang/X-Gene"
-msgstr ""
+msgstr "Applied Micro (APM) Mustang/X-Gene"
 
 #. Tag: para
 #: hardware.xml:342
@@ -619,12 +643,18 @@ msgid ""
 "Most of the hardware is supported in the mainline kernel, but at this point "
 "USB support is lacking in the &releasename-cap; kernel."
 msgstr ""
+"APM Mustang は Linux が動作する最初に利用可能となった ARMv8 システムでした。"
+"X-gene SoC を採用で、これはその後他のマシンでも採用されました。8コア CPU、"
+"イーサネット、USB、シリアルポートを搭載します。共通フォームファクターはデスク"
+"トップPC用と酷似していますが、別バージョンが今後多数出てくることが期待されま"
+"す。ハードウェアはほとんどが主流側カーネルでサポートされていますが、"
+"&releasename-cap; のカーネルでは現時点でUSBのサポートが欠けています。"
 
 #. Tag: term
 #: hardware.xml:356
 #, no-c-format
 msgid "ARM Juno Development Platform"
-msgstr ""
+msgstr "ARM Juno Development Platform"
 
 #. Tag: para
 #: hardware.xml:358
@@ -636,6 +666,11 @@ msgid ""
 "cheap, but was one of the first boards available. All the on-board hardware "
 "is supported in the mainline kernel and in &releasename-cap;."
 msgstr ""
+"Juno は 6コア (2xA57, 4xA53) ARMv8-A 800Mhz CPU、Mali (T624) グラフィック、"
+"8GB DDR3 RAM、イーサネット、USB、シリアルポートを搭載する高性能開発用ボードで"
+"す。システムの提示や電力テスト向けに設計されたため、小型でもなく安価でもあり"
+"ませんが、最初に利用できるようになったボードの一つです。オンボードのハード"
+"ウェアは全て主流側カーネル及び &releasename-cap; でサポートされています。"
 
 #. Tag: para
 #: hardware.xml:372
@@ -646,6 +681,10 @@ msgid ""
 "commands in a shell started from within &d-i;. flash-kernel knows how to set "
 "up an X-Gene system booting with U-Boot."
 msgstr ""
+"非 UEFI システムで &d-i; を利用している場合は、例えば &d-i; から起動したシェ"
+"ルで必要なコマンドを実行する等、インストールの最後に手作業でシステムをブート"
+"可能にしないといけないかもしれません。flash-kernel は U-Boot でブートする X-"
+"Gene システムの段取りを知っています。"
 
 #. Tag: title
 #: hardware.xml:380
@@ -666,6 +705,14 @@ msgid ""
 "system bootable as well. If UEFI is not used you may also need to perform "
 "some manual configuration steps to make the system bootable."
 msgstr ""
+"arm64 Linux カーネルの複数プラットフォームサポートにより、上記に明記されてい"
+"ない arm64 システムでも &d-i; を実行できるかもしれません。&d-i; により利用さ"
+"れるカーネルで対象システムの構成要素をサポートしていて、対象システムのデバイ"
+"スツリーファイルが利用可能であれば、新しい対象システムでも普通に動作するかも"
+"しれません。その場合は通常、インストーラによってインストールした後も機能する"
+"ため、UEFI を利用している場合は同様にシステムをブート可能にできるはずです。"
+"UEFI を利用していない場合は、システムをブート可能にするために何らかのマニュア"
+"ル設定を行う必要があるかもしれません。"
 
 #. Tag: title
 #: hardware.xml:397
@@ -819,6 +866,9 @@ msgid ""
 "relies on the <quote>U-Boot</quote> bootloader for initialising the display "
 "hardware."
 msgstr ""
+"ローカルディスプレイの利用は技術的にはネイティブのディスプレイドライバがなく"
+"ても主流側カーネルの<quote>simplefb</quote>経由で可能です。これはディスプレイ"
+"ハードウェアの初期化を<quote>U-Boot</quote>ブートローダに依存しています。"
 
 #. Tag: term
 #: hardware.xml:488
@@ -865,6 +915,14 @@ msgid ""
 "options (analog, S/PDIF, HDMI-Audio) and for the onboard WLAN/Bluetooth "
 "module is not available in &debian; 8."
 msgstr ""
+"Wandboard Quad は Freescale i.MX6 Quad SoC ベースの開発用ボードです。システム"
+"サポートは主流側カーネルで利用できるドライバ及びデバイスツリーの情報に限定さ"
+"れています。wandboard.org で配布している wandboard 特有の 3.0 及び 3.10 カー"
+"ネル系列は &debian; ではサポートしていません。主流側カーネルにはシリアルコン"
+"ソール、HDMI経由のディスプレイ (コンソールと X11)、イーサネット、USB、MMC/"
+"SD、SATA のドライバサポートが収録されています。オンボードのオーディオオプ"
+"ション (アナログ、S/PDIF、HDMIオーディオ) やオンボードの WLAN/Bluetooth モ"
+"ジュールのサポートは &debian; 8 では利用できません。"
 
 #. Tag: para
 #: hardware.xml:525
@@ -959,6 +1017,9 @@ msgid ""
 "Ethernet, SATA, USB, and other functionality in one chip. &debian; currently "
 "supports the following Kirkwood based devices:"
 msgstr ""
+"Kirkwood は Marvell 製の system-on-chip (SoC) で、ARM CPU、イーサネット、"
+"SATA、USB その他の機能が 1 チップに統合されています。&debian; は現在、以下に"
+"挙げる Kirkwood ベースの機器をサポートしています:"
 
 #. Tag: ulink
 #: hardware.xml:588
@@ -967,6 +1028,8 @@ msgid ""
 "Plug computers (SheevaPlug, GuruPlug, DreamPlug and Seagate FreeAgent "
 "DockStar)"
 msgstr ""
+"プラグコンピュータ (SheevaPlug, GuruPlug, DreamPlug, Seagate FreeAgent "
+"DockStar)"
 
 #. Tag: para
 #: hardware.xml:591
@@ -975,6 +1038,8 @@ msgid ""
 "<ulink url=\"&url-arm-cyrius-qnap-kirkwood;\">QNAP Turbo Station</ulink> "
 "(all TS-11x/TS-12x, HS-210, TS-21x/TS-22x and TS-41x/TS-42x models)"
 msgstr ""
+"<ulink url=\"&url-arm-cyrius-qnap-kirkwood;\">QNAP Turbo Station</ulink> "
+"(TS-11x/TS-12x, HS-210, TS-21x/TS-22x, TS-41x/TS-42x の全モデル)"
 
 #. Tag: para
 #: hardware.xml:595
@@ -983,12 +1048,14 @@ msgid ""
 "LaCie NASes (Network Space v2, Network Space Max v2, Internet Space v2, d2 "
 "Network v2, 2Big Network v2 and 5Big Network v2)"
 msgstr ""
+"LaCie NASes (Network Space v2, Network Space Max v2, Internet Space v2, d2 "
+"Network v2, 2Big Network v2, 5Big Network v2)"
 
 #. Tag: para
 #: hardware.xml:599
 #, no-c-format
 msgid "OpenRD (OpenRD-Base, OpenRD-Client and OpenRD-Ultimate)"
-msgstr ""
+msgstr "OpenRD (OpenRD-Base, OpenRD-Client, OpenRD-Ultimate)"
 
 #. Tag: term
 #: hardware.xml:608 hardware.xml:653
@@ -1051,6 +1118,8 @@ msgid ""
 "Support for the Intel IXP4xx platform has been dropped in &debian; 9. The "
 "Linksys NSLU2 device is based on IXP4xx and is therefore no longer supported."
 msgstr ""
+"Intel IXP4xx プラットフォームのサポートは &debian; 9 では外されています。"
+"Linksys NSLU2 機器は IXP4xx ベースであるため、サポートされません。"
 
 #. Tag: para
 #: hardware.xml:654
@@ -1061,6 +1130,10 @@ msgid ""
 "fits into the flash on these devices. Other Orion devices, such as Buffalo "
 "Kurobox and HP mv2120, are still supported."
 msgstr ""
+"D-Link DNS-323 及び Conceptronic CH3SNAS 機器のサポートは &debian; 9 では "
+"Orion5x プラットフォームから外されています。Linux カーネルはこういった機器の"
+"フラッシュに収まらなくなっています。Buffalo 玄箱や HP mv2120 等他の Orion 機"
+"器のサポートは続いています。"
 
 #. Tag: title
 #: hardware.xml:673 hardware.xml:723 hardware.xml:781 hardware.xml:811
@@ -1106,6 +1179,8 @@ msgid ""
 "However, &debian; GNU/Linux &releasename; will <emphasis>not</emphasis> run "
 "on 586 (Pentium) or earlier processors."
 msgstr ""
+"しかし、&debian; GNU/Linux &releasename; は 586 (Pentium) 以前のプロセッサで"
+"は動作<emphasis>しません</emphasis>。"
 
 #. Tag: para
 #: hardware.xml:696
@@ -2264,6 +2339,12 @@ msgid ""
 "3D acceleration also works well out of the box, but there is still some "
 "hardware that needs binary blobs to work well."
 msgstr ""
+"現在のPCでは、グラフィカルディスプレイは搭載されていれば通常そのままで動作し"
+"ます。ほとんどありませんが、基本的なグラフィックサポートであってもグラフィッ"
+"クカードのファームウェアを追加でインストールすることが要求されるハードウェア"
+"について報告されています。しかしこれはまれな例外です。かなり多くのハードウェ"
+"アで 3D アクセラレーションもそのままでうまく動作しますが、うまく動作するため"
+"にはバイナリ blob を必要とするハードウェアもまだ一部にあります。"
 
 #. Tag: para
 #: hardware.xml:1533
@@ -2280,6 +2361,16 @@ msgid ""
 "are available in the release. Other hardware needs non-free drivers from 3rd "
 "parties."
 msgstr ""
+"ほぼ全てのARMマシンがグラフィックハードウェアを、プラグインカードに依らず組み"
+"込みで持っています。グラフィックカードを増設できる拡張スロットを備えるマシン"
+"はありますが、それは希少です。グラフィックを一切持たないヘッドレス設計のハー"
+"ドウェアがかなり一般的です。カーネルにより提供される基本的なフレームバッファ"
+"のビデオはグラフィックを備えた機器であればどれでも使えるはずですが、高速 3D "
+"グラフィックを使うためにはバイナリドライバが必ず必要です。状況は刻々と変わり"
+"ますが、&releasename; のリリース時点では nouveau (Nvidia Tegra K1 の SoC) 及"
+"び freedreno (Qualcomm Snapdragon の SoC) 用のフリードライバがこのリリースで"
+"利用できるようになっています。他のハードウェアではサードパーティの non-free "
+"ドライバが必要です。"
 
 #. Tag: para
 #: hardware.xml:1547

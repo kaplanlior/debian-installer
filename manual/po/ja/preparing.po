@@ -1880,7 +1880,7 @@ msgstr ""
 #: preparing.xml:1253
 #, no-c-format
 msgid "How to update bare metal ppc64el firmware"
-msgstr ""
+msgstr "ベアメタル ppc64el ファームウェアの更新方法"
 
 #. Tag: para
 #: preparing.xml:1254
@@ -1889,6 +1889,8 @@ msgid ""
 "This is an excerpt from <ulink url=\"&url-ibm-powerkvm;\">IBM PowerKVM on "
 "IBM POWER8</ulink>."
 msgstr ""
+"これは <ulink url=\"&url-ibm-powerkvm;\">IBM PowerKVM on IBM POWER8</ulink> "
+"からの抜粋です。"
 
 #. Tag: para
 #: preparing.xml:1259
@@ -1897,6 +1899,8 @@ msgid ""
 "Open Power Abstraction Layer (OPAL) is the system firmware in the stack of "
 "POWER processor-based server."
 msgstr ""
+"Open Power Abstraction Layer (OPAL) は POWER プロセッサベースのサーバ向けのシ"
+"ステムファームウェアです。"
 
 #. Tag: para
 #: preparing.xml:1264
@@ -1906,12 +1910,15 @@ msgid ""
 "firmware to a more recent level to acquire new features or additional "
 "support for devices."
 msgstr ""
+"新しい機能やデバイスの追加サポートを得るためにユーザが Power Systems のファー"
+"ムウェアをもっと新しいものにアップグレードしないといけないような状況があるか"
+"もしれません。"
 
 #. Tag: para
 #: preparing.xml:1270
 #, no-c-format
 msgid "Make sure that the following requirements are met:"
-msgstr ""
+msgstr "以下の要件を満たすことを確認してください:"
 
 #. Tag: para
 #: preparing.xml:1275
@@ -1923,13 +1930,13 @@ msgstr "システムで実行するOS"
 #: preparing.xml:1277
 #, no-c-format
 msgid "the .img file of the OPAL level that the user needs to update to;"
-msgstr ""
+msgstr "ユーザが更新を必要としている OPAL レベルの .img ファイル"
 
 #. Tag: para
 #: preparing.xml:1279
 #, no-c-format
 msgid "the machine isn't under HMC control."
-msgstr ""
+msgstr "マシンが HMC の制御下にない"
 
 #. Tag: para
 #: preparing.xml:1283
@@ -1940,12 +1947,16 @@ msgid ""
 "side of the flash before committing the tested changes to the permanent "
 "side, thereby committing the new updates."
 msgstr ""
+"Power システムにはファームウェアをブートするフラッシュが恒久的と一時的の2種類"
+"あります。これにより、新しい更新を一時的な側のフラッシュに一旦送ることで、変"
+"更を恒久的な側のフラッシュに送る前にファームウェアの更新をテストできる方法を"
+"提供します。"
 
 #. Tag: para
 #: preparing.xml:1290
 #, no-c-format
 msgid "Perform the following steps for the update:"
-msgstr ""
+msgstr "更新には以下の手順を実行します:"
 
 #. Tag: para
 #: preparing.xml:1295
@@ -1955,12 +1966,15 @@ msgid ""
 "the system menu, click <command>Service Aids ??? Service Processor Command "
 "Line</command>, and run the following command:"
 msgstr ""
+"実際に更新する前に既存レベルのファームウェアを保存します。ASM のシステムメ"
+"ニューから <command>Service Aids → Service Processor Command Line</"
+"command> をクリックし、以下のコマンドを実行します:"
 
 #. Tag: screen
 #: preparing.xml:1299
 #, no-c-format
 msgid "cupdcmd -f"
-msgstr ""
+msgstr "cupdcmd -f"
 
 #. Tag: para
 #: preparing.xml:1300
@@ -1970,6 +1984,9 @@ msgid ""
 "in the host filesystem. Refer to IBM Fix Central for downloading the image "
 "file."
 msgstr ""
+"更新するファームウェアレベルの .img ファイルをホストのファイルシステム上にダ"
+"ウンロードします。イメージファイルのダウンロードについては IBM Fix Central を"
+"参照してください。"
 
 #. Tag: para
 #: preparing.xml:1304
@@ -1978,24 +1995,25 @@ msgid ""
 "Verify the image downloaded by running the following command and save the "
 "output."
 msgstr ""
+"以下のコマンドを実行して出力を保存し、ダウンロードしたイメージを検証します。"
 
 #. Tag: screen
 #: preparing.xml:1307
 #, no-c-format
 msgid "$update_flash -v -f &lt;file_name.img&gt;"
-msgstr ""
+msgstr "$update_flash -v -f &lt;ファイル名.img&gt;"
 
 #. Tag: para
 #: preparing.xml:1309
 #, no-c-format
 msgid "Update the firmware by running the following command."
-msgstr ""
+msgstr "以下のコマンドを実行してファームウェアを更新します。"
 
 #. Tag: screen
 #: preparing.xml:1311
 #, no-c-format
 msgid "$update_flash -f &lt;file_name.img&gt;"
-msgstr ""
+msgstr "$update_flash -f &lt;ファイル名.img&gt;"
 
 #. Tag: para
 #: preparing.xml:1317
@@ -2003,12 +2021,14 @@ msgstr ""
 msgid ""
 "The command reboots the system and therefore, sessions if any, would be lost."
 msgstr ""
+"このコマンドはシステムを再起動するため、セッションがある場合には失われます。"
 
 #. Tag: para
 #: preparing.xml:1320
 #, no-c-format
 msgid "Do not reboot or switch off the system until it is back."
 msgstr ""
+"システムが戻ってくるまで再起動や電源を落とすことのないようにしてください。"
 
 #. Tag: para
 #: preparing.xml:1327
@@ -2017,6 +2037,8 @@ msgid ""
 "Verify the updated firmware level of the temporary side of the flash as in "
 "step 1."
 msgstr ""
+"手順1のようにして一時的な側のフラッシュの更新されたファームウェアレベルを検証"
+"します。"
 
 #. Tag: para
 #: preparing.xml:1330
@@ -2029,6 +2051,12 @@ msgid ""
 "of the flash. Therefore, the new level should be committed to the permanent "
 "side only after thorough testing of the new firmware."
 msgstr ""
+"更新を差し戻さないといけない場合はユーザが: <informalexample><screen>\n"
+"    $update_flash -r\n"
+"</screen></informalexample> を実行することで戻せます。この差し戻しで戻るのは"
+"一時的な側のフラッシュだけです。したがって、新しいレベルのファームウェアを恒"
+"久的な側に送るのは新しいファームウェアについて徹底したテストを行った後にのみ"
+"にすべきです。"
 
 #. Tag: para
 #: preparing.xml:1337
@@ -2037,18 +2065,20 @@ msgid ""
 "The new updated level can be committed to the permanent side of the flash by "
 "running the following command."
 msgstr ""
+"以下のコマンドを実行することで、更新された新しいレベルのファームウェアを恒久"
+"的な側のフラッシュに送れます。"
 
 #. Tag: screen
 #: preparing.xml:1340
 #, no-c-format
 msgid "$update_flash -c"
-msgstr ""
+msgstr "$update_flash -c"
 
 #. Tag: title
 #: preparing.xml:1348
 #, no-c-format
 msgid "Updating KVM guest firmware (SLOF)"
-msgstr ""
+msgstr "KVM ゲストファームウェア (SLOF) の更新"
 
 #. Tag: para
 #: preparing.xml:1349
@@ -2058,6 +2088,8 @@ msgid ""
 "standard. It can be used as partition firmware for pSeries machines running "
 "on QEMU or KVM."
 msgstr ""
+"Slimline Open Firmware (SLOF) は IEEE 1275 標準の実装です。QEMU または KVM を"
+"実行している pSeries マシンのパーティションファームウェアとして利用できます。"
 
 #. Tag: para
 #: preparing.xml:1356
@@ -2073,6 +2105,16 @@ msgid ""
 "Additionally, the upstream source code is available at <ulink url=\"http://"
 "github.com/leilihh/SLOF\"></ulink>."
 msgstr ""
+"パッケージ qemu-slof は実際、パッケージ qemu-system-ppc (これは仮想パッケー"
+"ジ qemu-system-ppc64 も提供しています) が依存しているパッケージで、Debian "
+"ベースのディストリビューションでは <command>apt</command> ツールで "
+"<informalexample><screen>\n"
+"# apt install qemu-slof\n"
+"</screen></informalexample> のようにしてインストール、あるいは更新できます。"
+"適切なリポジトリや rpm パッケージがあれば rpm ベースのディストリビューション"
+"を採用したシステムにも SLOF をインストールできます。また、上流ソースコードは "
+"<ulink url=\"http://github.com/leilihh/SLOF\"></ulink> から利用できるように"
+"なっています。"
 
 #. Tag: para
 #: preparing.xml:1371
@@ -2082,18 +2124,21 @@ msgid ""
 "running <command>qemu-system</command>, by adding the command line argument "
 "<userinput>-bios &lt;slof_file&gt; </userinput> when starting qemu."
 msgstr ""
+"そのためデフォルトとは異なる SLOF ファイルを使えます。<command>qemu-system</"
+"command> を実行している場合は QEMU 起動時にコマンドライン引数 <userinput>-"
+"bios &lt;SLOFファイル&gt; </userinput> を追加します。"
 
 #. Tag: title
 #: preparing.xml:1381
 #, no-c-format
 msgid "Updating PowerKVM hypervisor"
-msgstr ""
+msgstr "PowerKVM ハイパーバイザの更新"
 
 #. Tag: title
 #: preparing.xml:1382
 #, no-c-format
 msgid "Instructions for Netboot installation"
-msgstr ""
+msgstr "Netboot インストールについての指示"
 
 #. Tag: para
 #: preparing.xml:1383
@@ -2129,12 +2174,41 @@ msgid ""
 " }\n"
 "</screen></informalexample> Reboot the dhcp server."
 msgstr ""
+"DHCP/TFTP (BOOTP) サーバとウェブサーバが必要です。ibm-powerkvm-*-ppc64-"
+"service-*.iso をダウンロードし、ループデバイスとしてマウント、それから HTTP "
+"サーバの www root 構造 (wwwroot としましょう) 中のディレクトリに展開します: "
+"<informalexample><screen>\n"
+"# cd &lt;ISOのあるディレクトリ&gt;\n"
+"# mkdir ./iso\n"
+"# sudo mount -o loop ibm-powerkvm-*-ppc64-service-*.iso ./iso\n"
+"# cp -a ./iso/* &lt;wwwrootのパス&gt;\n"
+"</screen></informalexample> tftproot 以下のディレクトリ、例えば /tftproot/"
+"powerkvm に petitboot.conf ファイルを以下の内容で作成します: "
+"<informalexample><screen>\n"
+"label PowerKVM Automated Install\n"
+"kernel http://サーバのIPアドレス/wwwrootからのパス/ppc/ppc64/vmlinuz\n"
+"initrd http://サーバのIPアドレス/wwwrootからのパス/ppc/ppc64/initrd.img\n"
+"append root=live:http://サーバのIPアドレス/wwwrootからのパス/LiveOS/squashfs."
+"img repo=http://サーバのIPアドレス/wwwrootからのパス/packages rd.dm=0 rd."
+"md=0 console=hvc0 console=tty0\n"
+"</screen></informalexample> dhcpd.conf を編集して冒頭にこのディレクティブを追"
+"加します: <informalexample><screen>\n"
+"option conf-file code 209 = text;\n"
+"</screen></informalexample> システムのディレクティブを追加します: "
+"<informalexample><screen>\n"
+"host &lt;システム名&gt; {\n"
+"    hardware ethernet &lt;システムのMACアドレス&gt;\n"
+"    fixed-address &lt;システムのIPアドレス&gt;;\n"
+"    option host-name \"&lt;システムのホスト名&gt;\";\n"
+"    option conf-file \"&lt;powerkvm/petitboot.conf&gt;\";\n"
+" }\n"
+"</screen></informalexample> dhcp サーバを再起動します。"
 
 #. Tag: para
 #: preparing.xml:1407
 #, no-c-format
 msgid "Boot your PowerLinux machine."
-msgstr ""
+msgstr "PowerLinux マシンをブートします。"
 
 #. Tag: para
 #: preparing.xml:1411
@@ -2145,12 +2219,17 @@ msgid ""
 "\"Power KVM Automated Install\" \n"
 "</screen></informalexample> The installer menu should appear automatically."
 msgstr ""
+"petitboot には以下のオプションがあるはずです (選択してください): "
+"<informalexample><screen>\n"
+"\"Power KVM Automated Install\" \n"
+"</screen></informalexample> インストーラメニューが自動的""に表示されるはずで"
+"す。"
 
 #. Tag: title
 #: preparing.xml:1422
 #, no-c-format
 msgid "Instructions for DVD"
-msgstr ""
+msgstr "DVDについての指示"
 
 #. Tag: para
 #: preparing.xml:1423
@@ -2159,6 +2238,8 @@ msgid ""
 "Boot the ISO ibm-powerkvm-*-ppc64-service-*.iso (either burn a DVD or make "
 "it virtual if using QEMU) and simply wait for the boot."
 msgstr ""
+"ISO ibm-powerkvm-*-ppc64-service-*.iso をブート (DVD に書き込むか、QEMU を"
+"使っている場合は仮想化) してブートを待ちます"
 
 #. Tag: para
 #: preparing.xml:1426
@@ -2169,6 +2250,11 @@ msgid ""
 "\"POWERKVM_LIVECD\" \n"
 "</screen></informalexample> The installer menu should appear automatically."
 msgstr ""
+"petitboot には以下のオプションがあるはずです (選択してください): "
+"<informalexample><screen>\n"
+"\"POWERKVM_LIVECD\" \n"
+"</screen></informalexample> インストーラメニューが自動的に表示されるはずで"
+"す。"
 
 #. Tag: title
 #: preparing.xml:1447
@@ -2559,7 +2645,7 @@ msgstr ""
 #: preparing.xml:1683
 #, no-c-format
 msgid "Debian-provided U-Boot (system firmware) images"
-msgstr ""
+msgstr "Debian から提供されている U-Boot (システムファームウェア) イメージ"
 
 #. Tag: para
 #: preparing.xml:1684
@@ -2576,6 +2662,16 @@ msgid ""
 "with all images, please be aware that writing the image to an SD card wipes "
 "all previous contents of the card!"
 msgstr ""
+"Debian は &armmp-uboot-img; で SDカードから U-Boot を読み込める 様々な armhf "
+"システム向けの U-Boot イメージを提供しています。U-Boot ビルドは2つの形式を提"
+"供しています: U-Boot の構成要素をそのまま収録したものと簡単にSDカードに書き込"
+"める既製のカードイメージです。U-Boot の構成要素をそのまま提供しているのは上級"
+"ユーザ向けです。通常は既製のSDカードイメージのどれかの利用を勧めています。こ"
+"れは &lt;システム種類&gt;.sdcard.img.gz といった名前で、例えば "
+"<informalexample><screen>zcat &lt;システム種類&gt;.sdcard.img.gz &gt; /dev/"
+"SDカードのデバイス</screen></informalexample> のようにしてカードに書き込めま"
+"す。どのイメージでも同じですが、イメージをSDカードに書き込むとそのカードに"
+"あった内容は消えてしまうことに留意してください!"
 
 #. Tag: para
 #: preparing.xml:1699
@@ -2585,6 +2681,9 @@ msgid ""
 "you use this image instead of the vendor-provided U-Boot, as the version in "
 "Debian is usually newer and has more features."
 msgstr ""
+"当該システム用の U-Boot イメージが Debian から提供されている場合はベンダーか"
+"ら提供された U-Boot よりもそのイメージの使用を勧めます。通常 Debian 版の方が"
+"新しく多機能なためです。"
 
 #. Tag: title
 #: preparing.xml:1707
@@ -2926,6 +3025,12 @@ msgid ""
 "necessary to boot into Windows and disable this feature to allow for a "
 "change of boot order."
 msgstr ""
+"別のオペレーティングシステムや &d-i; のブートを選択するための UEFI 設定へのア"
+"クセスが許可されていても<quote>高速スタートアップ</quote>を無効化する必要があ"
+"るかもしれません。一部の UEFI システムにはキーボードコントローラーやUSBハード"
+"ウェアを初期化しないことによって<quote>ブート</quote>時間を短縮しているファー"
+"ムウェアがあります。その場合は Windows をブートしてこの機能を無効化し、ブート"
+"順を変更できるようにする必要があります。"
 
 #. Tag: title
 #: preparing.xml:1883

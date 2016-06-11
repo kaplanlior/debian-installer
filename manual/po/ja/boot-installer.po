@@ -131,6 +131,12 @@ msgid ""
 "on those platforms you by default need a serial console cable to use the "
 "installer."
 msgstr ""
+"netboot 用の tar アーカイブ (<xref linkend=\"boot-armhf-netboot.tar.gz\"/>) "
+"及びインストーラのSDカード用イメージ (<xref linkend=\"boot-installer-sd-imag"
+"e\"/>) は U-Boot により<quote>console</quote>変数で定義される (プラットフォー"
+"ム特有の) デフォルトのコンソールを使います。ほとんどの場合これはシリアルコン"
+"ソールなので、そういったプラットフォームでインストーラを利用するにはデフォル"
+"トでシリアルコンソールのケーブルが必要となります。"
 
 #. Tag: para
 #: boot-installer.xml:78
@@ -140,6 +146,9 @@ msgid ""
 "<quote>console</quote> variable accordingly if you would like the installer "
 "to start on the video console."
 msgstr ""
+"ビデオコンソールもサポートしているプラットフォームでは、インストーラをビデオ"
+"コンソールで起動したければ U-Boot の<quote>console</quote>変数をそれに合わせ"
+"て変更することもできます。"
 
 #. Tag: para
 #: boot-installer.xml:87
@@ -151,6 +160,11 @@ msgid ""
 "from the GRUB menu you will see a <quote>Booting Linux</quote> message, then "
 "nothing more."
 msgstr ""
+"jessie の arm64 &d-i; イメージではグラフィカルインストーラは有効化されていな"
+"いため、シリアルコンソールを利用します。コンソールデバイスはファームウェアに"
+"よって自動的検出されるはずですが、検出されなかった場合は GRUB メニューから "
+"linux をブートした後<quote>Booting Linux</quote>メッセージを見ることになりま"
+"す。そうなるともう何も起こりません。"
 
 #. Tag: para
 #: boot-installer.xml:94
@@ -165,6 +179,14 @@ msgid ""
 "screen></informalexample>. When finished hit <keycombo><keycap>Control</"
 "keycap> <keycap>x</keycap></keycombo> to continue booting with new setting."
 msgstr ""
+"この問題が起きた場合はカーネルコマンドラインで特定のコンソール設定を行う必要"
+"があります。GRUB メニューで <userinput>e</userinput> を押して <quote>Edit "
+"Kernel command-line</quote> に進み、<informalexample><screen>--- quiet</"
+"screen></informalexample> を <informalexample><screen>console=&lt;デバイス"
+"&gt;,&lt;速度&gt;</screen></informalexample>、例えば "
+"<informalexample><screen>console=ttyAMA0,115200n8</screen></informalexample> "
+"のように変更します。変更できたら <keycombo><keycap>Control</keycap> "
+"<keycap>x</keycap></keycombo> を押して新しい設定でブートを続けます。"
 
 #. Tag: title
 #: boot-installer.xml:108
@@ -182,6 +204,11 @@ msgid ""
 "ulink> after March 2015 tested OK. Consult Juno documentation on firmware "
 "updating."
 msgstr ""
+"Juno には UEFI があるためインストールは明快です。最も実践的なのはUSBメモリか"
+"らインストールする方法です。USBでのブートを機能させるためには最新のファーム"
+"ウェアが必要です。2015年3月以降にビルドされた <ulink url=\"&url-juno-"
+"firmware;\">&url-juno-firmware;</ulink> でテストが成功しています。ファーム"
+"ウェアの更新については Juno の文書を参照してください。"
 
 #. Tag: para
 #: boot-installer.xml:116
@@ -192,6 +219,10 @@ msgid ""
 "on the back. If you need networking (netboot image) plug the ethernet cable "
 "into the socket on the front of the machine."
 msgstr ""
+"USBメモリに書き込んだ標準の arm64 CD イメージを用意します。背面のUSBポートに"
+"差し込みます。シリアルケーブルを背面の上部にある9ピンのシリアルポートに差し込"
+"みます。ネットワーク接続が必要 (netboot イメージ) であればイーサネットケーブ"
+"ルをマシン全面のソケットに差し込んでください。"
 
 #. Tag: para
 #: boot-installer.xml:123
@@ -206,12 +237,20 @@ msgid ""
 "should show you the &d-i; screens, and allow you to proceed with a standard "
 "installation."
 msgstr ""
+"シリアルコンソールを 115200、8ビットパリティなしで実行し、Juno をブートしま"
+"す。USBメモリからブートして GRUB メニューが表示されるはずです。コンソール設定"
+"は Juno で正しく検出されないため、ただ<keycap>Enter</keycap>を押してもカーネ"
+"ル出力は何も表示されません。<xref linkend=\"arm64-console-setup\"/> で説明し"
+"ているように、コンソールを <informalexample><screen>console=ttyAMA0,"
+"115200n8</screen></informalexample> と設定します。<keycombo><keycap>Control</"
+"keycap> <keycap>x</keycap></keycombo> でブートすると &d-i; の画面が表示され、"
+"標準のインストールを続けられるはずです。"
 
 #. Tag: title
 #: boot-installer.xml:136
 #, no-c-format
 msgid "Applied Micro Mustang Installation"
-msgstr ""
+msgstr "Applied Micro Mustang でのインストール"
 
 #. Tag: para
 #: boot-installer.xml:137
@@ -224,6 +263,12 @@ msgid ""
 "a serial console to control the installation because the graphical installer "
 "is not enabled on the arm64 architecture."
 msgstr ""
+"このマシンでは UEFI が利用できますが、通常は U-Boot を使うようになっているた"
+"め、UEFI ファームウェアをまずインストールしてから標準のブート/インストールを"
+"行う方法か、U-Boot を使ってブートする方法のどちらかが必要です。また、jessie "
+"カーネルではUSBをサポートしていないため、USBメモリからのインストールは機能し"
+"ません。arm64 アーキテクチャではグラフィカルインストーラは有効化されていない"
+"ため、インストール処理の制御にはシリアルコンソールを使う必要があります。"
 
 #. Tag: para
 #: boot-installer.xml:146
@@ -236,6 +281,11 @@ msgid ""
 ">). After installation, manual changes to boot from the installed image are "
 "needed."
 msgstr ""
+"推奨するインストール方法はマシンに同梱されている openembedded システムを使っ"
+"て &d-i; カーネルと initrd をハードドライブにコピーし、それをインストーラから"
+"ブートします。TFTP を使ってカーネル/dtb/initrd をコピーし、ブートする方法 "
+"(<xref linkend=\"boot-tftp-uboot\"/>) もあります。インストールしたイメージか"
+"らブートするためには、インストール後に手作業での調整が必要です。"
 
 #. Tag: para
 #: boot-installer.xml:155
@@ -246,6 +296,10 @@ msgid ""
 "hit a key to get a Mustang# prompt. Then use U-Boot commands to load and "
 "boot the kernel, dtb and initrd."
 msgstr ""
+"シリアルコンソールを 115200、8ビットパリティなしで実行し、マシンをブートしま"
+"す。マシンを再起動して<quote>Hit any key to stop autoboot:</quote>が表示され"
+"たら何かキーを押して Mustang# プロンプトに入ります。それから U-Boot のコマン"
+"ドを使ってカーネル、dtb、initrd を読み込み、ブートします。"
 
 #. Tag: title
 #: boot-installer.xml:164
@@ -477,7 +531,7 @@ msgstr ""
 #: boot-installer.xml:258
 #, no-c-format
 msgid "Pre-built netboot tarball"
-msgstr ""
+msgstr "ビルド済み netboot tar アーカイブ"
 
 #. Tag: para
 #: boot-installer.xml:259
@@ -492,6 +546,14 @@ msgid ""
 "Prerequisite for using this feature is that you have a dhcp server in your "
 "network which provides the client with the address of the tftp server."
 msgstr ""
+"&debian; は、tftp サーバ上で単純に展開でき、netboot に必要なファイルを全て収"
+"録しているビルド済みの tar アーカイブ (&armmp-netboot-tarball;) を提供してい"
+"ます。また、これにはインストーラを読み込む手順を全て自動化するブートスクリプ"
+"トも収録しています。現在の U-Boot バージョンにはブート可能なローカルストレー"
+"ジ機器 (MMC/SD、USB、IDE/SATA/SCSI) がない場合には tftp の autoboot 機能が有"
+"効化されて tftp サーバからブートスクリプトを読み込むという機能があります。こ"
+"の機能を使うにはクライアントに tftp サーバのアドレスを提供する dhcp サーバが"
+"ネットワークにあることが条件となります。"
 
 #. Tag: para
 #: boot-installer.xml:271
@@ -500,12 +562,14 @@ msgid ""
 "If you would like to trigger the tftp autoboot feature from the U-Boot "
 "commandline, you can use the follwing command:"
 msgstr ""
+"U-Boot のコマンドラインから tftp の autoboot 機能を作動させたい場合は以下のコ"
+"マンドを使えます:"
 
 #. Tag: screen
 #: boot-installer.xml:274
 #, no-c-format
 msgid "run bootcmd_dhcp"
-msgstr ""
+msgstr "run bootcmd_dhcp"
 
 #. Tag: para
 #: boot-installer.xml:276
@@ -514,6 +578,8 @@ msgid ""
 "To manually load the bootscript provided by the tarball, you can "
 "alternatively issue the following commands at the U-Boot prompt:"
 msgstr ""
+"tar アーカイブにより提供されたブートスクリプトを手作業でロードするには、U-"
+"Boot プロンプトで以下のコマンドを実行する方法もあります:"
 
 #. Tag: screen
 #: boot-installer.xml:280
@@ -524,6 +590,10 @@ msgid ""
 "tftpboot ${scriptaddr} /debian-installer/armhf/tftpboot.scr\n"
 "source ${scriptaddr}"
 msgstr ""
+"setenv autoload no\n"
+"dhcp\n"
+"tftpboot ${scriptaddr} /debian-installer/armhf/tftpboot.scr\n"
+"source ${scriptaddr}"
 
 #. Tag: title
 #: boot-installer.xml:288
@@ -567,6 +637,9 @@ msgid ""
 "storage devices such as USB sticks. Unfortunately the exact steps required "
 "to do that can vary quite a bit from device to device."
 msgstr ""
+"現在の U-Boot バージョンの多くがUSBをサポートし、USBメモリ等のUSB大容量スト"
+"レージ機器からのブートができるようになっています。しかし残念ながら実際に必要"
+"な手順は機器によってかなり様々です。"
 
 #. Tag: para
 #: boot-installer.xml:318
@@ -578,6 +651,11 @@ msgid ""
 "stick on such systems, but unfortunately not all platforms have adopted this "
 "new framework yet."
 msgstr ""
+"U-Boot v2014.10 で一般的なコマンドラインの処理と autoboot フレームワークが導"
+"入されました。これによって、このフレームワークを実装したシステムであればどれ"
+"でも機能する包括的なブートイメージを作れるようになりました。&d-i; はこういっ"
+"たシステムでのUSBメモリからのインストールをサポートしていますが、残念ながら全"
+"ての基盤でこの新しいフレームワークを採用するには至っていません。"
 
 #. Tag: para
 #: boot-installer.xml:327
@@ -590,6 +668,12 @@ msgid ""
 "Then copy the ISO image file of the first &debian; installation CD or DVD "
 "onto the stick."
 msgstr ""
+"ブート可能な &debian; インストール用USBメモリをビルドするには、hd-media の "
+"tar アーカイブ (<xref linkend=\"where-files\"/> 参照) をその機器の U-Boot "
+"バージョンでサポートしているファイルシステムでフォーマットしたUSBメモリに展開"
+"します。現在の U-Boot バージョンでは通常 FAT16 / FAT32 / ext2 / ext3 / ext4 "
+"のどれでも使えます。それから1枚目の &debian; インストール CD/DVD の ISO イ"
+"メージファイルをUSBメモリにコピーします。"
 
 #. Tag: para
 #: boot-installer.xml:337
@@ -603,6 +687,12 @@ msgid ""
 "the USB-boot process any time from the U-Boot prompt by entering the "
 "<quote>run bootcmd_usb0</quote> command."
 msgstr ""
+"現在の U-Boot バージョンの autoboot フレームワークは PC BIOS のブート順オプ"
+"ションと似た動作をします。つまり、ブート可能機器一覧から有効なブートイメージ"
+"を確認して最初に見つけたものを起動します。OSがインストールされていなければ、"
+"USBメモリを差し込んでシステムの電源を入れればインストーラが起動するはずです。"
+"また、U-Boot のプロンプトで<quote>run bootcmd_usb0</quote>コマンドを入力すれ"
+"ばいつでもUSBの起動処理を始められます。"
 
 #. Tag: para
 #: boot-installer.xml:347
@@ -623,12 +713,25 @@ msgid ""
 "console variable to contain the correct baudrate for your system and then "
 "start the installer with the <quote>run bootcmd_usb0</quote> command."
 msgstr ""
+"シリアルコンソールを使ってUSBメモリからブートした場合に起きる問題として、コン"
+"ソールボーレートの不一致があります。console 変数が U-Boot で定義されている場"
+"合、&d-i; ブートスクリプトは第一のコンソールデバイスをセットするために、可能"
+"であればコンソールボーレートを含めて、それを自動的にカーネルに渡します。残念"
+"ながら console 変数の処理は基盤によって様々です - console 変数にボーレートま"
+"で含める (<quote>console=ttyS0,115200</quote>) 基盤もあれば console 変数には "
+"(<quote>console=ttyS0</quote> のように) デバイスだけを含める基盤もあります。"
+"後者の場合に U-Boot とカーネルのボーレートのデフォルト値が異なっていると、"
+"コンソール出力が化ける原因となります。カーネルは未だに古い 9600 ボーをデフォ"
+"ルト値としていますが、U-Boot の現在のバージョンでは 115200 ボーがよく使われて"
+"います。そうなった場合は、手作業で console 変数にシステムの正しいボーレートを"
+"指定して、<quote>run bootcmd_usb0</quote> コマンドでインストーラを起動しま"
+"す。"
 
 #. Tag: title
 #: boot-installer.xml:368
 #, no-c-format
 msgid "Using pre-built SD-card images with the installer"
-msgstr ""
+msgstr "インストーラでのビルド済みSDカードイメージの利用"
 
 #. Tag: para
 #: boot-installer.xml:369
@@ -643,6 +746,14 @@ msgid ""
 "<quote>firmware.&lt;system-type&gt;.img.gz</quote>, and a system-independent "
 "part named <quote>partition.img.gz</quote>."
 msgstr ""
+"いくつかのシステムでは U-Boot と &d-i; を両方とも収録したSDカード用のイメージ"
+"を Debian で提供しています。SDカード用のイメージは2種類 - ソフトウェアパッ"
+"ケージをネットワークからダウンロードするタイプ (&armmp-netboot-sd-img; から利"
+"用可) と Debian CD/DVD を使用してオフラインでインストールするタイプ (&armmp-"
+"hd-media-sd-img; から利用可) を提供しています。容量とネットワーク帯域を節約す"
+"るためにイメージは2部構成となっています - システムに依存する部分 "
+"(<quote>firmware.&lt;system-type&gt;.img.gz</quote>) とシステムに依存しない部"
+"分 (<quote>partition.img.gz</quote>) です。"
 
 #. Tag: para
 #: boot-installer.xml:380
@@ -657,6 +768,14 @@ msgid ""
 "firmware.&lt;system-type&gt;.img + partition.img complete_image.img</"
 "screen></informalexample> in a Windows CMD.exe window."
 msgstr ""
+"Linux システムの2つの部分から完全なイメージを作成するには zcat を使って "
+"<informalexample><screen>zcat firmware.&lt;system-type&gt;.img.gz partition."
+"img.gz > complete_image.img</screen></informalexample> のようにします。"
+"Windows システムでは2つをまず別個に伸張する必要があります。これには例えば 7-"
+"Zip を使えます。それから Windows CMD.exe ウィンドウでコマンド "
+"<informalexample><screen>copy /b firmware.&lt;system-type&gt;.img + "
+"partition.img complete_image.img</screen></informalexample>を実行してそれぞれ"
+"伸長したものを結合します。"
 
 #. Tag: para
 #: boot-installer.xml:394
@@ -670,6 +789,13 @@ msgid ""
 "you must provide the installer with access to the first &debian; CD/DVD on a "
 "separate medium, which can e.g. be a CD/DVD ISO image on a USB stick."
 msgstr ""
+"出来上がったイメージを例えば Linux システムでは <informalexample><screen>cat "
+"complete_image.img &gt; /dev/SD_CARD_DEVICE</screen></informalexample> を実行"
+"してSDカードに書き込みます。それから対象のシステムにSDカードを差し込んでシス"
+"テムの電源を入れるとSDカードからインストーラが読み込まれます。hd-media 版を"
+"使ってオフラインでインストールする場合は、インストーラから例えばUSBメモリに"
+"書き込んだ CD/DVD のISOイメージ等、別個のメディアに置かれた1枚目の &debian; "
+"CD/DVD にアクセスできないといけません。"
 
 #. Tag: para
 #: boot-installer.xml:406
@@ -683,6 +809,12 @@ msgid ""
 "partition layout on the SD card is to let the installer automatically create "
 "one for you (see <xref linkend=\"partman-auto\"/>)."
 msgstr ""
+"インストールがパーティション作業 (<xref linkend=\"di-partition\"/> 参照) の段"
+"階まで進んだら、それまでカードにあったパーティションは削除、書き換えできま"
+"す。インストーラは起動したら完全にシステムのメインメモリで動作し、以後SDカー"
+"ドにアクセスする必要はなくなるため、&debian; のインストールにカード全体を使え"
+"ます。SDカードに適切なパーティションレイアウトを作成する最も簡単な方法はイン"
+"ストーラに自動で作成させる方法です (<xref linkend=\"partman-auto\"/> 参照)。"
 
 #. Tag: title
 #: boot-installer.xml:547
@@ -1250,6 +1382,13 @@ msgid ""
 "Help\n"
 "Install with speech synthesis"
 msgstr ""
+"Installer boot menu\n" 
+"\n"
+"Graphical install\n"
+"Install\n"
+"Advanced options             >\n"
+"Help\n"
+"Install with speech synthesis"
 
 #. Tag: para
 #: boot-installer.xml:904
@@ -1258,6 +1397,8 @@ msgid ""
 "This graphical screen will look very slightly different depending on how "
 "your computer has booted (BIOS or UEFI), but the same options will be shown."
 msgstr ""
+"このグラフィカル画面はコンピュータのブート方法 (BIOS か UEFI) によって微妙に"
+"異なるかもしれませんが表示されるオプションは同一です。"
 
 #. Tag: para
 #: boot-installer.xml:912
@@ -1268,6 +1409,10 @@ msgid ""
 "have a 64 bit variant for each install option, right below it, thus almost "
 "doubling the number of options."
 msgstr ""
+"インストール方法によっては<quote>グラフィカルインストール</quote>オプションは"
+"利用できないかもしれません。2つのアーキテクチャを収録したイメージでは各インス"
+"トールオプションの64ビット版がすぐ下に追加されるため、オプションの数は約2倍に"
+"なります。"
 
 #. Tag: para
 #: boot-installer.xml:919
@@ -1410,7 +1555,7 @@ msgstr ""
 #: boot-installer.xml:998
 #, no-c-format
 msgid "The Graphical Installer"
-msgstr ""
+msgstr "グラフィカルインストーラ"
 
 #. Tag: para
 #: boot-installer.xml:999
@@ -1422,6 +1567,10 @@ msgid ""
 "installer as it basically uses the same programs, but with a different "
 "frontend."
 msgstr ""
+"グラフィカルバージョンのインストーラは &arch-title; を含めた、限られたアーキ"
+"テクチャでのみ利用できるようになっています。グラフィカルインストーラとテキス"
+"トベースのインストーラは基本的に同一のプログラムを異なるフロントエンドと組み"
+"合わせているため、機能は本質的に同一です。"
 
 #. Tag: para
 #: boot-installer.xml:1007
@@ -1434,6 +1583,11 @@ msgid ""
 "usability advantages such as the option to use a mouse, and in some cases "
 "several questions can be displayed on a single screen."
 msgstr ""
+"機能は同等ではありますが、グラフィカルインストーラには大きな利点がいくつかあ"
+"ります。最大の利点はサポートしている言語が多いことで、つまりテキストベースの"
+"<quote>newt</quote>フロントエンドで表示できない文字セットを使える点です。使い"
+"勝手についてもマウスを使えるという選択肢や場合によっては複数の質問を1画面に表"
+"示できる等、いくつか利点があります。"
 
 #. Tag: para
 #: boot-installer.xml:1016
@@ -1448,6 +1602,14 @@ msgid ""
 "still be used from the boot prompt which is shown after selecting the "
 "<quote>Help</quote> option in the boot menu."
 msgstr ""
+"全てのCDイメージ及び hd-media によるインストール方法でグラフィカルインストー"
+"ラを利用できます。グラフィカルインストーラのブートは関連するオプションをブー"
+"トメニューから単に選択するだけです。グラフィカルインストーラの "
+"<quote>Advanced options</quote> メニューから Expert 及び rescue モードを選択"
+"できます。以前のブート方法 <userinput>installgui</userinput>、"
+"<userinput>expertgui</userinput>、<userinput>rescuegui</userinput> もブートプ"
+"ロンプトから使えます。これはブートメニューで<quote>Help</quote>オプションを選"
+"択すると表示されます。"
 
 #. Tag: para
 #: boot-installer.xml:1027
@@ -1460,6 +1622,11 @@ msgid ""
 "<filename>netboot/gtk/mini.iso</filename>. </para> </footnote>, which is "
 "mainly useful for testing."
 msgstr ""
+"netboot 可能なグラフィカルインストーライメージもあります。また、特別な<quote>"
+"mini</quote>ISOイメージ<footnote id=\"gtk-miniiso\"> <para> mini ISOイメージ"
+"は <xref linkend=\"downloading-files\"/> で説明しているように &debian; ミラー"
+"からダウンロードできます。<filename>netboot/gtk/mini.iso</filename> を探して"
+"みてください。</para> </footnote>もあります。主にテスト向けに有用です。"
 
 #. Tag: para
 #: boot-installer.xml:1040
@@ -1472,6 +1639,12 @@ msgid ""
 "</para> </footnote>. It should work on almost all PowerPC systems that have "
 "an ATI graphical card, but is unlikely to work on other systems."
 msgstr ""
+"&arch-title; では現在実験的ですが<quote>mini</quote> ISOイメージを利用できま"
+"す<footnote id=\"gtk-miniiso\"> <para> mini ISOイメージは<xref linkend=\""
+"downloading-files\"/>で説明しているように &debian; ミラーからダウンロードでき"
+"ます。<filename>netboot/gtk/mini.iso</filename> を探してみてください。</"
+"para> </footnote>。ATI グラフィカルカードを搭載した PowerPC システムであれば"
+"ほぼどれでも使えるはずですが、他のシステムでは機能しないでしょう。"
 
 #. Tag: para
 #: boot-installer.xml:1054
@@ -1480,6 +1653,8 @@ msgid ""
 "Just as with the text-based installer it is possible to add boot parameters "
 "when starting the graphical installer."
 msgstr ""
+"テキストベースのインストーラと全く同じように、グラフィカルインストーラの起動"
+"時にもブートパラメータを追加できます。"
 
 #. Tag: para
 #: boot-installer.xml:1060
@@ -1490,6 +1665,10 @@ msgid ""
 "available, it will automatically fall back to the text-based <quote>newt</"
 "quote> frontend."
 msgstr ""
+"グラフィカルインストーラはテキストベースのインストーラと比べ、実行に著しく多"
+"くのメモリを必要とします (&minimum-memory-gtk;)。十分なメモリを利用できない場"
+"合には、テキストベースの <quote>newt</quote> フロントエンドに自動的にフォール"
+"バックします。"
 
 #. Tag: para
 #: boot-installer.xml:1067
@@ -1500,6 +1679,10 @@ msgid ""
 "installer would still work. Using the text-based installer is recommended "
 "for systems with little available memory."
 msgstr ""
+"システムのメモリ量が &minimum-memory; に満たなければ、テキストベースのインス"
+"トーラをブートした場合には機能したとしても、グラフィカルインストーラでは全く"
+"ブートできないかもしれません。利用可能メモリの少ないシステムではテキストベー"
+"スのインストーラの利用を勧めます。"
 
 #. Tag: title
 #: boot-installer.xml:1121
@@ -2767,19 +2950,19 @@ msgstr ""
 #: boot-installer.xml:2073
 #, no-c-format
 msgid "Booting a ppc64el machine"
-msgstr ""
+msgstr "ppc64el マシンのブート"
 
 #. Tag: para
 #: boot-installer.xml:2074
 #, no-c-format
 msgid "How to boot a ppc64el machine:"
-msgstr ""
+msgstr "ppc64el マシンのブート方法:"
 
 #. Tag: title
 #: boot-installer.xml:2080
 #, no-c-format
 msgid "Petitboot"
-msgstr ""
+msgstr "Petitboot"
 
 #. Tag: para
 #: boot-installer.xml:2081
@@ -2791,6 +2974,12 @@ msgid ""
 "FTP, SFTP, TFTP, NFS, HTTP and HTTPS protocols. Petitboot can boot any "
 "operating system that includes kexec boot support."
 msgstr ""
+"Petitboot はプラットフォームに依存しない Linux kexec ベースのブートローダで"
+"す。Petitboot は Linux でマウント可能なあらゆるファイルシステムからのカーネ"
+"ル、initrd、デバイスツリーファイルの読み込みをサポートしています。さらに "
+"FTP、SFTP、TFTP、NFS、HTTP、HTTPS プロトコルを使ってネットワークからファイル"
+"を読み込むことも可能です。Petitboot は kexec によるブートをサポートしているOS"
+"であればどれでもブートできます。"
 
 #. Tag: para
 #: boot-installer.xml:2089
@@ -2800,6 +2989,8 @@ msgid ""
 "the system, and can also be configured to use boot information from a DHCP "
 "server."
 msgstr ""
+"Petitboot はシステムのマウント可能なデバイスにあるブートローダの設定ファイル"
+"を探します。また、ブート情報を DHCP サーバから取得するようにも設定できます。"
 
 #. Tag: para
 #: boot-installer.xml:2140
@@ -3140,7 +3331,7 @@ msgstr ""
 #: boot-installer.xml:2386
 #, no-c-format
 msgid "Zoom"
-msgstr ""
+msgstr "拡大"
 
 #. Tag: para
 #: boot-installer.xml:2387
@@ -3151,6 +3342,10 @@ msgid ""
 "keycombo> and <keycombo><keycap>Control</keycap> <keycap>-</keycap></"
 "keycombo> shortcuts increase and decrease the font size."
 msgstr ""
+"視力の弱いユーザ向けに、グラフィカルインストーラでは非常に基本的な拡大機能を"
+"サポートしています: <keycombo><keycap>Control</keycap> <keycap>+</keycap></"
+"keycombo> と <keycombo><keycap>Control</keycap> <keycap>-</keycap></"
+"keycombo> のショートカットでそれぞれフォントサイズを拡大、縮小します。"
 
 #. Tag: title
 #: boot-installer.xml:2397
