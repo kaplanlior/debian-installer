@@ -47,7 +47,6 @@ for repo in *.git attic/*.git; do
 EOF
 	echo "PERL5LIB=$KGB/lib $KGB/script/kgb-client --conf /git/d-i/kgb-client.conf --git-reflog -" >> hooks/post-receive.new
 	echo 'curl -s "https://jenkins.debian.net/git/notifyCommit?url=git://git.debian.org/git/d-i/$(basename $PWD .git)"' >> hooks/post-receive.new
-exec /usr/local/bin/git-commit-notice
 	echo "exec /usr/local/bin/git-commit-notice" >> hooks/post-receive.new
 	chmod 755 hooks/post-receive.new
 	mv -f hooks/post-receive.new hooks/post-receive
