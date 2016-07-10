@@ -1,13 +1,13 @@
 # Danish translation of boot-installer.
-# Copyright (C) 2015 Free Software Foundation, Inc.
-# Joe Hansen <joedalton2@yahoo.dk>, 2012, 2014, 2015.
+# Copyright (C) 2015, 2016 Free Software Foundation, Inc.
+# Joe Hansen <joedalton2@yahoo.dk>, 2012, 2014, 2015, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: boot-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2016-04-08 20:25+0000\n"
-"PO-Revision-Date: 2015-05-04 20:23+0200\n"
+"PO-Revision-Date: 2016-07-11 20:23+0200\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -80,14 +80,7 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:48
-#, fuzzy, no-c-format
-#| msgid ""
-#| "uImage/uInitrd are image formats designed for the U-Boot firmware that is "
-#| "used on many ARM-based systems. Older U-Boot versions can only boot files "
-#| "in uImage/uInitrd format, so these are often used on older armel systems. "
-#| "Newer U-Boot versions can - besides booting uImages/uInitrds - also boot "
-#| "standard Linux kernels and ramdisk images, but the command syntax to do "
-#| "that is slightly different from that for booting uImages."
+#, no-c-format
 msgid ""
 "uImage/uInitrd are image formats designed for the U-Boot firmware that is "
 "used on many ARM-based systems (mostly 32-bit ones). Older U-Boot versions "
@@ -98,20 +91,16 @@ msgid ""
 "uImages."
 msgstr ""
 "uImage/uInitrd er aftryksformater designet for firmwaren U-Boot, som bruges "
-"på mange ARM-baserede systemer. Ældre versioner af U-Boot kan kun opstarte "
-"filer i uImage/uInitrd-formatet, så de bruges ofte på ældre armel-systemer. "
-"Nyere versioner af U-Boot kan - udover opstarte uImages/uInitrds - også "
-"opstarte standardkerner med Linux og ramdisk-aftryk, men kommandosyntaksen "
-"til dette er en smule anderledes end at starte fra uImages."
+"på mange ARM-baserede systemer (hovedsagelig 32-bit). Ældre versioner af "
+"U-Boot kan kun opstarte filer i uImage/uInitrd-formatet, så de bruges ofte "
+"på ældre armel-systemer. Nyere versioner af U-Boot kan - udover opstarte "
+"uImages/uInitrds - også opstarte standardkerner med Linux og ramdisk-aftryk, "
+"men kommandosyntaksen til dette er en smule anderledes end at starte fra "
+"uImages."
 
 #. Tag: para
 #: boot-installer.xml:57
-#, fuzzy, no-c-format
-#| msgid ""
-#| "For systems using a multiplatform kernel, besides kernel and initial "
-#| "ramdisk a so-called device-tree file (or device-tree blob, <quote>dtb</"
-#| "quote>) is needed. It is specific to each supported system and contains a "
-#| "description of the particular hardware."
+#, no-c-format
 msgid ""
 "For systems using a multiplatform kernel, besides kernel and initial ramdisk "
 "a so-called device-tree file (or device-tree blob, <quote>dtb</quote>) is "
@@ -121,15 +110,15 @@ msgid ""
 msgstr ""
 "For systemer der bruger en kerne for flere platforme, udover kerne og "
 "initiel ramdisk, er en såkaldt enhedstræfil krævet (eller enhedstræ blob, "
-"<quote>dtb</quote>. Den er specifik for hvert understøttet system og "
-"indeholder en beskrivelse af det specifikke udstyr."
+"<quote>dtb</quote>). Den er specifik for hvert understøttet system og "
+"indeholder en beskrivelse af det specifikke udstyr. Dtb'en skal angives "
+"på enheden af firmwaren, men i praksis skal en ny ofte indlæses."
 
 #. Tag: title
 #: boot-installer.xml:68 boot-installer.xml:86
-#, fuzzy, no-c-format
-#| msgid "Boot Configuration"
+#, no-c-format
 msgid "Console configuration"
-msgstr "Opstartskonfiguration"
+msgstr "Konsolkonfiguration"
 
 #. Tag: para
 #: boot-installer.xml:69
@@ -142,6 +131,12 @@ msgid ""
 "on those platforms you by default need a serial console cable to use the "
 "installer."
 msgstr ""
+"Netboot tarball (<xref linkend=\"boot-armhf-netboot.tar.gz\"/>), og "
+"installationsaftrykket for SD-kort (<xref linkend=\"boot-installer-sd-image\"/>) "
+"bruger standardkonsollen (platformspecifik), som er defineret af U-Boot i "
+"variablen <quote>console</quote>. I de fleste tilfælde er det en seriel "
+"konsol, så på de fleste platforme skal du som standard brug et serielt "
+"konsolkabel for at bruge installationsprogrammet."
 
 #. Tag: para
 #: boot-installer.xml:78
@@ -151,6 +146,9 @@ msgid ""
 "<quote>console</quote> variable accordingly if you would like the installer "
 "to start on the video console."
 msgstr ""
+"På platforme som også understøtter en videokonsol, så kan du ændre U-Boot "
+"variablen <quote>console</quote> tilsvarende, hvis du ønsker, at "
+"installationsprogrammet skal starte på videokonsollen."
 
 #. Tag: para
 #: boot-installer.xml:87
@@ -162,6 +160,11 @@ msgid ""
 "from the GRUB menu you will see a <quote>Booting Linux</quote> message, then "
 "nothing more."
 msgstr ""
+"Det grafiske installationsprogram er ikke aktiveret på arm64 &d-i;-aftryk "
+"for jessie så den serielle konsol anvendes. Konsolenheden bør blive "
+"registreret automatisk fra firmwaren, men hvis den ikke gør det så vil du "
+"efter, at du starter op i Linux fra GRUB-menuen se en <quote>Booting Linux"
+"</quote>-besked, og så intet andet."
 
 #. Tag: para
 #: boot-installer.xml:94
@@ -176,13 +179,21 @@ msgid ""
 "screen></informalexample>. When finished hit <keycombo><keycap>Control</"
 "keycap> <keycap>x</keycap></keycombo> to continue booting with new setting."
 msgstr ""
+"Hvis du møder denne problemstilling, så skal du angive en speciel "
+"konsolkonfiguration på kernekommandolinjen. Tryk på <userinput>e</userinput> "
+"for <quote>Rediger kernekommandolinje</quote> i GRUB-menuen, og ændr "
+"<informalexample><screen>--- quiet</screen></informalexample> til "
+"<informalexample><screen>console=&lt;device&gt;,&lt;speed&gt;</screen></"
+"informalexample> f.eks. <informalexample><screen>console=ttyAMA0,115200n8</"
+"screen></informalexample>. Når færdig tryk på <keycombo><keycap>Control</"
+"keycap> <keycap>x</keycap></keycombo> for at forsætte opstart med den nye "
+"indstilling."
 
 #. Tag: title
 #: boot-installer.xml:108
-#, fuzzy, no-c-format
-#| msgid "Submitting Installation Reports"
+#, no-c-format
 msgid "Juno Installation"
-msgstr "Indsendelse af installationsrapporter"
+msgstr "Juno-installation"
 
 #. Tag: para
 #: boot-installer.xml:109
@@ -194,6 +205,11 @@ msgid ""
 "ulink> after March 2015 tested OK. Consult Juno documentation on firmware "
 "updating."
 msgstr ""
+"Juno har UEFI så installationen er ligefrem. Den mest praktiske metode "
+"er installation fra USB-drev. Du skal bruge en opdateret firmware for "
+"at USB-opstart fungerer. Bygninger fra <ulink url=\"&url-juno-firmware;\">"
+"&url-juno-firmware;</ulink> efter marts 2015 er testet o.k. Se Juno-"
+"dokumentationen vedrørende firmwareopdatering."
 
 #. Tag: para
 #: boot-installer.xml:116
@@ -204,6 +220,10 @@ msgid ""
 "on the back. If you need networking (netboot image) plug the ethernet cable "
 "into the socket on the front of the machine."
 msgstr ""
+"Forbered et standardaftryk fra en arm64-cd på et USB-drev. Indsæt det i en "
+"af USB-portene på bagsiden. Indsæt et serielt kabel i den øvre 9-stik "
+"serielle port på bagsiden. Hvis du skal bruge netværk (netboot-aftryk) så "
+"isæt ethernetkablet i soklen på fronten af maskinen."
 
 #. Tag: para
 #: boot-installer.xml:123
@@ -514,12 +534,14 @@ msgid ""
 "If you would like to trigger the tftp autoboot feature from the U-Boot "
 "commandline, you can use the follwing command:"
 msgstr ""
+"Hvis du ønsker at udløse tftp autoboot-funktionen fra U-Boot-kommandolinjen, "
+"så kan du bruge den følgende kommando:"
 
 #. Tag: screen
 #: boot-installer.xml:274
 #, no-c-format
 msgid "run bootcmd_dhcp"
-msgstr ""
+msgstr "run bootcmd_dhcp"
 
 #. Tag: para
 #: boot-installer.xml:276
@@ -528,6 +550,8 @@ msgid ""
 "To manually load the bootscript provided by the tarball, you can "
 "alternatively issue the following commands at the U-Boot prompt:"
 msgstr ""
+"For manuelt at indlæse opstartsskriptet leveret med tarball'en, så "
+"kan du alternativt udstede de følgende kommandoer ved U-Boot-prompten:"
 
 #. Tag: screen
 #: boot-installer.xml:280
@@ -538,25 +562,20 @@ msgid ""
 "tftpboot ${scriptaddr} /debian-installer/armhf/tftpboot.scr\n"
 "source ${scriptaddr}"
 msgstr ""
+"setenv autoload no\n"
+"dhcp\n"
+"tftpboot ${scriptaddr} /debian-installer/armhf/tftpboot.scr\n"
+"source ${scriptaddr}"
 
 #. Tag: title
 #: boot-installer.xml:288
-#, fuzzy, no-c-format
-#| msgid "Booting from USB Memory Stick"
+#, no-c-format
 msgid "Booting from USB Memory Stick with UEFI"
-msgstr "Opstart fra USB-drev"
+msgstr "Opstart fra USB-drev med UEFI"
 
 #. Tag: para
 #: boot-installer.xml:294 boot-installer.xml:553
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Let's assume you have prepared everything from <xref linkend=\"boot-dev-"
-#| "select\"/> and <xref linkend=\"boot-usb-files\"/>. Now just plug your USB "
-#| "stick into some free USB connector and reboot the computer. The system "
-#| "should boot up, and unless you have used the flexible way to build the "
-#| "stick and not enabled it, you should be presented with the <prompt>boot:</"
-#| "prompt> prompt. Here you can enter optional boot arguments, or just hit "
-#| "&enterkey;."
+#, no-c-format
 msgid ""
 "If your computer will boot from USB, this will probably be the easiest route "
 "for installation. Assuming you have prepared everything from <xref linkend="
@@ -567,12 +586,14 @@ msgid ""
 "hardware that supports it). Here you can select various installer options, "
 "or just hit &enterkey;."
 msgstr ""
-"Lad os antage, at du har forberedt alt fra <xref linkend=\"boot-dev-select\"/"
-"> og <xref linkend=\"boot-usb-files\"/>. Indsæt dit USB-drev i en ledig "
-"indgang og genstart computeren. Systemet bør starte op, og med mindre du har "
-"brugt den fleksible måde til at bygge drevet med og ikke aktiveret det, vil "
-"du blive præsenteret for prompten <prompt>boot:</prompt>. Her kan du "
-"indtaste valgfrie opstartsargumenter, eller bare trykke på &enterkey;."
+"Hvis din computer kan starte op fra USB, så vil dette sandsynligvis være "
+"den letteste vej til installation. Lad os antage, at du har forberedt alt "
+"fra <xref linkend=\"boot-dev-select\"/> og <xref linkend=\"boot-usb-files\"/>. "
+"Indsæt dit USB-drev i en ledig indgang og genstart computeren. Systemet bør "
+"starte op, og med mindre du har brugt den fleksible måde til at bygge drevet "
+"med og ikke aktiveret det, vil du blive præsenteret for en grafisk "
+"opstartsmenu (på udstyr som understøtter det). Her kan du indtaste "
+"valgfrie opstartparametre, eller bare trykke på &enterkey;."
 
 #. Tag: title
 #: boot-installer.xml:310
@@ -1329,13 +1350,7 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:919
-#, fuzzy, no-c-format
-#| msgid ""
-#| "For a normal installation, select either the <quote>Graphical install</"
-#| "quote> or the <quote>Install</quote> entry &mdash; using either the arrow "
-#| "keys on your keyboard or by typing the first (highlighted) letter &mdash; "
-#| "and press &enterkey; to boot the installer. The <quote>Install</quote> "
-#| "entry is already selected by default."
+#, no-c-format
 msgid ""
 "For a normal installation, select either the <quote>Graphical install</"
 "quote> or the <quote>Install</quote> entry &mdash; using either the arrow "
@@ -1347,7 +1362,7 @@ msgstr ""
 "quote> eller <quote>Installer</quote> &mdash; med brug af enten piletasterne "
 "på dit tastatur eller ved at indtaste det første (fremhævede) bogstav "
 "&mdash; og tryk på &enterkey; for at starte installationen. Punktet "
-"<quote>Installer</quote> er allerede valgt som standard."
+"<quote>Grafisk installation</quote> er allerede valgt som standard."
 
 #. Tag: para
 #: boot-installer.xml:927
@@ -1363,14 +1378,7 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:933
-#, fuzzy, no-c-format
-#| msgid ""
-#| "If you wish or need to add any boot parameters for either the installer "
-#| "or the kernel, press &tabkey;. This will display the default boot command "
-#| "for the selected menu entry and allow to add additional options. The help "
-#| "screens (see below) list some common possible options. Press &enterkey; "
-#| "to boot the installer with your options; pressing &escapekey; will return "
-#| "you to the boot menu and undo any changes you made."
+#, no-c-format
 msgid ""
 "If you wish or need to add any boot parameters for either the installer or "
 "the kernel, press &tabkey; (BIOS boot) or &ekey; (UEFI boot). This will "
@@ -1381,12 +1389,13 @@ msgid ""
 "to the boot menu and undo any changes you made."
 msgstr ""
 "Hvis du ønsker eller har brug for at tilføje opstartsparametre for enten "
-"installationsprogrammet ellre kernen, så tryk &tabkey;. Dette vil vise den "
-"normale opstartskommando for det valgte menupunkt og give mulighed for at "
-"tilføje yderligere indstillinger. Hjælpeskærmene (se nedenfor) viser nogle "
-"gængse indstillingsmuligheder. Tryk &enterkey; for at starte "
+"installationsprogrammet eller kernen, så tryk &tabkey; (BIOS-opstart) eller "
+"&ekey; (UEFI-opstart). Dette vil vise opstartskommandoen for det valgte "
+"menupunkt og give mulighed for at tilpasninger efter behov. Hjælpeskærmene "
+"(se nedenfor) viser nogle gængse indstillingsmuligheder. Tryk &enterkey; "
+"(BIOS-opstart) eller &f10key; (UEFI-opstart) for at starte "
 "installationsprogrammet op med dine indstillinger; et tryk på &escapekey; "
-"vil returnere dig til opstartsmenuen og omgøre eventuelle ændringer du har "
+"vil returnere dig til opstartsmenuen og omgøre eventuelle ændringer, du har "
 "foretaget."
 
 #. Tag: para
@@ -3093,25 +3102,7 @@ msgstr "Serielle brailleskærme"
 
 #. Tag: para
 #: boot-installer.xml:2274
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Serial braille displays cannot safely be automatically detected (since "
-#| "that may damage some of them). You thus need to append the "
-#| "<userinput>brltty=<replaceable>driver</replaceable>,<replaceable>port</"
-#| "replaceable>,<replaceable>table</replaceable></userinput> boot parameter "
-#| "to tell <classname>brltty</classname> which driver it should use. "
-#| "<replaceable>driver</replaceable> should be replaced by the two-letter "
-#| "driver code for your terminal (see the <ulink url=\"&url-brltty-manual;"
-#| "\">BRLTTY manual</ulink>). <replaceable>port</replaceable> should be "
-#| "replaced by the name of the serial port the display is connected to, "
-#| "<userinput>ttyS0</userinput> is the default, <userinput>ttyUSB0</"
-#| "userinput> can be typically used when using a serial-to-USB converter. "
-#| "<replaceable>table</replaceable> is the name of the braille table to be "
-#| "used (see the <ulink url=\"&url-brltty-manual;\">BRLTTY manual</ulink>); "
-#| "the English table is the default. Note that the table can be changed "
-#| "later by entering the preference menu. Documentation on key bindings for "
-#| "braille devices is available on the <ulink url=\"&url-brltty-driver-help;"
-#| "\"><classname>brltty</classname> website</ulink>."
+#, no-c-format
 msgid ""
 "Serial braille displays cannot safely be automatically detected (since that "
 "may damage some of them). You thus need to append the "
@@ -3133,23 +3124,25 @@ msgid ""
 "the <ulink url=\"&url-brltty-driver-help;\"><classname>brltty</classname> "
 "website</ulink>."
 msgstr ""
-"Serielle brailleskærme kan ikke detekteres på en sikker måde automatisk (da "
+"Serielle brailleskærme kan ikke automatisk registreres på en sikker måde (da "
 "det kan ødelægge nogle af dem). Du skal derfor tilføje opstartsparameteren "
 "<userinput>brltty=<replaceable>driver</replaceable>,<replaceable>port</"
 "replaceable>,<replaceable>table</replaceable></userinput> for at fortælle "
-"<classname>brltty</classname> hvilken driver den skal bruge. "
+"<classname>brltty</classname> hvilken driver og port den skal bruge. "
 "<replaceable>driver</replaceable> skal erstattes af driverkoden i to "
 "bogstaver for din terminal (se <ulink url=\"&url-brltty-manual;\">BRLTTY-"
 "manualen</ulink>). <replaceable>port</replaceable> skal erstattes af navnet "
 "for den serielle port skærmen er forbundet til, <userinput>ttyS0</userinput> "
 "er standarden, <userinput>ttyUSB0</userinput> kan typisk bruges når der "
-"bruges et seriel-til-USB-konverteringsprogram. <replaceable>table</"
-"replaceable> er navnet for brailletabellen, der skal bruges (se <ulink url="
+"bruges et seriel-til-USB-konverteringsprogram. En tredje paramter kan "
+"angives, for at vælge navnet for brailletabellen (se <ulink url="
 "\"&url-brltty-manual;\">BRLTTY-manualen</ulink>); den engelske tabel er "
 "standarden. Bemærk at tabellen kan ændres senere ved at indtaste "
-"præferencemenuen. Dokumentation vedrørende genvejstaster for brailleenheder "
-"er tilgængelig på <ulink url=\"&url-brltty-driver-help;\"><classname>brltty</"
-"classname> hjemmesiden</ulink>."
+"præferencemenuen. En fjerde parameter kan angives for at sende parametre til "
+"brailledriveren, såsom <userinput>protocol=foo</userinput> hvilket er "
+"krævet for nogle sjældne modeller. Dokumentation vedrørende genvejstaster "
+"for brailleenheder er tilgængelig på <ulink url=\"&url-brltty-driver-help;\">"
+"<classname>brltty</classname>-hjemmesiden</ulink>."
 
 #. Tag: title
 #: boot-installer.xml:2301 boot-installer.xml:3321
@@ -5189,15 +5182,7 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:3572
-#, fuzzy, no-c-format
-#| msgid ""
-#| "If you have a working &debian; system, the easiest way to send an "
-#| "installation report is to install the <classname>installation-report</"
-#| "classname> and <classname>reportbug</classname> packages "
-#| "(<command>aptitude install installation-report reportbug</command>), "
-#| "configure <classname>reportbug</classname> as explained in <xref linkend="
-#| "\"mail-outgoing\"/>, and run the command <command>reportbug installation-"
-#| "reports</command>."
+#, no-c-format
 msgid ""
 "If you have a working &debian; system, the easiest way to send an "
 "installation report is to install the <classname>installation-report</"
@@ -5209,7 +5194,7 @@ msgid ""
 msgstr ""
 "Hvis du har et fungerende &debian;-system, så er den nemmeste måde at sende "
 "en installationsrapport at installere pakkerne <classname>installation-"
-"report</classname> og <classname>reportbug</classname> (<command>aptitude "
+"report</classname> og <classname>reportbug</classname> (<command>apt "
 "install installation-report reportbug</command>), konfigurere "
 "<classname>reportbug</classname> som forklaret i <xref linkend=\"mail-"
 "outgoing\"/>, og køre kommandoen <command>reportbug installation-reports</"
@@ -5306,37 +5291,3 @@ msgstr ""
 "inklusiv den sidst synlige kernebesked i tilfælde af at kernen hænger. "
 "Beskriv handlingerne, du foretog dig, som førte til systemets fejltilstand."
 
-#~ msgid ""
-#~ "When the installer boots, you should be presented with a friendly "
-#~ "graphical screen showing the &debian; logo and a menu: "
-#~ "<informalexample><screen>\n"
-#~ "Installer boot menu\n"
-#~ "\n"
-#~ "Install\n"
-#~ "Graphical install\n"
-#~ "Advanced options             >\n"
-#~ "Help\n"
-#~ "Install with speech synthesis\n"
-#~ "\n"
-#~ "Press ENTER to boot or TAB to edit a menu entry\n"
-#~ "</screen></informalexample> Depending on the installation method you are "
-#~ "using, the <quote>Graphical install</quote> option may not be available. "
-#~ "Bi-arch images additionally have a 64 bit variant for each install "
-#~ "option, right below it, thus almost doubling the number of options."
-#~ msgstr ""
-#~ "Når installationsprogrammet starter op, bliver du præsenteret for en "
-#~ "venlig grafisk skræm, der viser &debian;s logo og en menu: "
-#~ "<informalexample><screen>\n"
-#~ "Installer boot menu\n"
-#~ "\n"
-#~ "Install\n"
-#~ "Graphical install\n"
-#~ "Advanced options             >\n"
-#~ "Help\n"
-#~ "Install with speech synthesis\n"
-#~ "\n"
-#~ "Tryk RETUR for at starte op eller TAB for at redigere et menupunkt\n"
-#~ "</screen></informalexample> Afhængig af den valgte installationsmetode, "
-#~ "kan <quote>Graphical install</quote> mangle. Flerarkitekturaftryk har "
-#~ "desuden en 64-bit-variant for hver installationsmulighed, lige nedenfor, "
-#~ "hvilket næsten fordobler antallet af muligheder."
