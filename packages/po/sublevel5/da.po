@@ -28,7 +28,7 @@ msgstr ""
 #: ../partman-base.templates:60001
 #, no-c-format
 msgid "ZFS pool %s, volume %s"
-msgstr ""
+msgstr "ZFS-pulje %s, arkiv %s"
 
 #. Type: text
 #. Description
@@ -36,7 +36,7 @@ msgstr ""
 #: ../partman-base.templates:62001
 #, no-c-format
 msgid "DASD %s (%s)"
-msgstr ""
+msgstr "DASD %s (%s)"
 
 #. Type: text
 #. Description
@@ -44,7 +44,7 @@ msgstr ""
 #: ../partman-base.templates:63001
 #, no-c-format
 msgid "DASD %s (%s), partition #%s"
-msgstr ""
+msgstr "DASD %s (%s), partition #%s"
 
 #. Type: text
 #. Description
@@ -53,7 +53,7 @@ msgstr ""
 #. such as GRUB.
 #: ../partman-partitioning.templates:32001
 msgid "Reserved BIOS boot area"
-msgstr ""
+msgstr "Reserveret BIOS-opstartsområde"
 
 #. Type: text
 #. Description
@@ -62,7 +62,7 @@ msgstr ""
 #. Up to 10 character positions
 #: ../partman-partitioning.templates:33001
 msgid "biosgrub"
-msgstr ""
+msgstr "biosgrub"
 
 #. Type: boolean
 #. Description
@@ -73,6 +73,9 @@ msgid ""
 "is needed by your machine in order to boot. Please go back and use the ext2 "
 "file system."
 msgstr ""
+"Din opstartspartition er ikke blevet sat op med et ext2-filsystem. Dette er "
+"nødvendigt for at din maskine skal kunne startes op. Gå tilbage og brug ext2-"
+"filsystemet."
 
 #. Type: boolean
 #. Description
@@ -83,6 +86,9 @@ msgid ""
 "This is needed by your machine in order to boot.  Please go back and use "
 "your first partition as a boot partition."
 msgstr ""
+"Din opstartspartition ligger ikke på den første partition på din harddisk. "
+"Dette er nødvendigt for, at din maskine skal kunne startes op. Gå tilbage og "
+"brug den første primære partition som opstartspartition."
 
 #. Type: text
 #. Description
@@ -96,6 +102,12 @@ msgid ""
 "Most installations place the EFI partition on the first primary partition of "
 "the same hard disk that holds the root file system."
 msgstr ""
+"For at starte dit nye system, vil dit Itanium-systems firmware indlæse "
+"opstartsindlæseren fra sin private EFI-partition på harddisken. "
+"Opstartsindlæseren indlæser derefter styresystemet fra den samme partition. "
+"EFI-partitionen er formateret med et FAT16-filsystem markeret som opstartbar "
+"(\"bootable flag\" sat). De fleste installationer lægger EFI-partitionen på "
+"den første primære partition på den harddisk, der indeholder rodfilsystemet."
 
 #. Type: text
 #. Description
@@ -105,14 +117,14 @@ msgstr ""
 #. :sl5:
 #: ../partman-efi.templates:2001 ../partman-efi.templates:4001
 msgid "EFI System Partition"
-msgstr ""
+msgstr "EFI-systempatition"
 
 #. Type: boolean
 #. Description
 #. :sl5:
 #: ../partman-efi.templates:3001
 msgid "No EFI partition was found."
-msgstr ""
+msgstr "Fandt ingen EFI-partition."
 
 #. Type: text
 #. Description
@@ -121,21 +133,21 @@ msgstr ""
 #. Up to 10 character positions
 #: ../partman-efi.templates:5001
 msgid "ESP"
-msgstr ""
+msgstr "ESP"
 
 #. Type: text
 #. Description
 #. :sl5:
 #: ../partman-efi.templates:7001
 msgid "EFI-fat16"
-msgstr ""
+msgstr "EFI-fat16"
 
 #. Type: error
 #. Description
 #. :sl5:
 #: ../partman-efi.templates:8001
 msgid "EFI partition too small"
-msgstr ""
+msgstr "EFI-partition er for lille"
 
 #. Type: error
 #. Description
@@ -145,13 +157,15 @@ msgid ""
 "EFI System Partitions on this architecture cannot be created with a size "
 "less than 35 MB. Please make the EFI System Partition larger."
 msgstr ""
+"EFI-systempartitionerne på denne arkitektur kan ikke oprettes med en "
+"størrelse på mindre end 35 MB. Gør venligst EFI-systempartitionen større."
 
 #. Type: boolean
 #. Description
 #. :sl5:
 #: ../partman-efi.templates:9001
 msgid "Force UEFI installation?"
-msgstr ""
+msgstr "Fremtving UEFI-installation?"
 
 #. Type: boolean
 #. Description
@@ -164,6 +178,11 @@ msgid ""
 "might be difficult to reboot the machine into any BIOS-mode operating "
 "systems later."
 msgstr ""
+"Denne maskines firmware har startet installationsprogrammet i UEFI-tilstand, "
+"men der ser ud til, at der er eksisterende operativsystemer installeret med "
+"brug af »BIOS-kompatibilitetstilstand«. Hvis du fortsætter med at installere "
+"Debian i UEFI-tilstand, kan det senere være svært at genstarte maskinen i "
+"BIOS-tilstands operativsystemer."
 
 #. Type: boolean
 #. Description
@@ -175,6 +194,11 @@ msgid ""
 "If you wish to keep the option to boot an existing operating system, you "
 "should choose NOT to force UEFI installation here."
 msgstr ""
+"Hvis du ønsker at installere i UEFI-tilstand og er lige glad med at bevare "
+"muligheden for at starte et af de eksisterende systemer, så kan du tvinge "
+"det igennem her. Hvis du ønsker at bevare indstillingen til at opstarte et "
+"eksisterende operativsystem, så skal du vælge IKKE at fremtvinge UEFI-"
+"installation her."
 
 #. Type: select
 #. Choices
@@ -184,7 +208,7 @@ msgstr ""
 #. :sl5:
 #: ../s390-netdevice.templates:1001
 msgid "ctc: Channel to Channel (CTC) or ESCON connection"
-msgstr ""
+msgstr "ctc: Channel-to-Channel (CTC) eller ESCON-forbindelse"
 
 #. Type: select
 #. Choices
@@ -194,7 +218,7 @@ msgstr ""
 #. :sl5:
 #: ../s390-netdevice.templates:1001
 msgid "qeth: OSA-Express in QDIO mode / HiperSockets"
-msgstr ""
+msgstr "qeth: OSA-Express i QDIO-tilstand / HiperSockets"
 
 #. Type: select
 #. Choices
@@ -204,7 +228,7 @@ msgstr ""
 #. :sl5:
 #: ../s390-netdevice.templates:1001
 msgid "iucv: Inter-User Communication Vehicle - available for VM guests only"
-msgstr ""
+msgstr "iucv: Mellem-bruger kommunikations-transport - kun for VM-gæster"
 
 #. Type: select
 #. Choices
@@ -214,14 +238,14 @@ msgstr ""
 #. :sl5:
 #: ../s390-netdevice.templates:1001
 msgid "virtio: KVM VirtIO"
-msgstr ""
+msgstr "virtio: KVM VirtIO"
 
 #. Type: select
 #. Description
 #. :sl5:
 #: ../s390-netdevice.templates:1002
 msgid "Network device type:"
-msgstr ""
+msgstr "Netkorts-type:"
 
 #. Type: select
 #. Description
@@ -232,13 +256,15 @@ msgid ""
 "for installing the Debian system (via NFS or HTTP). Only the listed devices "
 "are supported."
 msgstr ""
+"Vælg typen på det primære netkort, som du vil bruge til at installere Debian-"
+"systemet fra (via NFS eller HTTP). Kun de viste enheder understøttes."
 
 #. Type: select
 #. Description
 #. :sl5:
 #: ../s390-netdevice.templates:2001
 msgid "CTC read device:"
-msgstr ""
+msgstr "CTC-læseenhed:"
 
 #. Type: select
 #. Description
@@ -248,14 +274,14 @@ msgstr ""
 #. :sl5:
 #: ../s390-netdevice.templates:2001 ../s390-netdevice.templates:3001
 msgid "The following device numbers might belong to CTC or ESCON connections."
-msgstr ""
+msgstr "Følgende enhedsnumre kan tilhøre CTC- eller ESCON-forbindelser."
 
 #. Type: select
 #. Description
 #. :sl5:
 #: ../s390-netdevice.templates:3001
 msgid "CTC write device:"
-msgstr ""
+msgstr "CTC-skriveenhed:"
 
 #. Type: boolean
 #. Description
@@ -269,7 +295,7 @@ msgstr ""
 #: ../s390-netdevice.templates:4001 ../s390-netdevice.templates:8001
 #: ../s390-netdevice.templates:12001
 msgid "Do you accept this configuration?"
-msgstr ""
+msgstr "Vil du acceptere denne opsætning?"
 
 #. Type: boolean
 #. Description
@@ -281,59 +307,75 @@ msgid ""
 " write channel = ${device_write}\n"
 " protocol      = ${protocol}"
 msgstr ""
+"De konfigurerede indstillinger er:\n"
+" læsekanal     = ${device_read}\n"
+" skrivekanal   = ${device_write}\n"
+" protokol      = ${protocol}"
 
 #. Type: error
 #. Description
 #. :sl5:
 #: ../s390-netdevice.templates:5001
 msgid "No CTC or ESCON connections"
-msgstr ""
+msgstr "Ingen CTC- eller ESCON-forbindelser"
 
 #. Type: error
 #. Description
 #. :sl5:
 #: ../s390-netdevice.templates:5001
 msgid "Please make sure that you have set them up correctly."
-msgstr ""
+msgstr "Sørg for at du har sat dem korrekt op."
 
 #. Type: select
 #. Description
 #. :sl5:
 #: ../s390-netdevice.templates:6001
 msgid "Protocol for this connection:"
-msgstr ""
+msgstr "Protokol for denne forbindelse:"
 
 #. Type: select
 #. Description
 #. :sl5:
 #: ../s390-netdevice.templates:7001
 msgid "Device:"
-msgstr ""
+msgstr "Enhed:"
 
 #. Type: select
 #. Description
 #. :sl5:
 #: ../s390-netdevice.templates:7001
 msgid "Please select the OSA-Express QDIO / HiperSockets device."
-msgstr ""
+msgstr "Vælg OSA-Express QDIO / HiperSockets-enhed."
 
 #. Type: boolean
 #. Description
 #. :sl5:
 #: ../s390-netdevice.templates:8001
+#, fuzzy
+#| msgid ""
+#| "The configured parameters are:\n"
+#| " channels = ${device0}, ${device1}, ${device2}\n"
+#| " port     = ${port}\n"
+#| " portname = ${portname}\n"
+#| " layer2   = ${layer2}"
 msgid ""
 "The configured parameters are:\n"
 " channels = ${device0}, ${device1}, ${device2}\n"
 " port     = ${port}\n"
 " layer2   = ${layer2}"
 msgstr ""
+"De indstillede parametre er:\n"
+" kanaler  = ${device0}, ${device1}, ${device2}\n"
+" port     = ${port}\n"
+" portnavn = ${portname}\n"
+" lag2     = ${layer2}"
 
 #. Type: error
 #. Description
 #. :sl5:
 #: ../s390-netdevice.templates:9001
 msgid "No OSA-Express QDIO cards / HiperSockets"
-msgstr ""
+msgstr "Ingen OSA-Express QDIO-kort / HiperSockets"
 
 #. Type: error
 #. Description
@@ -343,27 +385,29 @@ msgid ""
 "No OSA-Express QDIO cards / HiperSockets were detected. If you are running "
 "VM please make sure that your card is attached to this guest."
 msgstr ""
+"Fandt ingen OSA-Express QDIO-kort eller HiperSockets. Hvis du kører VM, så "
+"sørg for at dit kort er forbundet til denne gæst."
 
 #. Type: string
 #. Description
 #. :sl5:
 #: ../s390-netdevice.templates:10001
 msgid "Port:"
-msgstr ""
+msgstr "Port:"
 
 #. Type: string
 #. Description
 #. :sl5:
 #: ../s390-netdevice.templates:10001
 msgid "Please enter a relative port for this connection."
-msgstr ""
+msgstr "Angiv en port for denne forbindelse."
 
 #. Type: boolean
 #. Description
 #. :sl5:
 #: ../s390-netdevice.templates:11001
 msgid "Use this device in layer2 mode?"
-msgstr ""
+msgstr "Benyt denne enhed i lag2-tilstand?"
 
 #. Type: boolean
 #. Description
@@ -374,6 +418,9 @@ msgid ""
 "removed from incoming IPv4 packets. Using the card in layer2 mode will make "
 "it keep the MAC addresses of IPv4 packets."
 msgstr ""
+"Som udgangspunkt benytter OSA-Express kort lag3-tilstand. I denne tilstand, "
+"fjernes LLC-hoveder fra indkommende IPv4-pakker. Hvis kortet benyttes i lag2-"
+"tilstand, bevares IPv4-pakkernes MAC-adresser."
 
 #. Type: boolean
 #. Description
@@ -383,20 +430,22 @@ msgid ""
 "The configured parameter is:\n"
 " peer  = ${peer}"
 msgstr ""
+"Det opsatte parameter er:\n"
+" vært  = ${peer}"
 
 #. Type: string
 #. Description
 #. :sl5:
 #: ../s390-netdevice.templates:13001
 msgid "VM peer:"
-msgstr ""
+msgstr "VM-vært:"
 
 #. Type: string
 #. Description
 #. :sl5:
 #: ../s390-netdevice.templates:13001
 msgid "Please enter the name of the VM peer you want to connect to."
-msgstr ""
+msgstr "Angiv navnet på den VM-vært (VM-peer), du vil forbinde til."
 
 #. Type: string
 #. Description
@@ -406,6 +455,8 @@ msgid ""
 "If you want to connect to multiple peers, separate the names by colons, e."
 "g.  tcpip:linux1."
 msgstr ""
+"Hvis du vil forbinde til flere værter, kan du adskille navnene med kolonner, "
+"som f.eks. tcpip:linux1."
 
 #. Type: string
 #. Description
@@ -416,6 +467,9 @@ msgid ""
 "IUCV must be enabled in the VM user directory for this driver to work and it "
 "must be set up on both ends of the communication."
 msgstr ""
+"Standardnavnet på en TCP/IP-server på VM er TCPIP, på VIF er det $TCPIP. "
+"Bemærk: IUCV skal være aktiveret i VM-brugermappen for at denne driver kan "
+"fungere og det skal sættes op i begge ender af kommunikationen."
 
 #. Type: text
 #. Description
@@ -423,14 +477,14 @@ msgstr ""
 #. :sl5:
 #: ../s390-netdevice.templates:14001
 msgid "Configure the network device"
-msgstr ""
+msgstr "Sæt netkortet op"
 
 #. Type: select
 #. Description
 #. :sl5:
 #: ../s390-dasd.templates:1002
 msgid "Available devices:"
-msgstr ""
+msgstr "Tilgængelige enheder:"
 
 #. Type: select
 #. Description
@@ -440,20 +494,22 @@ msgid ""
 "The following direct access storage devices (DASD) are available. Please "
 "select each device you want to use one at a time."
 msgstr ""
+"Følgende lagerenheder med direkte adgang (DASD) er tilgængelige. Vælg de "
+"enheder, du vil benytte en ad gangen."
 
 #. Type: select
 #. Description
 #. :sl5:
 #: ../s390-dasd.templates:1002
 msgid "Select \"Finish\" at the bottom of the list when you are done."
-msgstr ""
+msgstr "Vælg \"Afslut\" i bunden af listen, når du er færdig."
 
 #. Type: string
 #. Description
 #. :sl5:
 #: ../s390-dasd.templates:2001
 msgid "Choose device:"
-msgstr ""
+msgstr "Vælg enhed:"
 
 #. Type: string
 #. Description
@@ -463,20 +519,22 @@ msgid ""
 "Please choose a device. You have to specify the complete device number, "
 "including leading zeros."
 msgstr ""
+"Vælg en enhed. Du skal angive det komplette enhedsnummer inklusive "
+"foranstillede nuller."
 
 #. Type: error
 #. Description
 #. :sl5:
 #: ../s390-dasd.templates:3001
 msgid "Invalid device"
-msgstr ""
+msgstr "Ugyldig enhed"
 
 #. Type: error
 #. Description
 #. :sl5:
 #: ../s390-dasd.templates:3001
 msgid "An invalid device number has been chosen."
-msgstr ""
+msgstr "Der blev valgt et ugyldigt enhedsnummer."
 
 #. Type: boolean
 #. Description
@@ -486,7 +544,7 @@ msgstr ""
 #. :sl5:
 #: ../s390-dasd.templates:4001 ../s390-dasd.templates:5001
 msgid "Format the device?"
-msgstr ""
+msgstr "Formatér enheden?"
 
 #. Type: boolean
 #. Description
@@ -508,17 +566,27 @@ msgstr ""
 #. Description
 #. :sl5:
 #: ../s390-dasd.templates:5001
+#, fuzzy
+#| msgid ""
+#| "The installer is unable to detect if the device ${device} has already "
+#| "been formatted or not. Devices need to be formatted before you can create "
+#| "partitions."
 msgid ""
 "The DASD ${device} is not low-level formatted. DASD devices must be "
 "formatted before you can create partitions."
 msgstr ""
+"Installationsprogrammet kan ikke afgøre, om enheden ${device} allerede er "
+"blevet formateret eller ej. Enheder skal formateres, før du kan oprette "
+"partitioner."
 
 #. Type: error
 #. Description
 #. :sl5:
 #: ../s390-dasd.templates:6001
+#, fuzzy
+#| msgid "Device in use"
 msgid "The DASD ${device} is in use"
-msgstr ""
+msgstr "Enheden er i brug"
 
 #. Type: error
 #. Description
@@ -535,7 +603,7 @@ msgstr ""
 #. :sl5:
 #: ../s390-dasd.templates:7001
 msgid "Formatting ${device}..."
-msgstr ""
+msgstr "Formaterer ${device}..."
 
 #. Type: text
 #. Description
@@ -543,7 +611,7 @@ msgstr ""
 #. :sl5:
 #: ../s390-dasd.templates:8001
 msgid "Configure direct access storage devices (DASD)"
-msgstr ""
+msgstr "Sæt lagerenheder med direkte adgang (DASD) op"
 
 #. Type: text
 #. Description
@@ -551,4 +619,4 @@ msgstr ""
 #. :sl5:
 #: ../zipl-installer.templates:1001
 msgid "Install the ZIPL boot loader on a hard disk"
-msgstr ""
+msgstr "Installér opstartsindlæseren ZIPL på en harddisk"
