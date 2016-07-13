@@ -573,6 +573,11 @@ for po in sublevel1/*.po ; do
 	list=""
 	for i in $LEVELS; do
 		if [ -f sublevel$i/$lang.po ]; then
+			# First test the validity of the PO file and exit in case it is not valid
+			if ! msgfmt -c sublevel$i/$lang.po >/dev/null ; then
+				echo "Error in sublevel$i/$lang.po"
+				gettexterr
+			fi
 			list="${list:+$list }sublevel$i/$lang.po"
 		fi
 	done
@@ -619,6 +624,11 @@ for po in sublevel1/*.po ; do
 		fi
 		if [ -f sublevel$i/$lang.po ]; then
 			log_cmd --pass -m "  - Merge with template.pot for sublevel $i..." \
+				# First test the validity of the PO file and exit in case it is not valid
+				if ! msgfmt -c $lang.po >/dev/null ; then
+					echo "Error in sublevel$i/$lang.po"
+					gettexterr
+				fi
 				msgmerge --previous $lang.po \
 					sublevel$i/template.pot \
 				>sublevel$i/$lang.po.new || gettexterr
