@@ -585,7 +585,7 @@ for po in sublevel1/*.po ; do
 	LASTFILE="$(po_last_updated "PO-Revision-Date" $list)"
 	LASTDATE="$(po_get_header "PO-Revision-Date" $LASTFILE)"
 	LASTTRANS="$(po_get_header "Last-Translator" $LASTFILE)"
-	msgcat --use-first $list >${lang}.po
+	msgcat --use-first $list >${lang}.po || gettexterr
 	po_replace_header "PO-Revision-Date" "$LASTDATE" $lang.po
 	po_replace_header "Last-Translator" "$LASTTRANS" $lang.po
 
