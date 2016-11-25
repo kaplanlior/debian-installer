@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: random-bits\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2016-04-08 20:25+0000\n"
+"POT-Creation-Date: 2016-11-25 19:03+0000\n"
 "PO-Revision-Date: 2015-03-14 08:01+0300\n"
 "Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
 "Language-Team: Russian <debian-l10n-russian@lists.debian.org>\n"
@@ -987,14 +987,23 @@ msgstr ""
 
 #. Tag: para
 #: random-bits.xml:467
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "Substitute one of the following for <replaceable>ARCH</replaceable> in "
+#| "the <command>debootstrap</command> command: <userinput>amd64</userinput>, "
+#| "<userinput>arm64</userinput>, <userinput>armel</userinput>, "
+#| "<userinput>armhf</userinput>, <userinput>i386</userinput>, "
+#| "<userinput>mips</userinput>, <userinput>mipsel</userinput>, "
+#| "<userinput>powerpc</userinput>, <userinput>ppc64el</userinput>, or "
+#| "<userinput>s390x</userinput>."
 msgid ""
 "Substitute one of the following for <replaceable>ARCH</replaceable> in the "
 "<command>debootstrap</command> command: <userinput>amd64</userinput>, "
 "<userinput>arm64</userinput>, <userinput>armel</userinput>, "
 "<userinput>armhf</userinput>, <userinput>i386</userinput>, <userinput>mips</"
-"userinput>, <userinput>mipsel</userinput>, <userinput>powerpc</userinput>, "
-"<userinput>ppc64el</userinput>, or <userinput>s390x</userinput>."
+"userinput>, <userinput>mips64el</userinput>, <userinput>mipsel</userinput>, "
+"<userinput>powerpc</userinput>, <userinput>ppc64el</userinput>, or "
+"<userinput>s390x</userinput>."
 msgstr ""
 "Замените <replaceable>ARCH</replaceable> в команде запуска на один из "
 "следующих вариантов: <userinput>amd64</userinput>, <userinput>arm64</"
@@ -1004,7 +1013,7 @@ msgstr ""
 "или <userinput>s390x</userinput>."
 
 #. Tag: screen
-#: random-bits.xml:483
+#: random-bits.xml:484
 #, no-c-format
 msgid ""
 "# /usr/sbin/debootstrap --arch ARCH &releasename; \\\n"
@@ -1014,13 +1023,13 @@ msgstr ""
 "     /mnt/debinst http://ftp.us.debian.org/debian"
 
 #. Tag: title
-#: random-bits.xml:489
+#: random-bits.xml:490
 #, no-c-format
 msgid "Configure The Base System"
 msgstr "Настройка базовой системы"
 
 #. Tag: para
-#: random-bits.xml:490
+#: random-bits.xml:491
 #, no-c-format
 msgid ""
 "Now you've got a real &debian; system, though rather lean, on disk. "
@@ -1047,13 +1056,13 @@ msgstr ""
 "поддержки терминала."
 
 #. Tag: title
-#: random-bits.xml:508
+#: random-bits.xml:509
 #, no-c-format
 msgid "Create device files"
 msgstr "Создание файлов устройств"
 
 #. Tag: para
-#: random-bits.xml:509
+#: random-bits.xml:510
 #, no-c-format
 msgid ""
 "At this point <filename>/dev/</filename> only contains very basic device "
@@ -1073,13 +1082,13 @@ msgstr ""
 "статические файлы устройств."
 
 #. Tag: para
-#: random-bits.xml:519
+#: random-bits.xml:520
 #, no-c-format
 msgid "A few of the available options are:"
 msgstr "Некоторые доступные способы:"
 
 #. Tag: para
-#: random-bits.xml:524
+#: random-bits.xml:525
 #, no-c-format
 msgid ""
 "install the makedev package, and create a default set of static device files "
@@ -1089,7 +1098,7 @@ msgstr ""
 "статических файлов устройств (после выполнения chroot)"
 
 #. Tag: screen
-#: random-bits.xml:528
+#: random-bits.xml:529
 #, fuzzy, no-c-format
 #| msgid ""
 #| "# apt-get install makedev\n"
@@ -1108,7 +1117,7 @@ msgstr ""
 "# MAKEDEV generic"
 
 #. Tag: para
-#: random-bits.xml:531
+#: random-bits.xml:532
 #, no-c-format
 msgid ""
 "manually create only specific device files using <command>MAKEDEV</command>"
@@ -1117,7 +1126,7 @@ msgstr ""
 "<command>MAKEDEV</command>"
 
 #. Tag: para
-#: random-bits.xml:536
+#: random-bits.xml:537
 #, no-c-format
 msgid ""
 "bind mount /dev from your host system on top of /dev in the target system; "
@@ -1130,13 +1139,13 @@ msgstr ""
 "использовать осторожно"
 
 #. Tag: title
-#: random-bits.xml:549
+#: random-bits.xml:550
 #, no-c-format
 msgid "Mount Partitions"
 msgstr "Монтирование разделов"
 
 #. Tag: para
-#: random-bits.xml:550
+#: random-bits.xml:551
 #, no-c-format
 msgid ""
 "You need to create <filename>/etc/fstab</filename>. "
@@ -1219,13 +1228,13 @@ msgstr ""
 "тем как продолжить, убедитесь, что proc смонтирована:"
 
 #. Tag: screen
-#: random-bits.xml:576
+#: random-bits.xml:577
 #, no-c-format
 msgid "# mount -t proc proc /proc"
 msgstr "# mount -t proc proc /proc"
 
 #. Tag: para
-#: random-bits.xml:578
+#: random-bits.xml:579
 #, no-c-format
 msgid ""
 "The command <userinput>ls /proc</userinput> should now show a non-empty "
@@ -1237,19 +1246,19 @@ msgstr ""
 "chroot:"
 
 #. Tag: screen
-#: random-bits.xml:584
+#: random-bits.xml:585
 #, no-c-format
 msgid "# mount -t proc proc /mnt/debinst/proc"
 msgstr "# mount -t proc proc /mnt/debinst/proc"
 
 #. Tag: title
-#: random-bits.xml:590
+#: random-bits.xml:591
 #, no-c-format
 msgid "Setting Timezone"
 msgstr "Настройка часового пояса"
 
 #. Tag: para
-#: random-bits.xml:591
+#: random-bits.xml:592
 #, no-c-format
 msgid ""
 "Setting the third line of the file <filename>/etc/adjtime</filename> to "
@@ -1277,19 +1286,19 @@ msgstr ""
 "</screen></informalexample> Следующая команда позволяет указать часовой пояс."
 
 #. Tag: screen
-#: random-bits.xml:605
+#: random-bits.xml:606
 #, no-c-format
 msgid "# dpkg-reconfigure tzdata"
 msgstr "# dpkg-reconfigure tzdata"
 
 #. Tag: title
-#: random-bits.xml:611
+#: random-bits.xml:612
 #, no-c-format
 msgid "Configure Networking"
 msgstr "Настройка сети"
 
 #. Tag: para
-#: random-bits.xml:612
+#: random-bits.xml:613
 #, no-c-format
 msgid ""
 "To configure networking, edit <filename>/etc/network/interfaces</filename>, "
@@ -1420,13 +1429,13 @@ msgstr ""
 "интерфейса (eth0, eth1 и т.д.) как вы и ожидали."
 
 #. Tag: title
-#: random-bits.xml:653
+#: random-bits.xml:654
 #, no-c-format
 msgid "Configure Apt"
 msgstr "Настройка Apt"
 
 #. Tag: para
-#: random-bits.xml:654
+#: random-bits.xml:655
 #, fuzzy, no-c-format
 #| msgid ""
 #| "Debootstrap will have created a very basic <filename>/etc/apt/sources."
@@ -1463,13 +1472,13 @@ msgstr ""
 "update</userinput> после изменения списка источников."
 
 #. Tag: title
-#: random-bits.xml:670
+#: random-bits.xml:671
 #, no-c-format
 msgid "Configure Locales and Keyboard"
 msgstr "Настройка раскладки клавиатуры и локалей"
 
 #. Tag: para
-#: random-bits.xml:671
+#: random-bits.xml:672
 #, fuzzy, no-c-format
 #| msgid ""
 #| "To configure your locale settings to use a language other than English, "
@@ -1497,7 +1506,7 @@ msgstr ""
 "</screen></informalexample> Для настройки раскладки клавиатуры (если нужно):"
 
 #. Tag: screen
-#: random-bits.xml:681
+#: random-bits.xml:682
 #, fuzzy, no-c-format
 #| msgid ""
 #| "# aptitude install console-setup\n"
@@ -1510,7 +1519,7 @@ msgstr ""
 "# dpkg-reconfigure keyboard-configuration"
 
 #. Tag: para
-#: random-bits.xml:683
+#: random-bits.xml:684
 #, no-c-format
 msgid ""
 "Note that the keyboard cannot be set while in the chroot, but will be "
@@ -1520,13 +1529,13 @@ msgstr ""
 "chroot, но настройка будет произведена после следующей перезагрузки."
 
 #. Tag: title
-#: random-bits.xml:693
+#: random-bits.xml:694
 #, no-c-format
 msgid "Install a Kernel"
 msgstr "Установка ядра"
 
 #. Tag: para
-#: random-bits.xml:694
+#: random-bits.xml:695
 #, no-c-format
 msgid ""
 "If you intend to boot this system, you probably want a &arch-kernel; kernel "
@@ -1537,20 +1546,20 @@ msgstr ""
 "помощью:"
 
 #. Tag: screen
-#: random-bits.xml:699
+#: random-bits.xml:700
 #, fuzzy, no-c-format
 #| msgid "# apt-cache search &kernelpackage;"
 msgid "# apt search &kernelpackage;"
 msgstr "# apt-cache search &kernelpackage;"
 
 #. Tag: para
-#: random-bits.xml:701
+#: random-bits.xml:702
 #, no-c-format
 msgid "Then install the kernel package of your choice using its package name."
 msgstr "Затем установите пакет с ядром, указав подходящий вам вариант."
 
 #. Tag: screen
-#: random-bits.xml:705
+#: random-bits.xml:706
 #, fuzzy, no-c-format
 #| msgid ""
 #| "# aptitude install &kernelpackage;-<replaceable>arch-etc</replaceable>"
@@ -1558,13 +1567,13 @@ msgid "# apt install &kernelpackage;-<replaceable>arch-etc</replaceable>"
 msgstr "# aptitude install &kernelpackage;-<replaceable>arch-etc</replaceable>"
 
 #. Tag: title
-#: random-bits.xml:711
+#: random-bits.xml:712
 #, no-c-format
 msgid "Set up the Boot Loader"
 msgstr "Установка системного загрузчика"
 
 #. Tag: para
-#: random-bits.xml:712
+#: random-bits.xml:713
 #, fuzzy, no-c-format
 #| msgid ""
 #| "To make your &debian-gnu; system bootable, set up your boot loader to "
@@ -1584,7 +1593,7 @@ msgstr ""
 "вашего &debian; chroot, чтобы сделать это."
 
 #. Tag: para
-#: random-bits.xml:719
+#: random-bits.xml:720
 #, no-c-format
 msgid ""
 "Check <userinput>info grub</userinput> <phrase arch=\"x86\">or "
@@ -1609,7 +1618,7 @@ msgstr ""
 "относящийся к системе, из которой его вызвали)</phrase>."
 
 #. Tag: para
-#: random-bits.xml:731
+#: random-bits.xml:732
 #, fuzzy, no-c-format
 #| msgid ""
 #| "Installing and setting up <classname>grub2</classname> is as easy as: "
@@ -1643,7 +1652,7 @@ msgstr ""
 "filename>."
 
 #. Tag: para
-#: random-bits.xml:741
+#: random-bits.xml:742
 #, no-c-format
 msgid ""
 "Note that this assumes that a <filename>/dev/sda</filename> device file has "
@@ -1655,13 +1664,13 @@ msgstr ""
 "command>, но они здесь не описаны."
 
 #. Tag: para
-#: random-bits.xml:747
+#: random-bits.xml:748
 #, no-c-format
 msgid "Here is a basic <filename>/etc/lilo.conf</filename> as an example:"
 msgstr "Вот простой <filename>/etc/lilo.conf</filename> в качестве примера:"
 
 #. Tag: screen
-#: random-bits.xml:751
+#: random-bits.xml:752
 #, no-c-format
 msgid ""
 "boot=/dev/<replaceable>sda6</replaceable>\n"
@@ -1683,7 +1692,7 @@ msgstr ""
 "label=Debian"
 
 #. Tag: para
-#: random-bits.xml:753
+#: random-bits.xml:754
 #, no-c-format
 msgid ""
 "Check <userinput>man yaboot.conf</userinput> for instructions on setting up "
@@ -1703,7 +1712,7 @@ msgstr ""
 "системе, из которой его вызвали)."
 
 #. Tag: para
-#: random-bits.xml:763
+#: random-bits.xml:764
 #, no-c-format
 msgid ""
 "Here is a basic <filename>/etc/yaboot.conf</filename> as an example: "
@@ -1733,13 +1742,13 @@ msgstr ""
 "использовать <userinput>ide0:</userinput> вместо <userinput>hd:</userinput>."
 
 #. Tag: title
-#: random-bits.xml:776
+#: random-bits.xml:777
 #, no-c-format
 msgid "Remote access: Installing SSH and setting up access"
 msgstr "Удалённый доступ: установка SSH и настройка доступа"
 
 #. Tag: para
-#: random-bits.xml:777
+#: random-bits.xml:778
 #, fuzzy, no-c-format
 #| msgid ""
 #| "In case you can login to the system via console, you can skip this "
@@ -1806,7 +1815,7 @@ msgstr ""
 "пользователя с паролем:"
 
 #. Tag: screen
-#: random-bits.xml:801
+#: random-bits.xml:802
 #, no-c-format
 msgid ""
 "# adduser joe\n"
@@ -1816,13 +1825,13 @@ msgstr ""
 "# passwd joe"
 
 #. Tag: title
-#: random-bits.xml:806
+#: random-bits.xml:807
 #, no-c-format
 msgid "Finishing touches"
 msgstr "Заключительные шаги"
 
 #. Tag: para
-#: random-bits.xml:807
+#: random-bits.xml:808
 #, fuzzy, no-c-format
 #| msgid ""
 #| "As mentioned earlier, the installed system will be very basic. If you "
@@ -1849,7 +1858,7 @@ msgstr ""
 "<command>aptitude</command> для установки отдельных пакетов."
 
 #. Tag: para
-#: random-bits.xml:818
+#: random-bits.xml:819
 #, no-c-format
 msgid ""
 "After the installation there will be a lot of downloaded packages in "
@@ -1861,20 +1870,20 @@ msgstr ""
 "запустив:"
 
 #. Tag: screen
-#: random-bits.xml:824
+#: random-bits.xml:825
 #, fuzzy, no-c-format
 #| msgid "# aptitude clean"
 msgid "# apt clean"
 msgstr "# aptitude clean"
 
 #. Tag: title
-#: random-bits.xml:835
+#: random-bits.xml:836
 #, no-c-format
 msgid "Installing &debian-gnu; over Parallel Line IP (PLIP)"
 msgstr "Установка &debian-gnu; через Parallel Line IP (PLIP)"
 
 #. Tag: para
-#: random-bits.xml:837
+#: random-bits.xml:838
 #, no-c-format
 msgid ""
 "This section explains how to install &debian-gnu; on a computer without an "
@@ -1890,7 +1899,7 @@ msgstr ""
 "Интернет)."
 
 #. Tag: para
-#: random-bits.xml:845
+#: random-bits.xml:846
 #, no-c-format
 msgid ""
 "In the example in this appendix we will set up a PLIP connection using a "
@@ -1906,7 +1915,7 @@ msgstr ""
 "не должны использоваться в вашем сетевом адресном пространстве)."
 
 #. Tag: para
-#: random-bits.xml:853
+#: random-bits.xml:854
 #, no-c-format
 msgid ""
 "The PLIP connection set up during the installation will also be available "
@@ -1917,7 +1926,7 @@ msgstr ""
 "перезагрузки в установленную систему (смотрите <xref linkend=\"boot-new\"/>)."
 
 #. Tag: para
-#: random-bits.xml:858
+#: random-bits.xml:859
 #, no-c-format
 msgid ""
 "Before you start, you will need to check the BIOS configuration (IO base "
@@ -1930,13 +1939,13 @@ msgstr ""
 "<literal>io=0x378</literal>, <literal>irq=7</literal>."
 
 #. Tag: title
-#: random-bits.xml:868
+#: random-bits.xml:869
 #, no-c-format
 msgid "Requirements"
 msgstr "Требования"
 
 #. Tag: para
-#: random-bits.xml:871
+#: random-bits.xml:872
 #, no-c-format
 msgid ""
 "A target computer, called <emphasis>target</emphasis>, where &debian; will "
@@ -1946,7 +1955,7 @@ msgstr ""
 "установлен &debian;."
 
 #. Tag: para
-#: random-bits.xml:877
+#: random-bits.xml:878
 #, no-c-format
 msgid "System installation media; see <xref linkend=\"installation-media\"/>."
 msgstr ""
@@ -1954,7 +1963,7 @@ msgstr ""
 "\"/>."
 
 #. Tag: para
-#: random-bits.xml:882
+#: random-bits.xml:883
 #, no-c-format
 msgid ""
 "Another computer connected to the Internet, called <emphasis>source</"
@@ -1964,7 +1973,7 @@ msgstr ""
 "emphasis>, будет использоваться в качестве шлюза."
 
 #. Tag: para
-#: random-bits.xml:888
+#: random-bits.xml:889
 #, no-c-format
 msgid ""
 "A DB-25 Null-Modem cable. See the <ulink url=\"&url-plip-install-howto;"
@@ -1975,13 +1984,13 @@ msgstr ""
 "<ulink url=\"&url-plip-install-howto;\">PLIP-Install-HOWTO</ulink>."
 
 #. Tag: title
-#: random-bits.xml:900
+#: random-bits.xml:901
 #, no-c-format
 msgid "Setting up source"
 msgstr "Настройка источника"
 
 #. Tag: para
-#: random-bits.xml:901
+#: random-bits.xml:902
 #, no-c-format
 msgid ""
 "The following shell script is a simple example of how to configure the "
@@ -1991,7 +2000,7 @@ msgstr ""
 "источника в качестве шлюза в Интернет через ppp0."
 
 #. Tag: screen
-#: random-bits.xml:906
+#: random-bits.xml:907
 #, no-c-format
 msgid ""
 "#!/bin/sh\n"
@@ -2033,13 +2042,13 @@ msgstr ""
 "echo 1 > /proc/sys/net/ipv4/ip_forward"
 
 #. Tag: title
-#: random-bits.xml:912
+#: random-bits.xml:913
 #, no-c-format
 msgid "Installing target"
 msgstr "Установка приёмника"
 
 #. Tag: para
-#: random-bits.xml:913
+#: random-bits.xml:914
 #, no-c-format
 msgid ""
 "Boot the installation media. The installation needs to be run in expert "
@@ -2065,13 +2074,13 @@ msgstr ""
 "различных этапах установки."
 
 #. Tag: guimenuitem
-#: random-bits.xml:932
+#: random-bits.xml:933
 #, no-c-format
 msgid "Load installer components from CD"
 msgstr "Загрузка компонент программы установки с CD"
 
 #. Tag: para
-#: random-bits.xml:934
+#: random-bits.xml:935
 #, no-c-format
 msgid ""
 "Select the <userinput>plip-modules</userinput> option from the list; this "
@@ -2081,13 +2090,13 @@ msgstr ""
 "доступным PLIP драйвера для программы установки."
 
 #. Tag: guimenuitem
-#: random-bits.xml:942
+#: random-bits.xml:943
 #, no-c-format
 msgid "Detect network hardware"
 msgstr "Определение сетевой карты"
 
 #. Tag: para
-#: random-bits.xml:947
+#: random-bits.xml:948
 #, no-c-format
 msgid ""
 "If target <emphasis>does</emphasis> have a network card, a list of driver "
@@ -2102,7 +2111,7 @@ msgstr ""
 "установки не покажет этого списка."
 
 #. Tag: para
-#: random-bits.xml:956
+#: random-bits.xml:957
 #, no-c-format
 msgid ""
 "Because no network card was detected/selected earlier, the installer will "
@@ -2114,19 +2123,19 @@ msgstr ""
 "<userinput>plip</userinput>."
 
 #. Tag: guimenuitem
-#: random-bits.xml:968
+#: random-bits.xml:969
 #, no-c-format
 msgid "Configure the network"
 msgstr "Настройка сети"
 
 #. Tag: para
-#: random-bits.xml:971
+#: random-bits.xml:972
 #, no-c-format
 msgid "Auto-configure network with DHCP: No"
 msgstr "Настроить сеть автоматически с помощью DHCP: нет"
 
 #. Tag: para
-#: random-bits.xml:976
+#: random-bits.xml:977
 #, no-c-format
 msgid ""
 "IP address: <userinput><replaceable>192.168.0.1</replaceable></userinput>"
@@ -2134,7 +2143,7 @@ msgstr ""
 "IP-адрес: <userinput><replaceable>192.168.0.1</replaceable></userinput>"
 
 #. Tag: para
-#: random-bits.xml:981
+#: random-bits.xml:982
 #, no-c-format
 msgid ""
 "Point-to-point address: <userinput><replaceable>192.168.0.2</replaceable></"
@@ -2143,7 +2152,7 @@ msgstr ""
 "Адрес PPP: <userinput><replaceable>192.168.0.2</replaceable></userinput>"
 
 #. Tag: para
-#: random-bits.xml:987
+#: random-bits.xml:988
 #, no-c-format
 msgid ""
 "Name server addresses: you can enter the same addresses used on source (see "
@@ -2153,13 +2162,13 @@ msgstr ""
 "(смотрите <filename>/etc/resolv.conf</filename>)"
 
 #. Tag: title
-#: random-bits.xml:1006
+#: random-bits.xml:1007
 #, no-c-format
 msgid "Installing &debian-gnu; using PPP over Ethernet (PPPoE)"
 msgstr "Установка &debian-gnu; с использованием PPP через Ethernet (PPPoE)"
 
 #. Tag: para
-#: random-bits.xml:1008
+#: random-bits.xml:1009
 #, no-c-format
 msgid ""
 "In some countries PPP over Ethernet (PPPoE) is a common protocol for "
@@ -2175,7 +2184,7 @@ msgstr ""
 "добиться. В этом разделе будет описано как это сделать."
 
 #. Tag: para
-#: random-bits.xml:1016
+#: random-bits.xml:1017
 #, no-c-format
 msgid ""
 "The PPPoE connection set up during the installation will also be available "
@@ -2187,7 +2196,7 @@ msgstr ""
 "\"/>)."
 
 #. Tag: para
-#: random-bits.xml:1021
+#: random-bits.xml:1022
 #, no-c-format
 msgid ""
 "To have the option of setting up and using PPPoE during the installation, "
@@ -2201,7 +2210,7 @@ msgstr ""
 "или floppy</phrase>)."
 
 #. Tag: para
-#: random-bits.xml:1028
+#: random-bits.xml:1029
 #, no-c-format
 msgid ""
 "Installing over PPPoE is mostly the same as any other installation. The "
@@ -2211,7 +2220,7 @@ msgstr ""
 "способа установки. Далее будут описаны различия."
 
 #. Tag: para
-#: random-bits.xml:1036
+#: random-bits.xml:1037
 #, no-c-format
 msgid ""
 "Boot the installer with the boot parameter <userinput>modules=ppp-udeb</"
@@ -2227,7 +2236,7 @@ msgstr ""
 "classname>) будет загружена и и запущена автоматически."
 
 #. Tag: para
-#: random-bits.xml:1051
+#: random-bits.xml:1052
 #, no-c-format
 msgid ""
 "Follow the regular initial steps of the installation (language, country and "
@@ -2247,7 +2256,7 @@ msgstr ""
 "quote> в строке приглашения к загрузке. </para> </footnote>)."
 
 #. Tag: para
-#: random-bits.xml:1070
+#: random-bits.xml:1071
 #, no-c-format
 msgid ""
 "The next step is the detection of network hardware, in order to identify any "
@@ -2257,7 +2266,7 @@ msgstr ""
 "целью распознавания имеющихся в системе карт Ethernet."
 
 #. Tag: para
-#: random-bits.xml:1076
+#: random-bits.xml:1077
 #, no-c-format
 msgid ""
 "After this the actual setup of PPPoE is started. The installer will probe "
@@ -2269,7 +2278,7 @@ msgstr ""
 "через все найденные интерфейсы Ethernet."
 
 #. Tag: para
-#: random-bits.xml:1082
+#: random-bits.xml:1083
 #, no-c-format
 msgid ""
 "It is possible that the concentrator will not to be found at the first "
@@ -2285,7 +2294,7 @@ msgstr ""
 "PPPoE-соединения</guimenuitem> из главного меню программы установки."
 
 #. Tag: para
-#: random-bits.xml:1091
+#: random-bits.xml:1092
 #, no-c-format
 msgid ""
 "After a concentrator is found, the user will be prompted to type the login "
@@ -2295,7 +2304,7 @@ msgstr ""
 "информацию (имя пользователя и пароль для PPPoE)."
 
 #. Tag: para
-#: random-bits.xml:1097
+#: random-bits.xml:1098
 #, no-c-format
 msgid ""
 "At this point the installer will use the provided information to establish "
