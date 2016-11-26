@@ -1,6 +1,6 @@
 # Danish translation of d-i-manual-random-bits.
-# Copyright (C) 2014 Free Software Foundation, Inc.
-# Joe Hansen <joedalton2@yahoo.dk>, 2014, 2015.
+# Copyright (C) 2016 Free Software Foundation, Inc.
+# Joe Hansen <joedalton2@yahoo.dk>, 2014, 2015, 2016.
 #
 # 32-bit processorer (er anvendt selv om 32-bit-processorer er den korrekte brug)
 # installer -> installationsprogram
@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: d-i-manual_random-bits\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2016-11-25 19:03+0000\n"
-"PO-Revision-Date: 2015-03-21 11:40+0100\n"
+"PO-Revision-Date: 2016-11-26 11:40+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -121,14 +121,13 @@ msgstr "Første partition på den første harddisk"
 #: random-bits.xml:46
 #, no-c-format
 msgid "sdb7"
-msgstr ""
+msgstr "sdb7"
 
 #. Tag: entry
 #: random-bits.xml:47
-#, fuzzy, no-c-format
-#| msgid "Tenth partition of the fourth SCSI hard disk"
+#, no-c-format
 msgid "Seventh partition of the second hard disk"
-msgstr "10. partition for den fjerde SCSI-harddisk"
+msgstr "7. partition for den anden harddisk"
 
 #. Tag: filename
 #: random-bits.xml:53
@@ -140,7 +139,7 @@ msgstr "<filename>sr0</filename>"
 #: random-bits.xml:54
 #, no-c-format
 msgid "First CD-ROM"
-msgstr ""
+msgstr "Første cd-rom"
 
 #. Tag: filename
 #: random-bits.xml:56
@@ -152,7 +151,7 @@ msgstr "<filename>sr1</filename>"
 #: random-bits.xml:57
 #, no-c-format
 msgid "Second CD-ROM"
-msgstr ""
+msgstr "Anden cd-rom"
 
 #. Tag: filename
 #: random-bits.xml:63
@@ -797,6 +796,11 @@ msgid ""
 "desktop-lxde-inst;MB if you plan to install X (more if you intend to install "
 "desktop environments like GNOME or KDE)."
 msgstr ""
+"Med dine nuværende *nix-partitioneringsværktøjer, så ændr partition på "
+"harddisken efter behov, opret mindst et filsystem samt swap. Du skal have "
+"omkring &base-system-size;MB tilgængelig for en konsolinstallation, eller "
+"omkring &task-desktop-lxde-inst;MB hvis du planlægger at installere X "
+"(mere hvis du installerer skrivebordsmiljøer som GNOME eller KDE)."
 
 #. Tag: para
 #: random-bits.xml:364
@@ -809,6 +813,12 @@ msgid ""
 "</screen></informalexample> To create an ext2 file system instead, omit "
 "<userinput>-j</userinput>."
 msgstr ""
+"Opret nu filsystemer på partitionerne. For eksempel, for at oprette et ext3-"
+"filsystem på partition <filename>/dev/sda6</filename> (det er vores eksempels "
+"root-partition): <informalexample><screen>\n"
+"# mke2fs -j /dev/<replaceable>sda6</replaceable>\n"
+"</screen></informalexample> For at oprette et ext2-filsystem i stedet for "
+"så udelad <userinput>-j</userinput>."
 
 #. Tag: para
 #: random-bits.xml:374
@@ -1001,19 +1011,14 @@ msgstr ""
 
 #. Tag: screen
 #: random-bits.xml:529
-#, fuzzy, no-c-format
-#| msgid ""
-#| "# apt-get install makedev\n"
-#| "# mount none /proc -t proc\n"
-#| "# cd /dev\n"
-#| "# MAKEDEV generic"
+#, no-c-format
 msgid ""
 "# apt install makedev\n"
 "# mount none /proc -t proc\n"
 "# cd /dev\n"
 "# MAKEDEV generic"
 msgstr ""
-"# apt-get install makedev\n"
+"# apt install makedev\n"
 "# mount none /proc -t proc\n"
 "# cd /dev\n"
 "# MAKEDEV generic"
@@ -1249,15 +1254,12 @@ msgstr ""
 
 #. Tag: screen
 #: random-bits.xml:682
-#, fuzzy, no-c-format
-#| msgid ""
-#| "# aptitude install console-setup\n"
-#| "# dpkg-reconfigure keyboard-configuration"
+#, no-c-format
 msgid ""
 "# apt install console-setup\n"
 "# dpkg-reconfigure keyboard-configuration"
 msgstr ""
-"# aptitude install console-setup\n"
+"# apt install console-setup\n"
 "# dpkg-reconfigure keyboard-configuration"
 
 #. Tag: para
@@ -1283,13 +1285,15 @@ msgid ""
 "If you intend to boot this system, you probably want a &arch-kernel; kernel "
 "and a boot loader. Identify available pre-packaged kernels with:"
 msgstr ""
+"Hvis du skal starte op fra dette system, så skal du bruge en &arch-kernel;-"
+"kerne og en opstartsindlæser. Identificer tilgængelige forhåndspakkede kerner "
+"med:"
 
 #. Tag: screen
 #: random-bits.xml:700
-#, fuzzy, no-c-format
-#| msgid "# apt-cache search &kernelpackage;"
+#, no-c-format
 msgid "# apt search &kernelpackage;"
-msgstr "# apt-cache search &kernelpackage;"
+msgstr "# apt search &kernelpackage;"
 
 #. Tag: para
 #: random-bits.xml:702
@@ -1299,11 +1303,9 @@ msgstr "Installer så kernepakken efter dit valg via dets pakkenavn."
 
 #. Tag: screen
 #: random-bits.xml:706
-#, fuzzy, no-c-format
-#| msgid ""
-#| "# aptitude install &kernelpackage;-<replaceable>arch-etc</replaceable>"
+#, no-c-format
 msgid "# apt install &kernelpackage;-<replaceable>arch-etc</replaceable>"
-msgstr "# aptitude install &kernelpackage;-<replaceable>arch-etc</replaceable>"
+msgstr "# apt install &kernelpackage;-<replaceable>arch-etc</replaceable>"
 
 #. Tag: title
 #: random-bits.xml:712
@@ -1491,13 +1493,15 @@ msgid ""
 "<filename>/var/cache/apt/archives/</filename>. You can free up some "
 "diskspace by running:"
 msgstr ""
+"Efter installationen vil der være en masse hentede pakker i "
+"<filename>/var/cache/apt/archives/</filename>. Du kan frigive diskplads "
+"ved at køre:"
 
 #. Tag: screen
 #: random-bits.xml:825
-#, fuzzy, no-c-format
-#| msgid "# aptitude clean"
+#, no-c-format
 msgid "# apt clean"
-msgstr "# aptitude clean"
+msgstr "# apt clean"
 
 #. Tag: title
 #: random-bits.xml:836
@@ -1540,6 +1544,9 @@ msgid ""
 "after the reboot into the installed system (see <xref linkend=\"boot-new\"/"
 ">)."
 msgstr ""
+"PLIP-forbindelsen opsat under installationen vil også være tilgængelig "
+"efter genstarten i det installerede system (se <xref linkend=\"boot-new\"/"
+">)."
 
 #. Tag: para
 #: random-bits.xml:859
@@ -1919,26 +1926,3 @@ msgstr ""
 "konfigurationen kan forsøges igen ved at vælge menupunktet "
 "<guimenuitem>Konfigurer og start en PPPoE-forbindelse</guimenuitem>."
 
-#~ msgid "SCSI Hard disk with lowest SCSI ID (e.g. 0)"
-#~ msgstr "SCSI-harddisk med lavest SCSI-ID (f.eks. 0)"
-
-#~ msgid "SCSI Hard disk with next higher SCSI ID (e.g. 1)"
-#~ msgstr "SCSI-harddisk med næste højere SCSI-ID (f.eks. 1)"
-
-#~ msgid "SCSI Hard disk with next higher SCSI ID (e.g. 2)"
-#~ msgstr "SCSI-harddisk med næste højere SCSI-ID (f.eks. 2)"
-
-#~ msgid "SCSI CD-ROM with the lowest SCSI ID"
-#~ msgstr "SCSI-cd-rom med den laveste SCSI-ID"
-
-#~ msgid "SCSI CD-ROM with the next higher SCSI ID"
-#~ msgstr "SCSI-cd-rom med den næste højere SCSI-ID"
-
-#~ msgid ""
-#~ "There is some overlap of the Laptop task with the Desktop environment "
-#~ "task. If you install both, the Laptop task will only require a few MB "
-#~ "additional disk space."
-#~ msgstr ""
-#~ "Der er nogen overlap for opgaven Bærbar med miljøopgaven Skrivebord. Hvis "
-#~ "du installerer begge vil opgaven Bærbar kun kræve nogle få yderligere MB "
-#~ "diskplads."
