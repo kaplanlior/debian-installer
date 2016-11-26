@@ -1,15 +1,23 @@
 # Danish translation of hardware.
 # Copyright (C) 2015 Free Software Foundation, Inc.
-# Joe Hansen <joedalton2@yahoo.dk>, 2014, 2015.
+# Joe Hansen <joedalton2@yahoo.dk>, 2014, 2015, 2016.
 #
 # 32-bit processorer (er anvendt selv om 32-bit-processorer er den korrekte brug)
+# installer -> installationsprogram
+# language -> sprog
+# locale -> sted (lokalitet andet?)
+# locales -> steder (sprogområder)
+# scheme -> plan
+# stateful -> tilstandebærende
+# stateless -> tilstandsfri
+# volume -> diskenhed
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: d-i-manual_hardware\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2016-11-25 19:03+0000\n"
-"PO-Revision-Date: 2015-03-25 21:24+0100\n"
+"PO-Revision-Date: 2016-11-26 21:24+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -152,17 +160,15 @@ msgstr "armel"
 
 #. Tag: entry
 #: hardware.xml:76
-#, fuzzy, no-c-format
-#| msgid "Marvell Kirkwood"
+#, no-c-format
 msgid "Marvell Kirkwood and Orion"
-msgstr "Marvell Kirkwood"
+msgstr "Marvell Kirkwood og Orion"
 
 #. Tag: entry
 #: hardware.xml:77
-#, fuzzy, no-c-format
-#| msgid "Marvell Orion"
+#, no-c-format
 msgid "marvell"
-msgstr "Marvell Orion"
+msgstr "marvell"
 
 #. Tag: entry
 #: hardware.xml:79
@@ -264,13 +270,13 @@ msgstr "5kc-malta"
 #: hardware.xml:117 hardware.xml:130
 #, no-c-format
 msgid "Cavium Octeon"
-msgstr ""
+msgstr "Cavium Octeon"
 
 #. Tag: entry
 #: hardware.xml:118 hardware.xml:131
 #, no-c-format
 msgid "octeon"
-msgstr ""
+msgstr "octeon"
 
 #. Tag: entry
 #: hardware.xml:122
@@ -288,13 +294,13 @@ msgstr "mipsel"
 #: hardware.xml:133
 #, no-c-format
 msgid "Loongson 3A"
-msgstr ""
+msgstr "Loongson 3A"
 
 #. Tag: entry
 #: hardware.xml:134
 #, no-c-format
 msgid "loongson-3"
-msgstr ""
+msgstr "loongson-3"
 
 #. Tag: entry
 #: hardware.xml:140
@@ -304,10 +310,9 @@ msgstr "IBM/Motorola PowerPC"
 
 #. Tag: entry
 #: hardware.xml:141
-#, fuzzy, no-c-format
-#| msgid "<entry morerows=\"1\">powerpc</entry>"
+#, no-c-format
 msgid "<entry morerows=\"0\">powerpc</entry>"
-msgstr "<entry morerows=\"1\">powerpc</entry>"
+msgstr "<entry morerows=\"0\">powerpc</entry>"
 
 #. Tag: entry
 #: hardware.xml:154
@@ -325,7 +330,7 @@ msgstr "ppc64el"
 #: hardware.xml:156
 #, no-c-format
 msgid "IBM POWER8 or newer machines"
-msgstr ""
+msgstr "IBM POWER8 eller nyere maskiner"
 
 #. Tag: entry
 #: hardware.xml:181
@@ -407,7 +412,7 @@ msgstr "Både AMD64- og Intel 64-processorer er understøttet."
 #: hardware.xml:248
 #, no-c-format
 msgid "Three different ARM ports"
-msgstr ""
+msgstr "Tre forskellige ARM-porte"
 
 #. Tag: para
 #: hardware.xml:250
@@ -418,6 +423,10 @@ msgid ""
 "provides three ARM ports to give the best support for a very wide range of "
 "different machines:"
 msgstr ""
+"ARM-arkitekturen har udviklet sig over tid og moderne ARM-processorer tilbyder "
+"funktioner som er tilgængelige i ældre modeller. &debian; tilbyder derfor "
+"tre ARM-porte så du har den bedste understøttelse for en bred vifte af "
+"forskellige maskiner:"
 
 #. Tag: para
 #: hardware.xml:256
@@ -426,6 +435,8 @@ msgid ""
 "&debian;/armel targets older 32-bit ARM processors without support for a "
 "hardware floating point unit (FPU),"
 msgstr ""
+"&debian;/armel er til ældre 32-bit ARM-processorer uden understøttelse "
+"for en udstyrs-FPU (loating point unit),"
 
 #. Tag: para
 #: hardware.xml:260
@@ -436,6 +447,10 @@ msgid ""
 "specification (VFPv3). It makes use of the extended features and performance "
 "enhancements available on these models."
 msgstr ""
+"&debian;/armhf fungerer kun på nyere 32-bit ARM-processorer, som implementerer "
+"mindst ARMv7-arkitekturen med version 3 af ARM vector floating point-"
+"specifikationen (VFPv3). Den gør brug af de udvidede funktioner og "
+"ydelsesforbedringer tilgængelige på disse modeller."
 
 #. Tag: para
 #: hardware.xml:267
@@ -444,31 +459,28 @@ msgid ""
 "&debian;/arm64 works on 64-bit ARM processors which implement at least the "
 "ARMv8 architecture."
 msgstr ""
+"&debian;/arm64 fungerer på 64-bit ARM-processorer, der som minimum "
+"implementerer ARMv8-arkitekturen."
 
 #. Tag: para
 #: hardware.xml:274
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Technically, several ARM CPUs can be run in either endian mode (big or "
-#| "little), but in practice the vast majority of currently available systems "
-#| "uses little-endian mode. Both &debian;/armhf and &debian;/armel support "
-#| "only little-endian systems."
+#, no-c-format
 msgid ""
 "Technically, all currently available ARM CPUs can be run in either endian "
 "mode (big or little), but in practice the vast majority use little-endian "
 "mode. All of &debian;/arm64, &debian;/armhf and &debian;/armel support only "
 "little-endian systems."
 msgstr ""
-"Teknisk kan flere ARM CPU'er køre enten i endian-tilstand (big eller "
-"little), men i praksis bruger hovedparten af de nuværende tilgængelige "
-"systemer little-endian-tilstand. &debian;/armhf og &debian;/armel "
-"understøtter kun little-endian-systemer."
+"Teknisk kan alle nuværende ARM CPU'er køre enten i endian-tilstand (big eller "
+"little), men i praksis bruger hovedparten little-endian-tilstand. "
+"&debian;/arm64, &debian;/armhf og &debian;/armel understøtter kun "
+"little-endian-systemer."
 
 #. Tag: title
 #: hardware.xml:283
 #, no-c-format
 msgid "Variations in ARM CPU designs and support complexity"
-msgstr ""
+msgstr "Variationer i ARM CPU-design og understøttelseskompleksitet"
 
 #. Tag: para
 #: hardware.xml:285
@@ -477,21 +489,13 @@ msgid ""
 "ARM systems are much more heterogeneous than those based on the i386/amd64-"
 "based PC architecture, so the support situation can be much more complicated."
 msgstr ""
+"ARM-systemer er meget mere heterogene end dem baseret på den "
+"i386/amd64-baserede pc-arkitektur, så undestøttelsessituationen kan være "
+"meget mere kompliceret."
 
 #. Tag: para
 #: hardware.xml:291
-#, fuzzy, no-c-format
-#| msgid ""
-#| "ARM systems are a lot more heterogenous than the i386/amd64-based PC "
-#| "architecture, where all systems share a common system firmware (BIOS or/"
-#| "and UEFI) which handles the board-specific basic hardware initialization "
-#| "in a standardized way. The ARM architecture is used mainly in so-called "
-#| "<quote>systems-on-chip</quote> (SoCs). These SoCs are designed by many "
-#| "different companies with vastly varying hardware components even for the "
-#| "very basic functionality required to bring the system up. Systems using "
-#| "them usually lack a common system firmware interface and as a result, on "
-#| "ARM systems the Linux kernel has to take care of many system-specific low-"
-#| "level issues which are handled by the mainboard's BIOS in the PC world."
+#, no-c-format
 msgid ""
 "The ARM architecture is used mainly in so-called <quote>system-on-chip</"
 "quote> (SoC) designs. These SoCs are designed by many different companies "
@@ -502,33 +506,18 @@ msgid ""
 "Linux kernel has to take care of many system-specific low-level issues which "
 "would be handled by the mainboard's BIOS in the PC world."
 msgstr ""
-"ARM-systemer er meget mere heterogene end den i386/amd64-baserede pc-"
-"arkitektur, hvor alle systemer deler en fælles systemfirmware (BIOS eller/og "
-"UEFI) som håndterer initialiseringen af det kortspecifikke grundlæggende "
-"udstyr på en standardiseret måde. ARM-arkitekturen bruges hovedsagelig i "
-"såkaldte <quote>systems-on-chip</quote> (SOC'er). Disse SOC'er er designet "
-"af mange forskellige firmaer med mange og varierende udstyrskomponeneter "
-"selv for den meget grundlæggende funktionalitet krævet for at få systemet i "
-"gang. Systemer der bruger dem mangler normalt en fælles grænseflade for "
-"systemfirmwaren og som resultat skal Linux-kernen på ARM-systemer håntere "
-"mange systemspecifikke problemstillinger på lavt niveau, som håndteres af "
-"bundkortets BIOS i pc-verdenen."
+"ARM-arkitekturen bruges hovedsagelig i såkaldte <quote>systems-on-chip</quote> "
+"(SOC'er). Disse SOC'er er designet af mange forskellige firmaer med mange og "
+"varierende udstyrskomponeneter selv for den meget grundlæggende funktionalitet "
+"krævet for at få systemet i gang. Systemernes firmwaregrænseflader er i "
+"stadig stigende grad blevet standardiseret over tid, men specielt på ældre "
+"udstyr kan firmware/boot-grænseflader varierer meget, så på disse systemer "
+"skal Linuxkernen håndtere mange systemspecifikke problemstillinger på lavt "
+"niveau, som i pc-verdenen ville blive håndteret af bundkortets BIOS."
 
 #. Tag: para
 #: hardware.xml:303
-#, fuzzy, no-c-format
-#| msgid ""
-#| "At the beginning of the ARM support in the Linux kernel, this resulted in "
-#| "the requirement of having a seperate kernel for each ARM system in "
-#| "contrast to the <quote>one-fits-all</quote> kernel for PC systems. As "
-#| "this approach does not scale to a large number of different systems, work "
-#| "has started to be able to provide a single ARM kernel that can run on "
-#| "different ARM systems. Support for newer ARM systems gets implemented in "
-#| "a way that allows the use of such a multiplatform kernel, but for several "
-#| "older systems a seperate specific kernel is still required. Because of "
-#| "this, the standard &debian; distribution only supports installation on a "
-#| "selected number of older ARM systems in addition to the newer systems "
-#| "which are supported by the ARM multiplatform (armmp) kernel."
+#, no-c-format
 msgid ""
 "At the beginning of the ARM support in the Linux kernel, the hardware "
 "variety resulted in the requirement of having a separate kernel for each ARM "
@@ -543,32 +532,22 @@ msgid ""
 "the ARM multiplatform kernels (called <quote>armmp</quote>) in &debian;/"
 "armhf."
 msgstr ""
-"I begyndelsen af ARM-understøttelse i Linux-kernen, blev resultatet et krav "
-"om at der skulle være en separat kerne for hvert ARM-system i kontrast til "
+"I begyndelsen af ARM-understøttelsen i Linux-kernen medførte udstyrsvariationen "
+"i kravet om at have en separat kerne for hvert ARM-system i kontrast til "
 "<quote>en passer alle</quote>-kernen for pc-systemer. Da denne fremgangsmåde "
 "ikke skalerer til et stort antal forskellige systemer, er arbejde blevet "
 "påbegyndt for at tilbyde en enkel ARM-kerne, som kan afvikles på forskellige "
-"ARM-systemer. Understøttelse for nyere ARM-systemer bliver implementeret på "
+"ARM-systemer. Understøttelse for nyere ARM-systemer bliver nu implementeret på "
 "en måde, som giver mulighed for en flerplatformskerne, men for flere ældre "
 "systemer er en separat og specifik kerne stadig nødvendig. Derfor "
 "understøtter standarddistributionen for &debian; kun installation på et "
 "udvalgt antal ældre ARM-systemer udover de nyeste systemer, som er "
-"understøttet af ARM-flerplatformskernen (armmp)."
+"understøttet af ARM-flerplatformskernerne (navngivet <quote>armmp</quote>) "
+"i &debian;/armhf."
 
 #. Tag: para
 #: hardware.xml:319
-#, fuzzy, no-c-format
-#| msgid ""
-#| "ARM systems are a lot more heterogenous than the i386/amd64-based PC "
-#| "architecture, where all systems share a common system firmware (BIOS or/"
-#| "and UEFI) which handles the board-specific basic hardware initialization "
-#| "in a standardized way. The ARM architecture is used mainly in so-called "
-#| "<quote>systems-on-chip</quote> (SoCs). These SoCs are designed by many "
-#| "different companies with vastly varying hardware components even for the "
-#| "very basic functionality required to bring the system up. Systems using "
-#| "them usually lack a common system firmware interface and as a result, on "
-#| "ARM systems the Linux kernel has to take care of many system-specific low-"
-#| "level issues which are handled by the mainboard's BIOS in the PC world."
+#, no-c-format
 msgid ""
 "The ARM architecture is used mainly in so-called <quote>system-on-chip</"
 "quote> (SoC) designs. These SoCs are designed by many different companies, "
@@ -578,17 +557,13 @@ msgid ""
 "ARMv8 (arm64) is much more standardised and so is easier for the Linux "
 "kernel and other software to support."
 msgstr ""
-"ARM-systemer er meget mere heterogene end den i386/amd64-baserede pc-"
-"arkitektur, hvor alle systemer deler en fælles systemfirmware (BIOS eller/og "
-"UEFI) som håndterer initialiseringen af det kortspecifikke grundlæggende "
-"udstyr på en standardiseret måde. ARM-arkitekturen bruges hovedsagelig i "
-"såkaldte <quote>systems-on-chip</quote> (SOC'er). Disse SOC'er er designet "
-"af mange forskellige firmaer med mange og varierende udstyrskomponeneter "
-"selv for den meget grundlæggende funktionalitet krævet for at få systemet i "
-"gang. Systemer der bruger dem mangler normalt en fælles grænseflade for "
-"systemfirmwaren og som resultat skal Linux-kernen på ARM-systemer håntere "
-"mange systemspecifikke problemstillinger på lavt niveau, som håndteres af "
-"bundkortets BIOS i pc-verdenen."
+"ARM-arkitekturen bruges hovedsagelig i såkaldte <quote>systems-on-chip"
+"</quote> (SOC'er). Disse SOC'er er designet af mange forskellige firmaer "
+"med mange og varierende udstyrskomponenter selv for den meget grundlæggende "
+"funktionalitet krævet for at få systemet i gang. Ældre versioner af ARM-"
+"arkitekturen har oplevet massive forskelle fra en SoC til den næste, men "
+"ARMv8 (arm64) er meget mere standardiseret og er derfor nemmere at "
+"understøtte for Linuxkernen og andre programmer."
 
 #. Tag: para
 #: hardware.xml:330
@@ -600,6 +575,11 @@ msgid ""
 "ways to boot and configure computer hardware. They are also common in the "
 "x86 PC world."
 msgstr ""
+"Serverversioner af ARMv8-arkitekturen konfigureres typisk via "
+"Unified Extensible Firmware Interface (UEFI) og Advanced Configuration and "
+"Power Interface-standarderne (ACPI). Disse to tilbyder fælles, enhedsuafhængige "
+"måder at starte op og konfigurere computerudstyr. De er også udbredt i "
+"x86 pc-verdenen."
 
 #. Tag: title
 #: hardware.xml:340
@@ -618,12 +598,18 @@ msgid ""
 "to be supported by &debian;/arm64 in this release. There is only one kernel "
 "image, which supports all the listed platforms."
 msgstr ""
+"Arm64/AArch64/ARMv8-udstyr blev tilgængelig ret sent i udgivelsescyklussen "
+"for &debian; &releasename-cap; så få platforme have understøttelse i "
+"hovedudgivelsens kerneversion på tidspunktet for udgivelsen; dette er "
+"det vigtigste krav for at &d-i; fungerer på dem. De følgende platforme "
+"vides at være understøttet af &debian;/arm64 i denne udgivelse. Der er kun "
+"et kerneaftryk, som understøtter alle de angivne platforme."
 
 #. Tag: term
 #: hardware.xml:354
 #, no-c-format
 msgid "Applied Micro (APM) Mustang/X-Gene"
-msgstr ""
+msgstr "Applied Micro (APM) Mustang/X-Gene"
 
 #. Tag: para
 #: hardware.xml:356
@@ -636,12 +622,18 @@ msgid ""
 "Most of the hardware is supported in the mainline kernel, but at this point "
 "USB support is lacking in the &releasename-cap; kernel."
 msgstr ""
+"ARM Mustang var det første Linux-aktiverede ARMv8-system tilgængeligt. Det "
+"bruger X-gene SoC, som også siden er blevet brugt i andre maskiner. Det er "
+"en 8-kerne cpu, med ethernet, USB og seriel. En normal formfaktor ligner "
+"en skrivebords-pc-boks, men mange andre versioner forventes i fremtiden. "
+"Det meste af udstyret er understøttet i hovedlinjens kerne, men mangler "
+"på dette tidpsunkt USB-understøttelse i kernen for &releasename-cap;."
 
 #. Tag: term
 #: hardware.xml:370
 #, no-c-format
 msgid "ARM Juno Development Platform"
-msgstr ""
+msgstr "ARM Juno Development Platform"
 
 #. Tag: para
 #: hardware.xml:372
@@ -653,42 +645,35 @@ msgid ""
 "cheap, but was one of the first boards available. All the on-board hardware "
 "is supported in the mainline kernel and in &releasename-cap;."
 msgstr ""
+"Juno er et godt udviklingsbundkort med en 6-kerne (2xA57, 4xA53) ARMv8-A "
+"800Mhz CPU, Mali (T624) grafik, 8GB DDR3 RAM, Ethernet, USB, Serial. Det "
+"blev designet for systemopstart og funktionalitetstest så er hverken lille eller "
+"billig, men var et af de første bundkort tilgængelige. Alt indbygget udstyr "
+"er understøttet i hovedlinjens kerne og i &releasename-cap;."
 
 #. Tag: para
 #: hardware.xml:386
-#, fuzzy, no-c-format
-#| msgid ""
-#| "When using &d-i; on such systems, you have to manually make the system "
-#| "bootable at the end of the installation, e.g. by running the required "
-#| "commands in a shell started from within &d-i;."
+#, no-c-format
 msgid ""
 "When using &d-i; on non-UEFI systems, you may have to manually make the "
 "system bootable at the end of the installation, e.g. by running the required "
 "commands in a shell started from within &d-i;. flash-kernel knows how to set "
 "up an X-Gene system booting with U-Boot."
 msgstr ""
-"Når du bruger &d-i; på sådanne systmer, så skal ud manuelt gøre systemet "
+"Når du bruger &d-i; på ikke-UEFI-systemer, så skal du manuelt gøre systemet "
 "opstartsbart i slutningen af installationen, f.eks. ved at køre de krævede "
-"kommandoer i en skal startet inden fra &d-i;."
+"kommandoer i en skal startet inden fra &d-i;. Flash-kernel ved hvordan et "
+"X-Gene-system skal sættes op til start med U-Boot."
 
 #. Tag: title
 #: hardware.xml:394
-#, fuzzy, no-c-format
-#| msgid "multiplatform"
+#, no-c-format
 msgid "Other platforms"
-msgstr "flerplatform"
+msgstr "Andre platforme"
 
 #. Tag: para
 #: hardware.xml:395
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Generally, the ARM multiplatform support in the Linux kernel allows "
-#| "running &d-i; on armhf systems not explicitly listed above, as long as "
-#| "the kernel used by &d-i; has support for the target system's components "
-#| "and a device-tree file for the target is available. In these cases, the "
-#| "installer can usually provide a working userland installation, but it "
-#| "probably cannot automatically make the system bootable, as doing that in "
-#| "many cases requires device-specific information."
+#, no-c-format
 msgid ""
 "The multiplatform support in the arm64 Linux kernel may also allow running "
 "&d-i; on arm64 systems not explicitly listed above. So long as the kernel "
@@ -699,14 +684,14 @@ msgid ""
 "system bootable as well. If UEFI is not used you may also need to perform "
 "some manual configuration steps to make the system bootable."
 msgstr ""
-"Generelt giver ARM-flerplatformsunderstøttelsen i Linuxkernen mulighed for "
-"at køre &d-i; på armhf-systemer som ikke eksplicit er anført ovenfor så "
+"Flerplatformsunderstøttelsen i arm64-Linuxkernen kan også afvikle "
+"&d-i; på arm64-systemer som ikke eksplicit er anført ovenfor så "
 "længe, at kernen brugt af &d-i; har understøttelse for målsystemets "
 "komponenter og en enhedstræfil for målet er tilgængelig. I disse tilfælde "
 "kan installationsprogrammet normalt tilbyde en fungerende "
-"brugerlandsinstallation, men kan sandsynligvis ikke gøre at systemet "
-"automatisk starter op, da dette i mange tilfælde kræver enhedsspecifik "
-"information."
+"installation, og så længe at UEFI er i brug, så bør systemet også kunne "
+"startes op. Hvis UEFI ikke bruges, så skal du måske også udføre nogle "
+"manuelle konfigurationstrin for at systemet kan starte op."
 
 #. Tag: title
 #: hardware.xml:411
@@ -726,10 +711,9 @@ msgstr ""
 
 #. Tag: term
 #: hardware.xml:420
-#, fuzzy, no-c-format
-#| msgid "Freescale MX53 Quick Start Board"
+#, no-c-format
 msgid "Freescale MX53 Quick Start Board (MX53 LOCO Board)"
-msgstr "Freescale MX53 Quick Start Board"
+msgstr "Freescale MX53 Quick Start Board (MX53 LOCO Board)"
 
 #. Tag: para
 #: hardware.xml:422
@@ -790,10 +774,9 @@ msgstr "LeMaker Banana Pi og Banana Pro"
 
 #. Tag: para
 #: hardware.xml:457
-#, fuzzy, no-c-format
-#| msgid "LinkSprite pcDuino"
+#, no-c-format
 msgid "LinkSprite pcDuino and pcDuino3"
-msgstr "LinkSprite pcDuino"
+msgstr "LinkSprite pcDuino og pcDuino3"
 
 #. Tag: para
 #: hardware.xml:460
@@ -827,20 +810,15 @@ msgstr "PineRiver Mini X-Plus"
 
 #. Tag: para
 #: hardware.xml:477
-#, fuzzy, no-c-format
-#| msgid ""
-#| "System support for Allwinner sunXi-based devices is limited to drivers "
-#| "and device-tree information available in the mainline Linux kernel. The "
-#| "android-derived linux-sunxi.org 3.4 kernel series is not supported by "
-#| "Debian."
+#, no-c-format
 msgid ""
 "System support for Allwinner sunXi-based devices is limited to drivers and "
 "device-tree information available in the mainline Linux kernel. The android-"
 "derived linux-sunxi.org 3.4 kernel series is not supported by &debian;."
 msgstr ""
-"Systemunderstøttelse for Allwinner sunXi-basreede enheder er begrænset til "
-"drivere og enhedstræ-information tilgængelig i hovedkernen for Linux). Den "
-"Androidafledte linux-sunxi.org 3.4-kerneserie er ikke understøttet af Debian."
+"Systemunderstøttelse for Allwinner sunXi-baserede enheder er begrænset til "
+"drivere og enhedstræ-information tilgængelig i hovedkernen for Linux. Den "
+"Androidafledte linux-sunxi.org 3.4-kerneserie er ikke understøttet af &debian;."
 
 #. Tag: para
 #: hardware.xml:483
@@ -860,13 +838,7 @@ msgstr ""
 
 #. Tag: para
 #: hardware.xml:491
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Using a local display is technically possible without native display "
-#| "drivers via the <quote>simplefb</quote> infrastructure in the mainline "
-#| "kernel, which relies on the <quote>U-Boot</quote> bootloader for "
-#| "initialising the display hardware, but this is not supported by the U-"
-#| "Boot version in &debian; 8."
+#, no-c-format
 msgid ""
 "Using a local display is technically possible without native display drivers "
 "via the <quote>simplefb</quote> infrastructure in the mainline kernel, which "
@@ -876,14 +848,13 @@ msgstr ""
 "Brug af en lokal skærm er teknisk muligt uden standarddrivere for skærmen "
 "via infrastrukturen <quote>simplefb</quote> i hovedlinjekernen, som afhænger "
 "af opstartsindlæseren <quote>U-Boot</quote> for initialisering af "
-"skærmudstyret, men dette er ikke understøttet af U-Boot-versionen i &debian; "
-"8."
+"skærmudstyret."
 
 #. Tag: term
 #: hardware.xml:502
 #, no-c-format
 msgid "NVIDIA Jetson TK1"
-msgstr ""
+msgstr "NVIDIA Jetson TK1"
 
 #. Tag: para
 #: hardware.xml:504
@@ -894,12 +865,16 @@ msgid ""
 "CPU and Kepler GPU (GK20A) with 192 CUDA cores. Other systems based on the "
 "Tegra 124 may work, too."
 msgstr ""
+"The NVIDIA Jetson TK1 er et udvikler bundkort baseret på Tegra K1-chippen "
+"(også kendt som Tegra 124). Tegra K1 har en quad-kerne 32-bit ARM Cortex-A15 "
+"CPU og Kepler GPU (GK20A) med 192 CUDA-kerner. Andre systemer baseret på "
+"Tegra 124 vil måske også virke."
 
 #. Tag: term
 #: hardware.xml:515
 #, no-c-format
 msgid "Seagate Personal Cloud and Seagate NAS"
-msgstr ""
+msgstr "Seagate Personal Cloud og Seagate NAS"
 
 #. Tag: para
 #: hardware.xml:517
@@ -910,6 +885,10 @@ msgid ""
 "Personal Cloud 2-Bay (SRN22C), Seagate NAS 2-Bay (SRPD20) and Seagate NAS 4-"
 "Bay (SRPD40)."
 msgstr ""
+"Seagate Personal Cloud og Seagate NAS er NAS-enheder baseret på Marvells "
+"Armada 370-platform. Debian understøtter Personal Cloud (SRN21C), "
+"Personal Cloud 2-Bay (SRN22C), Seagate NAS 2-Bay (SRPD20) og Seagate NAS 4-"
+"Bay (SRPD40)."
 
 #. Tag: term
 #: hardware.xml:527
@@ -919,16 +898,7 @@ msgstr "SolidRun Cubox-i2eX / Cubox-i4Pro"
 
 #. Tag: para
 #: hardware.xml:529
-#, fuzzy, no-c-format
-#| msgid ""
-#| "The Cubox-i series is a set of small, cubical-shaped systems based on the "
-#| "Freescale i.MX6 SoC family. System support for the Cubox-i series is "
-#| "limited to drivers and device-tree information available in the mainline "
-#| "Linux kernel; the Freescale 3.0 kernel series for the Cubox-i is not "
-#| "supported by Debian. Available drivers in the mainline kernel include "
-#| "serial console, ethernet, USB, MMC/SD-card and display support over HDMI "
-#| "(console and X11). In addition to that, the eSATA port on the Cubox-i4Pro "
-#| "is supported."
+#, no-c-format
 msgid ""
 "The Cubox-i series is a set of small, cubical-shaped systems based on the "
 "Freescale i.MX6 SoC family. System support for the Cubox-i series is limited "
@@ -942,7 +912,7 @@ msgstr ""
 "Freescale i.MX6 SoC-familien. Systemunderstøttelse for Cubox-i-serien er "
 "begrænset til drivere og information om enhedstræet tilgængelig i "
 "hovedlinjen af Linuxkernen; Freescale 3.0-kerneserien for Cubox-i er ikke "
-"understøttet af Debian. Tilgængelige drivere i kernen i hovedlinjen "
+"understøttet af &debian;. Tilgængelige drivere i kernen i hovedlinjen "
 "inkluderer seriel konsol, ethernet, USB, MMC/SD-kort og skærmunderstøttelse "
 "over HDMI (konsol og X11). Derudover er eSATA-porten på Cubox-i4Pro "
 "understøttet."
@@ -955,16 +925,7 @@ msgstr "Wandboard Quad"
 
 #. Tag: para
 #: hardware.xml:546
-#, fuzzy, no-c-format
-#| msgid ""
-#| "The Wandboard Quad is a development board based on the Freescale i.MX6 "
-#| "Quad SoC. System support for it is limited to drivers and device-tree "
-#| "information available in the mainline Linux kernel; the wandboard-"
-#| "specific 3.0 and 3.10 kernel series from wandboard.org are not supported "
-#| "by Debian. The mainline kernel includes driver support for serial "
-#| "console, display via HDMI (console and X11), ethernet, USB, MMC/SD and "
-#| "SATA. Support for the onboard audio options (analog, S/PDIF, HDMI-Audio) "
-#| "and for the onboard WLAN/Bluetooth module is not available in &debian; 8."
+#, no-c-format
 msgid ""
 "The Wandboard Quad is a development board based on the Freescale i.MX6 Quad "
 "SoC. System support for it is limited to drivers and device-tree information "
@@ -978,7 +939,7 @@ msgstr ""
 "Wandboard Quad er et udviklingskort baseret på Freescale i.MX6 Quad SoC. "
 "Systemunderstøttelsen er begrænset til drivere og enhedstræinformation  i "
 "Linuxkernens hovedlinje; dem wandboard-specifikke 3.0 og 3.10 kerneserie fra "
-"wandboard.org er ikke understøttet af Debian. Hovedlinjens kerne inkluderer "
+"wandboard.org er ikke understøttet af &debian;. Hovedlinjens kerne inkluderer "
 "driverunderstøttelse for seriel konsol, skærm via HDMI (konsol og X11), "
 "ethernet, USB, MMC/SD og SATA. Understøttelse for de indbyggede "
 "lydindstillinger (analog, S/PDIF, HDMI-Audio) og for det indbyggede WLAN/"
@@ -986,15 +947,7 @@ msgstr ""
 
 #. Tag: para
 #: hardware.xml:564
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Generally, the ARM multiplatform support in the Linux kernel allows "
-#| "running &d-i; on armhf systems not explicitly listed above, as long as "
-#| "the kernel used by &d-i; has support for the target system's components "
-#| "and a device-tree file for the target is available. In these cases, the "
-#| "installer can usually provide a working userland installation, but it "
-#| "probably cannot automatically make the system bootable, as doing that in "
-#| "many cases requires device-specific information."
+#, no-c-format
 msgid ""
 "Generally, the ARM multiplatform support in the Linux kernel allows running "
 "&d-i; on armhf systems not explicitly listed above, as long as the kernel "
@@ -1009,25 +962,20 @@ msgstr ""
 "længe, at kernen brugt af &d-i; har understøttelse for målsystemets "
 "komponenter og en enhedstræfil for målet er tilgængelig. I disse tilfælde "
 "kan installationsprogrammet normalt tilbyde en fungerende "
-"brugerlandsinstallation, men kan sandsynligvis ikke gøre at systemet "
-"automatisk starter op, da dette i mange tilfælde kræver enhedsspecifik "
-"information."
+"installation, men kan sandsynligvis ikke gøre at systemet automatisk "
+"starter op. Dette kræver i mange tilfælde enhedsspecifik information."
 
 #. Tag: para
 #: hardware.xml:576
-#, fuzzy, no-c-format
-#| msgid ""
-#| "When using &d-i; on such systems, you have to manually make the system "
-#| "bootable at the end of the installation, e.g. by running the required "
-#| "commands in a shell started from within &d-i;."
+#, no-c-format
 msgid ""
 "When using &d-i; on such systems, you may have to manually make the system "
 "bootable at the end of the installation, e.g. by running the required "
 "commands in a shell started from within &d-i;."
 msgstr ""
-"Når du bruger &d-i; på sådanne systmer, så skal ud manuelt gøre systemet "
-"opstartsbart i slutningen af installationen, f.eks. ved at køre de krævede "
-"kommandoer i en skal startet inden fra &d-i;."
+"Når du bruger &d-i; på sådanne systmer, så skal du eventuelt manuelt gøre "
+"systemet opstartsbart i slutningen af installationen, f.eks. ved at køre "
+"de krævede kommandoer i en skal startet inden fra &d-i;."
 
 #. Tag: title
 #: hardware.xml:585
@@ -1043,14 +991,7 @@ msgstr "EfikaMX"
 
 #. Tag: para
 #: hardware.xml:590
-#, fuzzy, no-c-format
-#| msgid ""
-#| "The EfikaMX platform (Genesi Efika Smartbook and Genesi EfikaMX nettop) "
-#| "has been supported in &debian; 7 with a platform-specific kernel, but is "
-#| "no longer supported from &debian; 8 onwards. The code required to build "
-#| "the formerly used platform-specific kernel has been removed from the "
-#| "upstream Linux kernel source in 2012, so Debian cannot provide newer "
-#| "builds."
+#, no-c-format
 msgid ""
 "The EfikaMX platform (Genesi Efika Smartbook and Genesi EfikaMX nettop) was "
 "supported in &debian; 7 with a platform-specific kernel, but is no longer "
@@ -1065,7 +1006,9 @@ msgstr ""
 "understøttet mere fra og med &debian; 8. Koden krævet for at bygge den "
 "tidligere anvendte platformspecifikke kerne er blevet fjernet fra "
 "Linuxkernens opstrømskilde i 2012, så Debian kan ikke tilbyde nyere "
-"bygninger."
+"bygninger. Brug af armmp-flerplatformskernen på EfikaMX-platformen ville "
+"kræve enhedstræunderstøttelse for den, hvilket i øjeblikket ikke er "
+"tilgængelig."
 
 #. Tag: title
 #: hardware.xml:608
@@ -1097,6 +1040,9 @@ msgid ""
 "Ethernet, SATA, USB, and other functionality in one chip. &debian; currently "
 "supports the following Kirkwood based devices:"
 msgstr ""
+"Kirkwood er en system-on-chip (SoC) fra Marvell som integrerer en ARM CPU, "
+"Ethernet, SATA, USB og anden funktionalitet i en chip. &debian; understøtter "
+"i øjeblikket de følgende Kirkwoodbaserede enheder:"
 
 #. Tag: ulink
 #: hardware.xml:627
@@ -1105,6 +1051,8 @@ msgid ""
 "Plug computers (SheevaPlug, GuruPlug, DreamPlug and Seagate FreeAgent "
 "DockStar)"
 msgstr ""
+"Plugcomputere (SheevaPlug, GuruPlug, DreamPlug og Seagate FreeAgent "
+"DockStar)"
 
 #. Tag: para
 #: hardware.xml:630
@@ -1113,6 +1061,8 @@ msgid ""
 "<ulink url=\"&url-arm-cyrius-qnap-kirkwood;\">QNAP Turbo Station</ulink> "
 "(all TS-11x/TS-12x, HS-210, TS-21x/TS-22x and TS-41x/TS-42x models)"
 msgstr ""
+"<ulink url=\"&url-arm-cyrius-qnap-kirkwood;\">QNAP Turbo Station</ulink> "
+"(alle modellerne TS-11x/TS-12x, HS-210, TS-21x/TS-22x og TS-41x/TS-42x)"
 
 #. Tag: para
 #: hardware.xml:634
@@ -1121,12 +1071,14 @@ msgid ""
 "LaCie NASes (Network Space v2, Network Space Max v2, Internet Space v2, d2 "
 "Network v2, 2Big Network v2 and 5Big Network v2)"
 msgstr ""
+"LaCie NASes (Network Space v2, Network Space Max v2, Internet Space v2, d2 "
+"Network v2, 2Big Network v2 og 5Big Network v2)"
 
 #. Tag: para
 #: hardware.xml:638
 #, no-c-format
 msgid "OpenRD (OpenRD-Base, OpenRD-Client and OpenRD-Ultimate)"
-msgstr ""
+msgstr "OpenRD (OpenRD-Base, OpenRD-Client og OpenRD-Ultimate)"
 
 #. Tag: term
 #: hardware.xml:647 hardware.xml:692
@@ -1136,15 +1088,7 @@ msgstr "Orion5x"
 
 #. Tag: para
 #: hardware.xml:648
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Orion is a system on a chip (SoC) from Marvell that integrates an ARM "
-#| "CPU, Ethernet, SATA, USB, and other functionality in one chip. There are "
-#| "many Network Attached Storage (NAS) devices on the market that are based "
-#| "on an Orion chip. We currently support the following Orion based devices: "
-#| "<ulink url=\"&url-arm-cyrius-kuroboxpro;\">Buffalo Kurobox</ulink>, "
-#| "<ulink url=\"&url-arm-cyrius-dns323;\">D-Link DNS-323</ulink> and <ulink "
-#| "url=\"&url-arm-cyrius-mv2120;\">HP mv2120</ulink>."
+#, no-c-format
 msgid ""
 "Orion is a system-on-chip (SoC) from Marvell that integrates an ARM CPU, "
 "Ethernet, SATA, USB, and other functionality in one chip. There are many "
@@ -1157,10 +1101,10 @@ msgstr ""
 "Orion er et system på en chip (SoC) fra Marvell, som integrerer en ARM CPU, "
 "Ethernet, SATA, USB og anden funktionalitet i en chip. Der er mange Network "
 "Attached Storage-enheder (NAS) på markedet som er baseret på en Orion-chip. "
-"Vi understøtter i øjeblikket de følgende Orion-baserede enheder: <ulink url="
-"\"&url-arm-cyrius-kuroboxpro;\">Buffalo Kurobox</ulink>, <ulink url=\"&url-"
-"arm-cyrius-dns323;\">D-Link DNS-323</ulink> og <ulink url=\"&url-arm-cyrius-"
-"mv2120;\">HP mv2120</ulink>."
+"&debian; understøtter i øjeblikket de følgende Orion-baserede enheder: <ulink url="
+"\"&url-arm-cyrius-kuroboxpro;\">Buffalo Kurobox<</ulink>, <ulink "
+"url=\"&url-arm-cyrius-mv2120;\">HP mv2120</ulink> og <ulink url=\"&url-arm-"
+"cyrius-qnap;\">QNAP TS-109, TS-209, TS-409 og TS-409U og varianter</ulink>."
 
 #. Tag: term
 #: hardware.xml:663
@@ -1170,10 +1114,7 @@ msgstr "<term>Versatile</term>"
 
 #. Tag: para
 #: hardware.xml:664
-#, fuzzy, no-c-format
-#| msgid ""
-#| "The Versatile platform is emulated by QEMU and is therefore a nice way to "
-#| "test and run &debian; on ARM if you don't have the hardware."
+#, no-c-format
 msgid ""
 "The Versatile platform is emulated by QEMU and is therefore a nice way to "
 "test and run &debian; on ARM if you don't have real hardware."
@@ -1183,10 +1124,9 @@ msgstr ""
 
 #. Tag: title
 #: hardware.xml:677
-#, fuzzy, no-c-format
-#| msgid "Platforms no longer supported by Debian/armel"
+#, no-c-format
 msgid "Platforms and devices no longer supported by Debian/armel"
-msgstr "Platforme der ikke længere er understøttet af Debian/armel"
+msgstr "Platforme og enheder der ikke længere er understøttet af Debian/armel"
 
 #. Tag: term
 #: hardware.xml:681
@@ -1201,6 +1141,8 @@ msgid ""
 "Support for the Intel IXP4xx platform has been dropped in &debian; 9. The "
 "Linksys NSLU2 device is based on IXP4xx and is therefore no longer supported."
 msgstr ""
+"Understøttelse for Intel IXP4xx-platformen er blevet droppet i &debian; 9. "
+"Linksys NSLU2-enheden er baseret på IXP4xx og er derfor ikke længere understøttet."
 
 #. Tag: para
 #: hardware.xml:693
@@ -1211,6 +1153,10 @@ msgid ""
 "fits into the flash on these devices. Other Orion devices, such as Buffalo "
 "Kurobox and HP mv2120, are still supported."
 msgstr ""
+"Understøttelse for enhederne D-Link DNS-323 og Conceptronic CH3SNAS er blevet "
+"droppet fra Orion5x-platformen i &debian; 9. Linuxkernen passer ikke længere "
+"ind i flashen på disse enheder. Andre Orionenheder, såsom Buffalo Kurobox og "
+"HP mv2120, er stadig understøttet."
 
 #. Tag: title
 #: hardware.xml:712 hardware.xml:762 hardware.xml:820 hardware.xml:850
@@ -1239,21 +1185,15 @@ msgstr "<title>CPU</title>"
 
 #. Tag: para
 #: hardware.xml:722
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Nearly all x86-based (IA-32) processors still in use in personal "
-#| "computers are supported, including all varieties of Intel's \"Pentium\" "
-#| "series. This also includes 32-bit AMD and VIA (former Cyrix) processors, "
-#| "and processors like the Athlon XP and Intel P4 Xeon."
+#, no-c-format
 msgid ""
 "Nearly all x86-based (IA-32) processors still in use in personal computers "
 "are supported. This also includes 32-bit AMD and VIA (former Cyrix) "
 "processors, and processors like the Athlon XP and Intel P4 Xeon."
 msgstr ""
 "Næsten alle x86-baserede (IA-32) processorer stadig i brug i personlige "
-"computere er understøttet, inklusive alle varianter af Intels »Pentium«-"
-"serie. Dette inkluderer også 32-bit AMD- og VIA-processorer (tidligere "
-"Cyrix), og processorer såsom Athlon XP og Intel P4 Xeon."
+"computere er understøttet. Dette inkluderer også 32-bit AMD- og VIA-"
+"processorer (tidligere Cyrix), og processorer såsom Athlon XP og Intel P4 Xeon."
 
 #. Tag: para
 #: hardware.xml:729
@@ -1262,6 +1202,8 @@ msgid ""
 "However, &debian; GNU/Linux &releasename; will <emphasis>not</emphasis> run "
 "on 586 (Pentium) or earlier processors."
 msgstr ""
+"Dog vil &debian; GNU/Linux &releasename; <emphasis>ikke</emphasis> kunne "
+"afvikles på 586 (Pentium) eller tidligere processorer."
 
 #. Tag: para
 #: hardware.xml:735
@@ -1283,13 +1225,7 @@ msgstr "I/O Bus"
 
 #. Tag: para
 #: hardware.xml:745
-#, fuzzy, no-c-format
-#| msgid ""
-#| "The system bus is the part of the motherboard which allows the CPU to "
-#| "communicate with peripherals such as storage devices. Your computer must "
-#| "use the ISA, EISA, PCI, PCIe, PCI-X, or VESA Local Bus (VLB, sometimes "
-#| "called the VL bus). Essentially all personal computers sold in recent "
-#| "years use one of these."
+#, no-c-format
 msgid ""
 "The system bus is the part of the motherboard which allows the CPU to "
 "communicate with peripherals such as storage devices. Your computer must use "
@@ -1297,30 +1233,13 @@ msgid ""
 "recent years use one of these."
 msgstr ""
 "Systembussen er en del af bundkortet, som giver CPU'en mulighed for at "
-"kommunikere med tilkoblingsenheder såsom lagerenheder. Din computer skal "
-"bruge en af busserne ISA, EISA, PCI, PCIe, PCI-X eller VESA Local Bus (VLB, "
-"undertiden kaldt VL bus). Så godt som alle personlige computere solgt "
-"indenfor de senste år bruger en af disse."
+"kommunikere med eksternt udstyr såsom lagerenheder. Din computer skal "
+"bruge en af busserne PCI, PCIe eller PCI-X. Så godt som alle personlige "
+"computere solgt indenfor de senste år bruger en af disse."
 
 #. Tag: para
 #: hardware.xml:763
-#, fuzzy, no-c-format
-#| msgid ""
-#| "&debian; on &arch-title; supports the following platforms: <itemizedlist> "
-#| "<listitem><para> SGI IP22: this platform includes the SGI machines Indy, "
-#| "Indigo 2 and Challenge S. Since these machines are very similar, whenever "
-#| "this document refers to the SGI Indy, the Indigo 2 and Challenge S are "
-#| "meant as well. </para></listitem> <listitem><para> SGI IP32: this "
-#| "platform is generally known as SGI O2. </para></listitem> "
-#| "<listitem><para> MIPS Malta: this platform is emulated by QEMU and is "
-#| "therefore a nice way to test and run &debian; on MIPS if you don't have "
-#| "the hardware. </para></listitem> </itemizedlist> Complete information "
-#| "regarding supported mips/mipsel machines can be found at the <ulink url="
-#| "\"&url-linux-mips;\">Linux-MIPS homepage</ulink>. In the following, only "
-#| "the systems supported by the &debian; installer will be covered. If you "
-#| "are looking for support for other subarchitectures, please contact the "
-#| "<ulink url=\"&url-list-subscribe;\"> debian-&arch-listname; mailing list</"
-#| "ulink>."
+#, no-c-format
 msgid ""
 "&debian; on &arch-title; supports the following platforms: <itemizedlist> "
 "<listitem><para> SGI IP22: this platform includes the SGI machines Indy, "
@@ -1341,14 +1260,14 @@ msgstr ""
 "<listitem><para> SGI IP22: denne platform inkluderer SGI-maskinerne Indy, "
 "Indigo 2 og Challenge S. Da disse maskiner er meget ens, så menes der også "
 "Indigo 2 og Challenge S når der refereres til SGI Indy. </para></listitem> "
-"<listitem><para> SGI IP32: Denne platform kendes generelt som SGI 02. </"
-"para></listitem> <listitem><para> MIPS Malta: Denne platform emuleres af "
+"<listitem><para> SGI IP32: Denne platform kendes generelt som SGI 02. "
+"</para></listitem> <listitem><para> MIPS Malta: Denne platform emuleres af "
 "QEMU og er derfor en god måde at teste og køre &debian; på MIPS, hvis du "
 "ikke har udstyret </para></listitem> </itemizedlist> Fuldstændig information "
 "jævnfør understøttede mips/mipsel-maskiner kan findes på <ulink url=\"&url-"
 "linux-mips;\">Linux-MIPS' hjemmesiden</ulink>. I det følgende er kun "
 "systemer understøttet af &debian;-installationsprogrammet dækket. Hvis du er "
-"på udkig efter andre underarkitekture, så kontakt venligst <ulink url=\"&url-"
+"på udkig efter andre underarkitekturer, så kontakt venligst <ulink url=\"&url-"
 "list-subscribe;\"> debian-&arch-listname;-postlisten</ulink>."
 
 #. Tag: para
@@ -1367,33 +1286,19 @@ msgstr ""
 
 #. Tag: para
 #: hardware.xml:804
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Some MIPS machines can be operated in both big and little endian mode. "
-#| "For little endian MIPS, please read the documentation for the mipsel "
-#| "architecture."
+#, no-c-format
 msgid ""
 "Some MIPS machines can be operated in both big and little endian mode. For "
 "little endian MIPS, please read the documentation for the mipsel and "
 "mips64el architectures."
 msgstr ""
 "Nogle MIPS-maskiner kan opereres i både big og little endian-tilstand. For "
-"little endian MIPS, læs venligst dokumentationen for mipsel-arkitekturen."
+"little endian MIPS, læs venligst dokumentationen for mipsel- og mips64el-"
+"arkitekturen."
 
 #. Tag: para
 #: hardware.xml:821 hardware.xml:851
-#, fuzzy, no-c-format
-#| msgid ""
-#| "&debian; on &arch-title; supports the following platforms: <itemizedlist> "
-#| "<listitem><para> MIPS Malta: this platform is emulated by QEMU and is "
-#| "therefore a nice way to test and run &debian; on MIPS if you don't have "
-#| "the hardware. </para></listitem> </itemizedlist> Complete information "
-#| "regarding supported mips/mipsel machines can be found at the <ulink url="
-#| "\"&url-linux-mips;\">Linux-MIPS homepage</ulink>. In the following, only "
-#| "the systems supported by the &debian; installer will be covered. If you "
-#| "are looking for support for other subarchitectures, please contact the "
-#| "<ulink url=\"&url-list-subscribe;\"> debian-&arch-listname; mailing list</"
-#| "ulink>."
+#, no-c-format
 msgid ""
 "&debian; on &arch-title; supports the following platforms: <itemizedlist> "
 "<listitem><para> MIPS Malta: this platform is emulated by QEMU and is "
@@ -1407,9 +1312,9 @@ msgid ""
 msgstr ""
 "&debian; on &arch-title; understøtter de følgende platforme: <itemizedlist> "
 "<listitem><para> MIPS Malta: Denne platform emuleres af QEMU og er derfor en "
-"god måde at teste og køre &debian; MIPS, hvis du ikke har udstyret. </para></"
+"god måde at teste og køre &debian; på MIPS, hvis du ikke har udstyret. </para></"
 "listitem> </itemizedlist> Fuldstændig information om understøttede mips/"
-"mipsel-maskiner kan findes på <ulink url=\"&url-linux-mips;\">Linux-MIPS-"
+"mipsel/mips64el-maskiner kan findes på <ulink url=\"&url-linux-mips;\">Linux-MIPS-"
 "hjemmeside</ulink>. I det følgende vil kun systemerne understøttet af "
 "&debian;-installationsprogrammet være dækket. Hvis du er på udkig efter "
 "andre underarkitekturer, så kontakt venligst <ulink url=\"&url-list-"
@@ -2054,37 +1959,37 @@ msgstr ""
 #: hardware.xml:1326
 #, no-c-format
 msgid "Machines"
-msgstr ""
+msgstr "Maskiner"
 
 #. Tag: para
 #: hardware.xml:1329
 #, no-c-format
 msgid "S822L"
-msgstr ""
+msgstr "S822L"
 
 #. Tag: para
 #: hardware.xml:1334
 #, no-c-format
 msgid "S821L"
-msgstr ""
+msgstr "S821L"
 
 #. Tag: para
 #: hardware.xml:1339
 #, no-c-format
 msgid "S822"
-msgstr ""
+msgstr "S822"
 
 #. Tag: para
 #: hardware.xml:1344
 #, no-c-format
 msgid "S821"
-msgstr ""
+msgstr "S821"
 
 #. Tag: para
 #: hardware.xml:1349
 #, no-c-format
 msgid "TYAN GN70-BP010"
-msgstr ""
+msgstr "TYAN GN70-BP010"
 
 #. Tag: title
 #: hardware.xml:1364
@@ -2094,17 +1999,7 @@ msgstr "zSerie- og System z-maskintyper"
 
 #. Tag: para
 #: hardware.xml:1365
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Since &debian; Squeeze, support for booting in ESA/390 mode was dropped. "
-#| "Your machine needs to support the z/Architecture, 64-bit support is "
-#| "mandatory. The userland of the s390 port is still compiled for ESA/390, "
-#| "though. All zSeries and System z hardware is fully supported. &arch-"
-#| "title; support software is included from the kernel 3.1 development "
-#| "stream. The most current information about IBM's Linux support can be "
-#| "found at the <ulink url=\"http://www.ibm.com/developerworks/linux/"
-#| "linux390/development_technical.html\"> Linux on <trademark class="
-#| "\"registered\">System z</trademark> page on developerWorks</ulink>."
+#, no-c-format
 msgid ""
 "Since &debian; Squeeze, support for booting in ESA/390 mode was dropped. "
 "Your machine needs to support the z/Architecture, 64-bit support is "
@@ -2120,8 +2015,8 @@ msgstr ""
 "droppet. Din maskine kræver understøttelse for z/arkitekturen, 64-bit "
 "understøttelse krævet. Brugerland for s390-porten er dog stadig kompileret "
 "for ESA/390. Alle zSerier og System z-udstyr er fuldt understøttet. &arch-"
-"title;-understøttelsesprogrammer er inkluderet fra kerne 3.1-"
-"udviklingsgrenen. Den mest aktuelle informatoin om IBM's Linux-"
+"title;-understøttelsesprogrammer er inkluderet fra kerne 4.3-"
+"udviklingsgrenen. Den mest aktuelle information om IBM's Linux-"
 "understøttelse kan findes på <ulink url=\"http://www.ibm.com/developerworks/"
 "linux/linux390/development_technical.html\"> Linux på <trademark class="
 "\"registered\">System z</trademark>-siden på developerWorks</ulink>."
@@ -2435,25 +2330,13 @@ msgstr ""
 
 #. Tag: title
 #: hardware.xml:1578
-#, fuzzy, no-c-format
-#| msgid "Graphics Card Support"
+#, no-c-format
 msgid "Graphics Hardware Support"
-msgstr "Understøttelse af grafikkort"
+msgstr "Understøttelse af grafikudstyr"
 
 #. Tag: para
 #: hardware.xml:1579
-#, fuzzy, no-c-format
-#| msgid ""
-#| "&debian;'s support for graphical interfaces is determined by the "
-#| "underlying support found in X.Org's X11 system. On modern PCs, having a "
-#| "graphical display usually works out of the box. Whether advanced graphics "
-#| "card features such as 3D-hardware acceleration or hardware-accelerated "
-#| "video are available, depends on the actual graphics hardware used in the "
-#| "system and in some cases on the installation of additional "
-#| "<quote>firmware</quote> images (see <xref linkend=\"hardware-firmware\"/"
-#| ">). In very few cases there have been reports about hardware on which "
-#| "installation of additional graphics card firmware was required even for "
-#| "basic graphics support, but these have been rare exceptions."
+#, no-c-format
 msgid ""
 "&debian;'s support for graphical interfaces is determined by the underlying "
 "support found in X.Org's X11 system, and the kernel. Basic framebuffer "
@@ -2465,15 +2348,13 @@ msgid ""
 "firmware\"/>)."
 msgstr ""
 "&debian;s understøttelse for grafiske grænseflader bestemmes af den "
-"underliggende understøttelse i X.org's X11-system. På moderne pc'er, virker "
-"skærmen normalt med det samme. Om avancerede grafikkort-funktioner såsom 3D-"
-"udstyrsaccelleration eller udstyrsaccelleret video er tilgængelig, afhænger "
-"af det faktiske grafikudstyr brugt i systemet og i nogle tilfælde af "
-"installationen af yderlige <quote>firmware</quote>-aftryk (se <xref linkend="
-"\"hardware-firmware\"/>). I meget få tilfælde har der været rapporter om "
-"udstyr hvor installation af yderligere grafikkort-firmware var krævet selv "
-"for grundlæggende grafikunderstøttelse, men dette har været sjældne "
-"undtagelser."
+"underliggende understøttelse i X.org's X11-system og kernen. Grundlæggende "
+"framebuffergrafik tilbydes af kernen, mens skrivebordsmiljøer bruger X11. "
+"Om avancerede grafikkort-funktioner såsom 3D-udstyrsacceleration eller "
+"udstyrsaccelereret video er tilgængelig, afhænger af det faktiske "
+"grafikudstyr brugt i systemet og i nogle tilfælde af installationen af "
+"yderligere <quote>firmware</quote>-aftryk (se <xref linkend="
+"\"hardware-firmware\"/>)."
 
 #. Tag: para
 #: hardware.xml:1591
@@ -2486,6 +2367,12 @@ msgid ""
 "3D acceleration also works well out of the box, but there is still some "
 "hardware that needs binary blobs to work well."
 msgstr ""
+"På moderne pc'er fungerer en grafisk skærm normalt uden videre. I nogle "
+"meget sjældne tilfælde har der været rapporter om udstyr hvor installation "
+"af yderligere grafikkortfirmware var krævet for selv grundlæggende "
+"grafikunderstøttelse, men det er sjældne undtagelser. For det meste udstyr "
+"fungerer også 3D-acceleration uden videre, men der er stadig noget udstyr "
+"som kræver binære blob'er for at fungere godt."
 
 #. Tag: para
 #: hardware.xml:1602
@@ -2502,20 +2389,26 @@ msgid ""
 "are available in the release. Other hardware needs non-free drivers from 3rd "
 "parties."
 msgstr ""
+"Næsten alle ARM-maskiner har grafikudstyret indbygget, frem for i et "
+"separat kort. Nogle maskiner har dog udvidelsespladser, som kan anvende "
+"grafikkort, men det er sjældent. Udstyr som er designet til at være uden "
+"grafik i det hele taget er ret normalt. Mens grundlæggende framebuffervideo "
+"tilbudt af kenren før fungere på alle enheder som har grafik, så kræver "
+"hurtig 3D-grafik binære drivere for at fungere. Situationen ændrer sig "
+"hurtigt, men i udgivelsesøjeblikket for &releasename; er frie drivere "
+"for nouveau (Nvidia Tegra K1 SoC) og freedreno (Qualcomm Snapdragon SoCs) "
+"tilgængelige i udgivelsen. Andet udstyr kræver proprietære drivere fra "
+"tredjeparter."
 
 #. Tag: para
 #: hardware.xml:1616
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Details on supported graphics cards and pointing devices can be found at "
-#| "<ulink url=\"&url-xorg;\"></ulink>. &debian; &release; ships with X.Org "
-#| "version &x11ver;."
+#, no-c-format
 msgid ""
 "Details on supported graphics hardware and pointing devices can be found at "
 "<ulink url=\"&url-xorg;\"></ulink>. &debian; &release; ships with X.Org "
 "version &x11ver;."
 msgstr ""
-"Detaljer om understøttede grafikkort og pegeenheder kan findes på <ulink url="
+"Detaljer om understøttede grafikudstyr og pegeenheder kan findes på <ulink url="
 "\"&url-xorg;\"></ulink>. &debian; &release; leveres med X.Org version "
 "&x11ver;."
 
@@ -3255,19 +3148,15 @@ msgstr "Cd-rom/dvd-rom/bd-rom"
 
 #. Tag: para
 #: hardware.xml:2077
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Whenever you see <quote>CD-ROM</quote> in this manual, it applies to both "
-#| "CD-ROMs and DVD-ROMs, because both technologies are really the same from "
-#| "the operating system's point of view."
+#, no-c-format
 msgid ""
 "Whenever you see <quote>CD-ROM</quote> in this manual, it applies to all of "
 "CD-ROMs, DVD-ROMs and BD-ROMs, because all these technologies are really the "
 "same from the operating system's point of view."
 msgstr ""
 "Når du ser <quote>cd-rom</quote> i denne manual, så gælder det for både cd-"
-"rommer og dvd-rommer, da begge teknologier er ens set fra operativsystemets "
-"side."
+"rommer, dvd-rommer og bd-rommer, da begge teknologier er ens set fra "
+"operativsystemets side."
 
 #. Tag: para
 #: hardware.xml:2083
@@ -3278,16 +3167,13 @@ msgstr ""
 
 #. Tag: para
 #: hardware.xml:2087
-#, fuzzy, no-c-format
-#| msgid ""
-#| "USB CD-ROM drives are also supported, as are FireWire devices that are "
-#| "supported by the ohci1394 and sbp2 drivers."
+#, no-c-format
 msgid ""
 "On PCs SATA, IDE/ATAPI, USB and SCSI CD-ROMs are supported, as are FireWire "
 "devices that are supported by the ohci1394 and sbp2 drivers."
 msgstr ""
-"USB cd-rom-drev er også understøttet samt FireWire-enehder som er "
-"understøttet af ohci1394 og sbp2-drivere."
+"På pc'er er SATA-, IDE/ATAPI-, USB- og SCSI-cd-rommer også understøttet samt "
+"FireWire-enheder som er understøttet af ohci1394- og sbp2-drivere."
 
 #. Tag: para
 #: hardware.xml:2102
@@ -3317,14 +3203,7 @@ msgstr "USB-hukommelsesdrev"
 
 #. Tag: para
 #: hardware.xml:2118
-#, fuzzy, no-c-format
-#| msgid ""
-#| "USB flash disks a.k.a. USB memory sticks have become a commonly used and "
-#| "cheap storage device. Most modern computer systems also allow booting the "
-#| "&d-i; from such a stick. Many modern computer systems, in particular "
-#| "netbooks and thin laptops, do not have a CD/DVD-ROM drive anymore at all "
-#| "and booting from USB media ist the standard way of installing a new "
-#| "operating system on them."
+#, no-c-format
 msgid ""
 "USB flash disks a.k.a. USB memory sticks have become a commonly used and "
 "cheap storage device. Most modern computer systems also allow booting the &d-"
@@ -3367,16 +3246,7 @@ msgstr ""
 
 #. Tag: para
 #: hardware.xml:2142
-#, fuzzy, no-c-format
-#| msgid ""
-#| "You can also <emphasis>boot</emphasis> the installation system over the "
-#| "network without needing any local media like CDs/DVDs or USB sticks. If "
-#| "you already have a netboot-infrastructure available (i.e. you are already "
-#| "running DHCP and TFTP services in your network), this allows an easy and "
-#| "fast deployment of a large number of machines. Setting up the necessary "
-#| "infrastructure requires a certain level of technical experience, so this "
-#| "is not recommended for novice users. <phrase arch=\"mips;mipsel\">This is "
-#| "the preferred installation technique for &arch-title;.</phrase>"
+#, no-c-format
 msgid ""
 "You can also <emphasis>boot</emphasis> the installation system over the "
 "network without needing any local media like CDs/DVDs or USB sticks. If you "
@@ -3387,13 +3257,13 @@ msgid ""
 "not recommended for novice users. <phrase arch=\"mips;mipsel;mips64el\">This "
 "is the preferred installation technique for &arch-title;.</phrase>"
 msgstr ""
-"Du kan også <emphasis>opstarte</emphasis> installationssystemet over "
+"Du kan også <emphasis>starte</emphasis> installationssystemet op over "
 "netværket uden behov for et lokalt medie såsom cd'er/dvd'er eller USB-drev. "
 "Hvis du allerede har en netboot-infrastruktur tilgængelig (dvs. du allerede "
-"kører DHCP og TFTP-tjenester i dit netværk), dette muliggør en nem og hurtig "
+"kører DHCP- og TFTP-tjenester i dit netværk), dette muliggør en nem og hurtig "
 "udrulning af et stort antal maskiner. Opsætning af den nødvendige "
 "infrastruktur kræver et bestemt niveau af teknisk erfaring, så det anbefales "
-"ikke for begyndere. <phrase arch=\"mips;mipsel\">Dette er den foretrukne "
+"ikke for begyndere. <phrase arch=\"mips;mipsel;mips64el\">Dette er den foretrukne "
 "installationsteknik for &arch-title;.</phrase>"
 
 #. Tag: para
@@ -3584,15 +3454,7 @@ msgstr ""
 
 #. Tag: para
 #: hardware.xml:2296
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Installation on systems with less memory<footnote condition=\"gtk\"> "
-#| "<para> Installation images that support the graphical installer require "
-#| "more memory than images that support only the textual installer and "
-#| "should not be used on systems with less than &minimum-memory; of memory. "
-#| "If there is a choice between booting the text-based and the graphical "
-#| "installer, the former should be selected. </para> </footnote> or disk "
-#| "space available may be possible but is only advised for experienced users."
+#, no-c-format
 msgid ""
 "Installation on systems with less memory<footnote condition=\"gtk\"> <para> "
 "Installation images that support the graphical installer require more memory "
@@ -3611,281 +3473,3 @@ msgstr ""
 "vælges. </para> </footnote> eller diskplads kan lade sig gøre, men tilrådes "
 "kun for erfarne brugere."
 
-#~ msgid "kirkwood"
-#~ msgstr "kirkwood"
-
-#~ msgid "orion5x"
-#~ msgstr "orion5x"
-
-#~ msgid "SGI IP22 (Indy/Indigo 2)"
-#~ msgstr "SGI IP22 (Indy/Indigo 2)"
-
-#~ msgid "r4k-ip22"
-#~ msgstr "r4k-ip22"
-
-#~ msgid "SGI IP32 (O2)"
-#~ msgstr "SGI IP32 (O2)"
-
-#~ msgid "r5k-ip32"
-#~ msgstr "r5k-ip32"
-
-#~ msgid "PowerMac"
-#~ msgstr "PowerMac"
-
-#~ msgid "pmac"
-#~ msgstr "pmac"
-
-#~ msgid "PReP"
-#~ msgstr "PReP"
-
-#~ msgid "prep"
-#~ msgstr "prep"
-
-#~ msgid "Intel IXP4xx"
-#~ msgstr "Intel IXP4xx"
-
-#~ msgid "ixp4xx"
-#~ msgstr "ixp4xx"
-
-#, fuzzy
-#~| msgid ""
-#~| "The Intel IXP4xx processor series is used in network attached storage "
-#~| "devices like the Linksys NSLU2."
-#~ msgid ""
-#~ "The Intel IXP4xx processor series is used in commonly used network "
-#~ "attached storage (NAS) devices like the Linksys NSLU2."
-#~ msgstr ""
-#~ "Intel IXP4xx-processorserien bruges i netværkstilkoblede lagerenheder "
-#~ "såsom Linksys NSLU2."
-
-#, fuzzy
-#~| msgid ""
-#~| "Kirkwood is a system on a chip (SoC) from Marvell that integrates an ARM "
-#~| "CPU, Ethernet, SATA, USB, and other functionality in one chip. We "
-#~| "currently support the following Kirkwood based devices: OpenRD (OpenRD-"
-#~| "Base, OpenRD-Client and OpenRD-Ultimate), <ulink url=\"&url-arm-cyrius-"
-#~| "sheevaplug;\">plug computers (SheevaPlug, GuruPlug and DreamPlug)</"
-#~| "ulink>, <ulink url=\"&url-arm-cyrius-qnap-kirkwood;\">QNAP Turbo "
-#~| "Station</ulink> (all TS-11x, TS-21x and TS-41x models), and LaCie NASes "
-#~| "(Network Space v2, Network Space Max v2, Internet Space v2, d2 Network "
-#~| "v2, 2Big Network v2 and 5Big Network v2)."
-#~ msgid ""
-#~ "Kirkwood is a system-on-chip (SoC) from Marvell that integrates an ARM "
-#~ "CPU, Ethernet, SATA, USB, and other functionality in one chip. &debian; "
-#~ "currently supports the following Kirkwood based devices: OpenRD (OpenRD-"
-#~ "Base, OpenRD-Client and OpenRD-Ultimate), <ulink url=\"&url-arm-cyrius-"
-#~ "sheevaplug;\">plug computers (SheevaPlug, GuruPlug and DreamPlug)</"
-#~ "ulink>, <ulink url=\"&url-arm-cyrius-qnap-kirkwood;\">QNAP Turbo Station</"
-#~ "ulink> (all TS-11x, TS-21x and TS-41x models), and LaCie NASes (Network "
-#~ "Space v2, Network Space Max v2, Internet Space v2, d2 Network v2, 2Big "
-#~ "Network v2 and 5Big Network v2)."
-#~ msgstr ""
-#~ "Kirkwood er et system på en chip (SoC) fra Marvell, som integrerer en ARM "
-#~ "CPU, Ethernet, SATA, USB og anden funktionalitet i en chip. Vi "
-#~ "understøtter i øjeblikket de følgende Kirkwood-baserede enheder: OpenRD "
-#~ "(OpenRD-Base, OpenRD-Client og OpenRD-Ultimate), <ulink url=\"&url-arm-"
-#~ "cyrius-sheevaplug;\">plug computere (SheevaPlug, GuruPlug og DreamPlug)</"
-#~ "ulink>, <ulink url=\"&url-arm-cyrius-qnap-kirkwood;\">QNAP Turbo Station</"
-#~ "ulink> (alle TS-11x-, TS-21x- og TS-41x-modeller), og LaCie NASes "
-#~ "(Network Space v2, Network Space Max v2, Internet Space v2, d2 Network "
-#~ "v2, 2Big Network v2 og 5Big Network v2)."
-
-#~ msgid "IOP32x"
-#~ msgstr "IOP32x"
-
-#~ msgid ""
-#~ "Intel's I/O Processor (IOP) line is found in a number of products related "
-#~ "to data storage and processing, such as the <ulink url=\"&url-arm-cyrius-"
-#~ "glantank;\">GLAN Tank</ulink> from IO-Data and the <ulink url=\"&url-arm-"
-#~ "cyrius-n2100;\">Thecus N2100</ulink>. &debian; has supported the IOP32x "
-#~ "platform in &debian; 7, but does not support it any longer from version 8 "
-#~ "on due to hardware constraints of the platform which make it unsuitable "
-#~ "for the installation of newer &debian; releases."
-#~ msgstr ""
-#~ "Intels I/O Processor-linje (IOP) findes i et antal produkter relateret "
-#~ "til datalagring og behandling, såsom <ulink url=\"&url-arm-cyrius-"
-#~ "glantank;\">GLAN Tank</ulink> fra IO-Data og <ulink url=\"&url-arm-cyrius-"
-#~ "n2100;\">Thecus N2100</ulink>. &debian; har understøttet IOP32x-"
-#~ "platformen i &debian; 7, men understøtter den ikke længere fra og med "
-#~ "version 8 på grund af udstyrsbegrænsninger for platformen, hvilket gør "
-#~ "den uegnet for installationen af nyere &debian;-udgivelser."
-
-#~ msgid "MV78xx0"
-#~ msgstr "MV78xx0"
-
-#, fuzzy
-#~| msgid ""
-#~| "The MV78xx0 platform has been used on the Marvell DB-78xx0-BP "
-#~| "development board. It was supported in Debian 7 with a platform-specific "
-#~| "kernel (based on the Linux kernel version 3.2), but is not supported any "
-#~| "more from Debian 8 onwards."
-#~ msgid ""
-#~ "The MV78xx0 platform has been used on the Marvell DB-78xx0-BP development "
-#~ "board. It was supported in &debian; 7 with a platform-specific kernel "
-#~ "(based on the Linux kernel version 3.2), but is not supported any more "
-#~ "from &debian; 8 onwards."
-#~ msgstr ""
-#~ "MV78xx0-platformen er blevet brugt på Marvell DB-78xx0-BP-udviklingskort. "
-#~ "Den blev understøttet i Debian 7 med en platformspecifik kerne (baseret "
-#~ "på Linux' kerneversion 3.2), men understøttes ikke fra og med Debian 8."
-
-#~ msgid ""
-#~ "However, &debian; GNU/Linux &releasename; will <emphasis>not</emphasis> "
-#~ "run on 486 or earlier processors. Despite the architecture name \"i386\", "
-#~ "support for actual 80386 and 80486 processors (and their clones) was "
-#~ "dropped with the Sarge (r3.1) and Squeeze (r6.0) releases of &debian;, "
-#~ "respectively. The Intel Pentium and clones, including those without an "
-#~ "FPU (Floating-Point Unit or math coprocessor), are supported. The Intel "
-#~ "Quark is <emphasis>not</emphasis> supported, due to hardware errata."
-#~ msgstr ""
-#~ "&debian; GNU/Linux &releasename; vil <emphasis>ikke</emphasis> køre på "
-#~ "486 eller tidligere processorer. På trods af arkitekturnavnet »i386«, så "
-#~ "blev understøttelse for 80386- og 80486-processorer (og deres kloner) "
-#~ "dropptet med Sarge-udgivelsen (r3.1) og Squeeze (r6.0) for &debian;. "
-#~ "Intel Pentium og kloner, inklusive dem uden en FPU (Floating-Point Unit "
-#~ "eller math coprocessor), er understøttede. Intel Quark er <emphasis>ikke</"
-#~ "emphasis> understøttet på grund af udstyrserrata (rettelser til "
-#~ "sikkerhedsproblemer)."
-
-#~ msgid ""
-#~ "The 586 flavour of the &debian; kernel image packages for &arch-title; is "
-#~ "not compiled with SMP support."
-#~ msgstr ""
-#~ "586-varianten af &debian;-kerneaftrykspakkerne for &arch-title; er ikke "
-#~ "kompileret med SMP-understøttelse."
-
-#~ msgid "&debian; GNU/kFreeBSD &release; supports two architectures."
-#~ msgstr "&debian; GNU/kFreeBSD &release; understøtter to arkitekturer."
-
-#~ msgid "kfreebsd-i386"
-#~ msgstr "kfreebsd-i386"
-
-#~ msgid "kfreebsd-amd64"
-#~ msgstr "kfreebsd-amd64"
-
-#, fuzzy
-#~| msgid ""
-#~| "The ARM architecture has evolved over time and modern ARM processors "
-#~| "provide features which are not available in older models. &debian; "
-#~| "therefore provides two ARM ports, the &debian;/armel and the &debian;/"
-#~| "armhf port. &debian;/armel targets older ARM processors without support "
-#~| "for a hardware floating point unit (FPU), while &debian;/armhf works "
-#~| "only on newer ARM processors which implement at least the ARMv7 "
-#~| "architecture with version 3 of the ARM vector floating point "
-#~| "specification (VFPv3). &debian;/armhf makes use of the extended features "
-#~| "and performance enhancements available on these models."
-#~ msgid ""
-#~ "The ARM architecture has evolved over time and modern ARM processors "
-#~ "provide features which are not available in older models. &debian; "
-#~ "therefore provides three ARM ports: the &debian;/arm64 port for all 64-"
-#~ "bit machines, and the &debian;/armel and the &debian;/armhf ports for 32-"
-#~ "bit machines. &debian;/armel targets older ARM processors without support "
-#~ "for a hardware floating point unit (FPU), while &debian;/armhf works only "
-#~ "on newer ARM processors which implement at least the ARMv7 architecture "
-#~ "with version 3 of the ARM vector floating point specification (VFPv3). "
-#~ "&debian;/armhf makes use of the extended features and performance "
-#~ "enhancements available on these models. &debian;/arm64 works on "
-#~ "processors which implement at least the ARMv8 architecture (which is "
-#~ "64bit)."
-#~ msgstr ""
-#~ "ARM-arkitekturen har udviklet sig over tid og moderne ARM-processorer "
-#~ "tilbyder funktioner som ikke er tilgængelige i ældre modeller. &debian; "
-#~ "tilbyder derfor to ARM-porte, &debian;/armel og &debian;/armhf. &debian;/"
-#~ "armel er rettet mod ældre ARM-processorer uden understøttelse for en "
-#~ "udstyrs »floating point unit« (FPU), mens &debian;/armhf kun fungerer på "
-#~ "nyere ARM-processorer, som implementerer mindst ARMv7-arkitekturen med "
-#~ "version 3 af ARM vector floating point-specifikationen (VFPv3). &debian;/"
-#~ "armhf gør brug af de udvidede funktioner og ydelsesforbedringer "
-#~ "tilgængelige på disse modeller."
-
-#, fuzzy
-#~| msgid ""
-#~| "The following platforms are supported by &debian;/armel; they require "
-#~| "platform-specific kernels."
-#~ msgid ""
-#~ "The following platforms are known to be supported by &debian;/arm64 in "
-#~ "this release. There is only one kernel, which supports all the listed "
-#~ "platforms."
-#~ msgstr ""
-#~ "De følgende platforme er understøttet af &debian;/armel; de kræver kerner "
-#~ "specifikke for platformen."
-
-#~ msgid ""
-#~ "Using the armmp multiplatform kernel on the EfikaMX platform would "
-#~ "require device-tree support for it, which is currently not available."
-#~ msgstr ""
-#~ "Brug af armmp-flerplatformskernen på EfikaMX-platformen vil kræve "
-#~ "enhedstræunderstøttelse for den, som i øjeblikket ikke er tilgængelig."
-
-#~ msgid "IBM PowerPC (little endian)"
-#~ msgstr "IBM PowerPC (little endian)"
-
-#~ msgid ""
-#~ "The &arch-title; architecture only supports Intel Itanium processors and "
-#~ "not the much more common 64-bit processors from the Intel 64 family "
-#~ "(including e.g. the Pentium&nbsp;D and the Core2&nbsp;Duo). Those systems "
-#~ "are supported by the <emphasis>amd64</emphasis> architecture or, if you "
-#~ "prefer a 32-bit userland, the <emphasis>i386</emphasis> architecture."
-#~ msgstr ""
-#~ "Arkitekturen &arch-title; understøtter kun Intel Itanium-processorer og "
-#~ "ikke de mest gængse 64-bit processorer fra Intel 64-familien (inklusive f."
-#~ "eks. Pentium&nbsp;D og Core2&nbsp;Duo). Disse systemer er understøttet af "
-#~ "arkitekturen <emphasis>amd64</emphasis> eller, hvis du foretrækker en 32-"
-#~ "bit version, arkitekturen <emphasis>i386</emphasis>."
-
-#~ msgid ""
-#~ "There are two major support <emphasis>&architecture;</emphasis> flavors: "
-#~ "PA-RISC 1.1 and PA-RISC 2.0. The PA-RISC 1.1 architecture is targeted at "
-#~ "32-bit processors whereas the 2.0 architecture is targeted to the 64-bit "
-#~ "processors. Some systems are able to run either kernel. In both cases, "
-#~ "the userland is 32-bit. There is the possibility of a 64-bit userland in "
-#~ "the future."
-#~ msgstr ""
-#~ "Der er to væsentlige understøttelsesvarianter for <emphasis>&architecture;"
-#~ "</emphasis>: PA-RISC 1.2 og PA-RISC 2.0. PA-RISC 1.1-arkitekturen er "
-#~ "målrettet 32-bit processorer hvor 2.0-arkitekturen er målrettet 64-bit "
-#~ "processorer. Nogle systemer kan køre begge kerner. I begge tilfælde er "
-#~ "brugerladnet 32-bit. Der er mulighed for et 64-bit brugerland i fremtiden."
-
-#~ msgid "On PCs SATA, IDE/ATAPI and SCSI CD-ROMs are supported."
-#~ msgstr "På pc'er er SATA, IDE/ATAPI og SCSI cd-rommer understøttet."
-
-#~ msgid "IDE/ATAPI CD-ROMs are supported on all ARM machines."
-#~ msgstr "IDE/ATAPI cd-rommer er understøttet på alle ARM-maskiner."
-
-#~ msgid ""
-#~ "However, &debian; GNU/Linux &releasename; will <emphasis>not</emphasis> "
-#~ "run on 386 or earlier processors. Despite the architecture name \"i386\", "
-#~ "support for actual 80386 processors (and their clones) was dropped with "
-#~ "the Sarge (r3.1) release of &debian;<footnote> <para> We have long tried "
-#~ "to avoid this, but in the end it was necessary due a unfortunate series "
-#~ "of issues with the compiler and the kernel, starting with an bug in the C+"
-#~ "+ ABI provided by GCC. You should still be able to run &debian; GNU/Linux "
-#~ "on actual 80386 processors if you compile your own kernel and compile all "
-#~ "packages from source, but that is beyond the scope of this manual. </"
-#~ "para> </footnote>. (No version of Linux has ever supported the 286 or "
-#~ "earlier chips in the series.) All i486 and later processors are still "
-#~ "supported<footnote> <para> Many &debian; packages will actually run "
-#~ "slightly faster on modern computers as a positive side effect of dropping "
-#~ "support for these old chips. The i486, introduced in 1989, has three "
-#~ "opcodes (bswap, cmpxchg, and xadd) which the i386, introduced in 1986, "
-#~ "did not have. Previously, these could not be easily used by most &debian; "
-#~ "packages; now they can. </para> </footnote>."
-#~ msgstr ""
-#~ "&debian; GNU/Linux &releasename; vil <emphasis>ikke</emphasis> køre på "
-#~ "386 eller tidligere processorer. På trods af arkitekturnavnet »i386«, så "
-#~ "blev understøttelse for 80386-processorer (og deres kloner) dropptet med "
-#~ "Sarge-udgivelsen (r3.1) for &debian;<footnote> <para> Vi har i lang tid "
-#~ "prøvet at undgå dette, men til slut var det nødvendigt på grund af en "
-#~ "serie af uheldige problemstillinger med kompileren og kernen, startende "
-#~ "med en fejl i C++ ABI'en leveret af GCC. Du bør stadig kunne køre "
-#~ "&debian; GNU/Linux på 80386-processorer hvis du kompilerer din egen kerne "
-#~ "og kompilere alle pakker fra kilde, men det er udover denne manuals "
-#~ "omfang. </para> </footnote>. (Ingen vesion af Linux har nogensinde "
-#~ "understøttet 286 eller tidligere chip i serien). Alle i486 og senere "
-#~ "processorer er stadig understøttet<footnote> <para> Mange &debian;-pakker "
-#~ "vil køre en smule hurtigere på moderne computere, som en positiv "
-#~ "sideeffekt ved at droppe understøttelse for disse gamle chip. i486'en, "
-#~ "introduceret i 1989, har tre opcodes (bswap, cmpxchg og xadd) som "
-#~ "i386'en, introduceret i 1986, ikke havde. Tidligere kunne disse ikke nemt "
-#~ "bruges af de fleste &debian;-pakker; nu kan de. </para> </footnote>."
