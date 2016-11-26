@@ -1,6 +1,6 @@
 # Danish translation of d-i-manual-preseed.
-# Copyright (C) 2015 Free Software Foundation, Inc.
-# Joe Hansen <joedalton2@yahoo.dk>, 2014, 2015.
+# Copyright (C) 2016 Free Software Foundation, Inc.
+# Joe Hansen <joedalton2@yahoo.dk>, 2014, 2015, 2016.
 #
 # 32-bit processorer (er anvendt selv om 32-bit-processorer er den korrekte brug)
 # cipher -> krypteringsalgoritme
@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: d-i-manual_preseed\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2016-04-08 20:25+0000\n"
-"PO-Revision-Date: 2015-03-28 17:40+0100\n"
+"PO-Revision-Date: 2016-11-26 17:40+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -220,14 +220,7 @@ msgstr "generisk"
 
 #. Tag: para
 #: preseed.xml:117
-#, fuzzy, no-c-format
-#| msgid ""
-#| "An important difference between the preseeding methods is the point at "
-#| "which the preconfiguration file is loaded and processed. For initrd "
-#| "preseeding this is right at the start of the installation, before the "
-#| "first question is even asked. For file preseeding this is after the CD or "
-#| "CD image has been loaded. For network preseeding it is only after the "
-#| "network has been configured."
+#, no-c-format
 msgid ""
 "An important difference between the preseeding methods is the point at which "
 "the preconfiguration file is loaded and processed. For initrd preseeding "
@@ -242,9 +235,13 @@ msgstr ""
 "En vigtig forskel mellem metoderne til forhåndskonfiguration er punktet hvor "
 "filen til forhåndskonfiguration indlæses og behandles. For initrd-"
 "forhåndskonfiguration er dette lige ved starten af installationen, før det "
-"første spørgsmål. For filforhåndskonfiguration er dette efter cd- eller cd-"
-"aftrykket er blevet indlæst. For netværksforhåndskonfiguration er det lige "
-"efter at netværket er blevet konfigureret."
+"første spørgsmål. Forhåndskonfiguration fra kernekommandolinjen sker lige "
+"fter. Det er derfor muligt at overskrive konfiguration angivet i initrd ved "
+"at redigere kernekommandolinjen (enten i opstartsindlæserens konfiguration "
+"eller manuelt på opstartstidspunktet for opstartsindlæsere som tillader dette). "
+"For filforhåndskonfiguration er dette efter cd- eller cd-aftrykket er blevet "
+"indlæst. For netværksforhåndskonfiguration er det lige efter at netværket er "
+"blevet konfigureret."
 
 #. Tag: para
 #: preseed.xml:129
@@ -270,6 +267,14 @@ msgid ""
 "at critical priority, which avoids many unimportant questions. See <xref "
 "linkend=\"preseed-auto\"/> for details."
 msgstr ""
+"For nemt at undgå spørgsmålene som normalt ville fremkomme før "
+"forhåndskonfigurationen udføres, så kan du starte installationsprogrammet "
+"i <quote>auto</quote> tilstand. Dette forsinker spørgsmål, som normalt "
+"ville blive stillet for forhåndskonfiguration (f.eks. sprog, land og "
+"tastaturvalg) indtil efter netværket er oppe og køre, så de kan "
+"forhåndskonfigureres. Tilstanden afvikler også installationen som en "
+"kritisk prioritet, hvilket undgår mange uvigtige spørgsmål. Se <xref "
+"linkend=\"preseed-auto\"/> for detaljer."
 
 #. Tag: title
 #: preseed.xml:152
@@ -320,7 +325,7 @@ msgstr ""
 #: preseed.xml:248
 #, no-c-format
 msgid "Loading the preconfiguration file"
-msgstr ""
+msgstr "Indlæsning af filen til forhåndskonfiguration"
 
 #. Tag: para
 #: preseed.xml:249
@@ -407,7 +412,7 @@ msgstr ""
 #: preseed.xml:300
 #, no-c-format
 msgid "Using boot parameters to preseed questions"
-msgstr ""
+msgstr "Brug af opstartsparametre til at forhåndskonfigurere spørgsmål"
 
 #. Tag: para
 #: preseed.xml:301
@@ -426,6 +431,10 @@ msgid ""
 "preseeding, but just want to provide an answer for a specific question. Some "
 "examples where this can be useful are documented elsewhere in this manual."
 msgstr ""
+"Opstartsparametere kan også bruges hvis du ikke reelt ønsker at bruge "
+"forhåndskonfiguration, men bare ønsker at tilbyder et svar på et specifikt "
+"spørgsmål. Nogle eksempler hvor dette kan være nyttigt er dokumenteret "
+"et andet sted i denne manual."
 
 #. Tag: para
 #: preseed.xml:313
@@ -508,12 +517,14 @@ msgid ""
 "It may not always be possible to specify values with spaces for boot "
 "parameters, even if you delimit them with quotes."
 msgstr ""
+"Det er ikke altid muligt at specificere værdier med mellemrum for "
+"opstartsparametre, selv ikke hvis du afgrænser dem med citationstegn."
 
 #. Tag: title
 #: preseed.xml:385
 #, no-c-format
 msgid "Auto mode"
-msgstr ""
+msgstr "Auto-tilstand"
 
 #. Tag: para
 #: preseed.xml:386
@@ -593,7 +604,7 @@ msgstr ""
 #: preseed.xml:448
 #, no-c-format
 msgid "if the URL is missing a protocol, http is assumed,"
-msgstr ""
+msgstr "hvis adressen mangler en protokol, så anvendes http,"
 
 #. Tag: para
 #: preseed.xml:451
@@ -1079,6 +1090,8 @@ msgid ""
 "Some questions take a code as value instead of the English text that is "
 "shown during installation."
 msgstr ""
+"Nogle spørgsmål bruger en kode som værdi i stedet for den engelske tekst "
+"som vises under installationen."
 
 #. Tag: para
 #: preseed.xml:643
@@ -1087,6 +1100,9 @@ msgid ""
 "The easiest way to create a preconfiguration file is to use the example file "
 "linked in <xref linkend=\"preseed-contents\"/> as basis and work from there."
 msgstr ""
+"Den nemmeste måde at oprette en fil for forhåndskonfigurationen er at bruge "
+"eksempelfilen i <xref linkend=\"preseed-contents\"/> som udgangpsunkt og "
+"arbejde ud fra den."
 
 #. Tag: para
 #: preseed.xml:648
@@ -1161,7 +1177,7 @@ msgstr ""
 #: preseed.xml:700
 #, no-c-format
 msgid "Contents of the preconfiguration file (for &releasename;)"
-msgstr ""
+msgstr "Indhold af forhåndskonfigurationsfilen (for &releasename;)"
 
 #. Tag: para
 #: preseed.xml:706
@@ -1274,7 +1290,7 @@ msgstr ""
 #: preseed.xml:780
 #, no-c-format
 msgid "Network configuration"
-msgstr ""
+msgstr "Netværkskonfiguration"
 
 #. Tag: para
 #: preseed.xml:781
@@ -1449,6 +1465,8 @@ msgid ""
 "The parameter <classname>mirror/suite</classname> determines the suite for "
 "the installed system."
 msgstr ""
+"Parameteren <classname>mirror/suite</classname> bestemmer programpakken for "
+"det installerede system."
 
 #. Tag: para
 #: preseed.xml:851
@@ -1725,7 +1743,7 @@ msgstr ""
 #: preseed.xml:959
 #, no-c-format
 msgid "Partitioning using RAID"
-msgstr ""
+msgstr "Partitionering med brug af RAID"
 
 #. Tag: para
 #: preseed.xml:960
@@ -1743,6 +1761,8 @@ msgid ""
 "If you are using RAID 1, you can preseed grub to install to all devices used "
 "in the array; see <xref linkend=\"preseed-bootloader\"/>."
 msgstr ""
+"Hvis du bruger RAID 1, så kan du forhåndskonfigurere grub til at installere "
+"alle enheder brugt i tabellen; se <xref linkend=\"preseed-bootloader\"/>."
 
 #. Tag: para
 #: preseed.xml:973
