@@ -1,13 +1,15 @@
 # Danish translation of d-i-manual-partitioning.
-# Copyright (C) 2015 Free Software Foundation, Inc.
-# Joe Hansen <joedalton2@yahoo.dk>, 2014, 2015.
+# Copyright (C) 2016 Free Software Foundation, Inc.
+# Joe Hansen <joedalton2@yahoo.dk>, 2014, 2015, 2016.
 #
 # 32-bit processorer (er anvendt selv om 32-bit-processorer er den korrekte brug)
 # cipher -> krypteringsalgoritme
 # howto -> manual
+# installer -> installationsprogram
 # language -> sprog
 # locale -> sted (lokalitet andet?)
 # locales -> steder (sprogområder)
+# preseeding -> forhåndskonfiguration
 # scheme -> plan
 # stateful -> tilstandebærende
 # stateless -> tilstandsfri
@@ -18,7 +20,7 @@ msgstr ""
 "Project-Id-Version: d-i-manual_partitioning\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2015-04-15 20:29+0000\n"
-"PO-Revision-Date: 2015-03-28 11:40+0100\n"
+"PO-Revision-Date: 2016-11-26 12:40+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -672,22 +674,18 @@ msgstr "Det andet diskettedrev er navngivet <filename>/dev/fd1</filename>."
 
 #. Tag: para
 #: partitioning.xml:335
-#, fuzzy, no-c-format
-#| msgid "The first DASD device is named <filename>/dev/dasda</filename>."
+#, no-c-format
 msgid "The first hard disk detected is named <filename>/dev/sda</filename>."
-msgstr "Den første DASD-enhed er navngivet <filename>/dev/dasda</filename>."
+msgstr "Den første harddisk registreret er navngivet <filename>/dev/sda</filename>."
 
 #. Tag: para
 #: partitioning.xml:340
-#, fuzzy, no-c-format
-#| msgid ""
-#| "The second DASD device is named <filename>/dev/dasdb</filename>, and so "
-#| "on."
+#, no-c-format
 msgid ""
 "The second hard disk detected is named <filename>/dev/sdb</filename>, and so "
 "on."
 msgstr ""
-"Den anden DASD-enhed er navngivet <filename>/dev/dasdb</filename>, og så "
+"Den anden harddisk er navngivet <filename>/dev/sdb</filename>, og så "
 "videre."
 
 #. Tag: para
@@ -765,15 +763,7 @@ msgstr ""
 
 #. Tag: para
 #: partitioning.xml:394
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Linux represents the primary partitions as the drive name, plus the "
-#| "numbers 1 through 4. For example, the first primary partition on the "
-#| "first IDE drive is <filename>/dev/hda1</filename>. The logical partitions "
-#| "are numbered starting at 5, so the first logical partition on that same "
-#| "drive is <filename>/dev/hda5</filename>. Remember that the extended "
-#| "partition, that is, the primary partition holding the logical partitions, "
-#| "is not usable by itself. This applies to SCSI disks as well as IDE disks."
+#, no-c-format
 msgid ""
 "Linux represents the primary partitions as the drive name, plus the numbers "
 "1 through 4. For example, the first primary partition on the first drive is "
@@ -783,12 +773,12 @@ msgid ""
 "partition holding the logical partitions, is not usable by itself."
 msgstr ""
 "Linux repræsenterer de primære partitioner som drevnavn, plus tallene 1 til "
-"4. For eksempel, er den første primære partition på det første IDE-drev "
-"<filename>/dev/hda1</filename>. De logiske partitioner er nummereret "
+"4. For eksempel, er den første primære partition på det første drev "
+"<filename>/dev/sda1</filename>. De logiske partitioner er nummereret "
 "startende med 5, så den første logiske partition på det samme drev er "
-"<filename>/dev/hda5</filename>. Husk at den udvidede partition, det vil sige "
+"<filename>/dev/sda5</filename>. Husk at den udvidede partition, det vil sige "
 "den primære partition som indeholder de logiske partitioner, ikke kan bruges "
-"for sig selv. Dette gælder for SCSI-diske samt IDE-diske."
+"for sig selv."
 
 #. Tag: para
 #: partitioning.xml:404
@@ -869,6 +859,11 @@ msgid ""
 "differ. See the <ulink url=\"&url-linux-freebsd;\">Linux+FreeBSD HOWTO</"
 "ulink>."
 msgstr ""
+"Vær forsigtig hvis du har eksisterende FreeBSD-partitioner på din maskine. "
+"Installationskernerne inkluderer understøttelse for disse partitioner, "
+"men den måde som <command>fdisk</command> repræsenterer dem (eller ej) kan "
+"gøre at enhedsnavnene er forskellige. Se <ulink url=\"&url-linux-freebsd;\">"
+"Linux+FreeBSD HOWTO</ulink>."
 
 #. Tag: para
 #: partitioning.xml:469
@@ -934,6 +929,10 @@ msgid ""
 "to use a different partitioning tool from the command line on VT2, but this "
 "is not recommended."
 msgstr ""
+"Et af disse programmer vil blive kørt som standard når du vælger "
+"<guimenuitem>Partitionsdiske</guimenuitem> (eller lignende). Det kan være "
+"muligt at bruge et andet partitioneringsværktøj fra kommandolinjen på VT2, "
+"men dette anbefales ikke."
 
 #. Tag: para
 #: partitioning.xml:538
@@ -1114,6 +1113,12 @@ msgid ""
 "<command>parted</command></ulink> because only it can manage both GPT and MS-"
 "DOS tables correctly."
 msgstr ""
+"IA-64 EFI-firmwaren understøtter to partitionstabelformater (eller "
+"disketiket), GPT og MS-DOS. MS-DOS, formatet typisk brugt på i386 pc'er, "
+"anbefales ikke lænere for IA-64-systemer. Selvom installationsprogrammet også "
+"tilbyder <command>cfdisk</command>, så bør du kun bruge <ulink url=\"parted.txt\"> "
+"<command>parted</command></ulink> da det program kan håndtere både GPT- og MS-"
+"DOS-tabeller korrekt."
 
 #. Tag: para
 #: partitioning.xml:703
@@ -1194,6 +1199,8 @@ msgid ""
 "It is strongly recommended that you allocate the EFI boot partition on the "
 "same disk as the <emphasis>root</emphasis> filesystem."
 msgstr ""
+"Det anbefales kraftigt at du allokerer EFI-opstartspartitionen på den samme "
+"disk som <emphasis>root</emphasis>-filsystemet."
 
 #. Tag: title
 #: partitioning.xml:769
@@ -1256,6 +1263,9 @@ msgid ""
 "mounting and damaging the bootstrap partition, as there are special "
 "modifications made to it in order for OpenFirmware to boot it automatically."
 msgstr ""
+"Den specielle partitionstype Apple_Bootstrap er krævet for at forhindre "
+"MacOS i at montere og skade bootstrappartitionen, da der laves specielle "
+"ændringer til den for, at OpenFirmware kan starte den op automatisk."
 
 #. Tag: para
 #: partitioning.xml:830
@@ -1332,17 +1342,8 @@ msgid ""
 "to the last). This is simply a convention of Sun disk labels, and helps the "
 "<command>SILO</command> boot loader keep its bearings."
 msgstr ""
+"Det tilrådes at den tredje partition er af typen <quote>Whole "
+"disk</quote> (type 5), og indeholder hele disken (fra den første cylinder "
+"til den sidste). Dette er alene en konvention for Sun-disketiketter og hjælper "
+"<command>SILO</command>-opstartsindlæseren med at bevare sit leje."
 
-#~ msgid ""
-#~ "The first SCSI disk (SCSI ID address-wise) is named <filename>/dev/sda</"
-#~ "filename>."
-#~ msgstr ""
-#~ "Den første SCSI-disk (SCSI ID-adresserækkefølge) er navngivet <filename>/"
-#~ "dev/sda</filename>."
-
-#~ msgid ""
-#~ "The second SCSI disk (address-wise) is named <filename>/dev/sdb</"
-#~ "filename>, and so on."
-#~ msgstr ""
-#~ "Den anden SCSI-disk (adresserækkefølge) er navngivet <filename>/dev/sdb</"
-#~ "filename>."
