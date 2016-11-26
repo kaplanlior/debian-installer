@@ -1,13 +1,24 @@
 # Danish translation of boot-installer.
-# Copyright (C) 2015, 2016 Free Software Foundation, Inc.
+# Copyright (C) 2016 Free Software Foundation, Inc.
 # Joe Hansen <joedalton2@yahoo.dk>, 2012, 2014, 2015, 2016.
+#
+# 32-bit processorer (er anvendt selv om 32-bit-processorer er den korrekte brug)
+# cipher -> krypteringsalgoritme
+# howto -> manual
+# language -> sprog
+# locale -> sted (lokalitet andet?)
+# locales -> steder (sprogområder)
+# scheme -> plan
+# stateful -> tilstandebærende
+# stateless -> tilstandsfri
+# volume -> diskenhed
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: boot-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2016-11-25 19:03+0000\n"
-"PO-Revision-Date: 2016-07-11 20:23+0200\n"
+"PO-Revision-Date: 2016-11-26 20:23+0200\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -238,12 +249,21 @@ msgid ""
 "should show you the &d-i; screens, and allow you to proceed with a standard "
 "installation."
 msgstr ""
+"Kør en seriel konsol med 115200, 8-bit ingen paritet og opstart Junoen. "
+"Den bør starte op fra USB-drevet til en GRUB-menu. Konsolkonfigurationen "
+"bliver ikke korrekt registreret på Juno, så et tryk på retur vil ikke "
+"vise kerneuddata. Angiv konsollen som <informalexample><screen>"
+"console=ttyAMA0,115200n8</screen></informalexample> som beskrevet i "
+"(<xref linkend=\"arm64-console-setup\"/>). "
+"<keycombo><keycap>Control</keycap> <keycap>x</keycap></keycombo> for at "
+"starte op bør vise dig skærmene for &d-i; og give dig mulighed for at "
+"fortsætte med en standardinstallation."
 
 #. Tag: title
 #: boot-installer.xml:136
 #, no-c-format
 msgid "Applied Micro Mustang Installation"
-msgstr ""
+msgstr "Anvendt Micro Mustand-installation"
 
 #. Tag: para
 #: boot-installer.xml:137
@@ -256,6 +276,12 @@ msgid ""
 "a serial console to control the installation because the graphical installer "
 "is not enabled on the arm64 architecture."
 msgstr ""
+"UEFI er tilgængelig for denne maskine, men den leveres normalt med U-Boot, "
+"så du skal enten installere UEFI-firmware først og så bruge standardmetoderne "
+"til opstart/installation, eller bruger U-Boot-opstartsmetoder. USB er heller "
+"ikke understøttet i kernen for Jessie, så installation fra et USB-drev "
+"fungerer ikke. Du skal brug en seriel konsol til at kontrollere installationen "
+"da det grafiske installationsprogram ikke er aktiveret på arm64-arkitekturen."
 
 #. Tag: para
 #: boot-installer.xml:146
@@ -268,6 +294,12 @@ msgid ""
 ">). After installation, manual changes to boot from the installed image are "
 "needed."
 msgstr ""
+"Den anbefalede installationsmetode er at kopiere kernen for &d-i; og initrd "
+"på harddisken, via det »openembedded« system leveret med maskinen, og så "
+"starte op fra det for at afvikle installationsprogrammet. Alternativt "
+"brug TFTP til at få kernel/dtb/initrd kopieret over og startet op "
+"(<xref linkend=\"boot-tftp-uboot\"/>). Efter installation er manuelle "
+"ændringer til opstarten fra det installerede aftryk krævet."
 
 #. Tag: para
 #: boot-installer.xml:155
@@ -278,6 +310,10 @@ msgid ""
 "hit a key to get a Mustang# prompt. Then use U-Boot commands to load and "
 "boot the kernel, dtb and initrd."
 msgstr ""
+"Kør en seriel konsol på 115200, 8-bit ingen parietet og start maskinen op. "
+"Genstart maskinen og når du ser <quote>Hit any key to stop autoboot:</quote> "
+"så tryk på en tast for at hente en Mustang#-prompt. Brug så U-Boot-kommandoer "
+"til at indlæse og starte kernen, dtb og initrd op."
 
 #. Tag: title
 #: boot-installer.xml:164
@@ -395,18 +431,7 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:214
-#, fuzzy, no-c-format
-#| msgid ""
-#| "On some systems, U-Boot predefines a set of environment variables with "
-#| "suitable load addresses: kernel_addr_r, ramdisk_addr_r and fdt_addr_r. "
-#| "You can check whether they are defined by running "
-#| "<informalexample><screen>\n"
-#| "printenv kernel_addr_r ramdisk_addr_r fdt_addr_r\n"
-#| "</screen></informalexample> If they are not defined, you have to check "
-#| "your system's documentation for appropriate values and set them manually. "
-#| "For systems based on Allwinner SunXi SOCs (e.g. the Allwinner A10, "
-#| "architecture name <quote>sun4i</quote> or the Allwinner A20, architecture "
-#| "name <quote>sun7i</quote>), you can e.g. use the follwing values:"
+#, no-c-format
 msgid ""
 "On some systems, U-Boot predefines a set of environment variables with "
 "suitable load addresses: kernel_addr_r, ramdisk_addr_r and fdt_addr_r. You "
@@ -522,7 +547,7 @@ msgstr ""
 #: boot-installer.xml:258
 #, no-c-format
 msgid "Pre-built netboot tarball"
-msgstr ""
+msgstr "Forhåndsbygget netboot tarball"
 
 #. Tag: para
 #: boot-installer.xml:259
@@ -537,6 +562,15 @@ msgid ""
 "Prerequisite for using this feature is that you have a dhcp server in your "
 "network which provides the client with the address of the tftp server."
 msgstr ""
+"&debian; tilbyder en forhåndbygget tarball (&armmp-netboot-tarball;) som "
+"kan pakkes ud på din tftp-server og som indeholder alle filer nødvendige "
+"for netbooting. Den indeholder også opstartsskript, som automatiserer "
+"alle trin for at indlæse installationsprogrammet. Moderne U-Boot-versioner "
+"indeholder en tftp autoboot-funktion som bliver aktiv, hvis der ikke er en "
+"lokal lagerenhed, der kan starte op fra (MMC/SD, USB, IDE/SATA/SCSI) og som "
+"så indlæser dette opstartsskript fra tftp-serveren. Det er krævet, at du "
+"har en dhcp-server i dit netværk, som har en klient med adressen for "
+"tftp-serveren."
 
 #. Tag: para
 #: boot-installer.xml:271
@@ -717,7 +751,7 @@ msgstr ""
 #: boot-installer.xml:368
 #, no-c-format
 msgid "Using pre-built SD-card images with the installer"
-msgstr ""
+msgstr "Brug af forhåndsbyggede SD-kortaftryk med installationsprogrammet"
 
 #. Tag: para
 #: boot-installer.xml:369
@@ -732,6 +766,14 @@ msgid ""
 "<quote>firmware.&lt;system-type&gt;.img.gz</quote>, and a system-independent "
 "part named <quote>partition.img.gz</quote>."
 msgstr ""
+"For et antal af systemer tilbyder Debian SD-kortaftryk, som indeholder "
+"både U-Boot og &d-i;. Disse aftryk tilbydes i to varianter - et for "
+"overførsel af programpakker over netværket (tilgængelig som &armmp-"
+"netboot-sd-img;) og et for lokale installationer via en Debian cd/dvd "
+"(tilgængelig som &armmp-hd-media-sd-img;). For at spare på plads og "
+"båndbredde består aftrykkene af to dele - en systemafhængig del navngivet "
+"<quote>firmware.&lt;system-type&gt;.img.gz</quote>, og en systemuafhængig "
+"del navngivet <quote>partition.img.gz</quote>."
 
 #. Tag: para
 #: boot-installer.xml:380
@@ -746,6 +788,14 @@ msgid ""
 "firmware.&lt;system-type&gt;.img + partition.img complete_image.img</"
 "screen></informalexample> in a Windows CMD.exe window."
 msgstr ""
+"For at oprette et fuldstændigt aftryk fra de dele på Linuxsystemer, så kan "
+"du bruge zcat: <informalexample><screen>zcat firmware.&lt;system-type&gt;."
+"img.gz partition.img.gz > complete_image.img</screen></informalexample> På "
+"Windowssystemer skal du først udpakke de to dele hver for sig, hvilket kan "
+"gøres via 7-Zip og så samle de to udpakkede dele ved at køre kommandoen "
+"<informalexample><screen>copy /b firmware.&lt;system-type&gt;.img + "
+"partition.img complete_image.img</screen></informalexample> i et Windows "
+"CMD.exe-vindue."
 
 #. Tag: para
 #: boot-installer.xml:394
@@ -759,6 +809,14 @@ msgid ""
 "you must provide the installer with access to the first &debian; CD/DVD on a "
 "separate medium, which can e.g. be a CD/DVD ISO image on a USB stick."
 msgstr ""
+"Skriv aftrykket til et SD-kort, f.eks. ved at køre den følgende kommando "
+"på et Linuxsystem: <informalexample><screen>cat complete_image.img "
+"> /dev/SD_CARD_DEVICE</screen></informalexample> Tilslut SD-kortet i "
+"målsystemet og tænd for det. Installationsprogrammet indlæses så fra SD-"
+"kortet. Hvis du bruger varianten hd-media for lokale installationer, så "
+"skal du give installationsprogrammet adgang til den første &debian; cd/dvd "
+"på et separat medie, som f.ek.s kan være et cd/dvd iso-aftryk på et USB-"
+"drev."
 
 #. Tag: para
 #: boot-installer.xml:406
@@ -772,6 +830,13 @@ msgid ""
 "partition layout on the SD card is to let the installer automatically create "
 "one for you (see <xref linkend=\"partman-auto\"/>)."
 msgstr ""
+"Når du kommer til partitioneringstrinet i installationsprogrammet (se <xref "
+"linkend=\"di-partition\"/>), kan du slette eller erstatte tidligere partitioner "
+"på kortet. Når installationsprogrammet er startet kører det alene i systemets "
+"hovedhukommelse og kræver ikke længere adgang til SD-kortet, så du kan bruge "
+"hele kortet for installation af &debian;. Den nemmeste måde at oprette "
+"et korrekt partitionslayout på SD-kortet er at lade installationsprogrammet "
+"automatisk oprette et for dig (se <xref linkend=\"partman-auto\"/>)."
 
 #. Tag: title
 #: boot-installer.xml:547
@@ -1327,6 +1392,8 @@ msgid ""
 "When the installer boots, you should be presented with a friendly graphical "
 "screen showing the &debian; logo and a menu:"
 msgstr ""
+"Når installationsprogrammet starter op, så bliver du præsenteret for en "
+"venlig grafisk skærm, der viser &debian;-logoet og en menu:" 
 
 #. Tag: screen
 #: boot-installer.xml:900
@@ -1340,6 +1407,13 @@ msgid ""
 "Help\n"
 "Install with speech synthesis"
 msgstr ""
+"&debian-gnu;-installationsopstartsmenu\n"
+"\n"
+"Grafisk installation\n"
+"Installation\n"
+"Avancerede indstillinger     >\n"
+"Hjælp\n"
+"Installation med talesynetese"
 
 #. Tag: para
 #: boot-installer.xml:904
@@ -1348,6 +1422,9 @@ msgid ""
 "This graphical screen will look very slightly different depending on how "
 "your computer has booted (BIOS or UEFI), but the same options will be shown."
 msgstr ""
+"Denne grafiske skærm vil se en smule anderledes ud afhængig af hvordan din "
+"computer er startet op (BIOS eller UEFI), men de samme indstillinger vil "
+"blive vist."
 
 #. Tag: para
 #: boot-installer.xml:912
@@ -1358,6 +1435,10 @@ msgid ""
 "have a 64 bit variant for each install option, right below it, thus almost "
 "doubling the number of options."
 msgstr ""
+"Afhængig af den anvendte installationsmetode er valget <quote>Grafisk "
+"installation</quote> måske ikke tilgængelig. Aftryk for to arkitekturer har "
+"derudover en 64-bit variant for hvert installationsvalg, lige nedenunder, "
+"og fordobler dermed antallet af valg."
 
 #. Tag: para
 #: boot-installer.xml:919
@@ -1389,15 +1470,7 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:933
-#, fuzzy, no-c-format
-#| msgid ""
-#| "If you wish or need to add any boot parameters for either the installer "
-#| "or the kernel, press &tabkey; (BIOS boot) or &ekey; (UEFI boot). This "
-#| "will display the boot command for the selected menu entry and allow you "
-#| "to edit it to suit your needs. The help screens (see below) list some "
-#| "common possible options. Press &enterkey; (BIOS boot) or &f10key; (UEFI "
-#| "boot) to boot the installer with your options; pressing &escapekey; will "
-#| "return you to the boot menu and undo any changes you made."
+#, no-c-format
 msgid ""
 "If you wish or need to add any boot parameters for either the installer or "
 "the kernel, press &tabkey; (BIOS boot), or &ekey; then &downkey; three times "
@@ -1409,13 +1482,13 @@ msgid ""
 msgstr ""
 "Hvis du ønsker eller har brug for at tilføje opstartsparametre for enten "
 "installationsprogrammet eller kernen, så tryk &tabkey; (BIOS-opstart) eller "
-"&ekey; (UEFI-opstart). Dette vil vise opstartskommandoen for det valgte "
-"menupunkt og give mulighed for at tilpasninger efter behov. Hjælpeskærmene "
-"(se nedenfor) viser nogle gængse indstillingsmuligheder. Tryk &enterkey; "
-"(BIOS-opstart) eller &f10key; (UEFI-opstart) for at starte "
-"installationsprogrammet op med dine indstillinger; et tryk på &escapekey; "
-"vil returnere dig til opstartsmenuen og omgøre eventuelle ændringer, du har "
-"foretaget."
+"&ekey; så &downkey; tre gange og så &endkey; (UEFI-opstart). Dette vil vise "
+"opstartskommandoen for det valgte menupunkt og give mulighed for at lave "
+"tilpasninger efter behov. Hjælpeskærmene (se nedenfor) viser nogle gængse "
+"indstillingsmuligheder. Tryk &enterkey; (BIOS-opstart) eller &f10key; "
+"(UEFI-opstart) for at starte installationsprogrammet op med dine "
+"indstillinger; et tryk på &escapekey; vil returnere dig til opstartsmenuen "
+"og omgøre eventuelle ændringer, du har foretaget."
 
 #. Tag: para
 #: boot-installer.xml:945
@@ -2940,19 +3013,19 @@ msgstr ""
 #: boot-installer.xml:2074
 #, no-c-format
 msgid "Booting a ppc64el machine"
-msgstr ""
+msgstr "Opstart af en ppc64el-maskine"
 
 #. Tag: para
 #: boot-installer.xml:2075
 #, no-c-format
 msgid "How to boot a ppc64el machine:"
-msgstr ""
+msgstr "Sådan startes en ppc64el-maskine op:"
 
 #. Tag: title
 #: boot-installer.xml:2081
 #, no-c-format
 msgid "Petitboot"
-msgstr ""
+msgstr "Petitboot"
 
 #. Tag: para
 #: boot-installer.xml:2082
@@ -2964,6 +3037,12 @@ msgid ""
 "FTP, SFTP, TFTP, NFS, HTTP and HTTPS protocols. Petitboot can boot any "
 "operating system that includes kexec boot support."
 msgstr ""
+"Petitboot er en opstartsindlæser, der er uafhængig af platform, baseret på "
+"Linux kexec. Petitboot understøtter indlæsning af kerne, initrd og "
+"enhedstræfiler fra ethvert Linuxmonterbart filsystem, samt kan indlæse "
+"filer fra netværket via protokollerne FTP, SFTP, TFTP, NFS, HTTP og HTTPS. "
+"Petitboot kan starte ethvert operativsystem op, som inkluderer kexec-"
+"opstartsunderstøttelse."
 
 #. Tag: para
 #: boot-installer.xml:2090
@@ -2973,6 +3052,9 @@ msgid ""
 "the system, and can also be configured to use boot information from a DHCP "
 "server."
 msgstr ""
+"Petitboot kigger efter konfigurationsfiler for opstartsindlæseren på "
+"monterbare enheder i systemet, og kan også konfigureres til at bruge "
+"opstartsinformation fra en DHCP-server."
 
 #. Tag: para
 #: boot-installer.xml:2141
@@ -3035,19 +3117,7 @@ msgstr "Tilgængelighed"
 
 #. Tag: para
 #: boot-installer.xml:2225
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Some users may need specific support because of e.g. some visual "
-#| "impairment. <phrase arch=\"ia64;powerpc;ppc64el;x86\">USB braille "
-#| "displays are detected automatically (not serial displays connected via a "
-#| "serial-to-USB converter), but most other</phrase> <phrase arch=\"arm;hppa;"
-#| "mips;mipsel;sparc\">Most</phrase> accessibility features have to be "
-#| "enabled manually. <phrase arch=\"x86\">On machines that support it, the "
-#| "boot menu emits a beep when it is ready to receive keystrokes.</phrase> "
-#| "Some boot parameters can <phrase arch=\"x86\">then</phrase> be appended "
-#| "to enable accessibility features<phrase arch=\"x86\"> (see also <xref "
-#| "linkend=\"boot-screen\"/>)</phrase>. Note that on most architectures the "
-#| "boot loader interprets your keyboard as a QWERTY keyboard."
+#, no-c-format
 msgid ""
 "Some users may need specific support because of e.g. some visual impairment. "
 "<phrase arch=\"ia64;powerpc;ppc64el;x86\">USB braille displays are detected "
@@ -3066,7 +3136,7 @@ msgstr ""
 "en synshæmmelse. <phrase arch=\"ia64;powerpc;ppc64el;x86\">USB-brailleskærme "
 "detekteres automatisk (ikke serielle skærme forbundet via en seriel-til-USB-"
 "konvertering), men de fleste andre</phrase> <phrase arch=\"arm;hppa;mips;"
-"mipsel;sparc\"> De fleste</phrase> funktioner for tilgængelighed skal "
+"mipsel;mips64el;sparc\"> De fleste</phrase> funktioner for tilgængelighed skal "
 "aktiveres manuelt. <phrase arch=\"x86\">På maskiner som understøtter det, så "
 "afgiver opstartsmenuen en biplyd når den er klar til at modtage tastaturtryk."
 "</phrase> Nogle opstartsparametre kan <phrase arch=\"x86\">så</phrase> "
@@ -3093,7 +3163,7 @@ msgid ""
 msgstr ""
 "&debian;-installationsprogrammet understøtter flere brugerflader til "
 "spørgsmål, med varierende tilgængelighed: <userinput>text</userinput> bruger "
-"ren tekst mens  <userinput>newt</userinput> bruger tekstbaserede "
+"ren tekst mens <userinput>newt</userinput> bruger tekstbaserede "
 "dialogbokse. Valget kan foretages på opstartsprompten, se dokumentationen "
 "for <userinput>DEBIAN_FRONTEND</userinput> i <xref linkend=\"installer-args"
 "\"/>."
@@ -3215,16 +3285,7 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:2319
-#, fuzzy, no-c-format
-#| msgid ""
-#| "The default speech rate is quite slow. To make it faster, press "
-#| "<keycombo><keycap>CapsLock</keycap><keycap>6</keycap></keycombo>. To make "
-#| "it slower, press <keycombo><keycap>CapsLock</keycap><keycap>5</keycap></"
-#| "keycombo>. The default volume should be medium. To make it louder, press "
-#| "<keycombo><keycap>CapsLock</keycap><keycap>2</keycap></keycombo>. To make "
-#| "it quieter, press <keycombo><keycap>CapsLock</keycap><keycap>1</keycap></"
-#| "keycombo>. To get more details on the browsing shortcuts, see the <ulink "
-#| "url=\"&url-speakup-guide;\">Speakup guide</ulink>."
+#, no-c-format
 msgid ""
 "The default speech rate is quite slow. To make it faster, press "
 "<keycombo><keycap>CapsLock</keycap><keycap>6</keycap></keycombo>. To make it "
@@ -3246,7 +3307,10 @@ msgstr ""
 "højere <keycombo><keycap>CapsLock</keycap><keycap>2</keycap></keycombo>. For "
 "at gøre den lavere <keycombo><keycap>CapsLock</keycap><keycap>1</keycap></"
 "keycombo>. for at få flere detaljer om genvejstaster så se <ulink url=\"&url-"
-"speakup-guide;\">Opsætningsvejledningen</ulink>."
+"speakup-guide;\">Opsætningsvejledningen</ulink>. For bare at acceptere "
+"standardsvaret for et spørgsmål så tryk på <keycap>Retur</keycap>. For at "
+"angive et tomt svar for et spørgsmål tastes <userinput>!</userinput>. For at "
+"gå tilbage til det forrige spørgsmål tast <userinput>&lt;</userinput>."
 
 #. Tag: title
 #: boot-installer.xml:2347
@@ -3347,7 +3411,7 @@ msgstr ""
 #: boot-installer.xml:2397
 #, no-c-format
 msgid "Zoom"
-msgstr ""
+msgstr "Zoom"
 
 #. Tag: para
 #: boot-installer.xml:2398
@@ -3358,6 +3422,10 @@ msgid ""
 "keycombo> and <keycombo><keycap>Control</keycap> <keycap>-</keycap></"
 "keycombo> shortcuts increase and decrease the font size."
 msgstr ""
+"For brugere med begrænset syn, har det grafiske installationsprogram en "
+"meget basal zoomunderstøttelse: Genvejstasterne <keycombo><keycap>Control"
+"</keycap> <keycap>+</keycap></keycombo> og <keycombo><keycap>Control"
+"</keycap> <keycap>-</keycap></keycombo> øger og sænker skriftstørrelsen."
 
 #. Tag: title
 #: boot-installer.xml:2408
