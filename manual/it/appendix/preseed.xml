@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 69912 -->
+<!-- original version: 70122 -->
 
 <!--
 Be careful with the format of this file as it is parsed to generate
@@ -170,18 +170,24 @@ usati con i vari metodi d'installazione.
 An important difference between the preseeding methods is the point at which
 the preconfiguration file is loaded and processed. For initrd preseeding
 this is right at the start of the installation, before the first question is
-even asked. For file preseeding this is after the CD or CD image has been
-loaded. For network preseeding it is only after the network has been
-configured.
--->
+even asked. Preseeding from the kernel command line happens just after. It is
+thus possible to override configuration set in the initrd by editing the kernel
+command line (either in the bootloader configuration or manually at boot time
+for bootloaders that allow it). For file preseeding this is after the CD
+or CD image has been loaded. For network preseeding it is only after the
+network has been configured.-->
 
 Una differenza importante fra i vari metodi di preconfigurazione è il momento
 in cui viene caricato e processato il file di preconfigurazione. Nel caso
 della preconfigurazione con initrd avviene all'avvio dell'installazione,
 prima che sia posta la prima domanda. Con la preconfigurazione con il
 metodo file avviene dopo che è stata caricato il CD o l'immagine del CD.
-Infine la preconfigurazione network ha effetti solo dopo la configurazione
-della rete.
+La preconfigurazione dalla riga di comando del kernel avviene subito dopo,
+quindi è possibile sovrascrive le impostazioni di configurazione fatte
+nell'initrd modificando la riga di comando del kernel (nella configurazione
+del bootloader oppure manualmente al momento dell'avvio se il bootloader
+lo permette). Infine la preconfigurazione network ha effetti solo dopo la
+configurazione della rete.
 
 </para><important><para>
 
@@ -1361,12 +1367,28 @@ possono essere trovati in <xref linkend="module-details"/>.
 Setting localization values will only work if you are using initrd preseeding.
 With all other methods the preconfiguration file will only be loaded after
 these questions have been asked.
+
+During a normal install the questions about localization are asked first,
+so these values can only be preseeded via the initrd or kernel boot
+parameter methods. Auto mode (<xref linkend="preseed-auto"/>) includes
+the setting of <literal>auto-install/enable=true</literal> (normally via
+the <literal>auto</literal> preseed alias).  This delays the asking of
+the localisation questions, so that they can be preseeded by any method.
 -->
 
 L'impostazione dei valori legati alla localizzazione funziona solo se si
 usa la preconfigurazione initrd. Con tutti gli altri metodi il file di
 preconfigurazione viene caricato solo dopo che queste domande sono state
 poste.
+
+Le primissime domande poste durante la normale installazione riguardano
+la localizzazione quindi tali valori possono essere preconfigurati solo
+tramite i metodi di preconfigurazione initrd oppure tramite i parametri
+d'avvio del kernel. La modalità auto (<xref linkend="preseed-auto"/>)
+implica l'impostazione di <literal>auto-install/enable=true</literal>
+(normalmente tramite l'alias di preconfigurazione <literal>auto</literal>).
+Ciò rimanda il momento in cui sono poste le domande sulla localizzazione
+che quindi possono essere preconfigurate usando qualsiasi metodo.
 
 </para><para>
 
@@ -1796,12 +1818,12 @@ d-i mirror/http/proxy string
 <!--
 The password for the root account and name and password for a first regular
 user's account can be preseeded. For the passwords you can use either clear
-text values or MD5 <emphasis>hashes</emphasis>.
+text values or crypt(3) <emphasis>hashes</emphasis>.
 -->
 
 È possibile preconfigurare la password per l'account di root e il nome e la
 password per il primo utente normale. Per le password possono essere inserite
-in chiaro o con un <emphasis>hash</emphasis> MD5.
+in chiaro o con un <emphasis>hash</emphasis> crypt(3).
 
 </para>
 <warning><para>
@@ -1809,16 +1831,17 @@ in chiaro o con un <emphasis>hash</emphasis> MD5.
 <!--
 Be aware that preseeding passwords is not completely secure as everyone
 with access to the preconfiguration file will have the knowledge of these
-passwords. Using MD5 hashes is considered slightly better in terms of
-security but it might also give a false sense of security as access to a
-MD5 hash allows for brute force attacks.
+passwords. Storing hashed passwords is considered secure unless a weak
+hashing algorithm like DES or MD5 is used which allow for bruteforce
+attacks. Recommended password hashing algorithms are SHA-256 and SHA512.
 -->
 
 Attenzione, la preconfigurazione delle password non è sicura dato che
 chiunque può accedere al file di preconfigurazione ha la possibilità di
-leggerle. L'uso di un hash MD5 è considerato leggermente migliore per quanto
-riguarda la sicurezza ma potrebbe anche dare una falsa sensazione di sicurezza
-poiché un hash MD5 consente attacchi di tipo brute force.
+leggerle. La memorizzazione dell'hash di una password è considerata una
+pratica sicura a meno di usare un algoritmo di hash come DES o MD5 deboli
+ad attacchi di tipo brute force. Si raccomanda di usare funzioni di hash
+tipo SHA-256 e SHA512.
 
 </para></warning>
 
@@ -1841,9 +1864,9 @@ poiché un hash MD5 consente attacchi di tipo brute force.
 #d-i passwd/root-password password r00tme
 #d-i passwd/root-password-again password r00tme
 <!--
-# or encrypted using an MD5 hash.
---># oppure criptata in un hash MD5.
-#d-i passwd/root-password-crypted password [MD5 hash]
+# or encrypted using a crypt(3) hash.
+--># oppure criptata in un hash crypt(3).
+#d-i passwd/root-password-crypted password [crypt(3) hash]
 
 <!--
 # To create a normal user account.
@@ -1856,9 +1879,9 @@ poiché un hash MD5 consente attacchi di tipo brute force.
 #d-i passwd/user-password password insecure
 #d-i passwd/user-password-again password insecure
 <!--
-# or encrypted using an MD5 hash.
---># oppure criptata in un hash MD5.
-#d-i passwd/user-password-crypted password [MD5 hash]
+# or encrypted using a crypt(3) hash.
+--># oppure criptata in un hash crypt(3).
+#d-i passwd/user-password-crypted password [crypt(3) hash]
 <!--
 # Create the first user with the specified UID instead of the default.
 --># Per creare il primo utente con un UID specifico al posto di quello
@@ -1896,13 +1919,12 @@ chiave SSH oppure con sudo).
 </para><para>
 
 <!--
-The following command can be used to generate an MD5 hash for a password:
 The following command (available from the <classname>whois</classname> package)
-can be used to generate an MD5 hash for a password:
+can be used to generate a SHA-512 based crypt(3) hash for a password:
 -->
 
-Per creare l'hash MD5 di una password è possibile usare il seguente
-comando (disponibile dal pacchetto <classname>whois</classname>):
+Per creare l'hash SHA-512 tramite crypt(3) di una password è possibile usare
+il seguente comando (disponibile dal pacchetto <classname>whois</classname>):
 
 <informalexample><screen>
 mkpasswd -m sha-512

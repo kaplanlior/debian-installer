@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 69732 -->
+<!-- original version: 70321 -->
 
  <sect1 id="boot-installer-accessibility" arch="not-s390">
  <!-- <title>Accessibility</title> -->
@@ -12,10 +12,11 @@ impairment.
 <phrase arch="ia64;powerpc;ppc64el;x86">USB braille displays are detected
 automatically (not serial displays connected via a serial-to-USB converter),
 but most other</phrase>
-<phrase arch="arm;hppa;mips;mipsel;sparc">Most</phrase>
+<phrase arch="arm;hppa;mips;mipsel;mips64el;sparc">Most</phrase>
 accessibility features have to be enabled manually.
-<phrase arch="x86">On machines that support it, the boot menu emits a beep
-when it is ready to receive keystrokes.</phrase>
+<phrase arch="x86">On machines that support it, the boot menu emits beeps
+when it is ready to receive keystrokes. It beeps once on BIOS systems,
+and beeps twice on UEFI systems.</phrase>
 Some boot parameters can <phrase arch="x86">then</phrase> be appended to
 enable accessibility features<phrase arch="x86"> (see also
 <xref linkend="boot-screen"/>)</phrase>.
@@ -26,12 +27,13 @@ a QWERTY keyboard.
 Alcuni utenti potrebbero aver bisogno di particolari supporti perché,
 per esempio, hanno una disabilità visiva.
 <phrase arch="ia64;powerpc;ppc64el;x86">I display braille USB vengono
-rilevati automaticamente (no i display seriali collegati con un
+rilevati automaticamente (non i display seriali collegati con un
 convertitore seriale-USB), ma molte altre</phrase>
-<phrase arch="arm;hppa;mips;mipsel;sparc">La maggior parte delle</phrase>
+<phrase arch="arm;hppa;mips;mipsel;mips64el;sparc">La maggior parte delle</phrase>
 funzionalità per l'accessibilità devono essere attivate manualmente.
-<phrase arch="x86">Sulle macchine che lo permettono, il menu d'avvio
-emette un bip quando è pronto per ricevere la pressione dei tasti.</phrase>
+<phrase arch="x86">Alcune macchine emettono dei bip quando il menu
+d'avvio è pronto per ricevere la pressione dei tasti. Sui sistemi BIOS
+è emesso un bip, sui sistemi UEFI sono emessi due bip.</phrase>
 L'attivazione di alcune delle funzionalità per l'accessibilità può essere
 fatta utilizzando i parametri d'avvio<phrase arch="x86"> (consultare anche
 <xref linkend="boot-screen"/>)</phrase>. Notare che sulla maggioranza delle
@@ -100,17 +102,21 @@ url="&url-brltty-driver-help;"><classname>brltty</classname></ulink>.
 <!--
 Serial braille displays cannot safely be automatically detected
 (since that may damage some of them). You thus need to append the
-<userinput>brltty=<replaceable>driver</replaceable>,<replaceable>port</replaceable>,<replaceable>table</replaceable></userinput>
-boot parameter to tell <classname>brltty</classname> which driver it
+<userinput>brltty=<replaceable>driver</replaceable>,<replaceable>port</replaceable></userinput>
+boot parameter to tell <classname>brltty</classname> which driver and port it
 should use. <replaceable>driver</replaceable> should be replaced by the
 two-letter driver code for your terminal (see the
 <ulink url="&url-brltty-manual;">BRLTTY manual</ulink>).
 <replaceable>port</replaceable> should be replaced by the name of the
 serial port the display is connected to, <userinput>ttyS0</userinput> is
-the default, <userinput>ttyUSB0</userinput> can be typically used when using a serial-to-USB converter. <replaceable>table</replaceable> is the name of the
+the default, <userinput>ttyUSB0</userinput> can be typically used when using a serial-to-USB converter.
+A third parameter can be provided, to choose the name of the
 braille table to be used (see the <ulink url="&url-brltty-manual;">BRLTTY
 manual</ulink>); the English table is the default. Note that the table can
-be changed later by entering the preference menu. Documentation on key
+be changed later by entering the preference menu. A fourth parameter
+can be provided to pass parameters to the braille driver, such as
+<userinput>protocol=foo</userinput> which is needed for some rare models.
+Documentation on key
 bindings for braille devices is available on the <ulink
 url="&url-brltty-driver-help;"><classname>brltty</classname> website</ulink>.
 -->
@@ -118,19 +124,22 @@ url="&url-brltty-driver-help;"><classname>brltty</classname> website</ulink>.
 I display braille seriali non possono essere rilevati automaticamente
 (infatti questa operazione potrebbe danneggiarli). Quindi è necessario
 aggiungere il parametro d'avvio
-<userinput>brltty=<replaceable>driver</replaceable>,<replaceable>porta</replaceable>,<replaceable>tavola</replaceable></userinput>
-per indicare a <classname>brltty</classname> quale driver utilizzare.
+<userinput>brltty=<replaceable>driver</replaceable>,<replaceable>porta</replaceable></userinput>
+per indicare a <classname>brltty</classname> quale driver e quale porta utilizzare.
 <replaceable>driver</replaceable> deve essere sostituito con il codice
 a due lettere del driver adatto al proprio terminale (si veda il 
 <ulink url="&url-brltty-manual;">manuale di BRLTTY</ulink>).
 <replaceable>porta</replaceable> deve essere sostituito dal nome della
 porta alla quale è collegato il display, il valore predefinito è
 <userinput>ttyS0</userinput>, <userinput>ttyUSB0</userinput> quando si
-usa un convertitore seriale-USB. <replaceable>tavola</replaceable> è il
-nome della tavola braille da usare (si veda il <ulink
+usa un convertitore seriale-USB. È possibile indicare anche un terzo parametro
+prt scegliere il nome della tavola braille da usare (si veda il <ulink
 url="&url-brltty-manual;">manuale di BRLTTY</ulink>),
 la tavola predefinita è quella inglese. Notare che la tavola può essere
-cambiata in seguito tramite il menu preferenze. La documentazione sulle
+cambiata in seguito tramite il menu preferenze. È anche possibile indicare
+un quarto parametro per passare parametri al driver braille, per esempio
+per pochi modelli molto rari è necessario passare
+<userinput>protocol=foo</userinput>. La documentazione sulle
 associazioni dei tasti per i dispositivi braille può essere trovata sul
 sito web di <ulink
 url="&url-brltty-driver-help;"><classname>brltty</classname></ulink>.
@@ -187,6 +196,15 @@ To make it quieter, press
 
 To get more details on the browsing shortcuts, see the
 <ulink url="&url-speakup-guide;">Speakup guide</ulink>.
+
+To just accept the default answer for a question, simply press
+<keycap>Enter</keycap> at the prompt.
+
+To provide an empty answer for a question, type <userinput>!</userinput> at the
+prompt.
+
+To get back to the previous question, type <userinput>&lt;</userinput> at the
+prompt.
 -->
 
 La velocità predefinita del parlato è abbastanza lenta. Per aumentarla
@@ -201,6 +219,15 @@ per diminuirlo premere
 
 Per conoscere tutti i dettagli sulle scorciatoie da tastiera, consultare
 la <ulink url="&url-speakup-guide;">guida di Speakup</ulink>.
+
+Per accettare la risposta predefinita a una domanda, premere
+<keycap>Invio</keycap>.
+
+Per dare una risposta vuota a una domanda, premere
+<userinput>!</userinput>.
+
+Per tornare indietro alla domanda precedente, premere
+<userinput>&lt;</userinput>.
 
 </para>
   </sect2>
@@ -298,6 +325,27 @@ color theme that makes it more readable. To enable it, append the
 Gli utenti ipovedenti possono usare l'installatore con un tema di colori a
 contrasto elevato che lo rende più leggibile. Per attivarlo, aggiungere
 <userinput>theme=dark</userinput> in coda ai parametri d'avvio.
+
+</para>
+  </sect2>
+
+  <sect2>
+  <!-- <title>Zoom</title> -->
+  <title>Zoom</title>
+<para>
+
+<!--
+For users with low vision, the graphical installer has a very basic zoom support: the 
+<keycombo><keycap>Control</keycap> <keycap>+</keycap></keycombo> and
+<keycombo><keycap>Control</keycap> <keycap>-</keycap></keycombo> shortcuts
+increase and decrease the font size.
+-->
+
+L'installatore grafico offre agli utenti ipovedenti una funzione di zoom
+essenziale: le scorciatoie di tastiera <keycombo><keycap>Control</keycap>
+<keycap>+</keycap></keycombo> e <keycombo><keycap>Control</keycap>
+<keycap>-</keycap></keycombo> aumentano e diminuiscono la dimensione dei
+caratteri.
 
 </para>
   </sect2>

@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 69755 -->
+<!-- original version: 70188 -->
 
  <sect1 id="linux-upgrade">
  <!-- <title>Installing &debian-gnu; from a Unix/Linux System</title> -->
@@ -421,7 +421,7 @@ installare il pacchetto makedev e, dopo aver fatto il chroot, creare il
 set predefinito di file di device statici usando
 
 <informalexample><screen>
-# apt-get install makedev
+# apt install makedev
 # mount none /proc -t proc
 # cd /dev
 # MAKEDEV generic
@@ -765,11 +765,11 @@ deb-src http://security.debian.org/ &releasename;/updates main
 </screen></informalexample>
 
 <!--
-Make sure to run <userinput>aptitude update</userinput> after you have
+Make sure to run <userinput>apt update</userinput> after you have
 made changes to the sources list.
 -->
 
-Ricordarsi di eseguire <userinput>aptitude update</userinput> dopo aver
+Ricordarsi di eseguire <userinput>apt update</userinput> dopo aver
 modificato il file <filename>sources.list</filename>.
 
 </para>
@@ -791,7 +791,7 @@ configurare il pacchetto <classname>locales</classname>. Si raccomanda l'uso
 di un locale UTF-8.
 
 <informalexample><screen>
-# aptitude install locales
+# apt install locales
 # dpkg-reconfigure locales
 </screen></informalexample>
 
@@ -802,7 +802,7 @@ To configure your keyboard (if needed):
 Per configurare la tastiera (se necessario):
 
 <informalexample><screen>
-# aptitude install console-setup
+# apt install console-setup
 # dpkg-reconfigure keyboard-configuration
 </screen></informalexample>
 
@@ -834,7 +834,7 @@ Nel caso si intenda avviare il nuovo sistema, servono un kernel &arch-kernel;
 e un boot loader. I kernel pacchettizzati disponibili si trovano con:
 
 <informalexample><screen>
-# apt-cache search &kernelpackage;
+# apt search &kernelpackage;
 </screen></informalexample>
 
 </para><para>
@@ -847,7 +847,7 @@ Si può quindi installare il pacchetto con il kernel prescelto usando il nome
 del pacchetto.
 
 <informalexample><screen>
-# aptitude install &kernelpackage;-<replaceable>arch-etc</replaceable>
+# apt install &kernelpackage;-<replaceable>arch-etc</replaceable>
 </screen></informalexample>
 
 </para>
@@ -861,15 +861,15 @@ del pacchetto.
 <!--
 To make your &debian-gnu; system bootable, set up your boot loader to load
 the installed kernel with your new root partition. Note that
-<command>debootstrap</command> does not install a boot loader, though you
-can use <command>aptitude</command> inside your &debian; chroot to do so.
+<command>debootstrap</command> does not install a boot loader, but you
+can use <command>apt</command> inside your &debian; chroot to do so.
 -->
 
-Per rendere avviabile il sistema &debian-gnu;, si deve configurare il boot loader
-in modo da caricare il kernel installato con la nuova partizione di root. Si
-noti che <command>debootstrap</command> non installa un boot loader, si può
-installare un boot loader tramite <command>aptitude</command> dall'interno
-della chroot &debian;.
+Per avviare il sistema &debian-gnu;, è necessario configurare il proprio
+boot loader in modo da caricare il kernel installato con la nuova
+partizione di root. Notare che <command>debootstrap</command> non installa
+un boot loader, è possibile installare un boot loader tramite
+<command>apt</command> dall'interno della chroot &debian;.
 
 </para><para arch="any-x86">
 
@@ -906,7 +906,7 @@ L'installazione e la configurazione di <classname>grub2</classname> è
 molto semplice:
 
 <informalexample><screen>
-# aptitude install grub-pc
+# apt install grub-pc
 # grub-install /dev/<replaceable>sda</replaceable>
 # update-grub
 </screen></informalexample>
@@ -1020,7 +1020,7 @@ Se il sistema deve essere accessibile da remoto, è necessario installare
 SSH e impostare l'accesso.
 
 <informalexample><screen>
-# aptitude install ssh
+# apt install ssh
 </screen></informalexample>
 
 <!--
@@ -1096,12 +1096,12 @@ c'è un metodo molto semplice per installare tutti i pacchetti con priorità
 </screen></informalexample>
 
 <!--
-Of course, you can also just use <command>aptitude</command> to install
+Of course, you can also just use <command>apt</command> to install
 packages individually.
 -->
 
-Ovviamente è possibile usare <command>aptitude</command> per installare
-dei pacchetti individuali.
+Ovviamente è possibile usare <command>apt</command> per installare
+individualmente i pacchetti.
 
 </para><para>
 
@@ -1116,7 +1116,7 @@ sono presenti i pacchetti scaricati. Si possono cancellare e quindi liberare
 un po' di spazio usando:
 
 <informalexample><screen>
-# aptitude clean
+# apt clean
 </screen></informalexample>
 
 </para>
