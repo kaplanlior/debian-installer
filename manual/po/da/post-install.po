@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: d-i-manual_post-install\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2016-04-08 20:25+0000\n"
-"PO-Revision-Date: 2016-11-29 10:40+0100\n"
+"PO-Revision-Date: 2016-12-04 10:40+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -186,6 +186,20 @@ msgid ""
 "around this by putting packages on <quote>hold</quote> in <command>aptitude</"
 "command>."
 msgstr ""
+"Det vigtigste koncept er &debian;-pakkesystemet. Helt grundlæggende er"
+"store dele af dit system under kontrol af pakkesystemet. Dette inkluderer: "
+"<itemizedlist> <listitem><para> <filename>/usr</filename> (eksklusive "
+"<filename>/usr/local</filename>) </para></listitem> <listitem><para> "
+"<filename>/var</filename> (du kan lave <filename>/var/local</filename> "
+"og være sikker der) </para></listitem> <listitem><para> "
+"<filename>/bin</filename> </para></listitem> "
+"<listitem><para> <filename>/sbin</filename> </para></listitem> "
+"<listitem><para> <filename>/lib</filename> </para></listitem> </"
+"itemizedlist> For eksempel, hvis du erstatter <filename>/usr/bin/perl</"
+"filename>, vil det fungere, men hvis du opgraderer din <classname>perl</"
+"classname>pakke, vil filen du placerer der blive erstattet. Eksperter kan "
+"omgå dette ved at placere pakke på <quote>hold</quote> i <command>aptitude</"
+"command>."
 
 #. Tag: para
 #: post-install.xml:145
@@ -261,6 +275,12 @@ msgid ""
 "etc/crontab</filename>, and will run in alphabetic order, which serializes "
 "them."
 msgstr ""
+"Alle job under systemadministratorens ansvar skal placeres i "
+"<filename>/etc</filename>, da de er konfigurationsfiler. Hvis du har et "
+"root-cronjob for daglig, ugentlig eller måndelige kørsler, så placer dem "
+"i <filename>/etc/cron.{daily,weekly,monthly}</filename>. disse startes fra "
+"<filename>/etc/crontab</filename>, og vil blive afviklet i alfabetisk "
+"rækkefølge, hvilket serialiserer dem."
 
 #. Tag: para
 #: post-install.xml:190
@@ -272,6 +292,12 @@ msgid ""
 "whatever</filename>. These particular files also have an extra field that "
 "allows you to stipulate the user account under which the cron job runs."
 msgstr ""
+"På den anden side, hvis du har et cronjob som (a) kræver at blive afviklet "
+"via en speciel bruger, eller (b) kræver at blive afviklet på et specielt "
+"tidspunkt eller frekvens, så kan du bruge enten <filename>/etc/crontab"
+"</filename>, eller, endnu bedre, <filename>/etc/cron.d/whatever</filename>. "
+"Disse bestemte filer har også et ekstra felt som giver mulighed for at "
+"fastsætte brugerkontoen hvorunder cornjobbet afvikles."
 
 #. Tag: para
 #: post-install.xml:199
@@ -316,6 +342,13 @@ msgid ""
 "filename>. To read about &debian;-specific issues for particular programs, "
 "look at <filename>/usr/share/doc/(package name)/README.Debian</filename>."
 msgstr ""
+"Der er også en masse nyttig dokumentation i <filename>/usr/share/doc"
+"</filename>. Specielt <filename>/usr/share/doc/HOWTO</filename> og "
+"<filename>/usr/share/doc/FAQ</filename> indeholder en masse interessant "
+"information. For at indsende fejlrapporter, tag et kig på "
+"<filename>/usr/share/doc/debian/bug*</filename>. For at læse om &debian;-"
+"specifikke probelmstillinger for bestemte programmer, så kig på "
+"<filename>/usr/share/doc/(pakkenavn)/README.Debian</filename>."
 
 #. Tag: para
 #: post-install.xml:232
@@ -334,6 +367,17 @@ msgid ""
 "\">Debian Mailing List Archives</ulink> contain a wealth of information on "
 "&debian;."
 msgstr ""
+"<ulink url=\"http://www.debian.org/\">Debians hjemmeside</ulink> indeholder "
+"en stor mængde dokumentation om &debian;. Vigtist er "
+"<ulink url=\"http://www.debian.org/doc/FAQ/\">Debian GNU/Linux OSS</ulink> "
+"og <ulink url=\"http://www.debian.org/doc/user-manuals#quick-reference"
+"\">Debianreferencen</ulink>. Et indeks med yderligere &debian;-dokumentation er "
+"tilgængelig fra <ulink url=\"http://www.debian.org/doc/ddp\">Debians "
+"dokumentationsprojekt</ulink>. &debian;s fællesskab er selvunderstøttende; for "
+"at abonnere på en eller flere af Debians postlister, se siden for <ulink url="
+"\"http://www.debian.org/MailingLists/subscribe\"> Postlisteabonnement</"
+"ulink>. Sidste, men ikke mindst, indeholder <ulink url=\"http://lists.debian.org/"
+"\">Debians postlistearkiv</ulink> en rigdom af information om &debian;."
 
 #. Tag: para
 #: post-install.xml:250
@@ -344,6 +388,10 @@ msgid ""
 "HOWTOs and pointers to other very valuable information on parts of a GNU/"
 "Linux system."
 msgstr ""
+"En generel kilde til information om GNU/Linux er <ulink url=\"http://www."
+"tldp.org/\">Dokumentationsprojektet for Linux</ulink>. Der kan du finde "
+"manualer og referencer til anden meget værdifuld information om dele af "
+"et GNU/Linux-system."
 
 #. Tag: title
 #: post-install.xml:266
@@ -377,6 +425,12 @@ msgid ""
 "Agent</firstterm> (MDA) that takes care of delivering incoming mail to the "
 "user's inbox."
 msgstr ""
+"Der er tre hovedfunktioner, som udgør et e-postsystem. Først er der "
+"<firstterm>Postbrugeragenten</firstterm> (MUA), som er programmet en bruger "
+"bruger til at lave og læse post. Så er der <firstterm>Postoverførselsagenten"
+"</firstterm> (MTA) som håndterer overførslen af beskeder fra en computer "
+"til den næste. Og sidst er der <firstterm>Postleveringsagenten</firstterm> "
+"(MDA), som håndterer leverancen af indgående post til brugerens indboks."
 
 #. Tag: para
 #: post-install.xml:284
@@ -386,6 +440,9 @@ msgid ""
 "also be combined in one or two programs. It is also possible to have "
 "different programs handle these functions for different types of mail."
 msgstr ""
+"Disse tre funktioner kan udføres af separate programmer, men de kan også "
+"kombineres i et eller to programmer. Det er også muligt at have forskellige "
+"programmer til at håndtere disse funktioner for forskellige typer af post."
 
 #. Tag: para
 #: post-install.xml:290
@@ -396,6 +453,11 @@ msgid ""
 "often used in combination with <command>exim</command> or <command>sendmail</"
 "command> as MTA and <command>procmail</command> as MDA."
 msgstr ""
+"På Linux- og Unixsystemer er <command>mutt</command> historisk en meget "
+"populær MUA. Som de fleste traditionelle Linuxprogrammer er programmet "
+"tekstbaseret. Det bruges ofte i kombination med <command>exim</command> "
+"eller <command>sendmail</command> som MTA og <command>procmail</command> "
+"som MDA."
 
 #. Tag: para
 #: post-install.xml:297
@@ -412,6 +474,15 @@ msgid ""
 "and often are &mdash; also be used in combination with the traditional Linux "
 "tools."
 msgstr ""
+"Med den stigende popularitet indenfor grafiske skrivebordssystemer er brugen "
+"af grafiske e-postprogrammer såsom <command>evolution</command>, KDE's "
+"<command>kmail</command> eller Mozillas <command>thunderbird</command> (i "
+"&debian; tilgængelige som  <command>icedove</command><footnote> <para> Grunden "
+"til at <command>thunderbird</command> er blevet omdøbt til <command>icedove</"
+"command> i &debian; skyldes licensproblemstillinger. Detaljer er uden for "
+"denne manuals område. </para> </footnote>) bliver mere populært. "
+"Disse programmer kombinerer funktionen hos en MUA, MTA og MDA, men kan &mdash; "
+"og er ofte &mdash; brugt i kombination med traditionelle Linuxværktøjer."
 
 #. Tag: title
 #: post-install.xml:317
@@ -431,6 +502,14 @@ msgid ""
 "command>, &hellip; </para> </footnote> can send important notices by e-mail "
 "to inform the system administrator of (potential) problems or changes."
 msgstr ""
+"Selv om du planlægger at bruge et grafisk postprogram, er det vigtigt, "
+"at en traditionel MTA/MDA også er installeret og korrekt opsat på dit "
+"&debian-gnu;-system. Årsagen er at diverse redskaber der kører på "
+"systemet<footnote> <para> Eksempler er: <command>cron</command>, "
+"<command>quota</command>, <command>logcheck</command>, <command>aide</"
+"command>, &hellip; </para> </footnote> kan sende vigtige beskeder via "
+"e-post for at informere systemadministratoren om (potentielle) problemer "
+"eller ændringer."
 
 #. Tag: para
 #: post-install.xml:333
@@ -448,6 +527,18 @@ msgid ""
 "filename>. If no regular user account was created, the mail will of course "
 "be delivered to the root account itself. </para> </footnote>."
 msgstr ""
+"Af denne årsag vil pakkerne <classname>exim4</classname> og "
+"<classname>mutt</classname> blive installeret som standard (såfremt du ikke "
+"fravalgte <quote>standard</quote>-opgaven under installationen). "
+"<classname>exim4</classname> er en kombineret MTA/MDA, som er relativ lille "
+"men meget fleksibel. Som standard vil programmet blive konfigureret til "
+"kun at håndtere e-post lokalt for selve systemet og e-post adresseret til "
+"systemadministratoren (root-konto) vil blive leveret til den normale "
+"brugerkonto oprettet under installationen<footnote> <para> Videresendelse "
+"af post for root til den normale brugerkonto konfigureres i "
+"<filename>/etc/aliases</filename>. Hvis ingen brugerkonto blev oprettet, "
+"så vil posten selvfølgelig blive leveret til root-kontoen. "
+"</para> </footnote>."
 
 #. Tag: para
 #: post-install.xml:352
@@ -457,6 +548,9 @@ msgid ""
 "mail/<replaceable>account_name</replaceable></filename>. The e-mails can be "
 "read using <command>mutt</command>."
 msgstr ""
+"Når system-e-post leveres tilføjes den til en fil i <filename>/var/"
+"mail/<replaceable>account_name</replaceable></filename>. Den leverde e-post "
+"kan læses via <command>mutt</command>."
 
 #. Tag: title
 #: post-install.xml:362
@@ -499,6 +593,12 @@ msgid ""
 "Just configure your favorite graphical mail program to use the correct "
 "servers to send and receive e-mail (how is outside the scope of this manual)."
 msgstr ""
+"Hvis du forventer at bruge et grafisk postprogram og en postserver fra "
+"din internetleverandør (ISP) eller dit firma, så er der reelt ingen grund til "
+"at konfigurere <classname>exim4</classname> til at håndtere ekstern e-post. "
+"Bare konfigurer dit grafiske favoritprogram til at bruge de korrekte "
+"servere til at sende og modtage e-post (hvordan er uden for denne manuals "
+"område)."
 
 #. Tag: para
 #: post-install.xml:384
@@ -510,6 +610,11 @@ msgid ""
 "By default it expects to be able to use <classname>exim4</classname> to "
 "submit bug reports."
 msgstr ""
+"I det tilfælde hvor du skal konfigurere individuelle redskaber til korrekt "
+"at sende e-post er et sådant redskab f.eks. <command>reportbug</command>, et "
+"program som  håndterer indsendelse af fejlrapporter omhandlende &debian;-pakker. "
+"Som standard forventer det at kunne bruge <classname>exim4</classname> til "
+"at indsende fejlrapporter."
 
 #. Tag: para
 #: post-install.xml:392
@@ -520,6 +625,10 @@ msgid ""
 "answer <quote>no</quote> to the question if an MTA is available. You will "
 "then be asked for the SMTP server to be used for submitting bug reports."
 msgstr ""
+"For at sætte <command>reportbug</command> korrekt op til at bruge en ekstern "
+"postserver, så kør venligst kommandoen <command>reportbug --configure</command> "
+"og svar <quote>no</quote> til spørgsmålet om en MTA er tilgængelig. Du vil så "
+"blive spurgt om SMTP-serveren, der skal bruges til at indsende fejlrapporter."
 
 #. Tag: title
 #: post-install.xml:403
