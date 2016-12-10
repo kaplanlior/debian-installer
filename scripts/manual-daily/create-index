@@ -9,7 +9,6 @@ pagefile=$destination/index.html
 [ -f "$ROOT/bin/langlist" ] || exit 1
 [ -f "$ROOT/bin/archlist" ] || exit 1
 
-URL_ETTIN="http://ettin.org/pub/debian/dimstats"
 
 build_link_table () {
     # Count languages
@@ -117,7 +116,7 @@ if [ -f $logdir/tr-stats ] ; then
         if [ -d "$source/$lang/" ] ; then
             langname=$(egrep "^$lang[[:space:]]" $ROOT/bin/langlist | cut -f 7)
             echo "  <tr>" >>$pagefile
-            echo "    <td class=\"col1\"><a href="$URL_ETTIN/index.$lang.html" target="_blank">$langname</a></td>" >>$pagefile
+            echo "    <td class=\"col1\">$langname</td>" >>$pagefile
 
             for col in 2 4 6 9 8 ; do
                 value=$(egrep "^$lang[[:space:]]" $logdir/tr-stats | cut -f $col)
