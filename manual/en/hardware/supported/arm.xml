@@ -199,10 +199,16 @@ hardware. They are also common in the x86 PC world.
           <para>   
             The armmp kernel supports several development boards and
             embedded systems based on the Allwinner A10 (architecture
-            codename <quote>sun4i</quote>), A10s/A13 (architecture codename
-            <quote>sun5i</quote>) and A20 (architecture codename
-            <quote>sun7i</quote>) SoCs.  Full installer support is currently
-            available for the following sunXi-based systems:
+            codename <quote>sun4i</quote>), A10s/A13 (architecture
+            codename <quote>sun5i</quote>), A20 (architecture
+            codename <quote>sun7i</quote>), A31/A31s (architecture
+            codename <quote>sun6i</quote>) and A23/A33 (part of the
+            <quote>sun8i</quote> family) SoCs.
+            
+            Full installer support (including provision of ready-made
+            SD card images with the installer) is currently available
+            for the following sunXi-based systems:
+
             <itemizedlist>
              <listitem><para>
                Cubietech Cubieboard 1 + 2 / Cubietruck
@@ -214,42 +220,94 @@ hardware. They are also common in the x86 PC world.
                LinkSprite pcDuino and pcDuino3
              </para></listitem>
              <listitem><para>
-               Mele A1000
+               Olimex A10-Olinuxino-LIME / A20-Olinuxino-LIME /
+               A20-Olinuxino-LIME2 / A20-Olinuxino Micro / A20-SOM-EVB          
              </para></listitem>
              <listitem><para>
-               Miniand Hackberry
+               Xunlong OrangePi Plus
              </para></listitem>
-             <listitem><para>
-               Olimex A10-Olinuxino-LIME / A10s-Olinuxino Micro /
-               A13-Olinuxino / A13-Olinuxino Micro / 
-               A20-Olinuxino-LIME / A20-Olinuxino-LIME2 / A20-Olinuxino Micro           
-             </para></listitem>
-             <listitem><para>
-               PineRiver Mini X-Plus
-             </para></listitem>
-
             </itemizedlist>  
+          </para>
+            
+          <para>
+            System support for Allwinner sunXi-based devices is
+            limited to drivers and device-tree information available
+            in the mainline Linux kernel. Vendor-specific kernel
+            trees (such as the Allwinner SDK kernels) and the
+            android-derived linux-sunxi.org kernel 3.4 series are not
+            supported by &debian;.
           </para> 
           <para>
-            System support for Allwinner sunXi-based devices is limited to
-            drivers and device-tree information available in the mainline
-            Linux kernel.  The android-derived linux-sunxi.org 3.4 kernel
-            series is not supported by &debian;.
-          </para> 
-          <para>
-            The mainline Linux kernel generally supports serial console,
-            ethernet, SATA, USB and MMC/SD-cards on Allwinner A10, A10s/A13
-            and A20 SoCs, but it does not have native drivers for the
-            display (HDMI/VGA/LCD) and audio hardware in these SoCs.  The
-            NAND flash memory that is built into some sunXi-based systems is
-            not supported.
+            The mainline Linux kernel generally supports serial
+            console, ethernet, SATA, USB and MMC/SD-cards on
+            Allwinner A10, A10s/A13, A20, A23/A33 and A31/A31s SoCs. 
+            The level of support for local display (HDMI/VGA/LCD) and
+            audio hardware varies between individual systems.  For
+            most systems, the kernel doesn't have native graphics
+            drivers but instead uses the <quote>simplefb</quote>
+            infrastructure in which the bootloader initializes the
+            display and the kernel just re-uses the pre-initialized
+            framebuffer. This generally works reasonably well,
+            although it results in certain limitations (the display
+            resolution cannot be changed on the fly and display
+            powermanagement is not possible).
           </para>
           <para>
-            Using a local display is technically possible without native
-            display drivers via the <quote>simplefb</quote> infrastructure
-            in the mainline kernel, which relies on the
-            <quote>U-Boot</quote> bootloader for initialising the display
-            hardware.
+            Onboard flash memory intended to be used as a mass
+            storage device generally exists in two basic variants on
+            sunXi-based systems: raw NAND flash and eMMC flash.  Most
+            older sunXi-based boards with onboard flash storage use
+            raw NAND flash for which support is not generally
+            available in the mainline kernel and therefore also not
+            in Debian.  A number of newer systems use eMMC flash
+            instead of raw NAND flash.  An eMMC flash chip basically
+            appears as a fast, non-removable SD card and is supported
+            in the same way as a regular SD card.
+          </para>
+          
+          <para>
+            The installer includes basic support for a number of
+            sunXi-based systems not listed above, but it is largely
+            untested on those systems as the &debian; project doesn't
+            have access to the corresponding hardware.  No pre-built
+            SD card images with the installer are provided for those
+            systems.  Development boards with such limited support
+            include:
+            <itemizedlist>
+              <listitem><para>
+                Olimex A10s-Olinuxino Micro / A13-Olinuxino / 
+                A13-Olinuxino Micro
+              </para></listitem>
+              <listitem><para>
+                Sinovoip BPI-M2 (A31s-based)
+              </para></listitem>
+              <listitem><para>
+                Xunlong Orange Pi (A20-based) / Orange Pi Mini (A20-based)
+              </para></listitem>
+            </itemizedlist>
+          </para>
+          <para>
+            In addition to the SoCs and systems listed above, the
+            installer has very limited support for the Allwinner H3
+            SoC and a number of boards based on it.  Mainline kernel
+            support for the H3 is still largely work in progress at
+            the time of the Debian 9 relase freeze, so the installer
+            only supports serial console, MMC/SD and the USB host
+            controller on H3-based systems.  There is no driver for
+            the on-board ethernet port of the H3 yet, so networking
+            is only possible with a USB ethernet adaptor or a USB
+            wifi dongle.  Systems based on the H3 for which such very
+            basic installer support is available include:
+            <itemizedlist>
+              <listitem><para>
+                FriendlyARM NanoPi NEO
+              </para></listitem>
+              <listitem><para>
+                Xunlong Orange Pi Lite / Orange Pi One / Orange Pi PC /
+                Orange Pi PC Plus / Orange Pi Plus / Orange Pi Plus 2E /
+                Orange Pi 2
+              </para></listitem>
+            </itemizedlist>
           </para>
         </listitem>
       </varlistentry>
