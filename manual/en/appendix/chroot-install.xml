@@ -191,6 +191,9 @@ in the <command>debootstrap</command> command:
      /mnt/debinst http://ftp.us.debian.org/debian
 </screen></informalexample>
 
+If the target architecture is different than the host, you should add the
+<userinput>--foreign</userinput> option.
+
 </para>
   </sect2>
 
@@ -205,6 +208,14 @@ Now you've got a real &debian; system, though rather lean, on disk.
 # LANG=C.UTF-8 chroot /mnt/debinst /bin/bash
 </screen></informalexample>
 
+If the target architecture is different from the host,
+you will need to first copy qemu-user-static to the new host:
+
+<informalexample><screen>
+# cp /usr/bin/qemu-ARCH-static /mnt/debinst/usr/bin
+# LANG=C.UTF-8 chroot /mnt/debinst /bin/bash
+</screen></informalexample>
+
 After chrooting you may need to set the terminal definition to be
 compatible with the &debian; base system, for example:
 
@@ -214,6 +225,13 @@ compatible with the &debian; base system, for example:
 
 Depending on the value of TERM, you may have to install the
 <classname>ncurses-term</classname> package to get support for it.
+
+If the target architecture is different from the host,
+you need to finish the multi-stage boot strap:
+
+<informalexample><screen>
+/debootstrap/debootstrap --second-stage
+</screen></informalexample>
 
 </para>
 
