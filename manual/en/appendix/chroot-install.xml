@@ -213,7 +213,7 @@ you will need to first copy qemu-user-static to the new host:
 
 <informalexample><screen>
 # cp /usr/bin/qemu-ARCH-static /mnt/debinst/usr/bin
-# LANG=C.UTF-8 chroot /mnt/debinst /bin/bash
+# LANG=C.UTF-8 chroot /mnt/debinst qemu-ARCH-static /bin/bash
 </screen></informalexample>
 
 After chrooting you may need to set the terminal definition to be
@@ -225,7 +225,8 @@ compatible with the &debian; base system, for example:
 
 Depending on the value of TERM, you may have to install the
 <classname>ncurses-term</classname> package to get support for it.
-
+</para>
+<para>
 If the target architecture is different from the host,
 you need to finish the multi-stage boot strap:
 
