@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2016-11-25 19:03+0000\n"
+"POT-Creation-Date: 2016-12-15 20:07+0000\n"
 "PO-Revision-Date: 2014-03-09 23:25+0100\n"
 "Last-Translator: Judit Gyimesi <judit.gyimesi.x@gmail.com>\n"
 "Language-Team: Hungarian\n"
@@ -986,7 +986,11 @@ msgid ""
 "<userinput>armhf</userinput>, <userinput>i386</userinput>, <userinput>mips</"
 "userinput>, <userinput>mips64el</userinput>, <userinput>mipsel</userinput>, "
 "<userinput>powerpc</userinput>, <userinput>ppc64el</userinput>, or "
-"<userinput>s390x</userinput>."
+"<userinput>s390x</userinput>. <informalexample><screen>\n"
+"# /usr/sbin/debootstrap --arch ARCH &releasename; \\\n"
+"     /mnt/debinst http://ftp.us.debian.org/debian\n"
+"</screen></informalexample> If the target architecture is different than the "
+"host, you should add the <userinput>--foreign</userinput> option."
 msgstr ""
 "A <command>debootstrap</command> parancsban az <replaceable>ARCH</"
 "replaceable> az alábbi értékekkel helyettesíthető: <userinput>amd64</"
@@ -995,29 +999,35 @@ msgstr ""
 "userinput>, <userinput>mipsel</userinput>, <userinput>powerpc</userinput>, "
 "<userinput>ppc64el</userinput>, vagy <userinput>s390x</userinput>."
 
-#. Tag: screen
-#: random-bits.xml:484
-#, no-c-format
-msgid ""
-"# /usr/sbin/debootstrap --arch ARCH &releasename; \\\n"
-"     /mnt/debinst http://ftp.us.debian.org/debian"
-msgstr ""
-"# /usr/sbin/debootstrap --arch ARCH &releasename; \\\n"
-"     /mnt/debinst http://ftp.us.debian.org/debian"
-
 #. Tag: title
-#: random-bits.xml:490
+#: random-bits.xml:493
 #, no-c-format
 msgid "Configure The Base System"
 msgstr "Az alaprendszer beálíltása"
 
 #. Tag: para
-#: random-bits.xml:491
-#, no-c-format
+#: random-bits.xml:494
+#, fuzzy, no-c-format
+#| msgid ""
+#| "Now you've got a real &debian; system, though rather lean, on disk. "
+#| "<command>chroot</command> into it: <informalexample><screen>\n"
+#| "# LANG=C.UTF-8 chroot /mnt/debinst /bin/bash\n"
+#| "</screen></informalexample> After chrooting you may need to set the "
+#| "terminal definition to be compatible with the &debian; base system, for "
+#| "example: <informalexample><screen>\n"
+#| "# export TERM=<replaceable>xterm-color</replaceable>\n"
+#| "</screen></informalexample> Depending on the value of TERM, you may have "
+#| "to install the <classname>ncurses-term</classname> package to get support "
+#| "for it."
 msgid ""
 "Now you've got a real &debian; system, though rather lean, on disk. "
 "<command>chroot</command> into it: <informalexample><screen>\n"
 "# LANG=C.UTF-8 chroot /mnt/debinst /bin/bash\n"
+"</screen></informalexample> If the target architecture is different from the "
+"host, you will need to first copy qemu-user-static to the new host: "
+"<informalexample><screen>\n"
+"# cp /usr/bin/qemu-ARCH-static /mnt/debinst/usr/bin\n"
+"# LANG=C.UTF-8 chroot /mnt/debinst qemu-ARCH-static /bin/bash\n"
 "</screen></informalexample> After chrooting you may need to set the terminal "
 "definition to be compatible with the &debian; base system, for example: "
 "<informalexample><screen>\n"
@@ -1038,14 +1048,28 @@ msgstr ""
 "<classname>ncurses-term</classname> csomagot is telepítened kell, hogy "
 "támogatást kapj hozzá."
 
+#. Tag: para
+#: random-bits.xml:514
+#, no-c-format
+msgid ""
+"If the target architecture is different from the host, you need to finish "
+"the multi-stage boot strap:"
+msgstr ""
+
+#. Tag: screen
+#: random-bits.xml:518
+#, no-c-format
+msgid "/debootstrap/debootstrap --second-stage"
+msgstr ""
+
 #. Tag: title
-#: random-bits.xml:509
+#: random-bits.xml:523
 #, no-c-format
 msgid "Create device files"
 msgstr "Eszközfájlok létrehozása"
 
 #. Tag: para
-#: random-bits.xml:510
+#: random-bits.xml:524
 #, no-c-format
 msgid ""
 "At this point <filename>/dev/</filename> only contains very basic device "
@@ -1064,13 +1088,13 @@ msgstr ""
 "vagy statikus eszközfájlokat szeretnél használni az új rendszerrel. "
 
 #. Tag: para
-#: random-bits.xml:520
+#: random-bits.xml:534
 #, no-c-format
 msgid "A few of the available options are:"
 msgstr "Néhány az elérhető lehetőségek közül:"
 
 #. Tag: para
-#: random-bits.xml:525
+#: random-bits.xml:539
 #, no-c-format
 msgid ""
 "install the makedev package, and create a default set of static device files "
@@ -1080,7 +1104,7 @@ msgstr ""
 "alaphalmazát(chroot után), így "
 
 #. Tag: screen
-#: random-bits.xml:529
+#: random-bits.xml:543
 #, fuzzy, no-c-format
 #| msgid ""
 #| "# apt-get install makedev\n"
@@ -1099,7 +1123,7 @@ msgstr ""
 "# MAKEDEV generic"
 
 #. Tag: para
-#: random-bits.xml:532
+#: random-bits.xml:546
 #, no-c-format
 msgid ""
 "manually create only specific device files using <command>MAKEDEV</command>"
@@ -1108,7 +1132,7 @@ msgstr ""
 "paranccsal"
 
 #. Tag: para
-#: random-bits.xml:537
+#: random-bits.xml:551
 #, no-c-format
 msgid ""
 "bind mount /dev from your host system on top of /dev in the target system; "
@@ -1120,13 +1144,13 @@ msgstr ""
 "létrehozni eszköz fájlokat, ezért ez a lehetőség csak óvatosan használandó"
 
 #. Tag: title
-#: random-bits.xml:550
+#: random-bits.xml:564
 #, no-c-format
 msgid "Mount Partitions"
 msgstr "Partíciók csatolása"
 
 #. Tag: para
-#: random-bits.xml:551
+#: random-bits.xml:565
 #, no-c-format
 msgid ""
 "You need to create <filename>/etc/fstab</filename>. "
@@ -1210,13 +1234,13 @@ msgstr ""
 "folytatás előtt:"
 
 #. Tag: screen
-#: random-bits.xml:577
+#: random-bits.xml:591
 #, no-c-format
 msgid "# mount -t proc proc /proc"
 msgstr "# mount -t proc proc /proc"
 
 #. Tag: para
-#: random-bits.xml:579
+#: random-bits.xml:593
 #, no-c-format
 msgid ""
 "The command <userinput>ls /proc</userinput> should now show a non-empty "
@@ -1227,19 +1251,19 @@ msgstr ""
 "kell csatolnod:"
 
 #. Tag: screen
-#: random-bits.xml:585
+#: random-bits.xml:599
 #, no-c-format
 msgid "# mount -t proc proc /mnt/debinst/proc"
 msgstr "# mount -t proc proc /mnt/debinst/proc"
 
 #. Tag: title
-#: random-bits.xml:591
+#: random-bits.xml:605
 #, no-c-format
 msgid "Setting Timezone"
 msgstr "Időzóna beállítása"
 
 #. Tag: para
-#: random-bits.xml:592
+#: random-bits.xml:606
 #, no-c-format
 msgid ""
 "Setting the third line of the file <filename>/etc/adjtime</filename> to "
@@ -1266,19 +1290,19 @@ msgstr ""
 "</screen></informalexample> Az alábbi paranccsal állítható be az időzóna."
 
 #. Tag: screen
-#: random-bits.xml:606
+#: random-bits.xml:620
 #, no-c-format
 msgid "# dpkg-reconfigure tzdata"
 msgstr "# dpkg-reconfigure tzdata"
 
 #. Tag: title
-#: random-bits.xml:612
+#: random-bits.xml:626
 #, no-c-format
 msgid "Configure Networking"
 msgstr "Hálózat beállítása"
 
 #. Tag: para
-#: random-bits.xml:613
+#: random-bits.xml:627
 #, no-c-format
 msgid ""
 "To configure networking, edit <filename>/etc/network/interfaces</filename>, "
@@ -1401,13 +1425,13 @@ msgstr ""
 "eth1 és így tovább)."
 
 #. Tag: title
-#: random-bits.xml:654
+#: random-bits.xml:668
 #, no-c-format
 msgid "Configure Apt"
 msgstr "Az APT beállítása"
 
 #. Tag: para
-#: random-bits.xml:655
+#: random-bits.xml:669
 #, fuzzy, no-c-format
 #| msgid ""
 #| "Debootstrap will have created a very basic <filename>/etc/apt/sources."
@@ -1444,13 +1468,13 @@ msgstr ""
 "userinput> parancsot a forrás-lista fájl módosítása után."
 
 #. Tag: title
-#: random-bits.xml:671
+#: random-bits.xml:685
 #, no-c-format
 msgid "Configure Locales and Keyboard"
 msgstr "Honosítás és billentyűzet beállítása"
 
 #. Tag: para
-#: random-bits.xml:672
+#: random-bits.xml:686
 #, fuzzy, no-c-format
 #| msgid ""
 #| "To configure your locale settings to use a language other than English, "
@@ -1477,7 +1501,7 @@ msgstr ""
 "</screen></informalexample> Állítsd be a billentyűzetet (ha szükséges):"
 
 #. Tag: screen
-#: random-bits.xml:682
+#: random-bits.xml:696
 #, fuzzy, no-c-format
 #| msgid ""
 #| "# aptitude install console-setup\n"
@@ -1490,7 +1514,7 @@ msgstr ""
 "# dpkg-reconfigure keyboard-configuration"
 
 #. Tag: para
-#: random-bits.xml:684
+#: random-bits.xml:698
 #, no-c-format
 msgid ""
 "Note that the keyboard cannot be set while in the chroot, but will be "
@@ -1500,13 +1524,13 @@ msgstr ""
 "újraindítás után igen."
 
 #. Tag: title
-#: random-bits.xml:694
+#: random-bits.xml:708
 #, no-c-format
 msgid "Install a Kernel"
 msgstr "Kernel telepítése"
 
 #. Tag: para
-#: random-bits.xml:695
+#: random-bits.xml:709
 #, no-c-format
 msgid ""
 "If you intend to boot this system, you probably want a &arch-kernel; kernel "
@@ -1516,21 +1540,21 @@ msgstr ""
 "elérhető elő-csomagolt kernelek ezzel találhatod meg:"
 
 #. Tag: screen
-#: random-bits.xml:700
+#: random-bits.xml:714
 #, fuzzy, no-c-format
 #| msgid "# apt-cache search &kernelpackage;"
 msgid "# apt search &kernelpackage;"
 msgstr "# apt-cache search &kernelpackage;"
 
 #. Tag: para
-#: random-bits.xml:702
+#: random-bits.xml:716
 #, no-c-format
 msgid "Then install the kernel package of your choice using its package name."
 msgstr ""
 "Ezután telepítsd a választott kernel csomagot a csomagneve használatával."
 
 #. Tag: screen
-#: random-bits.xml:706
+#: random-bits.xml:720
 #, fuzzy, no-c-format
 #| msgid ""
 #| "# aptitude install &kernelpackage;-<replaceable>arch-etc</replaceable>"
@@ -1538,13 +1562,13 @@ msgid "# apt install &kernelpackage;-<replaceable>arch-etc</replaceable>"
 msgstr "# aptitude install &kernelpackage;-<replaceable>arch-etc</replaceable>"
 
 #. Tag: title
-#: random-bits.xml:712
+#: random-bits.xml:726
 #, no-c-format
 msgid "Set up the Boot Loader"
 msgstr "A boot betöltő beállítása"
 
 #. Tag: para
-#: random-bits.xml:713
+#: random-bits.xml:727
 #, fuzzy, no-c-format
 #| msgid ""
 #| "To make your &debian-gnu; system bootable, set up your boot loader to "
@@ -1563,7 +1587,7 @@ msgstr ""
 "<command>aptitude</command> használható a &debian; chroot környezetben erre."
 
 #. Tag: para
-#: random-bits.xml:720
+#: random-bits.xml:734
 #, no-c-format
 msgid ""
 "Check <userinput>info grub</userinput> <phrase arch=\"x86\">or "
@@ -1587,7 +1611,7 @@ msgstr ""
 "<filename>lilo.conf</filename> fájlját használja)</phrase>."
 
 #. Tag: para
-#: random-bits.xml:732
+#: random-bits.xml:746
 #, fuzzy, no-c-format
 #| msgid ""
 #| "Installing and setting up <classname>grub2</classname> is as easy as: "
@@ -1620,7 +1644,7 @@ msgstr ""
 "készít egy működő <filename>/boot/grub/grub.cfg</filename> fájlt."
 
 #. Tag: para
-#: random-bits.xml:742
+#: random-bits.xml:756
 #, no-c-format
 msgid ""
 "Note that this assumes that a <filename>/dev/sda</filename> device file has "
@@ -1632,13 +1656,13 @@ msgstr ""
 "telepítésre, de azok nem tartoznak e függelék hatókörén."
 
 #. Tag: para
-#: random-bits.xml:748
+#: random-bits.xml:762
 #, no-c-format
 msgid "Here is a basic <filename>/etc/lilo.conf</filename> as an example:"
 msgstr "Itt egy alap <filename>/etc/lilo.conf</filename> példaként:"
 
 #. Tag: screen
-#: random-bits.xml:752
+#: random-bits.xml:766
 #, no-c-format
 msgid ""
 "boot=/dev/<replaceable>sda6</replaceable>\n"
@@ -1660,7 +1684,7 @@ msgstr ""
 "label=Debian"
 
 #. Tag: para
-#: random-bits.xml:754
+#: random-bits.xml:768
 #, no-c-format
 msgid ""
 "Check <userinput>man yaboot.conf</userinput> for instructions on setting up "
@@ -1679,7 +1703,7 @@ msgstr ""
 "fájlját használja)."
 
 #. Tag: para
-#: random-bits.xml:764
+#: random-bits.xml:778
 #, no-c-format
 msgid ""
 "Here is a basic <filename>/etc/yaboot.conf</filename> as an example: "
@@ -1709,14 +1733,14 @@ msgstr ""
 "használata kell a <userinput>hd:</userinput> helyett."
 
 #. Tag: title
-#: random-bits.xml:777
+#: random-bits.xml:791
 #, fuzzy, no-c-format
 #| msgid "Remote access: Installing SSH and setting a password"
 msgid "Remote access: Installing SSH and setting up access"
 msgstr "Távoli elérés: SSH telepítése és jelszó beállítása"
 
 #. Tag: para
-#: random-bits.xml:778
+#: random-bits.xml:792
 #, no-c-format
 msgid ""
 "In case you can login to the system via console, you can skip this section. "
@@ -1742,7 +1766,7 @@ msgid ""
 msgstr ""
 
 #. Tag: screen
-#: random-bits.xml:802
+#: random-bits.xml:816
 #, no-c-format
 msgid ""
 "# adduser joe\n"
@@ -1750,13 +1774,13 @@ msgid ""
 msgstr ""
 
 #. Tag: title
-#: random-bits.xml:807
+#: random-bits.xml:821
 #, no-c-format
 msgid "Finishing touches"
 msgstr "Utolsó simítások"
 
 #. Tag: para
-#: random-bits.xml:808
+#: random-bits.xml:822
 #, fuzzy, no-c-format
 #| msgid ""
 #| "As mentioned earlier, the installed system will be very basic. If you "
@@ -1783,7 +1807,7 @@ msgstr ""
 "használható az egyes csomagok telepítésére."
 
 #. Tag: para
-#: random-bits.xml:819
+#: random-bits.xml:833
 #, no-c-format
 msgid ""
 "After the installation there will be a lot of downloaded packages in "
@@ -1795,20 +1819,20 @@ msgstr ""
 "hely például így:"
 
 #. Tag: screen
-#: random-bits.xml:825
+#: random-bits.xml:839
 #, fuzzy, no-c-format
 #| msgid "# aptitude clean"
 msgid "# apt clean"
 msgstr "# aptitude clean"
 
 #. Tag: title
-#: random-bits.xml:836
+#: random-bits.xml:850
 #, no-c-format
 msgid "Installing &debian-gnu; over Parallel Line IP (PLIP)"
 msgstr "A &debian-gnu; telepítése Parallel Line IP (PLIP) felett"
 
 #. Tag: para
-#: random-bits.xml:838
+#: random-bits.xml:852
 #, no-c-format
 msgid ""
 "This section explains how to install &debian-gnu; on a computer without an "
@@ -1823,7 +1847,7 @@ msgstr ""
 "elérő hálózaton van (például Interneten)."
 
 #. Tag: para
-#: random-bits.xml:846
+#: random-bits.xml:860
 #, no-c-format
 msgid ""
 "In the example in this appendix we will set up a PLIP connection using a "
@@ -1838,7 +1862,7 @@ msgstr ""
 "(természetesen, ha ezeket használjuk, más ne használja a hálózaton)."
 
 #. Tag: para
-#: random-bits.xml:854
+#: random-bits.xml:868
 #, no-c-format
 msgid ""
 "The PLIP connection set up during the installation will also be available "
@@ -1849,7 +1873,7 @@ msgstr ""
 "után is elérhető (lásd: <xref linkend=\"boot-new\"/>)."
 
 #. Tag: para
-#: random-bits.xml:859
+#: random-bits.xml:873
 #, no-c-format
 msgid ""
 "Before you start, you will need to check the BIOS configuration (IO base "
@@ -1862,13 +1886,13 @@ msgstr ""
 "<literal>io=0x378</literal>, <literal>irq=7</literal>."
 
 #. Tag: title
-#: random-bits.xml:869
+#: random-bits.xml:883
 #, no-c-format
 msgid "Requirements"
 msgstr "Követelmények"
 
 #. Tag: para
-#: random-bits.xml:872
+#: random-bits.xml:886
 #, no-c-format
 msgid ""
 "A target computer, called <emphasis>target</emphasis>, where &debian; will "
@@ -1878,13 +1902,13 @@ msgstr ""
 "rendszert most telepítjük."
 
 #. Tag: para
-#: random-bits.xml:878
+#: random-bits.xml:892
 #, no-c-format
 msgid "System installation media; see <xref linkend=\"installation-media\"/>."
 msgstr "Rendszer telepítő média; lásd: <xref linkend=\"installation-media\"/>."
 
 #. Tag: para
-#: random-bits.xml:883
+#: random-bits.xml:897
 #, no-c-format
 msgid ""
 "Another computer connected to the Internet, called <emphasis>source</"
@@ -1894,7 +1918,7 @@ msgstr ""
 "emphasis>, mely az átjárót adja majd."
 
 #. Tag: para
-#: random-bits.xml:889
+#: random-bits.xml:903
 #, no-c-format
 msgid ""
 "A DB-25 Null-Modem cable. See the <ulink url=\"&url-plip-install-howto;"
@@ -1906,13 +1930,13 @@ msgstr ""
 "készítésének módjáról."
 
 #. Tag: title
-#: random-bits.xml:901
+#: random-bits.xml:915
 #, no-c-format
 msgid "Setting up source"
 msgstr "Forrás beállítása"
 
 #. Tag: para
-#: random-bits.xml:902
+#: random-bits.xml:916
 #, no-c-format
 msgid ""
 "The following shell script is a simple example of how to configure the "
@@ -1922,7 +1946,7 @@ msgstr ""
 "állítására az Internetre a ppp0 által."
 
 #. Tag: screen
-#: random-bits.xml:907
+#: random-bits.xml:921
 #, no-c-format
 msgid ""
 "#!/bin/sh\n"
@@ -1964,13 +1988,13 @@ msgstr ""
 "echo 1 > /proc/sys/net/ipv4/ip_forward"
 
 #. Tag: title
-#: random-bits.xml:913
+#: random-bits.xml:927
 #, no-c-format
 msgid "Installing target"
 msgstr "A cél telepítése"
 
 #. Tag: para
-#: random-bits.xml:914
+#: random-bits.xml:928
 #, no-c-format
 msgid ""
 "Boot the installation media. The installation needs to be run in expert "
@@ -1996,13 +2020,13 @@ msgstr ""
 "válaszok."
 
 #. Tag: guimenuitem
-#: random-bits.xml:933
+#: random-bits.xml:947
 #, no-c-format
 msgid "Load installer components from CD"
 msgstr "Telepítő összetevők betöltése CD-lemezről"
 
 #. Tag: para
-#: random-bits.xml:935
+#: random-bits.xml:949
 #, no-c-format
 msgid ""
 "Select the <userinput>plip-modules</userinput> option from the list; this "
@@ -2012,13 +2036,13 @@ msgstr ""
 "meghajtók elérhetőek lesznek a telepítő rendszer számára."
 
 #. Tag: guimenuitem
-#: random-bits.xml:943
+#: random-bits.xml:957
 #, no-c-format
 msgid "Detect network hardware"
 msgstr "Hálózati hardver érzékelése"
 
 #. Tag: para
-#: random-bits.xml:948
+#: random-bits.xml:962
 #, no-c-format
 msgid ""
 "If target <emphasis>does</emphasis> have a network card, a list of driver "
@@ -2032,7 +2056,7 @@ msgstr ""
 "hálózati kártya, a telepítő nem adja e listát."
 
 #. Tag: para
-#: random-bits.xml:957
+#: random-bits.xml:971
 #, no-c-format
 msgid ""
 "Because no network card was detected/selected earlier, the installer will "
@@ -2044,26 +2068,26 @@ msgstr ""
 "modult."
 
 #. Tag: guimenuitem
-#: random-bits.xml:969
+#: random-bits.xml:983
 #, no-c-format
 msgid "Configure the network"
 msgstr "Hálózat beállítása"
 
 #. Tag: para
-#: random-bits.xml:972
+#: random-bits.xml:986
 #, no-c-format
 msgid "Auto-configure network with DHCP: No"
 msgstr "Hálózat automata-beállítása DHCP segítségével: Nem"
 
 #. Tag: para
-#: random-bits.xml:977
+#: random-bits.xml:991
 #, no-c-format
 msgid ""
 "IP address: <userinput><replaceable>192.168.0.1</replaceable></userinput>"
 msgstr "IP cím: <userinput><replaceable>192.168.0.1</replaceable></userinput>"
 
 #. Tag: para
-#: random-bits.xml:982
+#: random-bits.xml:996
 #, no-c-format
 msgid ""
 "Point-to-point address: <userinput><replaceable>192.168.0.2</replaceable></"
@@ -2072,7 +2096,7 @@ msgstr ""
 "Pont-pont cím: <userinput><replaceable>192.168.0.2</replaceable></userinput>"
 
 #. Tag: para
-#: random-bits.xml:988
+#: random-bits.xml:1002
 #, no-c-format
 msgid ""
 "Name server addresses: you can enter the same addresses used on source (see "
@@ -2082,13 +2106,13 @@ msgstr ""
 "<filename>/etc/resolv.conf</filename> fájlt)"
 
 #. Tag: title
-#: random-bits.xml:1007
+#: random-bits.xml:1021
 #, no-c-format
 msgid "Installing &debian-gnu; using PPP over Ethernet (PPPoE)"
 msgstr "A &debian-gnu; telepítése PPP over Ethernet (PPPoE) használatával"
 
 #. Tag: para
-#: random-bits.xml:1009
+#: random-bits.xml:1023
 #, no-c-format
 msgid ""
 "In some countries PPP over Ethernet (PPPoE) is a common protocol for "
@@ -2103,7 +2127,7 @@ msgstr ""
 "telepítő, de nagyon könnyen használatba vehető. E szakasz leírja: hogyan."
 
 #. Tag: para
-#: random-bits.xml:1017
+#: random-bits.xml:1031
 #, no-c-format
 msgid ""
 "The PPPoE connection set up during the installation will also be available "
@@ -2114,7 +2138,7 @@ msgstr ""
 "újraindítása után is elérhető (lásd: <xref linkend=\"boot-new\"/>)."
 
 #. Tag: para
-#: random-bits.xml:1022
+#: random-bits.xml:1036
 #, no-c-format
 msgid ""
 "To have the option of setting up and using PPPoE during the installation, "
@@ -2127,7 +2151,7 @@ msgstr ""
 "netboot<phrase condition=\"supports-floppy-boot\"> vagy flopi</phrase>)."
 
 #. Tag: para
-#: random-bits.xml:1029
+#: random-bits.xml:1043
 #, no-c-format
 msgid ""
 "Installing over PPPoE is mostly the same as any other installation. The "
@@ -2136,7 +2160,7 @@ msgstr ""
 "A PPPoE és más telepítések szinte egyeznek. Az alábbi lépések a különbségek."
 
 #. Tag: para
-#: random-bits.xml:1037
+#: random-bits.xml:1051
 #, no-c-format
 msgid ""
 "Boot the installer with the boot parameter <userinput>modules=ppp-udeb</"
@@ -2152,7 +2176,7 @@ msgstr ""
 "(<classname>ppp-udeb</classname>) önműködően betöltésre és futtatásra kerül."
 
 #. Tag: para
-#: random-bits.xml:1052
+#: random-bits.xml:1066
 #, no-c-format
 msgid ""
 "Follow the regular initial steps of the installation (language, country and "
@@ -2172,7 +2196,7 @@ msgstr ""
 "</footnote>)"
 
 #. Tag: para
-#: random-bits.xml:1071
+#: random-bits.xml:1085
 #, no-c-format
 msgid ""
 "The next step is the detection of network hardware, in order to identify any "
@@ -2182,7 +2206,7 @@ msgstr ""
 "Ethernet kártya azonosítására."
 
 #. Tag: para
-#: random-bits.xml:1077
+#: random-bits.xml:1091
 #, no-c-format
 msgid ""
 "After this the actual setup of PPPoE is started. The installer will probe "
@@ -2193,7 +2217,7 @@ msgstr ""
 "PPPoE koncentrátort (egy PPPoE kapcsolatokat kezelő kiszolgáló típus)."
 
 #. Tag: para
-#: random-bits.xml:1083
+#: random-bits.xml:1097
 #, no-c-format
 msgid ""
 "It is possible that the concentrator will not to be found at the first "
@@ -2208,7 +2232,7 @@ msgstr ""
 "a telepítő fő menüjéből."
 
 #. Tag: para
-#: random-bits.xml:1092
+#: random-bits.xml:1106
 #, no-c-format
 msgid ""
 "After a concentrator is found, the user will be prompted to type the login "
@@ -2218,7 +2242,7 @@ msgstr ""
 "(a PPPoE felhasználónevet és jelszót)."
 
 #. Tag: para
-#: random-bits.xml:1098
+#: random-bits.xml:1112
 #, no-c-format
 msgid ""
 "At this point the installer will use the provided information to establish "
@@ -2235,6 +2259,13 @@ msgstr ""
 "letöltésére (ha szükséges). Ha a bejelentkezési adatok rosszak vagy más hiba "
 "esetén a telepítő szünetel és a beállítás javítható a <guimenuitem>PPPoE "
 "kapcsolat beállítása és indítása</guimenuitem> ponttal."
+
+#~ msgid ""
+#~ "# /usr/sbin/debootstrap --arch ARCH &releasename; \\\n"
+#~ "     /mnt/debinst http://ftp.us.debian.org/debian"
+#~ msgstr ""
+#~ "# /usr/sbin/debootstrap --arch ARCH &releasename; \\\n"
+#~ "     /mnt/debinst http://ftp.us.debian.org/debian"
 
 #~ msgid "SCSI Hard disk with lowest SCSI ID (e.g. 0)"
 #~ msgstr "SCSI merevlemez a legalacsonyabb SCSI ID-vel (például 0)"
