@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2016-12-15 20:07+0000\n"
-"PO-Revision-Date: 2016-11-26 04:03+0900\n"
+"PO-Revision-Date: 2016-12-16 05:07+0900\n"
 "Last-Translator: KURASAWA Nozomu (nabetaro) <nabetaro@debian.or.jp>\n"
 "Language-Team: Japanese <debian-japanese@lists.debian.org>\n"
 "Language: ja\n"
@@ -968,15 +968,7 @@ msgstr ""
 
 #. Tag: para
 #: random-bits.xml:467
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Substitute one of the following for <replaceable>ARCH</replaceable> in "
-#| "the <command>debootstrap</command> command: <userinput>amd64</userinput>, "
-#| "<userinput>arm64</userinput>, <userinput>armel</userinput>, "
-#| "<userinput>armhf</userinput>, <userinput>i386</userinput>, "
-#| "<userinput>mips</userinput>, <userinput>mips64el</userinput>, "
-#| "<userinput>mipsel</userinput>, <userinput>powerpc</userinput>, "
-#| "<userinput>ppc64el</userinput>, or <userinput>s390x</userinput>."
+#, no-c-format
 msgid ""
 "Substitute one of the following for <replaceable>ARCH</replaceable> in the "
 "<command>debootstrap</command> command: <userinput>amd64</userinput>, "
@@ -991,12 +983,16 @@ msgid ""
 "host, you should add the <userinput>--foreign</userinput> option."
 msgstr ""
 "<command>debootstrap</command> コマンドの <replaceable>ARCH</replaceable> "
-"は、以下のうち一つを使用してください。<userinput>amd64</userinput>, "
-"<userinput>arm64</userinput>, <userinput>armel</userinput>, "
-"<userinput>armhf</userinput>, <userinput>i386</userinput>, <userinput>mips</"
-"userinput>, <userinput>mips64el</userinput>, <userinput>mipsel</userinput>, "
-"<userinput>powerpc</userinput>, <userinput>ppc64el</userinput>, "
-"<userinput>s390x</userinput> です。"
+"は、<userinput>amd64</userinput>, <userinput>arm64</userinput>, "
+"<userinput>armel</userinput>, <userinput>armhf</userinput>, <userinput>i386</"
+"userinput>, <userinput>mips</userinput>, <userinput>mips64el</userinput>, "
+"<userinput>mipsel</userinput>, <userinput>powerpc</userinput>, "
+"<userinput>ppc64el</userinput>, <userinput>s390x</userinput> のどれかと置き換"
+"えるか、<informalexample><screen>\n"
+"# /usr/sbin/debootstrap --arch ARCH &releasename; \\\n"
+"     /mnt/debinst http://ftp.us.debian.org/debian\n"
+"</screen></informalexample> のようにします。所用のアーキテクチャがホストとは"
+"異なる場合には <userinput>--foreign</userinput> オプションを追加します。"
 
 #. Tag: title
 #: random-bits.xml:493
@@ -1006,18 +1002,7 @@ msgstr "基本システムの設定"
 
 #. Tag: para
 #: random-bits.xml:494
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Now you've got a real &debian; system, though rather lean, on disk. "
-#| "<command>chroot</command> into it: <informalexample><screen>\n"
-#| "# LANG=C.UTF-8 chroot /mnt/debinst /bin/bash\n"
-#| "</screen></informalexample> After chrooting you may need to set the "
-#| "terminal definition to be compatible with the &debian; base system, for "
-#| "example: <informalexample><screen>\n"
-#| "# export TERM=<replaceable>xterm-color</replaceable>\n"
-#| "</screen></informalexample> Depending on the value of TERM, you may have "
-#| "to install the <classname>ncurses-term</classname> package to get support "
-#| "for it."
+#, no-c-format
 msgid ""
 "Now you've got a real &debian; system, though rather lean, on disk. "
 "<command>chroot</command> into it: <informalexample><screen>\n"
@@ -1039,13 +1024,17 @@ msgstr ""
 "手に入れました。そこに <command>chroot</command> してください。"
 "<informalexample><screen>\n"
 "# LANG=C.UTF-8 chroot /mnt/debinst /bin/bash\n"
-"</screen></informalexample> chroot した後で、&debian; 基本システムと互換のあ"
-"る端末定義を設定する必要があるかもしれません。例えば以下のようにします。"
-"<informalexample><screen>\n"
+"</screen></informalexample> 所用のアーキテクチャがホストとは"
+"異なる場合にはまず、qemu-user-static を新しいホストにコピーする必要があるかも"
+"しれません。<informalexample><screen>\n"
+"# cp /usr/bin/qemu-ARCH-static /mnt/debinst/usr/bin\n"
+"# LANG=C.UTF-8 chroot /mnt/debinst qemu-ARCH-static /bin/bash\n"
+"</screen></informalexample> chroot した後で &debian; 基本システムと互換のある"
+"端末定義を設定する必要があるかもしれません。例えば<informalexample><screen>\n"
 "# export TERM=<replaceable>xterm-color</replaceable>\n"
-"</screen></informalexample> TERM の値により、その値をサポートするのに "
-"<classname>ncurses-term</classname> パッケージをインストールする必要があるか"
-"もしれません。"
+"</screen></informalexample> のようにします。TERM の値により、その値をサポート"
+"するのに <classname>ncurses-term</classname> パッケージをインストールする必要"
+"があるかもしれません。"
 
 #. Tag: para
 #: random-bits.xml:514
@@ -1054,12 +1043,14 @@ msgid ""
 "If the target architecture is different from the host, you need to finish "
 "the multi-stage boot strap:"
 msgstr ""
+"所用のアーキテクチャがホストとは異なる場合には複数段階の前処理を終えておく必"
+"要があるかもしれません。"
 
 #. Tag: screen
 #: random-bits.xml:518
 #, no-c-format
 msgid "/debootstrap/debootstrap --second-stage"
-msgstr ""
+msgstr "/debootstrap/debootstrap --second-stage"
 
 #. Tag: title
 #: random-bits.xml:523
