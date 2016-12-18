@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 70321 -->
+<!-- original version: 70398 -->
 
  <sect1 id="linux-upgrade">
  <title>&debian-gnu; von einem anderen Unix/Linux-System aus installieren</title>
@@ -205,8 +205,11 @@ ein:
 
 <informalexample><screen>
 # /usr/sbin/debootstrap --arch ARCH &releasename; \
-    /mnt/debinst http://ftp.us.debian.org/debian
+    /mnt/debinst http://ftp.de.debian.org/debian
 </screen></informalexample>
+
+Falls die Zielarchitektur sich von der des Host-Systems unterscheidet,
+sollten Sie hier die Option <userinput>--foreign</userinput> hinzufügen.
 
 </para>
   </sect2>
@@ -222,6 +225,15 @@ der Festplatte. Wechseln Sie mit <command>chroot</command> hinein:
 # LANG=C.UTF-8 chroot /mnt/debinst /bin/bash
 </screen></informalexample>
 
+Falls die Zielarchitektur sich von der des Host-Systems unterscheidet,
+müssen Sie vorher qemu-user-static installieren und auf das neue System
+kopieren:
+
+<informalexample><screen>
+# cp /usr/bin/qemu-ARCH-static /mnt/debinst/usr/bin
+# LANG=C.UTF-8 chroot /mnt/debinst qemu-ARCH-static /bin/bash
+</screen></informalexample>
+
 Danach müssen Sie unter Umständen die Definition der Terminal-Variable
 anpassen, so dass sie mit dem &debian;-Basissystem kompatibel ist, zum Beispiel:
 
@@ -232,6 +244,15 @@ anpassen, so dass sie mit dem &debian;-Basissystem kompatibel ist, zum Beispiel:
 Abhängig von dem Wert von TERM müssen Sie unter Umständen das Paket
 <classname>ncurses-term</classname> installieren, um Unterstützung dafür
 zu bekommen.
+
+</para><para>
+
+Falls die Zielarchitektur sich von der des Host-Systems unterscheidet,
+müssen Sie den Multistage-Bootstrap-Vorgang abschließen mit:
+ 
+<informalexample><screen>
+/debootstrap/debootstrap --second-stage
+</screen></informalexample>
 
 </para>
 
@@ -492,7 +513,7 @@ möchten Sie vielleicht einige Quellen hinzufügen, z.B. für Quellpakete oder
 für Sicherheits-Updates:
 
 <informalexample><screen>
-deb-src http://ftp.us.debian.org/debian &releasename; main
+deb-src http://ftp.de.debian.org/debian &releasename; main
 
 deb http://security.debian.org/ &releasename;/updates main
 deb-src http://security.debian.org/ &releasename;/updates main

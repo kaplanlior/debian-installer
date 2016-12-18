@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 70253 -->
+<!-- original version: 70396 -->
 
   <sect2 arch="arm"><title>Drei verschiedene ARM-Portierungen</title>
 
@@ -233,10 +233,13 @@ eingebettete (embedded) Systeme</term>
             Der armmp-Kernel unterstützt mehrere Entwickler-Boards und
             eingebettete Systeme, die auf den SoCs Allwinner A10
             (Architektur-Codename <quote>sun4i</quote>), A10s/A13
-            (Architektur-Codename <quote>sun5i</quote>) und A20
-            (Architektur-Codename <quote>sun7i</quote>) basieren.
-            Volle Installer-Funktionalität ist derzeit für folgende
-            sunXi-basierte Systeme verfügbar:
+            (Architektur-Codename <quote>sun5i</quote>), A20
+            (Architektur-Codename <quote>sun7i</quote>), A31/A31s
+            (Architektur-Codename <quote>sun6i</quote>) und A23/A33
+            (Teil der <quote>sun8i</quote>-Familie) basieren.
+            Volle Installer-Funktionalität (inklusive der Beistellung
+            von gebrauchsfertigen SD-Karten-Images mit dem Installer)
+            ist derzeit für folgende sunXi-basierte Systeme verfügbar:
             <itemizedlist>
              <listitem><para>
                Cubietech Cubieboard 1 + 2 / Cubietruck
@@ -248,46 +251,98 @@ eingebettete (embedded) Systeme</term>
                LinkSprite pcDuino und pcDuino3
              </para></listitem>
              <listitem><para>
-               Mele A1000
+               Olimex A10-Olinuxino-LIME / A20-Olinuxino-LIME /
+               A20-Olinuxino-LIME2 / A20-Olinuxino Micro / A20-SOM-EVB
              </para></listitem>
              <listitem><para>
-               Miniand Hackberry
+               Xunlong OrangePi Plus
              </para></listitem>
-             <listitem><para>
-               Olimex A10-Olinuxino-LIME / A10s-Olinuxino Micro /
-               A13-Olinuxino / A13-Olinuxino Micro / 
-               A20-Olinuxino-LIME / A20-Olinuxino-LIME2 / A20-Olinuxino Micro           
-             </para></listitem>
-             <listitem><para>
-               PineRiver Mini X-Plus
-             </para></listitem>
-
             </itemizedlist>  
-          </para> 
+          </para>
           <para>
              Die Systemunterstützung für Allwinner sunXi-basierte Systeme
              ist auf Treiber und Informationen aus dem Gerätedatei-Baum
              beschränkt, welche im Mainline-Linux-Kernel enthalten sind.
-             Die 3.4-Kernel-Serie des Android-Derivates linux-sunxi.org
-             wird von &debian; nicht unterstützt.
+             Hersteller-spezifische Kernel (wie die Allwinner-SDK-Kernel)
+             und die 3.4-Kernel-Serie des Android-Derivates linux-sunxi.org
+             werden von &debian; nicht unterstützt.
           </para> 
           <para>
-             Der Mainline-Linux-Kernel unterstützt auf Allwinner A10-,
-             A10s/A13- und
-             A20-SoCs grundsätzlich die serielle Konsole, Ethernet, SATA,
-             USB und MMC-/SD-Karten, enthält aber keine nativen Treiber für
-             Grafik- (HDMI/VGA/LCD) und Audio-Hardware auf diesen SoCs.
-             Der NAND-Flash-Speicher, der in einige sunXi-basierte Systeme
-             eingebaut ist, wird nicht unterstützt.
+             Der Mainline-Linux-Kernel unterstützt auf den SoCs Allwinner
+             A10-, A10s/A13-, A20-, A23/A33- und A31/A31s
+             grundsätzlich die serielle Konsole, Ethernet, SATA,
+             USB und MMC-/SD-Karten.
+             Der Grad der Unterstützung für lokale Displays (HDMI/VGA/LCD)
+             und Audio-Hardware variert zwischen individuellen Systemen.
+             Für die meisten Systeme enthält der Kernel keine nativen
+             Grafiktreiber, sondern verwendet stattdessen die
+             <quote>simplefb</quote>-Infrastruktur, in der der Bootloader
+             das Display initialisiert und der Kernel dann lediglich den
+             bereits initialisierten Framebuffer weiter nutzt. Dies
+             funktioniert grundsätzlich ziemlich gut, allerdings führt es
+             zu einigen Einschränkungen (die Bildschirmauflösung kann nicht
+             während des Laufens geändert werden und Powermanagement für
+             das Display ist nicht möglich).
           </para>
           <para>
-             Die Verwendung eines lokalen Displays ist durch die
-             <quote>simplefb</quote>-Infrastruktur im Mainline-Kernel
-             technisch gesehen auch ohne native Display-Treiber
-             möglich. <quote>simplefb</quote> ist dabei für die Initialisierung
-             der Display-Hardware auf den <quote>U-Boot</quote>-Bootloader
-             angewiesen.
+             Fest eingebauter Flash-Speicher, der als Massenspeicher
+             genutzt werden kann, existiert auf sunXi-basierten Systemen
+             grundsätzlich in zwei verschiedenen Basisvarianten:
+             als reiner NAND-Flash- oder als eMMC-Flash-Speicher.
+             Die meisten älteren sunXi-basierten Boards mit fest eingebautem
+             Flash-Speicher nutzen reinen NAND-Flash, für den im
+             Mainline-Kernel - und daher auch in Debian - grundsätzlich
+             keine Unterstützung vorhanden ist. Ein Reihe neuerer Systeme
+             nutzt stattdessen eMMC-Flash-Speicher. Solch ein Speicher
+             erscheint im Prinzip als schnelle, fest eingebaute SD-Karte
+             und wird genauso wie reguläre SD-Karten unterstützt.
           </para>
+          <para>
+             Der Installer enthält prinzipiell auch Unterstützung
+             für einige sunXi-basierte Systeme, die oben nicht aufgeführt
+             sind, allerdings ist dies überwiegend ungetestet, da das
+             &debian;-Projekt keinen Zugriff auf die entsprechende
+             Hardware hat. Für solche Systeme stellen wir daher keine
+             gebrauchsfertigen SD-Karten-Images bereit. Dazu gehören
+             folgende Development-Boards:
+            <itemizedlist>
+              <listitem><para>
+                Olimex A10s-Olinuxino Micro / A13-Olinuxino / 
+                A13-Olinuxino Micro
+              </para></listitem>
+              <listitem><para>
+                Sinovoip BPI-M2 (A31s-based)
+              </para></listitem>
+              <listitem><para>
+                Xunlong Orange Pi (A20-based) / Orange Pi Mini (A20-based)
+              </para></listitem>
+            </itemizedlist>
+          </para>
+          <para>
+            Zusätzlich zu den oben genannten SoCs und Systemen enthält
+            der Installer sehr reduzierte Unterstützung für das
+            Allwinner H3-SoC und darauf basierende Systeme.
+            Unterstützung im Mainline-Kernel für H3-Systeme ist zu der
+            Zeit des Freezes für Debian 9 noch überwiegend in den Anfängen,
+            so dass der Installer hier derzeit nur die serielle Konsole,
+            MMC-/SD-Karten und den USB-Host-Controller unterstützt.
+            Es gibt noch keinen Treiber für den Onboard-Ethernet-Port auf
+            H3-Systemen, daher ist eine Netzwerkverbindung nur über einen
+            USB-Ethernet-Adapter oder einen USB-Wifi-Stick möglich.
+            Zu H3-Systemen mit solch reduzierter Installer-Unterstützung
+            gehören:
+            <itemizedlist>
+              <listitem><para>
+                FriendlyARM NanoPi NEO
+              </para></listitem>
+              <listitem><para>
+                Xunlong Orange Pi Lite / Orange Pi One / Orange Pi PC /
+                Orange Pi PC Plus / Orange Pi Plus / Orange Pi Plus 2E /
+                Orange Pi 2
+              </para></listitem>
+            </itemizedlist>
+          </para>
+
         </listitem>
       </varlistentry>
 
