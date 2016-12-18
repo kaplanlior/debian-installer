@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: d-i-manual_random-bits\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2016-12-15 20:07+0000\n"
-"PO-Revision-Date: 2016-11-26 11:40+0100\n"
+"PO-Revision-Date: 2016-12-18 10:40+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -91,7 +91,7 @@ msgstr "<filename>sda</filename>"
 #: random-bits.xml:38
 #, no-c-format
 msgid "First hard disk"
-msgstr ""
+msgstr "Første harddisk"
 
 #. Tag: filename
 #: random-bits.xml:40
@@ -103,7 +103,7 @@ msgstr "<filename>sdb</filename>"
 #: random-bits.xml:41
 #, no-c-format
 msgid "Second hard disk"
-msgstr ""
+msgstr "Anden harddisk"
 
 #. Tag: filename
 #: random-bits.xml:43
@@ -919,6 +919,11 @@ msgid ""
 "below, preferably a mirror close to you network-wise. Mirrors are listed at "
 "<ulink url=\"http://www.debian.org/mirror/list\"></ulink>."
 msgstr ""
+"<command>debootstrap</command> kan hente de krævede filer direkte fra "
+"arkivet når programmet køres. Du kan erstatte ethvert &debian;-arkivspejl "
+"for <userinput>&archive-mirror;/debian</userinput> i kommandoeksemplet "
+"nedenfor, helst et spejl tæt på dig netværksmæssigt. Spejle er vist på "
+"<ulink url=\"http://www.debian.org/mirror/list\"></ulink>."
 
 #. Tag: para
 #: random-bits.xml:461
@@ -928,6 +933,9 @@ msgid ""
 "filename>, you could substitute a file URL instead of the http URL: "
 "<userinput>file:/cdrom/debian/</userinput>"
 msgstr ""
+"Hvis du har en &releasename; &debian-gnu;-cd monteret på <filename>/cdrom</"
+"filename>, så skal du erstatte en filadresse i stedet for http-adressen: "
+"<userinput>file:/cdrom/debian/</userinput>"
 
 #. Tag: para
 #: random-bits.xml:467
@@ -945,6 +953,17 @@ msgid ""
 "</screen></informalexample> If the target architecture is different than the "
 "host, you should add the <userinput>--foreign</userinput> option."
 msgstr ""
+"Erstat en af de følgende for <replaceable>ARCH</replaceable> i "
+"<command>debootstrap</command> kommando: <userinput>amd64</userinput>, "
+"<userinput>arm64</userinput>, <userinput>armel</userinput>, "
+"<userinput>armhf</userinput>, <userinput>i386</userinput>, <userinput>mips</"
+"userinput>, <userinput>mips64el</userinput>, <userinput>mipsel</userinput>, "
+"<userinput>powerpc</userinput>, <userinput>ppc64el</userinput> eller "
+"<userinput>s390x</userinput>. <informalexample><screen>\n"
+"# /usr/sbin/debootstrap --arch ARCH &releasename; \\\n"
+"     /mnt/debinst http://ftp.us.debian.org/debian\n"
+"</screen></informalexample> Hvis målarkitekturen er forskellig fra værten, "
+"skal du tilføje tilvalget <userinput>--foreign</userinput>."
 
 #. Tag: title
 #: random-bits.xml:493
@@ -972,6 +991,20 @@ msgid ""
 "install the <classname>ncurses-term</classname> package to get support for "
 "it."
 msgstr ""
+"Nu har du et reelt &debian;-system, omend noget magert, på disk. "
+"<command>chroot</command> til det: <informalexample><screen>\n"
+"# LANG=C.UTF-8 chroot /mnt/debinst /bin/bash\n"
+"</screen></informalexample> Hvis målarkitekturen er anderledes end værten, " 
+"så skal du første kopiere qemu-user-static til den nye vært: "
+"<informalexample><screen>\n"
+"# cp /usr/bin/qemu-ARCH-static /mnt/debinst/usr/bin\n"
+"# LANG=C.UTF-8 chroot /mnt/debinst qemu-ARCH-static /bin/bash\n"
+"</screen></informalexample> Efter chrooting skal du måske opsætte "
+"terminaldefinitionen til at være kompatibel med &debian;s basissystem, for eksempel: "
+"<informalexample><screen>\n"
+"# export TERM=<replaceable>xterm-color</replaceable>\n"
+"</screen></informalexample> Afhængig af værdien for TERM, skal du måske installere "
+"pakken <classname>ncurses-term</classname> for at få understøttelse for den."
 
 #. Tag: para
 #: random-bits.xml:514
@@ -980,12 +1013,14 @@ msgid ""
 "If the target architecture is different from the host, you need to finish "
 "the multi-stage boot strap:"
 msgstr ""
+"Hvis målarkitekturen er forskellig fra værten, så skal du afslutte "
+"multi-satge boot-strap'en:"
 
 #. Tag: screen
 #: random-bits.xml:518
 #, no-c-format
 msgid "/debootstrap/debootstrap --second-stage"
-msgstr ""
+msgstr "/debootstrap/debootstrap --second-stage"
 
 #. Tag: title
 #: random-bits.xml:523
@@ -1053,6 +1088,9 @@ msgid ""
 "note that the postinst scripts of some packages may try to create device "
 "files, so this option should only be used with care"
 msgstr ""
+"bind montering /dev fra dit værtssystem oven på /dev i målsystemet; "
+"bemærk at postinst-skripterne for nogle pakker kan forsøge at oprette "
+"enhedsfiler, så dette tilvalg skal bruges med omhu"
 
 #. Tag: title
 #: random-bits.xml:564
@@ -1118,6 +1156,8 @@ msgid ""
 "directory. Should this fail, you may be able to mount proc from outside the "
 "chroot:"
 msgstr ""
+"Kommandoen <userinput>ls /proc</userinput> bør nu vise en mappe med indhold. "
+"Hvis dette fejler, så kan du måske montere proc uden for chroot'en:"
 
 #. Tag: screen
 #: random-bits.xml:599
@@ -1223,6 +1263,64 @@ msgid ""
 "file into the desired order. Then during boot, each card will be associated "
 "with the interface name (eth0, eth1, etc.) that you expect."
 msgstr ""
+"For at konfigurere netværk, rediger <filename>/etc/network/interfaces</filename>, "
+"<filename>/etc/resolv.conf</filename>, <filename>/etc/hostname</filename> "
+"og <filename>/etc/hosts</filename>. <informalexample><screen>\n"
+"# editor /etc/network/interfaces\n"
+"</screen></informalexample> Her er nogle simple eksempler fra <filename>/"
+"usr/share/doc/ifupdown/examples</filename>: <informalexample><screen>\n"
+"######################################################################\n"
+"# /etc/network/interfaces - konfigurationsfil for ifup(8), ifdown(8)\n"
+"# Se manualsiden interfaces(5) for information om hvilket tilvalg der er\n"
+"# tilgængelige.\n"
+"######################################################################\n"
+"\n"
+"# Vi ønsker altid loopback-grænsefladen.\n"
+"#\n"
+"auto lo\n"
+"iface lo inet loopback\n"
+"\n"
+"# For at bruge dhcp:\n"
+"#\n"
+"# auto eth0\n"
+"# iface eth0 inet dhcp\n"
+"\n"
+"# Et eksempel på en statisk IP-opsætning: (broadcast og adgangspunkt er valgfri)\n"
+"#\n"
+"# auto eth0\n"
+"# iface eth0 inet static\n"
+"#     address 192.168.0.42\n"
+"#     network 192.168.0.0\n"
+"#     netmask 255.255.255.0\n"
+"#     broadcast 192.168.0.255\n"
+"#     gateway 192.168.0.1\n"
+"</screen></informalexample> Indtast dine navneservere og søgedirektiver "
+"i <filename>/etc/resolv.conf</filename>: <informalexample><screen>\n"
+"# editor /etc/resolv.conf\n"
+"</screen></informalexample> Et simpelt eksempel <filename>/etc/resolv.conf</"
+"filename>: <informalexample><screen>\n"
+"search hqdom.local\n"
+"nameserver 10.1.1.36\n"
+"nameserver 192.168.9.100\n"
+"</screen></informalexample> Indtast dit systems værtsnavn (2 til 63 "
+"characters): <informalexample><screen>\n"
+"# echo DebianHostName &gt; /etc/hostname\n"
+"</screen></informalexample> Og en grundlæggende <filename>/etc/hosts</filename> med "
+"IPv6-understøttelse: <informalexample><screen>\n"
+"127.0.0.1 localhost\n"
+"127.0.1.1 DebianHostName\n"
+"\n"
+"# De følgende linjer er ønskværdige for IPv6-egnede værter\n"
+"::1     ip6-localhost ip6-loopback\n"
+"fe00::0 ip6-localnet\n"
+"ff00::0 ip6-mcastprefix\n"
+"ff02::1 ip6-allnodes\n"
+"ff02::2 ip6-allrouters\n"
+"ff02::3 ip6-allhosts\n"
+"</screen></informalexample> Hvis du har flere netværkskort, så skal du arrangere "
+"navnene for drivermoduler i filen <filename>/etc/modules</filename> "
+"i den ønskede rækkefølge. Når under opstart, så vil hvert kort blive associeret "
+"med grænsefladenavnet (eth0, eth1, etc.), du forventer."
 
 #. Tag: title
 #: random-bits.xml:668
@@ -1483,7 +1581,7 @@ msgstr ""
 #: random-bits.xml:821
 #, no-c-format
 msgid "Finishing touches"
-msgstr ""
+msgstr "Afsluttende indstillinger"
 
 #. Tag: para
 #: random-bits.xml:822
@@ -1937,9 +2035,3 @@ msgstr ""
 "konfigurationen kan forsøges igen ved at vælge menupunktet "
 "<guimenuitem>Konfigurer og start en PPPoE-forbindelse</guimenuitem>."
 
-#~ msgid ""
-#~ "# /usr/sbin/debootstrap --arch ARCH &releasename; \\\n"
-#~ "     /mnt/debinst http://ftp.us.debian.org/debian"
-#~ msgstr ""
-#~ "# /usr/sbin/debootstrap --arch ARCH &releasename; \\\n"
-#~ "     /mnt/debinst http://ftp.us.debian.org/debian"
