@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: hardware\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2016-12-15 20:07+0000\n"
-"PO-Revision-Date: 2016-09-01 19:46+0200\n"
+"PO-Revision-Date: 2016-12-18 11:20+0100\n"
 "Last-Translator: Baptiste Jammet <baptiste@mailoo.org>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "Language: fr\n"
@@ -754,7 +754,7 @@ msgstr ""
 
 #. Tag: para
 #: hardware.xml:443
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "The armmp kernel supports several development boards and embedded systems "
 #| "based on the Allwinner A10 (architecture codename <quote>sun4i</quote>), "
@@ -773,10 +773,12 @@ msgid ""
 msgstr ""
 "Le noyau armmp prend en charge différentes cartes de développement et "
 "systèmes embarqués basés sur les puces Allwiner A10 (nom de code "
-"d'architecture <quote>sun4i</quote>), A10/A13 (nom de code d'architecture "
-"<quote>sun5i</quote>) et A20 (nom de code d'architecture <quote>sun7i</"
+"d'architecture <quote>sun4i</quote>), A10s/A13 (nom de code d'architecture "
+"<quote>sun5i</quote>), A20 (nom de code d'architecture <quote>sun7i</"
+"quote>), A31/A31s (nom de code d'architecture <quote>sun6i</"
+"quote>) et A23/A33 (une partie de la famille <quote>sun8i</"
 "quote>). Les systèmes basés sur sunXi suivants sont totalement pris en "
-"charge par l'installateur :"
+"charge par l'installateur (et des images de cartes SD sont disponibles) :"
 
 #. Tag: para
 #: hardware.xml:457
@@ -798,7 +800,7 @@ msgstr "LinkSprite pcDuino et pcDuino3"
 
 #. Tag: para
 #: hardware.xml:466
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Olimex A10-Olinuxino-LIME / A10s-Olinuxino Micro / A13-Olinuxino / A13-"
 #| "Olinuxino Micro / A20-Olinuxino-LIME / A20-Olinuxino-LIME2 / A20-"
@@ -807,19 +809,18 @@ msgid ""
 "Olimex A10-Olinuxino-LIME / A20-Olinuxino-LIME / A20-Olinuxino-LIME2 / A20-"
 "Olinuxino Micro / A20-SOM-EVB"
 msgstr ""
-"Olimex A10-Olinuxino-LIME, A10s-Olinuxino Micro, A13-Olinuxino, A13-"
-"Olinuxino Micro, A20-Olinuxino-LIME, A20-Olinuxino-LIME2 et A20-Olinuxino "
-"Micro"
+"Olimex A10-Olinuxino-LIME, A20-Olinuxino-LIME, A20-Olinuxino-LIME2, "
+"A20-Olinuxino Micro et A20-SOM-EVB."
 
 #. Tag: para
 #: hardware.xml:470
 #, no-c-format
 msgid "Xunlong OrangePi Plus"
-msgstr ""
+msgstr "Xunlong OrangePi Plus"
 
 #. Tag: para
 #: hardware.xml:476
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "System support for Allwinner sunXi-based devices is limited to drivers "
 #| "and device-tree information available in the mainline Linux kernel. The "
@@ -833,8 +834,9 @@ msgid ""
 msgstr ""
 "La prise en charge des périphériques d'Allwinner basés sur sunXi est limitée "
 "aux informations des pilotes et arbre de périphériques disponibles dans la "
-"branche principale du noyau. La branche linux-sunxi.org 3.4 dérivée "
-"d'Android n'est pas prise en charge par &debian;."
+"branche principale du noyau. Les autres branches spécifiques du noyau (comme "
+"les noyaux Allwinner SDK) et la branche linux-sunxi.org 3.4 dérivée "
+"d'Android ne sont pas pris en charge par &debian;."
 
 #. Tag: para
 #: hardware.xml:484
@@ -851,6 +853,17 @@ msgid ""
 "display resolution cannot be changed on the fly and display powermanagement "
 "is not possible)."
 msgstr ""
+"La branche principale du noyau Linux prend généralement en charge la console "
+"série, l'ethernet, le SATA, l'USB et les cartes MMC/SD pour les puces "
+"Allwinner A10, A10s/A13, A20, A23/A33 et A31/A31s. Le niveau de prise en "
+"charge de l'affichage local (HDMI/VGA/LCD) et du matériel audio varie d'un "
+"système à l'autre. Pour la plupart des systèmes, le noyau ne possède pas de "
+"pilote graphique natif mais utilise à la place l'infrastructure <quote>"
+"simplefb</quote> dans laquelle le gestionnaire d'amorçage initialise "
+"l'affichage, le noyau se contentant de réutiliser le framebuffer. "
+"Généralement, cela fonctionne plutôt bien malgré quelques limitations (la "
+"résolution ne peut pas être changée à la volée, et la gestion d'alimentation "
+"de l'affichage n'est pas possible)."
 
 #. Tag: para
 #: hardware.xml:499
@@ -864,6 +877,14 @@ msgid ""
 "instead of raw NAND flash. An eMMC flash chip basically appears as a fast, "
 "non-removable SD card and is supported in the same way as a regular SD card."
 msgstr ""
+"La mémoire flash embarquée prévue pour le stockage de masse existe en deux "
+"versions sur les systèmes sunXi : la mémoire flash NAND brute et la mémoire "
+"flash eMMC. La plupart des anciens systèmes sunXi utilisent une mémoire flash "
+"NAND brute, pour laquelle il n'existe pas de prise en charge dans la branche "
+"principale du noyau, pas plus que dans Debian. Un certain nombre de systèmes "
+"plus récents utilisent la mémoire flash eMMC à la place. Une puce eMMC "
+"apparaît comme une carte SD non amovible et est prise en charge de la même "
+"manière qu'une carte SD."
 
 #. Tag: para
 #: hardware.xml:512
@@ -875,31 +896,33 @@ msgid ""
 "card images with the installer are provided for those systems. Development "
 "boards with such limited support include:"
 msgstr ""
+"Certains systèmes sunXi qui ne sont pas listés ici peuvent être en partie "
+"pris en charge par l'installateur, mais ce matériel n'est pas testé car le "
+"projet &debian; n'y a pas accès. Il n'y a pas d'images de carte SD pour ces "
+"systèmes. Les cartes de développement suivantes ont une prise en charge "
+"limitée :"
 
 #. Tag: para
 #: hardware.xml:521
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Olimex A10-Olinuxino-LIME / A10s-Olinuxino Micro / A13-Olinuxino / A13-"
 #| "Olinuxino Micro / A20-Olinuxino-LIME / A20-Olinuxino-LIME2 / A20-"
 #| "Olinuxino Micro"
 msgid "Olimex A10s-Olinuxino Micro / A13-Olinuxino / A13-Olinuxino Micro"
-msgstr ""
-"Olimex A10-Olinuxino-LIME, A10s-Olinuxino Micro, A13-Olinuxino, A13-"
-"Olinuxino Micro, A20-Olinuxino-LIME, A20-Olinuxino-LIME2 et A20-Olinuxino "
-"Micro"
+msgstr "Olimex A10s-Olinuxino Micro, A13-Olinuxino et A13-Olinuxino Micro"
 
 #. Tag: para
 #: hardware.xml:525
 #, no-c-format
 msgid "Sinovoip BPI-M2 (A31s-based)"
-msgstr ""
+msgstr "Sinovoip BPI-M2 (basé sur A31s)"
 
 #. Tag: para
 #: hardware.xml:528
 #, no-c-format
 msgid "Xunlong Orange Pi (A20-based) / Orange Pi Mini (A20-based)"
-msgstr ""
+msgstr "Xunlong Orange Pi et Orange Pi Mini (basé sur A20)"
 
 #. Tag: para
 #: hardware.xml:533
@@ -914,12 +937,20 @@ msgid ""
 "possible with a USB ethernet adaptor or a USB wifi dongle. Systems based on "
 "the H3 for which such very basic installer support is available include:"
 msgstr ""
+"En plus des puces et systèmes listés ci-dessus, l'installateur possède une "
+"prise en charge très limitée de la puce Allwinner H3 et certaines cartes "
+"basées dessus. La prise en charge de H3 dans la branche principale du noyau "
+"est en cours à l'heure du gel de Debian 9, l'installateur ne prend donc en "
+"charge que la console série, les contrôleurs MMC/SD et USB hôte. Il n'y a pas "
+"de pilote disponible pour le port ethernet embarqué, la mise en réseau n'est "
+"donc possible qu'avec un adaptateur USB ou un dongle wifi USB. Les systèmes "
+"H3 suivant font partie de cette prise en charge restreinte :"
 
 #. Tag: para
 #: hardware.xml:546
 #, no-c-format
 msgid "FriendlyARM NanoPi NEO"
-msgstr ""
+msgstr "FriendlyARM NanoPi NEO"
 
 #. Tag: para
 #: hardware.xml:549
@@ -928,6 +959,8 @@ msgid ""
 "Xunlong Orange Pi Lite / Orange Pi One / Orange Pi PC / Orange Pi PC Plus / "
 "Orange Pi Plus / Orange Pi Plus 2E / Orange Pi 2"
 msgstr ""
+"Xunlong Orange Pi Lite, Orange Pi One, Orange Pi PC, Orange Pi PC Plus, "
+"Orange Pi Plus, Orange Pi Plus 2E et Orange Pi 2"
 
 #. Tag: term
 #: hardware.xml:560
@@ -1328,7 +1361,7 @@ msgstr ""
 
 #. Tag: para
 #: hardware.xml:821
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "&debian; on &arch-title; supports the following platforms: <itemizedlist> "
 #| "<listitem><para> SGI IP22: this platform includes the SGI machines Indy, "
@@ -1370,7 +1403,8 @@ msgstr ""
 "comme SGI O2. </para></listitem> <listitem><para> MIPS Malta&nbsp;: cette "
 "plate-forme est simulée par QEMU. C'est un bon moyen de tester &debian; sur "
 "MIPS quand on ne possède pas le matériel. </para></listitem> </itemizedlist> "
-"Une information complète à propos des machines mips/mipsel se trouve dans la "
+"Une information complète à propos des machines mips/mipsel/mips64el se trouve "
+"dans la "
 "<ulink url=\"&url-linux-mips;\">page Linux-MIPS</ulink>. Dans la suite, "
 "seuls les systèmes gérés par l'installateur &debian; seront traités. Si vous "
 "recherchez de l'aide pour d'autres sous-architectures, vous pouvez contacter "
@@ -1393,7 +1427,7 @@ msgstr ""
 
 #. Tag: para
 #: hardware.xml:862
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Some MIPS machines can be operated in both big and little endian mode. "
 #| "For little endian MIPS, please read the documentation for the mipsel "
@@ -1405,11 +1439,11 @@ msgid ""
 msgstr ""
 "Certaines machines MIPS peuvent fonctionner dans les modes grand-boutien ou "
 "petit-boutien. Pour les MIPS petit-boutien, veuillez vous reporter à la "
-"documentation sur l'architecture «&nbsp;mipsel&nbsp;»."
+"documentation sur l'architecture « mipsel » et « mips64el »."
 
 #. Tag: para
 #: hardware.xml:879 hardware.xml:909
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "&debian; on &arch-title; supports the following platforms: <itemizedlist> "
 #| "<listitem><para> MIPS Malta: this platform is emulated by QEMU and is "
@@ -1434,9 +1468,10 @@ msgid ""
 msgstr ""
 "&debian; sur &arch-title; gère les plates-formes suivantes&nbsp;: "
 "<itemizedlist> <listitem><para> MIPS Malta&nbsp;: cette plate-forme est "
-"simulée par QEMU. C'est un bon moyen de tester &debian; sur ARM quand on ne "
+"simulée par QEMU. C'est un bon moyen de tester &debian; sur MIPS quand on ne "
 "possède pas le matériel. </para></listitem> </itemizedlist> Une information "
-"complète sur les machines mips/mipsel se trouve dans la <ulink url=\"&url-"
+"complète sur les machines mips/mipsel/mips64el se trouve dans la <ulink "
+"url=\"&url-"
 "linux-mips;\">page Linux-MIPS</ulink>. Dans la suite, seuls les systèmes "
 "gérés par l'installateur &debian; seront traités. Si vous recherchez de "
 "l'aide pour d'autres sous-architectures, vous pouvez contacter la <ulink url="
@@ -3379,7 +3414,7 @@ msgstr ""
 
 #. Tag: para
 #: hardware.xml:2200
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "You can also <emphasis>boot</emphasis> the installation system over the "
 #| "network without needing any local media like CDs/DVDs or USB sticks. If "
@@ -3402,10 +3437,10 @@ msgstr ""
 "Vous pouvez aussi <emphasis>amorcer</emphasis> le système d'installation sur "
 "le réseau, sans CD ni clé USB. Si vous avez l'infrastructure nécessaire "
 "— votre réseau fait fonctionner des services DHCP et TFTP —, il est très "
-"facile et rapide de déployer un grand nombre de machines. Mettre en œuvre "
-"une telle infrastructure exige cependant une certaine expérience technique "
-"qui n'est pas à la portée des débutants. <phrase arch=\"mips;mipsel\">C'est "
-"la méthode d'installation préférée pour &arch-title;.</phrase>"
+"facile et rapide de déployer un grand nombre de machines. Mettre en œuvre une "
+"telle infrastructure exige cependant une certaine expérience technique qui "
+"n'est pas à la portée des débutants. <phrase arch=\"mips;mipsel;mips64el\">"
+"C'est la méthode d'installation préférée pour &arch-title;.</phrase>"
 
 #. Tag: para
 #: hardware.xml:2213

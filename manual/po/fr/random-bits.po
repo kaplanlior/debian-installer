@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: random-bits\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2016-12-15 20:07+0000\n"
-"PO-Revision-Date: 2016-04-18 19:36+0200\n"
+"PO-Revision-Date: 2016-12-18 11:14+0100\n"
 "Last-Translator: Baptiste Jammet <baptiste@mailoo.org>\n"
 "Language-Team: French <debian-l10n-french@lists.debian.org>\n"
 "Language: fr\n"
@@ -987,7 +987,7 @@ msgstr ""
 
 #. Tag: para
 #: random-bits.xml:467
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Substitute one of the following for <replaceable>ARCH</replaceable> in "
 #| "the <command>debootstrap</command> command: <userinput>amd64</userinput>, "
@@ -1013,8 +1013,15 @@ msgstr ""
 "replaceable> par l'une des expressions suivantes&nbsp;: <userinput>amd64</"
 "userinput>, <userinput>arm64</userinput>, <userinput>armel</userinput>, "
 "<userinput>armhf</userinput>, <userinput>i386</userinput>, <userinput>mips</"
-"userinput>, <userinput>mipsel</userinput>, <userinput>powerpc</userinput>, "
-"<userinput>ppc64el</userinput> ou <userinput>s390x</userinput>."
+"userinput>, <userinput>mips64el</userinput>, <userinput>mipsel</userinput>, <"
+"userinput>powerpc</userinput>, "
+"<userinput>ppc64el</userinput> ou <userinput>s390x</userinput>. "
+" <informalexample><screen>\n"
+"# /usr/sbin/debootstrap --arch ARCH &releasename; \\\n"
+"     /mnt/debinst http://ftp.fr.debian.org/debian\n"
+"</screen></informalexample> "
+"Si l'architecture de la cible est différente de celle de l'hôte, vous devriez "
+"ajouter l'option <userinput>--foreign</userinput>."
 
 #. Tag: title
 #: random-bits.xml:493
@@ -1024,7 +1031,7 @@ msgstr "Configurer le système de base"
 
 #. Tag: para
 #: random-bits.xml:494
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Now you've got a real &debian; system, though rather lean, on disk. "
 #| "<command>chroot</command> into it: <informalexample><screen>\n"
@@ -1057,7 +1064,14 @@ msgstr ""
 "élémentaire. Lancez le programme <command>chroot</command>&nbsp;: "
 "<informalexample><screen>\n"
 "# LANG=C.UTF-8 chroot /mnt/debinst /bin/bash\n"
-"</screen></informalexample> Il est maintenant possible d'avoir à indiquer la "
+"</screen></informalexample> "
+"Si l'architecture de la cible est différente de celle de l'hôte, vous devrez "
+"d'abord y copier qemu-user-static : "
+"<informalexample><screen>\n"
+"# cp /usr/bin/qemu-ARCH-static /mnt/debinst/usr/bin\n"
+"# LANG=C.UTF-8 chroot /mnt/debinst /bin/bash\n"
+"</screen></informalexample> "
+"Il est maintenant possible d'avoir à indiquer la "
 "définition du terminal pour être compatible avec le système de base de "
 "&debian;. Par exemple&nbsp;: <informalexample><screen>\n"
 "# export TERM=<replaceable>xterm-color</replaceable>\n"
@@ -1072,12 +1086,14 @@ msgid ""
 "If the target architecture is different from the host, you need to finish "
 "the multi-stage boot strap:"
 msgstr ""
+"Si l'architecture de la cible est différente de celle de l'hôte, vous devrez "
+"finir l'installation par :"
 
 #. Tag: screen
 #: random-bits.xml:518
 #, no-c-format
 msgid "/debootstrap/debootstrap --second-stage"
-msgstr ""
+msgstr "/debootstrap/debootstrap --second-stage"
 
 #. Tag: title
 #: random-bits.xml:523
