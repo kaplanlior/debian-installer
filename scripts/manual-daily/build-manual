@@ -7,6 +7,15 @@ mainlog=$logdir/main.log
 
 ALIOTH_MAN_PATH=/srv/alioth.debian.org/chroot/home/groups/d-i/htdocs/manual
 
+# Remove xml-containing directories for po-based languages, since they will
+# confuse translation statistics for xml-based languages.
+# They will later be freshly generated anyway.
+# 
+# ! Include all po-based languages here !
+rm -fR $source/da $source/el $source/es $source/fi $source/fr $source/hu $source/ja
+rm -fR $source/ko $source/nl $source/nn $source/pt $source/ro $source/ru $source/sv
+rm -fR $source/tl $source/vi $source/zh_CN $source/zh_TW
+
 usage() {
     if [ "$@" ]; then
         echo "Error: $@"
