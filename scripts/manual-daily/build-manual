@@ -357,6 +357,12 @@ if is_updated en || [ ! -d "$source/integrated/en" ]; then
     fi
 fi
 
+# Calculate statistics for xml-based languages here, instead of the old behaviour
+# (in create-index), to avoid xml statistics for po-based languages. holgerw
+echo "- calculating translation statistics for XML-based translations..." >>$mainlog
+$ROOT/bin/translation-stats | sort -k 2,2nr >$logdir/tr-stats
+echo >>$mainlog
+
 # Prepare for the build of translations
 echo "Updating POT and PO files..." >>$mainlog
 for lang in $translations; do

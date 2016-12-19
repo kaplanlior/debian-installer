@@ -60,8 +60,11 @@ build_link_table () {
 
 # MAINLINE
 
-echo "- calculating translation statistics for XML-based translations..." >>$mainlog
-$ROOT/bin/translation-stats | sort -k 2,2nr >$logdir/tr-stats
+# No longer calculate statistics for xml-based languages here, to avoid xml statistics
+# for po-based languages. Is now in build-manual line 360. holgerw
+#echo "- calculating translation statistics for XML-based translations..." >>$mainlog
+#$ROOT/bin/translation-stats | sort -k 2,2nr >$logdir/tr-stats
+
 echo "- calculating translation statistics for PO-based translations..." >>$mainlog
 $ROOT/bin/po_stats/gen &>$logdir/po-stats.log
 
