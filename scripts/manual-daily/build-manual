@@ -121,27 +121,28 @@ update_from_svn() {
 }
 
 commit_to_svn() {
-    echo "Committing changes in manual/po to SVN..." >>$mainlog
-    SVN_NEW_LIST=$(svn st po/pot/ 2>/dev/null | grep "^\?[[:space:]].*\.pot" | sed "s/^\?[[:space:]]*//")
-    if [ "$SVN_NEW_LIST" ]; then
-        echo "Adding new POT files:" >>$logdir/svn_ci.log
-        for SVN_NEW in $SVN_NEW_LIST; do
-            svn add $SVN_NEW >>$logdir/svn_ci.log 2>&1
-            checkfatal "$?" "running 'svn add' on $SVN_NEW"
-        done
-    fi
-    if svn st po/ 2>/dev/null | grep -q "^[AM]"; then
-#       echo "Actual commit disabled, showing svn st:" >>$logdir/svn_ci.log
-#       svn st po/ 2>/dev/null >>$logdir/svn_ci.log 2>&1
-        echo "Committing changed files:" >>$logdir/svn_ci.log
-        svn ci po/ -m "[SILENT_COMMIT] Update of POT and PO files for the manual" >>$logdir/svn_ci.log 2>&1
-        checkfatal "$?" "committing POT/PO files to SVN"
-        if svn st po/ 2>/dev/null | grep -q "^C"; then
-            checkfatal "C" "checking for conflicts in manual/po after 'svn ci'"
-        fi
-    else
-        echo "  No updates to commit" >>$mainlog
-    fi
+#    echo "Committing changes in manual/po to SVN..." >>$mainlog
+#    SVN_NEW_LIST=$(svn st po/pot/ 2>/dev/null | grep "^\?[[:space:]].*\.pot" | sed "s/^\?[[:space:]]*//")
+#    if [ "$SVN_NEW_LIST" ]; then
+#        echo "Adding new POT files:" >>$logdir/svn_ci.log
+#        for SVN_NEW in $SVN_NEW_LIST; do
+#            svn add $SVN_NEW >>$logdir/svn_ci.log 2>&1
+#            checkfatal "$?" "running 'svn add' on $SVN_NEW"
+#        done
+#    fi
+#    if svn st po/ 2>/dev/null | grep -q "^[AM]"; then
+###       echo "Actual commit disabled, showing svn st:" >>$logdir/svn_ci.log
+###       svn st po/ 2>/dev/null >>$logdir/svn_ci.log 2>&1
+#        echo "Committing changed files:" >>$logdir/svn_ci.log
+#        svn ci po/ -m "[SILENT_COMMIT] Update of POT and PO files for the manual" >>$logdir/svn_ci.log 2>&1
+#        checkfatal "$?" "committing POT/PO files to SVN"
+#        if svn st po/ 2>/dev/null | grep -q "^C"; then
+#            checkfatal "C" "checking for conflicts in manual/po after 'svn ci'"
+#        fi
+#    else
+#        echo "  No updates to commit" >>$mainlog
+#    fi
+        echo "  No commits to svn - test mode. holgerw  " >>$mainlog
 }
 
 build_lang() {
@@ -233,7 +234,7 @@ build_lang() {
                 ./clear.sh
 
                 # Sleep a bit to allow the system to cool down...
-                #sleep 30s
+                sleep 15s
             else
                 echo "*** Not building manual for $lang.$arch" >>$langlog
             fi
@@ -258,7 +259,7 @@ build_lang() {
         fi
 
         # Sleep a bit to allow the system to cool down...
-        #sleep 1m
+        sleep 15s
     else
         echo "No updates for $lang" >>$mainlog
     fi
