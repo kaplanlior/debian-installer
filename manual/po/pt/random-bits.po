@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: random-bits\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2016-12-26 18:56+0000\n"
-"PO-Revision-Date: 2016-12-25 15:25+0000\n"
+"PO-Revision-Date: 2016-12-27 17:48+0000\n"
 "Last-Translator: Miguel Figueiredo <elmig@debianpt.org>\n"
 "Language-Team: Portuguese <kde-i18n-doc@kde.org>\n"
 "Language: pt\n"
@@ -494,10 +494,10 @@ msgstr "&task-desktop-gnome-tot;"
 
 #. Tag: entry
 #: random-bits.xml:240
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "&nbsp;&nbsp;&bull;&nbsp;KDE"
 msgid "&nbsp;&nbsp;&bull;&nbsp;KDE Plasma"
-msgstr "&nbsp;&nbsp;&bull;&nbsp;KDE"
+msgstr "&nbsp;&nbsp;&bull;&nbsp;KDE Plasma"
 
 #. Tag: entry
 #: random-bits.xml:241
@@ -800,7 +800,7 @@ msgstr "Começar"
 
 #. Tag: para
 #: random-bits.xml:356
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "With your current *nix partitioning tools, repartition the hard drive as "
 #| "needed, creating at least one filesystem plus swap. You need around &base-"
@@ -814,12 +814,12 @@ msgid ""
 "desktop-lxde-inst;MB if you plan to install X (more if you intend to install "
 "desktop environments like GNOME or KDE Plasma)."
 msgstr ""
-"Com os seus actuais utilitários de particionamento *nix, reparticione o "
-"disco rígido conforme necessário, criando pelo menos um sistema de ficheiros "
-"e swap. Você necessita cerca de &base-system-size;MB de espaço disponível "
-"para instalação de apenas consola, ou pelo menos cerca de &task-desktop-lxde-"
+"Com as suas actuais ferramentas *nix de particionamento, reparticione o disco "
+"rígido conforme necessário, criando pelo menos um sistema de ficheiros e "
+"swap. Necessita cerca de &base-system-size;MB de espaço disponível para a "
+"instalação de apenas consola, ou pelo menos cerca de &task-desktop-lxde-"
 "inst;MB se planeia instalar o X (mais se tencionar instalar ambientes de "
-"desktop como o GNOME ou o KDE)."
+"desktop como o GNOME ou o KDE Plasma)."
 
 #. Tag: para
 #: random-bits.xml:364
@@ -993,7 +993,7 @@ msgstr ""
 
 #. Tag: para
 #: random-bits.xml:467
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Substitute one of the following for <replaceable>ARCH</replaceable> in "
 #| "the <command>debootstrap</command> command: <userinput>amd64</userinput>, "
@@ -1021,7 +1021,11 @@ msgstr ""
 "<userinput>armhf</userinput>, <userinput>i386</userinput>, <userinput>mips</"
 "userinput>, <userinput>mips64el</userinput>, <userinput>mipsel</userinput>, "
 "<userinput>powerpc</userinput>, <userinput>ppc64el</userinput>, ou "
-"<userinput>s390x</userinput>."
+"<userinput>s390x</userinput>. <informalexample><screen>\n"
+"# /usr/sbin/debootstrap --arch ARCH &releasename; \\\n"
+"     /mnt/debinst http://ftp.us.debian.org/debian\n"
+"</screen></informalexample> Se a arquitectura do alvo for diferente da do "
+"anfitrião, deve acrescentar a opção <userinput>--foreign</userinput>." 
 
 #. Tag: title
 #: random-bits.xml:493
@@ -1031,7 +1035,7 @@ msgstr "Configurar o Sistema Base"
 
 #. Tag: para
 #: random-bits.xml:494
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Now you've got a real &debian; system, though rather lean, on disk. "
 #| "<command>chroot</command> into it: <informalexample><screen>\n"
@@ -1063,6 +1067,11 @@ msgstr ""
 "Agora tem um verdadeiro sistema &debian;, embora um pouco leve, no disco. "
 "Faça <command>chroot</command> para lá: <informalexample><screen>\n"
 "# LANG=C.UTF-8 chroot /mnt/debinst /bin/bash\n"
+"</screen></informalexample> Se a arquitectura do alvo for diferente da do "
+"anfitrião, primeiro terá de copiar qemu-user-static para a nova máquina: "
+"</screen></informalexample>\n"
+"# cp /usr/bin/qemu-ARCH-static /mnt/debinst/usr/bin\n"
+"# LANG=C.UTF-8 chroot /mnt/debinst qemu-ARCH-static /bin/bash\n"
 "</screen></informalexample> Após fazer chroot pode ter de configurar a "
 "definição do terminal para ser compatível com o sistema base &debian;, por "
 "exemplo:<informalexample><screen>\n"
