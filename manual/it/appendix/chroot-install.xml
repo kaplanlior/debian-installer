@@ -1,5 +1,5 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 70188 -->
+<!-- original version: 70417 -->
 
  <sect1 id="linux-upgrade">
  <!-- <title>Installing &debian-gnu; from a Unix/Linux System</title> -->
@@ -81,7 +81,7 @@ With your current *nix partitioning tools, repartition the hard
 drive as needed, creating at least one filesystem plus swap. You
 need around &base-system-size;MB of space available for a console only install,
 or about &task-desktop-lxde-inst;MB if you plan to install X (more if you intend to
-install desktop environments like GNOME or KDE).
+install desktop environments like GNOME or KDE Plasma).
 -->
 
 Usando gli strumenti per il partizionamento disponibili, ripartizionare,
@@ -89,7 +89,7 @@ secondo le proprie necessità, il disco fisso creando almeno un file system
 e una partizione di swap. Per un ambiente puramente testuale sono necessari
 &base-system-size;&nbsp;MB, &task-desktop-lxde-inst;&nbsp;MB se si intende
 installare X (ancora di più se si installa un ambiente desktop come GNOME
-o KDE).
+o KDE Plasma).
 
 </para><para>
 
@@ -203,8 +203,8 @@ Questi includono le principali utility GNU e comandi come
 then download and install <command>debootstrap</command>.
 -->
 
-</footnote>. Si installi <command>wget</command> e <command>ar</command>
-in caso non siano già presenti sul sistema in uso, poi scaricare e
+</footnote>. Installare, se non sono già presenti sul sistema in uso,
+<command>wget</command> e <command>ar</command> poi scaricare e
 installare <command>debootstrap</command>.
 
 </para>
@@ -232,7 +232,7 @@ manually. Make a work folder for extracting the .deb into:
 -->
 
 Un'ulteriore possibilità è installare <command>debootstrap</command>
-manualmente seguendo questa procedura. Creare una cartella di lavoro
+manualmente seguendo questa procedura. Creare una directory di lavoro
 in cui estrarre il .deb:
 
 <informalexample><screen>
@@ -326,6 +326,7 @@ Nel comando <command>debootstrap</command> sostituire
 <userinput>armhf</userinput>,
 <userinput>i386</userinput>,
 <userinput>mips</userinput>,
+<userinput>mips64el</userinput>,
 <userinput>mipsel</userinput>,
 <userinput>powerpc</userinput>,
 <userinput>ppc64el</userinput> o
@@ -335,6 +336,14 @@ Nel comando <command>debootstrap</command> sostituire
 # /usr/sbin/debootstrap --arch ARCH &releasename; \
      /mnt/debinst http://ftp.us.debian.org/debian
 </screen></informalexample>
+
+<!--
+If the target architecture is different than the host, you should add the
+<userinput>--foreign</userinput> option.
+-->
+
+Nel caso che l'architrettura del nuovo sistema sia diversa da quella del
+sistema in uso, occorre aggiungere l'opzione <userinput>--foreign</userinput>.
 
 </para>
   </sect2>
@@ -357,6 +366,20 @@ Ora sul disco c'è un vero sistema &debian;, seppur minimale. Eseguire
 </screen></informalexample>
 
 <!--
+If the target architecture is different from the host,
+you will need to first copy qemu-user-static to the new host:
+-->
+
+Nel caso che l'architrettura del nuovo sistema sia diversa da quella del
+sistema in uso, è necessario prima copiare qemu-user-static sul nuovo
+sistema:
+
+<informalexample><screen>
+# cp /usr/bin/qemu-ARCH-static /mnt/debinst/usr/bin
+# LANG=C.UTF-8 chroot /mnt/debinst qemu-ARCH-static /bin/bash
+</screen></informalexample>
+
+<!--
 After chrooting you may need to set the terminal definition to be
 compatible with the Debian base system, for example:
 -->
@@ -375,6 +398,20 @@ Depending on the value of TERM, you may have to install the
 
 In base al valore di TERM, potrebbe essere necessario installare il
 pacchetto <classname>ncurses-term</classname>.
+
+</para><para>
+
+<!--
+If the target architecture is different from the host,
+you need to finish the multi-stage boot strap:
+-->
+
+Nel caso che l'architrettura del nuovo sistema sia diversa da quella del
+sistema in uso, è necessario completare l'avvio a più fasi:
+
+<informalexample><screen>
+/debootstrap/debootstrap --second-stage
+</screen></informalexample>
 
 </para>
 
