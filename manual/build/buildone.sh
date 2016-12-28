@@ -227,15 +227,14 @@ create_dvi () {
 }
 
 create_pdf() {
-    
-    [ -x "`which dvipdf 2>/dev/null`" ] || return 9
 
-    create_dvi
-    RET=$?; [ $RET -ne 0 ] && return $RET
+    [ -x "`which dblatex 2>/dev/null`" ] || return 9
 
     echo "Info: creating .pdf file..."
 
-    ( cd $tempdir ; dvipdf install.${language}.dvi )
+    ( dblatex -d -V -T db2latex -b xetex -p ./dblatex.xsl \
+    -o $tempdir/install.${language}.pdf \
+    $tempdir/install.${language}.profiled.xml --param=lingua=${language} )
     RET=$?; [ $RET -ne 0 ] && return $RET
     mv $tempdir/install.${language}.pdf $destdir/
 
@@ -280,9 +279,9 @@ BUILD_OK=""
 BUILD_FAIL=""
 for format in $formats ; do
     case "$language" in
-        el|ja|vi|zh_CN|zh_TW)
+        __)
             if [ "$format" = "pdf" -o "$format" = "ps" ] ; then
-                echo "Warning: pdf and ps formats are currently not supported for Chinese, Greek, Japanese and Vietnamese"
+                echo "Warning: pdf and ps formats are currently not supported for __."
                 BUILD_SKIP="$BUILD_SKIP $format"
                 continue
             fi
@@ -309,7 +308,7 @@ for format in $formats ; do
             BUILD_FAIL="$BUILD_FAIL $format"
             echo "Error: build of $format failed because of missing build dependencies" >&2
             if [ "$format" = "pdf" ] ; then
-                echo "Error: (make sure you have ghostscript, openjade and jadetex installed for PDF builds)" >&2
+                echo "Error: (make sure you have ghostscript and dblatex installed for PDF builds)" >&2
             fi
             ;;
         *)
