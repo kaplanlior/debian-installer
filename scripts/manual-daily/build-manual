@@ -344,6 +344,7 @@ if is_updated en; then
     EN_UPDATED=1
     langlog=$logdir/en.log
     : >$langlog
+    echo "Info: manual for en has been changed" >>$mainlog
     echo "Preparing build for language $lang - $(date -u)" >>$langlog
     echo "Info: building manual from XML files" >>$langlog
 
@@ -360,10 +361,14 @@ if is_updated en || [ ! -d "$source/integrated/en" ]; then
     echo >>$mainlog
 
     # Extract preconfiguration example from the manual
+    cd $source/build
     PRESEED="../en/appendix/preseed.xml"
     if [ -f $PRESEED ] && [ -x preseed.pl ]; then
         ./preseed.pl -r $manual_release $PRESEED >$destination/example-preseed.txt
+        echo "Extracting example-preseed.txt from manual" >>$mainlog
+        echo >>$mainlog
     fi
+    cd ..
 fi
 
 # Calculate statistics for xml-based languages here, instead of the old behaviour
