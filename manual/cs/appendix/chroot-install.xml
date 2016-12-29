@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 70321 -->
+<!-- original version: 70417 -->
 
  <sect1 id="linux-upgrade">
  <title>Jak nainstalovat &debian-gnu; ze stávajícího unixového/linuxového systému</title>
@@ -183,6 +183,9 @@ V ukázkovém příkazu <command>debootstrap</command> nahraďte
      /mnt/debinst http://ftp.cz.debian.org/debian</userinput>
 </screen></informalexample>
 
+Pokud se cílová architektura liší od hostitelské, měli byste přidat
+ještě parametr <userinput>--foreign</userinput>.
+
 </para>
   </sect2>
 
@@ -199,8 +202,16 @@ když minimální, systém &debian;. Nastal čas se do něj přesunout:
 <prompt>#</prompt> <userinput>LANG=C.UTF-8 chroot /mnt/debinst /bin/bash</userinput>
 </screen></informalexample>
 
-a případně nastavit definici terminálu tak, aby byla kompatibilní se
-základním systémem &debian;u:
+Pokud se cílová architektura liší od hostitelské, budete ale nejprve
+muset do nového systému nakopírovat qemu-user-static:
+
+<informalexample><screen>
+<prompt>#</prompt> <userinput>cp /usr/bin/qemu-<replaceable>ARCH</replaceable>-static /mnt/debinst/usr/bin</userinput>
+<prompt>#</prompt> <userinput>LANG=C.UTF-8 chroot /mnt/debinst qemu-<replaceable>ARCH</replaceable>-static /bin/bash</userinput>
+</screen></informalexample>
+
+V novém systému možná budete muset nastavit definici terminálu tak,
+aby byla kompatibilní se základním systémem &debian;u:
 
 <informalexample><screen>
 <prompt>#</prompt> <userinput>export TERM=<replaceable>xterm-color</replaceable></userinput>
@@ -208,6 +219,15 @@ základním systémem &debian;u:
 
 Abyste mohli použít některé hodnoty proměnné TERM, budete možná muset
 nainstalovat balík <classname>ncurses-term</classname>.
+
+</para><para>
+
+Jestliže se cílová architektura liší od hostitelské, musíte dokončit
+druhou fázi nastavení:
+
+<informalexample><screen>
+<userinput>/debootstrap/debootstrap --second-stage</userinput>
+</screen></informalexample>
 
 </para>
 

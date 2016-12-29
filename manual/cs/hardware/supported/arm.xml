@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 70253 -->
+<!-- original version: 70405 -->
 
   <sect2 arch="arm">
   <title>Tři hlavní ARM porty</title>
@@ -199,9 +199,10 @@ základní desky, která se dá osadit různými dceřinnými CPU.
 
 Jádro armmp podporuje několik vývojářských desek a embeded systémů
 založených na SoC Allwinner A10 (architektura <quote>sun4i</quote>),
-A10s/A13 (architektura <quote>sun5i</quote>) a A20 (architektura
-<quote>sun7i</quote>). Instalační systém plně podporuje následující
-systémy:
+A10s/A13 (architektura <quote>sun5i</quote>), A20 (architektura
+<quote>sun7i</quote>), A31/A31s (architektura <quote>sun6i</quote>)
+a A23/A33 (součást rodiny <quote>sun8i</quote>). Instalační systém
+plně podporuje následující systémy:
 
   <itemizedlist>
   <listitem><para>
@@ -214,18 +215,11 @@ systémy:
              LinkSprite pcDuino a pcDuino3
   </para></listitem>
   <listitem><para>
-             Mele A1000
+             Olimex A10-Olinuxino-LIME / A20-Olinuxino-LIME /
+             A20-Olinuxino-LIME2 / A20-Olinuxino Micro / A20-SOM-EVB
   </para></listitem>
   <listitem><para>
-             Miniand Hackberry
-  </para></listitem>
-  <listitem><para>
-             Olimex A10-Olinuxino-LIME / A10s-Olinuxino Micro /
-             A13-Olinuxino / A13-Olinuxino Micro /
-             A20-Olinuxino-LIME / A20-Olinuxino-LIME2 / A20-Olinuxino Micro
-  </para></listitem>
-  <listitem><para>
-             PineRiver Mini X-Plus
+             Xunlong OrangePi Plus
   </para></listitem>
   </itemizedlist>
 
@@ -233,23 +227,79 @@ systémy:
 
 Podpora pro zařízení Allwinner založená na architektuře
 sun<replaceable>X</replaceable>i je daná ovladači a stromy zařízení
-dostupnými v oficiálním linuxovém jádře. Jádra linux-sunxi.org 3.4
+dostupnými v oficiálním linuxovém jádře. Jádra jednotlivých dodavatelů
+(jako třeba jádra z Allwinner SDK) a jádra linux-sunxi.org 3.4
 odvozená z Androidu nejsou v &debian;u podporována.
 
  </para><para>
 
-Oficiální linuxové jádro na SoC Allwinner A10, A10s/A13 a A20 obvykle
-podporuje sériovou konzoli, ethernet, SATA, USB a karty MMC/SD,
-nicméně chybí nativní ovladače lokálního displeje (HDMI/VGA/LCD)
-a integrovaného audio hardwaru. Také není podporována NAND flash
-paměť, která se nachází v některých systémech založených na
-sun<replaceable>X</replaceable>i.
+Oficiální linuxové jádro na SoC Allwinner A10, A10s/A13, A20, A23/A33
+a A31/A31s obvykle podporuje sériovou konzoli, ethernet, SATA, USB
+a karty MMC/SD. Míra podpory lokálního displeje (HDMI/VGA/LCD)
+a integrovaného audio hardwaru se liší systém od systému. Pro většinu
+systémů jádro neobsahuje nativní ovladače grafiky a místo toho využívá
+infrastrukturu <quote>simplefb</quote>, která spoléhá na to, že se
+o inicializaci zobrazovacího hardwaru postará zavaděč a jádro pak již
+jen znovu-použije předpřipravený framebuffer. V praxi to funguje
+poměrně dobře, ale přináší to s sebou několik omezení, jako je
+nemožnost měnit za běhu rozlišení a nefunkční správa napájení.
 
 </para><para>
 
-Použití lokálního displeje bez nativních ovladačů je technicky možné
-přes infrastrukturu <quote>simplefb</quote>, která spoléhá na to, že
-se o inicializaci zobrazovacího hardwaru postará zavaděč U-Boot.
+Integrovaná flash paměť sloužící jako mass storage se na systémech
+založených na sun<replaceable>X</replaceable>i vyskytuje ve dvou
+základních variantách: NAND a eMMC. Většina starších desek používá
+NAND flash, pro kterou obvykle neexistují ovladače v oficiálním jádře
+a proto ani v Debianu. Mnohé novější systémy používají místo NAND
+flash eMMC flash. Čip s eMMC se navenek tváří jako rychlá,
+nevyměnitelná SD karta a je tedy podporována stejně, jako běžná SD
+karta.
+
+</para><para>
+
+Instalátor obsahuje základní podporu pro mnoho dalších, výše
+neuvedených systémů založených na sun<replaceable>X</replaceable>i,
+avšak tyto povětšinou nejsou otestovány, protože projekt &debian; nemá
+k danému hardwaru přístup. Pro tyto systémy neexistují předpřipravené
+obrazy SD karet s instalačním systémem. Mezi tyto vývojářské desky
+s omezenou podporou patří:
+
+  <itemizedlist>
+  <listitem><para>
+             Olimex A10s-Olinuxino Micro / A13-Olinuxino /
+             A13-Olinuxino Micro
+  </para></listitem>
+  <listitem><para>
+             Sinovoip BPI-M2 (založená na A31s)
+  </para></listitem>
+  <listitem><para>
+             Xunlong Orange Pi (založená na A20) /
+             Orange Pi Mini (založená na A20)
+  </para></listitem>
+  </itemizedlist>
+
+</para><para>
+
+Kromě výše uvedených systémů obsahuje instalátor velice omezenou
+podporu pro platformu Allwinner H3 a desky na ní založené. V době
+vydání Debianu 9 je podpora H3 v oficiálním jádře stále ve vývoji
+a instalátor tedy na systémech založených na H3 podporuje pouze
+sériovou konzoli, MMC/SD a USB řadič. Chybí podpora integrovaného
+ethernetu, takže síťování je možné pouze přes externí ethernetovou
+nebo Wifi kartu do USB. Mezi systémy založené na H3, které mají
+základní podporu instalátoru, patří:
+
+  <itemizedlist>
+  <listitem><para>
+             FriendlyARM NanoPi NEO
+  </para></listitem>
+  <listitem><para>
+             Xunlong Orange Pi Lite / Orange Pi One / Orange Pi PC /
+             Orange Pi PC Plus / Orange Pi Plus / Orange Pi Plus 2E /
+             Orange Pi 2
+  </para></listitem>
+  </itemizedlist>
+
 
 </para></listitem>
 </varlistentry>
