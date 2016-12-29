@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: d-i-manual_random-bits\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2016-12-26 18:56+0000\n"
-"PO-Revision-Date: 2016-12-18 10:40+0100\n"
+"PO-Revision-Date: 2016-12-29 10:10+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -497,10 +497,9 @@ msgstr "&task-desktop-gnome-tot;"
 
 #. Tag: entry
 #: random-bits.xml:240
-#, fuzzy, no-c-format
-#| msgid "&nbsp;&nbsp;&bull;&nbsp;KDE"
+#, no-c-format
 msgid "&nbsp;&nbsp;&bull;&nbsp;KDE Plasma"
-msgstr "&nbsp;&nbsp;&bull;&nbsp;KDE"
+msgstr "&nbsp;&nbsp;&bull;&nbsp;KDE Plasma"
 
 #. Tag: entry
 #: random-bits.xml:241
@@ -789,13 +788,7 @@ msgstr "Kom i gang"
 
 #. Tag: para
 #: random-bits.xml:356
-#, fuzzy, no-c-format
-#| msgid ""
-#| "With your current *nix partitioning tools, repartition the hard drive as "
-#| "needed, creating at least one filesystem plus swap. You need around &base-"
-#| "system-size;MB of space available for a console only install, or about "
-#| "&task-desktop-lxde-inst;MB if you plan to install X (more if you intend "
-#| "to install desktop environments like GNOME or KDE)."
+#, no-c-format
 msgid ""
 "With your current *nix partitioning tools, repartition the hard drive as "
 "needed, creating at least one filesystem plus swap. You need around &base-"
@@ -1048,6 +1041,13 @@ msgid ""
 "to use dynamic (e.g. using <classname>udev</classname>) or static device "
 "files for the new system."
 msgstr ""
+"På dette tidspunkt indeholder <filename>/dev/</filename> kun meget "
+"grundlæggende enhedsfiler. For de næste trin af installationen kan yderligere "
+"enhedsfiler være krævet. Der er forskellige måder for dette og hvilken "
+"metode du bør bruge afhænger af værtssystemet du bruger for installationen, "
+"om du forventer at bruge en modulær kerne eller ej, og om du forventer at "
+"bruge dynamisk (f.eks. brug af <classname>udev</classname>) eller statiske "
+"enhedsfiler for det nye system."
 
 #. Tag: para
 #: random-bits.xml:534
@@ -1352,6 +1352,16 @@ msgid ""
 "</screen></informalexample> Make sure to run <userinput>apt update</"
 "userinput> after you have made changes to the sources list."
 msgstr ""
+"Debootstrap vil have oprettet en meget grundlæggende <filename>/etc/apt/sources.list</"
+"filename>, som vil tillader installation af yderligere pakker. Du vil dog måske "
+"ønske at tilføje nogle yderligere kilder, for eksempel for kildepakker og "
+"sikkerhedsopdateringer: <informalexample><screen>\n"
+"deb-src http://ftp.us.debian.org/debian &releasename; main\n"
+"\n"
+"deb http://security.debian.org/ &releasename;/updates main\n"
+"deb-src http://security.debian.org/ &releasename;/updates main\n"
+"</screen></informalexample> Husk at køre <userinput>apt update</"
+"userinput> efter at du har lavet ændringer til kildelisten (sources)."
 
 #. Tag: title
 #: random-bits.xml:685
@@ -1371,6 +1381,13 @@ msgid ""
 "# dpkg-reconfigure locales\n"
 "</screen></informalexample> To configure your keyboard (if needed):"
 msgstr ""
+"For at konfigurere dine lokale indstillinger til et andet sprog end engelsk, "
+"så installer støttepakken <classname>locales</classname> og konfigurer den. "
+"I øjeblikket anbefales brugeaf UTF-8 locales. "
+"<informalexample><screen>\n"
+"# apt install locales\n"
+"# dpkg-reconfigure locales\n"
+"</screen></informalexample> For at konfigurere dit tastatur (hvis krævet):"
 
 #. Tag: screen
 #: random-bits.xml:696
@@ -1442,6 +1459,11 @@ msgid ""
 "<command>debootstrap</command> does not install a boot loader, but you can "
 "use <command>apt</command> inside your &debian; chroot to do so."
 msgstr ""
+"For at gøre dit &debian-gnu;-system opstartsparat, så opsæt din "
+"opstartsindlæser til at indlæse den installerede kerne med din nye "
+"root-partition. Bemærk at <command>debootstrap</command> ikke installerer "
+"en opstartsindlæser, men du kan bruges <command>apt</command> i din "
+"&debian;-chroot til dette formål."
 
 #. Tag: para
 #: random-bits.xml:734
@@ -1457,6 +1479,16 @@ msgid ""
 "<command>lilo</command> (remember it will use <filename>lilo.conf</filename> "
 "relative to the system you call it from)</phrase>."
 msgstr ""
+"Kontroller <userinput>info grub</userinput> <phrase arch=\"x86\">eller "
+"<userinput>man lilo.conf</userinput></phrase> for instruktioner om opsætning "
+"af opstartsindlæseren. Hvis du bevæarer systemet du installerede med "
+"&debian;, så tilføjes bare et punkt for &debian;-installationen til din "
+"eksisterende grub2 <filename>grub.cfg</filename><phrase arch=\"x86\"> eller "
+"<filename>lilo.conf</filename>. For <filename>lilo.conf</filename>, skal "
+"du også kopiere den til det nye system og redigere den der. Efter du er "
+"færdig med redigeringen så kald <command>lilo</command> (husk at den vil "
+"bruge <filename>lilo.conf</filename> relativ til systemet du kaldte den "
+"fra)</phrase>."
 
 #. Tag: para
 #: random-bits.xml:746
@@ -1472,6 +1504,15 @@ msgid ""
 "command will create a sane and working <filename>/boot/grub/grub.cfg</"
 "filename>."
 msgstr ""
+"Installation og opsætning af <classname>grub2</classname> er nemt: "
+"<informalexample><screen>\n"
+"# apt install grub-pc\n"
+"# grub-install /dev/<replaceable>sda</replaceable>\n"
+"# update-grub\n"
+"</screen></informalexample> Den anden kommando vil installere <command>grub2</"
+"command> (i dette tilfælde i MBR'en for <literal>sda</literal>). Den sidste "
+"kommando vil oprette en fornuftig og fungerende <filename>/boot/grub/grub.cfg</"
+"filename>."
 
 #. Tag: para
 #: random-bits.xml:756
@@ -1525,6 +1566,13 @@ msgid ""
 "After you are done editing, call ybin (remember it will use <filename>yaboot."
 "conf</filename> relative to the system you call it from)."
 msgstr ""
+"Kontroller <userinput>man yaboot.conf</userinput> for instruktioner vedrørende "
+"opsætning af opstartsindlæseren. Hvis du beholder systemet du installerede "
+"med &debian;, så tilføjes bare et punkt for &debian;-installationen til din "
+"eksisterende <filename>yaboot.conf</filename>. Du kan kopiere den til det "
+"nye system og redigere den der. Efter redigeringen, så kald ybin (husk at "
+"den vil bruge <filename>yaboot.conf</filename> relativ til systemet, du kalder "
+"den fra)."
 
 #. Tag: para
 #: random-bits.xml:778
@@ -1543,6 +1591,18 @@ msgid ""
 "</screen></informalexample> On some machines, you may need to use "
 "<userinput>ide0:</userinput> instead of <userinput>hd:</userinput>."
 msgstr ""
+"Her er en grundlæggende <filename>/etc/yaboot.conf</filename> som eksempel: "
+"<informalexample><screen>\n"
+"boot=/dev/sda2\n"
+"device=hd:\n"
+"partition=6\n"
+"root=/dev/sda6\n"
+"magicboot=/usr/lib/yaboot/ofboot\n"
+"timeout=50\n"
+"image=/vmlinux\n"
+"label=Debian\n"
+"</screen></informalexample> På nogle maskiner, skal du måske bruge "
+"<userinput>ide0:</userinput> i stedet for <userinput>hd:</userinput>."
 
 #. Tag: title
 #: random-bits.xml:791
@@ -1575,6 +1635,26 @@ msgid ""
 "</screen></informalexample> Lastly, access can be set up by adding a non-"
 "root user and setting a password:"
 msgstr ""
+"I tilfælde af, at du kan logge ind på systemet via konsollen, så kan du springe "
+"dette afsnit over. Hvis systemet skal være tilgængeligt via netværket senere, "
+"så skal du installere SSH og opsætte adgang. <informalexample><screen>\n"
+"# apt install ssh\n"
+"</screen></informalexample> Log ind som root med adgangskode er deaktiveret som "
+"standard, så opsætning af adgang kan gøres ved at angive en adgangskode og "
+"genaktivere login for root med adgangskode: <informalexample><screen>\n"
+"# passwd\n"
+"# editor /etc/ssh/sshd_config\n"
+"</screen></informalexample> Dette er indstillingen der skal aktiveres: "
+"<informalexample><screen>\n"
+"PermitRootLogin yes\n"
+"</screen></informalexample> Adgang kan også sættes op ved at tilføje en ssh-nøgle "
+"til root-kontoen: <informalexample><screen>\n"
+"# mkdir /root/.ssh\n"
+"# cat &lt;&lt; EOF &gt; /root/.ssh/authorized_keys\n"
+"ssh-rsa ....\n"
+"EOF\n"
+"</screen></informalexample> Sidst kan adgang sættes op ved at tilføje en ikke-root "
+"bruger og angive en adgangskode:"
 
 #. Tag: screen
 #: random-bits.xml:816
@@ -1604,6 +1684,14 @@ msgid ""
 "</screen></informalexample> Of course, you can also just use <command>apt</"
 "command> to install packages individually."
 msgstr ""
+"Som nævnt tidligere, vil det installerede system være meget grundlæggende. "
+"Hvis du ønsker at gøre systemet en smule mere modent til brug, så er der en "
+"nem metode til at installere alle pakker med prioriteten <quote>standard"
+"</quote>: "
+"<informalexample><screen>\n"
+"# tasksel install standard\n"
+"</screen></informalexample> Selvfølgelig kan du også bare bruge <command>apt</"
+"command> til at installere pakker individuelt."
 
 #. Tag: para
 #: random-bits.xml:833
