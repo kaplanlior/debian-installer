@@ -1,6 +1,6 @@
 # Danish translation of d-i-manual-preseed.
 # Copyright (C) 2016 Free Software Foundation, Inc.
-# Joe Hansen <joedalton2@yahoo.dk>, 2014, 2015, 2016.
+# Joe Hansen <joedalton2@yahoo.dk>, 2014, 2015, 2016, 2017.
 #
 # 32-bit processorer (er anvendt selv om 32-bit-processorer er den korrekte brug)
 # cipher -> krypteringsalgoritme
@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: d-i-manual_preseed\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2016-12-26 18:56+0000\n"
-"PO-Revision-Date: 2016-12-30 10:40+0100\n"
+"PO-Revision-Date: 2017-01-01 10:40+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -492,6 +492,11 @@ msgid ""
 "the question asked, use <quote>?=</quote> instead of <quote>=</quote> as "
 "operator. See also <xref linkend=\"preseed-seenflag\"/>."
 msgstr ""
+"Normalt vil forhåndskonfiguration af et spørgsmål på den måde betyde, at "
+"spørgsmålet ikke vil blive stillet. For at angive en specifik standardværdi "
+"for et spørgsmål, men stadig få spørgsmålet, så brug <quote>?=</quote> i "
+"stedet for <quote>=</quote> som operatør. Se også "
+"<xref linkend=\"preseed-seenflag\"/>."
 
 #. Tag: para
 #: preseed.xml:343
@@ -504,6 +509,13 @@ msgid ""
 "example is the <literal>tasks</literal> alias, which translates to "
 "<literal>tasksel:tasksel/first</literal>."
 msgstr ""
+"Bemærk at nogle variabler som ofte angives ved opstartsprompten har et "
+"kortere alias. Hvis et alias er tilgængelig, så bruges det i eksemplerne "
+"i dette appendiks i stedet for den fulde variabel. Variablen "
+"<literal>preseed/url</literal> har for eksempel et alias som "
+"<literal>url</literal>. Et andet eksempel er aliasset "
+"<literal>tasks</literal>, som oversættes til "
+"<literal>tasksel:tasksel/first</literal>."
 
 #. Tag: para
 #: preseed.xml:352
@@ -515,6 +527,12 @@ msgid ""
 "installer for the bootloader). The installer will automatically filter out "
 "any options (like preconfiguration options) that it recognizes."
 msgstr ""
+"Et <quote>---</quote> i opstartstilvalget har speciel betydning. Kerne"
+"parametre som fremgår efter det sidste <quote>---</quote> kan kopieres til "
+"opstartsindlæserens konfiguration for det installerede system (hvis "
+"understøttet af installationsprogrammet for opstartsindlæseren). "
+"Installationsprogrammet vil automatisk filtrere tilvalg væk (såsom "
+"forhåndskonfigurerede tilvalg), som den genkender."
 
 #. Tag: para
 #: preseed.xml:361
@@ -583,6 +601,13 @@ msgid ""
 "parameters on the boot prompt. <phrase arch=\"x86\">See <xref linkend=\"boot-"
 "screen\"/> for information on how to add a boot parameter.</phrase>"
 msgstr ""
+"Dette aktiveres ved at bruge opstartsvalget <literal>Automatiseret "
+"installation</literal>, også kaldt <literal>auto</literal> for nogle "
+"arkitekturer eller opstartsmetoder. I dette afsnit, er "
+"<literal>auto</literal> derfor ikke en parameter, det betyder valg af "
+"opstartindstillingen, og tilføjelse af den efterfølgende opstartsparameter "
+"på opstartsprompten. <phrase arch=\"x86\">Se <xref linkend=\"boot-"
+"screen\"/> for information om hvordan en opstartsparameter tilføjes.</phrase>"
 
 #. Tag: para
 #: preseed.xml:401
@@ -691,6 +716,13 @@ msgid ""
 "avoid namespace conflicts, and perhaps add an alias for the parameter for "
 "you."
 msgstr ""
+"Det er selvfølgelig muligt at udvide dette koncept, og hvis du gør det, "
+"er det fornuftigt at bruge det automatisk installerede navnerum til "
+"dette formål. Så man kan have noget ala dette "
+"<literal>auto-install/style</literal>, som så bruges i dine skripter. "
+"Hvis du har brug for dette, så nævn det på postlisten "
+"<email>debian-boot@lists.debian.org</email>, så vi kan undgå "
+"navnerumskonflikter, og måske tilføje et alias for parameteren for dig."
 
 #. Tag: para
 #: preseed.xml:485
@@ -716,6 +748,11 @@ msgid ""
 "dhcp_timeout=60</literal> which makes the machine choose the first viable "
 "NIC and be more patient about getting a reply to its DHCP query."
 msgstr ""
+"Yderligere indstililnger som kan have interesse under forsøget på at "
+"automatisere en installation mens DHCP anvendes: "
+"<literal>interface=auto netcfg/dhcp_timeout=60</literal> som får maskinen "
+"til at vælge den første levedygtige NIC og være tålmodig med at få et "
+"svar til dets DHCP-forespørgsel."
 
 #. Tag: para
 #: preseed.xml:508
@@ -727,6 +764,10 @@ msgid ""
 "many other nice effects that can be achieved by creative use of "
 "preconfiguration."
 msgstr ""
+"Et omfattende eksempel på hvordan denne ramme anvendes, inklusive "
+"eksemplskripter og klasser, kan findes på <ulink url=\"http://hands.com/d-i/"
+"\">hjemmesiden for udvikleren</ulink>. Eksemplerne der viser også mange "
+"andre gode effekter, som kan opnås ved kreativ brug af forhåndskonfiguration."
 
 #. Tag: title
 #: preseed.xml:519
@@ -1047,6 +1088,11 @@ msgid ""
 "but only the installer. You can also put the text in a stanza for only one "
 "particular host to avoid preseeding all installs on your network."
 msgstr ""
+"Bemærk at det ovenstående eksempel begrænser dette filnavn til DHCP-klineter, "
+"som identificerer sig selv som »d-i«, så det vil ikke påvirke normale "
+"DHCP-klienter, men kun installationsprogrammet. Du kan også placere teksten "
+"i en stanza for en bestemt vært for at undgå forhåndskonfiguration af alle "
+"installationer på dit netværk."
 
 #. Tag: para
 #: preseed.xml:582
@@ -1073,12 +1119,15 @@ msgid ""
 "selections</command> command. The general format of a line in a "
 "preconfiguration file is:"
 msgstr ""
+"Den forhåndskonfigurerede fil er i et format brugt af kommandoen "
+"<command>debconf-set-selections</command>. Det generelle format for en linje "
+"i en forhåndskonfigureret fil er:"
 
 #. Tag: screen
 #: preseed.xml:603
 #, no-c-format
 msgid "&lt;owner&gt; &lt;question name&gt; &lt;question type&gt; &lt;value&gt;"
-msgstr ""
+msgstr "&lt;ejer&gt; &lt;spørgsmålsnavn&gt; &lt;spørgsmålstype&gt; &lt;værdi&gt;"
 
 #. Tag: para
 #: preseed.xml:605
@@ -1086,6 +1135,7 @@ msgstr ""
 msgid ""
 "There are a few rules to keep in mind when writing a preconfiguration file."
 msgstr ""
+"Der er nogle få regler at huske, når en forhåndskonfigurationsfil skrives."
 
 #. Tag: para
 #: preseed.xml:612
@@ -1094,6 +1144,8 @@ msgid ""
 "Put only a single space or tab between type and value: any additional "
 "whitespace will be interpreted as belonging to the value."
 msgstr ""
+"Placer kun et enkelt mellemrum eller indryk mellem type og værdi: Eventuelle "
+"yderligere mellemrum vil blive fortolket som tilhørende værdien."
 
 #. Tag: para
 #: preseed.xml:616
