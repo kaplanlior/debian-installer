@@ -160,6 +160,10 @@ for my $v (sort keys %{$status}) {
                     die "oops, unable to parse $line";
                 }
 
+                # Make sure to include linux's changelog:
+                $package = 'linux'
+                    if $package =~ /^kernel-image-/;
+
                 # FIXME: Decide whether not caring about binNMUs is ok:
                 $version =~ s/\+b\d+$//;
 
