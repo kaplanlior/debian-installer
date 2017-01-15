@@ -232,7 +232,7 @@ create_pdf() {
 
     echo "Info: creating .pdf file..."
 
-    ( dblatex -d -V -T db2latex -b xetex -p ./dblatex.xsl \
+    ( dblatex -d -V -T db2latex -b xetex -p ./stylesheets/dblatex.xsl \
     -o $tempdir/install.${language}.pdf \
     $tempdir/install.${language}.profiled.xml --param=lingua=${language} )
     RET=$?; [ $RET -ne 0 ] && return $RET
