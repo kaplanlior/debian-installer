@@ -7,12 +7,12 @@
    <xsl:choose>
     <xsl:when test="contains(/book/@lang,'ja')">
 	<xsl:text>\usepackage{xeCJK}&#10;</xsl:text>
-	<xsl:text>\setCJKmainfont{IPAPGothic}&#10;</xsl:text>
-	<xsl:text>\setCJKsansfont{IPAPGothic}&#10;</xsl:text>
-	<xsl:text>\setCJKmonofont{IPAPGothic}&#10;</xsl:text>
-        <xsl:text>\setmainfont{IPAPGothic}&#10;</xsl:text>
-        <xsl:text>\setsansfont{IPAPGothic}&#10;</xsl:text>
-        <xsl:text>\setmonofont{IPAPGothic}&#10;</xsl:text>
+	<xsl:text>\setCJKmainfont{VL-PGothic-Regular}&#10;</xsl:text>
+	<xsl:text>\setCJKsansfont{VL-PGothic-Regular}&#10;</xsl:text>
+	<xsl:text>\setCJKmonofont{VL-PGothic-Regular}&#10;</xsl:text>
+        <xsl:text>\setmainfont{VL-PGothic-Regular}&#10;</xsl:text>
+        <xsl:text>\setsansfont{VL-PGothic-Regular}&#10;</xsl:text>
+        <xsl:text>\setmonofont{VL-PGothic-Regular}&#10;</xsl:text>
     </xsl:when>
     <xsl:when test="contains(/book/@lang,'ko')">
 	<xsl:text>\usepackage{xeCJK}&#10;</xsl:text>
