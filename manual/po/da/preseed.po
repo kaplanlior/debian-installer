@@ -1,5 +1,5 @@
 # Danish translation of d-i-manual-preseed.
-# Copyright (C) 2016 Free Software Foundation, Inc.
+# Copyright (C) 2017 Free Software Foundation, Inc.
 # Joe Hansen <joedalton2@yahoo.dk>, 2014, 2015, 2016, 2017.
 #
 # 32-bit processorer (er anvendt selv om 32-bit-processorer er den korrekte brug)
@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: d-i-manual_preseed\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2016-12-26 18:56+0000\n"
-"PO-Revision-Date: 2017-01-01 10:40+0100\n"
+"PO-Revision-Date: 2017-01-22 10:40+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -1228,6 +1228,9 @@ msgid ""
 "not be preseeded, and the example file is a better starting place for most "
 "users."
 msgstr ""
+"En fil oprettet på denne måde vil dog have nogle elementer, som ikke skal "
+"forhåndskonfigureres og eksempelfilen er et bedre udgangspunkt for de "
+"fleste brugere."
 
 #. Tag: para
 #: preseed.xml:665
@@ -1239,6 +1242,11 @@ msgid ""
 "contain sensitive information, by default the files are only readable by "
 "root."
 msgstr ""
+"Denne metode afhænger af det faktum, at i slutningen af installationen, "
+"gemmes installationsprogrammets cdebconf-database til det installerede "
+"system i <filename>/var/log/installer/cdebconf</filename>. Da databasen "
+"kan indeholde sensitiv information, så kan filerne som standard kun "
+"læses af root (administrator)."
 
 #. Tag: para
 #: preseed.xml:673
@@ -1248,6 +1256,9 @@ msgid ""
 "will be deleted from your system if you purge the package "
 "<classname>installation-report</classname>."
 msgstr ""
+"Mappen <filename>/var/log/installer</filename> og alle filer i den vil "
+"blive slettet fra dit system, hvis du fjerner pakken "
+"<classname>installation-report</classname>."
 
 #. Tag: para
 #: preseed.xml:681
@@ -1259,6 +1270,12 @@ msgid ""
 "raw templates and <filename>questions.dat</filename> for the current values "
 "and for the values assigned to variables."
 msgstr ""
+"For at kontrollere mulige værdier for spørgsmål, så kan du bruge "
+"<command>nano</command> for at undersøge filerne i "
+"<filename>/var/lib/cdebconf</filename> mens en installation er i gang. "
+"Vis <filename>templates.dat</filename> for de rå skabeloner og "
+"<filename>questions.dat</filename> for de nuværende værdier og for "
+"værdierne tildelt variabler."
 
 #. Tag: para
 #: preseed.xml:689
@@ -1289,6 +1306,11 @@ msgid ""
 "relevant and will need to be replaced by debconf settings appropriate for "
 "your architecture."
 msgstr ""
+"Bemærk at dette eksempel er baseret på en installation for Intel x86-"
+"arkitekturen. Hvis du installerer en anden arkitektur, så kan nogle af "
+"eksemplerne (såsom tastatturvalg og installation af opstartsindlæser) "
+"være irrelevante og skal erstattes af debconf-indstillinger passende for "
+"din arkitektur."
 
 #. Tag: para
 #: preseed.xml:714
@@ -1304,7 +1326,7 @@ msgstr ""
 #: preseed.xml:722
 #, no-c-format
 msgid "Localization"
-msgstr ""
+msgstr "Opsætning af sted"
 
 #. Tag: para
 #: preseed.xml:723
@@ -1317,6 +1339,13 @@ msgid ""
 "<literal>auto</literal> preseed alias). This delays the asking of the "
 "localisation questions, so that they can be preseeded by any method."
 msgstr ""
+"Under en normal installation vil spørgsmål om sted blive spurgt først, så "
+"disse værdier kan kun forhåndskonfigureres via metoderne hos initrd- eller "
+"kerneopstartsparametre. Automatisk tilstand (<xref linkend=\"preseed-auto\"/>) "
+"inkluderer indstillingen <literal>auto-install/enable=true</literal> (normalt "
+"via aliasset for forhåndskonfiguration <literal>auto</literal>). Dette "
+"forsinker spørgsmålene om sted, så de kan forhåndskonfigureres med "
+"enhver metode."
 
 #. Tag: para
 #: preseed.xml:732
@@ -1329,6 +1358,12 @@ msgid ""
 "specify the locale as a boot parameter, use "
 "<userinput>locale=<replaceable>en_US</replaceable></userinput>."
 msgstr ""
+"Stedet kan bruges til at specificere både sprog og land og kan være enhver "
+"kombination af et sprog understøttet af &d-i; og et anerkendt land. Hvis "
+"kombinationen ikke udgør et gyldigt sted, så vil installationsprogrammet "
+"automatisk vælge et sted, som er gyldig for det valgte sprog. For at "
+"specificere stedet som en opstartsparametre, så brug "
+"<userinput>locale=<replaceable>en_US</replaceable></userinput>."
 
 #. Tag: para
 #: preseed.xml:741
@@ -1343,6 +1378,15 @@ msgid ""
 "footnote>. So alternatively the values can be preseeded individually. "
 "Language and country can also be specified as boot parameters."
 msgstr ""
+"Selvom denne metode er meget nem at bruge, så tillader den ikke "
+"forhåndskonfiguration af alle mulige kombinationer af sprog, land og sted"
+"<footnote> <para> Forhåndskonfiguration af <literal>locale</literal> til "
+"<userinput>en_NL</userinput> vil for eksempel medføre "
+"<literal>en_US.UTF-8</literal> som standardsted for det installerede "
+"system. Hvis f.eks. <literal>en_GB.UTF-8</literal> foretrækkes "
+"i stedet for, så skal værdierne forhåndskonfigureres individuelt. </para> </"
+"footnote>. Så alternativt kan værdierne forhåndskonfigureres individuelt. "
+"Sprog og land kan også angives som opstartsparametre."
 
 #. Tag: screen
 #: preseed.xml:756
@@ -1358,6 +1402,15 @@ msgid ""
 "# Optionally specify additional locales to be generated.\n"
 "#d-i localechooser/supported-locales multiselect en_US.UTF-8, nl_NL.UTF-8"
 msgstr ""
+"# Forhåndskonfiguration af sted angiver sprog, land og sted..\n"
+"d-i debian-installer/locale string en_US\n"
+"\n"
+"# Værdierne kan også forhåndskonfigureres individuelt for større fleksibilitet.\n"
+"#d-i debian-installer/language string en\n"
+"#d-i debian-installer/country string NL\n"
+"#d-i debian-installer/locale string en_GB.UTF-8\n"
+"# Valgfrit kan yderligere steder angives for oprettelse.\n"
+"#d-i localechooser/supported-locales multiselect en_US.UTF-8, nl_NL.UTF-8"
 
 #. Tag: para
 #: preseed.xml:758
@@ -1369,6 +1422,12 @@ msgid ""
 "Advanced variants are available only in the installed system, through "
 "<command>dpkg-reconfigure keyboard-configuration</command>."
 msgstr ""
+"Tastaturkonfiguration består af valg af et tastaturkort og (for andre end "
+"latinske tastaturkort) en ændringstast til at skifte mellem det amerikanske "
+"tastaturkort og andre ikke latinske tastaturkort. Kun grundlæggende "
+"tastaturkortvarianter er tilgængelige under installation. Avancerede "
+"varianter er kun tilgængelige i det installerede system, via "
+"<command>dpkg-reconfigure keyboard-configuration</command>."
 
 #. Tag: screen
 #: preseed.xml:766
@@ -1378,6 +1437,9 @@ msgid ""
 "d-i keyboard-configuration/xkb-keymap select us\n"
 "# d-i keyboard-configuration/toggle select No toggling"
 msgstr ""
+"# Tastaturvalg.\n"
+"d-i keyboard-configuration/xkb-keymap select us\n"
+"# d-i keyboard-configuration/toggle select No toggling"
 
 #. Tag: para
 #: preseed.xml:768
@@ -1387,6 +1449,9 @@ msgid ""
 "<userinput>skip-config</userinput>. This will result in the kernel keymap "
 "remaining active."
 msgstr ""
+"For at undlade tastaturkonfiguration, forhåndskonfigureres "
+"<classname>keymap</classname> med <userinput>skip-config</userinput>. "
+"Dette vil medføre, at kernens tastaturkort forbliver aktiv."
 
 #. Tag: title
 #: preseed.xml:780
@@ -1613,6 +1678,9 @@ msgid ""
 "user's account can be preseeded. For the passwords you can use either clear "
 "text values or crypt(3) <emphasis>hashes</emphasis>."
 msgstr ""
+"Adgangskoden for root-kontoen og navn og adgangskode for den første normale "
+"brugers konto kan forhåndskonfigureres. For adgangskoderne kan du enten bruge "
+"rene tekstværdier eller crypt(3)-<emphasis>hasher</emphasis>." 
 
 #. Tag: para
 #: preseed.xml:875
