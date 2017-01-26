@@ -95,8 +95,8 @@ sub archname {
 if (!$ENV{NOSYNC}) {
 	# Sync files from release.debian.org:
 	# - dates
-	unlink 'Dates';
-	`$wget -q -O Dates https://release.debian.org/britney/data-b2/Dates`;
+	unlink 'age-policy-dates';
+	`$wget -q -O age-policy-dates https://release.debian.org/britney/state/age-policy-dates`;
 	# - hints
 	rmtree "hints";	
 	mkdir "hints";
@@ -302,7 +302,7 @@ if (open (FREEZE, "hints/freeze")) {
 # version the age is specific to. The old version will be 'unknown'
 # until it's built everywhere, only the latest version appears in
 # Dates:
-if (open (DATES, "Dates")) {
+if (open (DATES, "age-policy-dates")) {
 	my $now = int(((time / (60*60)) - 15 ) / 24);
 	while (<DATES>) {
 		if (/^(\S+) (\S+) (\S+)$/) {
@@ -312,7 +312,7 @@ if (open (DATES, "Dates")) {
 	}
 	close DATES;
 } else {
-	print STDERR "failed to read Dates file: $!\n";
+	print STDERR "failed to read age-policy-dates file: $!\n";
 }
 
 my %normal_unblocks;
