@@ -20,7 +20,7 @@ msgstr ""
 "Project-Id-Version: d-i-manual_preseed\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2016-12-26 18:56+0000\n"
-"PO-Revision-Date: 2017-01-22 10:40+0100\n"
+"PO-Revision-Date: 2017-01-29 10:40+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -1692,6 +1692,12 @@ msgid ""
 "hashing algorithm like DES or MD5 is used which allow for bruteforce "
 "attacks. Recommended password hashing algorithms are SHA-256 and SHA512."
 msgstr ""
+"Vær opmærksom på at forhåndskonfiguration af adgangskoder ikke er "
+"fuldstændig sikker da alle med adgang til den forhåndskonfigurerede fil "
+"vil have viden om disse adgangskoder. Lagring af hashede adgangskoder "
+"anses for at være sikker medmindre at en svag hashingalgoritme såsom DES "
+"eller MD5 bruges; de giver mulighed for »bruteforce«-angreb. Anbefalede "
+"hashingalgoritmer for adgangskoder er SHA-256 og SHA512."
 
 #. Tag: screen
 #: preseed.xml:885
@@ -1724,6 +1730,32 @@ msgid ""
 "# override that, use this.\n"
 "#d-i passwd/user-default-groups string audio cdrom video"
 msgstr ""
+"# Udelad oprettelsen af en root-konto (normal brugerkonto vil kunne\n"
+"# anvende sudo).\n"
+"#d-i passwd/root-login boolean false\n"
+"# Alternativet, for at undlade oprettelsen af en normal brugerkonto.\n"
+"#d-i passwd/make-user boolean false\n"
+"\n"
+"# Root-adgangskode, enten i klar tekst\n"
+"#d-i passwd/root-password password r00tme\n"
+"#d-i passwd/root-password-again password r00tme\n"
+"# eller krypteret via en crypt(3)-hash.\n"
+"#d-i passwd/root-password-crypted password [crypt(3) hash]\n"
+"\n"
+"# For at oprette en normal brugerkonto.\n"
+"#d-i passwd/user-fullname string Debian User\n"
+"#d-i passwd/username string debian\n"
+"# Normal brugers adgangskode, enten i klar tekst\n"
+"#d-i passwd/user-password password insecure\n"
+"#d-i passwd/user-password-again password insecure\n"
+"# eller krypteret via en crypt(3)-hash.\n"
+"#d-i passwd/user-password-crypted password [crypt(3) hash]\n"
+"# Opret den første bruger med den specificerde UID i stedet for standarden.\n"
+"#d-i passwd/user-uid string 1010\n"
+"\n"
+"# Brugerkontoen vil blive tilføjet til nogle opstartsgrupper. For at\n"
+"# omgå dette, så brug følgende.\n"
+"#d-i passwd/user-default-groups string audio cdrom video"
 
 #. Tag: para
 #: preseed.xml:887
@@ -1737,6 +1769,13 @@ msgid ""
 "administrative activities or root login (for instance by using SSH key "
 "authentication or <command>sudo</command>)."
 msgstr ""
+"Variablerne <classname>passwd/root-password-crypted</classname> og "
+"<classname>passwd/user-password-crypted</classname> kan også "
+"forhåndskonfigureres med <quote>!</quote> som deres værdi. I det tilfælde, "
+"bliver den tilsvarende konto deaktiveret. Dette kan være nyttigt for "
+"root-kontoen, selvfølgelig såfremt en alternativ metode er opsat til "
+"at tillade administrative aktiviteter eller root-logind (for eksempel "
+"ved at bruge SSH-nøglegodkendelse eller <command>sudo</command>)."
 
 #. Tag: para
 #: preseed.xml:897
@@ -1778,6 +1817,17 @@ msgid ""
 "# NTP server to use. The default is almost always fine here.\n"
 "#d-i clock-setup/ntp-server string ntp.example.com"
 msgstr ""
+"# Kontrollerer om udstyrets ur er sat til UTC.\n"
+"d-i clock-setup/utc boolean true\n"
+"\n"
+"# Du kan sætte dette til enhver gyldig indstilling for $TZ; se indholdet af\n"
+"# /usr/share/zoneinfo/ for gyldige værdier.\n"
+"d-i time/zone string US/Eastern\n"
+"\n"
+"# Kontrollerer om NTP skal bruges til at sætte uret under installationen\n"
+"d-i clock-setup/ntp boolean true\n"
+"# NTP-server at bruge. Standarden er næsten altid fin her.\n"
+"#d-i clock-setup/ntp-server string ntp.example.com"
 
 #. Tag: title
 #: preseed.xml:915
@@ -1826,6 +1876,9 @@ msgid ""
 "are loaded. If there are multiple disks in the system, make very sure the "
 "correct one will be selected before using preseeding."
 msgstr ""
+"Identifikationen af diske er afhængige af rækkefølgen, som deres drivere "
+"indlæses i. Hvis der er flere diske i systemet, så sikr dig, at den "
+"korrekte vil blive valgt, før forhåndskonfiguration anvendes."
 
 #. Tag: title
 #: preseed.xml:953
@@ -1926,6 +1979,9 @@ msgid ""
 "Supported are RAID levels 0, 1, 5, 6 and 10, creating degraded arrays and "
 "specifying spare devices."
 msgstr ""
+"Du kan også bruge forhåndskonfiguration til at opsætte partitioner på "
+"program-RAID-arrayer. Understøttet er RAID-niveauerne 0, 1, 5, 6 og 10, "
+"der opretter degraded arrayer og specificerer ledige enheder."
 
 #. Tag: para
 #: preseed.xml:966
@@ -2053,6 +2109,11 @@ msgid ""
 "# falling back to UUIDs.\n"
 "#d-i partman/mount_style select uuid"
 msgstr ""
+"# Standarden er at montere efter UUID, men du kan også vælge »traditional«\n"
+"# brug traditionelle enhedsnavne, eller »label« for at prøve filsystemetiketter "
+"af\n"
+"# før der faldes tilbage til UUID'er.\n"
+"#d-i partman/mount_style select uuid"
 
 #. Tag: title
 #: preseed.xml:1021
@@ -2102,6 +2163,10 @@ msgid ""
 "and answers to earlier questions. You can optionally add other (local) "
 "repositories."
 msgstr ""
+"Opsætning af <filename>/etc/apt/sources.list</filename> og grundlæggende "
+"konfigurationsindstillinger er fuldt automatiseret baseret på din "
+"installationsmetode og svarer til tidligere spørgsmål. Du kan valgfrit "
+"tilføje andre (lokale) arkiver."
 
 #. Tag: screen
 #: preseed.xml:1043
@@ -2360,7 +2425,7 @@ msgstr ""
 #: preseed.xml:1134
 #, no-c-format
 msgid "Preseeding other packages"
-msgstr ""
+msgstr "Forhåndskonfiguration af andre pakker"
 
 #. Tag: screen
 #: preseed.xml:1136
@@ -2394,6 +2459,9 @@ msgid ""
 "A very powerful and flexible option offered by the preconfiguration tools is "
 "the ability to run commands or scripts at certain points in the installation."
 msgstr ""
+"En meget funktionsrig og fleksibel valgmulighed tilbudt af værktøjerne til "
+"forhåndskonfiguration er muligheden for at afvikle kommandoer eller skripter "
+"på bestemte steder under installationen."
 
 #. Tag: para
 #: preseed.xml:1153
@@ -2403,6 +2471,9 @@ msgid ""
 "<filename>/target</filename>. If an installation CD is used, when it is "
 "mounted it is available in <filename>/cdrom</filename>."
 msgstr ""
+"Når filsystemet for målsystemet er monteret, så er det tilgængelig i "
+"<filename>/target</filename>. Hvis en installation-cd bruges, når den er "
+"monteret, er den tilgængelig under <filename>/cdrom</filename>."
 
 #. Tag: screen
 #: preseed.xml:1161
