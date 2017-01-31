@@ -27,6 +27,7 @@ use Storable;
 use File::Path qw(make_path);
 use LWP::UserAgent;
 use Parse::DebianChangelog;
+use JSON;
 
 ### Parameter handling:
 my $workdir = 'release-announce.tmp';
@@ -76,11 +77,17 @@ open my $report, '>', $report_filename
 
 
 ### Determine release architectures:
-# FIXME: This is awful!
-my $ra = `rmadison -u debian -s testing -b deb bash`;
-chomp $ra;
-$ra =~ s/^.* \| //;
-my @ra = split ', ', $ra;
+sub get_release_archs {
+    my $ua = LWP::UserAgent->new;
+    my $response = $ua->get('https://api.ftp-master.debian.org/suite/testing');
+    die $response->status_line
+        if not $response->is_success;
+    my $json = JSON->new;
+    my $data = $json->decode( $response->decoded_content );
+    return grep { $_ ne 'all' and $_ ne 'source' } @{ $data->{architectures} };
+}
+
+my @ra = get_release_archs;
 print STDERR "DEBUG: release architectures: @ra\n";
 
 
