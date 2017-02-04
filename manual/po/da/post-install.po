@@ -1,6 +1,6 @@
 # Danish translation of d-i-manual-post-install.
-# Copyright (C) 2016 Free Software Foundation, Inc.
-# Joe Hansen <joedalton2@yahoo.dk>, 2014, 2015, 2016.
+# Copyright (C) 2017 Free Software Foundation, Inc.
+# Joe Hansen <joedalton2@yahoo.dk>, 2014, 2015, 2016, 2017.
 #
 # 32-bit processorer (er anvendt selv om 32-bit-processorer er den korrekte brug)
 # howto -> manual
@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: d-i-manual_post-install\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2017-02-02 20:39+0000\n"
-"PO-Revision-Date: 2016-12-12 10:40+0100\n"
+"PO-Revision-Date: 2017-02-04 10:40+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -60,23 +60,7 @@ msgstr ""
 
 #. Tag: para
 #: post-install.xml:25
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Alternatively you can press the key combination <keycombo> <keycap>Ctrl</"
-#| "keycap> <keycap>Alt</keycap> <keycap>Del</keycap> </keycombo> <phrase "
-#| "arch=\"powerpc\"> or <keycombo> <keycap>Control</keycap> <keycap>Shift</"
-#| "keycap> <keycap>Power</keycap> </keycombo> on Macintosh systems</phrase>. "
-#| "If the key combinations do not work, a last option is to log in as root "
-#| "and type the necessary commands. Use <command>reboot</command> to reboot "
-#| "the system. Use <command>halt</command> to halt the system without "
-#| "powering it off <footnote> <para> Under the SysV init system "
-#| "<command>halt</command> had the same effect as <command>poweroff</"
-#| "command>, but with systemd as init system (the default in jessie) their "
-#| "effects are different. </para> </footnote>. To power off the machine, use "
-#| "<command>poweroff</command> or <command>shutdown -h now</command>. The "
-#| "systemd init system provides additional commands that perform the same "
-#| "functions; for example <command>systemctl reboot</command> or "
-#| "<command>systemctl poweroff</command>."
+#, no-c-format
 msgid ""
 "Alternatively you can press the key combination <keycombo> <keycap>Ctrl</"
 "keycap> <keycap>Alt</keycap> <keycap>Del</keycap> </keycombo> <phrase arch="
@@ -98,13 +82,13 @@ msgstr ""
 "\"powerpc\"> eller <keycombo> <keycap>Control</keycap> <keycap>Skift</"
 "keycap> <keycap>Power</keycap> </keycombo> på Macintoshsystemer</phrase>. "
 "Hvis tastekombinationerne ikke fungerer, er en sidste mulighed at logge ind "
-"som root og tast de nødvendige kommandoer. Brug <command>reboot</command> "
+"som root og taste de nødvendige kommandoer. Brug <command>reboot</command> "
 "til at genstarte systemet. Brug <command>halt</command> til at stoppe "
 "systemet uden at slukke for det <footnote> <para> Under SysV-"
 "opstartssystemet havde <command>halt</command> den samme effekt som "
 "<command>poweroff</command>, men med systemd som opstartssystem (standarden "
-"i jessie) er deres effekt anderledes. </para> </footnote>. For at slukke for "
-"maskinen, så brug <command>poweroff</command> eller <command>shutdown -h "
+"siden jessie) er deres effekt anderledes. </para> </footnote>. For at slukke "
+"for maskinen, så brug <command>poweroff</command> eller <command>shutdown -h "
 "now</command>. Systemd-opstartssystemet tilbyder yderligere kommandoer, som "
 "udfører de samme funktioner; for eksempel <command>systemctl reboot</"
 "command> eller <command>systemctl poweroff</command>."
@@ -442,7 +426,7 @@ msgid ""
 msgstr ""
 "Der er tre hovedfunktioner, som udgør et e-postsystem. Først er der "
 "<firstterm>Postbrugeragenten</firstterm> (MUA), som er programmet en bruger "
-"bruger til at lave og læse post. Så er der "
+"anvender til at lave og læse post. Så er der "
 "<firstterm>Postoverførselsagenten</firstterm> (MTA) som håndterer "
 "overførslen af beskeder fra en computer til den næste. Og sidst er der "
 "<firstterm>Postleveringsagenten</firstterm> (MDA), som håndterer leverancen "
@@ -812,6 +796,13 @@ msgid ""
 "filename> has further details about configuring <classname>exim4</classname> "
 "and explains where to find additional documentation."
 msgstr ""
+"Hvis ingen af disse scenarier passer til dine behov, eller hvis du skal bruge en "
+"mere detaljeret opsætning, så skal du redigere konfigurationsfilerne under "
+"mappen <filename>/etc/exim4</filename>, efter at installationen er færdig. "
+"Yderligere information om <classname>exim4</classname> kan findes under "
+"<filename>/usr/share/doc/exim4</filename>; filen <filename>README.Debian.gz</"
+"filename> har yderligere detaljer om konfiguration af <classname>exim4</classname> "
+"og forklarer hvor yderligere dokumentation kan findes."
 
 #. Tag: para
 #: post-install.xml:510
@@ -825,6 +816,12 @@ msgid ""
 "<classname>exim4</classname> as your MTA, this is possible by adding an "
 "entry in <filename>/etc/email-addresses</filename>."
 msgstr ""
+"Bemærk at afsendelse af post direkte til internettet, når du ikke har et "
+"officielt domænenavn kan medføre, at din post bliver afvist på grund af "
+"metoder til at stoppe spam på de modtagende servere. Brug af din ISP's "
+"postserver foretrækkes. Hvis du stadig ikke ønsker at sende post direkte, "
+"kan du foretrække at bruge en anden e-postadresse som din MTA, dette er "
+"muligt ved at tilføje et punkt i <filename>/etc/email-addresses</filename>."
 
 #. Tag: title
 #: post-install.xml:528
@@ -843,6 +840,12 @@ msgid ""
 "corresponds to your hardware. However, it can be useful to compile a new "
 "kernel in order to:"
 msgstr ""
+"Hvorfor ønsker nogle at kompilere en ny kerne? Det er ofte ikke "
+"nødvendigt, da standardkernen leveret med &debian; håndterer de "
+"fleste konfigurationer. &debian; tilbyder ofte også flere alternative "
+"kerner. Så du kan først undersøge, om der er et alternativt kerneaftryk, "
+"som bedre svarer til dit udstyr. Det kan dog være nyttigt at kompilere "
+"en ny kerne for at:"
 
 #. Tag: para
 #: post-install.xml:539
@@ -913,6 +916,11 @@ msgid ""
 "already installed (see <filename>/usr/share/doc/kernel-package/README.gz</"
 "filename> for the complete list)."
 msgstr ""
+"For at kompilere en kerne på &debian;s måde, så skal du bruge nogle "
+"pakker: <classname>fakeroot</classname>, <classname>kernel-package</classname>, "
+"<classname>linux-source-2.6</classname> og nogle få andre, som sandsynligvis "
+"allerede er installeret (se <filename>/usr/share/doc/kernel-package/README.gz</"
+"filename> for den fulde liste)."
 
 #. Tag: para
 #: post-install.xml:589
@@ -940,6 +948,12 @@ msgid ""
 "classname>, yet still use the <classname>kernel-package</classname> "
 "compilation method."
 msgstr ""
+"Bemærk at du ikke <emphasis>skal</emphasis> kompilere din kerne på "
+"<quote>&debian;s måde</quote>; men vi kan se at brug af pakkesystemet "
+"til at håndtere din kerne er sikkert og nemt. Du kan få dine kernekilder "
+"direkte fra Linus i stedet for <classname>linux-source-2.6</"
+"classname>, men stadig bruge kompilationsmetoden fra "
+"<classname>kernel-package</classname>."
 
 #. Tag: para
 #: post-install.xml:606
@@ -968,6 +982,16 @@ msgid ""
 "<filename>linux-source-&kernelversion;</filename> that will have been "
 "created."
 msgstr ""
+"Herefter vil vi antage, at du har fri råderet over din maskine og vil "
+"udtrække din kernekilde til et sted i din hjemmemappe<footnote> "
+"<para> Der er andre placeringer, hvor du kan udtrække kernekilder "
+"og bygge din tilpassede kerne, men dette er nemmest, da det ikke "
+"kræver specielle tilladelser. </para> </footnote>. Vi antager også, "
+"at din kerneversion er &kernelversion;. Sikr dig, at du er i mappen, "
+"hvor du ønsker at udpakke kernekilderne, udtræk dem via "
+"<userinput>tar xf /usr/src/linux-source-&kernelversion;.tar.xz</userinput> "
+"og gå til mappen <filename>linux-source-&kernelversion;</filename>, "
+"som er blevet oprettet."
 
 #. Tag: para
 #: post-install.xml:633
@@ -986,6 +1010,18 @@ msgid ""
 "selected by default). If not included, your &debian; installation will "
 "experience problems."
 msgstr ""
+"Nu kan du konfigurere din kerne. Kør <userinput>make xconfig</userinput> "
+"hvis X11 er installeret, konfigureret og afvikles; kør <userinput>make "
+"menuconfig</userinput> ellers (du skal have<classname>libncurses5-dev</"
+"classname> installeret). Tag dig tid til at læse hjælpen fra nettet og vælg "
+"omhyggeligt. Hvis i tvivl, så er det typisk bedre at inkludere "
+"enhedsdriveren (programmet som håndterer udstyrsenheder, såsom Ethernetkort, "
+"SCSI-controllere og så videre), du er usikker på. Vær omhyggelig: Andre "
+"indstillinger, ikke relateret til specifikt udstyr, skal have standardværdien, "
+"hvis du ikke forstår dem. Glem ikke at vælge <quote>Kernelmodulindlæseren"
+"</quote> i <quote>Understøttelse af modulindlæsning</quote> (det valg er ikke "
+"standard). Hvis ikke inkluderet, så vil din &debian;-installation "
+"opleve problemer."
 
 #. Tag: para
 #: post-install.xml:648
@@ -1008,6 +1044,13 @@ msgid ""
 "word you like in place of <quote>custom</quote> (e.g., a host name). Kernel "
 "compilation may take quite a while, depending on the power of your machine."
 msgstr ""
+"Kompiler nu kernen: <userinput>fakeroot make-kpkg --initrd --"
+"revision=1.0.custom kernel_image</userinput>. Versionsnummeret for "
+"<quote>1.0</quote> kan ændres; det er kun et versionsnummer, som du "
+"kan bruge til at registrere dine kernebygninger. På samme måde "
+"kan du placere ethvert ord i stedet for <quote>custom</quote> (f.eks. "
+"et værtsnavn). Kernekompilering kan tage et stykke tid, afhængig af "
+"din maskine."
 
 #. Tag: para
 #: post-install.xml:663
@@ -1028,6 +1071,20 @@ msgid ""
 "use the new kernel. If you have created a modules package, you'll need to "
 "install that package as well."
 msgstr ""
+"Når kompileringen er færdig, så kan du installere din tilpassede kerne "
+"som enhver pakke. Som root, udfør <userinput>dpkg -i ../&kernelpackage;-"
+"&kernelversion;-<replaceable>subarchitecture</replaceable>_1.0."
+"custom_&architecture;.deb</userinput>. Delen <replaceable>subarchitecture</"
+"replaceable> er en valgfri underarkitektur, <phrase arch=\"i386\"> "
+"såsom <quote>686</quote>, </phrase> afhængig af hvilke kerneindstillinger "
+"du angav. <userinput>dpkg -i</userinput> vil installere kernen, sammen med "
+"nogle andre gode støttefiler. For eksempel vil <filename>System.map</"
+"filename> blive korrekt installeret (nyttigt til at fejlsøge kerneproblemer), "
+"og <filename>/boot/config-&kernelversion;</filename> vil blive installeret, "
+"indeholdende dit nuværende konfigurationssæt. Din nye kernepakke er også "
+"klog nok til automatisk at opdatere din opstartsindlæser til at bruge den "
+"nye kerne. Hvis du har oprettet en modulpakke, så skal du også installere "
+"den pakke."
 
 #. Tag: para
 #: post-install.xml:683
@@ -1071,6 +1128,13 @@ msgid ""
 "filename>. Regardless of the cause, you'll need to have a system to work "
 "from while you fix it, and rescue mode can be useful for this."
 msgstr ""
+"Nogle gange går det galt og systemet, du så omhyggeligt har "
+"installeret, kan ikke længere starte op. Måske gik opstartsindlæserens "
+"konfiguration i stykker under en ændring eller måske vil en ny installeret "
+"kerne ikke starte, eller måske har kosmiske stråler ramt din disk og rodet "
+"lidt rundt i <filename>/sbin/init</filename>. Uanset årsagen, så skal "
+"du bruge et system at arbejde fra, mens du retter, og en redningstilstand "
+"kan være nyttig til dette formål."
 
 #. Tag: para
 #: post-install.xml:715
@@ -1086,6 +1150,17 @@ msgid ""
 "facilities available in the installer to ensure that your disks, network "
 "devices, and so on are available to you while repairing your system."
 msgstr ""
+"For at tilgå redningstilstand så vælg <userinput>rescue</userinput> fra "
+"opstartsmenuen, tast <userinput>rescue</userinput> ved <prompt>boot:</prompt>-"
+"prompten, eller start med <userinput>rescue/enable=true</userinput>-"
+"opstartsparameteren. Du får vist de første få skærmbilleder af "
+"installationsprogrammet, med en bemærkning i hjørnet af skærmen, som "
+"indikerer at det er redningstilstand, ikke en fuld installation. Du skal "
+"ikke være nervøs, dit system er ikke ved at blive overskrevet! "
+"Redningstilstand bruger bare udstyrets registreringfunktioner, som er "
+"tilgængelige i installationsprogrammet for at sikre at dine diske, "
+"netværksenheder, og så videre er tilgængelige for dig, mens du reparerer "
+"dit system."
 
 #. Tag: para
 #: post-install.xml:732
@@ -1097,6 +1172,11 @@ msgid ""
 "need to repair. You may select partitions on RAID and LVM devices as well as "
 "those created directly on disks."
 msgstr ""
+"I stedet for partitioneringsværktøjet bør du nu blive præsenteret for en "
+"liste med partitionerne på dit system, og bedt om at vælge en af dem. Normalt "
+"skal du vælge partitionen indeholdende root-filsystemet, som du skal "
+"reparere. Du kan vælge partitioner på RAID- og LVM-enheder samt dem "
+"oprettet direkte på diske."
 
 #. Tag: para
 #: post-install.xml:740
@@ -1109,6 +1189,11 @@ msgid ""
 "could enter the command <userinput>grub-install '(hd0)'</userinput> to do "
 "so. </phrase>"
 msgstr ""
+"Hvis muligt vil installationsprogrammet nu præsentere dig for en skalprompt "
+"i det valgte filsystem, som du kan bruge til at udføre nødvendige reparationer. "
+"<phrase arch=\"any-x86\"> for eksepel, hvis du skal geninstallere GRUB-"
+"opstartsindlæseren i master boot record for den første harddisk, kan du "
+"indtaste kommandoen <userinput>grub-install '(hd0)'</userinput>. </phrase>"
 
 #. Tag: para
 #: post-install.xml:752
