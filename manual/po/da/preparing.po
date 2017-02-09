@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: d-i-manual_preparing\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2016-12-26 18:56+0000\n"
-"PO-Revision-Date: 2017-01-29 10:40+0100\n"
+"PO-Revision-Date: 2017-02-09 10:40+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -1861,6 +1861,35 @@ msgid ""
 " }\n"
 "</screen></informalexample> Reboot the dhcp server."
 msgstr ""
+"Du skal bruge en DHCP/TFTP (BOOTP)-server, samt en internetserver. Efter "
+"du har hentet ibm-powerkvm-*-ppc64-service-*.iso, monter loop aftrykket "
+"og pak det ud i en mappe indenfor din HTT-servers www root-struktur "
+"(f.eks. wwwroot): <informalexample><screen>\n"
+"# cd &lt;directory-where-the-iso-is&gt;\n"
+"# mkdir ./iso\n"
+"# sudo mount -o loop ibm-powerkvm-*-ppc64-service-*.iso ./iso\n"
+"# cp -a ./iso/* &lt;path-to-wwwroot&gt;\n"
+"</screen></informalexample> Opret filen petitboot.conf file i en mappe "
+"under din tftproot, f.eks. /tftproot/powerkvm, med det følgende indhold: "
+"<informalexample><screen>\n"
+"label PowerKVM Automated Install\n"
+"kernel http://YOUR-SERVER-IP/SOME-PATH-TO-wwwroot/ppc/ppc64/vmlinuz\n"
+"initrd http://YOUR-SERVER-IP/SOME-PATH-TO-wwwroot/ppc/ppc64/initrd.img\n"
+"append root=live:http://YOUR-SERVER-IP/SOME-PATH-TO-wwwroot/LiveOS/squashfs."
+"img repo=http://YOUR-SERVER-IP/SOME-PATH-TO-wwwroot/packages rd.dm=0 rd.md=0 "
+"console=hvc0 console=tty0\n"
+"</screen></informalexample> Redigering af din dhcpd.conf, angiv dette direktiv "
+"i begyndelsen: <informalexample><screen>\n"
+"option conf-file code 209 = text;\n"
+"</screen></informalexample> Tilføj systemdirektivet: "
+"<informalexample><screen>\n"
+"host &lt;your-system&gt; {\n"
+"    hardware ethernet &lt;system macaddr&gt;\n"
+"    fixed-address &lt;system ip&gt;;\n"
+"    option host-name \"&lt;system hostname&gt;\";\n"
+"    option conf-file \"&lt;powerkvm/petitboot.conf&gt;\";\n"
+" }\n"
+"</screen></informalexample> Genstart dhcp-serveren."
 
 #. Tag: para
 #: preparing.xml:1408
@@ -1872,11 +1901,15 @@ msgstr "Start din PowerLinux-maskine op."
 #: preparing.xml:1412
 #, no-c-format
 msgid ""
-"There should be the following option at petitboot (select it): "
+"Der bør være den følgende indstilling med petitboot (vælg den): "
 "<informalexample><screen>\n"
 "\"Power KVM Automated Install\" \n"
 "</screen></informalexample> The installer menu should appear automatically."
 msgstr ""
+"There should be the following option at petitboot (select it): "
+"<informalexample><screen>\n"
+"\"Power KVM Automated Install\" \n"
+"</screen></informalexample> Installationsmenuen kommer frem automatisk."
 
 #. Tag: title
 #: preparing.xml:1423
@@ -1891,6 +1924,8 @@ msgid ""
 "Boot the ISO ibm-powerkvm-*-ppc64-service-*.iso (either burn a DVD or make "
 "it virtual if using QEMU) and simply wait for the boot."
 msgstr ""
+"Opstart ISO ibm-powerkvm-*-ppc64-service-*.iso (enten brænd en dvd eller lav "
+"den virtuel hvis QEMU bruges) og vent så på opstarten."
 
 #. Tag: para
 #: preparing.xml:1427
@@ -1901,12 +1936,16 @@ msgid ""
 "\"POWERKVM_LIVECD\" \n"
 "</screen></informalexample> The installer menu should appear automatically."
 msgstr ""
+"Der bør være den følgende indstilling med petitboot (vælg den): "
+"<informalexample><screen>\n"
+"\"POWERKVM_LIVECD\" \n"
+"</screen></informalexample> Installationsmenuen kommer frem automatisk."
 
 #. Tag: title
 #: preparing.xml:1448
 #, no-c-format
 msgid "Invoking OpenBoot"
-msgstr ""
+msgstr "Start af OpenBoot"
 
 #. Tag: para
 #: preparing.xml:1450
@@ -1941,6 +1980,10 @@ msgid ""
 "then type <userinput>%~break</userinput>. Consult the documentation of your "
 "terminal emulator if you are using a different program."
 msgstr ""
+"Hvis du bruger en seriel konsol, så send en break til maskinen. Med Minicom, "
+"brug <keycap>Ctrl-A F</keycap>, med cu, ram <keycap>Retur</keycap>, "
+"tast så <userinput>%~break</userinput>. Se dokumentationen for din "
+"terminalemulator hvis du bruger et andet program."
 
 #. Tag: para
 #: preparing.xml:1483
@@ -2056,7 +2099,7 @@ msgstr ""
 #: preparing.xml:1584
 #, no-c-format
 msgid "Native and LPAR installations"
-msgstr ""
+msgstr "Standardinstallationer og LPAR-installationer"
 
 #. Tag: para
 #: preparing.xml:1585
@@ -2085,6 +2128,12 @@ msgid ""
 "redbooks/sg246264.pdf\"> Linux for IBM eServer zSeries and &arch-title;: "
 "Distributions</ulink> Redbook on how to set up a VM guest for running Linux."
 msgstr ""
+"Se venligst kapitel 6 i <ulink url=\"http://www.redbooks.ibm.com/"
+"pubs/pdfs/redbooks/sg244987.pdf\"> Linux for &arch-title;</ulink> Redbook "
+"og kapitel 3.1 i <ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/"
+"redbooks/sg246264.pdf\"> Linux for IBM eServer zSeries and &arch-title;: "
+"Distributions</ulink> Redbook for hvordan en VM-gæst opsættes til at køre "
+"Linux."
 
 #. Tag: para
 #: preparing.xml:1611
@@ -2125,6 +2174,10 @@ msgid ""
 "are required. You can also copy the contents of all installation CDs into "
 "such a directory tree."
 msgstr ""
+"Installationsserveren skal kopiere den præcise mappestruktur fra et "
+"&debian-gnu;-spejl, men kun s390-filer og de af arkitekturen uafhængige "
+"filer er krævede. Du kan også kopiere indholdet for alle installations-cd'erne "
+"til sådant et mappetræ."
 
 #. Tag: emphasis
 #: preparing.xml:1647
@@ -2171,7 +2224,7 @@ msgstr ""
 #: preparing.xml:1684
 #, no-c-format
 msgid "Debian-provided U-Boot (system firmware) images"
-msgstr ""
+msgstr "Debian-tilbudt U-Boot-aftryk (systemfirmware)"
 
 #. Tag: para
 #: preparing.xml:1685
@@ -2197,12 +2250,15 @@ msgid ""
 "you use this image instead of the vendor-provided U-Boot, as the version in "
 "Debian is usually newer and has more features."
 msgstr ""
+"Hvis Debian tilbyder et U-Boot-aftryk til dit system, så anbefales det, at "
+"du bruger dette aftryk i stedet for den leverandørtilbudte U-Boot, da versionen "
+"i Debian normalt er nyere og har flere funktioner."
 
 #. Tag: title
 #: preparing.xml:1708
 #, no-c-format
 msgid "Setting the ethernet MAC address in U-Boot"
-msgstr ""
+msgstr "Angivelse af ethernet MAC-adressen i U-Boot"
 
 #. Tag: para
 #: preparing.xml:1709
@@ -2297,6 +2353,10 @@ msgid ""
 "saveenv</quote> at the U-Boot prompt to completely disable the relocation of "
 "the initial ramdisk and the device-tree blob."
 msgstr ""
+"En anden måde at omgå relokeringsproblemer er at køre kommandoen "
+"<quote>setenv fdt_high ffffffff; setenv initrd_high 0xffffffff; "
+"saveenv</quote> på U-Boot-prompten for helt at deaktivere relokeringen "
+"af den oprindelige ramdisk og enhedstræets blob."
 
 #. Tag: title
 #: preparing.xml:1780
@@ -2312,6 +2372,9 @@ msgid ""
 "system firmware that is used on many modern systems and is - among other "
 "uses - intended to replace the classic PC BIOS."
 msgstr ""
+"UEFI (<quote>Unified Extensible Firmware Interface</quote>) er en ny slags "
+"systemfirmware, som bruges på mange moderne systemer og er - blandt andre "
+"ting - lavet til at erstatte den klassiske PC BIOS."
 
 #. Tag: para
 #: preparing.xml:1787
@@ -2394,7 +2457,7 @@ msgstr ""
 #: preparing.xml:1855
 #, no-c-format
 msgid "Disabling the Windows 8 <quote>fast boot</quote> feature"
-msgstr ""
+msgstr "Deaktiver af Windows 8 <quote>fast boot</quote>-funktionen"
 
 #. Tag: para
 #: preparing.xml:1856
@@ -2431,7 +2494,7 @@ msgstr ""
 #: preparing.xml:1884
 #, no-c-format
 msgid "Hardware Issues to Watch Out For"
-msgstr ""
+msgstr "Udstyrsproblemer at holde øje med"
 
 #. Tag: title
 #: preparing.xml:1887
@@ -2450,12 +2513,19 @@ msgid ""
 "menu, consult your mainboard manual and look in the BIOS for <quote>Legacy "
 "keyboard emulation</quote> or <quote>USB keyboard support</quote> options."
 msgstr ""
+"Hvis du ikke har et tastatur i PS/2-stil, men kun en USB-model, så skal "
+"du måske aktivere forældet tastaturemulering i din BIOS-opsætning for at "
+"kunne bruge dit tastatur i opstartsindlæsernes menu, men dette er ikke "
+"en problemstilling for moderne systemer. Hvis dit tastatur ikke fungerer "
+"i opstartsindlæserens menu, så kig i dit bundkorts manual og find i "
+"BIOS'en indstillingerne for <quote>Legacy keyboard emulation</quote> eller "
+"<quote>USB keyboard support</quote>."
 
 #. Tag: title
 #: preparing.xml:1901
 #, no-c-format
 msgid "Display-visibility on OldWorld Powermacs"
-msgstr ""
+msgstr "Skærmsynlighed på OldWorld Powermacs"
 
 #. Tag: para
 #: preparing.xml:1903
@@ -2470,3 +2540,12 @@ msgid ""
 "try changing your display settings under MacOS to use 256 colors instead of "
 "<quote>thousands</quote> or <quote>millions</quote>."
 msgstr ""
+"Nogle OldWorld Powermacs, specielt dem med <quote>control</quote>-"
+"skærmdriveren, fremstille måske ikke en troværdigt farvekort under Linux, "
+"når skærmen er konfigureret til mere end 256 farver. Hvis du har oplevet "
+"sådanne problemstillinger med din skærm efter genstart (du kan undertiden "
+"se data på skærmen, men på andre tidspunkter ikke se noget overhovedet) "
+"eller, hvis skærmen bliver sort efter start af installationsprogrammet i "
+"stedet for at vise dig brugergrænsefladen, så prøv at ændre "
+"skærmindstillingerne under MacOS til at bruge 256 farver i stedet for "
+"<quote>tusinde</quote> eller <quote>millioner</quote>."
