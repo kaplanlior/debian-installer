@@ -62,7 +62,7 @@
 cleanup, plus minimal ~150MB work space included.
 Also update the value in debian-installer/build/boot/x86/f2.txt
 -->
-<!ENTITY minimum-fs-size "680&notation-megabytes;">
+<!ENTITY minimum-fs-size "780&notation-megabytes;">
 
 <!--
 Size of install as used in appendix/files.xml; all values based on amd64.
@@ -73,7 +73,7 @@ installation:
 - with use of network mirror
 - without selecting _any_ tasks.
 After the reboot, the size for the minimal base system should be determined
-after running 'aptitude clean' using 'du -hsx /'. After that the "Standard
+after running 'apt-get clean' using 'du -hsx /'. After that the "Standard
 system" task should be installed and the size of the standard system can be
 determined using the same method.
 
@@ -91,89 +91,86 @@ to first switch tasksel to that DE using the following command, e.g:
 -->
 
 <!-- Size of the basic installation -->
-  <!ENTITY base-system-size   "506">
-  <!ENTITY std-system-size    "822">
+  <!ENTITY base-system-size   "613">
+  <!ENTITY std-system-size    "800">
 <!-- Desktop environment task - GNOME -->
-  <!ENTITY task-desktop-gnome-inst "2487">
-  <!ENTITY task-desktop-gnome-dl    "765">
-  <!ENTITY task-desktop-gnome-tot  "3252">
+  <!ENTITY task-desktop-gnome-inst "3163">
+  <!ENTITY task-desktop-gnome-dl    "935">
+  <!ENTITY task-desktop-gnome-tot  "4098">
 <!-- Desktop environment task - KDE -->
-  <!ENTITY task-desktop-kde-inst   "2198">
-  <!ENTITY task-desktop-kde-dl      "770">
-  <!ENTITY task-desktop-kde-tot    "2968">
+  <!ENTITY task-desktop-kde-inst   "3044">
+  <!ENTITY task-desktop-kde-dl      "911">
+  <!ENTITY task-desktop-kde-tot    "3955">
 <!-- Desktop environment task - Xfce -->
-  <!ENTITY task-desktop-xfce-inst  "1529">
-  <!ENTITY task-desktop-xfce-dl     "503">
-  <!ENTITY task-desktop-xfce-tot   "2032">
+  <!ENTITY task-desktop-xfce-inst  "2122">
+  <!ENTITY task-desktop-xfce-dl     "593">
+  <!ENTITY task-desktop-xfce-tot   "2715">
 <!-- Desktop environment task - LXDE -->
-  <!ENTITY task-desktop-lxde-inst  "1536">
-  <!ENTITY task-desktop-lxde-dl     "502">
-  <!ENTITY task-desktop-lxde-tot   "2038">
+  <!ENTITY task-desktop-lxde-inst  "2133">
+  <!ENTITY task-desktop-lxde-dl     "602">
+  <!ENTITY task-desktop-lxde-tot   "2735">
 <!-- Desktop environment task - MATE -->
-  <!ENTITY task-desktop-mate-inst  "1631">
-  <!ENTITY task-desktop-mate-dl     "531">
-  <!ENTITY task-desktop-mate-tot   "2162">
+  <!ENTITY task-desktop-mate-inst  "2288">
+  <!ENTITY task-desktop-mate-dl     "644">
+  <!ENTITY task-desktop-mate-tot   "2932">
 <!-- Desktop environment task - Cinnamon -->
-  <!ENTITY task-desktop-cinnamon-inst  "2212">
-  <!ENTITY task-desktop-cinnamon-dl     "691">
-  <!ENTITY task-desktop-cinnamon-tot   "2903">
+  <!ENTITY task-desktop-cinnamon-inst  "2878">
+  <!ENTITY task-desktop-cinnamon-dl     "843">
+  <!ENTITY task-desktop-cinnamon-tot   "3721">
 <!-- Web server task -->
-  <!ENTITY task-web-inst       "31">
-  <!ENTITY task-web-dl          "7">
-  <!ENTITY task-web-tot        "38">
+  <!ENTITY task-web-inst       "40">
+  <!ENTITY task-web-dl          "9">
+  <!ENTITY task-web-tot        "49">
 <!-- Print server task -->
-  <!ENTITY task-print-inst    "234">
-  <!ENTITY task-print-dl       "73">
-  <!ENTITY task-print-tot     "307">
+  <!ENTITY task-print-inst    "407">
+  <!ENTITY task-print-dl       "95">
+  <!ENTITY task-print-tot     "502">
 <!-- SSH server task -->
   <!ENTITY task-ssh-inst        "1">
   <!ENTITY task-ssh-dl          "0">
   <!ENTITY task-ssh-tot         "1">
 <!-- Laptop task -->
-  <!ENTITY task-laptop-inst    "10">
-  <!ENTITY task-laptop-dl       "3">
-  <!ENTITY task-laptop-tot     "13">
+  <!ENTITY task-laptop-inst    "29">
+  <!ENTITY task-laptop-dl       "9">
+  <!ENTITY task-laptop-tot     "38">
 
-<!-- Size needed for / with separate /usr, maximum is currently for i386 -->
-  <!ENTITY root-system-size-min     "150">
-  <!ENTITY root-system-size-max     "310">
+<!-- Size needed by base and gnome desktop task for / with separate /usr, /var, /boot, for amd64 -->
+  <!ENTITY root-system-size-min     "250">
+  <!ENTITY root-system-size-max     "350">
 
 <!-- number of packages, approx, in the main distribution -->
 <!-- use:
-     for i in binary-*; do echo -n "$i: "; zgrep '^Package:' binary-all/Packages.gz $i/Packages.gz | wc -l; done
+     for i in binary-*; do echo -n "$i: "; zgrep '^Package:' ./binary-all/Packages.gz ./$i/Packages.gz | wc -l; done
 -->
-<!-- last updated: 2015-04-13 for Jessie (Sledge) -->
+<!-- last updated: 2017-02-11 for Stretch (Samuel Thibault) -->
 <!ENTITY num-of-distrib-pkgs
-  "<phrase arch='amd64'>61019</phrase>
-   <phrase arch='arm64'>58805</phrase>
-   <phrase arch='armel'>60147</phrase>
-   <phrase arch='armhf'>60143</phrase>
-   <phrase arch='i386'>61052</phrase>
-   <phrase arch='kfreebsd-amd64'>58097</phrase>
-   <phrase arch='kfreebsd-i386'>58082</phrase>
-   <phrase arch='mips'>59834</phrase>
-   <phrase arch='mips64el'>59931</phrase>
-   <phrase arch='mipsel'>59931</phrase>
-   <phrase arch='powerpc'>60345</phrase>
-   <phrase arch='ppc64el'>59305</phrase>
-   <phrase arch='s390x'>59553</phrase>
+  "<phrase arch='amd64'>75746</phrase>
+   <phrase arch='arm64'>74365</phrase>
+   <phrase arch='armel'>74134</phrase>
+   <phrase arch='armhf'>74360</phrase>
+   <phrase arch='i386'>75573</phrase>
+   <phrase arch='mips'>73821</phrase>
+   <phrase arch='mips64el'>73793</phrase>
+   <phrase arch='mipsel'>74037</phrase>
+   <phrase arch='ppc64el'>74309</phrase>
+   <phrase arch='s390x'>73878</phrase>
    ">
 
 <!-- Number of current Debian developers -->
-<!-- Can be found for example on vote.debian.org (use last vote) -->
-<!ENTITY num-of-debian-developers "1026">
+<!-- Can be found for example on the english version of vote.debian.org (use last vote) -->
+<!ENTITY num-of-debian-developers "1041">
 
 <!-- Number of current Debian maillists (see
      http://lists.debian.org/completeindex.html) -->
-<!ENTITY num-of-debian-maillists "276">
+<!ENTITY num-of-debian-maillists "283">
 
-<!-- version of X11 shipping with the current release -->
+<!-- version of X11 shipping with the current release, see version of the xorg package -->
 <!ENTITY x11ver "7.7">
 
-<!-- version of BRLTTY shipping with the current release -->
-<!ENTITY brlttyver "5.2">
+<!-- version of BRLTTY shipping with the current release, see version of the brltty package -->
+<!ENTITY brlttyver "5.4">
 
-<!-- version of Speakup shipping with the current release -->
+<!-- version of Speakup shipping with the current release, see version of the speakup-doc package -->
 <!ENTITY speakupver "3.1.6">
 
 <!-- an example of adding another image to lilo.conf, cf
