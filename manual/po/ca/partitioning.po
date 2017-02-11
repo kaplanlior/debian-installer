@@ -1,0 +1,1536 @@
+# Translation of the Debian installation-guide to Catalan.
+# Innocent De Marchi <tangram.peces@gmail.com>, 2017
+# Hector Oron <hector.oron@gmail.com>, 2010
+# Ivan Vilata i Balaguer <ivan@selidor.net>, 2010
+# Miguel Gea Milvaques <xerakko@debian.org>, 2008
+# Guillem Jover <guillem@debian.org>, 2007, 2008, 2010
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: d-i-manual_partioning\n"
+"Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
+"POT-Creation-Date: 2015-05-25 11:27+0000\n"
+"PO-Revision-Date: 2017-01-28 18:34+0100\n"
+"Last-Translator: Innocent De Marchi <tangram.peces@gmail.com>\n"
+"Language-Team: \n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.11\n"
+
+#. Tag: title
+#: partitioning.xml:5
+#, no-c-format
+msgid "Partitioning for &debian;"
+msgstr "Particionat per a &debian;"
+
+#. Tag: title
+#: partitioning.xml:13
+#, no-c-format
+msgid "Deciding on &debian; Partitions and Sizes"
+msgstr "Com decidir quines particions fer per a &debian; i llurs mides"
+
+#. Tag: para
+#: partitioning.xml:14
+#, no-c-format
+msgid ""
+"At a bare minimum, GNU/&arch-kernel; needs one partition for itself. You can "
+"have a single partition containing the entire operating system, "
+"applications, and your personal files. Most people feel that a separate swap "
+"partition is also a necessity, although it's not strictly true. <quote>Swap</"
+"quote> is scratch space for an operating system, which allows the system to "
+"use disk storage as <quote>virtual memory</quote>. By putting swap on a "
+"separate partition, &arch-kernel; can make much more efficient use of it. It "
+"is possible to force &arch-kernel; to use a regular file as swap, but it is "
+"not recommended."
+msgstr ""
+"Com a mínim imprescindible, GNU/&arch-kernel; necessita una partició pròpia. "
+"Podeu tenir una única partició que contingui tot el sistema operatiu, les "
+"aplicacions, i els vostres fitxers personals. Molta gent pensa que també és "
+"necessària una altra partició per a l'intercanvi de memòria, però això no és "
+"cert del tot. La partició d'intercanvi o <quote>swap</quote> és un espai "
+"reservat per al sistema operatiu, i que permet utilitzar el disc com si es "
+"tractés de <quote>memòria virtual</quote>. Si poseu l'espai d'intercanvi en "
+"una altra partició independent, &arch-kernel; pot fer-ne un ús molt més "
+"eficient. Es pot fer servir un fitxer normal per a l'intercanvi, però no és "
+"recomanable."
+
+#. Tag: para
+#: partitioning.xml:26
+#, no-c-format
+msgid ""
+"Most people choose to give GNU/&arch-kernel; more than the minimum number of "
+"partitions, however. There are two reasons you might want to break up the "
+"file system into a number of smaller partitions. The first is for safety. If "
+"something happens to corrupt the file system, generally only one partition "
+"is affected. Thus, you only have to replace (from the backups you've been "
+"carefully keeping) a portion of your system. At a bare minimum, you should "
+"consider creating what is commonly called a <quote>root partition</quote>. "
+"This contains the most essential components of the system. If any other "
+"partitions get corrupted, you can still boot into GNU/&arch-kernel; to fix "
+"the system. This can save you the trouble of having to reinstall the system "
+"from scratch."
+msgstr ""
+"Tanmateix, la majoria de la gent prefereix assignar a GNU/&arch-kernel; més "
+"particions de les estrictament necessàries. Hi ha dos motius pels que us pot "
+"interessar dividir el sistema de fitxers en unes quantes particions més "
+"petites. El primer és per seguretat. Si passa res que malmeti el sistema de "
+"fitxers, generalment només afectarà una partició. D'aquesta manera només "
+"caldrà restaurar una part del sistema (a partir de les còpies de seguretat "
+"que aneu fent meticulosament). Almenys seria bo considerar tenir el que "
+"normalment es coneix com <quote>partició arrel</quote>. Aquesta conté els "
+"components més essencials del sistema. Si qualsevol de les altres particions "
+"queda malmesa, encara podreu arrencar GNU/&arch-kernel; per arreglar el "
+"sistema. Això us pot estalviar haver de reinstal·lar-ho tot de nou."
+
+#. Tag: para
+#: partitioning.xml:40
+#, no-c-format
+msgid ""
+"The second reason is generally more important in a business setting, but it "
+"really depends on your use of the machine. For example, a mail server "
+"getting spammed with e-mail can easily fill a partition. If you made "
+"<filename>/var/mail</filename> a separate partition on the mail server, most "
+"of the system will remain working even if you get spammed."
+msgstr ""
+"El segon motiu generalment és més important en un entorn professional, però "
+"en realitat dependrà de l'ús que en feu de la màquina. Per exemple, un "
+"servidor que rep molt correu no desitjat pot omplir fàcilment una partició. "
+"Si teniu <filename>/var/mail</filename> en una partició separada al servidor "
+"de correu, la major part del sistema continuarà funcionant."
+
+#. Tag: para
+#: partitioning.xml:48
+#, no-c-format
+msgid ""
+"The only real drawback to using more partitions is that it is often "
+"difficult to know in advance what your needs will be. If you make a "
+"partition too small then you will either have to reinstall the system or you "
+"will be constantly moving things around to make room in the undersized "
+"partition. On the other hand, if you make the partition too big, you will be "
+"wasting space that could be used elsewhere. Disk space is cheap nowadays, "
+"but why throw your money away?"
+msgstr ""
+"L'únic inconvenient real de fer servir més particions és que sovint és "
+"difícil saber d'entrada quines necessitats tindreu. Si feu una partició "
+"massa petita, llavors o reinstal·leu el sistema o no parareu de moure coses "
+"d'una banda a l'altra per fer lloc a la partició infradimensionada. D'altra "
+"banda, si feu la partició massa gran estareu malbaratant espai que es podria "
+"fer servir per alguna altra cosa. És cert que l'espai de disc és barat avui "
+"en dia, però tot i així, perquè llançar els diners?"
+
+#. Tag: title
+#: partitioning.xml:67
+#, no-c-format
+msgid "The Directory Tree"
+msgstr "L'arbre de directoris"
+
+#. Tag: para
+#: partitioning.xml:68
+#, no-c-format
+msgid ""
+"&debian-gnu; adheres to the <ulink url=\"&url-fhs-home;\">Filesystem "
+"Hierarchy Standard</ulink> for directory and file naming. This standard "
+"allows users and software programs to predict the location of files and "
+"directories. The root level directory is represented simply by the slash "
+"<filename>/</filename>. At the root level, all &debian; systems include "
+"these directories:"
+msgstr ""
+"&debian-gnu; s'adhereix a la <ulink url=\"&url-fhs-home;\">Filesystem "
+"Hierarchy Standard</ulink> (Jerarquia estàndard del sistema de fitxers) per "
+"a anomenar directoris i fitxers. Aquest estàndard permet tant a usuaris com "
+"a programes predir la ubicació dels fitxers i directoris. El directori arrel "
+"es representa simplement per una barra <filename>/</filename>. A partir de "
+"l'arrel, tots els sistemes &debian; inclouen aquests directoris:"
+
+#. Tag: entry
+#: partitioning.xml:82
+#, no-c-format
+msgid "Directory"
+msgstr "Directori"
+
+#. Tag: entry
+#: partitioning.xml:82
+#, no-c-format
+msgid "Content"
+msgstr "Contingut"
+
+#. Tag: filename
+#: partitioning.xml:88
+#, no-c-format
+msgid "<filename>bin</filename>"
+msgstr "<filename>bin</filename>"
+
+#. Tag: entry
+#: partitioning.xml:89
+#, no-c-format
+msgid "Essential command binaries"
+msgstr "Binaris d'ordres essencials"
+
+#. Tag: filename
+#: partitioning.xml:91
+#, no-c-format
+msgid "boot"
+msgstr "boot"
+
+#. Tag: entry
+#: partitioning.xml:92
+#, no-c-format
+msgid "Static files of the boot loader"
+msgstr "Fitxers estàtics del carregador d'arrencada"
+
+#. Tag: filename
+#: partitioning.xml:94
+#, no-c-format
+msgid "<filename>dev</filename>"
+msgstr "<filename>dev</filename>"
+
+#. Tag: entry
+#: partitioning.xml:95
+#, no-c-format
+msgid "Device files"
+msgstr "Fitxers de dispositiu"
+
+#. Tag: filename
+#: partitioning.xml:97
+#, no-c-format
+msgid "<filename>etc</filename>"
+msgstr "<filename>etc</filename>"
+
+#. Tag: entry
+#: partitioning.xml:98
+#, no-c-format
+msgid "Host-specific system configuration"
+msgstr "Configuració del sistema específica de la màquina"
+
+#. Tag: filename
+#: partitioning.xml:100
+#, no-c-format
+msgid "home"
+msgstr "home"
+
+#. Tag: entry
+#: partitioning.xml:101
+#, no-c-format
+msgid "User home directories"
+msgstr "Directoris dels usuaris"
+
+#. Tag: filename
+#: partitioning.xml:103
+#, no-c-format
+msgid "<filename>lib</filename>"
+msgstr "<filename>lib</filename>"
+
+#. Tag: entry
+#: partitioning.xml:104
+#, no-c-format
+msgid "Essential shared libraries and kernel modules"
+msgstr "Biblioteques compartides essencials i mòduls del nucli"
+
+#. Tag: filename
+#: partitioning.xml:106
+#, no-c-format
+msgid "media"
+msgstr "media"
+
+#. Tag: entry
+#: partitioning.xml:107
+#, no-c-format
+msgid "Contains mount points for replaceable media"
+msgstr "Punts de muntatge per a dispositius extraïbles"
+
+#. Tag: filename
+#: partitioning.xml:109
+#, no-c-format
+msgid "<filename>mnt</filename>"
+msgstr "<filename>mnt</filename>"
+
+#. Tag: entry
+#: partitioning.xml:110
+#, no-c-format
+msgid "Mount point for mounting a file system temporarily"
+msgstr "Muntatge temporal de sistemes de fitxers"
+
+#. Tag: filename
+#: partitioning.xml:112
+#, no-c-format
+msgid "proc"
+msgstr "proc"
+
+#. Tag: entry
+#: partitioning.xml:113 partitioning.xml:125
+#, no-c-format
+msgid "Virtual directory for system information"
+msgstr "Directori virtual per a informació del sistema"
+
+#. Tag: filename
+#: partitioning.xml:115
+#, no-c-format
+msgid "root"
+msgstr "root"
+
+#. Tag: entry
+#: partitioning.xml:116
+#, no-c-format
+msgid "Home directory for the root user"
+msgstr "Directori principal de l'usuari root"
+
+#. Tag: filename
+#: partitioning.xml:118
+#, no-c-format
+msgid "<filename>run</filename>"
+msgstr "<filename>run</filename>"
+
+#. Tag: entry
+#: partitioning.xml:119
+#, no-c-format
+msgid "Run-time variable data"
+msgstr "Dades variables en temps d'execució"
+
+#. Tag: filename
+#: partitioning.xml:121
+#, no-c-format
+msgid "sbin"
+msgstr "sbin"
+
+#. Tag: entry
+#: partitioning.xml:122
+#, no-c-format
+msgid "Essential system binaries"
+msgstr "Binaris essencials del sistema"
+
+#. Tag: filename
+#: partitioning.xml:124
+#, no-c-format
+msgid "<filename>sys</filename>"
+msgstr "<filename>sys</filename>"
+
+#. Tag: filename
+#: partitioning.xml:127
+#, no-c-format
+msgid "<filename>tmp</filename>"
+msgstr "<filename>tmp</filename>"
+
+#. Tag: entry
+#: partitioning.xml:128
+#, no-c-format
+msgid "Temporary files"
+msgstr "Fitxers temporals"
+
+#. Tag: filename
+#: partitioning.xml:130
+#, no-c-format
+msgid "<filename>usr</filename>"
+msgstr "<filename>usr</filename>"
+
+#. Tag: entry
+#: partitioning.xml:131
+#, no-c-format
+msgid "Secondary hierarchy"
+msgstr "Jerarquia secundària"
+
+#. Tag: filename
+#: partitioning.xml:133
+#, no-c-format
+msgid "<filename>var</filename>"
+msgstr "<filename>var</filename>"
+
+#. Tag: entry
+#: partitioning.xml:134
+#, no-c-format
+msgid "Variable data"
+msgstr "Dades variables"
+
+#. Tag: filename
+#: partitioning.xml:136
+#, no-c-format
+msgid "<filename>srv</filename>"
+msgstr "<filename>srv</filename>"
+
+#. Tag: entry
+#: partitioning.xml:137
+#, no-c-format
+msgid "Data for services provided by the system"
+msgstr "Dades pels serveis facilitats pel sistema"
+
+#. Tag: filename
+#: partitioning.xml:139
+#, no-c-format
+msgid "<filename>opt</filename>"
+msgstr "<filename>opt</filename>"
+
+#. Tag: entry
+#: partitioning.xml:140
+#, no-c-format
+msgid "Add-on application software packages"
+msgstr "Aplicacions de programari addicionals"
+
+#. Tag: para
+#: partitioning.xml:145
+#, no-c-format
+msgid ""
+"The following is a list of important considerations regarding directories "
+"and partitions. Note that disk usage varies widely given system "
+"configuration and specific usage patterns. The recommendations here are "
+"general guidelines and provide a starting point for partitioning."
+msgstr ""
+"A continuació teniu una llista de consideracions importants pel que fa a "
+"directoris i particions. Tingueu en compte que l'ús del disc pot variar molt "
+"segons la configuració del sistema. Aquestes recomanacions són més aviat "
+"generals i proporcionen un bon punt de partida per a fer particions."
+
+#. Tag: para
+#: partitioning.xml:155
+#, no-c-format
+msgid ""
+"The root partition <filename>/</filename> must always physically contain "
+"<filename>/etc</filename>, <filename>/bin</filename>, <filename>/sbin</"
+"filename>, <filename>/lib</filename> and <filename>/dev</filename>, "
+"otherwise you won't be able to boot. Typically &root-system-size-min;&ndash;"
+"&root-system-size-max;MB is needed for the root partition."
+msgstr ""
+"La partició arrel <filename>/</filename> sempre ha de contenir físicament "
+"<filename>/etc</filename>, <filename>/bin</filename>, <filename>/sbin</"
+"filename>, <filename>/lib</filename> i <filename>/dev</filename>, sinó no "
+"podreu arrencar. Normalment calen &root-system-size-min;&ndash;&root-system-"
+"size-max; MiB per a la partició arrel."
+
+#. Tag: para
+#: partitioning.xml:164
+#, no-c-format
+msgid ""
+"<filename>/usr</filename>: contains all user programs (<filename>/usr/bin</"
+"filename>), libraries (<filename>/usr/lib</filename>), documentation "
+"(<filename>/usr/share/doc</filename>), etc. This is the part of the file "
+"system that generally takes up most space. You should provide at least 500MB "
+"of disk space. This amount should be increased depending on the number and "
+"type of packages you plan to install. A generous workstation or server "
+"installation should allow 4&ndash;6GB."
+msgstr ""
+"<filename>/usr</filename>: conté tots els programes d'usuari (<filename>/usr/"
+"bin</filename>), biblioteques (<filename>/usr/lib</filename>), documentació "
+"(<filename>/usr/share/doc</filename>), etc. Aquesta és la part del sistema "
+"de fitxers que generalment ocupa més. Li hauríeu de concedir com a mínim 500 "
+"MiB d'espai en disc. Aquesta mida s'ha d'incrementar depenent del nombre i "
+"el tipus de paquets que planegeu instal·lar. Una estació de treball potent o "
+"un servidor poden dedicar-li 4-6 GiB."
+
+#. Tag: para
+#: partitioning.xml:177
+#, no-c-format
+msgid ""
+"It is now recommended to have <filename>/usr</filename> on the root "
+"partition <filename>/</filename>, otherwise it could cause some trouble at "
+"boot time. This means that you should provide at least 600&ndash;750MB of "
+"disk space for the root partition including <filename>/usr</filename>, or "
+"5&ndash;6GB for a workstation or a server installation."
+msgstr ""
+"Ara es recomana tenir <filename>/usr</filename> a la partició arrel "
+"<filename>/</filename>, d'altre manera podria ocasionar problemes en "
+"l'arrencada. Això significa que cal reservar almenys 600&ndash;750MB d'espai "
+"de disc per a la partició arrel incloent <filename>/usr</filename>, o "
+"5&ndash;6GB per a una màquina de treball o una instal·lació de servidor."
+
+#. Tag: para
+#: partitioning.xml:187
+#, no-c-format
+msgid ""
+"<filename>/var</filename>: variable data like news articles, e-mails, web "
+"sites, databases, the packaging system cache, etc. will be placed under this "
+"directory. The size of this directory depends greatly on the usage of your "
+"system, but for most people will be dictated by the package management "
+"tool's overhead. If you are going to do a full installation of just about "
+"everything &debian; has to offer, all in one session, setting aside 2 or 3 "
+"GB of space for <filename>/var</filename> should be sufficient. If you are "
+"going to install in pieces (that is to say, install services and utilities, "
+"followed by text stuff, then X, ...), you can get away with 300&ndash;500 "
+"MB. If hard drive space is at a premium and you don't plan on doing major "
+"system updates, you can get by with as little as 30 or 40 MB."
+msgstr ""
+"<filename>/var</filename>: les dades variables com ara articles de grups de "
+"discussió, correus electrònics, pàgines web, bases de dades, la memòria cau "
+"del sistema de paquets, etc. aniran a parar a aquest directori. La seva mida "
+"dependrà en bona part de l'ús que doneu al sistema, però per a la majoria de "
+"gent, el que marcarà la mida serà la sobrecàrrega produïda pel sistema "
+"d'administració de paquets. Si penseu fer una instal·lació completa de ben "
+"bé tot allò que &debian; pot oferir, tot en una sola sessió, n'hi hauria "
+"d'haver prou amb reservar 2 o 3 GiB d'espai per a <filename>/var</filename>. "
+"Si penseu fer la instal·lació per parts (és a dir, instal·lar els serveis i "
+"utilitats, després les eines de text, llavors X...), us en podeu sortir amb "
+"300&ndash;500 MiB. Si aneu més justos de disc i no penseu fer "
+"actualitzacions importants, passareu amb només 30 o 40 MiB."
+
+#. Tag: para
+#: partitioning.xml:203
+#, no-c-format
+msgid ""
+"<filename>/tmp</filename>: temporary data created by programs will most "
+"likely go in this directory. 40&ndash;100MB should usually be enough. Some "
+"applications &mdash; including archive manipulators, CD/DVD authoring tools, "
+"and multimedia software &mdash; may use <filename>/tmp</filename> to "
+"temporarily store image files. If you plan to use such applications, you "
+"should adjust the space available in <filename>/tmp</filename> accordingly."
+msgstr ""
+"<filename>/tmp</filename>: les dades temporals generades pels programes "
+"segurament aniran a parar a aquest directori. 40&ndash;100 MiB haurien de "
+"ser suficients. Algunes aplicacions, com ara eines de manipulació de "
+"fitxers, autoria de CD/DVD, o altre programari multimèdia, poden fer servir "
+"<filename>/tmp</filename> per emmagatzemar fitxers imatge. Si teniu intenció "
+"de fer servir aquest tipus d'aplicacions, és recomanable ajustar l'espai "
+"disponible a <filename>/tmp</filename> convenientment."
+
+#. Tag: para
+#: partitioning.xml:214
+#, no-c-format
+msgid ""
+"<filename>/home</filename>: every user will put his personal data into a "
+"subdirectory of this directory. Its size depends on how many users will be "
+"using the system and what files are to be stored in their directories. "
+"Depending on your planned usage you should reserve about 100MB for each "
+"user, but adapt this value to your needs. Reserve a lot more space if you "
+"plan to save a lot of multimedia files (pictures, MP3, movies) in your home "
+"directory."
+msgstr ""
+"<filename>/home</filename>: tot usuari deixa les seves dades en un "
+"subdirectori d'aquest directori. La seva mida dependrà del nombre d'usuaris "
+"que tingui el sistema, i dels fitxers que s'hi hagin d'emmagatzemar. Segons "
+"l'ús planejat per a la màquina s'haurien de reservar uns 100 MiB per a cada "
+"usuari, adaptant aquest valor a les nostres necessitats particulars. "
+"Reserveu molt més espai si teniu previst desar molts fitxers multimèdia "
+"(imatges, MP3, pel·lícules) als vostres directoris personals."
+
+#. Tag: title
+#: partitioning.xml:235
+#, no-c-format
+msgid "Recommended Partitioning Scheme"
+msgstr "Esquema de particions recomanat"
+
+#. Tag: para
+#: partitioning.xml:236
+#, no-c-format
+msgid ""
+"For new users, personal &debian; boxes, home systems, and other single-user "
+"setups, a single <filename>/</filename> partition (plus swap) is probably "
+"the easiest, simplest way to go. However, if your partition is larger than "
+"around 6GB, choose ext3 as your partition type. Ext2 partitions need "
+"periodic file system integrity checking, and this can cause delays during "
+"booting when the partition is large."
+msgstr ""
+"Per a usuaris novells, màquines &debian; personals, sistemes domèstics, i "
+"altres instal·lacions monousuari, el més fàcil i probablement més simple "
+"serà fer una única partició <filename>/</filename> (més la d'intercanvi). "
+"Tanmateix, si la vostra partició ocupa més d'aproximadament 6 GiB és "
+"preferible que la feu de tipus ext3. Les particions ext2 necessiten "
+"comprovacions d'integritat periòdiques, fet que pot arribar a alentir "
+"l'arrencada quan la partició és gran."
+
+#. Tag: para
+#: partitioning.xml:245
+#, no-c-format
+msgid ""
+"For multi-user systems or systems with lots of disk space, it's best to put "
+"<filename>/var</filename>, <filename>/tmp</filename>, and <filename>/home</"
+"filename> each on their own partitions separate from the <filename>/</"
+"filename> partition."
+msgstr ""
+"En sistemes multiusuari amb molt espai de disc, és millor col·locar "
+"<filename>/var</filename>,<filename>/tmp</filename>, i <filename>/home</"
+"filename> cadascun a la seva pròpia partició, i separats de la partició "
+"<filename>/</filename>."
+
+#. Tag: para
+#: partitioning.xml:253
+#, no-c-format
+msgid ""
+"You might need a separate <filename>/usr/local</filename> partition if you "
+"plan to install many programs that are not part of the &debian; "
+"distribution. If your machine will be a mail server, you might need to make "
+"<filename>/var/mail</filename> a separate partition. Often, putting "
+"<filename>/tmp</filename> on its own partition, for instance 20&ndash;50MB, "
+"is a good idea. If you are setting up a server with lots of user accounts, "
+"it's generally good to have a separate, large <filename>/home</filename> "
+"partition. In general, the partitioning situation varies from computer to "
+"computer depending on its uses."
+msgstr ""
+"Podríeu necessitar una partició a part per <filename>/usr/local</filename> "
+"si penseu instal·lar molts programes que no formen part de la distribució "
+"&debian;. Si la vostra màquina ha de ser un servidor de correu, potser "
+"caldria fer una partició a part per a <filename>/var/mail</filename>. Sovint "
+"també és una bona idea posar una partició per a <filename>/tmp</filename> "
+"tot sol, per exemple d'entre 20&ndash;50 MiB. D'altra banda, si esteu "
+"instal·lant un servidor amb molts comptes d'usuari, és bo tenir una partició "
+"gran independent per a <filename>/home</filename>. En general, l'esquema de "
+"particions varia d'una màquina a una altra, depenent de per a què es faci "
+"servir."
+
+#. Tag: para
+#: partitioning.xml:265
+#, no-c-format
+msgid ""
+"For very complex systems, you should see the <ulink url=\"&url-multidisk-"
+"howto;\"> Multi Disk HOWTO</ulink>. This contains in-depth information, "
+"mostly of interest to ISPs and people setting up servers."
+msgstr ""
+"Per a sistemes més complexos llegiu el <ulink url=\"&url-multidisk-howto;"
+"\">Multi Disk HOWTO</ulink>. Aquesta secció tracta més en profunditat aquest "
+"tema, pot interessar especialment a proveïdors d'internet i a persones que "
+"es dediquin a configurar servidors."
+
+#. Tag: para
+#: partitioning.xml:272
+#, no-c-format
+msgid ""
+"With respect to the issue of swap partition size, there are many views. One "
+"rule of thumb which works well is to use as much swap as you have system "
+"memory. It also shouldn't be smaller than 16MB, in most cases. Of course, "
+"there are exceptions to these rules. If you are trying to solve 10000 "
+"simultaneous equations on a machine with 256MB of memory, you may need a "
+"gigabyte (or more) of swap."
+msgstr ""
+"Pel que fa a la mida de la partició d'intercanvi, hi ha molts punts de vista "
+"diferents. Un heurisme que va prou bé és fer-la tan gran com la memòria del "
+"sistema. Però en la majoria de casos no hauria de ser inferior a 16 MiB. És "
+"clar que hi ha excepcions a la regla. Si proveu de resoldre 10000 equacions "
+"simultàniament en una màquina amb 256 MiB de memòria, podeu necessitar fins "
+"a 1 GiB (o més) d'espai d'intercanvi."
+
+#. Tag: para
+#: partitioning.xml:281
+#, no-c-format
+msgid ""
+"On some 32-bit architectures (m68k and PowerPC), the maximum size of a swap "
+"partition is 2GB. That should be enough for nearly any installation. "
+"However, if your swap requirements are this high, you should probably try to "
+"spread the swap across different disks (also called <quote>spindles</quote>) "
+"and, if possible, different SCSI or IDE channels. The kernel will balance "
+"swap usage between multiple swap partitions, giving better performance."
+msgstr ""
+"En algunes arquitectures de 32 bits (m68k i PowerPC), la mida màxima d'una "
+"partició d'intercanvi és de 2 GiB. Amb això n'hi hauria d'haver prou per "
+"gairebé qualsevol instal·lació. Tanmateix, si teniu requeriments més grans, "
+"probablement hauríeu de mirar de repartir l'espai d'intercanvi entre "
+"diferents discs (també anomenats <quote>spindles</quote> o filoses) i, a ser "
+"possible, entre diferents canals SCSI o IDE. El nucli equilibrarà l'ús de "
+"l'espai d'intercanvi entre les múltiples particions i n'obtindrà un millor "
+"rendiment."
+
+#. Tag: para
+#: partitioning.xml:291
+#, no-c-format
+msgid ""
+"As an example, an older home machine might have 32MB of RAM and a 1.7GB IDE "
+"drive on <filename>/dev/sda</filename>. There might be a 500MB partition for "
+"another operating system on <filename>/dev/sda1</filename>, a 32MB swap "
+"partition on <filename>/dev/sda3</filename> and about 1.2GB on <filename>/"
+"dev/sda2</filename> as the Linux partition."
+msgstr ""
+"Com a exemple, una antiga màquina domèstica amb 32 MiB de RAM i un disc IDE "
+"de 1.7 GiB a <filename>/dev/sda</filename>. Podria tenir una partició de 500 "
+"MiB per un altre sistema operatiu a <filename>/dev/sda1</filename>, una "
+"partició d'intercanvi de 32 MiB a <filename>/dev/sda3</filename> i la resta, "
+"aproximadament 1.2 GiB a <filename>/dev/sda2</filename>, com a partició "
+"Linux."
+
+#. Tag: para
+#: partitioning.xml:300
+#, no-c-format
+msgid ""
+"For an idea of the space taken by tasks you might be interested in adding "
+"after your system installation is complete, check <xref linkend=\"tasksel-"
+"size-list\"/>."
+msgstr ""
+"Per tenir una idea de l'espai que ocupen altres paquets que us poden "
+"interessar una vegada la instal·lació del sistema ha estat completada, "
+"llegiu <xref linkend=\"tasksel-size-list\"/>."
+
+#. Tag: title
+#: partitioning.xml:316
+#, no-c-format
+msgid "Device Names in Linux"
+msgstr "Noms dels dispositius a Linux"
+
+#. Tag: para
+#: partitioning.xml:317
+#, no-c-format
+msgid ""
+"Linux disks and partition names may be different from other operating "
+"systems. You need to know the names that Linux uses when you create and "
+"mount partitions. Here's the basic naming scheme:"
+msgstr ""
+"Els noms dels discs i particions a Linux poden ser diferents que en altres "
+"sistemes operatius. Necessiteu saber els noms que utilitza Linux quan "
+"genereu i monteu particions. Aquest és l'esquema bàsic de noms:"
+
+#. Tag: para
+#: partitioning.xml:325
+#, no-c-format
+msgid "The first floppy drive is named <filename>/dev/fd0</filename>."
+msgstr "La primera disquetera es diu <filename>/dev/fd0</filename>."
+
+#. Tag: para
+#: partitioning.xml:330
+#, no-c-format
+msgid "The second floppy drive is named <filename>/dev/fd1</filename>."
+msgstr "La segona disquetera es diu <filename>/dev/fd1</filename>."
+
+#. Tag: para
+#: partitioning.xml:335
+#, no-c-format
+msgid "The first hard disk detected is named <filename>/dev/sda</filename>."
+msgstr "El primer disc dur s'anomena <filename>/dev/sda</filename>."
+
+#. Tag: para
+#: partitioning.xml:340
+#, no-c-format
+msgid ""
+"The second hard disk detected is named <filename>/dev/sdb</filename>, and so "
+"on."
+msgstr ""
+"El segon disc dur s'anomena <filename>/dev/sdb</filename>, i així "
+"successivament."
+
+#. Tag: para
+#: partitioning.xml:346
+#, no-c-format
+msgid ""
+"The first SCSI CD-ROM is named <filename>/dev/scd0</filename>, also known as "
+"<filename>/dev/sr0</filename>."
+msgstr ""
+"El primer CD-ROM SCSI s'anomena <filename>/dev/scd0</filename>, també "
+"conegut com a <filename>/dev/sr0</filename>."
+
+#. Tag: para
+#: partitioning.xml:355
+#, no-c-format
+msgid "The first DASD device is named <filename>/dev/dasda</filename>."
+msgstr "El primer dispositiu DASD s'anomena <filename>/dev/dasda</filename>."
+
+#. Tag: para
+#: partitioning.xml:361
+#, no-c-format
+msgid ""
+"The second DASD device is named <filename>/dev/dasdb</filename>, and so on."
+msgstr ""
+"El segon dispositiu DASD s'anomena <filename>/dev/dasdb</filename>, i així."
+
+#. Tag: para
+#: partitioning.xml:369
+#, no-c-format
+msgid ""
+"The partitions on each disk are represented by appending a decimal number to "
+"the disk name: <filename>sda1</filename> and <filename>sda2</filename> "
+"represent the first and second partitions of the first SCSI disk drive in "
+"your system."
+msgstr ""
+"Les particions en cada disc es representen afegint un número decimal al nom "
+"del disc: <filename>sda1</filename> i <filename>sda2</filename> representen "
+"la primera i segona partició del primer disc SCSI del vostre sistema."
+
+#. Tag: para
+#: partitioning.xml:376
+#, no-c-format
+msgid ""
+"Here is a real-life example. Let's assume you have a system with 2 SCSI "
+"disks, one at SCSI address 2 and the other at SCSI address 4. The first disk "
+"(at address 2) is then named <filename>sda</filename>, and the second "
+"<filename>sdb</filename>. If the <filename>sda</filename> drive has 3 "
+"partitions on it, these will be named <filename>sda1</filename>, "
+"<filename>sda2</filename>, and <filename>sda3</filename>. The same applies "
+"to the <filename>sdb</filename> disk and its partitions."
+msgstr ""
+"Ací teniu un exemple real.  Assumim que teniu un sistema amb dos discs SCSI, "
+"un a l'adreça SCSI 2 i l'altre a l'adreça SCSI 4. El primer disc (a l'adreça "
+"2) s'anomena <filename>sda</filename>, i el segon <filename>sdb</filename>. "
+"Si la unitat<filename>sda</filename> té tres particions, aquestes "
+"s'anomenaran <filename>sda1</filename>, <filename>sda2</filename> i "
+"<filename>sda3</filename>. La mateixa lògica s'aplica també al disc "
+"<filename>sdb</filename> i les seues particions."
+
+#. Tag: para
+#: partitioning.xml:387
+#, no-c-format
+msgid ""
+"Note that if you have two SCSI host bus adapters (i.e., controllers), the "
+"order of the drives can get confusing. The best solution in this case is to "
+"watch the boot messages, assuming you know the drive models and/or "
+"capacities."
+msgstr ""
+"Teniu en compte que si teniu dos adaptadors de bus SCSI (és a dir, "
+"controladores), l'ordre de les unitats pot ser confús. La millor solució en "
+"aquest cas és estar atent als missatges d'arrencada, assumint que sabeu els "
+"models de les unitats i/o les seues capacitats."
+
+#. Tag: para
+#: partitioning.xml:394
+#, no-c-format
+msgid ""
+"Linux represents the primary partitions as the drive name, plus the numbers "
+"1 through 4. For example, the first primary partition on the first drive is "
+"<filename>/dev/sda1</filename>. The logical partitions are numbered starting "
+"at 5, so the first logical partition on that same drive is <filename>/dev/"
+"sda5</filename>. Remember that the extended partition, that is, the primary "
+"partition holding the logical partitions, is not usable by itself."
+msgstr ""
+"Linux representa les particions primàries fent servir el nom del disc, més "
+"els números 1 al 4. Per exemple, la primera partició primària al primer disc "
+"és <filename>/dev/sda1</filename>. Les particions lògiques s'enumeren "
+"començant pel 5, així la primera partició lògica en aquest mateix disc és "
+"<filename>/dev/sda5</filename>. Recordeu que la partició estesa, que és la "
+"que integra les particions lògiques, no es pot utilitzar."
+
+#. Tag: para
+#: partitioning.xml:404
+#, no-c-format
+msgid ""
+"Sun disk partitions allow for 8 separate partitions (or slices). The third "
+"partition is usually (and is preferred to have) the <quote>Whole Disk</"
+"quote> partition. This partition references all of the sectors of the disk, "
+"and is used by the boot loader (either SILO, or Sun's)."
+msgstr ""
+"Les particions de disc Sun permeten 8 particions independents (o «slices»). "
+"La tercera partició és normalment (i s'aconsella que així siga) la partició "
+"de <quote>disc sencer</quote>. Aquesta partició referencia tots els sectors "
+"del disc, i la utilitza el carregador (SILO, o el de Sun)."
+
+#. Tag: para
+#: partitioning.xml:411
+#, no-c-format
+msgid ""
+"The partitions on each disk are represented by appending a decimal number to "
+"the disk name: <filename>dasda1</filename> and <filename>dasda2</filename> "
+"represent the first and second partitions of the first DASD device in your "
+"system."
+msgstr ""
+"Les particions en cada disc es representen afegint un número decimal al nom "
+"del disc: <filename>dasda1</filename> i <filename>dasda2</filename> "
+"representen la primera i segona partició del primer dispositiu DASD del "
+"vostre sistema."
+
+#. Tag: title
+#: partitioning.xml:426
+#, no-c-format
+msgid "&debian; Partitioning Programs"
+msgstr "Programes de &debian; per fer particions"
+
+#. Tag: para
+#: partitioning.xml:427
+#, no-c-format
+msgid ""
+"Several varieties of partitioning programs have been adapted by &debian; "
+"developers to work on various types of hard disks and computer "
+"architectures. Following is a list of the program(s) applicable for your "
+"architecture."
+msgstr ""
+"Els desenvolupadors de &debian; han adaptat nombroses varietats de programes "
+"per fer particions a fi que funcionen en diversos tipus de discs durs i "
+"arquitectures d'ordinador. Tot seguit hi ha una llista dels programes "
+"adients per a la vostra arquitectura."
+
+#. Tag: para
+#: partitioning.xml:440
+#, no-c-format
+msgid ""
+"Recommended partitioning tool in &debian;. This Swiss army knife can also "
+"resize partitions, create filesystems <phrase arch=\"any-x86\"> "
+"(<quote>format</quote> in Windows speak)</phrase> and assign them to the "
+"mountpoints."
+msgstr ""
+"És l'eina de &debian; recomanada per fer particions. Aquesta navalla suïssa "
+"també pot redimensionar particions, generar sistemes de fitxers <phrase arch="
+"\"any-x86\"> (<quote>formatar</quote> en terminologia de Windows)</phrase> i "
+"associar-los a punts de muntatge."
+
+#. Tag: para
+#: partitioning.xml:452
+#, no-c-format
+msgid "The original Linux disk partitioner, good for gurus."
+msgstr "És el partidor de discs original del Linux, adequat per als experts."
+
+#. Tag: para
+#: partitioning.xml:456
+#, no-c-format
+msgid ""
+"Be careful if you have existing FreeBSD partitions on your machine. The "
+"installation kernels include support for these partitions, but the way that "
+"<command>fdisk</command> represents them (or not) can make the device names "
+"differ. See the <ulink url=\"&url-linux-freebsd;\">Linux+FreeBSD HOWTO</"
+"ulink>."
+msgstr ""
+"Aneu amb compte si teniu particions de FreeBSD. Els nuclis d'instal·lació "
+"permeten l'ús d'aquestes particions, però la manera com l'<command>fdisk</"
+"command> els representa (o no) pot fer que els noms de dispositiu "
+"diferisquen. Vegeu el <ulink url=\"&url-linux-freebsd;\">COM ES FA Linux"
+"+FreeBSD</ulink>."
+
+#. Tag: para
+#: partitioning.xml:469
+#, no-c-format
+msgid "A simple-to-use, full-screen disk partitioner for the rest of us."
+msgstr "És un partidor de discs d'ús senzill, apte per a tothom."
+
+#. Tag: para
+#: partitioning.xml:473
+#, no-c-format
+msgid ""
+"Note that <command>cfdisk</command> doesn't understand FreeBSD partitions at "
+"all, and, again, device names may differ as a result."
+msgstr ""
+"Tingueu en compte que el <command>cfdisk</command> no reconeix particions "
+"FreeBSD en absolut i que, novament, els noms de dispositiu poden diferir."
+
+#. Tag: para
+#: partitioning.xml:483
+#, no-c-format
+msgid "Atari-aware version of <command>fdisk</command>."
+msgstr "És la versió de l'<command>fdisk</command> per a l'Atari."
+
+#. Tag: para
+#: partitioning.xml:492
+#, no-c-format
+msgid "Amiga-aware version of <command>fdisk</command>."
+msgstr "És la versió de l'<command>fdisk</command> per a l'Amiga."
+
+#. Tag: para
+#: partitioning.xml:501
+#, no-c-format
+msgid "Mac-aware version of <command>fdisk</command>."
+msgstr "És la versió de l'<command>fdisk</command> per al Mac."
+
+#. Tag: para
+#: partitioning.xml:510
+#, no-c-format
+msgid ""
+"PowerMac-aware version of <command>fdisk</command>, also used by BVM and "
+"Motorola VMEbus systems."
+msgstr ""
+"És la versió de l'<command>fdisk</command> per al PowerMac, emprada també "
+"pels sistemes BVM i Motorola VMEbus."
+
+#. Tag: para
+#: partitioning.xml:520
+#, no-c-format
+msgid ""
+"&arch-title; version of <command>fdisk</command>; Please read the fdasd "
+"manual page or chapter 13 in <ulink url=\"http://oss.software.ibm.com/"
+"developerworks/opensource/linux390/docu/l390dd08.pdf\"> Device Drivers and "
+"Installation Commands</ulink> for details."
+msgstr ""
+"És la versió de l'<command>fdisk</command> per a &arch-title;; Llegiu el "
+"manual de l'fdasd o bé el capítol 13è de <ulink url=\"http://oss.software."
+"ibm.com/developerworks/opensource/linux390/docu/l390dd08.pdf\">Device "
+"Drivers and Installation Commands</ulink> per a més detalls."
+
+#. Tag: para
+#: partitioning.xml:531
+#, no-c-format
+msgid ""
+"One of these programs will be run by default when you select "
+"<guimenuitem>Partition disks</guimenuitem> (or similar). It may be possible "
+"to use a different partitioning tool from the command line on VT2, but this "
+"is not recommended."
+msgstr ""
+"Un d'aquests programes s'executarà de manera predeterminada quan seleccioneu "
+"<guimenuitem>Partir un disc dur</guimenuitem> (o paregut). Es podria "
+"utilitzar una eina de fer particions des de la línia d'ordres al VT2, "
+"malgrat que no es recomana."
+
+#. Tag: para
+#: partitioning.xml:538
+#, no-c-format
+msgid "Remember to mark your boot partition as <quote>Bootable</quote>."
+msgstr ""
+"Recordeu que heu de marcar la partició d'arrencada com a <quote>Arrencable</"
+"quote>."
+
+#. Tag: para
+#: partitioning.xml:541
+#, no-c-format
+msgid ""
+"One key point when partitioning for Mac type disks is that the swap "
+"partition is identified by its name; it must be named <quote>swap</quote>. "
+"All Mac linux partitions are the same partition type, Apple_UNIX_SRV2. "
+"Please read the fine manual. We also suggest reading the <ulink url=\"&url-"
+"mac-fdisk-tutorial;\">mac-fdisk Tutorial</ulink>, which includes steps you "
+"should take if you are sharing your disk with MacOS."
+msgstr ""
+"Un aspecte important quan particioneu discs de tipus Mac és que la partició "
+"d'intercanvi s'identifica pel nom; s'ha d'anomenar <quote>swap</quote>. "
+"Totes les particions linux del Mac són del mateix tipus, Apple_UNIX_SRV2. "
+"Llegiu el manual. També podeu llegir el <ulink url=\"&url-mac-fdisk-tutorial;"
+"\">Tutorial de mac-fdisk</ulink>, el qual inclou els passos que heu de fer "
+"si voleu compartir el disc amb un MacOS."
+
+#. Tag: title
+#: partitioning.xml:557 partitioning.xml:581 partitioning.xml:677
+#: partitioning.xml:791 partitioning.xml:868
+#, no-c-format
+msgid "Partitioning for &arch-title;"
+msgstr "Particionar per a &arch-title;"
+
+#. Tag: para
+#: partitioning.xml:558
+#, no-c-format
+msgid ""
+"PALO, the HPPA boot loader, requires a partition of type <quote>F0</quote> "
+"somewhere in the first 2GB. This is where the boot loader and an optional "
+"kernel and RAMdisk will be stored, so make it big enough for that &mdash; at "
+"least 4Mb (I like 8&ndash;16MB). An additional requirement of the firmware "
+"is that the Linux kernel must reside within the first 2GB of the disk. This "
+"is typically achieved by making the root ext2 partition fit entirely within "
+"the first 2GB of the disk. Alternatively you can create a small ext2 "
+"partition near the start of the disk and mount that on <filename>/boot</"
+"filename>, since that is the directory where the Linux kernel(s) will be "
+"stored. <filename>/boot</filename> needs to be big enough to hold whatever "
+"kernels (and backups) you might wish to load; 25&ndash;50MB is generally "
+"sufficient."
+msgstr ""
+"PALO, el carregador de HPPA, requereix una partició de tipus <quote>F0</"
+"quote> en algun lloc dins les primeres 2 GiB. Aquí és on es guardarà el "
+"carregador, un nucli opcional i el disc RAM, per tant feu-l'ho suficientment "
+"gran almenys per aquest &mdash; 4 Mib (jo prefereixo 8&ndash;16 MiB). Un "
+"requeriment addicional de la firma és que el nucli Linux ha d'estar dins "
+"dels primers 2 GiB del disc. Això s'aconsegueix normalment incloent la "
+"partició arrel ext2 sencera dins dels primers 2 GiB del disc. "
+"Alternativament podeu crear una petita partició ext2 aprop de l'inici del "
+"disc i muntar-la a <filename>/boot</filename>, aquest és el directori on "
+"el(s) nucli(s) Linux es guardaran. <filename>/boot</filename> necessita ser "
+"suficientment gran com per contenir tots els nuclis (i còpies de seguretat) "
+"que es vulguin carregar; 25&ndash;50 MiB és normalment suficient."
+
+#. Tag: para
+#: partitioning.xml:582
+#, no-c-format
+msgid ""
+"If you have an existing other operating system such as DOS or Windows and "
+"you want to preserve that operating system while installing &debian;, you "
+"may need to resize its partition to free up space for the &debian; "
+"installation. The installer supports resizing of both FAT and NTFS "
+"filesystems; when you get to the installer's partitioning step, select the "
+"option <guimenuitem>Manual</guimenuitem> and then simply select an existing "
+"partition and change its size."
+msgstr ""
+"Si teniu instal·lat un altre sistema operatiu com el DOS o el Windows i el "
+"voleu conservar, potser hàgeu de redimensionar-ne la partició a fi "
+"d'alliberar espai per a la instal·lació de &debian;. L'instal·lador pot "
+"redimensionar tant els sistemes de fitxers FAT com els NTFS; quan arribeu al "
+"moment de partir, escolliu l'opció <guimenuitem>Manual</guimenuitem> i només "
+"cal que seleccioneu una partició existent i li canvieu la mida."
+
+#. Tag: para
+#: partitioning.xml:592
+#, no-c-format
+msgid ""
+"The PC BIOS generally adds additional constraints for disk partitioning. "
+"There is a limit to how many <quote>primary</quote> and <quote>logical</"
+"quote> partitions a drive can contain. Additionally, with pre 1994&ndash;98 "
+"BIOSes, there are limits to where on the drive the BIOS can boot from. More "
+"information can be found in the <ulink url=\"&url-partition-howto;\">Linux "
+"Partition HOWTO</ulink>, but this section will include a brief overview to "
+"help you plan most situations."
+msgstr ""
+"Normalment, la BIOS del PC posa limitacions al fer particions del disc. El "
+"nombre de particions <quote>primàries</quote> i <quote>lògiques</quote> que "
+"pot contenir una unitat és limitat. A més a més, les BIOS anteriors a "
+"1994&ndash;98 tenen límits quant al lloc de la unitat des del qual es pot "
+"arrencar. Hi ha més informació al <ulink url=\"&url-partition-howto;\">Linux "
+"Partition HOWTO</ulink>, però aquesta secció inclou també un breu resum, "
+"útil en la majoria de situacions."
+
+#. Tag: para
+#: partitioning.xml:602
+#, no-c-format
+msgid ""
+"<quote>Primary</quote> partitions are the original partitioning scheme for "
+"PC disks. However, there can only be four of them. To get past this "
+"limitation, <quote>extended</quote> and <quote>logical</quote> partitions "
+"were invented. By setting one of your primary partitions as an extended "
+"partition, you can subdivide all the space allocated to that partition into "
+"logical partitions. You can create up to 60 logical partitions per extended "
+"partition; however, you can only have one extended partition per drive."
+msgstr ""
+"Les particions <quote>primàries</quote> constitueixen l'esquema original de "
+"fer particions dels discs de PC. Tanmateix, només n'hi pot haver quatre. Per "
+"evitar això, es van inventar les particions <quote>estesa</quote> i "
+"<quote>lògica</quote>. Si configureu una partició primària com a estesa, "
+"podeu subdividir-ne l'espai en particions lògiques. Es poden crear fins a 60 "
+"particions lògiques per partició estesa; amb tot, sols podeu tenir una "
+"partició estesa per cada unitat física."
+
+#. Tag: para
+#: partitioning.xml:613
+#, no-c-format
+msgid ""
+"Linux limits the partitions per drive to 255 partitions for SCSI disks (3 "
+"usable primary partitions, 252 logical partitions), and 63 partitions on an "
+"IDE drive (3 usable primary partitions, 60 logical partitions). However the "
+"normal &debian-gnu; system provides only 20 devices for partitions, so you "
+"may not install on partitions higher than 20 unless you first manually "
+"create devices for those partitions."
+msgstr ""
+"El Linux limita les particions per unitat física a 255 en discs SCSI (3 de "
+"primàries, 252 de lògiques), i a 63 en una unitat IDE (3 de primàries, 60 de "
+"lògiques). Tanmateix el sistema &debian-gnu; normal sols proporciona 20 "
+"dispositius per a particions, de manera que no podreu instal·lar-ne més de "
+"20 si abans no prepareu manualment dispositius per a elles."
+
+#. Tag: para
+#: partitioning.xml:623
+#, no-c-format
+msgid ""
+"If you have a large IDE disk, and are using neither LBA addressing, nor "
+"overlay drivers (sometimes provided by hard disk manufacturers), then the "
+"boot partition (the partition containing your kernel image) must be placed "
+"within the first 1024 cylinders of your hard drive (usually around 524 "
+"megabytes, without BIOS translation)."
+msgstr ""
+"Si teniu un disc IDE gran i no esteu fent servir ni l'adreçament LBA ni "
+"controladors superposats (de vegades proporcionats pels fabricants), "
+"aleshores la partició d'arrencada (la que conté la imatge del nucli) s'ha de "
+"col·locar dins els primers 1024 cilindres del disc (normalment uns 524 MiB, "
+"sense traducció de la BIOS)."
+
+#. Tag: para
+#: partitioning.xml:631
+#, no-c-format
+msgid ""
+"This restriction doesn't apply if you have a BIOS newer than around "
+"1995&ndash;98 (depending on the manufacturer) that supports the "
+"<quote>Enhanced Disk Drive Support Specification</quote>. Both Lilo, the "
+"Linux loader, and &debian;'s alternative <command>mbr</command> must use the "
+"BIOS to read the kernel from the disk into RAM. If the BIOS int 0x13 large "
+"disk access extensions are found to be present, they will be utilized. "
+"Otherwise, the legacy disk access interface is used as a fall-back, and it "
+"cannot be used to address any location on the disk higher than the 1023rd "
+"cylinder. Once &arch-kernel; is booted, no matter what BIOS your computer "
+"has, these restrictions no longer apply, since &arch-kernel; does not use "
+"the BIOS for disk access."
+msgstr ""
+"Aquesta restricció no s'aplica si la BIOS és posterior a 1995&ndash;1998 "
+"(segons el fabricant) i conté l'<quote>Especificació de funcionalitat "
+"millorada d'unitats de disc</quote>. Tant el Lilo, el carregador del Linux, "
+"com l'<command>mbr</command>, l'alternativa de &debian;, han d'emprar la "
+"BIOS per traslladar el nucli del disc a la RAM. Si es troben a la BIOS les "
+"extensions int 0x13 d'accés a discs grans, s'empraran. Si no, es farà servir "
+"la interfície antiga d'accés al disc, i no es podrà emprar per adreçar-se a "
+"cap lloc del disc superior al cilindre 1023è. Una vegada s'ha arrencat el "
+"&arch-kernel;, independentment de la BIOS de l'ordinador, aquestes "
+"restriccions ja no s'apliquen, car el &arch-kernel; no fa servir la BIOS per "
+"accedir al disc."
+
+#. Tag: para
+#: partitioning.xml:645
+#, no-c-format
+msgid ""
+"If you have a large disk, you might have to use cylinder translation "
+"techniques, which you can set from your BIOS setup program, such as LBA "
+"(Logical Block Addressing) or CHS translation mode (<quote>Large</quote>). "
+"More information about issues with large disks can be found in the <ulink "
+"url=\"&url-large-disk-howto;\">Large Disk HOWTO</ulink>. If you are using a "
+"cylinder translation scheme, and the BIOS does not support the large disk "
+"access extensions, then your boot partition has to fit within the "
+"<emphasis>translated</emphasis> representation of the 1024th cylinder."
+msgstr ""
+"Si teniu un disc gran, potser us caldrà emprar tècniques de traducció de "
+"cilindres, que podeu emprar des del programa de configuració de la BIOS, com "
+"ara l'LBA (Adreçament de blocs lògics) o el mode de traducció CHS "
+"(<quote>Gran</quote>). Trobareu més informació sobre discs grans al <ulink "
+"url=\"&url-large-disk-howto;\">Large Disk HOWTO</ulink>. Si esteu fent "
+"servir un esquema de traducció de cilindres i la BIOS no permet l'ús "
+"d'extensions d'accés a discs grans, aleshores la partició d'arrencada ha "
+"d'ajustar-se a la representació <emphasis>traduïda</emphasis> del cilindre "
+"1024è."
+
+#. Tag: para
+#: partitioning.xml:657
+#, no-c-format
+msgid ""
+"The recommended way of accomplishing this is to create a small "
+"(25&ndash;50MB should suffice) partition at the beginning of the disk to be "
+"used as the boot partition, and then create whatever other partitions you "
+"wish to have, in the remaining area. This boot partition <emphasis>must</"
+"emphasis> be mounted on <filename>/boot</filename>, since that is the "
+"directory where the &arch-kernel; kernel(s) will be stored. This "
+"configuration will work on any system, regardless of whether LBA or large "
+"disk CHS translation is used, and regardless of whether your BIOS supports "
+"the large disk access extensions."
+msgstr ""
+"La manera recomanada de fer això és generar una partició petita (25&ndash;50 "
+"MiB són prou) al principi del disc, a fi d'emprar-la com a partició "
+"d'arrencada, i després generar les particions que vulgueu a l'espai restant. "
+"Aquesta partició d'arrencada <emphasis>s'ha de</emphasis> muntar a "
+"<filename>/boot</filename>, car aquest és el directori d'emmagatzematge "
+"del(s) nucli(s) del &arch-kernel;. Aquesta configuració funciona en "
+"qualsevol sistema, independentment de si es fa servir l'LBA o la traducció "
+"CHS de discs grans, i independentment també de si la BIOS permet l'ús "
+"d'extensions d'accés a discs grans."
+
+#. Tag: para
+#: partitioning.xml:678
+#, no-c-format
+msgid ""
+"The <command>partman</command> disk partitioner is the default partitioning "
+"tool for the installer. It manages the set of partitions and their mount "
+"points to ensure that the disks and filesystems are properly configured for "
+"a successful installation. It actually uses <command>parted</command> to do "
+"the on-disk partitioning."
+msgstr ""
+"El partidor de disc <command>partman</command> és l'eina per fer particions "
+"per omissió de l'instal·lador. És capaç de gestionar el conjunt de "
+"particions i els seus punts de muntatge per tal d'assegurar que els discs i "
+"els sistemes de fitxers estan correctament configurats per una correcta "
+"instal·lació. Internament fa ús de <command>parted</command> per partir el "
+"disc."
+
+#. Tag: title
+#: partitioning.xml:690
+#, no-c-format
+msgid "EFI Recognized Formats"
+msgstr "Formats reconeguts per l'EFI"
+
+#. Tag: para
+#: partitioning.xml:691
+#, no-c-format
+msgid ""
+"The IA-64 EFI firmware supports two partition table (or disk label) formats, "
+"GPT and MS-DOS. MS-DOS, the format typically used on i386 PCs, is no longer "
+"recommended for IA-64 systems. Although the installer also provides "
+"<command>cfdisk</command>, you should only use <ulink url=\"parted.txt\"> "
+"<command>parted</command></ulink> because only it can manage both GPT and MS-"
+"DOS tables correctly."
+msgstr ""
+"El microprogramari de l'EFI de l'IA-64 suporta dos formats de taula de "
+"particions (o etiqueta de disc), GPT i MS-DOS.  MS-DOS, el format usat "
+"típicament en PC i386, està desaconsellat pels sistemes IA-64. Malgrat que "
+"l'instal·lador permet també emprar el programa <command>cfdisk</command>, "
+"hauríeu d'usar únicament el <ulink url=\"parted.txt\"><command>parted</"
+"command></ulink> perquè només ell pot gestionar correctament tant les taules "
+"MS-DOS com les GPT."
+
+#. Tag: para
+#: partitioning.xml:703
+#, no-c-format
+msgid ""
+"The automatic partitioning recipes for <command>partman</command> allocate "
+"an EFI partition as the first partition on the disk. You can also set up the "
+"partition under the <guimenuitem>Guided partitioning</guimenuitem> from the "
+"main menu in a manner similar to setting up a <emphasis>swap</emphasis> "
+"partition."
+msgstr ""
+"Les receptes per partir automàticament del <command>partman</command> creen "
+"una partició EFI com a primera partició del disc. També podeu crear aquesta "
+"partició en l'apartat <guimenuitem>Fer particions de forma guiada</"
+"guimenuitem> del menú principal de manera similar a crear una partició "
+"d'<emphasis>intercanvi</emphasis>."
+
+#. Tag: para
+#: partitioning.xml:711
+#, no-c-format
+msgid ""
+"The <command>partman</command> partitioner will handle most disk layouts. "
+"For those rare cases where it is necessary to manually set up a disk, you "
+"can use the shell as described above and run the <command>parted</command> "
+"utility directly using its command line interface. Assuming that you want to "
+"erase your whole disk and create a GPT table and some partitions, then "
+"something similar to the following command sequence could be used: "
+"<informalexample><screen>\n"
+"      mklabel gpt\n"
+"      mkpartfs primary fat 0 50\n"
+"      mkpartfs primary linux-swap 51 1000\n"
+"      mkpartfs primary ext2 1001 3000\n"
+"      set 1 boot on\n"
+"      print\n"
+"      quit\n"
+"</screen></informalexample> This creates a new partition table, and three "
+"partitions to be used as an EFI boot partition, swap space, and a root file "
+"system. Finally it sets the boot flag on the EFI partition. Partitions are "
+"specified in Megabytes, with start and end offsets from the beginning of the "
+"disk. So, for example, above we created a 1999MB ext2 file system starting "
+"at offset 1001MB from the start of the disk. Note that formatting swap space "
+"with <command>parted</command> can take a few minutes to complete, as it "
+"scans the partition for bad blocks."
+msgstr ""
+"El partidor <command>partman</command> és capaç de gestionar la major part "
+"de disposicions de discs. Per aquells casos rars en què calgui configurar un "
+"disc manualment, podeu emprar la utilitat <command>parted</command> "
+"directament a través de la seva interfície de línia d'ordres. Assumint que "
+"voleu esborrar completament el vostre disc i crear una taula GPT i algunes "
+"particions, aleshores podeu usar quelcom similar a la següent seqüència "
+"d'ordres: <informalexample><screen>\n"
+"      mklabel gpt\n"
+"      mkpartfs primary fat 0 50\n"
+"      mkpartfs primary linux-swap 51 1000\n"
+"      mkpartfs primary ext2 1001 3000\n"
+"      set 1 boot on\n"
+"      print\n"
+"      quit\n"
+"</screen></informalexample> Això crea una nova taula de particions, i tres "
+"particions per a ésser emprades com a partició d'arrencada EFI, espai "
+"d'intercanvi i un sistema de fitxers arrel. Per acabar, activa el bit "
+"d'arrencada a la partició EFI. Les particions s'especifiquen en MiB, amb "
+"desplaçaments d'inici i final des del principi del disc. Així, per exemple, "
+"al damunt hem creat un sistema de fitxers ext2 de 1999 MiB que comença 1001 "
+"MiB enllà de l'inici del disc. Noteu que formatar l'espai d'intercanvi amb "
+"l'ordre <command>parted</command> pot trigar alguns minuts a acabar, perquè "
+"explora el disc a la recerca de blocs malmesos."
+
+#. Tag: title
+#: partitioning.xml:736
+#, no-c-format
+msgid "Boot Loader Partition Requirements"
+msgstr "Requeriments per la partició del carregador d'arrencada"
+
+#. Tag: para
+#: partitioning.xml:737
+#, no-c-format
+msgid ""
+"ELILO, the IA-64 boot loader, requires a partition containing a FAT file "
+"system with the <userinput>boot</userinput> flag set. The partition must be "
+"big enough to hold the boot loader and any kernels or RAMdisks you may wish "
+"to boot. A minimum size would be about 20MB, but if you expect to run with "
+"multiple kernels, then 128MB might be a better size."
+msgstr ""
+"ELILO, el carregador d'arrencada de l'IA-64, necessita una partició que "
+"contingui un sistema de fitxers FAT amb el bit d'arrencada (<userinput>boot</"
+"userinput>) activat. Cal que la partició sigui prou gran com per contenir el "
+"carregador i tots els nuclis i discs RAM que desitgeu arrencar. Una mida "
+"mínima podria ser 20 MiB, però si preveieu treballar amb múltiples nuclis, "
+"aleshores 128 MiB podria ser una mida més encertada."
+
+#. Tag: para
+#: partitioning.xml:746
+#, no-c-format
+msgid ""
+"The EFI Boot Manager and the EFI Shell fully support the GPT table so the "
+"boot partition does not necessarily have to be the first partition or even "
+"on the same disk. This is convenient if you should forget to allocate the "
+"partition and only find out after you have formatted the other partitions on "
+"your disk(s). The <command>partman</command> partitioner checks for an EFI "
+"partition at the same time it checks for a properly set up <emphasis>root</"
+"emphasis> partition. This gives you an opportunity to correct the disk "
+"layout before the package install begins. The easiest way to correct this "
+"omission is to shrink the last partition of the disk to make enough free "
+"space for adding an EFI partition."
+msgstr ""
+"El gestor d'arrencada i l'intèrpret d'ordres de l'EFI suporten completament "
+"la taula GPT, per la qual cosa no cal que la partició d'arrencada sigui la "
+"primera del disc, ni tan sols que resideixi al mateix disc. Això és útil si "
+"oblideu de crear aquesta partició i no ho descobriu fins que teniu creades i "
+"formatades les altres particions dels vostres discs. El partidor "
+"<command>partman</command> cerca una partició EFI al mateix temps que cerca "
+"una partició <emphasis>arrel</emphasis> correctament configurada. Això us "
+"dóna una oportunitat de corregir la disposició del disc abans que comenci la "
+"instal·lació de paquets. La manera més senzilla de corregir l'error és "
+"reduir la mida de la darrera partició del disc per tal de deixar espai per "
+"afegir una partició EFI."
+
+#. Tag: para
+#: partitioning.xml:761
+#, no-c-format
+msgid ""
+"It is strongly recommended that you allocate the EFI boot partition on the "
+"same disk as the <emphasis>root</emphasis> filesystem."
+msgstr ""
+"Es recomana fermament que ubiqueu la partició d'arrencada EFI al mateix disc "
+"on hi teniu el sistema de fitxers <emphasis>arrel</emphasis>."
+
+#. Tag: title
+#: partitioning.xml:769
+#, no-c-format
+msgid "EFI Diagnostic Partitions"
+msgstr "Particions de diagnòstic de l'EFI"
+
+#. Tag: para
+#: partitioning.xml:770
+#, no-c-format
+msgid ""
+"The EFI firmware is significantly more sophisticated than the usual BIOS "
+"seen on most x86 PCs. Some system vendors take advantage of the ability of "
+"the EFI to access files and run programs from a hard disk filesystem to "
+"store diagnostics and EFI based system management utilities on the hard "
+"disk. This is a separate FAT format filesystem on the system disk. Consult "
+"the system documentation and accessories that come with the system for "
+"details. The easiest time to set up a diagnostics partition is at the same "
+"time you set up the EFI boot partition."
+msgstr ""
+"El microprograma de l'EFI és força més sofisticat que la BIOS que es troba "
+"tradicionalment en molts PC. Alguns fabricants empren les capacitats de "
+"l'EFI per accedir a fitxers i executar programes per tal de desar al disc "
+"dur informació de diagnòstic i/o utilitats de gestió del sistema basades en "
+"l'EFI. Això necessita un sistema de fitxers FAT addicional en el disc de "
+"sistema. Consulteu la documentació del sistema i els accessoris que "
+"l'acompanyen per a més detalls. La manera més senzilla de configurar una "
+"partició de diagnòstic és fer-ho al mateix temps que configureu la partició "
+"d'arrencada de l'EFI."
+
+#. Tag: para
+#: partitioning.xml:792
+#, no-c-format
+msgid ""
+"SGI machines require an SGI disk label in order to make the system bootable "
+"from hard disk. It can be created in the fdisk expert menu. The thereby "
+"created volume header (partition number 9) should be at least 3MB large. If "
+"the volume header created is too small, you can simply delete partition "
+"number 9 and re-add it with a different size. Note that the volume header "
+"must start at sector 0."
+msgstr ""
+"Les màquines SGI requereixen una etiqueta de disc SGI per a poder fer el "
+"sistema arrencable des de disc dur. Pot ser generada en el menú expert de "
+"fdisk. La capçalera del volum generada (partició número 9) ha de ser com a "
+"mínim de 3 MiB. Si la capçalera del volum generada és massa petita, podeu "
+"esborrar la partició número 9 i afegir-la de nou amb una mida diferent. "
+"Tingueu en compte que la capçalera del volum ha de començar al sector 0."
+
+#. Tag: title
+#: partitioning.xml:809
+#, no-c-format
+msgid "Partitioning Newer PowerMacs"
+msgstr "Fer particions als nous PowerMac"
+
+#. Tag: para
+#: partitioning.xml:810
+#, no-c-format
+msgid ""
+"If you are installing onto a NewWorld PowerMac you must create a special "
+"bootstrap partition to hold the boot loader. The size of this partition must "
+"have at least 819200 bytes and its partition type must be "
+"<emphasis>Apple_Bootstrap</emphasis>. If the bootstrap partition is not "
+"created with the <emphasis>Apple_Bootstrap</emphasis> type your machine "
+"cannot be made bootable from the hard disk. This partition can easily be "
+"created by creating a new partition in <command>partman</command> and "
+"telling it to use it as a <quote>NewWorld boot partition</quote>, or in "
+"<command>mac-fdisk</command> using the <userinput>b</userinput> command."
+msgstr ""
+"Si esteu instal·lant a un PowerMac NewWorld necessitareu crear una partició "
+"especial d'inicialització que contingui el carregador. La mida d'aquesta "
+"partició ha de ser 819200 bytes i ha de ser de tipus "
+"<emphasis>Apple_Bootstrap</emphasis>. Si la partició d'inicialització no es "
+"crea del tipus <emphasis>Apple_Bootstrap</emphasis> la vostra màquina no es "
+"podrà arrencar des del disc dur. Aquesta partició és fàcil de crear "
+"utilitzant el <command>partman</command> i dient-li que utilitze la "
+"<quote>partició d'arrencada NewWorld</quote>, o al <command>mac-fdisk</"
+"command> utilitzant l'ordre <userinput>b</userinput>."
+
+#. Tag: para
+#: partitioning.xml:823
+#, no-c-format
+msgid ""
+"The special partition type Apple_Bootstrap is required to prevent MacOS from "
+"mounting and damaging the bootstrap partition, as there are special "
+"modifications made to it in order for OpenFirmware to boot it automatically."
+msgstr ""
+"Es necessita tenir la partició especial de tipus «Apple_Bootstrap» per "
+"prevenir que el MacOS munte i danye la partició d'inicialització, ja que hi "
+"ha modificacions especials fetes per que el OpenFirmware l'arrenqui "
+"automàticament."
+
+#. Tag: para
+#: partitioning.xml:830
+#, no-c-format
+msgid ""
+"Note that the bootstrap partition is only meant to hold 3 very small files: "
+"the <command>yaboot</command> binary, its configuration <filename>yaboot."
+"conf</filename>, and a first stage OpenFirmware loader <command>ofboot.b</"
+"command>. It need not and must not be mounted on your file system nor have "
+"kernels or anything else copied to it. The <command>ybin</command> and "
+"<command>mkofboot</command> utilities are used to manipulate this partition."
+msgstr ""
+"Adoneu-vos què la partició d'inicialització té tan sols significat per "
+"contenir 3 fitxers molt menuts: el binari de <command>yaboot</command>, la "
+"seva configuració <filename>yaboot.conf</filename>, i un primer pas al "
+"carregador d'OpenFirmware <command>ofboot.b</command>. No fa falta, i no "
+"hauria de muntar-se al vostre sistema de fitxers ni tenir nuclis o qualsevol "
+"altra cosa copiada dins. Les ordres <command>ybin</command> i "
+"<command>mkofboot</command> s'utilitzen per manipular aquesta partició."
+
+#. Tag: para
+#: partitioning.xml:840
+#, no-c-format
+msgid ""
+"In order for OpenFirmware to automatically boot &debian-gnu; the bootstrap "
+"partition should appear before other boot partitions on the disk, especially "
+"MacOS boot partitions. The bootstrap partition should be the first one you "
+"create. However, if you add a bootstrap partition later, you can use "
+"<command>mac-fdisk</command>'s <userinput>r</userinput> command to reorder "
+"the partition map so the bootstrap partition comes right after the map "
+"(which is always partition 1). It's the logical map order, not the physical "
+"address order, that counts."
+msgstr ""
+"Per que el OpenFirmware arrenqui automàticament &debian-gnu; la partició "
+"d'inicialització hauria d'aparèixer abans que les altres particions al disc, "
+"especialment que les particions d'arrencada de MacOS. La partició "
+"d'inicialització hauria de ser la primera en crear-se. Per altra banda, si "
+"afegiu la partició d'inicialització mes tard, podeu fer-ho utilitzant "
+"l'ordre <userinput>r</userinput> de <command>mac-fdisk</command> per "
+"reordenar la taula de particions de manera que la partició d'inicialització "
+"estigui després de la taula (que està sempre a la partició 1). El que conta "
+"és l'ordre lògic de la taula, no l'ordre físic."
+
+#. Tag: para
+#: partitioning.xml:852
+#, no-c-format
+msgid ""
+"Apple disks normally have several small driver partitions. If you intend to "
+"dual boot your machine with MacOSX, you should retain these partitions and a "
+"small HFS partition (800k is the minimum size). That is because MacOSX, on "
+"every boot, offers to initialize any disks which do not have active MacOS "
+"partitions and driver partitions."
+msgstr ""
+"Els discs d'Apple solen tenir vàries particions amb controladors xicotetes. "
+"Si intenteu arrencar la vostra màquina amb MacOSX, hauríeu de conservar-les "
+"i a més a més una partició xicoteta HFS (de mida mínima 800 KiB). Açò és "
+"perquè a cada arrencada el MacOSX, ofereix inicialitzar qualsevol disc que "
+"no tingui una partició MacOS activa i les particions dels controladors."
+
+#. Tag: para
+#: partitioning.xml:869
+#, no-c-format
+msgid ""
+"Make sure you create a <quote>Sun disk label</quote> on your boot disk. This "
+"is the only kind of partition scheme that the OpenBoot PROM understands, and "
+"so it's the only scheme from which you can boot. The <keycap>s</keycap> key "
+"is used in <command>fdisk</command> to create Sun disk labels."
+msgstr ""
+"Assegureu-vos de crear un <quote> disc amb etiqueta Sun</quote> al vostre "
+"disc d'arrencada. Aquest és l'únic esquema de particions què entén la PROM "
+"del OpenBoot, i és l'únic esquema amb el que es pot arrencar. La tecla "
+"<keycap>s</keycap> s'utilitza al <command>fdisk</command> per crear "
+"etiquetes de disc de Sun."
+
+#. Tag: para
+#: partitioning.xml:877
+#, no-c-format
+msgid ""
+"Furthermore, on &arch-title; disks, make sure your first partition on your "
+"boot disk starts at cylinder 0. While this is required, it also means that "
+"the first partition will contain the partition table and the boot block, "
+"which are the first two sectors of the disk. You must <emphasis>not</"
+"emphasis> put swap on the first partition of the boot drive, since swap "
+"partitions do not preserve the first few sectors of the partition. You can "
+"put Ext2 or UFS partitions there; these will leave the partition table and "
+"the boot block alone."
+msgstr ""
+"És més, als discs &arch-title;, assegureu-vos que la vostra primera partició "
+"al vostre disc d'arrencada comença al cilindre 0. Mentre açò en necessite, "
+"també significarà que la primera partició contindrà la taula de particions i "
+"el bloc d'arrencada, que és als primers dos sectors del disc. La partició "
+"d'intercanvi <emphasis>no</emphasis> s'ha de posar a la primera partició del "
+"disc d'arrencada, ja que les particions d'intercanvi no conserven els dos "
+"primers sectors de la partició. Allí podeu utilitzar particions Ext2 o UFS; "
+"aquestes deixaran la taula de particions i el bloc d'arrencada sols."
+
+#. Tag: para
+#: partitioning.xml:888
+#, no-c-format
+msgid ""
+"It is also advised that the third partition should be of type <quote>Whole "
+"disk</quote> (type 5), and contain the entire disk (from the first cylinder "
+"to the last). This is simply a convention of Sun disk labels, and helps the "
+"<command>SILO</command> boot loader keep its bearings."
+msgstr ""
+"També es recomana que la tercera partició ha de ser de tipus <quote>Disc "
+"complet</quote> (tipus 5), i contenir el disc complet (des del primer "
+"cilindre fins l'últim). És tan sols una convenció de les etiquetes dels "
+"discs de Sun, i ajuda al carregador <command>SILO</command> a tenir-ho "
+"present."

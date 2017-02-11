@@ -1,0 +1,694 @@
+# Translation of the Debian installation-guide to Catalan.
+# Innocent De Marchi <tangram.peces@gmail.com>, 2017
+# Hector Oron <hector.oron@gmail.com>, 2010
+# Ivan Vilata i Balaguer <ivan@selidor.net>, 2010
+# Miguel Gea Milvaques <xerakko@debian.org>, 2008
+# Guillem Jover <guillem@debian.org>, 2007, 2008, 2010
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: d-i-manual_installation-howto\n"
+"Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
+"POT-Creation-Date: 2016-04-08 20:25+0000\n"
+"PO-Revision-Date: 2017-01-25 17:31+0100\n"
+"Last-Translator: Innocent De Marchi <tangram.peces@gmail.com>\n"
+"Language-Team: \n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.11\n"
+
+#. Tag: title
+#: installation-howto.xml:5
+#, no-c-format
+msgid "Installation Howto"
+msgstr "Com Instal·lar"
+
+#. Tag: para
+#: installation-howto.xml:7
+#, no-c-format
+msgid ""
+"This document describes how to install &debian-gnu; &releasename; for the "
+"&arch-title; (<quote>&architecture;</quote>) with the new &d-i;. It is a "
+"quick walkthrough of the installation process which should contain all the "
+"information you will need for most installs. When more information can be "
+"useful, we will link to more detailed explanations in other parts of this "
+"document."
+msgstr ""
+"Aquest document descriu com instal·lar &debian-gnu; &releasename; per &arch-"
+"title; (<quote>&architecture;</quote>) amb el nou &d-i;. És un passeig ràpid "
+"pel procés d'instal·lació el qual hauria de contenir tota la informació que "
+"necessiteu per a la majoria d'instal·lacions. Quan sigui necessària mes "
+"informació us remetrem a explicacions més detallades a altres parts d'aquest "
+"document."
+
+#. Tag: title
+#: installation-howto.xml:19
+#, no-c-format
+msgid "Preliminaries"
+msgstr "Preliminars"
+
+#. Tag: para
+#: installation-howto.xml:20
+#, no-c-format
+msgid ""
+"<phrase condition=\"unofficial-build\"> The debian-installer is still in a "
+"beta state. </phrase> If you encounter bugs during your install, please "
+"refer to <xref linkend=\"submit-bug\"/> for instructions on how to report "
+"them. If you have questions which cannot be answered by this document, "
+"please direct them to the debian-boot mailing list (&email-debian-boot-"
+"list;) or ask on IRC (#debian-boot on the OFTC network)."
+msgstr ""
+"<phrase condition=\"unofficial-build\">El debian-installer es troba encara "
+"en fase beta.</phrase> Si trobeu errors al llarg de la instal·lació per "
+"favor dirigiu-vos a la <xref linkend=\"submit-bug\" /> per consultar la "
+"informació de com informar-ho. Si teniu preguntes les quals no estan "
+"respostes a aquest document, per favor informeu a la llista de correu debian-"
+"boot (&email-debian-boot-list;) o pregunteu al IRC (#debian-boot a la xarxa "
+"de OFTC)."
+
+#. Tag: title
+#: installation-howto.xml:36
+#, no-c-format
+msgid "Booting the installer"
+msgstr "Arrencada de l'instal·lador"
+
+#. Tag: para
+#: installation-howto.xml:37
+#, no-c-format
+msgid ""
+"<phrase condition=\"unofficial-build\"> For some quick links to CD images, "
+"check out the <ulink url=\"&url-d-i;\"> &d-i; home page</ulink>. </phrase> "
+"The debian-cd team provides builds of CD images using &d-i; on the <ulink "
+"url=\"&url-debian-cd;\">Debian CD page</ulink>. For more information on "
+"where to get CDs, see <xref linkend=\"official-cdrom\"/>."
+msgstr ""
+"<phrase condition=\"unofficial-build\"> Podeu trobar alguns enllaços ràpids "
+"a les imatges dels CD a la <ulink url=\"&url-d-i;\">pàgina inicial de &d-i; "
+"</ulink>. </phrase> L'equip de debian-cd construeix imatges dels CD que "
+"utilitzen el &d-i; a la <ulink url=\"&url-debian-cd;\">pàgina de Debian CD</"
+"ulink>. Si voleu trobar més informació d'on descarregar-se els CDs, mireu "
+"<xref linkend=\"official-cdrom\" />."
+
+#. Tag: para
+#: installation-howto.xml:47
+#, no-c-format
+msgid ""
+"Some installation methods require other images than CD images. <phrase "
+"condition=\"unofficial-build\"> The <ulink url=\"&url-d-i;\">&d-i; home "
+"page</ulink> has links to other images. </phrase> <xref linkend=\"where-files"
+"\"/> explains how to find images on &debian; mirrors."
+msgstr ""
+"Alguns mètodes d'instal·lació requereixen d'altres imatges a mes de les "
+"imatges dels CDs. <phrase condition=\"unofficial-build\">La <ulink url="
+"\"&url-d-i;\">pàgina inicial de &d-i;</ulink> teniu enllaços a altres "
+"imatges. </phrase> A la <xref linkend=\"where-files\" /> s'explica com podeu "
+"trobar imatges a rèpliques de &debian;"
+
+#. Tag: para
+#: installation-howto.xml:57
+#, no-c-format
+msgid ""
+"The subsections below will give the details about which images you should "
+"get for each possible means of installation."
+msgstr ""
+"Les següents subseccions us donaran detalls de quines imatges necessiteu "
+"aconseguir per a cada mecanisme d'instal·lació."
+
+#. Tag: title
+#: installation-howto.xml:65
+#, no-c-format
+msgid "CDROM"
+msgstr "CDROM"
+
+#. Tag: para
+#: installation-howto.xml:67
+#, no-c-format
+msgid ""
+"The netinst CD image is a popular image which can be used to install "
+"&releasename; with the &d-i;. This image is intended to boot from CD and "
+"install additional packages over a network; hence the name 'netinst'. The "
+"image has the software components needed to run the installer and the base "
+"packages to provide a minimal &releasename; system. If you'd rather, you can "
+"get a full size CD image which will not need the network to install. You "
+"only need the first CD of the set."
+msgstr ""
+"La imatge CD d'instal·lació per xarxa («netinst») és una imatge popular per "
+"a instal·lar &releasename; amb &d-i;. Aquesta imatge s'han fet amb la "
+"intenció d'arrencar des del CD i instal·lar els paquets addicionals fent ús "
+"d'una xarxa, d'aquí el nom «netinst». En aquesta imatge estan inclosos els "
+"components necessaris per executar l'instal·lador i els paquets bàsics per a "
+"tenir el sistema mínim de &releasename;. Si voleu, podeu aconseguir una "
+"imatge completa del CD a la qual no necessiteu la xarxa per instal·lar. Tan "
+"sols necessiteu el primer CD del conjunt de CDs."
+
+#. Tag: para
+#: installation-howto.xml:77
+#, no-c-format
+msgid ""
+"Download whichever type you prefer and burn it to a CD. <phrase arch=\"any-"
+"x86\">To boot the CD, you may need to change your BIOS configuration, as "
+"explained in <xref linkend=\"bios-setup\"/>.</phrase> <phrase arch=\"powerpc"
+"\"> To boot a PowerMac from CD, press the <keycap>c</keycap> key while "
+"booting. See <xref linkend=\"boot-cd\"/> for other ways to boot from CD. </"
+"phrase>"
+msgstr ""
+"Descarregueu la que preferiu i graveu-la a un CD. <phrase arch=\"any-"
+"x86\">Per arrencar el CD, necessiteu canviar la configuració de la vostra "
+"BIOS, com s'explica a la <xref linkend=\"bios-setup\" />.</phrase><phrase "
+"arch=\"powerpc\">Per arrencar un PowerMac des de CD, premeu la tecla "
+"<keycap>c</keycap> mentre esteu arrencant. Mireu <xref linkend=\"boot-cd\" /"
+"> per altres maners d'arrencar des de CD.</phrase>"
+
+#. Tag: title
+#: installation-howto.xml:91
+#, no-c-format
+msgid "Floppy"
+msgstr "Disquet"
+
+#. Tag: para
+#: installation-howto.xml:92
+#, no-c-format
+msgid ""
+"If you can't boot from CD, you can download floppy images to install "
+"&debian;. You need the <filename>floppy/boot.img</filename>, the "
+"<filename>floppy/root.img</filename> and one or more of the driver disks."
+msgstr ""
+"Si no podeu arrencar des de CD, podeu descarregar les imatges dels disquets "
+"&debian;. Necessiteu les imatges <filename>floppy/boot.img</filename>, "
+"<filename>floppy/root.img</filename> i possiblement un o més dels disquets "
+"amb controladors."
+
+#. Tag: para
+#: installation-howto.xml:98
+#, no-c-format
+msgid ""
+"The boot floppy is the one with <filename>boot.img</filename> on it. This "
+"floppy, when booted, will prompt you to insert a second floppy &mdash; use "
+"the one with <filename>root.img</filename> on it."
+msgstr ""
+"El disquet d'arrencada és el que conté la imatge <filename>boot.img</"
+"filename>. Quan arrenqueu aquest disquet, us suggerirà que inseriu un segon "
+"disquet &mdash; feu ús del que conté <filename>root.img</filename> dins."
+
+#. Tag: para
+#: installation-howto.xml:104
+#, no-c-format
+msgid ""
+"If you're planning to install over the network, you will usually need the "
+"<filename>floppy/net-drivers-1.img</filename>. For PCMCIA or USB networking, "
+"and some less common network cards, you will also need a second driver "
+"floppy, <filename>floppy/net-drivers-2.img</filename>."
+msgstr ""
+"Si esteu planejant fer la instal·lació per xarxa, normalment necessitareu el "
+"disquet <filename>floppy/net-drivers-1.img</filename>. Per a targetes de "
+"xarxa PCMCIA o USB en xarxa, i altres targetes de xarxa menys usuals, també "
+"necessitareu un segon disquet, <filename>floppy/net-drivers-2.img</filename>."
+
+#. Tag: para
+#: installation-howto.xml:111
+#, no-c-format
+msgid ""
+"If you have a CD, but cannot boot from it, then boot from floppies and use "
+"<filename>floppy/cd-drivers.img</filename> on a driver disk to complete the "
+"install using the CD."
+msgstr ""
+"Si teniu un CD, però no podeu arrencar des d'ell, aleshores arrenqueu des de "
+"disquet i feu ús de <filename>floppy/cd-drivers.img</filename> com disc de "
+"controladors, i completeu la instal·lació fent ús del CD."
+
+#. Tag: para
+#: installation-howto.xml:117
+#, no-c-format
+msgid ""
+"Floppy disks are one of the least reliable media around, so be prepared for "
+"lots of bad disks (see <xref linkend=\"unreliable-floppies\"/>). Each "
+"<filename>.img</filename> file you downloaded goes on a single floppy; you "
+"can use the dd command to write it to /dev/fd0 or some other means (see "
+"<xref linkend=\"create-floppy\"/> for details). Since you'll have more than "
+"one floppy, it's a good idea to label them."
+msgstr ""
+"Els disquets son un dels mitjans menys segurs, així que prepareu-vos per un "
+"munt de fallades als disquets (mireu la <xref linkend=\"unreliable-floppies"
+"\" />). Cada fitxer <filename>.img</filename> que heu descarregat va a un "
+"únic disquet; podeu fer ús de l'ordre «dd» per escriure'l a «/def/fd0» o "
+"equivalents (podeu trobar més detalls a la <xref linkend=\"create-floppy\" /"
+">). Com que teniu més d'un disquet, no seria mala idea etiquetar-los."
+
+#. Tag: title
+#: installation-howto.xml:130
+#, no-c-format
+msgid "USB memory stick"
+msgstr "Clau de memòria USB"
+
+#. Tag: para
+#: installation-howto.xml:131
+#, no-c-format
+msgid ""
+"It's also possible to install from removable USB storage devices. For "
+"example a USB keychain can make a handy &debian; install medium that you can "
+"take with you anywhere."
+msgstr ""
+"També podeu instal·lar des d'una clau de memòria USB. Per exemple un clauer "
+"USB pot ser un mitjà d'instal·lació de &debian; molt còmode per portar per "
+"tot arreu."
+
+#. Tag: para
+#: installation-howto.xml:137
+#, no-c-format
+msgid ""
+"The easiest way to prepare your USB memory stick is to download any Debian "
+"CD or DVD image that will fit on it, and write the CD image directly to the "
+"memory stick. Of course this will destroy anything already on the memory "
+"stick. This works because Debian CD images are \"isohybrid\" images that can "
+"boot both from CD and from USB drives."
+msgstr ""
+"La manera més fàcil de preparar la vostra memòria USB és baixar les imatges "
+"de Debian en CD o DVD que voleu posar-hi i escriure-les directament en la "
+"memòria. Per suposat, les dades anteriors disponibles a la memòria es "
+"perdran. Això funciona degut a què les imatges en CD de Debian son imatges "
+"híbrides que poden arrencar des d'un dispositiu de CD o USB."
+
+#. Tag: para
+#: installation-howto.xml:145
+#, no-c-format
+msgid ""
+"The easiest way to prepare your USB memory stick is to download <filename>hd-"
+"media/boot.img.gz</filename>, and use gunzip to extract the 1 GB image from "
+"that file. Write this image directly to your memory stick, which must be at "
+"least 1 GB in size. Of course this will destroy anything already on the "
+"memory stick. Then mount the memory stick, which will now have a FAT "
+"filesystem on it. Next, download a &debian; netinst CD image, and copy that "
+"file to the memory stick; any filename is ok as long as it ends in <literal>."
+"iso</literal>."
+msgstr ""
+"La forma més fàcil de preparar el vostre llapis de memòria USB és "
+"descarregar el fitxer <filename>hd-media/boot.img.gz</filename>, i utilitzar "
+"gunzip per extraure la imatge de 1 Gb d'aquest fitxer. Escriviu aquesta "
+"imatge directament al vostre llapis de memòria, que ha de ser com a mínim de "
+"1 Gb de capacitat. Per suposat, açò destruirà tot el que hi havia al llapis "
+"de memòria. Després munteu el llapis de memòria, que ara ha de tenir un "
+"sistema de fitxers FAT. Ara, descarregueu una imatge del CD netinst de "
+"&debian;, i copieu el fitxer al llapis de memòria; qualsevol nom és bo "
+"sempre que acabe amb <literal>.iso</literal>."
+
+#. Tag: para
+#: installation-howto.xml:156
+#, no-c-format
+msgid ""
+"There are other, more flexible ways to set up a memory stick to use the "
+"debian-installer, and it's possible to get it to work with smaller memory "
+"sticks. For details, see <xref linkend=\"boot-usb-files\"/>."
+msgstr ""
+"Hi ha formes més flexibles per preparar un llapis de memòria per fer ús del "
+"debian-installer, i també és possible que funcioni amb llapis de memòria mes "
+"petits. Per més detalls, podeu mirar <xref linkend=\"boot-usb-files\" />."
+
+#. Tag: para
+#: installation-howto.xml:162
+#, no-c-format
+msgid ""
+"Some BIOSes can boot USB storage directly, and some cannot. You may need to "
+"configure your BIOS to boot from a <quote>removable drive</quote> or even a "
+"<quote>USB-ZIP</quote> to get it to boot from the USB device. For helpful "
+"hints and details, see <xref linkend=\"usb-boot\"/>."
+msgstr ""
+"Algunes BIOS poden arrencar directament des de dispositius USB, i d'altres "
+"no. Heu de configurar la vostra BIOS per a que arrenque des del «disc "
+"extraïble» o de <quote>USB-ZIP</quote> per fer que arrenque des del "
+"dispositiu USB. Podeu trobar ajudes i detalls a <xref linkend=\"usb-boot\" /"
+">."
+
+#. Tag: para
+#: installation-howto.xml:169
+#, no-c-format
+msgid ""
+"Booting Macintosh systems from USB storage devices involves manual use of "
+"Open Firmware. For directions, see <xref linkend=\"usb-boot\"/>."
+msgstr ""
+"Arrencar un sistema Macintosh des de dispositius d'emmagatzemament USB "
+"requereix usar manualment l'Open Firmware. Per a instruccions, vegeu <xref "
+"linkend=\"usb-boot\" />."
+
+#. Tag: title
+#: installation-howto.xml:178
+#, no-c-format
+msgid "Booting from network"
+msgstr "Arrencada des de la xarxa"
+
+#. Tag: para
+#: installation-howto.xml:179
+#, no-c-format
+msgid ""
+"It's also possible to boot &d-i; completely from the net. The various "
+"methods to netboot depend on your architecture and netboot setup. The files "
+"in <filename>netboot/</filename> can be used to netboot &d-i;."
+msgstr ""
+"També és possible arrencar el &d-i; completament des de la xarxa. Hi ha "
+"diferents mètodes per arrencar per xarxa depenent de la vostra arquitectura "
+"i configuració d'arrencada de xarxa. Els fitxers que podeu trobar a "
+"<filename>netboot/</filename> poden utilitzar-se per arrencar de la xarxa el "
+"&d-i;."
+
+#. Tag: para
+#: installation-howto.xml:185
+#, no-c-format
+msgid ""
+"The easiest thing to set up is probably PXE netbooting. Untar the file "
+"<filename>netboot/pxeboot.tar.gz</filename> into <filename>/srv/tftp</"
+"filename> or wherever is appropriate for your tftp server. Set up your DHCP "
+"server to pass filename <filename>pxelinux.0</filename> to clients, and with "
+"luck everything will just work. For detailed instructions, see <xref linkend="
+"\"install-tftp\"/>."
+msgstr ""
+"La manera més fàcil per configurar-ho és probablement l'arrencada amb PXE. "
+"Desempaqueteu amb el tar el fitxer <filename>netboot/pxeboot.tar.gz</"
+"filename> a <filename>/srv/tftp</filename> o a un altre lloc al vostre "
+"servidor tftp. Configureu el vostre servidor DHCP per que envie als clients "
+"el fitxer <filename>pxelinux.0</filename>, i amb una mica de sort tot anirà "
+"be. Si voleu instruccions més detallades, mireu <xref linkend=\"install-tftp"
+"\" />."
+
+#. Tag: title
+#: installation-howto.xml:199
+#, no-c-format
+msgid "Booting from hard disk"
+msgstr "Arrencada des del disc dur"
+
+#. Tag: para
+#: installation-howto.xml:200
+#, no-c-format
+msgid ""
+"It's possible to boot the installer using no removable media, but just an "
+"existing hard disk, which can have a different OS on it. Download "
+"<filename>hd-media/initrd.gz</filename>, <filename>hd-media/vmlinuz</"
+"filename>, and a &debian; CD image to the top-level directory of the hard "
+"disk. Make sure that the CD image has a filename ending in <literal>.iso</"
+"literal>. Now it's just a matter of booting linux with the initrd. <phrase "
+"arch=\"x86\"> <xref linkend=\"boot-initrd\"/> explains one way to do it. </"
+"phrase>"
+msgstr ""
+"Es possible arrencar l'instal·lador sense fer ús d'un dispositiu extraïble, "
+"tan sols tenint un disc dur, que pot contenir un sistema operatiu diferent. "
+"Descarregueu <filename>hd-media/initrd.gz</filename>, <filename>hd-media/"
+"vmlinuz</filename>, i la imatge d'un CD de &debian; al directori principal "
+"del vostre disc dur. Assegureu-vos de que la imatge del CD ha de tenir el "
+"nom acabat amb <literal>.iso</literal>. Ara tan sols us queda arrencar el "
+"linux amb el initrd. <phrase arch=\"x86\">A la <xref linkend=\"boot-initrd"
+"\" /> s'explica com fer-ho.</phrase>"
+
+#. Tag: title
+#: installation-howto.xml:217
+#, no-c-format
+msgid "Installation"
+msgstr "Instal·lació"
+
+#. Tag: para
+#: installation-howto.xml:218
+#, no-c-format
+msgid ""
+"Once the installer starts, you will be greeted with an initial screen. Press "
+"&enterkey; to boot, or read the instructions for other boot methods and "
+"parameters (see <xref linkend=\"boot-parms\"/>)."
+msgstr ""
+"Una vegada l'instal·lador ha començat, voreu la pantalla de benvinguda. "
+"Premeu &enterkey; per arrencar, o llegiu les instruccions per seleccionar "
+"altres mètodes i paràmetres (vegeu la <xref linkend=\"boot-parms\" />)."
+
+#. Tag: para
+#: installation-howto.xml:224
+#, no-c-format
+msgid ""
+"After a while you will be asked to select your language. Use the arrow keys "
+"to pick a language and press &enterkey; to continue. Next you'll be asked to "
+"select your country, with the choices including countries where your "
+"language is spoken. If it's not on the short list, a list of all the "
+"countries in the world is available."
+msgstr ""
+"Al cap d'una mica se us demanarà que seleccioneu el vostre idioma. Feu ús de "
+"les fletxes per seleccionar un idioma i premeu &enterkey; per continuar. A "
+"continuació se us preguntarà el vostre país, amb les eleccions possibles "
+"s'inclourà una llista de països on es parla el vostre idioma. Si no es troba "
+"a la llista curta, també disposeu d'una llista amb tots els països del mon."
+
+#. Tag: para
+#: installation-howto.xml:232
+#, no-c-format
+msgid ""
+"You may be asked to confirm your keyboard layout. Choose the default unless "
+"you know better."
+msgstr ""
+"És possible que necessiteu confirmar el vostre tipus de teclat. Escolliu el "
+"valor per defecte a no ser que en conegueu un millor."
+
+#. Tag: para
+#: installation-howto.xml:237
+#, no-c-format
+msgid ""
+"Now sit back while debian-installer detects some of your hardware, and loads "
+"the rest of itself from CD, floppy, USB, etc."
+msgstr ""
+"Ara seieu mentre el debian-installer detecta el vostre maquinari, i carrega "
+"la resta de components des del CD, disquet, USB, etc."
+
+#. Tag: para
+#: installation-howto.xml:242
+#, no-c-format
+msgid ""
+"Next the installer will try to detect your network hardware and set up "
+"networking by DHCP. If you are not on a network or do not have DHCP, you "
+"will be given the opportunity to configure the network manually."
+msgstr ""
+"Després l'instal·lador intentarà detectar el vostre maquinari de xarxa i "
+"configurar la xarxa mitjançant DHCP. Si no esteu en xarxa o no disposeu de "
+"DHCP, aleshores podreu configurar manualment la xarxa."
+
+#. Tag: para
+#: installation-howto.xml:248
+#, no-c-format
+msgid ""
+"The next step is setting up your clock and time zone. The installer will try "
+"to contact a time server on the Internet to ensure the clock is set "
+"correctly. The time zone is based on the country selected earlier and the "
+"installer will only ask to select one if a country has multiple zones."
+msgstr ""
+"El proper pas configura el rellotge i el fus horari. L'instal·lador "
+"intentarà connectar-se a un servidor d'hora d'Internet per assegurar que "
+"l'hora del rellotge és correcta. El fus horari dependrà del país seleccionat "
+"anteriorment i l'instal·lador només demanarà triar-ne un si el país té "
+"diverses zones."
+
+#. Tag: para
+#: installation-howto.xml:255
+#, no-c-format
+msgid ""
+"Setting up your clock and time zone is followed by the creation of user "
+"accounts. By default you are asked to provide a password for the "
+"<quote>root</quote> (administrator) account and information necessary to "
+"create one regular user account. If you do not specify a password for the "
+"<quote>root</quote> user this account will be disabled but the "
+"<command>sudo</command> package will be installed later to enable "
+"administrative tasks to be carried out on the new system."
+msgstr ""
+"A continuació d'ajustar el rellotge i la zona horària es configuren els "
+"comptes d'usuari. Per omissió s'haurà d'indicar la contrasenya del compte "
+"<quote>root</quote> (administrador) i la informació necessària per generar "
+"un compte d'usuari normal. Si no especificau una contrasenya per al compte "
+"<quote>root</quote> aquest quedarà desactivat però més endevant "
+"s'instal·larà el paquet de l'ordre <command>sudo</command> per a permetre "
+"que es puguin dur a terme les tasques administratives en el nou sistema."
+
+#. Tag: para
+#: installation-howto.xml:264
+#, no-c-format
+msgid ""
+"Now it is time to partition your disks. First you will be given the "
+"opportunity to automatically partition either an entire drive, or available "
+"free space on a drive (see <xref linkend=\"partman-auto\"/>). This is "
+"recommended for new users or anyone in a hurry. If you do not want to "
+"autopartition, choose <guimenuitem>Manual</guimenuitem> from the menu."
+msgstr ""
+"Aquest és el moment de fer particions als vostres discs. Primer tindreu "
+"l'oportunitat de triar si fer particions automàticament al disc sencer, o a "
+"l'espai buit disponible (vegeu <xref linkend=\"partman-auto\" />). Es "
+"recomana aquesta darrera opció si sou nous usuaris o si teniu pressa. Si no "
+"voleu fer particions automàticament, trieu <guimenuitem>Manual</guimenuitem> "
+"des del menú."
+
+#. Tag: para
+#: installation-howto.xml:272
+#, no-c-format
+msgid ""
+"If you have an existing DOS or Windows partition that you want to preserve, "
+"be very careful with automatic partitioning. If you choose manual "
+"partitioning, you can use the installer to resize existing FAT or NTFS "
+"partitions to create room for the &debian; install: simply select the "
+"partition and specify its new size."
+msgstr ""
+"Si teniu una partició amb DOS o Windows que voleu conservar, aneu amb molt "
+"de compte amb la partició automàtica. Si seleccioneu fer particions "
+"manualment, podeu fer ús de l'instal·lador per canviar el tamany d'una "
+"partició FAT o NTFS tan sols seleccionant la partició i especificat el nou "
+"tamany."
+
+#. Tag: para
+#: installation-howto.xml:279
+#, no-c-format
+msgid ""
+"On the next screen you will see your partition table, how the partitions "
+"will be formatted, and where they will be mounted. Select a partition to "
+"modify or delete it. If you did automatic partitioning, you should just be "
+"able to choose <guimenuitem>Finish partitioning and write changes to disk</"
+"guimenuitem> from the menu to use what it set up. Remember to assign at "
+"least one partition for swap space and to mount a partition on <filename>/</"
+"filename>. For more detailed information on how to use the partitioner, "
+"please refer to <xref linkend=\"di-partition\"/>; the appendix <xref linkend="
+"\"partitioning\"/> has more general information about partitioning."
+msgstr ""
+"A la pròxima pantalla voreu la vostra taula de particions, com seran "
+"formatades les particions i on es muntaran. Seleccioneu una partició per "
+"modificar-la o esborrar-la. Si particioneu automàticament, tan sols podreu "
+"escollir <guimenuitem>Finalitza la partició i escriu els canvis al disc</"
+"guimenuitem> al menú, per utilitzar les opcions que heu triat. Recordeu "
+"d'assignar al menys una partició d'intercanvi i muntar una partició a "
+"<filename>/</filename>. Per a informació més detallada sobre com utilitzar "
+"el partidor, referiu-vos a <xref linkend=\"di-partition\" />; a l'appendix "
+"<xref linkend=\"partitioning\"/> també hi trobareu informació general sobre "
+"el procés de partició."
+
+#. Tag: para
+#: installation-howto.xml:292
+#, no-c-format
+msgid ""
+"Now &d-i; formats your partitions and starts to install the base system, "
+"which can take a while. That is followed by installing a kernel."
+msgstr ""
+"Ara el &d-i; formata les vostres particions i comença a instal·lar el "
+"sistema base, la qual cosa tardarà una mica. Desprès s'instal·larà el nucli."
+
+#. Tag: para
+#: installation-howto.xml:297
+#, no-c-format
+msgid ""
+"The base system that was installed earlier is a working, but very minimal "
+"installation. To make the system more functional the next step allows you to "
+"install additional packages by selecting tasks. Before packages can be "
+"installed <classname>apt</classname> needs to be configured as that defines "
+"from where the packages will be retrieved. The <quote>Standard system</"
+"quote> task will be selected by default and should normally be installed. "
+"Select the <quote>Desktop environment</quote> task if you would like to have "
+"a graphical desktop after the installation. See <xref linkend=\"pkgsel\"/> "
+"for additional information about this step."
+msgstr ""
+"El sistema base que heu instal·lat ja es pot utilitzar, però encara és una "
+"instal·lació molt mínima. Per tenir un sistema més funcional, el següent pas "
+"us permetrà instal·lar paquets addicionals tot i seleccionant tasques. Abans "
+"de poder instal·lar paquets, s'ha de configurar l'<classname>apt</"
+"classname>, ja que és allà on es defineix d'on s'obtindran els paquets. La "
+"tasca <quote>Sistema estàndard</quote> serà seleccionada per defecte i "
+"normalment s'hauria d'instal·lar. Seleccioneu també la tasca <quote>Entorn "
+"d'escriptori</quote> si voleu un escriptori gràfic després de completar el "
+"procés d'instal·lació. Vegeu <xref linkend=\"pkgsel\"/> per a informació "
+"addicional."
+
+#. Tag: para
+#: installation-howto.xml:309
+#, no-c-format
+msgid ""
+"The last step is to install a boot loader. If the installer detects other "
+"operating systems on your computer, it will add them to the boot menu and "
+"let you know. <phrase arch=\"any-x86\">By default GRUB will be installed to "
+"the master boot record of the first harddrive, which is generally a good "
+"choice. You'll be given the opportunity to override that choice and install "
+"it elsewhere. </phrase>"
+msgstr ""
+"L'últim pas és la instal·lació del gestor d'arrencada. Si l'instal·lador "
+"detecta altres sistemes operatius al vostre ordinador, els afegirà al menú "
+"d'arrencada i ho farà saber. <phrase arch=\"any-x86\">Per defecte el GRUB "
+"s'instal·larà al sector d'arrencada del vostre primer disc dur, cosa que "
+"normalment serà una bona elecció. Podreu canviar-lo i instal·lar-lo a un "
+"altre lloc si ho desitgeu.</phrase>"
+
+#. Tag: para
+#: installation-howto.xml:319
+#, no-c-format
+msgid ""
+"&d-i; will now tell you that the installation has finished. Remove the cdrom "
+"or other boot media and hit &enterkey; to reboot your machine. It should "
+"boot up into the newly installed system and allow you to log in. This is "
+"explained in <xref linkend=\"boot-new\"/>."
+msgstr ""
+"El &d-i; ús notificarà que la instal·lació s'ha finalitzat. Traieu el cdrom "
+"o qualsevol mitjà d'arrencada que hajau utilitzat i premeu &enterkey; per "
+"arrencar de nou la màquina. Ara hauria d'iniciar-se el sistema acabat "
+"d'instal·lar, i us hauria de permetre l'entrada. Això s'explica en detall a "
+"<xref linkend=\"boot-new\" />."
+
+#. Tag: para
+#: installation-howto.xml:326
+#, no-c-format
+msgid ""
+"If you need more information on the install process, see <xref linkend=\"d-i-"
+"intro\"/>."
+msgstr ""
+"Si necessiteu més informació del procés d'instal·lació, vegeu el <xref "
+"linkend=\"d-i-intro\" />."
+
+#. Tag: title
+#: installation-howto.xml:335
+#, no-c-format
+msgid "Send us an installation report"
+msgstr "Envieu un informe de la instal·lació"
+
+#. Tag: para
+#: installation-howto.xml:336
+#, no-c-format
+msgid ""
+"If you successfully managed an installation with &d-i;, please take time to "
+"provide us with a report. The simplest way to do so is to install the "
+"reportbug package (<command>apt install reportbug</command>), configure "
+"<classname>reportbug</classname> as explained in <xref linkend=\"mail-"
+"outgoing\"/>, and run <command>reportbug installation-reports</command>."
+msgstr ""
+"Si heu fet la instal·lació amb èxit fent ús del &d-i;, preneu-vos una mica "
+"de temps per enviar-nos un informe. La manera més senzilla de fer-ho és "
+"instal·lant el paquet reportbug (<command>aptitude install reportbug</"
+"command>), configurar el <classname>reportbug</classname> com s'explica a "
+"<xref linkend=\"mail-outgoing\"/>, i executar <command>reportbug "
+"installation-reports</command>."
+
+#. Tag: para
+#: installation-howto.xml:346
+#, no-c-format
+msgid ""
+"If you did not complete the install, you probably found a bug in debian-"
+"installer. To improve the installer it is necessary that we know about them, "
+"so please take the time to report them. You can use an installation report "
+"to report problems; if the install completely fails, see <xref linkend="
+"\"problem-report\"/>."
+msgstr ""
+"Si no heu aconseguit completar la instal·lació o heu trobat algun altre "
+"problema, probablement heu trobat una errada al debian-installer. Per poder "
+"millorar l'instal·lador, és necessari que el coneguem, així que per favor "
+"preneu-vos un temps per informar-lo. Podeu fer ús d'un informe "
+"d'instal·lació per informar-lo; si la instal·lació falla completament, mireu "
+"la <xref linkend=\"problem-report\" />."
+
+#. Tag: title
+#: installation-howto.xml:358
+#, no-c-format
+msgid "And finally&hellip;"
+msgstr "I finalment&hellip;"
+
+#. Tag: para
+#: installation-howto.xml:359
+#, no-c-format
+msgid ""
+"We hope that your &debian; installation is pleasant and that you find "
+"&debian; useful. You might want to read <xref linkend=\"post-install\"/>."
+msgstr ""
+"Esperem que la vostra instal·lació de &debian; sigui satisfactòria i que "
+"trobeu &debian; d'utilitat. Ara és possible que vulgueu llegir <xref linkend="
+"\"post-install\" />."
