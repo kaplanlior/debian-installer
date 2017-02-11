@@ -2,7 +2,7 @@
 #
 # Jang Seok-moon <drssay97@gmail.com>, 2005, 2006.
 # Leeyumi <orccl1001@gmail.com>, 2011.
-# Changwoo Ryu <cwryu@debian.org>, 2005-2009, 2012-2015.
+# Changwoo Ryu <cwryu@debian.org>, 2005-2009, 2012-2015, 2017.
 #
 # 이 번역은 완성 단계로 품질에 많은 신경을 쓰고 있습니다. 반드시 메일링 리스트에
 # 번역 사실을 알리고 토의를 하십시오.
@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: install-methods.xml\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2016-04-08 20:25+0000\n"
-"PO-Revision-Date: 2015-05-17 15:35+0900\n"
+"PO-Revision-Date: 2017-02-11 18:54+0900\n"
 "Last-Translator: Changwoo Ryu <cwryu@debian.org>\n"
 "Language-Team: Korean <debian-l10n-korean@lists.debian.org>\n"
 "Language: ko\n"
@@ -230,12 +230,7 @@ msgstr "QNAP Turbo Station 설치 파일"
 
 #. Tag: para
 #: install-methods.xml:146
-#, fuzzy, no-c-format
-#| msgid ""
-#| "The installation files for the QNAP Turbo Station consist of a kernel and "
-#| "ramdisk as well as a script to write these images to flash. You can "
-#| "obtain the installation files for QNAP TS-11x, TS-21x and TS-41x models "
-#| "from &qnap-kirkwood-firmware-img;."
+#, no-c-format
 msgid ""
 "The installation files for the QNAP Turbo Station consist of a kernel and "
 "ramdisk as well as a script to write these images to flash. You can obtain "
@@ -245,8 +240,10 @@ msgid ""
 "kirkwood-firmware-img;."
 msgstr ""
 "QNAP Turbo Station의 설치 파일은 커널, 램디스크 이미지, 그리고 플래시 메모리"
-"에 쓰는 스크립트로 구성되어 있습니다. 이 QNAP TS-11x, TS-21x 및 TS-41x용 설"
-"치 파일을 &qnap-kirkwood-firmware-img; 위치에서 구할 수 있습니다."
+"에 쓰는 스크립트로 구성되어 있습니다. QNAP TS-109, TS-209, TS-409, TS-409U 모"
+"델의 설치 파일을 &qnap-orion-firmware-img; 위치에서 구할 수 있습니다. QNAP "
+"TS-11x/12x, HS-2310, TS-21x/TS-22x, TS-41x/TS-41x 모델용 설치 파일을 &qnap-"
+"kirkwood-firmware-img; 위치에서 구할 수 있습니다."
 
 #. Tag: title
 #: install-methods.xml:159
@@ -1144,18 +1141,7 @@ msgstr ""
 
 #. Tag: para
 #: install-methods.xml:760
-#, fuzzy, no-c-format
-#| msgid ""
-#| "Next you should create a <filename>syslinux.cfg</filename> configuration "
-#| "file, which at a bare minimum should contain the following two lines "
-#| "(change the name of the kernel binary to <quote><filename>linux</"
-#| "filename></quote> if you used a <filename>netboot</filename> image): "
-#| "<informalexample><screen>\n"
-#| "default vmlinuz\n"
-#| "append initrd=initrd.gz\n"
-#| "</screen></informalexample> For the graphical installer you should add "
-#| "<userinput>vga=788</userinput> to the second line. Other parameters can "
-#| "be appended as desired."
+#, no-c-format
 msgid ""
 "Next you should create a <filename>syslinux.cfg</filename> configuration "
 "file, which at a bare minimum should contain the following line (change the "
@@ -1167,13 +1153,12 @@ msgid ""
 "as desired."
 msgstr ""
 "그 다음 <filename>syslinux.cfg</filename> 설정 파일을 만듭니다. 최소한 다음 "
-"두 줄이 필요합니다 (<filename>netboot</filename>를 사용하는 경우, 커널 바이너"
-"리 이름을 <quote><filename>linux</filename></quote>로 변경하십시오): "
+"줄이 필요합니다 (<filename>netboot</filename>를 사용하는 경우, 커널 바이너리 "
+"이름을 <quote><filename>linux</filename></quote>로 변경하십시오): "
 "<informalexample><screen>\n"
 "default vmlinuz initrd=initrd.gz\n"
-"</screen></informalexample> 그래픽 설치 프로그램은 두 번째 줄에 "
-"<userinput>vga=788</userinput>를 추가하십시오. 다른 파라미터도 원하는대로 뒤"
-"에 붙일 수 있습니다."
+"</screen></informalexample> 그래픽 설치 프로그램은 뒤에 <userinput>vga=788</"
+"userinput>을 추가하십시오. 다른 파라미터도 원하는대로 뒤에 붙일 수 있습니다."
 
 #. Tag: para
 #: install-methods.xml:772
@@ -2172,8 +2157,8 @@ msgid ""
 "</screen></informalexample> to adjust the range of source ports the Linux "
 "TFTP server uses."
 msgstr ""
-"SGI 컴퓨터에 &debian;을 설치하면 TFTP 서버가 Linux 2.4에서 동작하는 GNU/Linux"
-"의 경우 다음 설정을 할 필요가 있습니다: <informalexample><screen>\n"
+"SGI 컴퓨터에 &debian;을 설치하려는데 TFTP 서버가 리눅스 2.4가 동작하는 GNU/"
+"Linux 컴퓨터인 경우 다음 설정을 해야 합니다: <informalexample><screen>\n"
 "# echo 1 &gt; /proc/sys/net/ipv4/ip_no_pmtu_disc\n"
 "</screen></informalexample> 그렇지 않으면 SGI의 PROM이 커널을 다운로드할 수 "
 "없습니다. 또한 TFTP 패킷의 소스 포트는 32767 이상 있어서는 안됩니다. 그렇지 "
