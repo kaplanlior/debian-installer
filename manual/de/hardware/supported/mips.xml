@@ -1,40 +1,126 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 70558 -->
+<!-- original version: 70565 -->
 
 
-  <sect2 arch="mips;mips64el;mipsel"><title>CPU-, Mainboard- und Grafikunterstützung</title>
+  <sect2 arch="mips;mips64el;mipsel"><title>Plattformen, die von der
+         &debian; &architecture; Portierung unterstützt werden</title>
 <para>
 
-&debian; für &arch-title; unterstützt die folgenden Plattformen:
+&debian; für &arch-title; unterstützt folgende Plattformen:
 
-<itemizedlist>
-<listitem><para>
+  <variablelist>
+    <varlistentry>
+      <term>Cavium Octeon</term>
+      <listitem>
+        <para>
+          Cavium stellt eine Reihe von 64-Bit MIPS-Octeon-Prozessoren
+          her, die hauptsächlich in Netzwerk-Geräten eingesetzt werden.
+          Zu diesen Geräten gehören der Ubiquiti EdgeRouter und der
+          Rhino Labs UTM8.
+        </para>
+      </listitem>
+    </varlistentry>
 
-MIPS Malta: diese Plattform wird von QEMU emuliert und ist deshalb eine nette
-Möglichkeit, &debian; auf MIPS zu testen und laufen zu lassen, falls echte
-Hardware nicht zur Verfügung steht.
+    <varlistentry arch="mips64el;mipsel">
+      <term>Loongson 3</term>
+      <listitem>
+        <para>
+          Auf den Loongson-3A- und 3B-Prozessoren basierende Geräte
+          werden unterstützt.
+          <!-- TODO list some actual devices here -->
+        </para>
+      </listitem>
+    </varlistentry>
 
-</para></listitem>
-</itemizedlist>
+    <varlistentry>
+      <term>MIPS Malta</term>
+      <listitem>
+        <para>
+          Diese Plattform wird von QEMU emuliert und ist deshalb eine nette
+          Möglichkeit, &debian; auf MIPS zu testen und laufen zu lassen, falls
+          echte Hardware nicht zur Verfügung steht.
+        </para>
+        <para>
+          Es gibt zwei Malta-Kernel-Variationen: 4kc-malta für
+          32-Bit-Prozessoren und 5kc-malta für 64-Bit-Prozessoren.
+        </para>
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</para>
+<para>
 
-Umfangreiche Informationen über unterstützte Mips-/Mipsel-/Mips64el-Maschinen
-finden Sie auf der <ulink url="&url-linux-mips;">Linux-MIPS-Website</ulink>.
-Dieses Kapitel behandelt nur die Systeme,
-die vom &debian;-Installer unterstützt werden. Wenn Sie Unterstützung für
-andere Unterarchitekturen benötigen, kontaktieren Sie bitte die
-<ulink url="&url-list-subscribe;">debian &arch-listname;-Mailingliste</ulink>.
+  Zusätzlich sollten auch noch weitere Boards mit
+  <phrase arch="mips;mipsel">MIPS32r2- oder</phrase> MIPS64r2-basierten
+  Prozessoren imstande sein, &debian; laufen zu lassen, allerdings baut
+  Debian keine Kernel für solche Prozessoren und der &debian;-Installer
+  unterstützt sie ebenfalls nicht direkt.
 
-</para>         
+</para>
+<para>
+
+  Umfangreiche Informationen über unterstützte Mips-/Mipsel-/Mips64el-Maschinen
+  finden Sie auf der <ulink url="&url-linux-mips;">Linux-MIPS-Website</ulink>.
+  Dieses Kapitel behandelt nur die Systeme,
+  die vom &debian;-Installer unterstützt werden. Wenn Sie Unterstützung für
+  andere Unterarchitekturen benötigen, kontaktieren Sie bitte die
+  <ulink url="&url-list-subscribe;">debian &arch-listname;-Mailingliste</ulink>.
+
+</para>
 
    <sect3><title>CPUs</title>
 <para>
 
-Einige MIPS-Maschinen können sowohl im Big-Endian- als auch im Little-Endian-Modus
-betrieben werden. Informationen über Little-Endian-MIPS finden Sie im Kapitel
-über die Mipsel- und Mips64el-Architektur.
-
+  Einige MIPS-Maschinen können sowohl im Big-Endian- als auch im Little-Endian-Modus
+  betrieben werden.
+  <phrase arch="mips64el;mipsel">
+    Wenn Sie weitere Informationen über Little-Endian-MIPS benötigen,
+    lesen Sie die Dokumentation für die Mipsel- und Mips64el-Architekturen.
+  </phrase>
+  <phrase arch="mips">
+    Wenn Sie weitere Informationen über Big-Endian-MIPS benötigen,
+    lesen Sie die Dokumentation für die Mips-Architektur.
+  </phrase>
 
 </para>
    </sect3>
   </sect2>
 
+  <sect2 arch="mips;mipsel"><title>Plattformen, die nicht mehr von der
+         &debian; &architecture; Portierung unterstützt werden</title>
+<para>
+  Seit &debian; Stretch ist die Unterstützung für alle MIPS-Prozessoren,
+  die nicht MIPS32 Release 2 implementiert haben, eingestellt. Daher sind
+  folgende Plattformen, die in Jessie noch unterstützt wurden, jetzt nicht
+  mehr unterstützt:
+
+  <variablelist>
+    <varlistentry>
+      <term>Loongson 2E und 2F</term>
+      <listitem>
+        Dies sind die älteren Loongson-Prozessoren. Zu darauf basierenden
+        Geräten gehören der Fuloong Mini-PC und der Lemote Yeeloong Laptop.
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SGI IP22</term>
+      <listitem>
+        Zu dieser Plattform gehören die SGI-Maschinen Indy, Indigo 2 und Challenge S.
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>SGI IP32</term>
+      <listitem>
+        Diese Plattform ist grundsätzlich bekannt als SGI O2.
+      </listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Broadcom BCM91250</term>
+      <listitem>
+        Development-Board für Broadcom's SiByte Core. Auch bekannt unter seinem
+        Codenamen SWARM.
+      </listitem>
+    </varlistentry>
+  </variablelist>
+</para>
+  </sect2>
