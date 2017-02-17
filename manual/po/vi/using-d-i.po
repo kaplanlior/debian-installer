@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: using-d-i\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2016-11-25 19:03+0000\n"
+"POT-Creation-Date: 2017-02-17 15:58+0000\n"
 "PO-Revision-Date: 2012-08-05 14:03+0700\n"
 "Last-Translator: hailang <hailangvn@gmail.com>\n"
 "Language-Team: MOST Project <du-an-most@lists.hanoilug.org>\n"
@@ -4507,13 +4507,13 @@ msgid "hppa FIXME ( need more info )"
 msgstr "hppa SỬA ĐI (cần thêm thông tin)"
 
 #. Tag: title
-#: using-d-i.xml:2692 using-d-i.xml:3030
+#: using-d-i.xml:2692 using-d-i.xml:2965
 #, no-c-format
 msgid "Install the <command>Grub</command> Boot Loader on a Hard Disk"
 msgstr "Cài đặt bộ nạp khởi động <command>Grub</command> vào đĩa cứng"
 
 #. Tag: para
-#: using-d-i.xml:2694 using-d-i.xml:3032
+#: using-d-i.xml:2694 using-d-i.xml:2967
 #, no-c-format
 msgid ""
 "The main &architecture; boot loader is called <quote>grub</quote>. Grub is a "
@@ -4884,131 +4884,13 @@ msgstr ""
 "của liên kết tượng trưng <filename>/vmlinuz</filename>."
 
 #. Tag: title
-#: using-d-i.xml:2925
-#, no-c-format
-msgid "<command>arcboot</command>-installer"
-msgstr "Bộ cài đặt <command>arcboot</command>"
-
-#. Tag: para
-#: using-d-i.xml:2926
-#, no-c-format
-msgid ""
-"The boot loader on SGI machines is <command>arcboot</command>. It has to be "
-"installed on the same hard disk as the kernel (this is done automatically by "
-"the installer). Arcboot supports different configurations which are set up "
-"in <filename>/etc/arcboot.conf</filename>. Each configuration has a unique "
-"name, the default setup as created by the installer is <quote>linux</quote>. "
-"After arcboot has been installed, the system can be booted from hard disk by "
-"setting some firmware environment variables entering "
-"<informalexample><screen>\n"
-"<userinput> setenv SystemPartition scsi(<replaceable>scsi</"
-"replaceable>)disk(<replaceable>disk</replaceable>)rdisk(0)partition(0)</"
-"userinput>\n"
-"<userinput> setenv OSLoadPartition scsi(<replaceable>scsi</"
-"replaceable>)disk(<replaceable>disk</"
-"replaceable>)rdisk(0)partition(<replaceable>partnr</replaceable>)</"
-"userinput>\n"
-"<userinput> setenv OSLoader arcboot</userinput>\n"
-"<userinput> setenv OSLoadFilename <replaceable>config</replaceable></"
-"userinput>\n"
-"<userinput> setenv AutoLoad yes</userinput>\n"
-"</screen></informalexample> on the firmware prompt, and then typing "
-"<command>boot</command>."
-msgstr ""
-"Bộ nạp khởi động trên máy kiểu SGI là <command>arcboot</command>. Nó phải "
-"được cài đặt vào cùng một đĩa cứng với hạt nhân (trình cài đặt tự động làm "
-"như thế). Arcboot hỗ trợ các cấu hình khác nhau được thiết lập trong tập tin "
-"<filename>/etc/arcboot.conf</filename>. Mỗi cấu hình có tên riêng, thiết lập "
-"mặc định như được tạo bởi trình cài đặt là <quote>linux</quote>. Sau khi cài "
-"đặt Arcboot, hệ thống có thể được khởi động từ đĩa cứng bằng cách đặt một số "
-"biến môi trường phần vững, nhập: <informalexample><screen>\n"
-"<userinput> setenv SystemPartition scsi(<replaceable>scsi</"
-"replaceable>)disk(<replaceable>đĩa</replaceable>)rdisk(0)partition(0)</"
-"userinput>\n"
-"<userinput> setenv OSLoadPartition scsi(<replaceable>scsi</"
-"replaceable>)disk(<replaceable>đĩa</"
-"replaceable>)rdisk(0)partition(<replaceable>số_phân</replaceable>)</"
-"userinput>\n"
-"<userinput> setenv OSLoader arcboot</userinput>\n"
-"<userinput> setenv OSLoadFilename <replaceable>cấu_hình</replaceable></"
-"userinput>\n"
-"<userinput> setenv AutoLoad yes</userinput>\n"
-"</screen></informalexample> tại dấu nhắc phần vứng, rồi gõ lệnh khởi động "
-"<command>boot</command>."
-
-# Name: don't translate / Tên: đừng dịch
-#. Tag: replaceable
-#: using-d-i.xml:2945
-#, no-c-format
-msgid "scsi"
-msgstr "scsi"
-
-#. Tag: para
-#: using-d-i.xml:2946
-#, no-c-format
-msgid ""
-"is the SCSI bus to be booted from, this is <userinput>0</userinput> for the "
-"onboard controllers"
-msgstr ""
-"là mạch nối SCSI từ đó cần khởi động: nó là <userinput>0</userinput> cho bộ "
-"điều khiển có sẵn"
-
-#. Tag: replaceable
-#: using-d-i.xml:2954
-#, no-c-format
-msgid "disk"
-msgstr "đĩa"
-
-#. Tag: para
-#: using-d-i.xml:2955
-#, no-c-format
-msgid ""
-"is the SCSI ID of the hard disk on which <command>arcboot</command> is "
-"installed"
-msgstr ""
-"là SCSI ID (mã nhận diện SCSI) của đĩa cứng nơi <command>arcboot</command> "
-"được cài đặt"
-
-#. Tag: replaceable
-#: using-d-i.xml:2963
-#, no-c-format
-msgid "partnr"
-msgstr "số_phân"
-
-#. Tag: para
-#: using-d-i.xml:2964
-#, no-c-format
-msgid ""
-"is the number of the partition on which <filename>/etc/arcboot.conf</"
-"filename> resides"
-msgstr ""
-"là số hiệu phân vùng chứa tập tin cấu hình <filename>/etc/arcboot.conf</"
-"filename>"
-
-#. Tag: replaceable
-#: using-d-i.xml:2972
-#, no-c-format
-msgid "config"
-msgstr "cấu_hình"
-
-#. Tag: para
-#: using-d-i.xml:2973
-#, no-c-format
-msgid ""
-"is the name of the configuration entry in <filename>/etc/arcboot.conf</"
-"filename>, which is <quote>linux</quote> by default."
-msgstr ""
-"là tên của mục nhập cấu hình trong tập tin <filename>/etc/arcboot.conf</"
-"filename>, mà là <quote>linux</quote> theo mặc định."
-
-#. Tag: title
-#: using-d-i.xml:2994
+#: using-d-i.xml:2929
 #, no-c-format
 msgid "Install <command>Yaboot</command> on a Hard Disk"
 msgstr "Cài đặt <command>Yaboot</command> vào đĩa cứng"
 
 #. Tag: para
-#: using-d-i.xml:2995
+#: using-d-i.xml:2930
 #, no-c-format
 msgid ""
 "Newer (mid 1998 and on) PowerMacs use <command>yaboot</command> as their "
@@ -5028,13 +4910,13 @@ msgstr ""
 "&debian-gnu;."
 
 #. Tag: title
-#: using-d-i.xml:3013
+#: using-d-i.xml:2948
 #, no-c-format
 msgid "Install <command>Quik</command> on a Hard Disk"
 msgstr "Cài đặt <command>Quik</command> vào đĩa cứng"
 
 #. Tag: para
-#: using-d-i.xml:3014
+#: using-d-i.xml:2949
 #, no-c-format
 msgid ""
 "The boot loader for OldWorld Power Macintosh machines is <command>quik</"
@@ -5048,7 +4930,7 @@ msgstr ""
 "PowerMac 7200, 7300, và 7600, và trên một số máy bắt chước Power Computing."
 
 #. Tag: para
-#: using-d-i.xml:3038
+#: using-d-i.xml:2973
 #, fuzzy, no-c-format
 #| msgid ""
 #| "By default, grub will be installed into the Master Boot Record (MBR), "
@@ -5064,13 +4946,13 @@ msgstr ""
 "nơi khác. Xem sổ tay GRUB để tìm thông tin đầy đủ."
 
 #. Tag: title
-#: using-d-i.xml:3051
+#: using-d-i.xml:2986
 #, no-c-format
 msgid "<command>zipl</command>-installer"
 msgstr "Bộ cài đặt <command>zipl</command>"
 
 #. Tag: para
-#: using-d-i.xml:3052
+#: using-d-i.xml:2987
 #, no-c-format
 msgid ""
 "The boot loader on &arch-title; is <quote>zipl</quote>. <command>ZIPL</"
@@ -5087,13 +4969,13 @@ msgstr ""
 "command>."
 
 #. Tag: title
-#: using-d-i.xml:3069
+#: using-d-i.xml:3004
 #, no-c-format
 msgid "Install the <command>SILO</command> Boot Loader on a Hard Disk"
 msgstr "Cài đặt bộ nạp khởi động <command>SILO</command> vào đĩa cứng"
 
 #. Tag: para
-#: using-d-i.xml:3071
+#: using-d-i.xml:3006
 #, no-c-format
 msgid ""
 "The standard &architecture; boot loader is called <quote>silo</quote>. It is "
@@ -5124,13 +5006,13 @@ msgstr ""
 "Linux kế bên bản cài đặt SunOS/Solaris đã có."
 
 #. Tag: title
-#: using-d-i.xml:3096
+#: using-d-i.xml:3031
 #, no-c-format
 msgid "Making the system bootable with flash-kernel"
 msgstr ""
 
 #. Tag: para
-#: using-d-i.xml:3097
+#: using-d-i.xml:3032
 #, no-c-format
 msgid ""
 "As there is no common firmware interface on all ARM platforms, the steps "
@@ -5143,7 +5025,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: using-d-i.xml:3108
+#: using-d-i.xml:3043
 #, no-c-format
 msgid ""
 "On devices which boot from internal NOR- or NAND-flash memory, flash-kernel "
@@ -5155,7 +5037,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: using-d-i.xml:3118
+#: using-d-i.xml:3053
 #, no-c-format
 msgid ""
 "For ARM systems that use U-Boot as their system firmware and boot the kernel "
@@ -5165,13 +5047,13 @@ msgid ""
 msgstr ""
 
 #. Tag: title
-#: using-d-i.xml:3134
+#: using-d-i.xml:3069
 #, no-c-format
 msgid "Continue Without Boot Loader"
 msgstr "Tiếp tục không có bộ nạp khởi động"
 
 #. Tag: para
-#: using-d-i.xml:3136
+#: using-d-i.xml:3071
 #, no-c-format
 msgid ""
 "This option can be used to complete the installation even when no boot "
@@ -5183,7 +5065,7 @@ msgstr ""
 "cung cấp, hoặc vì không muốn nó (v.d. bạn sẽ dùng bộ nạp khởi động đã có)."
 
 #. Tag: para
-#: using-d-i.xml:3143
+#: using-d-i.xml:3078
 #, no-c-format
 msgid ""
 "If you plan to manually configure your bootloader, you should check the name "
@@ -5204,13 +5086,13 @@ msgstr ""
 "vùng riêng, tên hệ thống tập tin <filename>/boot</filename>."
 
 #. Tag: title
-#: using-d-i.xml:3160
+#: using-d-i.xml:3095
 #, no-c-format
 msgid "Finishing the Installation"
 msgstr "Cài đặt xong"
 
 #. Tag: para
-#: using-d-i.xml:3161
+#: using-d-i.xml:3096
 #, no-c-format
 msgid ""
 "This is the last step in the &debian; installation process during which the "
@@ -5221,13 +5103,13 @@ msgstr ""
 "đặt sẽ làm bất cứ công việc nào còn lại. Phần lớn là làm sạch sau &d-i;."
 
 #. Tag: title
-#: using-d-i.xml:3174
+#: using-d-i.xml:3109
 #, no-c-format
 msgid "Setting the System Clock"
 msgstr "Đặt đồng hồ hệ thống"
 
 #. Tag: para
-#: using-d-i.xml:3176
+#: using-d-i.xml:3111
 #, no-c-format
 msgid ""
 "The installer may ask you if the computer's clock is set to UTC. Normally "
@@ -5241,7 +5123,7 @@ msgstr ""
 "dựa vào thứ như hệ điều hành khác đã được cài đặt."
 
 #. Tag: para
-#: using-d-i.xml:3183
+#: using-d-i.xml:3118
 #, no-c-format
 msgid ""
 "In expert mode you will always be able to choose whether or not the clock is "
@@ -5259,7 +5141,7 @@ msgstr ""
 "giờ cục bộ. Nếu bạn muốn khởi động đôi, hãy chọn giờ cục bộ hơn UTC.</phrase>"
 
 #. Tag: para
-#: using-d-i.xml:3194
+#: using-d-i.xml:3129
 #, no-c-format
 msgid ""
 "At this point &d-i; will also attempt to save the current time to the "
@@ -5271,13 +5153,13 @@ msgstr ""
 "thuộc vào sự chọn mới làm."
 
 #. Tag: title
-#: using-d-i.xml:3209
+#: using-d-i.xml:3144
 #, no-c-format
 msgid "Reboot the System"
 msgstr "Khởi động lại hệ thống"
 
 #. Tag: para
-#: using-d-i.xml:3211
+#: using-d-i.xml:3146
 #, no-c-format
 msgid ""
 "You will be prompted to remove the boot media (CD, floppy, etc) that you "
@@ -5289,7 +5171,7 @@ msgstr ""
 "thống &debian; mới."
 
 #. Tag: para
-#: using-d-i.xml:3217
+#: using-d-i.xml:3152
 #, no-c-format
 msgid ""
 "After a final prompt the system will be halted because rebooting is not "
@@ -5303,13 +5185,13 @@ msgstr ""
 "đầu của tiến trình cài đặt."
 
 #. Tag: title
-#: using-d-i.xml:3230
+#: using-d-i.xml:3165
 #, no-c-format
 msgid "Troubleshooting"
 msgstr "Khắc phục sự số"
 
 #. Tag: para
-#: using-d-i.xml:3231
+#: using-d-i.xml:3166
 #, no-c-format
 msgid ""
 "The components listed in this section are usually not involved in the "
@@ -5321,13 +5203,13 @@ msgstr ""
 "khó khăn."
 
 #. Tag: title
-#: using-d-i.xml:3244
+#: using-d-i.xml:3179
 #, no-c-format
 msgid "Saving the installation logs"
 msgstr "Lưu bản ghi cài đặt"
 
 #. Tag: para
-#: using-d-i.xml:3246
+#: using-d-i.xml:3181
 #, no-c-format
 msgid ""
 "If the installation is successful, the logfiles created during the "
@@ -5339,7 +5221,7 @@ msgstr ""
 "trong hệ thống &debian; mới."
 
 #. Tag: para
-#: using-d-i.xml:3253
+#: using-d-i.xml:3188
 #, no-c-format
 msgid ""
 "Choosing <guimenuitem>Save debug logs</guimenuitem> from the main menu "
@@ -5355,13 +5237,13 @@ msgstr ""
 "kèm báo cáo cài đặt."
 
 #. Tag: title
-#: using-d-i.xml:3273
+#: using-d-i.xml:3208
 #, no-c-format
 msgid "Using the Shell and Viewing the Logs"
 msgstr "Sử dụng trình bao và xem bản ghi"
 
 #. Tag: para
-#: using-d-i.xml:3275
+#: using-d-i.xml:3210
 #, no-c-format
 msgid ""
 "There are several methods you can use to get a shell while running an "
@@ -5388,13 +5270,13 @@ msgstr ""
 "trái</keycap> <keycap>F1</keycap></keycombo> để trở về bộ cài đặt chính nó."
 
 #. Tag: para
-#: using-d-i.xml:3293
+#: using-d-i.xml:3228
 #, no-c-format
 msgid "For the graphical installer see also <xref linkend=\"gtk-using\"/>."
 msgstr "Đối với trình cài đặt đồ họa, xem thêm <xref linkend=\"gtk-using\"/>."
 
 #. Tag: para
-#: using-d-i.xml:3297
+#: using-d-i.xml:3232
 #, no-c-format
 msgid ""
 "If you cannot switch consoles, there is also an <guimenuitem>Execute a "
@@ -5410,7 +5292,7 @@ msgstr ""
 "(thoát) để đóng trình bao, và trở về trình cài đặt."
 
 #. Tag: para
-#: using-d-i.xml:3305
+#: using-d-i.xml:3240
 #, no-c-format
 msgid ""
 "At this point you are booted from the RAM disk, and there is a limited set "
@@ -5428,7 +5310,7 @@ msgstr ""
 "tự động gõ và lược sử."
 
 #. Tag: para
-#: using-d-i.xml:3314
+#: using-d-i.xml:3249
 #, no-c-format
 msgid ""
 "To edit and view files, use the text editor <command>nano</command>. Log "
@@ -5440,7 +5322,7 @@ msgstr ""
 "<filename>/var/log</filename>."
 
 #. Tag: para
-#: using-d-i.xml:3321
+#: using-d-i.xml:3256
 #, no-c-format
 msgid ""
 "Although you can do basically anything in a shell that the available "
@@ -5451,7 +5333,7 @@ msgstr ""
 "trình bao chỉ sẵn sàng để giúp đỡ trong trường hợp bị lỗi hay gỡ lỗi."
 
 #. Tag: para
-#: using-d-i.xml:3327
+#: using-d-i.xml:3262
 #, no-c-format
 msgid ""
 "Doing things manually from the shell may interfere with the installation "
@@ -5465,13 +5347,13 @@ msgstr ""
 "bao."
 
 #. Tag: title
-#: using-d-i.xml:3343
+#: using-d-i.xml:3278
 #, no-c-format
 msgid "Installation Over the Network"
 msgstr "Cài đặt qua mạng"
 
 #. Tag: para
-#: using-d-i.xml:3345
+#: using-d-i.xml:3280
 #, no-c-format
 msgid ""
 "One of the more interesting components is <firstterm>network-console</"
@@ -5488,7 +5370,7 @@ msgstr ""
 "thể tự động hoá phần đó bằng phần <xref linkend=\"automatic-install\"/>.)"
 
 #. Tag: para
-#: using-d-i.xml:3355
+#: using-d-i.xml:3290
 #, no-c-format
 msgid ""
 "This component is not loaded into the main installation menu by default, so "
@@ -5510,7 +5392,7 @@ msgstr ""
 "tục lại cài đặt từ xa bằng SSH</guimenuitem>."
 
 #. Tag: para
-#: using-d-i.xml:3368
+#: using-d-i.xml:3303
 #, no-c-format
 msgid ""
 "For installations on &arch-title;, this is the default method after setting "
@@ -5520,7 +5402,7 @@ msgstr ""
 "mặc định sau khi thiết lập mạng."
 
 #. Tag: para
-#: using-d-i.xml:3373
+#: using-d-i.xml:3308
 #, no-c-format
 msgid ""
 "<phrase arch=\"not-s390\">After selecting this new entry, you</phrase> "
@@ -5542,7 +5424,7 @@ msgstr ""
 "tiếp tục cài đặt từ xa."
 
 #. Tag: para
-#: using-d-i.xml:3385
+#: using-d-i.xml:3320
 #, no-c-format
 msgid ""
 "Should you decide to continue with the installation locally, you can always "
@@ -5554,7 +5436,7 @@ msgstr ""
 "khác."
 
 #. Tag: para
-#: using-d-i.xml:3391
+#: using-d-i.xml:3326
 #, no-c-format
 msgid ""
 "Now let's switch to the other side of the wire. As a prerequisite, you need "
@@ -5584,7 +5466,7 @@ msgstr ""
 "nếu nó là đúng không."
 
 #. Tag: para
-#: using-d-i.xml:3408
+#: using-d-i.xml:3343
 #, no-c-format
 msgid ""
 "The <command>ssh</command> server in the installer uses a default "
@@ -5609,7 +5491,7 @@ msgstr ""
 "tái kết nối."
 
 #. Tag: para
-#: using-d-i.xml:3421
+#: using-d-i.xml:3356
 #, no-c-format
 msgid ""
 "You may be able to avoid the connection being dropped by adding the option "
@@ -5631,7 +5513,7 @@ msgstr ""
 "kết nối) vậy chỉ dùng nó khi cần thiết."
 
 #. Tag: para
-#: using-d-i.xml:3434
+#: using-d-i.xml:3369
 #, no-c-format
 msgid ""
 "If you install several computers in turn and they happen to have the same IP "
@@ -5655,7 +5537,7 @@ msgstr ""
 "thử lại."
 
 #. Tag: para
-#: using-d-i.xml:3450
+#: using-d-i.xml:3385
 #, no-c-format
 msgid ""
 "After the login you will be presented with an initial screen where you have "
@@ -5675,7 +5557,7 @@ msgstr ""
 "chạy cho các trình bao."
 
 #. Tag: para
-#: using-d-i.xml:3460
+#: using-d-i.xml:3395
 #, no-c-format
 msgid ""
 "After you have started the installation remotely over SSH, you should not go "
@@ -5691,13 +5573,13 @@ msgstr ""
 "cài đặt."
 
 #. Tag: title
-#: using-d-i.xml:3479
+#: using-d-i.xml:3414
 #, no-c-format
 msgid "Loading Missing Firmware"
 msgstr "Nạp phần vững bị thiếu"
 
 #. Tag: para
-#: using-d-i.xml:3480
+#: using-d-i.xml:3415
 #, no-c-format
 msgid ""
 "As described in <xref linkend=\"hardware-firmware\"/>, some devices require "
@@ -5711,7 +5593,7 @@ msgstr ""
 "chức năng cơ bản và yêu cầu phần vững để hiệu lực thêm tính năng."
 
 #. Tag: para
-#: using-d-i.xml:3488
+#: using-d-i.xml:3423
 #, no-c-format
 msgid ""
 "If a device driver requests firmware that is not available, &d-i; will "
@@ -5729,7 +5611,7 @@ msgstr ""
 "nạp lại."
 
 #. Tag: para
-#: using-d-i.xml:3498
+#: using-d-i.xml:3433
 #, no-c-format
 msgid ""
 "Which devices are scanned and which file systems are supported depends on "
@@ -5747,7 +5629,7 @@ msgstr ""
 "mạch MMC hay SD.</phrase>"
 
 #. Tag: para
-#: using-d-i.xml:3508
+#: using-d-i.xml:3443
 #, no-c-format
 msgid ""
 "Note that it is possible to skip loading the firmware if you know the device "
@@ -5758,7 +5640,7 @@ msgstr ""
 "năng, hoặc nếu thiết bị không cần trong khi cài đặt."
 
 #. Tag: para
-#: using-d-i.xml:3514
+#: using-d-i.xml:3449
 #, no-c-format
 msgid ""
 "&d-i; only prompts for firmware needed by kernel modules loaded during the "
@@ -5772,13 +5654,13 @@ msgid ""
 msgstr ""
 
 #. Tag: title
-#: using-d-i.xml:3528
+#: using-d-i.xml:3463
 #, no-c-format
 msgid "Preparing a medium"
 msgstr "Chuẩn bị vật chứa"
 
 #. Tag: para
-#: using-d-i.xml:3529
+#: using-d-i.xml:3464
 #, no-c-format
 msgid ""
 "Official CD images do not include non-free firmware. The most common method "
@@ -5802,7 +5684,7 @@ msgstr ""
 "đoạn đầu tiên của việc cài đặt."
 
 #. Tag: para
-#: using-d-i.xml:3542
+#: using-d-i.xml:3477
 #, no-c-format
 msgid ""
 "Tarballs and zip files containing current packages for the most common "
@@ -5817,7 +5699,7 @@ msgstr ""
 "bản phát hành hiện thời, và giải nén nó vào hệ thống tập tin trên vật chứa."
 
 #. Tag: para
-#: using-d-i.xml:3556
+#: using-d-i.xml:3491
 #, no-c-format
 msgid ""
 "If the firmware you need is not included in the tarball, you can also "
@@ -5832,7 +5714,7 @@ msgstr ""
 "cũng có thể chứa gói khác phần vững:"
 
 #. Tag: para
-#: using-d-i.xml:3570
+#: using-d-i.xml:3505
 #, no-c-format
 msgid ""
 "It is also possible to copy individual firmware files to the medium. Loose "
@@ -5844,13 +5726,13 @@ msgstr ""
 "phần cứng."
 
 #. Tag: title
-#: using-d-i.xml:3579
+#: using-d-i.xml:3514
 #, no-c-format
 msgid "Firmware and the Installed System"
 msgstr "Phần vững và Hệ thống đã Cài đặt"
 
 #. Tag: para
-#: using-d-i.xml:3580
+#: using-d-i.xml:3515
 #, no-c-format
 msgid ""
 "Any firmware loaded during the installation will be copied automatically to "
@@ -5868,7 +5750,7 @@ msgstr ""
 "là phần vững không nạp được do phiên bản bị đối xứng lệch."
 
 #. Tag: para
-#: using-d-i.xml:3589
+#: using-d-i.xml:3524
 #, no-c-format
 msgid ""
 "If the firmware was loaded from a firmware package, &d-i; will also install "
@@ -5884,7 +5766,7 @@ msgstr ""
 "phát hành."
 
 #. Tag: para
-#: using-d-i.xml:3597
+#: using-d-i.xml:3532
 #, no-c-format
 msgid ""
 "If loading the firmware was skipped during the installation, the relevant "
@@ -5896,7 +5778,7 @@ msgstr ""
 "cài đặt một cách thủ công."
 
 #. Tag: para
-#: using-d-i.xml:3604
+#: using-d-i.xml:3539
 #, no-c-format
 msgid ""
 "If the firmware was loaded from loose firmware files, the firmware copied to "
@@ -5908,6 +5790,95 @@ msgstr ""
 "chép vào hệ thống đã cài đặt sẽ <emphasis>không phải</emphasis> được tự động "
 "cập nhật nếu gói phần vững tương ứng (nếu sẵn sàng) không được cài đặt một "
 "khi cài đặt xong."
+
+#~ msgid "<command>arcboot</command>-installer"
+#~ msgstr "Bộ cài đặt <command>arcboot</command>"
+
+#~ msgid ""
+#~ "The boot loader on SGI machines is <command>arcboot</command>. It has to "
+#~ "be installed on the same hard disk as the kernel (this is done "
+#~ "automatically by the installer). Arcboot supports different "
+#~ "configurations which are set up in <filename>/etc/arcboot.conf</"
+#~ "filename>. Each configuration has a unique name, the default setup as "
+#~ "created by the installer is <quote>linux</quote>. After arcboot has been "
+#~ "installed, the system can be booted from hard disk by setting some "
+#~ "firmware environment variables entering <informalexample><screen>\n"
+#~ "<userinput> setenv SystemPartition scsi(<replaceable>scsi</"
+#~ "replaceable>)disk(<replaceable>disk</replaceable>)rdisk(0)partition(0)</"
+#~ "userinput>\n"
+#~ "<userinput> setenv OSLoadPartition scsi(<replaceable>scsi</"
+#~ "replaceable>)disk(<replaceable>disk</"
+#~ "replaceable>)rdisk(0)partition(<replaceable>partnr</replaceable>)</"
+#~ "userinput>\n"
+#~ "<userinput> setenv OSLoader arcboot</userinput>\n"
+#~ "<userinput> setenv OSLoadFilename <replaceable>config</replaceable></"
+#~ "userinput>\n"
+#~ "<userinput> setenv AutoLoad yes</userinput>\n"
+#~ "</screen></informalexample> on the firmware prompt, and then typing "
+#~ "<command>boot</command>."
+#~ msgstr ""
+#~ "Bộ nạp khởi động trên máy kiểu SGI là <command>arcboot</command>. Nó phải "
+#~ "được cài đặt vào cùng một đĩa cứng với hạt nhân (trình cài đặt tự động "
+#~ "làm như thế). Arcboot hỗ trợ các cấu hình khác nhau được thiết lập trong "
+#~ "tập tin <filename>/etc/arcboot.conf</filename>. Mỗi cấu hình có tên "
+#~ "riêng, thiết lập mặc định như được tạo bởi trình cài đặt là <quote>linux</"
+#~ "quote>. Sau khi cài đặt Arcboot, hệ thống có thể được khởi động từ đĩa "
+#~ "cứng bằng cách đặt một số biến môi trường phần vững, nhập: "
+#~ "<informalexample><screen>\n"
+#~ "<userinput> setenv SystemPartition scsi(<replaceable>scsi</"
+#~ "replaceable>)disk(<replaceable>đĩa</replaceable>)rdisk(0)partition(0)</"
+#~ "userinput>\n"
+#~ "<userinput> setenv OSLoadPartition scsi(<replaceable>scsi</"
+#~ "replaceable>)disk(<replaceable>đĩa</"
+#~ "replaceable>)rdisk(0)partition(<replaceable>số_phân</replaceable>)</"
+#~ "userinput>\n"
+#~ "<userinput> setenv OSLoader arcboot</userinput>\n"
+#~ "<userinput> setenv OSLoadFilename <replaceable>cấu_hình</replaceable></"
+#~ "userinput>\n"
+#~ "<userinput> setenv AutoLoad yes</userinput>\n"
+#~ "</screen></informalexample> tại dấu nhắc phần vứng, rồi gõ lệnh khởi động "
+#~ "<command>boot</command>."
+
+# Name: don't translate / Tên: đừng dịch
+#~ msgid "scsi"
+#~ msgstr "scsi"
+
+#~ msgid ""
+#~ "is the SCSI bus to be booted from, this is <userinput>0</userinput> for "
+#~ "the onboard controllers"
+#~ msgstr ""
+#~ "là mạch nối SCSI từ đó cần khởi động: nó là <userinput>0</userinput> cho "
+#~ "bộ điều khiển có sẵn"
+
+#~ msgid "disk"
+#~ msgstr "đĩa"
+
+#~ msgid ""
+#~ "is the SCSI ID of the hard disk on which <command>arcboot</command> is "
+#~ "installed"
+#~ msgstr ""
+#~ "là SCSI ID (mã nhận diện SCSI) của đĩa cứng nơi <command>arcboot</"
+#~ "command> được cài đặt"
+
+#~ msgid "partnr"
+#~ msgstr "số_phân"
+
+#~ msgid ""
+#~ "is the number of the partition on which <filename>/etc/arcboot.conf</"
+#~ "filename> resides"
+#~ msgstr ""
+#~ "là số hiệu phân vùng chứa tập tin cấu hình <filename>/etc/arcboot.conf</"
+#~ "filename>"
+
+#~ msgid "config"
+#~ msgstr "cấu_hình"
+
+#~ msgid ""
+#~ "is the name of the configuration entry in <filename>/etc/arcboot.conf</"
+#~ "filename>, which is <quote>linux</quote> by default."
+#~ msgstr ""
+#~ "là tên của mục nhập cấu hình trong tập tin <filename>/etc/arcboot.conf</"
+#~ "filename>, mà là <quote>linux</quote> theo mặc định."
 
 #~ msgid ""
 #~ "Support for MD is a relatively new addition to the installer. You may "

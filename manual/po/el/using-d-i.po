@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: using-d-i\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2016-11-25 19:03+0000\n"
+"POT-Creation-Date: 2017-02-17 15:58+0000\n"
 "PO-Revision-Date: 2013-05-05 13:45+0300\n"
 "Last-Translator: galaxico <galaxico@quad-nrg.net>\n"
 "Language-Team: Greek <debian-l10n-greek@lists.debian.org>\n"
@@ -4733,14 +4733,14 @@ msgid "hppa FIXME ( need more info )"
 msgstr "hppa FIXME ( need more info )"
 
 #. Tag: title
-#: using-d-i.xml:2692 using-d-i.xml:3030
+#: using-d-i.xml:2692 using-d-i.xml:2965
 #, no-c-format
 msgid "Install the <command>Grub</command> Boot Loader on a Hard Disk"
 msgstr ""
 "Εγκατάσταση στο Σκληρό Δίσκο του Φορτωτή Εκκίνησης <command>Grub</command>"
 
 #. Tag: para
-#: using-d-i.xml:2694 using-d-i.xml:3032
+#: using-d-i.xml:2694 using-d-i.xml:2967
 #, no-c-format
 msgid ""
 "The main &architecture; boot loader is called <quote>grub</quote>. Grub is a "
@@ -5120,132 +5120,13 @@ msgstr ""
 "οποίο δείχνει μεσώ συμβολικού δεσμού το αρχείο <filename>/vmlinuz</filename>."
 
 #. Tag: title
-#: using-d-i.xml:2925
-#, no-c-format
-msgid "<command>arcboot</command>-installer"
-msgstr "εγκαταστάτης του <command>arcboot</command>"
-
-#. Tag: para
-#: using-d-i.xml:2926
-#, no-c-format
-msgid ""
-"The boot loader on SGI machines is <command>arcboot</command>. It has to be "
-"installed on the same hard disk as the kernel (this is done automatically by "
-"the installer). Arcboot supports different configurations which are set up "
-"in <filename>/etc/arcboot.conf</filename>. Each configuration has a unique "
-"name, the default setup as created by the installer is <quote>linux</quote>. "
-"After arcboot has been installed, the system can be booted from hard disk by "
-"setting some firmware environment variables entering "
-"<informalexample><screen>\n"
-"<userinput> setenv SystemPartition scsi(<replaceable>scsi</"
-"replaceable>)disk(<replaceable>disk</replaceable>)rdisk(0)partition(0)</"
-"userinput>\n"
-"<userinput> setenv OSLoadPartition scsi(<replaceable>scsi</"
-"replaceable>)disk(<replaceable>disk</"
-"replaceable>)rdisk(0)partition(<replaceable>partnr</replaceable>)</"
-"userinput>\n"
-"<userinput> setenv OSLoader arcboot</userinput>\n"
-"<userinput> setenv OSLoadFilename <replaceable>config</replaceable></"
-"userinput>\n"
-"<userinput> setenv AutoLoad yes</userinput>\n"
-"</screen></informalexample> on the firmware prompt, and then typing "
-"<command>boot</command>."
-msgstr ""
-"Σε συστήματα SGI Indys ο φορτωτής εκκίνησης είναι ο <command>arcboot</"
-"command>. Πρέπει να εγκατασταθεί στον ίδιο σκληρό δίσκο που εγκαθίσταται και "
-"ο πυρήνας (αυτό γίνεται αυτόματα από τον εγκαταστάτη). Ο φορτωτής arcboot "
-"υποστηρίζει διαφορετικές διαμορφώσεις που ρυθμίζονται στο αρχείο <filename>/"
-"etc/arcboot.conf</filename>. Κάθε διαμόρφωση έχει ένα μοναδικό όνομα, και η "
-"προκαθορισμένη ρύθμιση που δημιουργείται από τον εγκαταστάτη είναι η "
-"<quote>linux</quote>. Μετά την εγκατάσταση του arcboot, το σύστημα μπορεί να "
-"εκκινήσει από τον σκληρό δίσκο με τον καθορισμό κάποιων μεταβλητών του "
-"περιβάλλοντος του firmware εισάγοντας<informalexample><screen>\n"
-"<userinput> setenv SystemPartition scsi(<replaceable>scsi</"
-"replaceable>)disk(<replaceable>disk</replaceable>)rdisk(0)partition(0)</"
-"userinput>\n"
-"<userinput> setenv OSLoadPartition scsi(<replaceable>scsi</"
-"replaceable>)disk(<replaceable>disk</"
-"replaceable>)rdisk(0)partition(<replaceable>partnr</replaceable>)</"
-"userinput>\n"
-"<userinput> setenv OSLoader arcboot</userinput>\n"
-"<userinput> setenv OSLoadFilename <replaceable>config</replaceable></"
-"userinput>\n"
-"<userinput> setenv AutoLoad yes</userinput>\n"
-"</screen></informalexample> στο προτρεπτικό του firmware και πληκτρολογώντας "
-"στη συνέχεια <command>boot</command>."
-
-#. Tag: replaceable
-#: using-d-i.xml:2945
-#, no-c-format
-msgid "scsi"
-msgstr "scsi"
-
-#. Tag: para
-#: using-d-i.xml:2946
-#, no-c-format
-msgid ""
-"is the SCSI bus to be booted from, this is <userinput>0</userinput> for the "
-"onboard controllers"
-msgstr ""
-"είναι ο δίαυλος SCSI από τον οποίο θα γίνει η εκκίνηση και είναι ο "
-"<userinput>0</userinput> για ελεγκτές ενσωματωμένους στην μητρική"
-
-#. Tag: replaceable
-#: using-d-i.xml:2954
-#, no-c-format
-msgid "disk"
-msgstr "disk"
-
-#. Tag: para
-#: using-d-i.xml:2955
-#, no-c-format
-msgid ""
-"is the SCSI ID of the hard disk on which <command>arcboot</command> is "
-"installed"
-msgstr ""
-"είναι το ID του SCSI σκληρού δίσκου στον οποίο είναι εγκατεστημένος ο "
-"<command>arcboot</command>."
-
-#. Tag: replaceable
-#: using-d-i.xml:2963
-#, no-c-format
-msgid "partnr"
-msgstr "partnr"
-
-#. Tag: para
-#: using-d-i.xml:2964
-#, no-c-format
-msgid ""
-"is the number of the partition on which <filename>/etc/arcboot.conf</"
-"filename> resides"
-msgstr ""
-"είναι ο αριθμός του τμήματος στον οποίο βρίσκεται το <filename>/etc/arcboot."
-"conf</filename>."
-
-#. Tag: replaceable
-#: using-d-i.xml:2972
-#, no-c-format
-msgid "config"
-msgstr "config"
-
-#. Tag: para
-#: using-d-i.xml:2973
-#, no-c-format
-msgid ""
-"is the name of the configuration entry in <filename>/etc/arcboot.conf</"
-"filename>, which is <quote>linux</quote> by default."
-msgstr ""
-"είναι το όνομα της παραμέτρου καταχώρισης, στο <filename>/etc/arcboot.conf</"
-"filename>, το οποίο εξ ορισμού είναι <quote>linux</quote>."
-
-#. Tag: title
-#: using-d-i.xml:2994
+#: using-d-i.xml:2929
 #, no-c-format
 msgid "Install <command>Yaboot</command> on a Hard Disk"
 msgstr "Εγκατάσταση στον Σκληρό Δίσκο του <command>Yaboot</command> "
 
 #. Tag: para
-#: using-d-i.xml:2995
+#: using-d-i.xml:2930
 #, no-c-format
 msgid ""
 "Newer (mid 1998 and on) PowerMacs use <command>yaboot</command> as their "
@@ -5266,13 +5147,13 @@ msgstr ""
 "OpenFirmware θα είναι ρυθμισμένο να ξεκινά το &debian-gnu;."
 
 #. Tag: title
-#: using-d-i.xml:3013
+#: using-d-i.xml:2948
 #, no-c-format
 msgid "Install <command>Quik</command> on a Hard Disk"
 msgstr "Εγκατάσταση στον Σκληρό Δίσκο του <command>Quik</command>"
 
 #. Tag: para
-#: using-d-i.xml:3014
+#: using-d-i.xml:2949
 #, no-c-format
 msgid ""
 "The boot loader for OldWorld Power Macintosh machines is <command>quik</"
@@ -5287,7 +5168,7 @@ msgstr ""
 "όπως επίσης και σε μερικούς τύπους Power Computing."
 
 #. Tag: para
-#: using-d-i.xml:3038
+#: using-d-i.xml:2973
 #, fuzzy, no-c-format
 #| msgid ""
 #| "By default, grub will be installed into the Master Boot Record (MBR), "
@@ -5304,13 +5185,13 @@ msgstr ""
 "βιβλίο οδηγιών του  grub."
 
 #. Tag: title
-#: using-d-i.xml:3051
+#: using-d-i.xml:2986
 #, no-c-format
 msgid "<command>zipl</command>-installer"
 msgstr "εγκαταστάτης του <command>zipl</command>"
 
 #. Tag: para
-#: using-d-i.xml:3052
+#: using-d-i.xml:2987
 #, no-c-format
 msgid ""
 "The boot loader on &arch-title; is <quote>zipl</quote>. <command>ZIPL</"
@@ -5327,14 +5208,14 @@ msgstr ""
 "quote> στον δικτυακό τόπο των developerWorks της IBM."
 
 #. Tag: title
-#: using-d-i.xml:3069
+#: using-d-i.xml:3004
 #, no-c-format
 msgid "Install the <command>SILO</command> Boot Loader on a Hard Disk"
 msgstr ""
 "Εγκατάσταση στον Σκληρό Δίσκο του Φορτωτή Εκκίνησης <command>SILO</command>"
 
 #. Tag: para
-#: using-d-i.xml:3071
+#: using-d-i.xml:3006
 #, no-c-format
 msgid ""
 "The standard &architecture; boot loader is called <quote>silo</quote>. It is "
@@ -5368,13 +5249,13 @@ msgstr ""
 "SunOS/Solaris. "
 
 #. Tag: title
-#: using-d-i.xml:3096
+#: using-d-i.xml:3031
 #, no-c-format
 msgid "Making the system bootable with flash-kernel"
 msgstr ""
 
 #. Tag: para
-#: using-d-i.xml:3097
+#: using-d-i.xml:3032
 #, no-c-format
 msgid ""
 "As there is no common firmware interface on all ARM platforms, the steps "
@@ -5387,7 +5268,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: using-d-i.xml:3108
+#: using-d-i.xml:3043
 #, no-c-format
 msgid ""
 "On devices which boot from internal NOR- or NAND-flash memory, flash-kernel "
@@ -5399,7 +5280,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: using-d-i.xml:3118
+#: using-d-i.xml:3053
 #, no-c-format
 msgid ""
 "For ARM systems that use U-Boot as their system firmware and boot the kernel "
@@ -5409,13 +5290,13 @@ msgid ""
 msgstr ""
 
 #. Tag: title
-#: using-d-i.xml:3134
+#: using-d-i.xml:3069
 #, no-c-format
 msgid "Continue Without Boot Loader"
 msgstr "Συνεχίστε Χωρίς Φορτωτή Εκκίνησης"
 
 #. Tag: para
-#: using-d-i.xml:3136
+#: using-d-i.xml:3071
 #, no-c-format
 msgid ""
 "This option can be used to complete the installation even when no boot "
@@ -5429,7 +5310,7 @@ msgstr ""
 "χρησιμοποιήσετε κάποιον φορτωτή εκκίνησης που ήδη υπάρχει)."
 
 #. Tag: para
-#: using-d-i.xml:3143
+#: using-d-i.xml:3078
 #, no-c-format
 msgid ""
 "If you plan to manually configure your bootloader, you should check the name "
@@ -5452,13 +5333,13 @@ msgstr ""
 "επίσης να γνωρίζετε το σύστημα αρχείων του <filename>/boot</filename>. "
 
 #. Tag: title
-#: using-d-i.xml:3160
+#: using-d-i.xml:3095
 #, no-c-format
 msgid "Finishing the Installation"
 msgstr "Τελειώνοντας την Εγκατάσταση"
 
 #. Tag: para
-#: using-d-i.xml:3161
+#: using-d-i.xml:3096
 #, no-c-format
 msgid ""
 "This is the last step in the &debian; installation process during which the "
@@ -5470,13 +5351,13 @@ msgstr ""
 "Συνίσταται κυρίως σε ένα \"σιγύρισμα\" μετά τη χρήση του &d-i;."
 
 #. Tag: title
-#: using-d-i.xml:3174
+#: using-d-i.xml:3109
 #, no-c-format
 msgid "Setting the System Clock"
 msgstr "Ρύθμιση του Ρολογιού του Συστήματος"
 
 #. Tag: para
-#: using-d-i.xml:3176
+#: using-d-i.xml:3111
 #, no-c-format
 msgid ""
 "The installer may ask you if the computer's clock is set to UTC. Normally "
@@ -5490,7 +5371,7 @@ msgstr ""
 "στοιχεία όπως το ποια άλλα λειτουργικά συστήματα είναι εγκατεστημμένα."
 
 #. Tag: para
-#: using-d-i.xml:3183
+#: using-d-i.xml:3118
 #, no-c-format
 msgid ""
 "In expert mode you will always be able to choose whether or not the clock is "
@@ -5509,7 +5390,7 @@ msgstr ""
 "διπλής εκκίνησης επιλέξτε τοπική ώρα αντί για ώρα UTC.</phrase>"
 
 #. Tag: para
-#: using-d-i.xml:3194
+#: using-d-i.xml:3129
 #, no-c-format
 msgid ""
 "At this point &d-i; will also attempt to save the current time to the "
@@ -5521,13 +5402,13 @@ msgstr ""
 "χρόνο, ανάλογα με την επιλογή που μόλις κάνατε."
 
 #. Tag: title
-#: using-d-i.xml:3209
+#: using-d-i.xml:3144
 #, no-c-format
 msgid "Reboot the System"
 msgstr "Επανεκκίνηση του Συστήματος"
 
 #. Tag: para
-#: using-d-i.xml:3211
+#: using-d-i.xml:3146
 #, no-c-format
 msgid ""
 "You will be prompted to remove the boot media (CD, floppy, etc) that you "
@@ -5539,7 +5420,7 @@ msgstr ""
 "σύστημα θα επανεκκινήσει στο καινούριο σας σύστημα &debian;."
 
 #. Tag: para
-#: using-d-i.xml:3217
+#: using-d-i.xml:3152
 #, no-c-format
 msgid ""
 "After a final prompt the system will be halted because rebooting is not "
@@ -5553,13 +5434,13 @@ msgstr ""
 "επιλέξατε σαν ριζικό σύστημα αρχείων στα πρώτα βήματα της εγκατάστασης."
 
 #. Tag: title
-#: using-d-i.xml:3230
+#: using-d-i.xml:3165
 #, no-c-format
 msgid "Troubleshooting"
 msgstr "Επίλυση προβλημάτων"
 
 #. Tag: para
-#: using-d-i.xml:3231
+#: using-d-i.xml:3166
 #, no-c-format
 msgid ""
 "The components listed in this section are usually not involved in the "
@@ -5571,13 +5452,13 @@ msgstr ""
 "για να βοηθήσουν τον χρήστη σε περίπτωση που κάτι δεν πάει καλά."
 
 #. Tag: title
-#: using-d-i.xml:3244
+#: using-d-i.xml:3179
 #, no-c-format
 msgid "Saving the installation logs"
 msgstr "Αποθήκευση αρχείων ημερολογίου εγκατάστασης"
 
 #. Tag: para
-#: using-d-i.xml:3246
+#: using-d-i.xml:3181
 #, no-c-format
 msgid ""
 "If the installation is successful, the logfiles created during the "
@@ -5590,7 +5471,7 @@ msgstr ""
 "&debian;."
 
 #. Tag: para
-#: using-d-i.xml:3253
+#: using-d-i.xml:3188
 #, no-c-format
 msgid ""
 "Choosing <guimenuitem>Save debug logs</guimenuitem> from the main menu "
@@ -5607,13 +5488,13 @@ msgstr ""
 "σε ένα άλλο σύστημα ή να τα επισυνάψετε σε μια αναφορά εγκατάστασης."
 
 #. Tag: title
-#: using-d-i.xml:3273
+#: using-d-i.xml:3208
 #, no-c-format
 msgid "Using the Shell and Viewing the Logs"
 msgstr "Χρήση του Κελύφους και Παρακολούθηση των Καταγραφών Εγκατάστασης"
 
 #. Tag: para
-#: using-d-i.xml:3275
+#: using-d-i.xml:3210
 #, no-c-format
 msgid ""
 "There are several methods you can use to get a shell while running an "
@@ -5640,7 +5521,7 @@ msgstr ""
 "keycombo> για να αλλάξετε και πάλι πίσω στον ίδιο τον εγκαταστάτη."
 
 #. Tag: para
-#: using-d-i.xml:3293
+#: using-d-i.xml:3228
 #, no-c-format
 msgid "For the graphical installer see also <xref linkend=\"gtk-using\"/>."
 msgstr ""
@@ -5648,7 +5529,7 @@ msgstr ""
 "using\"/>."
 
 #. Tag: para
-#: using-d-i.xml:3297
+#: using-d-i.xml:3232
 #, no-c-format
 msgid ""
 "If you cannot switch consoles, there is also an <guimenuitem>Execute a "
@@ -5665,7 +5546,7 @@ msgstr ""
 "για να κλείσετε το κέλυφος και να επιστρέψετε στον εγκαταστάτη."
 
 #. Tag: para
-#: using-d-i.xml:3305
+#: using-d-i.xml:3240
 #, no-c-format
 msgid ""
 "At this point you are booted from the RAM disk, and there is a limited set "
@@ -5683,7 +5564,7 @@ msgstr ""
 "με μερικά ωραία χαρακτηριστικά όπως αυτόματη συμπλήρωση και ιστορικό."
 
 #. Tag: para
-#: using-d-i.xml:3314
+#: using-d-i.xml:3249
 #, no-c-format
 msgid ""
 "To edit and view files, use the text editor <command>nano</command>. Log "
@@ -5695,7 +5576,7 @@ msgstr ""
 "εγκατάστασης μπορούν να βρεθούν στον κατάλογο <filename>/var/log</filename>."
 
 #. Tag: para
-#: using-d-i.xml:3321
+#: using-d-i.xml:3256
 #, no-c-format
 msgid ""
 "Although you can do basically anything in a shell that the available "
@@ -5708,7 +5589,7 @@ msgstr ""
 "λογους εκσφαλμάτωσης (debugging)."
 
 #. Tag: para
-#: using-d-i.xml:3327
+#: using-d-i.xml:3262
 #, no-c-format
 msgid ""
 "Doing things manually from the shell may interfere with the installation "
@@ -5723,13 +5604,13 @@ msgstr ""
 "το κέλυφος."
 
 #. Tag: title
-#: using-d-i.xml:3343
+#: using-d-i.xml:3278
 #, no-c-format
 msgid "Installation Over the Network"
 msgstr "Εγκατάσταση μέσω δικτύου"
 
 #. Tag: para
-#: using-d-i.xml:3345
+#: using-d-i.xml:3280
 #, no-c-format
 msgid ""
 "One of the more interesting components is <firstterm>network-console</"
@@ -5748,7 +5629,7 @@ msgstr ""
 "<xref linkend=\"automatic-install\"/>)."
 
 #. Tag: para
-#: using-d-i.xml:3355
+#: using-d-i.xml:3290
 #, no-c-format
 msgid ""
 "This component is not loaded into the main installation menu by default, so "
@@ -5773,7 +5654,7 @@ msgstr ""
 "guimenuitem>."
 
 #. Tag: para
-#: using-d-i.xml:3368
+#: using-d-i.xml:3303
 #, no-c-format
 msgid ""
 "For installations on &arch-title;, this is the default method after setting "
@@ -5783,7 +5664,7 @@ msgstr ""
 "μέθοδος μετά την ρύθμιση του δικτύου."
 
 #. Tag: para
-#: using-d-i.xml:3373
+#: using-d-i.xml:3308
 #, no-c-format
 msgid ""
 "<phrase arch=\"not-s390\">After selecting this new entry, you</phrase> "
@@ -5807,7 +5688,7 @@ msgstr ""
 "εγκατάσταση από μακριά."
 
 #. Tag: para
-#: using-d-i.xml:3385
+#: using-d-i.xml:3320
 #, no-c-format
 msgid ""
 "Should you decide to continue with the installation locally, you can always "
@@ -5819,7 +5700,7 @@ msgstr ""
 "μπορείτε να διαλέξετε ένα άλλο συστατικό του εγκαταστάτη."
 
 #. Tag: para
-#: using-d-i.xml:3391
+#: using-d-i.xml:3326
 #, no-c-format
 msgid ""
 "Now let's switch to the other side of the wire. As a prerequisite, you need "
@@ -5853,7 +5734,7 @@ msgstr ""
 "επιβεβαιώσετε ότι είναι σωστό."
 
 #. Tag: para
-#: using-d-i.xml:3408
+#: using-d-i.xml:3343
 #, no-c-format
 msgid ""
 "The <command>ssh</command> server in the installer uses a default "
@@ -5879,7 +5760,7 @@ msgstr ""
 "τη δυνατότητα να συνεχίσετε την εγκατάσταση μετά την επανασύνδεση."
 
 #. Tag: para
-#: using-d-i.xml:3421
+#: using-d-i.xml:3356
 #, no-c-format
 msgid ""
 "You may be able to avoid the connection being dropped by adding the option "
@@ -5903,7 +5784,7 @@ msgstr ""
 "συνέπεια θα πρέπει να χρησιμοποιείται μόνο αν είναι αναγκαία."
 
 #. Tag: para
-#: using-d-i.xml:3434
+#: using-d-i.xml:3369
 #, no-c-format
 msgid ""
 "If you install several computers in turn and they happen to have the same IP "
@@ -5928,7 +5809,7 @@ msgstr ""
 "para> </footnote> και να ξαναπροσπαθήσετε."
 
 #. Tag: para
-#: using-d-i.xml:3450
+#: using-d-i.xml:3385
 #, no-c-format
 msgid ""
 "After the login you will be presented with an initial screen where you have "
@@ -5949,7 +5830,7 @@ msgstr ""
 "μπορείτε να ξεκινήσετε πολλαπλά κελύφη."
 
 #. Tag: para
-#: using-d-i.xml:3460
+#: using-d-i.xml:3395
 #, no-c-format
 msgid ""
 "After you have started the installation remotely over SSH, you should not go "
@@ -5966,13 +5847,13 @@ msgstr ""
 "εγκατεστημένο σύστημα."
 
 #. Tag: title
-#: using-d-i.xml:3479
+#: using-d-i.xml:3414
 #, no-c-format
 msgid "Loading Missing Firmware"
 msgstr "Φόρτωση λογισμικού firmware που απουσιάζει"
 
 #. Tag: para
-#: using-d-i.xml:3480
+#: using-d-i.xml:3415
 #, no-c-format
 msgid ""
 "As described in <xref linkend=\"hardware-firmware\"/>, some devices require "
@@ -5988,7 +5869,7 @@ msgstr ""
 "firmwareχρειάζεται μόνο για την ενεργοποίηση επιπρόσθετων χαρακτηριστικών."
 
 #. Tag: para
-#: using-d-i.xml:3488
+#: using-d-i.xml:3423
 #, no-c-format
 msgid ""
 "If a device driver requests firmware that is not available, &d-i; will "
@@ -6007,7 +5888,7 @@ msgstr ""
 "filename>) και το άρθρωμα του οδηγού της συσκευής θα ξαναφορτωθεί."
 
 #. Tag: para
-#: using-d-i.xml:3498
+#: using-d-i.xml:3433
 #, no-c-format
 msgid ""
 "Which devices are scanned and which file systems are supported depends on "
@@ -6025,7 +5906,7 @@ msgstr ""
 "και amd64 firmware μπορεί επίσης να φορτωθεί από μια κάρτα MMC ή SD.</phrase>"
 
 #. Tag: para
-#: using-d-i.xml:3508
+#: using-d-i.xml:3443
 #, no-c-format
 msgid ""
 "Note that it is possible to skip loading the firmware if you know the device "
@@ -6037,7 +5918,7 @@ msgstr ""
 "κατά την εγκατάσταση."
 
 #. Tag: para
-#: using-d-i.xml:3514
+#: using-d-i.xml:3449
 #, no-c-format
 msgid ""
 "&d-i; only prompts for firmware needed by kernel modules loaded during the "
@@ -6061,13 +5942,13 @@ msgstr ""
 "και να αναζητήσετε για το <quote>firmware</quote>."
 
 #. Tag: title
-#: using-d-i.xml:3528
+#: using-d-i.xml:3463
 #, no-c-format
 msgid "Preparing a medium"
 msgstr "Προετοιμασία ενός μέσου"
 
 #. Tag: para
-#: using-d-i.xml:3529
+#: using-d-i.xml:3464
 #, no-c-format
 msgid ""
 "Official CD images do not include non-free firmware. The most common method "
@@ -6094,7 +5975,7 @@ msgstr ""
 "εγκατάστασης."
 
 #. Tag: para
-#: using-d-i.xml:3542
+#: using-d-i.xml:3477
 #, no-c-format
 msgid ""
 "Tarballs and zip files containing current packages for the most common "
@@ -6110,7 +5991,7 @@ msgstr ""
 "αποσυμπιέστε τα στο σύστημα αρχείων του μέσου."
 
 #. Tag: para
-#: using-d-i.xml:3556
+#: using-d-i.xml:3491
 #, no-c-format
 msgid ""
 "If the firmware you need is not included in the tarball, you can also "
@@ -6127,7 +6008,7 @@ msgstr ""
 "λογισμικού που δεν αφορούν firmware:"
 
 #. Tag: para
-#: using-d-i.xml:3570
+#: using-d-i.xml:3505
 #, no-c-format
 msgid ""
 "It is also possible to copy individual firmware files to the medium. Loose "
@@ -6139,13 +6020,13 @@ msgstr ""
 "παράδειγμα από ένα ήδη εγκατεστημένο σύστημα ή από έναν κατασκευαστή."
 
 #. Tag: title
-#: using-d-i.xml:3579
+#: using-d-i.xml:3514
 #, no-c-format
 msgid "Firmware and the Installed System"
 msgstr "Λογισμικό firmware και το Εγκατεστημένο Σύστημα"
 
 #. Tag: para
-#: using-d-i.xml:3580
+#: using-d-i.xml:3515
 #, no-c-format
 msgid ""
 "Any firmware loaded during the installation will be copied automatically to "
@@ -6164,7 +6045,7 @@ msgstr ""
 "φορτωθεί εξαιτίας της αλλαγής (skew) του πυρήνα."
 
 #. Tag: para
-#: using-d-i.xml:3589
+#: using-d-i.xml:3524
 #, no-c-format
 msgid ""
 "If the firmware was loaded from a firmware package, &d-i; will also install "
@@ -6181,7 +6062,7 @@ msgstr ""
 "του."
 
 #. Tag: para
-#: using-d-i.xml:3597
+#: using-d-i.xml:3532
 #, no-c-format
 msgid ""
 "If loading the firmware was skipped during the installation, the relevant "
@@ -6193,7 +6074,7 @@ msgstr ""
 "μέχρι το πακέτο (του λογισμικού) εγκατασταθεί με το χέρι."
 
 #. Tag: para
-#: using-d-i.xml:3604
+#: using-d-i.xml:3539
 #, no-c-format
 msgid ""
 "If the firmware was loaded from loose firmware files, the firmware copied to "
@@ -6205,6 +6086,96 @@ msgstr ""
 "firmware που αντιγράφηκε στο εγκατεστημένο σύστημα <emphasis>δεν</emphasis> "
 "θα ενημερωθεί αυτόματα αν δεν εγκατασταθεί το αντίστοιχο πακέτο λογισμικού "
 "(εφόσον είναι διαθέσιμο) μετά την ολοκλήρωση της εγκατάστασης."
+
+#~ msgid "<command>arcboot</command>-installer"
+#~ msgstr "εγκαταστάτης του <command>arcboot</command>"
+
+#~ msgid ""
+#~ "The boot loader on SGI machines is <command>arcboot</command>. It has to "
+#~ "be installed on the same hard disk as the kernel (this is done "
+#~ "automatically by the installer). Arcboot supports different "
+#~ "configurations which are set up in <filename>/etc/arcboot.conf</"
+#~ "filename>. Each configuration has a unique name, the default setup as "
+#~ "created by the installer is <quote>linux</quote>. After arcboot has been "
+#~ "installed, the system can be booted from hard disk by setting some "
+#~ "firmware environment variables entering <informalexample><screen>\n"
+#~ "<userinput> setenv SystemPartition scsi(<replaceable>scsi</"
+#~ "replaceable>)disk(<replaceable>disk</replaceable>)rdisk(0)partition(0)</"
+#~ "userinput>\n"
+#~ "<userinput> setenv OSLoadPartition scsi(<replaceable>scsi</"
+#~ "replaceable>)disk(<replaceable>disk</"
+#~ "replaceable>)rdisk(0)partition(<replaceable>partnr</replaceable>)</"
+#~ "userinput>\n"
+#~ "<userinput> setenv OSLoader arcboot</userinput>\n"
+#~ "<userinput> setenv OSLoadFilename <replaceable>config</replaceable></"
+#~ "userinput>\n"
+#~ "<userinput> setenv AutoLoad yes</userinput>\n"
+#~ "</screen></informalexample> on the firmware prompt, and then typing "
+#~ "<command>boot</command>."
+#~ msgstr ""
+#~ "Σε συστήματα SGI Indys ο φορτωτής εκκίνησης είναι ο <command>arcboot</"
+#~ "command>. Πρέπει να εγκατασταθεί στον ίδιο σκληρό δίσκο που εγκαθίσταται "
+#~ "και ο πυρήνας (αυτό γίνεται αυτόματα από τον εγκαταστάτη). Ο φορτωτής "
+#~ "arcboot υποστηρίζει διαφορετικές διαμορφώσεις που ρυθμίζονται στο αρχείο "
+#~ "<filename>/etc/arcboot.conf</filename>. Κάθε διαμόρφωση έχει ένα μοναδικό "
+#~ "όνομα, και η προκαθορισμένη ρύθμιση που δημιουργείται από τον εγκαταστάτη "
+#~ "είναι η <quote>linux</quote>. Μετά την εγκατάσταση του arcboot, το "
+#~ "σύστημα μπορεί να εκκινήσει από τον σκληρό δίσκο με τον καθορισμό κάποιων "
+#~ "μεταβλητών του περιβάλλοντος του firmware "
+#~ "εισάγοντας<informalexample><screen>\n"
+#~ "<userinput> setenv SystemPartition scsi(<replaceable>scsi</"
+#~ "replaceable>)disk(<replaceable>disk</replaceable>)rdisk(0)partition(0)</"
+#~ "userinput>\n"
+#~ "<userinput> setenv OSLoadPartition scsi(<replaceable>scsi</"
+#~ "replaceable>)disk(<replaceable>disk</"
+#~ "replaceable>)rdisk(0)partition(<replaceable>partnr</replaceable>)</"
+#~ "userinput>\n"
+#~ "<userinput> setenv OSLoader arcboot</userinput>\n"
+#~ "<userinput> setenv OSLoadFilename <replaceable>config</replaceable></"
+#~ "userinput>\n"
+#~ "<userinput> setenv AutoLoad yes</userinput>\n"
+#~ "</screen></informalexample> στο προτρεπτικό του firmware και "
+#~ "πληκτρολογώντας στη συνέχεια <command>boot</command>."
+
+#~ msgid "scsi"
+#~ msgstr "scsi"
+
+#~ msgid ""
+#~ "is the SCSI bus to be booted from, this is <userinput>0</userinput> for "
+#~ "the onboard controllers"
+#~ msgstr ""
+#~ "είναι ο δίαυλος SCSI από τον οποίο θα γίνει η εκκίνηση και είναι ο "
+#~ "<userinput>0</userinput> για ελεγκτές ενσωματωμένους στην μητρική"
+
+#~ msgid "disk"
+#~ msgstr "disk"
+
+#~ msgid ""
+#~ "is the SCSI ID of the hard disk on which <command>arcboot</command> is "
+#~ "installed"
+#~ msgstr ""
+#~ "είναι το ID του SCSI σκληρού δίσκου στον οποίο είναι εγκατεστημένος ο "
+#~ "<command>arcboot</command>."
+
+#~ msgid "partnr"
+#~ msgstr "partnr"
+
+#~ msgid ""
+#~ "is the number of the partition on which <filename>/etc/arcboot.conf</"
+#~ "filename> resides"
+#~ msgstr ""
+#~ "είναι ο αριθμός του τμήματος στον οποίο βρίσκεται το <filename>/etc/"
+#~ "arcboot.conf</filename>."
+
+#~ msgid "config"
+#~ msgstr "config"
+
+#~ msgid ""
+#~ "is the name of the configuration entry in <filename>/etc/arcboot.conf</"
+#~ "filename>, which is <quote>linux</quote> by default."
+#~ msgstr ""
+#~ "είναι το όνομα της παραμέτρου καταχώρισης, στο <filename>/etc/arcboot."
+#~ "conf</filename>, το οποίο εξ ορισμού είναι <quote>linux</quote>."
 
 #~ msgid ""
 #~ "Support for MD is a relatively new addition to the installer. You may "

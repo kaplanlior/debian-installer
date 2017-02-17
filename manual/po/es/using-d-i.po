@@ -39,7 +39,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2016-11-25 19:03+0000\n"
+"POT-Creation-Date: 2017-02-17 15:58+0000\n"
 "PO-Revision-Date: 2013-04-28 22:30+0200\n"
 "Last-Translator: Javier Fernández-Sanguino <jfs@debian.org>\n"
 "Language-Team: Debian l10n Spanish <debian-l10n-spanish@lists.debian.org>\n"
@@ -4654,14 +4654,14 @@ msgid "hppa FIXME ( need more info )"
 msgstr "hppa ARREGLAME ( se necesita más información )"
 
 #. Tag: title
-#: using-d-i.xml:2692 using-d-i.xml:3030
+#: using-d-i.xml:2692 using-d-i.xml:2965
 #, no-c-format
 msgid "Install the <command>Grub</command> Boot Loader on a Hard Disk"
 msgstr ""
 "Instalación del gestor de arranque <command>Grub</command> en un disco duro"
 
 #. Tag: para
-#: using-d-i.xml:2694 using-d-i.xml:3032
+#: using-d-i.xml:2694 using-d-i.xml:2967
 #, no-c-format
 msgid ""
 "The main &architecture; boot loader is called <quote>grub</quote>. Grub is a "
@@ -5028,131 +5028,13 @@ msgstr ""
 "<filename>/vmlinuz</filename>."
 
 #. Tag: title
-#: using-d-i.xml:2925
-#, no-c-format
-msgid "<command>arcboot</command>-installer"
-msgstr "<command>arcboot</command>-installer"
-
-#. Tag: para
-#: using-d-i.xml:2926
-#, no-c-format
-msgid ""
-"The boot loader on SGI machines is <command>arcboot</command>. It has to be "
-"installed on the same hard disk as the kernel (this is done automatically by "
-"the installer). Arcboot supports different configurations which are set up "
-"in <filename>/etc/arcboot.conf</filename>. Each configuration has a unique "
-"name, the default setup as created by the installer is <quote>linux</quote>. "
-"After arcboot has been installed, the system can be booted from hard disk by "
-"setting some firmware environment variables entering "
-"<informalexample><screen>\n"
-"<userinput> setenv SystemPartition scsi(<replaceable>scsi</"
-"replaceable>)disk(<replaceable>disk</replaceable>)rdisk(0)partition(0)</"
-"userinput>\n"
-"<userinput> setenv OSLoadPartition scsi(<replaceable>scsi</"
-"replaceable>)disk(<replaceable>disk</"
-"replaceable>)rdisk(0)partition(<replaceable>partnr</replaceable>)</"
-"userinput>\n"
-"<userinput> setenv OSLoader arcboot</userinput>\n"
-"<userinput> setenv OSLoadFilename <replaceable>config</replaceable></"
-"userinput>\n"
-"<userinput> setenv AutoLoad yes</userinput>\n"
-"</screen></informalexample> on the firmware prompt, and then typing "
-"<command>boot</command>."
-msgstr ""
-"El gestor de arranque para sistemas de SGI es <command>arcboot</command>. "
-"Debe instalarse en el mismo disco duro que en el que se encuentra el núcleo "
-"(esto lo hace el instalador automáticamente). Arcboot acepta distintos modos "
-"de configuración, definidas en <filename>/etc/arcboot.conf</filename>. Cada "
-"configuración tiene un nombre único, la configuración predeterminada creada "
-"por el instalador es <quote>linux</quote>. Se puede arrancar el sistema "
-"desde el disco duro después de que se haya instalado arcboot si se definen "
-"algunas variables de entorno del firmware <informalexample><screen>\n"
-"<userinput> setenv SystemPartition scsi(<replaceable>scsi</"
-"replaceable>)disk(<replaceable>disk</replaceable>)rdisk(0)partition(0)</"
-"userinput>\n"
-"<userinput> setenv OSLoadPartition scsi(<replaceable>scsi</"
-"replaceable>)disk(<replaceable>disk</"
-"replaceable>)rdisk(0)partition(<replaceable>partnr</replaceable>)</"
-"userinput>\n"
-"<userinput> setenv OSLoader arcboot</userinput>\n"
-"<userinput> setenv OSLoadFilename <replaceable>config</replaceable></"
-"userinput>\n"
-"<userinput> setenv AutoLoad yes</userinput>\n"
-"</screen></informalexample> en el símbolo de espera del mismo, y después de "
-"escribir <command>boot</command>."
-
-#. Tag: replaceable
-#: using-d-i.xml:2945
-#, no-c-format
-msgid "scsi"
-msgstr "scsi"
-
-#. Tag: para
-#: using-d-i.xml:2946
-#, no-c-format
-msgid ""
-"is the SCSI bus to be booted from, this is <userinput>0</userinput> for the "
-"onboard controllers"
-msgstr ""
-"es el bus SCSI desde donde arrancar, su valor para los controladores "
-"integrados es <userinput>0</userinput>."
-
-#. Tag: replaceable
-#: using-d-i.xml:2954
-#, no-c-format
-msgid "disk"
-msgstr "disk"
-
-#. Tag: para
-#: using-d-i.xml:2955
-#, no-c-format
-msgid ""
-"is the SCSI ID of the hard disk on which <command>arcboot</command> is "
-"installed"
-msgstr ""
-"es el ID SCSI del disco duro en el cual se ha instalado <command>arcboot</"
-"command>"
-
-#. Tag: replaceable
-#: using-d-i.xml:2963
-#, no-c-format
-msgid "partnr"
-msgstr "partnr"
-
-#. Tag: para
-#: using-d-i.xml:2964
-#, no-c-format
-msgid ""
-"is the number of the partition on which <filename>/etc/arcboot.conf</"
-"filename> resides"
-msgstr ""
-"es el número de partición en la que se encuentra <filename>/etc/arcboot."
-"conf</filename>"
-
-#. Tag: replaceable
-#: using-d-i.xml:2972
-#, no-c-format
-msgid "config"
-msgstr "config"
-
-#. Tag: para
-#: using-d-i.xml:2973
-#, no-c-format
-msgid ""
-"is the name of the configuration entry in <filename>/etc/arcboot.conf</"
-"filename>, which is <quote>linux</quote> by default."
-msgstr ""
-"es el nombre de la configuración en el fichero <filename>/etc/arcboot.conf</"
-"filename>. Su valor predeterminado es <quote>linux</quote>."
-
-#. Tag: title
-#: using-d-i.xml:2994
+#: using-d-i.xml:2929
 #, no-c-format
 msgid "Install <command>Yaboot</command> on a Hard Disk"
 msgstr "Instalación de <command>Yaboot</command> en el disco duro"
 
 #. Tag: para
-#: using-d-i.xml:2995
+#: using-d-i.xml:2930
 #, no-c-format
 msgid ""
 "Newer (mid 1998 and on) PowerMacs use <command>yaboot</command> as their "
@@ -5173,13 +5055,13 @@ msgstr ""
 "arrancar &debian-gnu;."
 
 #. Tag: title
-#: using-d-i.xml:3013
+#: using-d-i.xml:2948
 #, no-c-format
 msgid "Install <command>Quik</command> on a Hard Disk"
 msgstr "Instalación de <command>Quik</command> en el disco duro"
 
 #. Tag: para
-#: using-d-i.xml:3014
+#: using-d-i.xml:2949
 #, no-c-format
 msgid ""
 "The boot loader for OldWorld Power Macintosh machines is <command>quik</"
@@ -5194,7 +5076,7 @@ msgstr ""
 "y en clones de Power Computing."
 
 #. Tag: para
-#: using-d-i.xml:3038
+#: using-d-i.xml:2973
 #, fuzzy, no-c-format
 #| msgid ""
 #| "By default, grub will be installed into the Master Boot Record (MBR), "
@@ -5211,13 +5093,13 @@ msgstr ""
 "manual de grub para más información."
 
 #. Tag: title
-#: using-d-i.xml:3051
+#: using-d-i.xml:2986
 #, no-c-format
 msgid "<command>zipl</command>-installer"
 msgstr "<command>zipl</command>-installer"
 
 #. Tag: para
-#: using-d-i.xml:3052
+#: using-d-i.xml:2987
 #, no-c-format
 msgid ""
 "The boot loader on &arch-title; is <quote>zipl</quote>. <command>ZIPL</"
@@ -5235,14 +5117,14 @@ msgstr ""
 "saber más sobre <command>ZIPL</command>."
 
 #. Tag: title
-#: using-d-i.xml:3069
+#: using-d-i.xml:3004
 #, no-c-format
 msgid "Install the <command>SILO</command> Boot Loader on a Hard Disk"
 msgstr ""
 "Instalación del gestor de arranque <command>SILO</command> en un disco duro"
 
 #. Tag: para
-#: using-d-i.xml:3071
+#: using-d-i.xml:3006
 #, no-c-format
 msgid ""
 "The standard &architecture; boot loader is called <quote>silo</quote>. It is "
@@ -5274,13 +5156,13 @@ msgstr ""
 "Solaris."
 
 #. Tag: title
-#: using-d-i.xml:3096
+#: using-d-i.xml:3031
 #, no-c-format
 msgid "Making the system bootable with flash-kernel"
 msgstr ""
 
 #. Tag: para
-#: using-d-i.xml:3097
+#: using-d-i.xml:3032
 #, no-c-format
 msgid ""
 "As there is no common firmware interface on all ARM platforms, the steps "
@@ -5293,7 +5175,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: using-d-i.xml:3108
+#: using-d-i.xml:3043
 #, no-c-format
 msgid ""
 "On devices which boot from internal NOR- or NAND-flash memory, flash-kernel "
@@ -5305,7 +5187,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: using-d-i.xml:3118
+#: using-d-i.xml:3053
 #, no-c-format
 msgid ""
 "For ARM systems that use U-Boot as their system firmware and boot the kernel "
@@ -5315,13 +5197,13 @@ msgid ""
 msgstr ""
 
 #. Tag: title
-#: using-d-i.xml:3134
+#: using-d-i.xml:3069
 #, no-c-format
 msgid "Continue Without Boot Loader"
 msgstr "Continuar sin gestor de arranque"
 
 #. Tag: para
-#: using-d-i.xml:3136
+#: using-d-i.xml:3071
 #, no-c-format
 msgid ""
 "This option can be used to complete the installation even when no boot "
@@ -5334,7 +5216,7 @@ msgstr ""
 "un gestor de arranque que ya exista en el sistema)."
 
 #. Tag: para
-#: using-d-i.xml:3143
+#: using-d-i.xml:3078
 #, no-c-format
 msgid ""
 "If you plan to manually configure your bootloader, you should check the name "
@@ -5357,13 +5239,13 @@ msgstr ""
 "separada."
 
 #. Tag: title
-#: using-d-i.xml:3160
+#: using-d-i.xml:3095
 #, no-c-format
 msgid "Finishing the Installation"
 msgstr "Finalizar la instalación"
 
 #. Tag: para
-#: using-d-i.xml:3161
+#: using-d-i.xml:3096
 #, no-c-format
 msgid ""
 "This is the last step in the &debian; installation process during which the "
@@ -5375,13 +5257,13 @@ msgstr ""
 "en limpiar lo dejado por el &d-i;."
 
 #. Tag: title
-#: using-d-i.xml:3174
+#: using-d-i.xml:3109
 #, no-c-format
 msgid "Setting the System Clock"
 msgstr "Configurar el reloj del sistema"
 
 #. Tag: para
-#: using-d-i.xml:3176
+#: using-d-i.xml:3111
 #, no-c-format
 msgid ""
 "The installer may ask you if the computer's clock is set to UTC. Normally "
@@ -5396,7 +5278,7 @@ msgstr ""
 "ejemplo, otros sistemas operativos que están instalados."
 
 #. Tag: para
-#: using-d-i.xml:3183
+#: using-d-i.xml:3118
 #, no-c-format
 msgid ""
 "In expert mode you will always be able to choose whether or not the clock is "
@@ -5416,7 +5298,7 @@ msgstr ""
 "de la hora UTC.</phrase>"
 
 #. Tag: para
-#: using-d-i.xml:3194
+#: using-d-i.xml:3129
 #, no-c-format
 msgid ""
 "At this point &d-i; will also attempt to save the current time to the "
@@ -5428,13 +5310,13 @@ msgstr ""
 "se acaba de hacer."
 
 #. Tag: title
-#: using-d-i.xml:3209
+#: using-d-i.xml:3144
 #, no-c-format
 msgid "Reboot the System"
 msgstr "Reiniciar el sistema"
 
 #. Tag: para
-#: using-d-i.xml:3211
+#: using-d-i.xml:3146
 #, no-c-format
 msgid ""
 "You will be prompted to remove the boot media (CD, floppy, etc) that you "
@@ -5446,7 +5328,7 @@ msgstr ""
 "nuevo sistema &debian;."
 
 #. Tag: para
-#: using-d-i.xml:3217
+#: using-d-i.xml:3152
 #, no-c-format
 msgid ""
 "After a final prompt the system will be halted because rebooting is not "
@@ -5460,13 +5342,13 @@ msgstr ""
 "pasos de la instalación."
 
 #. Tag: title
-#: using-d-i.xml:3230
+#: using-d-i.xml:3165
 #, no-c-format
 msgid "Troubleshooting"
 msgstr "Resolución de problemas"
 
 #. Tag: para
-#: using-d-i.xml:3231
+#: using-d-i.xml:3166
 #, no-c-format
 msgid ""
 "The components listed in this section are usually not involved in the "
@@ -5478,13 +5360,13 @@ msgstr ""
 "ayudar al usuario en caso de que algo falle."
 
 #. Tag: title
-#: using-d-i.xml:3244
+#: using-d-i.xml:3179
 #, no-c-format
 msgid "Saving the installation logs"
 msgstr "Guardado de los registros de instalación"
 
 #. Tag: para
-#: using-d-i.xml:3246
+#: using-d-i.xml:3181
 #, no-c-format
 msgid ""
 "If the installation is successful, the logfiles created during the "
@@ -5496,7 +5378,7 @@ msgstr ""
 "log/installer/</filename> de su nuevo sistema &debian;."
 
 #. Tag: para
-#: using-d-i.xml:3253
+#: using-d-i.xml:3188
 #, no-c-format
 msgid ""
 "Choosing <guimenuitem>Save debug logs</guimenuitem> from the main menu "
@@ -5512,13 +5394,13 @@ msgstr ""
 "otro sistema, o adjuntarlos en un informe de instalación."
 
 #. Tag: title
-#: using-d-i.xml:3273
+#: using-d-i.xml:3208
 #, no-c-format
 msgid "Using the Shell and Viewing the Logs"
 msgstr "Uso del intérprete de órdenes y consulta de registros"
 
 #. Tag: para
-#: using-d-i.xml:3275
+#: using-d-i.xml:3210
 #, no-c-format
 msgid ""
 "There are several methods you can use to get a shell while running an "
@@ -5545,7 +5427,7 @@ msgstr ""
 "volver al propio instalador."
 
 #. Tag: para
-#: using-d-i.xml:3293
+#: using-d-i.xml:3228
 #, no-c-format
 msgid "For the graphical installer see also <xref linkend=\"gtk-using\"/>."
 msgstr ""
@@ -5553,7 +5435,7 @@ msgstr ""
 ">."
 
 #. Tag: para
-#: using-d-i.xml:3297
+#: using-d-i.xml:3232
 #, no-c-format
 msgid ""
 "If you cannot switch consoles, there is also an <guimenuitem>Execute a "
@@ -5570,7 +5452,7 @@ msgstr ""
 "userinput> para cerrar el intérprete."
 
 #. Tag: para
-#: using-d-i.xml:3305
+#: using-d-i.xml:3240
 #, no-c-format
 msgid ""
 "At this point you are booted from the RAM disk, and there is a limited set "
@@ -5589,7 +5471,7 @@ msgstr ""
 "le pueden ser útiles como una función para completar órdenes y un histórico."
 
 #. Tag: para
-#: using-d-i.xml:3314
+#: using-d-i.xml:3249
 #, no-c-format
 msgid ""
 "To edit and view files, use the text editor <command>nano</command>. Log "
@@ -5601,7 +5483,7 @@ msgstr ""
 "directorio <filename>/var/log</filename>."
 
 #. Tag: para
-#: using-d-i.xml:3321
+#: using-d-i.xml:3256
 #, no-c-format
 msgid ""
 "Although you can do basically anything in a shell that the available "
@@ -5614,7 +5496,7 @@ msgstr ""
 "que algo no funcione correctamente o tenga que depurar algún problema."
 
 #. Tag: para
-#: using-d-i.xml:3327
+#: using-d-i.xml:3262
 #, no-c-format
 msgid ""
 "Doing things manually from the shell may interfere with the installation "
@@ -5628,13 +5510,13 @@ msgstr ""
 "intérprete para activar la partición de intercambio."
 
 #. Tag: title
-#: using-d-i.xml:3343
+#: using-d-i.xml:3278
 #, no-c-format
 msgid "Installation Over the Network"
 msgstr "Instalación a través de la red"
 
 #. Tag: para
-#: using-d-i.xml:3345
+#: using-d-i.xml:3280
 #, no-c-format
 msgid ""
 "One of the more interesting components is <firstterm>network-console</"
@@ -5652,7 +5534,7 @@ msgstr ""
 "parte con <xref linkend=\"automatic-install\"/>)."
 
 #. Tag: para
-#: using-d-i.xml:3355
+#: using-d-i.xml:3290
 #, no-c-format
 msgid ""
 "This component is not loaded into the main installation menu by default, so "
@@ -5675,7 +5557,7 @@ msgstr ""
 "forma remota utilizando SSH</guimenuitem>."
 
 #. Tag: para
-#: using-d-i.xml:3368
+#: using-d-i.xml:3303
 #, no-c-format
 msgid ""
 "For installations on &arch-title;, this is the default method after setting "
@@ -5685,7 +5567,7 @@ msgstr ""
 "title; una vez configurada la red."
 
 #. Tag: para
-#: using-d-i.xml:3373
+#: using-d-i.xml:3308
 #, no-c-format
 msgid ""
 "<phrase arch=\"not-s390\">After selecting this new entry, you</phrase> "
@@ -5708,7 +5590,7 @@ msgstr ""
 "huella de forma segura a la persona que continuará con la instalación remota."
 
 #. Tag: para
-#: using-d-i.xml:3385
+#: using-d-i.xml:3320
 #, no-c-format
 msgid ""
 "Should you decide to continue with the installation locally, you can always "
@@ -5720,7 +5602,7 @@ msgstr ""
 "componente."
 
 #. Tag: para
-#: using-d-i.xml:3391
+#: using-d-i.xml:3326
 #, no-c-format
 msgid ""
 "Now let's switch to the other side of the wire. As a prerequisite, you need "
@@ -5752,7 +5634,7 @@ msgstr ""
 "remoto y deberá confirmar que es la correcta."
 
 #. Tag: para
-#: using-d-i.xml:3408
+#: using-d-i.xml:3343
 #, no-c-format
 msgid ""
 "The <command>ssh</command> server in the installer uses a default "
@@ -5778,7 +5660,7 @@ msgstr ""
 "imposible dar continuidad a la instalación después de reconectarse."
 
 #. Tag: para
-#: using-d-i.xml:3421
+#: using-d-i.xml:3356
 #, no-c-format
 msgid ""
 "You may be able to avoid the connection being dropped by adding the option "
@@ -5801,7 +5683,7 @@ msgstr ""
 "únicamente cuando sea necesario."
 
 #. Tag: para
-#: using-d-i.xml:3434
+#: using-d-i.xml:3369
 #, no-c-format
 msgid ""
 "If you install several computers in turn and they happen to have the same IP "
@@ -5827,7 +5709,7 @@ msgstr ""
 "footnote> and try again."
 
 #. Tag: para
-#: using-d-i.xml:3450
+#: using-d-i.xml:3385
 #, no-c-format
 msgid ""
 "After the login you will be presented with an initial screen where you have "
@@ -5849,7 +5731,7 @@ msgstr ""
 "consolas remotas."
 
 #. Tag: para
-#: using-d-i.xml:3460
+#: using-d-i.xml:3395
 #, no-c-format
 msgid ""
 "After you have started the installation remotely over SSH, you should not go "
@@ -5866,13 +5748,13 @@ msgstr ""
 "con el sistema que ha instalado."
 
 #. Tag: title
-#: using-d-i.xml:3479
+#: using-d-i.xml:3414
 #, no-c-format
 msgid "Loading Missing Firmware"
 msgstr "Carga de Firmware adicional"
 
 #. Tag: para
-#: using-d-i.xml:3480
+#: using-d-i.xml:3415
 #, no-c-format
 msgid ""
 "As described in <xref linkend=\"hardware-firmware\"/>, some devices require "
@@ -5887,7 +5769,7 @@ msgstr ""
 "pero con este se podría contar con características adicionales."
 
 #. Tag: para
-#: using-d-i.xml:3488
+#: using-d-i.xml:3423
 #, no-c-format
 msgid ""
 "If a device driver requests firmware that is not available, &d-i; will "
@@ -5906,7 +5788,7 @@ msgstr ""
 "controlador."
 
 #. Tag: para
-#: using-d-i.xml:3498
+#: using-d-i.xml:3433
 #, no-c-format
 msgid ""
 "Which devices are scanned and which file systems are supported depends on "
@@ -5924,7 +5806,7 @@ msgstr ""
 "desde tarjetas MMC o SD en arquitecturas i386 y amd64.</phrase>"
 
 #. Tag: para
-#: using-d-i.xml:3508
+#: using-d-i.xml:3443
 #, no-c-format
 msgid ""
 "Note that it is possible to skip loading the firmware if you know the device "
@@ -5936,7 +5818,7 @@ msgstr ""
 "instalación."
 
 #. Tag: para
-#: using-d-i.xml:3514
+#: using-d-i.xml:3449
 #, no-c-format
 msgid ""
 "&d-i; only prompts for firmware needed by kernel modules loaded during the "
@@ -5958,13 +5840,13 @@ msgstr ""
 "recién iniciado, y busque <quote>firmware</quote>."
 
 #. Tag: title
-#: using-d-i.xml:3528
+#: using-d-i.xml:3463
 #, no-c-format
 msgid "Preparing a medium"
 msgstr "Preparación del medio"
 
 #. Tag: para
-#: using-d-i.xml:3529
+#: using-d-i.xml:3464
 #, no-c-format
 msgid ""
 "Official CD images do not include non-free firmware. The most common method "
@@ -5989,7 +5871,7 @@ msgstr ""
 "primeros pasos de la instalación."
 
 #. Tag: para
-#: using-d-i.xml:3542
+#: using-d-i.xml:3477
 #, no-c-format
 msgid ""
 "Tarballs and zip files containing current packages for the most common "
@@ -6005,7 +5887,7 @@ msgstr ""
 "de ficheros o en el dispositivo de almacenamiento."
 
 #. Tag: para
-#: using-d-i.xml:3556
+#: using-d-i.xml:3491
 #, no-c-format
 msgid ""
 "If the firmware you need is not included in the tarball, you can also "
@@ -6021,7 +5903,7 @@ msgstr ""
 "contener paquetes que no son de firmware:"
 
 #. Tag: para
-#: using-d-i.xml:3570
+#: using-d-i.xml:3505
 #, no-c-format
 msgid ""
 "It is also possible to copy individual firmware files to the medium. Loose "
@@ -6033,13 +5915,13 @@ msgstr ""
 "proveedor de hardware."
 
 #. Tag: title
-#: using-d-i.xml:3579
+#: using-d-i.xml:3514
 #, no-c-format
 msgid "Firmware and the Installed System"
 msgstr "Firmware y el Sistema Instalado"
 
 #. Tag: para
-#: using-d-i.xml:3580
+#: using-d-i.xml:3515
 #, no-c-format
 msgid ""
 "Any firmware loaded during the installation will be copied automatically to "
@@ -6058,7 +5940,7 @@ msgstr ""
 "a la diferencia de versiones."
 
 #. Tag: para
-#: using-d-i.xml:3589
+#: using-d-i.xml:3524
 #, no-c-format
 msgid ""
 "If the firmware was loaded from a firmware package, &d-i; will also install "
@@ -6074,7 +5956,7 @@ msgstr ""
 "automáticamente si está disponible una nueva versión."
 
 #. Tag: para
-#: using-d-i.xml:3597
+#: using-d-i.xml:3532
 #, no-c-format
 msgid ""
 "If loading the firmware was skipped during the installation, the relevant "
@@ -6086,7 +5968,7 @@ msgstr ""
 "el (paquete de) firmware sea instalado manualmente."
 
 #. Tag: para
-#: using-d-i.xml:3604
+#: using-d-i.xml:3539
 #, no-c-format
 msgid ""
 "If the firmware was loaded from loose firmware files, the firmware copied to "
@@ -6098,6 +5980,95 @@ msgstr ""
 "sistema instalado <emphasis>no</emphasis> se actualizará automáticamente a "
 "menos que el correspondiente paquete de firmware (en caso de estar "
 "disponible) se instale después de finalizada la instalación."
+
+#~ msgid "<command>arcboot</command>-installer"
+#~ msgstr "<command>arcboot</command>-installer"
+
+#~ msgid ""
+#~ "The boot loader on SGI machines is <command>arcboot</command>. It has to "
+#~ "be installed on the same hard disk as the kernel (this is done "
+#~ "automatically by the installer). Arcboot supports different "
+#~ "configurations which are set up in <filename>/etc/arcboot.conf</"
+#~ "filename>. Each configuration has a unique name, the default setup as "
+#~ "created by the installer is <quote>linux</quote>. After arcboot has been "
+#~ "installed, the system can be booted from hard disk by setting some "
+#~ "firmware environment variables entering <informalexample><screen>\n"
+#~ "<userinput> setenv SystemPartition scsi(<replaceable>scsi</"
+#~ "replaceable>)disk(<replaceable>disk</replaceable>)rdisk(0)partition(0)</"
+#~ "userinput>\n"
+#~ "<userinput> setenv OSLoadPartition scsi(<replaceable>scsi</"
+#~ "replaceable>)disk(<replaceable>disk</"
+#~ "replaceable>)rdisk(0)partition(<replaceable>partnr</replaceable>)</"
+#~ "userinput>\n"
+#~ "<userinput> setenv OSLoader arcboot</userinput>\n"
+#~ "<userinput> setenv OSLoadFilename <replaceable>config</replaceable></"
+#~ "userinput>\n"
+#~ "<userinput> setenv AutoLoad yes</userinput>\n"
+#~ "</screen></informalexample> on the firmware prompt, and then typing "
+#~ "<command>boot</command>."
+#~ msgstr ""
+#~ "El gestor de arranque para sistemas de SGI es <command>arcboot</command>. "
+#~ "Debe instalarse en el mismo disco duro que en el que se encuentra el "
+#~ "núcleo (esto lo hace el instalador automáticamente). Arcboot acepta "
+#~ "distintos modos de configuración, definidas en <filename>/etc/arcboot."
+#~ "conf</filename>. Cada configuración tiene un nombre único, la "
+#~ "configuración predeterminada creada por el instalador es <quote>linux</"
+#~ "quote>. Se puede arrancar el sistema desde el disco duro después de que "
+#~ "se haya instalado arcboot si se definen algunas variables de entorno del "
+#~ "firmware <informalexample><screen>\n"
+#~ "<userinput> setenv SystemPartition scsi(<replaceable>scsi</"
+#~ "replaceable>)disk(<replaceable>disk</replaceable>)rdisk(0)partition(0)</"
+#~ "userinput>\n"
+#~ "<userinput> setenv OSLoadPartition scsi(<replaceable>scsi</"
+#~ "replaceable>)disk(<replaceable>disk</"
+#~ "replaceable>)rdisk(0)partition(<replaceable>partnr</replaceable>)</"
+#~ "userinput>\n"
+#~ "<userinput> setenv OSLoader arcboot</userinput>\n"
+#~ "<userinput> setenv OSLoadFilename <replaceable>config</replaceable></"
+#~ "userinput>\n"
+#~ "<userinput> setenv AutoLoad yes</userinput>\n"
+#~ "</screen></informalexample> en el símbolo de espera del mismo, y después "
+#~ "de escribir <command>boot</command>."
+
+#~ msgid "scsi"
+#~ msgstr "scsi"
+
+#~ msgid ""
+#~ "is the SCSI bus to be booted from, this is <userinput>0</userinput> for "
+#~ "the onboard controllers"
+#~ msgstr ""
+#~ "es el bus SCSI desde donde arrancar, su valor para los controladores "
+#~ "integrados es <userinput>0</userinput>."
+
+#~ msgid "disk"
+#~ msgstr "disk"
+
+#~ msgid ""
+#~ "is the SCSI ID of the hard disk on which <command>arcboot</command> is "
+#~ "installed"
+#~ msgstr ""
+#~ "es el ID SCSI del disco duro en el cual se ha instalado <command>arcboot</"
+#~ "command>"
+
+#~ msgid "partnr"
+#~ msgstr "partnr"
+
+#~ msgid ""
+#~ "is the number of the partition on which <filename>/etc/arcboot.conf</"
+#~ "filename> resides"
+#~ msgstr ""
+#~ "es el número de partición en la que se encuentra <filename>/etc/arcboot."
+#~ "conf</filename>"
+
+#~ msgid "config"
+#~ msgstr "config"
+
+#~ msgid ""
+#~ "is the name of the configuration entry in <filename>/etc/arcboot.conf</"
+#~ "filename>, which is <quote>linux</quote> by default."
+#~ msgstr ""
+#~ "es el nombre de la configuración en el fichero <filename>/etc/arcboot."
+#~ "conf</filename>. Su valor predeterminado es <quote>linux</quote>."
 
 #~ msgid ""
 #~ "Support for MD is a relatively new addition to the installer. You may "

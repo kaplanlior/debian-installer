@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2016-11-25 19:03+0000\n"
+"POT-Creation-Date: 2017-02-17 15:58+0000\n"
 "PO-Revision-Date: 2016-11-26 04:03+0900\n"
 "Last-Translator: KURASAWA Nozomu (nabetaro) <nabetaro@debian.or.jp>\n"
 "Language-Team: Japanese <debian-japanese@lists.debian.org>\n"
@@ -4318,13 +4318,13 @@ msgid "hppa FIXME ( need more info )"
 msgstr "hppa FIXME ( もっと情報が必要 )"
 
 #. Tag: title
-#: using-d-i.xml:2692 using-d-i.xml:3030
+#: using-d-i.xml:2692 using-d-i.xml:2965
 #, no-c-format
 msgid "Install the <command>Grub</command> Boot Loader on a Hard Disk"
 msgstr "ハードディスクへの <command>Grub</command> ブートローダのインストール"
 
 #. Tag: para
-#: using-d-i.xml:2694 using-d-i.xml:3032
+#: using-d-i.xml:2694 using-d-i.xml:2967
 #, no-c-format
 msgid ""
 "The main &architecture; boot loader is called <quote>grub</quote>. Grub is a "
@@ -4681,130 +4681,13 @@ msgstr ""
 "るファイルです。"
 
 #. Tag: title
-#: using-d-i.xml:2925
-#, no-c-format
-msgid "<command>arcboot</command>-installer"
-msgstr "<command>arcboot</command>-installer"
-
-#. Tag: para
-#: using-d-i.xml:2926
-#, no-c-format
-msgid ""
-"The boot loader on SGI machines is <command>arcboot</command>. It has to be "
-"installed on the same hard disk as the kernel (this is done automatically by "
-"the installer). Arcboot supports different configurations which are set up "
-"in <filename>/etc/arcboot.conf</filename>. Each configuration has a unique "
-"name, the default setup as created by the installer is <quote>linux</quote>. "
-"After arcboot has been installed, the system can be booted from hard disk by "
-"setting some firmware environment variables entering "
-"<informalexample><screen>\n"
-"<userinput> setenv SystemPartition scsi(<replaceable>scsi</"
-"replaceable>)disk(<replaceable>disk</replaceable>)rdisk(0)partition(0)</"
-"userinput>\n"
-"<userinput> setenv OSLoadPartition scsi(<replaceable>scsi</"
-"replaceable>)disk(<replaceable>disk</"
-"replaceable>)rdisk(0)partition(<replaceable>partnr</replaceable>)</"
-"userinput>\n"
-"<userinput> setenv OSLoader arcboot</userinput>\n"
-"<userinput> setenv OSLoadFilename <replaceable>config</replaceable></"
-"userinput>\n"
-"<userinput> setenv AutoLoad yes</userinput>\n"
-"</screen></informalexample> on the firmware prompt, and then typing "
-"<command>boot</command>."
-msgstr ""
-"SGI マシンのブートローダは <command>arcboot</command> です。これはカーネルと"
-"同じハードディスクにインストールしなければなりません。(これはインストーラが自"
-"動で行います) arcboot は異なった設定を、<filename>/etc/arcboot.conf</"
-"filename> でセットアップすることでサポートしています。いずれの設定も一意の名"
-"前を持ち、インストーラが作成したデフォルトの設定は <quote>linux</quote> で"
-"す。arcboot のインストール後、次のようなファームウェア環境変数をプロンプトに"
-"入力して、システムをハードディスクから起動できます。"
-"<informalexample><screen>\n"
-"<userinput> setenv SystemPartition scsi(<replaceable>scsi</"
-"replaceable>)disk(<replaceable>disk</replaceable>)rdisk(0)partition(0)</"
-"userinput>\n"
-"<userinput> setenv OSLoadPartition scsi(<replaceable>scsi</"
-"replaceable>)disk(<replaceable>disk</"
-"replaceable>)rdisk(0)partition(<replaceable>partnr</replaceable>)</"
-"userinput>\n"
-"<userinput> setenv OSLoader arcboot</userinput>\n"
-"<userinput> setenv OSLoadFilename <replaceable>config</replaceable></"
-"userinput>\n"
-"<userinput> setenv AutoLoad yes</userinput>\n"
-"</screen></informalexample> その後、<command>boot</command> と入力してくださ"
-"い。"
-
-#. Tag: replaceable
-#: using-d-i.xml:2945
-#, no-c-format
-msgid "scsi"
-msgstr "scsi"
-
-#. Tag: para
-#: using-d-i.xml:2946
-#, no-c-format
-msgid ""
-"is the SCSI bus to be booted from, this is <userinput>0</userinput> for the "
-"onboard controllers"
-msgstr ""
-"起動する SCSI バスを表す。オンボードコントローラは <userinput>0</userinput> "
-"となる。"
-
-#. Tag: replaceable
-#: using-d-i.xml:2954
-#, no-c-format
-msgid "disk"
-msgstr "disk"
-
-#. Tag: para
-#: using-d-i.xml:2955
-#, no-c-format
-msgid ""
-"is the SCSI ID of the hard disk on which <command>arcboot</command> is "
-"installed"
-msgstr ""
-"<command>arcboot</command> をインストールしたハードディスクの SCSI ID を表"
-"す。"
-
-#. Tag: replaceable
-#: using-d-i.xml:2963
-#, no-c-format
-msgid "partnr"
-msgstr "partnr"
-
-#. Tag: para
-#: using-d-i.xml:2964
-#, no-c-format
-msgid ""
-"is the number of the partition on which <filename>/etc/arcboot.conf</"
-"filename> resides"
-msgstr ""
-"<filename>/etc/arcboot.conf</filename> があるパーティションの番号を表す。"
-
-#. Tag: replaceable
-#: using-d-i.xml:2972
-#, no-c-format
-msgid "config"
-msgstr "config"
-
-#. Tag: para
-#: using-d-i.xml:2973
-#, no-c-format
-msgid ""
-"is the name of the configuration entry in <filename>/etc/arcboot.conf</"
-"filename>, which is <quote>linux</quote> by default."
-msgstr ""
-"<filename>/etc/arcboot.conf</filename> 設定エントリの名前を表す。デフォルト"
-"は <quote>linux</quote> である。"
-
-#. Tag: title
-#: using-d-i.xml:2994
+#: using-d-i.xml:2929
 #, no-c-format
 msgid "Install <command>Yaboot</command> on a Hard Disk"
 msgstr "ハードディスクへの <command>Yaboot</command> のインストール"
 
 #. Tag: para
-#: using-d-i.xml:2995
+#: using-d-i.xml:2930
 #, no-c-format
 msgid ""
 "Newer (mid 1998 and on) PowerMacs use <command>yaboot</command> as their "
@@ -4824,13 +4707,13 @@ msgstr ""
 "が &debian-gnu; を起動できるように設定されています。"
 
 #. Tag: title
-#: using-d-i.xml:3013
+#: using-d-i.xml:2948
 #, no-c-format
 msgid "Install <command>Quik</command> on a Hard Disk"
 msgstr "ハードディスクへの <command>Quik</command> のインストール"
 
 #. Tag: para
-#: using-d-i.xml:3014
+#: using-d-i.xml:2949
 #, no-c-format
 msgid ""
 "The boot loader for OldWorld Power Macintosh machines is <command>quik</"
@@ -4844,7 +4727,7 @@ msgstr ""
 "Powermac や Power Computing のクローンで動作することが知られています。"
 
 #. Tag: para
-#: using-d-i.xml:3038
+#: using-d-i.xml:2973
 #, no-c-format
 msgid ""
 "By default, Grub will be installed into the PReP partition, where it will "
@@ -4854,13 +4737,13 @@ msgstr ""
 "セスの完全なコントロールを引き継ぎます。"
 
 #. Tag: title
-#: using-d-i.xml:3051
+#: using-d-i.xml:2986
 #, no-c-format
 msgid "<command>zipl</command>-installer"
 msgstr "<command>zipl</command> インストーラ"
 
 #. Tag: para
-#: using-d-i.xml:3052
+#: using-d-i.xml:2987
 #, no-c-format
 msgid ""
 "The boot loader on &arch-title; is <quote>zipl</quote>. <command>ZIPL</"
@@ -4876,13 +4759,13 @@ msgstr ""
 "and Installation Commands</quote> を見てください。"
 
 #. Tag: title
-#: using-d-i.xml:3069
+#: using-d-i.xml:3004
 #, no-c-format
 msgid "Install the <command>SILO</command> Boot Loader on a Hard Disk"
 msgstr "ハードディスクへの <command>SILO</command> ブートローダのインストール"
 
 #. Tag: para
-#: using-d-i.xml:3071
+#: using-d-i.xml:3006
 #, no-c-format
 msgid ""
 "The standard &architecture; boot loader is called <quote>silo</quote>. It is "
@@ -4912,13 +4795,13 @@ msgstr ""
 "Solaris と一緒に GNU/Linux をインストールするのなら、これが便利です。"
 
 #. Tag: title
-#: using-d-i.xml:3096
+#: using-d-i.xml:3031
 #, no-c-format
 msgid "Making the system bootable with flash-kernel"
 msgstr "flash-kernel でシステムをブートできるようにする"
 
 #. Tag: para
-#: using-d-i.xml:3097
+#: using-d-i.xml:3032
 #, no-c-format
 msgid ""
 "As there is no common firmware interface on all ARM platforms, the steps "
@@ -4938,7 +4821,7 @@ msgstr ""
 "行します。"
 
 #. Tag: para
-#: using-d-i.xml:3108
+#: using-d-i.xml:3043
 #, no-c-format
 msgid ""
 "On devices which boot from internal NOR- or NAND-flash memory, flash-kernel "
@@ -4956,7 +4839,7 @@ msgstr ""
 "ラッシュメモリに存在した内容は通常上書きされることに注意してください!"
 
 #. Tag: para
-#: using-d-i.xml:3118
+#: using-d-i.xml:3053
 #, no-c-format
 msgid ""
 "For ARM systems that use U-Boot as their system firmware and boot the kernel "
@@ -4970,13 +4853,13 @@ msgstr ""
 "スクリプトを生成し、ユーザが介入せずに自動起動できるようにします。"
 
 #. Tag: title
-#: using-d-i.xml:3134
+#: using-d-i.xml:3069
 #, no-c-format
 msgid "Continue Without Boot Loader"
 msgstr "ブートローダなしで継続"
 
 #. Tag: para
-#: using-d-i.xml:3136
+#: using-d-i.xml:3071
 #, no-c-format
 msgid ""
 "This option can be used to complete the installation even when no boot "
@@ -4989,7 +4872,7 @@ msgstr ""
 "るのに利用できます。"
 
 #. Tag: para
-#: using-d-i.xml:3143
+#: using-d-i.xml:3078
 #, no-c-format
 msgid ""
 "If you plan to manually configure your bootloader, you should check the name "
@@ -5011,13 +4894,13 @@ msgstr ""
 "す。"
 
 #. Tag: title
-#: using-d-i.xml:3160
+#: using-d-i.xml:3095
 #, no-c-format
 msgid "Finishing the Installation"
 msgstr "インストールの完了"
 
 #. Tag: para
-#: using-d-i.xml:3161
+#: using-d-i.xml:3096
 #, no-c-format
 msgid ""
 "This is the last step in the &debian; installation process during which the "
@@ -5028,13 +4911,13 @@ msgstr ""
 "最終段階です。ほとんどが &d-i; の後片付けです。"
 
 #. Tag: title
-#: using-d-i.xml:3174
+#: using-d-i.xml:3109
 #, no-c-format
 msgid "Setting the System Clock"
 msgstr "システム時計の設定"
 
 #. Tag: para
-#: using-d-i.xml:3176
+#: using-d-i.xml:3111
 #, no-c-format
 msgid ""
 "The installer may ask you if the computer's clock is set to UTC. Normally "
@@ -5047,7 +4930,7 @@ msgstr ""
 "れているかどうか、といったことから UTC を基準にするかどうかを判断します。"
 
 #. Tag: para
-#: using-d-i.xml:3183
+#: using-d-i.xml:3118
 #, no-c-format
 msgid ""
 "In expert mode you will always be able to choose whether or not the clock is "
@@ -5065,7 +4948,7 @@ msgstr ""
 "地時間を選択してください。</phrase>"
 
 #. Tag: para
-#: using-d-i.xml:3194
+#: using-d-i.xml:3129
 #, no-c-format
 msgid ""
 "At this point &d-i; will also attempt to save the current time to the "
@@ -5076,13 +4959,13 @@ msgstr ""
 "す。先ほどの選択により、UTC か現地時間のどちらかで保存します。"
 
 #. Tag: title
-#: using-d-i.xml:3209
+#: using-d-i.xml:3144
 #, no-c-format
 msgid "Reboot the System"
 msgstr "システムの再起動"
 
 #. Tag: para
-#: using-d-i.xml:3211
+#: using-d-i.xml:3146
 #, no-c-format
 msgid ""
 "You will be prompted to remove the boot media (CD, floppy, etc) that you "
@@ -5093,7 +4976,7 @@ msgstr ""
 "促されます。システムはこの後、新しい &debian; システムで再起動します。"
 
 #. Tag: para
-#: using-d-i.xml:3217
+#: using-d-i.xml:3152
 #, no-c-format
 msgid ""
 "After a final prompt the system will be halted because rebooting is not "
@@ -5106,13 +4989,13 @@ msgstr ""
 "イルシステムとして選択した DASD から GNU/Linux を IPL してください。"
 
 #. Tag: title
-#: using-d-i.xml:3230
+#: using-d-i.xml:3165
 #, no-c-format
 msgid "Troubleshooting"
 msgstr "トラブルシューティング"
 
 #. Tag: para
-#: using-d-i.xml:3231
+#: using-d-i.xml:3166
 #, no-c-format
 msgid ""
 "The components listed in this section are usually not involved in the "
@@ -5123,13 +5006,13 @@ msgstr ""
 "うまく行かない時に、ユーザの助けになるようバックグラウンドで待っています。"
 
 #. Tag: title
-#: using-d-i.xml:3244
+#: using-d-i.xml:3179
 #, no-c-format
 msgid "Saving the installation logs"
 msgstr "インストールログの保存"
 
 #. Tag: para
-#: using-d-i.xml:3246
+#: using-d-i.xml:3181
 #, no-c-format
 msgid ""
 "If the installation is successful, the logfiles created during the "
@@ -5141,7 +5024,7 @@ msgstr ""
 "れています。"
 
 #. Tag: para
-#: using-d-i.xml:3253
+#: using-d-i.xml:3188
 #, no-c-format
 msgid ""
 "Choosing <guimenuitem>Save debug logs</guimenuitem> from the main menu "
@@ -5157,13 +5040,13 @@ msgstr ""
 "したいときに便利です。"
 
 #. Tag: title
-#: using-d-i.xml:3273
+#: using-d-i.xml:3208
 #, no-c-format
 msgid "Using the Shell and Viewing the Logs"
 msgstr "シェルの使用とログの参照"
 
 #. Tag: para
-#: using-d-i.xml:3275
+#: using-d-i.xml:3210
 #, no-c-format
 msgid ""
 "There are several methods you can use to get a shell while running an "
@@ -5188,14 +5071,14 @@ msgstr ""
 "keycombo> でインストーラ自体に戻ってください。"
 
 #. Tag: para
-#: using-d-i.xml:3293
+#: using-d-i.xml:3228
 #, no-c-format
 msgid "For the graphical installer see also <xref linkend=\"gtk-using\"/>."
 msgstr ""
 "グラフィカルインストーラでは、<xref linkend=\"gtk-using\"/> もご覧ください。"
 
 #. Tag: para
-#: using-d-i.xml:3297
+#: using-d-i.xml:3232
 #, no-c-format
 msgid ""
 "If you cannot switch consoles, there is also an <guimenuitem>Execute a "
@@ -5210,7 +5093,7 @@ msgstr ""
 "userinput> と入力すると、シェルを終了してインストーラに戻ります。"
 
 #. Tag: para
-#: using-d-i.xml:3305
+#: using-d-i.xml:3240
 #, no-c-format
 msgid ""
 "At this point you are booted from the RAM disk, and there is a limited set "
@@ -5228,7 +5111,7 @@ msgstr ""
 "す。"
 
 #. Tag: para
-#: using-d-i.xml:3314
+#: using-d-i.xml:3249
 #, no-c-format
 msgid ""
 "To edit and view files, use the text editor <command>nano</command>. Log "
@@ -5240,7 +5123,7 @@ msgstr ""
 "log</filename> ディレクトリにあります。"
 
 #. Tag: para
-#: using-d-i.xml:3321
+#: using-d-i.xml:3256
 #, no-c-format
 msgid ""
 "Although you can do basically anything in a shell that the available "
@@ -5252,7 +5135,7 @@ msgstr ""
 "しかありません。"
 
 #. Tag: para
-#: using-d-i.xml:3327
+#: using-d-i.xml:3262
 #, no-c-format
 msgid ""
 "Doing things manually from the shell may interfere with the installation "
@@ -5265,13 +5148,13 @@ msgstr ""
 "swap を有効にするようにし、シェルから手動で行わないようにしましょう。"
 
 #. Tag: title
-#: using-d-i.xml:3343
+#: using-d-i.xml:3278
 #, no-c-format
 msgid "Installation Over the Network"
 msgstr "ネットワーク越しのインストール"
 
 #. Tag: para
-#: using-d-i.xml:3345
+#: using-d-i.xml:3280
 #, no-c-format
 msgid ""
 "One of the more interesting components is <firstterm>network-console</"
@@ -5288,7 +5171,7 @@ msgstr ""
 "この部分は <xref linkend=\"automatic-install\"/> で自動化できます)"
 
 #. Tag: para
-#: using-d-i.xml:3355
+#: using-d-i.xml:3290
 #, no-c-format
 msgid ""
 "This component is not loaded into the main installation menu by default, so "
@@ -5310,7 +5193,7 @@ msgstr ""
 "ばれる新しいメニュー項目が表示されます。"
 
 #. Tag: para
-#: using-d-i.xml:3368
+#: using-d-i.xml:3303
 #, no-c-format
 msgid ""
 "For installations on &arch-title;, this is the default method after setting "
@@ -5320,7 +5203,7 @@ msgstr ""
 "法です。"
 
 #. Tag: para
-#: using-d-i.xml:3373
+#: using-d-i.xml:3308
 #, no-c-format
 msgid ""
 "<phrase arch=\"not-s390\">After selecting this new entry, you</phrase> "
@@ -5341,7 +5224,7 @@ msgstr ""
 "全に転送する必要があります。"
 
 #. Tag: para
-#: using-d-i.xml:3385
+#: using-d-i.xml:3320
 #, no-c-format
 msgid ""
 "Should you decide to continue with the installation locally, you can always "
@@ -5352,7 +5235,7 @@ msgstr ""
 "メニューに戻ります。そこで別のコンポーネントを選択してください。"
 
 #. Tag: para
-#: using-d-i.xml:3391
+#: using-d-i.xml:3326
 #, no-c-format
 msgid ""
 "Now let's switch to the other side of the wire. As a prerequisite, you need "
@@ -5383,7 +5266,7 @@ msgstr ""
 "認してください。"
 
 #. Tag: para
-#: using-d-i.xml:3408
+#: using-d-i.xml:3343
 #, no-c-format
 msgid ""
 "The <command>ssh</command> server in the installer uses a default "
@@ -5406,7 +5289,7 @@ msgstr ""
 "により、再接続後にインストールを再開できるかどうかが決まるでしょう。"
 
 #. Tag: para
-#: using-d-i.xml:3421
+#: using-d-i.xml:3356
 #, no-c-format
 msgid ""
 "You may be able to avoid the connection being dropped by adding the option "
@@ -5428,7 +5311,7 @@ msgstr ""
 "用は必要最小限にするべきです。"
 
 #. Tag: para
-#: using-d-i.xml:3434
+#: using-d-i.xml:3369
 #, no-c-format
 msgid ""
 "If you install several computers in turn and they happen to have the same IP "
@@ -5451,7 +5334,7 @@ msgstr ""
 "もう一度行う必要があります。"
 
 #. Tag: para
-#: using-d-i.xml:3450
+#: using-d-i.xml:3385
 #, no-c-format
 msgid ""
 "After the login you will be presented with an initial screen where you have "
@@ -5470,7 +5353,7 @@ msgstr ""
 "べきですが、シェル用には複数のセッションを起動できます。"
 
 #. Tag: para
-#: using-d-i.xml:3460
+#: using-d-i.xml:3395
 #, no-c-format
 msgid ""
 "After you have started the installation remotely over SSH, you should not go "
@@ -5485,13 +5368,13 @@ msgstr ""
 "インストールしたシステムに何か問題が発生するかもしれません。"
 
 #. Tag: title
-#: using-d-i.xml:3479
+#: using-d-i.xml:3414
 #, no-c-format
 msgid "Loading Missing Firmware"
 msgstr "見つからないファームウェアの読み込み"
 
 #. Tag: para
-#: using-d-i.xml:3480
+#: using-d-i.xml:3415
 #, no-c-format
 msgid ""
 "As described in <xref linkend=\"hardware-firmware\"/>, some devices require "
@@ -5506,7 +5389,7 @@ msgstr ""
 "が必要になります。"
 
 #. Tag: para
-#: using-d-i.xml:3488
+#: using-d-i.xml:3423
 #, no-c-format
 msgid ""
 "If a device driver requests firmware that is not available, &d-i; will "
@@ -5524,7 +5407,7 @@ msgstr ""
 "ジュールを再読込します。"
 
 #. Tag: para
-#: using-d-i.xml:3498
+#: using-d-i.xml:3433
 #, no-c-format
 msgid ""
 "Which devices are scanned and which file systems are supported depends on "
@@ -5542,7 +5425,7 @@ msgstr ""
 "す。</phrase>"
 
 #. Tag: para
-#: using-d-i.xml:3508
+#: using-d-i.xml:3443
 #, no-c-format
 msgid ""
 "Note that it is possible to skip loading the firmware if you know the device "
@@ -5554,7 +5437,7 @@ msgstr ""
 "にご注意ください。"
 
 #. Tag: para
-#: using-d-i.xml:3514
+#: using-d-i.xml:3449
 #, no-c-format
 msgid ""
 "&d-i; only prompts for firmware needed by kernel modules loaded during the "
@@ -5576,13 +5459,13 @@ msgstr ""
 "を検索してみるのもよいでしょう。"
 
 #. Tag: title
-#: using-d-i.xml:3528
+#: using-d-i.xml:3463
 #, no-c-format
 msgid "Preparing a medium"
 msgstr "メディアの準備"
 
 #. Tag: para
-#: using-d-i.xml:3529
+#: using-d-i.xml:3464
 #, no-c-format
 msgid ""
 "Official CD images do not include non-free firmware. The most common method "
@@ -5607,7 +5490,7 @@ msgstr ""
 "します。"
 
 #. Tag: para
-#: using-d-i.xml:3542
+#: using-d-i.xml:3477
 #, no-c-format
 msgid ""
 "Tarballs and zip files containing current packages for the most common "
@@ -5623,7 +5506,7 @@ msgstr ""
 "テムに展開するだけです。"
 
 #. Tag: para
-#: using-d-i.xml:3556
+#: using-d-i.xml:3491
 #, no-c-format
 msgid ""
 "If the firmware you need is not included in the tarball, you can also "
@@ -5639,7 +5522,7 @@ msgstr ""
 "ケージを含むかもしれません。"
 
 #. Tag: para
-#: using-d-i.xml:3570
+#: using-d-i.xml:3505
 #, no-c-format
 msgid ""
 "It is also possible to copy individual firmware files to the medium. Loose "
@@ -5651,13 +5534,13 @@ msgstr ""
 "から入手できます。"
 
 #. Tag: title
-#: using-d-i.xml:3579
+#: using-d-i.xml:3514
 #, no-c-format
 msgid "Firmware and the Installed System"
 msgstr "ファームウェアとインストールしたシステム"
 
 #. Tag: para
-#: using-d-i.xml:3580
+#: using-d-i.xml:3515
 #, no-c-format
 msgid ""
 "Any firmware loaded during the installation will be copied automatically to "
@@ -5675,7 +5558,7 @@ msgstr ""
 "がわずかにあります。"
 
 #. Tag: para
-#: using-d-i.xml:3589
+#: using-d-i.xml:3524
 #, no-c-format
 msgid ""
 "If the firmware was loaded from a firmware package, &d-i; will also install "
@@ -5691,7 +5574,7 @@ msgstr ""
 "できるようになると、自動的に更新するという利点があります。"
 
 #. Tag: para
-#: using-d-i.xml:3597
+#: using-d-i.xml:3532
 #, no-c-format
 msgid ""
 "If loading the firmware was skipped during the installation, the relevant "
@@ -5703,7 +5586,7 @@ msgstr ""
 "トールしたシステムで動作しないでしょう。"
 
 #. Tag: para
-#: using-d-i.xml:3604
+#: using-d-i.xml:3539
 #, no-c-format
 msgid ""
 "If the firmware was loaded from loose firmware files, the firmware copied to "
@@ -5715,3 +5598,90 @@ msgstr ""
 "ル完了後に対応したファームウェアパッケージをインストールするまで、インストー"
 "ルしたシステムにコピーしたファームウェアは、自動的に<emphasis>更新されません"
 "</emphasis>。"
+
+#~ msgid "<command>arcboot</command>-installer"
+#~ msgstr "<command>arcboot</command>-installer"
+
+#~ msgid ""
+#~ "The boot loader on SGI machines is <command>arcboot</command>. It has to "
+#~ "be installed on the same hard disk as the kernel (this is done "
+#~ "automatically by the installer). Arcboot supports different "
+#~ "configurations which are set up in <filename>/etc/arcboot.conf</"
+#~ "filename>. Each configuration has a unique name, the default setup as "
+#~ "created by the installer is <quote>linux</quote>. After arcboot has been "
+#~ "installed, the system can be booted from hard disk by setting some "
+#~ "firmware environment variables entering <informalexample><screen>\n"
+#~ "<userinput> setenv SystemPartition scsi(<replaceable>scsi</"
+#~ "replaceable>)disk(<replaceable>disk</replaceable>)rdisk(0)partition(0)</"
+#~ "userinput>\n"
+#~ "<userinput> setenv OSLoadPartition scsi(<replaceable>scsi</"
+#~ "replaceable>)disk(<replaceable>disk</"
+#~ "replaceable>)rdisk(0)partition(<replaceable>partnr</replaceable>)</"
+#~ "userinput>\n"
+#~ "<userinput> setenv OSLoader arcboot</userinput>\n"
+#~ "<userinput> setenv OSLoadFilename <replaceable>config</replaceable></"
+#~ "userinput>\n"
+#~ "<userinput> setenv AutoLoad yes</userinput>\n"
+#~ "</screen></informalexample> on the firmware prompt, and then typing "
+#~ "<command>boot</command>."
+#~ msgstr ""
+#~ "SGI マシンのブートローダは <command>arcboot</command> です。これはカーネル"
+#~ "と同じハードディスクにインストールしなければなりません。(これはインストー"
+#~ "ラが自動で行います) arcboot は異なった設定を、<filename>/etc/arcboot."
+#~ "conf</filename> でセットアップすることでサポートしています。いずれの設定も"
+#~ "一意の名前を持ち、インストーラが作成したデフォルトの設定は <quote>linux</"
+#~ "quote> です。arcboot のインストール後、次のようなファームウェア環境変数を"
+#~ "プロンプトに入力して、システムをハードディスクから起動できます。"
+#~ "<informalexample><screen>\n"
+#~ "<userinput> setenv SystemPartition scsi(<replaceable>scsi</"
+#~ "replaceable>)disk(<replaceable>disk</replaceable>)rdisk(0)partition(0)</"
+#~ "userinput>\n"
+#~ "<userinput> setenv OSLoadPartition scsi(<replaceable>scsi</"
+#~ "replaceable>)disk(<replaceable>disk</"
+#~ "replaceable>)rdisk(0)partition(<replaceable>partnr</replaceable>)</"
+#~ "userinput>\n"
+#~ "<userinput> setenv OSLoader arcboot</userinput>\n"
+#~ "<userinput> setenv OSLoadFilename <replaceable>config</replaceable></"
+#~ "userinput>\n"
+#~ "<userinput> setenv AutoLoad yes</userinput>\n"
+#~ "</screen></informalexample> その後、<command>boot</command> と入力してくだ"
+#~ "さい。"
+
+#~ msgid "scsi"
+#~ msgstr "scsi"
+
+#~ msgid ""
+#~ "is the SCSI bus to be booted from, this is <userinput>0</userinput> for "
+#~ "the onboard controllers"
+#~ msgstr ""
+#~ "起動する SCSI バスを表す。オンボードコントローラは <userinput>0</"
+#~ "userinput> となる。"
+
+#~ msgid "disk"
+#~ msgstr "disk"
+
+#~ msgid ""
+#~ "is the SCSI ID of the hard disk on which <command>arcboot</command> is "
+#~ "installed"
+#~ msgstr ""
+#~ "<command>arcboot</command> をインストールしたハードディスクの SCSI ID を表"
+#~ "す。"
+
+#~ msgid "partnr"
+#~ msgstr "partnr"
+
+#~ msgid ""
+#~ "is the number of the partition on which <filename>/etc/arcboot.conf</"
+#~ "filename> resides"
+#~ msgstr ""
+#~ "<filename>/etc/arcboot.conf</filename> があるパーティションの番号を表す。"
+
+#~ msgid "config"
+#~ msgstr "config"
+
+#~ msgid ""
+#~ "is the name of the configuration entry in <filename>/etc/arcboot.conf</"
+#~ "filename>, which is <quote>linux</quote> by default."
+#~ msgstr ""
+#~ "<filename>/etc/arcboot.conf</filename> 設定エントリの名前を表す。デフォル"
+#~ "トは <quote>linux</quote> である。"

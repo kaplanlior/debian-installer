@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: d-i-manual\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2016-11-25 19:03+0000\n"
+"POT-Creation-Date: 2017-02-17 15:58+0000\n"
 "PO-Revision-Date: 2012-11-26 15:04+0800\n"
 "Last-Translator: Ji YongGang <jungleji@gmail.com>\n"
 "Language-Team: debian-chinese-gb <debian-chinese-gb@lists.debian.org>\n"
@@ -4075,13 +4075,13 @@ msgid "hppa FIXME ( need more info )"
 msgstr "hppa FIXME ( need more info )"
 
 #. Tag: title
-#: using-d-i.xml:2692 using-d-i.xml:3030
+#: using-d-i.xml:2692 using-d-i.xml:2965
 #, no-c-format
 msgid "Install the <command>Grub</command> Boot Loader on a Hard Disk"
 msgstr "硬盘上 <command>Grub</command> Boot Loader 的安装"
 
 #. Tag: para
-#: using-d-i.xml:2694 using-d-i.xml:3032
+#: using-d-i.xml:2694 using-d-i.xml:2967
 #, no-c-format
 msgid ""
 "The main &architecture; boot loader is called <quote>grub</quote>. Grub is a "
@@ -4417,122 +4417,13 @@ msgstr ""
 "<filename>/vmlinuz</filename> 指向的文件。"
 
 #. Tag: title
-#: using-d-i.xml:2925
-#, no-c-format
-msgid "<command>arcboot</command>-installer"
-msgstr "<command>arcboot</command>-installer"
-
-#. Tag: para
-#: using-d-i.xml:2926
-#, no-c-format
-msgid ""
-"The boot loader on SGI machines is <command>arcboot</command>. It has to be "
-"installed on the same hard disk as the kernel (this is done automatically by "
-"the installer). Arcboot supports different configurations which are set up "
-"in <filename>/etc/arcboot.conf</filename>. Each configuration has a unique "
-"name, the default setup as created by the installer is <quote>linux</quote>. "
-"After arcboot has been installed, the system can be booted from hard disk by "
-"setting some firmware environment variables entering "
-"<informalexample><screen>\n"
-"<userinput> setenv SystemPartition scsi(<replaceable>scsi</"
-"replaceable>)disk(<replaceable>disk</replaceable>)rdisk(0)partition(0)</"
-"userinput>\n"
-"<userinput> setenv OSLoadPartition scsi(<replaceable>scsi</"
-"replaceable>)disk(<replaceable>disk</"
-"replaceable>)rdisk(0)partition(<replaceable>partnr</replaceable>)</"
-"userinput>\n"
-"<userinput> setenv OSLoader arcboot</userinput>\n"
-"<userinput> setenv OSLoadFilename <replaceable>config</replaceable></"
-"userinput>\n"
-"<userinput> setenv AutoLoad yes</userinput>\n"
-"</screen></informalexample> on the firmware prompt, and then typing "
-"<command>boot</command>."
-msgstr ""
-"SGI 机器上的 boot loader 是 <command>arcboot</command>。它必须被安装到与内核"
-"相同的磁盘上(安装程序自动完成)。arcboot 可以支持不同的设置，它们的在 "
-"<filename>/etc/arcboot.conf</filename> 里建立。每个设置有单独的名称，安装程序"
-"创建的默认设置为 <quote>linux</quote>。arcboot 安装之后，系统可以从硬盘启动，"
-"这需要固件提示时设置一些固件环境变量 <informalexample><screen>\n"
-"<userinput> setenv SystemPartition scsi(<replaceable>scsi</"
-"replaceable>)disk(<replaceable>disk</replaceable>)rdisk(0)partition(0)</"
-"userinput>\n"
-"<userinput> setenv OSLoadPartition scsi(<replaceable>scsi</"
-"replaceable>)disk(<replaceable>disk</"
-"replaceable>)rdisk(0)partition(<replaceable>partnr</replaceable>)</"
-"userinput>\n"
-"<userinput> setenv OSLoader arcboot</userinput>\n"
-"<userinput> setenv OSLoadFilename <replaceable>config</replaceable></"
-"userinput>\n"
-"<userinput> setenv AutoLoad yes</userinput>\n"
-"</screen></informalexample> ，然后键入 <command>boot</command>。"
-
-#. Tag: replaceable
-#: using-d-i.xml:2945
-#, no-c-format
-msgid "scsi"
-msgstr "scsi"
-
-#. Tag: para
-#: using-d-i.xml:2946
-#, no-c-format
-msgid ""
-"is the SCSI bus to be booted from, this is <userinput>0</userinput> for the "
-"onboard controllers"
-msgstr "是启动的 SCSI 总线，<userinput>0</userinput> 为板载控制器"
-
-#. Tag: replaceable
-#: using-d-i.xml:2954
-#, no-c-format
-msgid "disk"
-msgstr "disk"
-
-#. Tag: para
-#: using-d-i.xml:2955
-#, no-c-format
-msgid ""
-"is the SCSI ID of the hard disk on which <command>arcboot</command> is "
-"installed"
-msgstr "硬盘的 SCSI ID，<command>arcboot</command> 安装在其上"
-
-# index.docbook:1643, index.docbook:1712
-#. Tag: replaceable
-#: using-d-i.xml:2963
-#, no-c-format
-msgid "partnr"
-msgstr "partnr"
-
-#. Tag: para
-#: using-d-i.xml:2964
-#, no-c-format
-msgid ""
-"is the number of the partition on which <filename>/etc/arcboot.conf</"
-"filename> resides"
-msgstr "分区号，<filename>/etc/arcboot.conf</filename> 处于该分区"
-
-#. Tag: replaceable
-#: using-d-i.xml:2972
-#, no-c-format
-msgid "config"
-msgstr "config"
-
-#. Tag: para
-#: using-d-i.xml:2973
-#, no-c-format
-msgid ""
-"is the name of the configuration entry in <filename>/etc/arcboot.conf</"
-"filename>, which is <quote>linux</quote> by default."
-msgstr ""
-"<filename>/etc/arcboot.conf</filename> 上设置的入口名，默认为 <quote>linux</"
-"quote> 。"
-
-#. Tag: title
-#: using-d-i.xml:2994
+#: using-d-i.xml:2929
 #, no-c-format
 msgid "Install <command>Yaboot</command> on a Hard Disk"
 msgstr "安装 <command>Yaboot</command> 至硬盘"
 
 #. Tag: para
-#: using-d-i.xml:2995
+#: using-d-i.xml:2930
 #, no-c-format
 msgid ""
 "Newer (mid 1998 and on) PowerMacs use <command>yaboot</command> as their "
@@ -4550,13 +4441,13 @@ msgstr ""
 "设为启动 &debian-gnu;。"
 
 #. Tag: title
-#: using-d-i.xml:3013
+#: using-d-i.xml:2948
 #, no-c-format
 msgid "Install <command>Quik</command> on a Hard Disk"
 msgstr "安装 <command>Quik</command> 至硬盘"
 
 #. Tag: para
-#: using-d-i.xml:3014
+#: using-d-i.xml:2949
 #, no-c-format
 msgid ""
 "The boot loader for OldWorld Power Macintosh machines is <command>quik</"
@@ -4569,7 +4460,7 @@ msgstr ""
 "以工作在 7200，7300 和 7600 Powermacs，以及一些 Power Computing 克隆。"
 
 #. Tag: para
-#: using-d-i.xml:3038
+#: using-d-i.xml:2973
 #, fuzzy, no-c-format
 #| msgid ""
 #| "By default, grub will be installed into the Master Boot Record (MBR), "
@@ -4585,13 +4476,13 @@ msgstr ""
 "请参阅 grub 的手册。"
 
 #. Tag: title
-#: using-d-i.xml:3051
+#: using-d-i.xml:2986
 #, no-c-format
 msgid "<command>zipl</command>-installer"
 msgstr "<command>zipl</command>-installer"
 
 #. Tag: para
-#: using-d-i.xml:3052
+#: using-d-i.xml:2987
 #, no-c-format
 msgid ""
 "The boot loader on &arch-title; is <quote>zipl</quote>. <command>ZIPL</"
@@ -4606,13 +4497,13 @@ msgstr ""
 "Commands</quote>，它位于 IBM 的 developerWorks 网站<command>ZIPL</command>。"
 
 #. Tag: title
-#: using-d-i.xml:3069
+#: using-d-i.xml:3004
 #, no-c-format
 msgid "Install the <command>SILO</command> Boot Loader on a Hard Disk"
 msgstr "安装 <command>SILO</command> Boot Loader 到硬盘"
 
 #. Tag: para
-#: using-d-i.xml:3071
+#: using-d-i.xml:3006
 #, no-c-format
 msgid ""
 "The standard &architecture; boot loader is called <quote>silo</quote>. It is "
@@ -4639,13 +4530,13 @@ msgstr ""
 "区启动。这对于安装 GNU/Linux 到一个已经存在 SunOS/Solaris 的系统很有用。"
 
 #. Tag: title
-#: using-d-i.xml:3096
+#: using-d-i.xml:3031
 #, no-c-format
 msgid "Making the system bootable with flash-kernel"
 msgstr ""
 
 #. Tag: para
-#: using-d-i.xml:3097
+#: using-d-i.xml:3032
 #, no-c-format
 msgid ""
 "As there is no common firmware interface on all ARM platforms, the steps "
@@ -4658,7 +4549,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: using-d-i.xml:3108
+#: using-d-i.xml:3043
 #, no-c-format
 msgid ""
 "On devices which boot from internal NOR- or NAND-flash memory, flash-kernel "
@@ -4670,7 +4561,7 @@ msgid ""
 msgstr ""
 
 #. Tag: para
-#: using-d-i.xml:3118
+#: using-d-i.xml:3053
 #, no-c-format
 msgid ""
 "For ARM systems that use U-Boot as their system firmware and boot the kernel "
@@ -4680,13 +4571,13 @@ msgid ""
 msgstr ""
 
 #. Tag: title
-#: using-d-i.xml:3134
+#: using-d-i.xml:3069
 #, no-c-format
 msgid "Continue Without Boot Loader"
 msgstr "不使用 boot loader 继续进行"
 
 #. Tag: para
-#: using-d-i.xml:3136
+#: using-d-i.xml:3071
 #, no-c-format
 msgid ""
 "This option can be used to complete the installation even when no boot "
@@ -4697,7 +4588,7 @@ msgstr ""
 "是因为不想要(比如，您想使用已经存在的 boot loader)"
 
 #. Tag: para
-#: using-d-i.xml:3143
+#: using-d-i.xml:3078
 #, no-c-format
 msgid ""
 "If you plan to manually configure your bootloader, you should check the name "
@@ -4716,13 +4607,13 @@ msgstr ""
 "filename> 到一个独立的分区，还需要 <filename>/boot</filename> 文件系统。"
 
 #. Tag: title
-#: using-d-i.xml:3160
+#: using-d-i.xml:3095
 #, no-c-format
 msgid "Finishing the Installation"
 msgstr "完成安装"
 
 #. Tag: para
-#: using-d-i.xml:3161
+#: using-d-i.xml:3096
 #, no-c-format
 msgid ""
 "This is the last step in the &debian; installation process during which the "
@@ -4733,13 +4624,13 @@ msgstr ""
 "&d-i; 之后的清理。"
 
 #. Tag: title
-#: using-d-i.xml:3174
+#: using-d-i.xml:3109
 #, no-c-format
 msgid "Setting the System Clock"
 msgstr "设置系统时钟"
 
 #. Tag: para
-#: using-d-i.xml:3176
+#: using-d-i.xml:3111
 #, no-c-format
 msgid ""
 "The installer may ask you if the computer's clock is set to UTC. Normally "
@@ -4751,7 +4642,7 @@ msgstr ""
 "装程序依据是否有其他系统已经安装这类事情，来决定时钟要不要设为 UTC。"
 
 #. Tag: para
-#: using-d-i.xml:3183
+#: using-d-i.xml:3118
 #, no-c-format
 msgid ""
 "In expert mode you will always be able to choose whether or not the clock is "
@@ -4767,7 +4658,7 @@ msgstr ""
 "常设为本地时间。如果您需要多重引导，请选择本地时间而不是 GMT。</phrase>"
 
 #. Tag: para
-#: using-d-i.xml:3194
+#: using-d-i.xml:3129
 #, no-c-format
 msgid ""
 "At this point &d-i; will also attempt to save the current time to the "
@@ -4778,13 +4669,13 @@ msgstr ""
 "决于刚才的选择。"
 
 #. Tag: title
-#: using-d-i.xml:3209
+#: using-d-i.xml:3144
 #, no-c-format
 msgid "Reboot the System"
 msgstr "重新启动系统"
 
 #. Tag: para
-#: using-d-i.xml:3211
+#: using-d-i.xml:3146
 #, no-c-format
 msgid ""
 "You will be prompted to remove the boot media (CD, floppy, etc) that you "
@@ -4795,7 +4686,7 @@ msgstr ""
 "&debian; 系统。"
 
 #. Tag: para
-#: using-d-i.xml:3217
+#: using-d-i.xml:3152
 #, no-c-format
 msgid ""
 "After a final prompt the system will be halted because rebooting is not "
@@ -4807,13 +4698,13 @@ msgstr ""
 "上的 IPL &debian-gnu;，它在安装步骤第一步里被选做根文件系统。"
 
 #. Tag: title
-#: using-d-i.xml:3230
+#: using-d-i.xml:3165
 #, no-c-format
 msgid "Troubleshooting"
 msgstr "排除故障"
 
 #. Tag: para
-#: using-d-i.xml:3231
+#: using-d-i.xml:3166
 #, no-c-format
 msgid ""
 "The components listed in this section are usually not involved in the "
@@ -4824,13 +4715,13 @@ msgstr ""
 "题。"
 
 #. Tag: title
-#: using-d-i.xml:3244
+#: using-d-i.xml:3179
 #, no-c-format
 msgid "Saving the installation logs"
 msgstr "保存安装记录"
 
 #. Tag: para
-#: using-d-i.xml:3246
+#: using-d-i.xml:3181
 #, no-c-format
 msgid ""
 "If the installation is successful, the logfiles created during the "
@@ -4841,7 +4732,7 @@ msgstr ""
 "的 <filename>/var/log/installer/</filename>。"
 
 #. Tag: para
-#: using-d-i.xml:3253
+#: using-d-i.xml:3188
 #, no-c-format
 msgid ""
 "Choosing <guimenuitem>Save debug logs</guimenuitem> from the main menu "
@@ -4855,13 +4746,13 @@ msgstr ""
 "其它系统上研究记录，或者用于报告的附件。"
 
 #. Tag: title
-#: using-d-i.xml:3273
+#: using-d-i.xml:3208
 #, no-c-format
 msgid "Using the Shell and Viewing the Logs"
 msgstr "使用 Shell 查看记录"
 
 #. Tag: para
-#: using-d-i.xml:3275
+#: using-d-i.xml:3210
 #, no-c-format
 msgid ""
 "There are several methods you can use to get a shell while running an "
@@ -4885,13 +4776,13 @@ msgstr ""
 "安装程序。"
 
 #. Tag: para
-#: using-d-i.xml:3293
+#: using-d-i.xml:3228
 #, no-c-format
 msgid "For the graphical installer see also <xref linkend=\"gtk-using\"/>."
 msgstr "对于图形安装程序，请参阅 <xref linkend=\"gtk-using\"/>。"
 
 #. Tag: para
-#: using-d-i.xml:3297
+#: using-d-i.xml:3232
 #, no-c-format
 msgid ""
 "If you cannot switch consoles, there is also an <guimenuitem>Execute a "
@@ -4906,7 +4797,7 @@ msgstr ""
 "到安装程序。"
 
 #. Tag: para
-#: using-d-i.xml:3305
+#: using-d-i.xml:3240
 #, no-c-format
 msgid ""
 "At this point you are booted from the RAM disk, and there is a limited set "
@@ -4922,7 +4813,7 @@ msgstr ""
 "Bourne shell 的克隆，有一些如自动完成与历史纪录这样的好特性。"
 
 #. Tag: para
-#: using-d-i.xml:3314
+#: using-d-i.xml:3249
 #, no-c-format
 msgid ""
 "To edit and view files, use the text editor <command>nano</command>. Log "
@@ -4933,7 +4824,7 @@ msgstr ""
 "以在 <filename>/var/log</filename> 目录找到。"
 
 #. Tag: para
-#: using-d-i.xml:3321
+#: using-d-i.xml:3256
 #, no-c-format
 msgid ""
 "Although you can do basically anything in a shell that the available "
@@ -4944,7 +4835,7 @@ msgstr ""
 "题时进行调试。"
 
 #. Tag: para
-#: using-d-i.xml:3327
+#: using-d-i.xml:3262
 #, no-c-format
 msgid ""
 "Doing things manually from the shell may interfere with the installation "
@@ -4956,13 +4847,13 @@ msgstr ""
 "该让安装程序激活交换分区，而不是在 shell 里面自己动手。"
 
 #. Tag: title
-#: using-d-i.xml:3343
+#: using-d-i.xml:3278
 #, no-c-format
 msgid "Installation Over the Network"
 msgstr "通过网络安装"
 
 #. Tag: para
-#: using-d-i.xml:3345
+#: using-d-i.xml:3280
 #, no-c-format
 msgid ""
 "One of the more interesting components is <firstterm>network-console</"
@@ -4977,7 +4868,7 @@ msgstr ""
 "先建立网络。(您可以使用 <xref linkend=\"automatic-install\"/> 做这部分工作。)"
 
 #. Tag: para
-#: using-d-i.xml:3355
+#: using-d-i.xml:3290
 #, no-c-format
 msgid ""
 "This component is not loaded into the main installation menu by default, so "
@@ -4997,7 +4888,7 @@ msgstr ""
 "SSH</guimenuitem>。"
 
 #. Tag: para
-#: using-d-i.xml:3368
+#: using-d-i.xml:3303
 #, no-c-format
 msgid ""
 "For installations on &arch-title;, this is the default method after setting "
@@ -5005,7 +4896,7 @@ msgid ""
 msgstr "在 &arch-title; 上安装，建立网络之后这是默认的方法。"
 
 #. Tag: para
-#: using-d-i.xml:3373
+#: using-d-i.xml:3308
 #, no-c-format
 msgid ""
 "<phrase arch=\"not-s390\">After selecting this new entry, you</phrase> "
@@ -5024,7 +4915,7 @@ msgstr ""
 "fingerprint。您需要安全地传输该 fingerprint 给那些要继续远程安装的人。"
 
 #. Tag: para
-#: using-d-i.xml:3385
+#: using-d-i.xml:3320
 #, no-c-format
 msgid ""
 "Should you decide to continue with the installation locally, you can always "
@@ -5035,7 +4926,7 @@ msgstr ""
 "他的组件。"
 
 #. Tag: para
-#: using-d-i.xml:3391
+#: using-d-i.xml:3326
 #, no-c-format
 msgid ""
 "Now let's switch to the other side of the wire. As a prerequisite, you need "
@@ -5063,7 +4954,7 @@ msgstr ""
 "确认是否正确。"
 
 #. Tag: para
-#: using-d-i.xml:3408
+#: using-d-i.xml:3343
 #, no-c-format
 msgid ""
 "The <command>ssh</command> server in the installer uses a default "
@@ -5084,7 +4975,7 @@ msgstr ""
 "接在安装过程中的哪一点断开，您在连接之后可能继续，也可能无法继续安装过程。"
 
 #. Tag: para
-#: using-d-i.xml:3421
+#: using-d-i.xml:3356
 #, no-c-format
 msgid ""
 "You may be able to avoid the connection being dropped by adding the option "
@@ -5104,7 +4995,7 @@ msgstr ""
 "需要的时候采用。"
 
 #. Tag: para
-#: using-d-i.xml:3434
+#: using-d-i.xml:3369
 #, no-c-format
 msgid ""
 "If you install several computers in turn and they happen to have the same IP "
@@ -5126,7 +5017,7 @@ msgstr ""
 "footnote>，再重新来过。"
 
 #. Tag: para
-#: using-d-i.xml:3450
+#: using-d-i.xml:3385
 #, no-c-format
 msgid ""
 "After the login you will be presented with an initial screen where you have "
@@ -5143,7 +5034,7 @@ msgstr ""
 "的系统。在安装菜单只能打开一个 SSH 会话，但 shell 可以打开多个。"
 
 #. Tag: para
-#: using-d-i.xml:3460
+#: using-d-i.xml:3395
 #, no-c-format
 msgid ""
 "After you have started the installation remotely over SSH, you should not go "
@@ -5156,13 +5047,13 @@ msgstr ""
 "配置的数据库。结果可能导致安装失败或者安装完成的系统出现问题。"
 
 #. Tag: title
-#: using-d-i.xml:3479
+#: using-d-i.xml:3414
 #, no-c-format
 msgid "Loading Missing Firmware"
 msgstr "加载缺失的固件"
 
 #. Tag: para
-#: using-d-i.xml:3480
+#: using-d-i.xml:3415
 #, no-c-format
 msgid ""
 "As described in <xref linkend=\"hardware-firmware\"/>, some devices require "
@@ -5175,7 +5066,7 @@ msgstr ""
 "强功能就无法使用。"
 
 #. Tag: para
-#: using-d-i.xml:3488
+#: using-d-i.xml:3423
 #, no-c-format
 msgid ""
 "If a device driver requests firmware that is not available, &d-i; will "
@@ -5191,7 +5082,7 @@ msgstr ""
 "序模块。"
 
 #. Tag: para
-#: using-d-i.xml:3498
+#: using-d-i.xml:3433
 #, no-c-format
 msgid ""
 "Which devices are scanned and which file systems are supported depends on "
@@ -5207,7 +5098,7 @@ msgstr ""
 "phrase>"
 
 #. Tag: para
-#: using-d-i.xml:3508
+#: using-d-i.xml:3443
 #, no-c-format
 msgid ""
 "Note that it is possible to skip loading the firmware if you know the device "
@@ -5218,7 +5109,7 @@ msgstr ""
 "固件。"
 
 #. Tag: para
-#: using-d-i.xml:3514
+#: using-d-i.xml:3449
 #, no-c-format
 msgid ""
 "&d-i; only prompts for firmware needed by kernel modules loaded during the "
@@ -5232,13 +5123,13 @@ msgid ""
 msgstr ""
 
 #. Tag: title
-#: using-d-i.xml:3528
+#: using-d-i.xml:3463
 #, no-c-format
 msgid "Preparing a medium"
 msgstr "准备介质"
 
 #. Tag: para
-#: using-d-i.xml:3529
+#: using-d-i.xml:3464
 #, no-c-format
 msgid ""
 "Official CD images do not include non-free firmware. The most common method "
@@ -5258,7 +5149,7 @@ msgstr ""
 "下。推荐使用 FAT 文件系统，因为在安装过程的早期阶段它肯定能被支持。"
 
 #. Tag: para
-#: using-d-i.xml:3542
+#: using-d-i.xml:3477
 #, no-c-format
 msgid ""
 "Tarballs and zip files containing current packages for the most common "
@@ -5273,7 +5164,7 @@ msgstr ""
 "件系统里面。"
 
 #. Tag: para
-#: using-d-i.xml:3556
+#: using-d-i.xml:3491
 #, no-c-format
 msgid ""
 "If the firmware you need is not included in the tarball, you can also "
@@ -5286,7 +5177,7 @@ msgstr ""
 "件。以下概要列出大多数固件软件包，但不保证完整，有些还是非固件软件包："
 
 #. Tag: para
-#: using-d-i.xml:3570
+#: using-d-i.xml:3505
 #, no-c-format
 msgid ""
 "It is also possible to copy individual firmware files to the medium. Loose "
@@ -5297,13 +5188,13 @@ msgstr ""
 "造商那里获得。"
 
 #. Tag: title
-#: using-d-i.xml:3579
+#: using-d-i.xml:3514
 #, no-c-format
 msgid "Firmware and the Installed System"
 msgstr "固件和安装好的系统"
 
 #. Tag: para
-#: using-d-i.xml:3580
+#: using-d-i.xml:3515
 #, no-c-format
 msgid ""
 "Any firmware loaded during the installation will be copied automatically to "
@@ -5318,7 +5209,7 @@ msgstr ""
 "序不同的内核版本，有可能由于版本的偏差造成固件不能加载。"
 
 #. Tag: para
-#: using-d-i.xml:3589
+#: using-d-i.xml:3524
 #, no-c-format
 msgid ""
 "If the firmware was loaded from a firmware package, &d-i; will also install "
@@ -5332,7 +5223,7 @@ msgstr ""
 "做的优点在于如果有固件的新版本存在会自动更新。"
 
 #. Tag: para
-#: using-d-i.xml:3597
+#: using-d-i.xml:3532
 #, no-c-format
 msgid ""
 "If loading the firmware was skipped during the installation, the relevant "
@@ -5343,7 +5234,7 @@ msgstr ""
 "安装好固件或软件包。"
 
 #. Tag: para
-#: using-d-i.xml:3604
+#: using-d-i.xml:3539
 #, no-c-format
 msgid ""
 "If the firmware was loaded from loose firmware files, the firmware copied to "
@@ -5353,6 +5244,85 @@ msgid ""
 msgstr ""
 "如果固件从不严格的固件文件加载，复制到安装好的系统的固件将<emphasis>不会</"
 "emphasis>自动更新，除非对应的固件软件包(如果有的话)在系统安装之后安装。"
+
+#~ msgid "<command>arcboot</command>-installer"
+#~ msgstr "<command>arcboot</command>-installer"
+
+#~ msgid ""
+#~ "The boot loader on SGI machines is <command>arcboot</command>. It has to "
+#~ "be installed on the same hard disk as the kernel (this is done "
+#~ "automatically by the installer). Arcboot supports different "
+#~ "configurations which are set up in <filename>/etc/arcboot.conf</"
+#~ "filename>. Each configuration has a unique name, the default setup as "
+#~ "created by the installer is <quote>linux</quote>. After arcboot has been "
+#~ "installed, the system can be booted from hard disk by setting some "
+#~ "firmware environment variables entering <informalexample><screen>\n"
+#~ "<userinput> setenv SystemPartition scsi(<replaceable>scsi</"
+#~ "replaceable>)disk(<replaceable>disk</replaceable>)rdisk(0)partition(0)</"
+#~ "userinput>\n"
+#~ "<userinput> setenv OSLoadPartition scsi(<replaceable>scsi</"
+#~ "replaceable>)disk(<replaceable>disk</"
+#~ "replaceable>)rdisk(0)partition(<replaceable>partnr</replaceable>)</"
+#~ "userinput>\n"
+#~ "<userinput> setenv OSLoader arcboot</userinput>\n"
+#~ "<userinput> setenv OSLoadFilename <replaceable>config</replaceable></"
+#~ "userinput>\n"
+#~ "<userinput> setenv AutoLoad yes</userinput>\n"
+#~ "</screen></informalexample> on the firmware prompt, and then typing "
+#~ "<command>boot</command>."
+#~ msgstr ""
+#~ "SGI 机器上的 boot loader 是 <command>arcboot</command>。它必须被安装到与内"
+#~ "核相同的磁盘上(安装程序自动完成)。arcboot 可以支持不同的设置，它们的在 "
+#~ "<filename>/etc/arcboot.conf</filename> 里建立。每个设置有单独的名称，安装"
+#~ "程序创建的默认设置为 <quote>linux</quote>。arcboot 安装之后，系统可以从硬"
+#~ "盘启动，这需要固件提示时设置一些固件环境变量 <informalexample><screen>\n"
+#~ "<userinput> setenv SystemPartition scsi(<replaceable>scsi</"
+#~ "replaceable>)disk(<replaceable>disk</replaceable>)rdisk(0)partition(0)</"
+#~ "userinput>\n"
+#~ "<userinput> setenv OSLoadPartition scsi(<replaceable>scsi</"
+#~ "replaceable>)disk(<replaceable>disk</"
+#~ "replaceable>)rdisk(0)partition(<replaceable>partnr</replaceable>)</"
+#~ "userinput>\n"
+#~ "<userinput> setenv OSLoader arcboot</userinput>\n"
+#~ "<userinput> setenv OSLoadFilename <replaceable>config</replaceable></"
+#~ "userinput>\n"
+#~ "<userinput> setenv AutoLoad yes</userinput>\n"
+#~ "</screen></informalexample> ，然后键入 <command>boot</command>。"
+
+#~ msgid "scsi"
+#~ msgstr "scsi"
+
+#~ msgid ""
+#~ "is the SCSI bus to be booted from, this is <userinput>0</userinput> for "
+#~ "the onboard controllers"
+#~ msgstr "是启动的 SCSI 总线，<userinput>0</userinput> 为板载控制器"
+
+#~ msgid "disk"
+#~ msgstr "disk"
+
+#~ msgid ""
+#~ "is the SCSI ID of the hard disk on which <command>arcboot</command> is "
+#~ "installed"
+#~ msgstr "硬盘的 SCSI ID，<command>arcboot</command> 安装在其上"
+
+# index.docbook:1643, index.docbook:1712
+#~ msgid "partnr"
+#~ msgstr "partnr"
+
+#~ msgid ""
+#~ "is the number of the partition on which <filename>/etc/arcboot.conf</"
+#~ "filename> resides"
+#~ msgstr "分区号，<filename>/etc/arcboot.conf</filename> 处于该分区"
+
+#~ msgid "config"
+#~ msgstr "config"
+
+#~ msgid ""
+#~ "is the name of the configuration entry in <filename>/etc/arcboot.conf</"
+#~ "filename>, which is <quote>linux</quote> by default."
+#~ msgstr ""
+#~ "<filename>/etc/arcboot.conf</filename> 上设置的入口名，默认为 "
+#~ "<quote>linux</quote> 。"
 
 #~ msgid ""
 #~ "Support for MD is a relatively new addition to the installer. You may "
