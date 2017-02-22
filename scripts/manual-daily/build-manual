@@ -411,6 +411,28 @@ for lang in $translations; do
     fi
 done
 
+# Here we refresh po files for languages, that are outcommented in langlist 
+# and are therefore ignored by the whole process.
+# I want to keep that po files up-to-date (english-wise) nevertheless.
+   if is_updated en; then
+            echo "Info: updating PO files for disabled languages (nn, ro, tl)" >>$mainlog
+            echo "Info: updating PO files for nn" >$logdir/nn.log
+            update_po nn >>$logdir/nn.log 2>&1
+            checkfatal "$?" "updating po for nn"
+   fi
+
+   if is_updated en; then
+            echo "Info: updating PO files for ro" >$logdir/ro.log
+            update_po ro >>$logdir/ro.log 2>&1
+            checkfatal "$?" "updating po for ro"
+   fi
+
+   if is_updated en; then
+            echo "Info: updating PO files for tl" >$logdir/tl.log
+            update_po tl >>$logdir/tl.log 2>&1
+            checkfatal "$?" "updating po for tl"
+   fi
+
 echo >>$mainlog
 # Commit updates to POT and PO files to SVN
 if [ "$DI_LOCAL_BUILD" = 1 ]; then
