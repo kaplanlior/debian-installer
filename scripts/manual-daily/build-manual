@@ -419,37 +419,37 @@ done
             echo "Info: updating PO files for nn" >$logdir/nn.log
             update_po nn >>$logdir/nn.log 2>&1
             checkfatal "$?" "updating po for nn"
-   fi
    scp $logdir/nn.log alioth.debian.org:$ALIOTH_MAN_PATH/logs/
             if [ $? = 0 ]; then
                 echo "  Upload of nn.log success" >>$mainlog
             else
                 echo "  Upload of nn.log failed" >>$mainlog
             fi
+   fi
 
    if is_updated en; then
             echo "Info: updating PO files for ro" >$logdir/ro.log
             update_po ro >>$logdir/ro.log 2>&1
             checkfatal "$?" "updating po for ro"
-   fi
    scp $logdir/ro.log alioth.debian.org:$ALIOTH_MAN_PATH/logs/
             if [ $? = 0 ]; then
                 echo "  Upload of ro.log success" >>$mainlog
             else
                 echo "  Upload of ro.log failed" >>$mainlog
             fi
+   fi
 
    if is_updated en; then
             echo "Info: updating PO files for tl" >$logdir/tl.log
             update_po tl >>$logdir/tl.log 2>&1
             checkfatal "$?" "updating po for tl"
-   fi
    scp $logdir/tl.log alioth.debian.org:$ALIOTH_MAN_PATH/logs/
             if [ $? = 0 ]; then
                 echo "  Upload of tl.log success" >>$mainlog
             else
                 echo "  Upload of tl.log failed" >>$mainlog
             fi
+   fi
 
 echo >>$mainlog
 # Commit updates to POT and PO files to SVN
