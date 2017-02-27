@@ -1,0 +1,710 @@
+# Translation of the Debian installation-guide to German.
+#
+# Holger Wansing <linux@wansing-online.de>, 2017.
+msgid ""
+msgstr ""
+"Project-Id-Version: d-i-manual_installation-howto\n"
+"Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
+"POT-Creation-Date: 2015-05-25 11:27+0000\n"
+"PO-Revision-Date: 2017-02-27 00:39+0100\n"
+"Last-Translator: Holger Wansing <linux@wansing-online.de>\n"
+"Language-Team: German <debian-l10n-german@lists.debian.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.5\n"
+
+#. Tag: title
+#: installation-howto.xml:5
+#, no-c-format
+msgid "Installation Howto"
+msgstr "Installations-HowTo"
+
+#. Tag: para
+#: installation-howto.xml:7
+#, no-c-format
+msgid ""
+"This document describes how to install &debian-gnu; &releasename; for the "
+"&arch-title; (<quote>&architecture;</quote>) with the new &d-i;. It is a "
+"quick walkthrough of the installation process which should contain all the "
+"information you will need for most installs. When more information can be "
+"useful, we will link to more detailed explanations in other parts of this "
+"document."
+msgstr ""
+"Dieses Dokument beschreibt, wie man &debian-gnu; &releasename-cap; für &arch-"
+"title; (<quote>&architecture;</quote>) mit dem neuen &d-i; installiert. Es "
+"ist ein Schnelldurchmarsch durch den Installationsprozess, der für die "
+"meisten Installationen alle notwendigen Informationen enthalten sollte. "
+"Dort, wo mehr Infos nützlich sein könnten, werden wir auf detaillierte "
+"Anleitungen in anderen Teilen dieses Dokuments verweisen."
+
+#. Tag: title
+#: installation-howto.xml:19
+#, no-c-format
+msgid "Preliminaries"
+msgstr "Einleitung"
+
+#. Tag: para
+#: installation-howto.xml:20
+#, no-c-format
+msgid ""
+"<phrase condition=\"unofficial-build\"> The debian-installer is still in a "
+"beta state. </phrase> If you encounter bugs during your install, please "
+"refer to <xref linkend=\"submit-bug\"/> for instructions on how to report "
+"them. If you have questions which cannot be answered by this document, "
+"please direct them to the debian-boot mailing list (&email-debian-boot-"
+"list;) or ask on IRC (#debian-boot on the OFTC network)."
+msgstr ""
+"<phrase condition=\"unofficial-build\"> Der &debian;-Installer befindet sich "
+"noch im Entwicklungsstadium. </phrase> Falls Sie während der Installation "
+"auf Fehler stoßen, erhalten Sie im <xref linkend=\"submit-bug\"/> "
+"Instruktionen, wie Sie diese an uns melden. Falls Sie Fragen haben, die in "
+"diesem Dokument nicht beantwortet werden, richten Sie sie bitte an die "
+"Debian-Boot-Mailingliste (&email-debian-boot-list;) oder fragen Sie im IRC "
+"(#debian-boot im OFTC-Netzwerk) nach."
+
+#. Tag: title
+#: installation-howto.xml:36
+#, no-c-format
+msgid "Booting the installer"
+msgstr "Den Installer booten"
+
+#. Tag: para
+#: installation-howto.xml:37
+#, no-c-format
+msgid ""
+"<phrase condition=\"unofficial-build\"> For some quick links to CD images, "
+"check out the <ulink url=\"&url-d-i;\"> &d-i; home page</ulink>. </phrase> "
+"The debian-cd team provides builds of CD images using &d-i; on the <ulink "
+"url=\"&url-debian-cd;\">Debian CD page</ulink>. For more information on "
+"where to get CDs, see <xref linkend=\"official-cdrom\"/>."
+msgstr ""
+"<phrase condition=\"unofficial-build\"> Ein paar direkte Verweise zu den CD-"
+"Images finden Sie auf der <ulink url=\"&url-d-i;\"> &d-i;-Homepage</ulink>. "
+"</phrase> Das &debian;-CD-Team stellt Ausgaben der CD-Images, die den &d-i; "
+"nutzen, auf der <ulink url=\"&url-debian-cd;\">Debian GNU/Linux auf CD - "
+"Seite</ulink> zur Verfügung. Mehr Informationen, wo Sie die CDs bekommen, "
+"gibt es hier: <xref linkend=\"official-cdrom\"/>."
+
+#. Tag: para
+#: installation-howto.xml:47
+#, no-c-format
+msgid ""
+"Some installation methods require other images than CD images. <phrase "
+"condition=\"unofficial-build\"> The <ulink url=\"&url-d-i;\">&d-i; home "
+"page</ulink> has links to other images. </phrase> <xref linkend=\"where-files"
+"\"/> explains how to find images on &debian; mirrors."
+msgstr ""
+"Einige Installationsmethoden erfordern andere Images als die der CDs. "
+"<phrase condition=\"unofficial-build\"> Auf der <ulink url=\"&url-d-i;\">&d-"
+"i;-Homepage</ulink> gibt es Links zu anderen Images. </phrase> <xref linkend="
+"\"where-files\"/> gibt Infos, wo man Images auf den &debian;-Spiegel-Servern "
+"findet."
+
+#. Tag: para
+#: installation-howto.xml:57
+#, no-c-format
+msgid ""
+"The subsections below will give the details about which images you should "
+"get for each possible means of installation."
+msgstr ""
+"Die folgenden Abschnitte enthalten Details, welche Images Sie für die "
+"verschiedenen Installationsmethoden benötigen."
+
+#. Tag: title
+#: installation-howto.xml:65
+#, no-c-format
+msgid "CDROM"
+msgstr "CD-ROM"
+
+#. Tag: para
+#: installation-howto.xml:67
+#, no-c-format
+msgid ""
+"The netinst CD image is a popular image which can be used to install "
+"&releasename; with the &d-i;. This image is intended to boot from CD and "
+"install additional packages over a network; hence the name 'netinst'. The "
+"image has the software components needed to run the installer and the base "
+"packages to provide a minimal &releasename; system. If you'd rather, you can "
+"get a full size CD image which will not need the network to install. You "
+"only need the first CD of the set."
+msgstr ""
+"Das Netinst-CD-Image ist ein beliebtes Image, mit dem &releasename-cap; "
+"mittels dem &d-i; installiert werden kann. Dieses Image wird von CD gebootet "
+"und installiert zusätzliche Pakete über das Netzwerk, daher auch der Name "
+"<quote>netinst</quote> (Netzwerkinstallation). Es enthält die Komponenten, "
+"die zum Betrieb des Installers nötig sind, sowie die Basispakete, um ein "
+"minimales &releasename-cap;-System bereitzustellen. Wenn Sie möchten, können "
+"Sie auch ein Komplett-CD-Image bekommen, das für die Installation überhaupt "
+"kein Netzwerk benötigt. Sie benötigen nur die erste CD aus dem Satz."
+
+#. Tag: para
+#: installation-howto.xml:77
+#, no-c-format
+msgid ""
+"Download whichever type you prefer and burn it to a CD. <phrase arch=\"any-"
+"x86\">To boot the CD, you may need to change your BIOS configuration, as "
+"explained in <xref linkend=\"bios-setup\"/>.</phrase> <phrase arch=\"powerpc"
+"\"> To boot a PowerMac from CD, press the <keycap>c</keycap> key while "
+"booting. See <xref linkend=\"boot-cd\"/> for other ways to boot from CD. </"
+"phrase>"
+msgstr ""
+"Laden Sie das Image herunter, das Sie bevorzugen, und brennen Sie es auf CD. "
+"<phrase arch=\"any-x86\">Um von CD zu booten, müssen Sie unter Umständen die "
+"BIOS-Einstellungen ändern, wie in <xref linkend=\"bios-setup\"/> beschrieben."
+"</phrase> <phrase arch=\"powerpc\">Um einen PowerMac von CD zu starten, "
+"drücken Sie während des Boot-Vorgangs die Taste <keycap>c</keycap>. Lesen "
+"Sie <xref linkend=\"boot-cd\"/>, um Infos zu erhalten, wie Sie sonst noch "
+"von CD booten können.</phrase>"
+
+#. Tag: title
+#: installation-howto.xml:91
+#, no-c-format
+msgid "Floppy"
+msgstr "Disketten"
+
+#. Tag: para
+#: installation-howto.xml:92
+#, no-c-format
+msgid ""
+"If you can't boot from CD, you can download floppy images to install "
+"&debian;. You need the <filename>floppy/boot.img</filename>, the "
+"<filename>floppy/root.img</filename> and one or more of the driver disks."
+msgstr ""
+"Wenn Sie nicht von CD starten können, haben Sie die Möglichkeit, sich Images "
+"für Floppy-Disks herunterzuladen, um &debian; zu installieren. Sie benötigen "
+"<filename>floppy/boot.img</filename>, <filename>floppy/root.img</filename> "
+"und eine oder mehrere der Treiber-Disketten-Images."
+
+#. Tag: para
+#: installation-howto.xml:98
+#, no-c-format
+msgid ""
+"The boot floppy is the one with <filename>boot.img</filename> on it. This "
+"floppy, when booted, will prompt you to insert a second floppy &mdash; use "
+"the one with <filename>root.img</filename> on it."
+msgstr ""
+"Die Boot-Floppy ist die, die <filename>boot.img</filename> enthält. Wenn Sie "
+"gebootet ist, werden Sie aufgefordert, eine zweite Diskette einzulegen "
+"&ndash; nehmen Sie die Root-Floppy, die <filename>root.img</filename> "
+"enthält."
+
+#. Tag: para
+#: installation-howto.xml:104
+#, no-c-format
+msgid ""
+"If you're planning to install over the network, you will usually need the "
+"<filename>floppy/net-drivers-1.img</filename>. For PCMCIA or USB networking, "
+"and some less common network cards, you will also need a second driver "
+"floppy, <filename>floppy/net-drivers-2.img</filename>."
+msgstr ""
+"Wenn Sie vorhaben, per Netzwerk zu installieren, werden Sie normalerweise "
+"die Diskette mit <filename>floppy/net-drivers-1.img</filename> benötigen. "
+"Für PCMCIA oder USB und einige weniger verbreitete Netzwerkkarten benötigen "
+"Sie zusätzlich noch eine zweite Treiberdiskette, <filename>floppy/net-"
+"drivers-2.img</filename>."
+
+#. Tag: para
+#: installation-howto.xml:111
+#, no-c-format
+msgid ""
+"If you have a CD, but cannot boot from it, then boot from floppies and use "
+"<filename>floppy/cd-drivers.img</filename> on a driver disk to complete the "
+"install using the CD."
+msgstr ""
+"Wenn Sie ein CD-Laufwerk haben, jedoch nicht davon booten können, so starten "
+"Sie von Diskette und benutzen dann die <filename>floppy/cd-drivers.img</"
+"filename> auf einer der Treiberdisketten, um die Installation von CD zu "
+"fortzusetzen."
+
+#. Tag: para
+#: installation-howto.xml:117
+#, no-c-format
+msgid ""
+"Floppy disks are one of the least reliable media around, so be prepared for "
+"lots of bad disks (see <xref linkend=\"unreliable-floppies\"/>). Each "
+"<filename>.img</filename> file you downloaded goes on a single floppy; you "
+"can use the dd command to write it to /dev/fd0 or some other means (see "
+"<xref linkend=\"create-floppy\"/> for details). Since you'll have more than "
+"one floppy, it's a good idea to label them."
+msgstr ""
+"Disketten sind mit die unzuverlässigsten Medien überhaupt, also seien Sie "
+"auf viele nicht funktionierende Disketten vorbereitet (lesen Sie auch <xref "
+"linkend=\"unreliable-floppies\"/>). Jede <filename>.img</filename>-Datei "
+"passt auf eine einzelne Diskette; Sie können den <command>dd</command>-"
+"Befehl verwenden, um sie nach /dev/fd0 zu kopieren; andere Methoden werden "
+"im <xref linkend=\"create-floppy\"/> beschrieben. Da Sie mehr als eine "
+"Floppy haben werden, ist es eine gute Idee, sie zu beschriften."
+
+#. Tag: title
+#: installation-howto.xml:130
+#, no-c-format
+msgid "USB memory stick"
+msgstr "USB-Memory-Stick"
+
+#. Tag: para
+#: installation-howto.xml:131
+#, no-c-format
+msgid ""
+"It's also possible to install from removable USB storage devices. For "
+"example a USB keychain can make a handy &debian; install medium that you can "
+"take with you anywhere."
+msgstr ""
+"Es ist ebenfalls möglich, von austauschbaren USB-Speichern zu installieren. "
+"Zum Beispiel kann ein USB-Schlüsselanhänger ein handliches &debian;-"
+"Installationsmedium sein, das man leicht überall mit hinnehmen kann."
+
+#. Tag: para
+#: installation-howto.xml:137
+#, no-c-format
+msgid ""
+"The easiest way to prepare your USB memory stick is to download any Debian "
+"CD or DVD image that will fit on it, and write the CD image directly to the "
+"memory stick. Of course this will destroy anything already on the memory "
+"stick. This works because Debian CD images are \"isohybrid\" images that can "
+"boot both from CD and from USB drives."
+msgstr ""
+"Der einfachste Weg, um den USB-Memory-Stick für die Installation "
+"vorzubereiten ist, irgendein Debian-CD- oder -DVD-Image herunterzuladen, "
+"dass auf den Stick passt, und es direkt auf den Memory-Stick zu schreiben. "
+"Hierdurch wird natürlich alles andere auf dem Stick gelöscht! Dies "
+"funktioniert deshalb, weil die Debian-Images »isohybrid«-Images sind, die "
+"sowohl von CD-/DVD- als auch von USB-Laufwerken booten können."
+
+#. Tag: para
+#: installation-howto.xml:145
+#, no-c-format
+msgid ""
+"The easiest way to prepare your USB memory stick is to download <filename>hd-"
+"media/boot.img.gz</filename>, and use gunzip to extract the 1 GB image from "
+"that file. Write this image directly to your memory stick, which must be at "
+"least 1 GB in size. Of course this will destroy anything already on the "
+"memory stick. Then mount the memory stick, which will now have a FAT "
+"filesystem on it. Next, download a &debian; netinst CD image, and copy that "
+"file to the memory stick; any filename is ok as long as it ends in <literal>."
+"iso</literal>."
+msgstr ""
+"Der einfachste Weg, um den USB-Memory-Stick für die Installation "
+"vorzubereiten, ist, die <filename>hd-media/boot.img.gz</filename>-Datei "
+"herunterzuladen und daraus mittels <command>gunzip</command> das 1 GB große "
+"Image zu extrahieren. Kopieren Sie dieses Image direkt auf Ihren Memory-"
+"Stick, der natürlich mindestens 1 GB groß sein muss. Hierdurch wird alles "
+"andere auf dem Memory-Stick gelöscht! Hängen Sie dann den Memory-Stick ins "
+"Dateisystem ein, der jetzt ein FAT-Dateisystem enthält. Laden Sie als "
+"nächstes ein &debian; Netinst-CD-Image herunter und kopieren Sie es auf den "
+"Memory-Stick; als Dateiname ist alles ok, solange es auf <literal>.iso</"
+"literal> endet."
+
+#. Tag: para
+#: installation-howto.xml:156
+#, no-c-format
+msgid ""
+"There are other, more flexible ways to set up a memory stick to use the "
+"debian-installer, and it's possible to get it to work with smaller memory "
+"sticks. For details, see <xref linkend=\"boot-usb-files\"/>."
+msgstr ""
+"Es gibt andere, flexiblere Wege, um einen Memory-Stick für die Nutzung des "
+"&debian;-Installers einzurichten und es ist auch möglich, es mit kleineren "
+"Speicher-Sticks hinzubekommen. Details finden Sie im <xref linkend=\"boot-"
+"usb-files\"/>."
+
+#. Tag: para
+#: installation-howto.xml:162
+#, no-c-format
+msgid ""
+"Some BIOSes can boot USB storage directly, and some cannot. You may need to "
+"configure your BIOS to boot from a <quote>removable drive</quote> or even a "
+"<quote>USB-ZIP</quote> to get it to boot from the USB device. For helpful "
+"hints and details, see <xref linkend=\"usb-boot\"/>."
+msgstr ""
+"Bei einigen Systemen kann das BIOS direkt vom USB-Speicher starten, bei "
+"anderen nicht. Eventuell müssen Sie das BIOS konfigurieren, von einem "
+"<quote>removable drive</quote> (Wechseldatenträger) oder sogar von einem "
+"<quote>USB-ZIP</quote> zu booten, um zu erreichen, dass es den Speicher-"
+"Stick als Boot-Medium nutzt. Hilfreiche Tipps und Details gibt es im <xref "
+"linkend=\"usb-boot\"/>."
+
+#. Tag: para
+#: installation-howto.xml:169
+#, no-c-format
+msgid ""
+"Booting Macintosh systems from USB storage devices involves manual use of "
+"Open Firmware. For directions, see <xref linkend=\"usb-boot\"/>."
+msgstr ""
+"Macintosh-Systeme von einem USB-Speicher zu booten erfordert manuellen "
+"Eingriff in OpenFirmware. Genaue Anweisungen finden Sie in <xref linkend="
+"\"usb-boot\"/>."
+
+#. Tag: title
+#: installation-howto.xml:178
+#, no-c-format
+msgid "Booting from network"
+msgstr "Über das Netzwerk booten"
+
+#. Tag: para
+#: installation-howto.xml:179
+#, no-c-format
+msgid ""
+"It's also possible to boot &d-i; completely from the net. The various "
+"methods to netboot depend on your architecture and netboot setup. The files "
+"in <filename>netboot/</filename> can be used to netboot &d-i;."
+msgstr ""
+"Es ist ebenfalls möglich, den &d-i; komplett über das Netzwerk zu starten. "
+"Die verschiedenen Varianten des Bootens per Netzwerk sind abhängig von der "
+"Architektur und den Netzwerk-Boot-Einstellungen. Sie können die Dateien "
+"unter <filename>netboot/</filename> nutzen, um den &d-i; per Netzwerk zu "
+"starten."
+
+#. Tag: para
+#: installation-howto.xml:185
+#, no-c-format
+msgid ""
+"The easiest thing to set up is probably PXE netbooting. Untar the file "
+"<filename>netboot/pxeboot.tar.gz</filename> into <filename>/srv/tftp</"
+"filename> or wherever is appropriate for your tftp server. Set up your DHCP "
+"server to pass filename <filename>pxelinux.0</filename> to clients, and with "
+"luck everything will just work. For detailed instructions, see <xref linkend="
+"\"install-tftp\"/>."
+msgstr ""
+"Am einfachsten einzurichten ist wahrscheinlich PXE-Netzwerk-Boot. Entpacken "
+"Sie mittels <command>untar</command> die Datei <filename>netboot/pxeboot.tar."
+"gz</filename> nach <filename>/srv/tftp</filename> oder wo auch immer Ihr "
+"TFTP-Server sie benötigt. Richten Sie Ihren DHCP-Server so ein, dass er die "
+"Datei <filename>pxelinux.0</filename> an die Clients weiterleitet, und mit "
+"ein bisschen Glück funktioniert es dann. Detaillierte Informationen finden "
+"Sie im <xref linkend=\"install-tftp\"/>."
+
+#. Tag: title
+#: installation-howto.xml:199
+#, no-c-format
+msgid "Booting from hard disk"
+msgstr "Von Festplatte starten"
+
+#. Tag: para
+#: installation-howto.xml:200
+#, no-c-format
+msgid ""
+"It's possible to boot the installer using no removable media, but just an "
+"existing hard disk, which can have a different OS on it. Download "
+"<filename>hd-media/initrd.gz</filename>, <filename>hd-media/vmlinuz</"
+"filename>, and a &debian; CD image to the top-level directory of the hard "
+"disk. Make sure that the CD image has a filename ending in <literal>.iso</"
+"literal>. Now it's just a matter of booting linux with the initrd. <phrase "
+"arch=\"x86\"> <xref linkend=\"boot-initrd\"/> explains one way to do it. </"
+"phrase>"
+msgstr ""
+"Es ist ebenfalls möglich, den Installer zu starten, indem Sie kein "
+"Wechselmedium nutzen, sondern einfach eine vorhandene Festplatte, die sogar "
+"ein anderes Betriebssystem enthalten kann. Laden Sie <filename>hd-media/"
+"initrd.gz</filename>, <filename>hd-media/vmlinuz</filename> und ein &debian;-"
+"CD-Image in das Wurzelverzeichnis der Festplatte. Stellen Sie sicher, dass "
+"der Dateiname des CD-Images auf <literal>.iso</literal> endet. Jetzt ist es "
+"lediglich erforderlich, Linux mit der initrd zu starten. <phrase arch="
+"\"x86\"> <xref linkend=\"boot-initrd\"/> beschreibt einen Weg, wie dies "
+"funktioniert. </phrase>"
+
+#. Tag: title
+#: installation-howto.xml:217
+#, no-c-format
+msgid "Installation"
+msgstr "Installation"
+
+#. Tag: para
+#: installation-howto.xml:218
+#, no-c-format
+msgid ""
+"Once the installer starts, you will be greeted with an initial screen. Press "
+"&enterkey; to boot, or read the instructions for other boot methods and "
+"parameters (see <xref linkend=\"boot-parms\"/>)."
+msgstr ""
+"Sobald der Installer startet, werden Sie mit einem Startbildschirm begrüßt. "
+"Drücken Sie &enterkey;, um zu starten oder lesen Sie die Instruktionen über "
+"andere Boot-Methoden und Parameter (siehe <xref linkend=\"boot-parms\"/>)."
+
+#. Tag: para
+#: installation-howto.xml:224
+#, no-c-format
+msgid ""
+"After a while you will be asked to select your language. Use the arrow keys "
+"to pick a language and press &enterkey; to continue. Next you'll be asked to "
+"select your country, with the choices including countries where your "
+"language is spoken. If it's not on the short list, a list of all the "
+"countries in the world is available."
+msgstr ""
+"Nach einer Weile werden Sie aufgefordert, Ihre Sprache auszuwählen. Nutzen "
+"Sie die Pfeiltasten, um eine Sprache auszuwählen, und drücken Sie "
+"&enterkey;, um fortzufahren. Als nächstes müssen Sie Ihr Land auswählen, "
+"wobei die Auswahl die Länder enthält, in denen Ihre Sprache gesprochen wird. "
+"Wenn Ihr Land in dieser kurzen Liste nicht auftaucht, gibt es auch eine "
+"Liste mit allen Ländern der Erde."
+
+#. Tag: para
+#: installation-howto.xml:232
+#, no-c-format
+msgid ""
+"You may be asked to confirm your keyboard layout. Choose the default unless "
+"you know better."
+msgstr ""
+"Unter Umständen werden Sie aufgefordert, Ihr Tastaturlayout zu bestätigen. "
+"Wenn Sie es nicht besser wissen, wählen Sie die Voreinstellung."
+
+#. Tag: para
+#: installation-howto.xml:237
+#, no-c-format
+msgid ""
+"Now sit back while debian-installer detects some of your hardware, and loads "
+"the rest of itself from CD, floppy, USB, etc."
+msgstr ""
+"Lehnen Sie sich zurück, während der &debian;-Installer jetzt die Hardware-"
+"Erkennung durchführt und sich selbst von CD, Floppy, USB o.ä. in den "
+"Speicher lädt."
+
+#. Tag: para
+#: installation-howto.xml:242
+#, no-c-format
+msgid ""
+"Next the installer will try to detect your network hardware and set up "
+"networking by DHCP. If you are not on a network or do not have DHCP, you "
+"will be given the opportunity to configure the network manually."
+msgstr ""
+"Als nächstes versucht der Installer, Ihre Netzwerkkarte zu erkennen und die "
+"Netzwerkeinstellungen per DHCP einzurichten. Falls Ihr Rechner sich nicht in "
+"einem Netzwerk befindet oder Sie kein DHCP haben, haben Sie die Möglichkeit, "
+"das Netzwerk manuell zu konfigurieren."
+
+#. Tag: para
+#: installation-howto.xml:248
+#, no-c-format
+msgid ""
+"The next step is setting up your clock and time zone. The installer will try "
+"to contact a time server on the Internet to ensure the clock is set "
+"correctly. The time zone is based on the country selected earlier and the "
+"installer will only ask to select one if a country has multiple zones."
+msgstr ""
+"In den nächsten Schritten werden Ihre Zeitzone und die Uhr eingestellt. Der "
+"Installer wird versuchen, einen Zeit-Server im Internet zu kontaktieren, um "
+"sicherzustellen, dass die Uhr korrekt gestellt ist. Die Einstellung für die "
+"Zeitzone basiert auf dem vorher ausgewählten Land; der Installer wird Sie "
+"lediglich dann auffordern, eine Zone auszuwählen, wenn ein Land mehrere "
+"Zeitzonen hat."
+
+#. Tag: para
+#: installation-howto.xml:255
+#, no-c-format
+msgid ""
+"Setting up your clock and time zone is followed by the creation of user "
+"accounts. By default you are asked to provide a password for the "
+"<quote>root</quote> (administrator) account and information necessary to "
+"create one regular user account. If you do not specify a password for the "
+"<quote>root</quote> user this account will be disabled but the "
+"<command>sudo</command> package will be installed later to enable "
+"administrative tasks to be carried out on the new system."
+msgstr ""
+"Nach der Einstellung von Uhr und Zeitzone folgt die Einrichtung der "
+"Benutzerzugänge. Standardmäßig müssen Sie ein Passwort für den <quote>root</"
+"quote>-Zugang (Administrator) angeben sowie Informationen zur Erstellung "
+"eines regulären Benutzers. Wenn Sie kein Passwort für den <quote>root</"
+"quote>-Benutzer festlegen, führt das zur Deaktivierung dieses Kontos, aber "
+"später wird das <command>sudo</command>-Paket installiert, damit "
+"administrative Aufgaben auf dem neuen System durchgeführt werden können."
+
+#. Tag: para
+#: installation-howto.xml:264
+#, no-c-format
+msgid ""
+"Now it is time to partition your disks. First you will be given the "
+"opportunity to automatically partition either an entire drive, or available "
+"free space on a drive (see <xref linkend=\"partman-auto\"/>). This is "
+"recommended for new users or anyone in a hurry. If you do not want to "
+"autopartition, choose <guimenuitem>Manual</guimenuitem> from the menu."
+msgstr ""
+"Jetzt ist die Zeit gekommen, Ihre Festplatten zu partitionieren. Als erstes "
+"haben Sie die Gelegenheit, automatisch entweder eine ganze Festplatte oder "
+"verfügbaren freien Speicher auf einer Platte zu partitionieren (siehe <xref "
+"linkend=\"partman-auto\"/>). Dies wird empfohlen für neue Benutzer oder "
+"alle, die es eilig haben. Wenn Sie keine automatische Partitionierung "
+"wünschen, wählen Sie im Menü <guimenuitem>Manuell</guimenuitem>."
+
+#. Tag: para
+#: installation-howto.xml:272
+#, no-c-format
+msgid ""
+"If you have an existing DOS or Windows partition that you want to preserve, "
+"be very careful with automatic partitioning. If you choose manual "
+"partitioning, you can use the installer to resize existing FAT or NTFS "
+"partitions to create room for the &debian; install: simply select the "
+"partition and specify its new size."
+msgstr ""
+"Wenn Sie eine vorhandene DOS- oder Windows-Partition auf dem Rechner haben "
+"und diese auch behalten möchten, seien Sie mit der automatischen "
+"Partitionierung vorsichtig. Sie können stattdessen die manuelle "
+"Partitionierung des Installers benutzen, um FAT- oder NTFS-Partitionen zu "
+"verkleinern und so Platz für die &debian;-Installation zu schaffen; wählen "
+"Sie einfach die entsprechende Partition aus und geben Sie die neue Größe an."
+
+#. Tag: para
+#: installation-howto.xml:279
+#, no-c-format
+msgid ""
+"On the next screen you will see your partition table, how the partitions "
+"will be formatted, and where they will be mounted. Select a partition to "
+"modify or delete it. If you did automatic partitioning, you should just be "
+"able to choose <guimenuitem>Finish partitioning and write changes to disk</"
+"guimenuitem> from the menu to use what it set up. Remember to assign at "
+"least one partition for swap space and to mount a partition on <filename>/</"
+"filename>. For more detailed information on how to use the partitioner, "
+"please refer to <xref linkend=\"di-partition\"/>; the appendix <xref linkend="
+"\"partitioning\"/> has more general information about partitioning."
+msgstr ""
+"Im nächsten Bild sehen Sie Ihre Partitionstabelle, wie die Partitionen "
+"formatiert werden und wo Sie im Dateisystem eingebunden werden. Um eine "
+"Partition zu verändern oder zu löschen, markieren Sie sie. Wenn Sie vorher "
+"automatische Partitionierung gewählt haben, können Sie lediglich "
+"<guimenuitem>Partitionierung beenden und Änderungen übernehmen</guimenuitem> "
+"im Menü wählen, um die Einstellungen so zu nutzen, wie sie erstellt wurden. "
+"Denken Sie daran, zumindest eine Partition als Swap (um Arbeitsspeicher "
+"auszulagern) und eine als <filename>/</filename> einzurichten und "
+"einzubinden. Weitergehende Informationen, wie Sie das "
+"Partitionierungsprogramm benutzen, finden Sie in <xref linkend=\"di-partition"
+"\"/>; <xref linkend=\"partitioning\"/> enthält grundsätzliche Infos über das "
+"Thema Partitionierung."
+
+#. Tag: para
+#: installation-howto.xml:292
+#, no-c-format
+msgid ""
+"Now &d-i; formats your partitions and starts to install the base system, "
+"which can take a while. That is followed by installing a kernel."
+msgstr ""
+"Jetzt formatiert der &d-i; Ihre Partitionen und beginnt dann mit der "
+"Installation des Basissystems, was eine Weile dauern kann. Danach wird der "
+"Kernel installiert."
+
+#. Tag: para
+#: installation-howto.xml:297
+#, no-c-format
+msgid ""
+"The base system that was installed earlier is a working, but very minimal "
+"installation. To make the system more functional the next step allows you to "
+"install additional packages by selecting tasks. Before packages can be "
+"installed <classname>apt</classname> needs to be configured as that defines "
+"from where the packages will be retrieved. The <quote>Standard system</"
+"quote> task will be selected by default and should normally be installed. "
+"Select the <quote>Desktop environment</quote> task if you would like to have "
+"a graphical desktop after the installation. See <xref linkend=\"pkgsel\"/> "
+"for additional information about this step."
+msgstr ""
+"Das Basissystem, das gerade installiert wurde, ist ein funktionsfähiges, "
+"wenn auch sehr minimalistisches System. Um es funktioneller zu machen, "
+"erlaubt Ihnen der nächste Schritt, zusätzliche Pakete zu installieren, indem "
+"Sie verschiedene Programmgruppen auswählen. Bevor Pakete installiert werden "
+"können, muss <classname>apt</classname> installiert werden; dabei wird "
+"festgelegt, woher die Pakete empfangen werden. Die Programmgruppe "
+"<quote>Standard-System</quote> ist standardmäßig bereits ausgewählt und "
+"sollte normalerweise immer installiert werden. Wählen Sie "
+"<quote>Arbeitsplatzrechner</quote>, wenn Sie nach der Installation eine "
+"grafische Desktopumgebung haben möchten. <xref linkend=\"pkgsel\"/> enthält "
+"weitere Informationen über diesen Schritt."
+
+#. Tag: para
+#: installation-howto.xml:309
+#, no-c-format
+msgid ""
+"The last step is to install a boot loader. If the installer detects other "
+"operating systems on your computer, it will add them to the boot menu and "
+"let you know. <phrase arch=\"any-x86\">By default GRUB will be installed to "
+"the master boot record of the first harddrive, which is generally a good "
+"choice. You'll be given the opportunity to override that choice and install "
+"it elsewhere. </phrase>"
+msgstr ""
+"Der letzte Schritt ist die Installation des Bootloaders. Wenn der Installer "
+"ein anderes Betriebssystem auf Ihrem Rechner erkennt, wird es zum Boot-Menü "
+"hinzugefügt und Sie werden darüber informiert. <phrase arch=\"any-"
+"x86\">Standardmäßig wird der Bootloader GRUB in den Master-Boot-Record der "
+"ersten Festplatte installiert, was meistens eine gute Wahl ist. Sie haben "
+"aber die Möglichkeit, diese Auswahl zu überschreiben und ihn anderswo zu "
+"installieren. </phrase>"
+
+#. Tag: para
+#: installation-howto.xml:319
+#, no-c-format
+msgid ""
+"&d-i; will now tell you that the installation has finished. Remove the cdrom "
+"or other boot media and hit &enterkey; to reboot your machine. It should "
+"boot up into the newly installed system and allow you to log in. This is "
+"explained in <xref linkend=\"boot-new\"/>."
+msgstr ""
+"Jetzt wird der &d-i; Ihnen mitteilen, dass die Installation abgeschlossen "
+"ist. Entfernen Sie die CD-ROM oder das jeweilige Boot-Medium und drücken Sie "
+"&enterkey;, um den Rechner neu zu booten. Das neu installierte System sollte "
+"jetzt starten und Sie können sich einloggen. Dies ist in <xref linkend="
+"\"boot-new\"/> beschrieben."
+
+#. Tag: para
+#: installation-howto.xml:326
+#, no-c-format
+msgid ""
+"If you need more information on the install process, see <xref linkend=\"d-i-"
+"intro\"/>."
+msgstr ""
+"Benötigen Sie weitere Informationen über den Installationsprozess, lesen Sie "
+"<xref linkend=\"d-i-intro\"/>."
+
+#. Tag: title
+#: installation-howto.xml:335
+#, no-c-format
+msgid "Send us an installation report"
+msgstr "Schicken Sie uns einen Installationsbericht"
+
+#. Tag: para
+#: installation-howto.xml:336
+#, no-c-format
+msgid ""
+"If you successfully managed an installation with &d-i;, please take time to "
+"provide us with a report. The simplest way to do so is to install the "
+"reportbug package (<command>apt install reportbug</command>), configure "
+"<classname>reportbug</classname> as explained in <xref linkend=\"mail-"
+"outgoing\"/>, and run <command>reportbug installation-reports</command>."
+msgstr ""
+"Wenn Ihre Installation mit dem &d-i; erfogreich war, nehmen Sie sich bitte "
+"die Zeit, uns einen Bericht zu schicken. Am Einfachsten ist es, das Paket "
+"reportbug zu installieren (mit <command>apt install reportbug</command>), es "
+"wie in <xref linkend=\"mail-outgoing\"/> beschrieben zu konfigurieren und "
+"dann <command>reportbug installation-reports</command> auszuführen."
+
+#. Tag: para
+#: installation-howto.xml:346
+#, no-c-format
+msgid ""
+"If you did not complete the install, you probably found a bug in debian-"
+"installer. To improve the installer it is necessary that we know about them, "
+"so please take the time to report them. You can use an installation report "
+"to report problems; if the install completely fails, see <xref linkend="
+"\"problem-report\"/>."
+msgstr ""
+"Falls Sie die Installation nicht abschließen konnten, haben Sie "
+"möglicherweise einen Fehler im &debian;-Installer gefunden. Um den Installer "
+"zu verbessern, müssen wir davon erfahren; also nehmen Sie sich bitte die "
+"Zeit, uns Fehler mitzuteilen. Sie können die Vorlage des "
+"Installationsberichts dafür benutzen; wenn die Installation komplett "
+"fehlschlug, lesen Sie <xref linkend=\"problem-report\"/>."
+
+#. Tag: title
+#: installation-howto.xml:358
+#, no-c-format
+msgid "And finally&hellip;"
+msgstr "Zu guter Letzt &hellip;"
+
+#. Tag: para
+#: installation-howto.xml:359
+#, no-c-format
+msgid ""
+"We hope that your &debian; installation is pleasant and that you find "
+"&debian; useful. You might want to read <xref linkend=\"post-install\"/>."
+msgstr ""
+"Wir hoffen, dass Ihre &debian;-Installation angenehm verlief und dass Sie "
+"&debian; nützlich finden. Vielleicht möchten Sie noch <xref linkend=\"post-"
+"install\"/> lesen."
+
