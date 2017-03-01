@@ -6,12 +6,8 @@ different languages and in different document types.
 The currently supported document types are:
 - html
 - pdf
-- ps
+- ps  (currently not enabled)
 - txt
-
-Note: Building pdf and ps versions of the manual is not supported for some
-      languages. Reason is that we have not yet figured out how to use the
-      required fonts in the build process.
 
 
 1. Requirements:
@@ -20,16 +16,16 @@ Note: Building pdf and ps versions of the manual is not supported for some
 The build dependencies depend on which document types you wish to generate:
 all     : dpkg-dev, docbook, docbook-xml, docbook-xsl, xsltproc, poxml
 html    : (no additional packages required)
-pdf, ps : openjade, jadetex, docbook-dsssl
-pdf     : ghostscript
+ps      : openjade, jadetex, docbook-dsssl
+pdf     : docbook-dsssl, ghostscript, dblatex
 txt     : w3m
 
 For some languages additional packages are needed to build pdf:
-ko      : latex-hangul-ucs-hlatex
+ko      : fonts-wqy-microhei
 ru      : cm-super (type1 fonts)
+zh      : fonts-wqy-microhei
+ja      : fonts-vlgothic
 
-Note: It's not possible to build the documentation on Woody as packages are
-      required that are not available for Woody.
 Note: jadetex depends on tetex-bin which unfortunately depends on some X libs,
       so installing jadetex will pull in a basic X installation.
       There are several open bugs about this (the oldest over 3 years old, but
@@ -83,6 +79,10 @@ style-print.dsl: Parameters for dvi transformation.
 
 style-fo.xsl: FO-specific parameters for xsl transformation.
     (currently unused)
+
+install.css: cascading stylesheet.
+
+dblatex.xsl: set fonts used for building pdf.
 
 In ./arch-options
 -----------------
