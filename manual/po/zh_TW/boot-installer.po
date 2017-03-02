@@ -304,7 +304,7 @@ msgstr ""
 #: boot-installer.xml:204
 #, no-c-format
 msgid "saveenv"
-msgstr ""
+msgstr "saveenv"
 
 #. Tag: para
 #: boot-installer.xml:206
@@ -340,6 +340,9 @@ msgid ""
 "setenv fdt_addr_r 0x47000000\n"
 "setenv ramdisk_addr_r 0x48000000"
 msgstr ""
+"setenv kernel_addr_r 0x46000000\n"
+"setenv fdt_addr_r 0x47000000\n"
+"setenv ramdisk_addr_r 0x48000000"
 
 #. Tag: para
 #: boot-installer.xml:227
@@ -381,7 +384,7 @@ msgstr ""
 #: boot-installer.xml:245
 #, no-c-format
 msgid "bootz ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}"
-msgstr ""
+msgstr "bootz ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}"
 
 #. Tag: para
 #: boot-installer.xml:247
@@ -864,7 +867,7 @@ msgstr ""
 
 #. Tag: screen
 #: boot-installer.xml:732
-#, fuzzy, no-c-format
+#, no-c-format
 msgid ""
 "image=/boot/newinstall/vmlinuz\n"
 "       label=newinstall\n"
@@ -872,10 +875,7 @@ msgid ""
 msgstr ""
 "image=/boot/newinstall/vmlinuz\n"
 "       label=newinstall\n"
-"       initrd=/boot/newinstall/initrd.gz\n"
-"       root=/dev/ram0\n"
-"       append=\"<phrase condition=\"sarge\">devfs=mount,dall </"
-"phrase>ramdisk_size=12000\""
+"       initrd=/boot/newinstall/initrd.gz"
 
 #. Tag: para
 #: boot-installer.xml:732
@@ -914,19 +914,17 @@ msgstr ""
 
 #. Tag: screen
 #: boot-installer.xml:749
-#, fuzzy, no-c-format
+#, no-c-format
 msgid ""
 "title  New Install\n"
 "root   (hd0,0)\n"
 "kernel /boot/newinstall/vmlinuz\n"
 "initrd /boot/newinstall/initrd.gz"
 msgstr ""
-"image=/boot/newinstall/vmlinuz\n"
-"       label=newinstall\n"
-"       initrd=/boot/newinstall/initrd.gz\n"
-"       root=/dev/ram0\n"
-"       append=\"<phrase condition=\"sarge\">devfs=mount,dall </"
-"phrase>ramdisk_size=12000\""
+"title  New Install\n"
+"root   (hd0,0)\n"
+"kernel /boot/newinstall/vmlinuz\n"
+"initrd /boot/newinstall/initrd.gz"
 
 #. Tag: para
 #: boot-installer.xml:751
@@ -948,7 +946,7 @@ msgstr ""
 
 #. Tag: screen
 #: boot-installer.xml:757
-#, fuzzy, no-c-format
+#, no-c-format
 msgid ""
 "menuentry 'New Install' {\n"
 "insmod part_msdos\n"
@@ -958,12 +956,13 @@ msgid ""
 "initrd /boot/newinstall/initrd.gz\n"
 "}"
 msgstr ""
-"image=/boot/newinstall/vmlinuz\n"
-"       label=newinstall\n"
-"       initrd=/boot/newinstall/initrd.gz\n"
-"       root=/dev/ram0\n"
-"       append=\"<phrase condition=\"sarge\">devfs=mount,dall </"
-"phrase>ramdisk_size=12000\""
+"menuentry 'New Install' {\n"
+"insmod part_msdos\n"
+"insmod ext2\n"
+"set root='(hd0,msdos1)'\n"
+"linux /boot/newinstall/vmlinuz\n"
+"initrd /boot/newinstall/initrd.gz\n"
+"}"
 
 #. Tag: para
 #: boot-installer.xml:759
@@ -2139,7 +2138,7 @@ msgstr ""
 #: boot-installer.xml:1759
 #, no-c-format
 msgid "boot cd install/pegasos"
-msgstr ""
+msgstr "boot cd install/pegasos"
 
 #. Tag: para
 #: boot-installer.xml:1761
@@ -2154,7 +2153,7 @@ msgstr ""
 #: boot-installer.xml:1766
 #, no-c-format
 msgid "0 > boot cdrom"
-msgstr ""
+msgstr "0 > boot cdrom"
 
 #. Tag: title
 #: boot-installer.xml:1772
@@ -2508,7 +2507,7 @@ msgstr ""
 #: boot-installer.xml:2026
 #, no-c-format
 msgid "Petitboot"
-msgstr ""
+msgstr "Petitboot"
 
 #. Tag: para
 #: boot-installer.xml:2027
@@ -3007,9 +3006,9 @@ msgstr ""
 
 #. Tag: term
 #: boot-installer.xml:2480
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "debconf/priority (priority)"
-msgstr "debconf/priority"
+msgstr "debconf/priority (priority)"
 
 #. Tag: para
 #: boot-installer.xml:2481
@@ -3213,7 +3212,7 @@ msgstr ""
 #: boot-installer.xml:2609
 #, no-c-format
 msgid "lowmem"
-msgstr ""
+msgstr "lowmem"
 
 #. Tag: para
 #: boot-installer.xml:2610
@@ -3228,7 +3227,7 @@ msgstr ""
 #: boot-installer.xml:2620
 #, no-c-format
 msgid "noshell"
-msgstr ""
+msgstr "noshell"
 
 #. Tag: para
 #: boot-installer.xml:2621
@@ -3240,9 +3239,9 @@ msgstr ""
 
 #. Tag: term
 #: boot-installer.xml:2630
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "debian-installer/framebuffer (fb)"
-msgstr "debian-installer/framebuffer"
+msgstr "debian-installer/framebuffer (fb)"
 
 #. Tag: para
 #: boot-installer.xml:2631
@@ -3285,9 +3284,9 @@ msgstr ""
 
 #. Tag: term
 #: boot-installer.xml:2658
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "debian-installer/theme (theme)"
-msgstr "debian-installer/framebuffer"
+msgstr "debian-installer/theme (theme)"
 
 #. Tag: para
 #: boot-installer.xml:2659
@@ -3362,7 +3361,7 @@ msgstr ""
 #: boot-installer.xml:2701
 #, no-c-format
 msgid "disk-detect/dmraid/enable (dmraid)"
-msgstr ""
+msgstr "disk-detect/dmraid/enable (dmraid)"
 
 #. Tag: para
 #: boot-installer.xml:2702
@@ -3376,9 +3375,9 @@ msgstr ""
 
 #. Tag: term
 #: boot-installer.xml:2713
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "preseed/url (url)"
-msgstr "preseed/url"
+msgstr "preseed/url (url)"
 
 #. Tag: para
 #: boot-installer.xml:2714
@@ -3392,9 +3391,9 @@ msgstr ""
 
 #. Tag: term
 #: boot-installer.xml:2723
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "preseed/file (file)"
-msgstr "preseed/file"
+msgstr "preseed/file (file)"
 
 #. Tag: para
 #: boot-installer.xml:2724
@@ -3408,9 +3407,9 @@ msgstr ""
 
 #. Tag: term
 #: boot-installer.xml:2733
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "preseed/interactive"
-msgstr "preseed/file"
+msgstr "preseed/interactive"
 
 #. Tag: para
 #: boot-installer.xml:2734
@@ -3425,9 +3424,9 @@ msgstr ""
 
 #. Tag: term
 #: boot-installer.xml:2746
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "auto-install/enable (auto)"
-msgstr "debian-installer/framebuffer"
+msgstr "auto-install/enable (auto)"
 
 #. Tag: para
 #: boot-installer.xml:2747
@@ -3442,7 +3441,7 @@ msgstr ""
 #: boot-installer.xml:2758
 #, no-c-format
 msgid "finish-install/keep-consoles"
-msgstr ""
+msgstr "finish-install/keep-consoles"
 
 #. Tag: para
 #: boot-installer.xml:2759
@@ -3488,9 +3487,9 @@ msgstr ""
 
 #. Tag: term
 #: boot-installer.xml:2791
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "base-installer/install-recommends (recommends)"
-msgstr "debian-installer/framebuffer"
+msgstr "base-installer/install-recommends (recommends)"
 
 #. Tag: para
 #: boot-installer.xml:2792
@@ -3515,9 +3514,9 @@ msgstr ""
 
 #. Tag: term
 #: boot-installer.xml:2811
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "debian-installer/allow_unauthenticated"
-msgstr "debian-installer/framebuffer"
+msgstr "debian-installer/allow_unauthenticated"
 
 #. Tag: para
 #: boot-installer.xml:2812
@@ -3548,7 +3547,7 @@ msgstr ""
 #: boot-installer.xml:2834
 #, no-c-format
 msgid "rescue/enable"
-msgstr ""
+msgstr "rescue/enable"
 
 #. Tag: para
 #: boot-installer.xml:2835
@@ -3576,21 +3575,21 @@ msgstr ""
 
 #. Tag: term
 #: boot-installer.xml:2861
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "debian-installer/language (language)"
-msgstr "debian-installer/framebuffer"
+msgstr "debian-installer/language (language)"
 
 #. Tag: term
 #: boot-installer.xml:2862
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "debian-installer/country (country)"
-msgstr "debian-installer/framebuffer"
+msgstr "debian-installer/country (country)"
 
 #. Tag: term
 #: boot-installer.xml:2863
-#, fuzzy, no-c-format
+#, no-c-format
 msgid "debian-installer/locale (locale)"
-msgstr "debian-installer/framebuffer"
+msgstr "debian-installer/locale (locale)"
 
 #. Tag: para
 #: boot-installer.xml:2864
@@ -3731,7 +3730,7 @@ msgstr ""
 #: boot-installer.xml:2974
 #, no-c-format
 msgid "3c509.xcvr=3 3c509.irq=10"
-msgstr ""
+msgstr "3c509.xcvr=3 3c509.irq=10"
 
 #. Tag: title
 #: boot-installer.xml:2980
@@ -3915,6 +3914,14 @@ msgid ""
 "262668+0 records out\n"
 "134486016 bytes (134 MB) copied, 97.474 seconds, 1.4 MB/s"
 msgstr ""
+"$ dd if=/dev/cdrom | \\\n"
+"> head -c `stat --format=%s <replaceable>debian-testing-i386-netinst.iso</"
+"replaceable>` | \\\n"
+"> md5sum\n"
+"a20391b12f7ff22ef705cee4059c6b92  -\n"
+"262668+0 records in\n"
+"262668+0 records out\n"
+"134486016 bytes (134 MB) copied, 97.474 seconds, 1.4 MB/s"
 
 #. Tag: para
 #: boot-installer.xml:3130
@@ -4124,25 +4131,25 @@ msgstr ""
 #: boot-installer.xml:3290
 #, no-c-format
 msgid "dmesg"
-msgstr ""
+msgstr "dmesg"
 
 #. Tag: userinput
 #: boot-installer.xml:3292
 #, no-c-format
 msgid "lspci"
-msgstr ""
+msgstr "lspci"
 
 #. Tag: userinput
 #: boot-installer.xml:3294
 #, no-c-format
 msgid "lsmod"
-msgstr ""
+msgstr "lsmod"
 
 #. Tag: userinput
 #: boot-installer.xml:3296
 #, no-c-format
 msgid "amixer"
-msgstr ""
+msgstr "amixer"
 
 #. Tag: title
 #: boot-installer.xml:3304 boot-installer.xml:3415
