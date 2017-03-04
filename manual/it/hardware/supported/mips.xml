@@ -1,9 +1,9 @@
 <!-- retain these comments for translator revision tracking -->
-<!-- original version: 70558 -->
+<!-- original version: 70568 -->
 
   <sect2 arch="mips;mips64el;mipsel">
-  <!-- <title>CPU, Main Boards, and Video Support</title> -->
-  <title>CPU, schede madri e video supportate</title>
+  <!-- <title>Platforms supported by the &debian; &architecture; port</title> -->
+  <title>Piattaforme supportate dal port &debian; &architecture;</title>
 <para>
 
 <!--
@@ -12,20 +12,87 @@
 
 &debian; su &arch-title; supporta le seguenti piattaforme:
 
-<itemizedlist>
+<variablelist>
+
+<varlistentry>
+<term>Cavium Octeon</term>
+
 <listitem><para>
 
 <!--
-MIPS Malta: this platform is emulated by QEMU and is therefore a nice way
+Cavium designs a range of 64-bit MIPS Octeon processors which are
+mainly used in networking devices. Devices with these processors
+include the Ubiquiti EdgeRouter and the Rhino Labs UTM8.
+-->
+
+Cavium ha realizzato una gamma di processori MIPS Octeon a 64-bit
+utilizzati principalmente nei dispositivi di rete. Tra i dispositivi
+che utilizzano questi processori ci sono Ubiquiti EdgeRouter e Rhino
+Labs UTM8.
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry arch="mips64el;mipsel">
+<term>Loongson 3</term>
+
+<listitem><para>
+
+<!--
+Devices based on the Loongson 3A and 3B processors are supported.
+-->
+
+I dispositivi basati sui processori Loongson 3A e 3B sono supportati.
+
+<!-- TODO list some actual devices here -->
+
+</para></listitem>
+</varlistentry>
+
+<varlistentry>
+<term>MIPS Malta</term>
+
+<listitem><para>
+
+<!--
+This platform is emulated by QEMU and is therefore a nice way
 to test and run &debian; on MIPS if you don't have the hardware.
 -->
 
-MIPS Malta: questa piattaforma è emulata da QEMU e quindi è un buon
-modo per fare delle prove e per usare &debian; su MIPS se non si dispone
-dell'hardware.
+Questa piattaforma è emulata da QEMU e quindi è un buon modo per
+provare e usare &debian; su MIPS se non si dispone dell'hardware.
+
+</para><para>
+
+<!--
+There are two Malta kernel flavours: 4kc-malta is built for 32-bit
+processors, and 5kc-malta is built for 64-bit processors.
+-->
+
+Ci sono due varianti del kernel per Malta: 4kc-malta è stata creata
+per i processori a 32-bit e 5kc-malta è stata creata per i processori
+a 64-bit.
 
 </para></listitem>
-</itemizedlist>
+</varlistentry>
+</variablelist>
+
+</para><para>
+
+<!--
+In addition, other boards which contain <phrase arch="mips;mipsel">MIPS32r2
+or</phrase> MIPS64r2 based processors should also be able to run &debian;,
+however kernels for these processors are not built and the &debian;
+installer does not directly support them.
+-->
+
+I processori <phrase arch="mips;mipsel">MIPS32r2 e</phrase> MIPS64r2 e
+sono utilizzati anche in altre schede e quindi dovrebbe essere possibile
+utilizzare &debian; anche su queste; tuttavia i kernel per questi
+processori non sono compilati e non sono supportati direttamente
+dall'installatore &debian;.
+
+</para><para>
 
 <!--
 Complete information regarding supported mips/mipsel/mips64el machines can be found
@@ -36,12 +103,12 @@ contact the <ulink url="&url-list-subscribe;">
 debian-&arch-listname; mailing list</ulink>.
 -->
 
-Tutte le informazioni sulle macchine mips/mipsel/mips64el supportate possono
-essere trovate sulla <ulink url="&url-linux-mips;">pagina di
+Tutte le informazioni sulle macchine mips/mipsel/mips64el supportate
+possono essere trovate sulla <ulink url="&url-linux-mips;">pagina di
 Linux-MIPS</ulink>. In seguito saranno trattati solo i sistemi supportati
 dal programma d'installazione &debian;, se si stanno cercando delle
-informazioni per altre sottoarchitetture si contatti la
-<ulink url="&url-list-subscribe;">mailing list debian-&arch-listname;</ulink>.
+informazioni per altre sottoarchitetture si contatti la <ulink
+url="&url-list-subscribe;">lista di messaggi debian-&arch-listname;</ulink>.
 
 </para>
 
@@ -51,15 +118,102 @@ informazioni per altre sottoarchitetture si contatti la
 <para>
 
 <!--
-Some MIPS machines can be operated in both big and little endian mode.  For
-little endian MIPS, please read the documentation for the mipsel and mips64el
-architectures.
+Some MIPS machines can be operated in both big and little endian mode.
+<phrase arch="mips64el;mipsel">
+For little endian MIPS, please read the documentation for the mipsel and
+mips64el architectures.
+</phrase>
+<phrase arch="mips">
+For big endian MIPS, please read the documentation for the mips architecture.
+</phrase>
 -->
 
-Alcune macchine MIPS possono funzionare sia in big endian che in little
-endian, per le MIPS in modalità little endian si consulti la documentazione
-per le architetture mipsel e mips64el.
+Alcune macchine MIPS sono in grado di operare in entrambe le modalità
+big endian e little endian. <phrase arch="mips64el;mipsel">Per le MIPS
+little endian consultare la documentazione per le architetture mipsel e
+mips64el.</phrase><phrase arch="mips">Per le MIPS big endian consultare
+la documentazione per l'architettura mips.</phrase>
 
 </para>
    </sect3>
+  </sect2>
+
+  <sect2 arch="mips;mipsel">
+  <!-- <title>Platforms no longer supported by the &debian; &architecture; port</title> -->
+  <title>Piattaforme non più supportate dal port &debian; &architecture;</title>
+<para>
+
+<!--
+Since &debian; Stretch, support for all MIPS processors which do not
+implement MIPS32 Release 2 have been dropped. Therefore the following
+platforms supported in Jessie are no longer supported:
+-->
+
+A partire da &debian; Stretch, è stato rimosso il supporto per tutti
+i processori MIPS che non sono conformi con MIPS32 Release 2. Di
+conseguenza le seguenti piattaforme supportate da Jessie non sono più
+supportate.
+
+<variablelist>
+<varlistentry>
+<term>Loongson 2E and 2F</term>
+
+<listitem>
+
+<!--
+These are the older Loongson processors. Devices based on them
+include the Fuloong Mini-PC and the Lemote Yeeloong laptop.
+-->
+
+Questi sono i processori Loongson più vecchi; tra i dispositivi su cui
+sono utilizzati ci sono i Mini-PC Fuloong e i portatili Lemote Yeeloong.
+
+</listitem></varlistentry>
+
+<varlistentry>
+<term>SGI IP22</term>
+
+<listitem>
+
+<!--
+This platform includes the SGI machines Indy, Indigo 2 and Challenge S.
+-->
+
+Questa piattaforma comprende le macchine SGI Indy, Indigo 2 e Challenge S.
+
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>SGI IP32</term>
+
+<listitem>
+
+<!--
+This platform is generally known as SGI O2.
+-->
+
+Questa piattaforma è conosciuta come SGI O2.
+
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Broadcom BCM91250</term>
+
+<listitem>
+
+<!--
+Development board for Broadcom's SiByte core. Also known by its
+codename SWARM.
+-->
+
+Scheda di sviluppo per SiByte di Broadcom, conosciuta anche con il
+suo nome in codice SWARM.
+
+</listitem>
+</varlistentry>
+</variablelist>
+
+</para>
   </sect2>
