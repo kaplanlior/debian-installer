@@ -1,0 +1,3180 @@
+# Translation of the Debian installation-guide to Italian.
+# Cristian Rigamonti <cri@linux.it>, 2004.
+# Stefano Canepa <sc@linux.it>, 2004-2005.
+# Giuseppe Sacco <eppesuig@debian.org>, 2005.
+# Luca Monducci <luca.mo@tiscali.it>, 2005-2017.
+msgid ""
+msgstr ""
+"Project-Id-Version: d-i-manual_preparing\n"
+"Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
+"POT-Creation-Date: 2015-05-25 11:27+0000\n"
+"PO-Revision-Date: 2017-03-05 17:14+0100\n"
+"Last-Translator: Luca Monducci <luca.mo@tiscali.it>\n"
+"Language-Team: Italian <debian-l10n-italian@lists.debian.org>\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Tag: title
+#: preparing.xml:5
+#, no-c-format
+msgid "Before Installing &debian-gnu;"
+msgstr "Preparazione dell'installazione di &debian-gnu;"
+
+#. Tag: para
+#: preparing.xml:6
+#, no-c-format
+msgid ""
+"This chapter deals with the preparation for installing &debian; before you "
+"even boot the installer. This includes backing up your data, gathering "
+"information about your hardware, and locating any necessary information."
+msgstr ""
+"Questo capitolo tratta la preparazione dell'installazione di &debian; prima "
+"di attivare l'installatore. Comprende le operazioni di backup dei dati, la "
+"raccolta delle informazioni sul proprio hardware e il recupero di qualsiasi "
+"altra informazione necessaria."
+
+#. Tag: title
+#: preparing.xml:19
+#, no-c-format
+msgid "Overview of the Installation Process"
+msgstr "Panoramica del processo d'installazione"
+
+#. Tag: para
+#: preparing.xml:20
+#, no-c-format
+msgid ""
+"First, just a note about re-installations. With &debian;, a circumstance "
+"that will require a complete re-installation of your system is very rare; "
+"perhaps mechanical failure of the hard disk would be the most common case."
+msgstr ""
+"Prima di tutto una nota sulle reinstallazioni. Con &debian;, una circostanza "
+"in cui sia necessaria una completa reinstallazione del sistema è "
+"estremamente rara; forse un problema meccanico dei dischi è la causa più "
+"frequente."
+
+#. Tag: para
+#: preparing.xml:27
+#, no-c-format
+msgid ""
+"Many common operating systems may require a complete installation to be "
+"performed when critical failures take place or for upgrades to new OS "
+"versions. Even if a completely new installation isn't required, often the "
+"programs you use must be re-installed to operate properly in the new OS."
+msgstr ""
+"Molti dei comuni sistemi operativi potrebbero richiedere la completa "
+"installazione quando si verificano dei problemi critici o per fare un "
+"aggiornamento a una nuova versione. A questo si deve aggiungere che si "
+"effettua una nuova installazione è necessario anche re-installare i "
+"programmi in modo che operino correttamente con il nuovo SO."
+
+#. Tag: para
+#: preparing.xml:35
+#, no-c-format
+msgid ""
+"Under &debian-gnu;, it is much more likely that your OS can be repaired "
+"rather than replaced if things go wrong. Upgrades never require a wholesale "
+"installation; you can always upgrade in-place. And the programs are almost "
+"always compatible with successive OS releases. If a new program version "
+"requires newer supporting software, the &debian; packaging system ensures "
+"that all the necessary software is automatically identified and installed. "
+"The point is, much effort has been put into avoiding the need for re-"
+"installation, so think of it as your very last option. The installer is "
+"<emphasis>not</emphasis> designed to re-install over an existing system."
+msgstr ""
+"Con &debian-gnu; è molto più probabile che il SO possa essere riparato "
+"anziché essere reinstallato nel caso si verifichino dei problemi. Gli "
+"aggiornamenti non richiedono mai un'installazione completa, è sempre "
+"possibile effettuare l'aggiornamento senza toccare l'intera installazione. "
+"Quando un nuovo programma richiede delle versioni più recenti del software "
+"di supporto rispetto a quelle installate, il sistema &debian; di gestione "
+"dei pacchetti assicura che tutto il software di supporto sia identificato e "
+"installato. È stato fatto molto lavoro per evitare la necessità di "
+"reinstallare il sistema quindi deve essere ritenuta come l'ultima risorsa "
+"disponibile. L'installatore <emphasis>non</emphasis> è stato progettato per "
+"la reinstallazione su un sistema esistente."
+
+#. Tag: para
+#: preparing.xml:48
+#, no-c-format
+msgid ""
+"Here's a road map for the steps you will take during the installation "
+"process."
+msgstr ""
+"Ecco un sommario dei passi che saranno compiuti durante l'installazione."
+
+#. Tag: para
+#: preparing.xml:56
+#, no-c-format
+msgid ""
+"Back up any existing data or documents on the hard disk where you plan to "
+"install."
+msgstr ""
+"Backup di tutti i dati e documenti presenti sul disco fisso su cui si vuole "
+"fare l'installazione."
+
+#. Tag: para
+#: preparing.xml:62
+#, no-c-format
+msgid ""
+"Gather information about your computer and any needed documentation, before "
+"starting the installation."
+msgstr ""
+"Raccolta delle informazioni sul proprio computer e di tutte le informazioni "
+"necessarie prima di iniziare l'installazione."
+
+#. Tag: para
+#: preparing.xml:68
+#, no-c-format
+msgid "Create partitionable space for &debian; on your hard disk."
+msgstr "Creazione dello spazio partizionabile per &debian; sul disco fisso."
+
+#. Tag: para
+#: preparing.xml:73
+#, no-c-format
+msgid ""
+"Locate and/or download the installer software and any specialized driver or "
+"firmware files your machine requires."
+msgstr ""
+"Localizzare e/o scaricare l'installatore e tutti driver e firmware speciali "
+"necessari per la propria macchina."
+
+#. Tag: para
+#: preparing.xml:79
+#, no-c-format
+msgid ""
+"Set up boot media such as CDs/DVDs/USB sticks or provide a network boot "
+"infrastructure from which the installer can be booted."
+msgstr ""
+"Preparazione dei supporti per l'avvio come CD/DVD/chiavette USB oppure "
+"preparare l'infrastruttura per l'avvio da rete dell'installatore."
+
+#. Tag: para
+#: preparing.xml:85
+#, no-c-format
+msgid "Boot the installation system."
+msgstr "Avvio del sistema d'installazione."
+
+#. Tag: para
+#: preparing.xml:90
+#, no-c-format
+msgid "Select the installation language."
+msgstr "Scelta della lingua dell'installazione."
+
+#. Tag: para
+#: preparing.xml:95
+#, no-c-format
+msgid "Activate the ethernet network connection, if available."
+msgstr "Se disponibile, attivazione della connessione alla rete ethernet."
+
+#. Tag: para
+#: preparing.xml:101
+#, no-c-format
+msgid "Configure one network interface."
+msgstr "Configurazione di un'interfaccia di rete."
+
+#. Tag: para
+#: preparing.xml:106
+#, no-c-format
+msgid "Open an ssh connection to the new system."
+msgstr "Apertura di una connessione ssh al nuovo sistema."
+
+#. Tag: para
+#: preparing.xml:111
+#, no-c-format
+msgid "Attach one or more DASDs (Direct Access Storage Device)."
+msgstr "Collegamento di uno o più DASD (Direct Access Storage Device)."
+
+#. Tag: para
+#: preparing.xml:117
+#, no-c-format
+msgid ""
+"If necessary, resize existing partitions on your target harddisk to make "
+"space for the installation."
+msgstr ""
+"Se necessario, ridimensionare le partizioni esistenti sul disco su cui si "
+"vuole installare per creare spazio per l'installazione."
+
+#. Tag: para
+#: preparing.xml:122
+#, no-c-format
+msgid "Create and mount the partitions on which &debian; will be installed."
+msgstr "Creazione e montaggio delle partizioni su cui si installerà &debian;."
+
+#. Tag: para
+#: preparing.xml:127
+#, no-c-format
+msgid ""
+"Watch the automatic download/install/setup of the <firstterm>base system</"
+"firstterm>."
+msgstr ""
+"Attendere lo scaricamento, l'installazione e la configurazione del "
+"<firstterm>sistema di base</firstterm>."
+
+#. Tag: para
+#: preparing.xml:133
+#, no-c-format
+msgid ""
+"Install a <firstterm>boot loader</firstterm> which can start up &debian-gnu; "
+"and/or your existing system."
+msgstr ""
+"Installazione di un <firstterm>boot loader</firstterm> per avviare &debian-"
+"gnu; ed eventuali altri sistemi operativi."
+
+#. Tag: para
+#: preparing.xml:139
+#, no-c-format
+msgid "Load the newly installed system for the first time."
+msgstr "Avviare per la prima volta il sistema appena installato."
+
+#. Tag: para
+#: preparing.xml:146
+#, no-c-format
+msgid ""
+"For &arch-title; you have the option of using <phrase arch=\"any-x86\">a</"
+"phrase> <phrase arch=\"powerpc\">an experimental</phrase> graphical version "
+"of the installation system. For more information about this graphical "
+"installer, see <xref linkend=\"graphical\"/>."
+msgstr ""
+"Su &arch-title; è possibile usare una versione grafica <phrase arch=\"powerpc"
+"\">sperimentare</phrase> del sistema d'installazione. Per ulteriori "
+"informazioni sull'installazione grafica si veda <xref linkend=\"graphical\"/"
+">."
+
+#. Tag: para
+#: preparing.xml:154
+#, no-c-format
+msgid ""
+"If you have problems during the installation, it helps to know which "
+"packages are involved in which steps. Introducing the leading software "
+"actors in this installation drama:"
+msgstr ""
+"Nel caso si verifichino degli errori durante l'installazione è utile "
+"conoscere quali pacchetti sono coinvolti in ciascuna fase. Introduciamo gli "
+"attori principali dello spettacolo <quote>installazione</quote>:"
+
+#. Tag: para
+#: preparing.xml:160
+#, no-c-format
+msgid ""
+"The installer software, <classname>debian-installer</classname>, is the "
+"primary concern of this manual. It detects hardware and loads appropriate "
+"drivers, uses <classname>dhcp-client</classname> to set up the network "
+"connection, runs <classname>debootstrap</classname> to install the base "
+"system packages, and runs <classname>tasksel</classname> to allow you to "
+"install certain additional software. Many more actors play smaller parts in "
+"this process, but <classname>debian-installer</classname> has completed its "
+"task when you load the new system for the first time."
+msgstr ""
+"Il software d'installazione, <classname>debian-installer</classname>, è il "
+"protagonista principale di questo manuale. Si occupa del riconoscimento "
+"dell'hardware e del caricamento dei driver corretti, tramite <classname>dhcp-"
+"client</classname> configura la connessione di rete, esegue "
+"<classname>debootstrap</classname> per l'installazione del sistema di base e "
+"infine esegue <classname>tasksel</classname> per consentire all'utente "
+"l'installazione di altro software. Al processo d'installazione partecipano "
+"molti altri attori ma hanno parti decisamente minori, il <classname>debian-"
+"installer</classname> finisce il suo lavoro quando il nuovo sistema viene "
+"riavviato per la prima volta."
+
+#. Tag: para
+#: preparing.xml:172
+#, no-c-format
+msgid ""
+"To tune the system to your needs, <classname>tasksel</classname> allows you "
+"to choose to install various predefined bundles of software like a Web "
+"server or a Desktop environment."
+msgstr ""
+"Per adattare il sistema alle proprie necessità si può usare "
+"<classname>tasksel</classname> che permette di selezionare gruppi "
+"predefiniti di programmi da installare come un server web o un ambiente "
+"desktop."
+
+#. Tag: para
+#: preparing.xml:178
+#, no-c-format
+msgid ""
+"One important option during the installation is whether or not to install a "
+"graphical desktop environment, consisting of the X Window System and one of "
+"the available graphical desktop environments. If you choose not to select "
+"the <quote>Desktop environment</quote> task, you will only have a relatively "
+"basic, command line driven system. Installing the Desktop environment task "
+"is optional because in relation to a text-mode-only system it requires a "
+"comparatively large amount of disk space and because many &debian-gnu; "
+"systems are servers which don't really have any need for a graphical user "
+"interface to do their job."
+msgstr ""
+"Una delle scelte importanti durante l'installazione è se installare o no un "
+"ambiente desktop grafico, che consiste nel X11 window system e in uno degli "
+"ambienti desktop disponibili. Se si sceglie di non installare il task "
+"<quote>Ambiente desktop</quote>, si ottiene un sistema abbastanza semplice "
+"con la sola riga di comando. L'installazione del task <quote>Ambiente "
+"desktop</quote> è opzionale perché rispetto a un sistema solo testo richiede "
+"molto spazio su disco e perché molti dei sistemi &debian-gnu; sono dei "
+"server e non hanno bisogno di una interfaccia utente grafica per il loro "
+"lavoro."
+
+#. Tag: para
+#: preparing.xml:191
+#, no-c-format
+msgid ""
+"Just be aware that the X Window System is completely separate from "
+"<classname>debian-installer</classname>, and in fact is much more "
+"complicated. Troubleshooting of the X Window System is not within the scope "
+"of this manual."
+msgstr ""
+"Notare che il sistema X Window è completamente separato dal "
+"<classname>debian-installer</classname>, quindi la risoluzione dei problemi "
+"per il sistema X Window non rientrano nello scopo di questo manuale."
+
+#. Tag: title
+#: preparing.xml:206
+#, no-c-format
+msgid "Back Up Your Existing Data!"
+msgstr "Backup dei dati"
+
+#. Tag: para
+#: preparing.xml:207
+#, no-c-format
+msgid ""
+"Before you start, make sure to back up every file that is now on your "
+"system. If this is the first time a non-native operating system is going to "
+"be installed on your computer, it is quite likely you will need to re-"
+"partition your disk to make room for &debian-gnu;. Anytime you partition "
+"your disk, you run a risk of losing everything on the disk, no matter what "
+"program you use to do it. The programs used in the installation are quite "
+"reliable and most have seen years of use; but they are also quite powerful "
+"and a false move can cost you. Even after backing up, be careful and think "
+"about your answers and actions. Two minutes of thinking can save hours of "
+"unnecessary work."
+msgstr ""
+"Prima di iniziare, assicurarsi di avere il backup di tutti i file presenti "
+"attualmente sul proprio sistema. Se sulla macchina è installato solo il "
+"sistema operativo nativo, con ogni probabilità sarà necessario "
+"ripartizionare il disco per liberare spazio per &debian-gnu;. Ogni volta che "
+"si ripartiziona il disco, si corre il rischio di perdere tutti i dati "
+"presenti, non importa quale programma si usi per farlo. I programmi usati "
+"durante l'installazione sono piuttosto affidabili e la maggior parte sono in "
+"circolazione da anni, ma una mossa falsa può costare cara. Anche dopo aver "
+"fatto il backup, fare attenzione e pensare alle risposte che si danno e a "
+"quello che si fa: riflettendo un paio di minuti in più si possono "
+"risparmiare ore di lavoro inutile."
+
+#. Tag: para
+#: preparing.xml:220
+#, no-c-format
+msgid ""
+"If you are creating a multi-boot system, make sure that you have the "
+"distribution media of any other present operating systems on hand. Even "
+"though this is normally not necessary, there might be situations in which "
+"you could be required to reinstall your operating system's boot loader to "
+"make the system boot or in a worst case even have to reinstall the complete "
+"operating system and restore your previously made backup."
+msgstr ""
+"Se si sta creando un sistema a boot multiplo, assicurarsi di avere a portata "
+"di mano i supporti di installazione degli altri sistemi operativi. Anche se "
+"normalmente non è richiesto, potrebbe verificarsi la situazione di dover "
+"reinstallare il boot loader del sistema operativo originario o, nel caso "
+"peggiore, reinstallare l'intero sistema operativo e ripristinare il backup "
+"fatto in precedenza di tutti i file."
+
+#. Tag: title
+#: preparing.xml:239
+#, no-c-format
+msgid "Information You Will Need"
+msgstr "Informazioni necessarie"
+
+#. Tag: title
+#: preparing.xml:242
+#, no-c-format
+msgid "Documentation"
+msgstr "Documentazione"
+
+#. Tag: title
+#: preparing.xml:245
+#, no-c-format
+msgid "Installation Manual"
+msgstr "Guida all'installazione"
+
+#. Tag: para
+#: preparing.xml:247
+#, no-c-format
+msgid "This document you are now reading, in plain ASCII, HTML or PDF format."
+msgstr "Il documento che si sta leggendo, in formato ASCII puro, HTML o PDF."
+
+#. Tag: itemizedlist
+#: preparing.xml:253
+#, no-c-format
+msgid "&list-install-manual-files;"
+msgstr "&list-install-manual-files;"
+
+#. Tag: para
+#: preparing.xml:259
+#, no-c-format
+msgid ""
+"The document you are now reading, which is the official version of the "
+"Installation Guide for the &releasename; release of &debian;; available in "
+"<ulink url=\"&url-release-area;/installmanual\">various formats and "
+"translations</ulink>."
+msgstr ""
+"Il documento che si sta leggendo è la versione ufficiale della Guida "
+"all'installazione per la release &releasename; di &debian;; è disponibile in "
+"<ulink url=\"&url-release-area;/installmanual\">vari formati e parecchie "
+"lingue</ulink>."
+
+#. Tag: para
+#: preparing.xml:268
+#, no-c-format
+msgid ""
+"The document you are now reading, which is a development version of the "
+"Installation Guide for the next release of &debian;; available in <ulink url="
+"\"&url-d-i-alioth-manual;\">various formats and translations</ulink>."
+msgstr ""
+"Il documento che si sta leggendo è la versione ufficiale della Guida "
+"all'installazione per la release &releasename; di &debian;; è disponibile in "
+"<ulink url=\"&url-d-i-alioth-manual;\">vari formati e parecchie lingue</"
+"ulink>."
+
+#. Tag: title
+#: preparing.xml:280
+#, no-c-format
+msgid "Hardware documentation"
+msgstr "Documentazione hardware"
+
+#. Tag: para
+#: preparing.xml:281
+#, no-c-format
+msgid ""
+"Often contains useful information on configuring or using your hardware."
+msgstr ""
+"Contiene informazioni utili sulla configurazione o l'utilizzo dell'hardware."
+
+#. Tag: ulink
+#: preparing.xml:292
+#, no-c-format
+msgid "The Debian Wiki hardware page"
+msgstr "Pagina del wiki Debian sull'hardware"
+
+#. Tag: ulink
+#: preparing.xml:298
+#, no-c-format
+msgid "Linux for SPARC Processors FAQ"
+msgstr "Linux for SPARC Processors FAQ"
+
+#. Tag: ulink
+#: preparing.xml:304
+#, no-c-format
+msgid "Linux/MIPS website"
+msgstr "Linux/MIPS website"
+
+#. Tag: title
+#: preparing.xml:313
+#, no-c-format
+msgid "&arch-title; Hardware References"
+msgstr "Informazioni sulla compatibilità hardware per &arch-title;"
+
+#. Tag: para
+#: preparing.xml:314
+#, no-c-format
+msgid ""
+"Documentation of &arch-title;-specific boot sequence, commands and device "
+"drivers (e.g. DASD, XPRAM, Console, OSA, HiperSockets and z/VM interaction)"
+msgstr ""
+"La documentazione specifica sulla sequenza d'avvio di &arch-title;, i "
+"comandi e i driver dei device (DASD, XPRAM, Console, OSA, HiperSocket e z/VM)"
+
+#. Tag: ulink
+#: preparing.xml:325
+#, no-c-format
+msgid "Device Drivers, Features, and Commands (Linux Kernel 3.2)"
+msgstr "Device Drivers, Features, and Commands (Linux Kernel 3.2)"
+
+#. Tag: para
+#: preparing.xml:330
+#, no-c-format
+msgid ""
+"IBM Redbook describing how Linux can be combined with z/VM on zSeries and "
+"&arch-title; hardware."
+msgstr ""
+"Redbook IBM in cui è descritto come Linux possa essere combinato con z/VM su "
+"hardware zSeries e &arch-title;."
+
+#. Tag: ulink
+#: preparing.xml:340
+#, no-c-format
+msgid "Linux for &arch-title;"
+msgstr "Linux for &arch-title;"
+
+#. Tag: para
+#: preparing.xml:346
+#, no-c-format
+msgid ""
+"IBM Redbook describing the Linux distributions available for the mainframe. "
+"It has no chapter about &debian; but the basic installation concepts are the "
+"same across all &arch-title; distributions."
+msgstr ""
+"Redbook IBM in cui sono descritte le distribuzioni Linux disponibili per il "
+"mainframe. Non c'è un capitolo su &debian; ma i concetti di base riguardo "
+"l'installazione sono comuni per qualsiasi distribuzione per &arch-title;."
+
+#. Tag: ulink
+#: preparing.xml:357
+#, no-c-format
+msgid "Linux for IBM eServer zSeries and &arch-title;: Distributions"
+msgstr "Linux for IBM eServer zSeries and &arch-title;: Distributions"
+
+#. Tag: title
+#: preparing.xml:367
+#, no-c-format
+msgid "Finding Sources of Hardware Information"
+msgstr "Ricerca d'informazioni sull'hardware"
+
+#. Tag: para
+#: preparing.xml:368
+#, no-c-format
+msgid ""
+"In many cases, the installer will be able to automatically detect your "
+"hardware. But to be prepared, we do recommend familiarizing yourself with "
+"your hardware before the install."
+msgstr ""
+"Nella maggior parte dei casi il programma d'installazione è in grado di "
+"riconoscere l'hardware. Comunque è meglio prepararsi, si raccomanda di "
+"familiarizzare con il proprio hardware prima di iniziare l'installazione."
+
+#. Tag: para
+#: preparing.xml:374
+#, no-c-format
+msgid "Hardware information can be gathered from:"
+msgstr "Informazioni sull'hardware possono essere recuperate da:"
+
+#. Tag: para
+#: preparing.xml:381
+#, no-c-format
+msgid "The manuals that come with each piece of hardware."
+msgstr "Manuali che sono venduti insieme a ciascun componente hardware."
+
+#. Tag: para
+#: preparing.xml:386
+#, no-c-format
+msgid ""
+"The BIOS setup screens of your computer. You can view these screens when you "
+"start your computer by pressing a combination of keys. Check your manual for "
+"the combination. Often, it is the <keycap>Delete</keycap> or the <keycap>F2</"
+"keycap> key, but some manufacturers use other keys or key combinations. "
+"Usually upon starting the computer there will be a message stating which key "
+"to press to enter the setup screen."
+msgstr ""
+"Menu di configurazione del BIOS del computer. Per accedere a questo menu "
+"premere all'accensione del computer una certa combinazione di tasti, vedere "
+"nel manuale della scheda madre qual è questa combinazione, spesso è il tasto "
+"<keycap>Canc</keycap> o <keycap>F2</keycap> ma alcuni costruttori altri "
+"tasti o altre combinazioni di tasti. Solitamente immediatamente dopo "
+"l'accensione del computer c'è un messaggio in è scritto qual è il tasto da "
+"premere per entrare nella configurazione."
+
+#. Tag: para
+#: preparing.xml:396
+#, no-c-format
+msgid "The cases and boxes for each piece of hardware."
+msgstr "Confezioni e scatole dei componenti hardware."
+
+#. Tag: para
+#: preparing.xml:402
+#, no-c-format
+msgid "The System window in the Windows Control Panel."
+msgstr "Consultando la finestra Sistema nel Pannello di controllo."
+
+#. Tag: para
+#: preparing.xml:408
+#, no-c-format
+msgid ""
+"System commands or tools in another operating system, including file manager "
+"displays. This source is especially useful for information about RAM and "
+"hard drive memory."
+msgstr ""
+"Comandi di sistema oppure programmi di altri sistemi operativi. Queste fonti "
+"sono particolarmente utili per conoscere la quantità di RAM e la capacità "
+"del disco fisso."
+
+#. Tag: para
+#: preparing.xml:415
+#, no-c-format
+msgid ""
+"Your system administrator or Internet Service Provider. These sources can "
+"tell you the settings you need to set up your networking and e-mail."
+msgstr ""
+"L'amministratore di sistema o l'Internet Service Provider. Queste fonti "
+"possono fornire le impostazioni necessarie alla configurazione della rete e "
+"della posta elettronica."
+
+#. Tag: title
+#: preparing.xml:427
+#, no-c-format
+msgid "Hardware Information Helpful for an Install"
+msgstr "Informazioni sull'hardware utili per l'installazione"
+
+#. Tag: entry
+#: preparing.xml:431
+#, no-c-format
+msgid "Hardware"
+msgstr "Hardware"
+
+#. Tag: entry
+#: preparing.xml:431
+#, no-c-format
+msgid "Information You Might Need"
+msgstr "Informazioni"
+
+#. Tag: entry
+#: preparing.xml:437
+#, no-c-format
+msgid "Hard Drives"
+msgstr "Dischi fissi"
+
+#. Tag: entry
+#: preparing.xml:438
+#, no-c-format
+msgid "How many you have."
+msgstr "Numero di dischi."
+
+#. Tag: entry
+#: preparing.xml:440
+#, no-c-format
+msgid "Their order on the system."
+msgstr "Il loro ordine sul sistema."
+
+#. Tag: entry
+#: preparing.xml:442
+#, no-c-format
+msgid "Whether IDE (also known as PATA), SATA or SCSI."
+msgstr "IDE (noti anche come PATA), SATA o SCSI."
+
+#. Tag: entry
+#: preparing.xml:444 preparing.xml:493
+#, no-c-format
+msgid "Available free space."
+msgstr "Spazio libero disponibile."
+
+#. Tag: entry
+#: preparing.xml:445
+#, no-c-format
+msgid "Partitions."
+msgstr "Partizioni."
+
+#. Tag: entry
+#: preparing.xml:447
+#, no-c-format
+msgid "Partitions where other operating systems are installed."
+msgstr "Partizioni su cui sono installati altri sistemi operativi."
+
+#. Tag: entry
+#: preparing.xml:475
+#, no-c-format
+msgid "Network interfaces"
+msgstr "Interfacce di rete"
+
+#. Tag: entry
+#: preparing.xml:476
+#, no-c-format
+msgid "Type/model of available network interfaces."
+msgstr "Tipo/modello delle interfacce di rete disponibili."
+
+#. Tag: entry
+#: preparing.xml:480
+#, no-c-format
+msgid "Printer"
+msgstr "Stampante"
+
+#. Tag: entry
+#: preparing.xml:481
+#, no-c-format
+msgid "Model and manufacturer."
+msgstr "Modello e produttore."
+
+#. Tag: entry
+#: preparing.xml:485
+#, no-c-format
+msgid "Video Card"
+msgstr "Scheda video"
+
+#. Tag: entry
+#: preparing.xml:486
+#, no-c-format
+msgid "Type/model and manufacturer."
+msgstr "Tipo/modello e produttore."
+
+#. Tag: entry
+#: preparing.xml:490
+#, no-c-format
+msgid "DASD"
+msgstr "DASD"
+
+#. Tag: entry
+#: preparing.xml:491
+#, no-c-format
+msgid "Device number(s)."
+msgstr "Numero di dispositivi."
+
+#. Tag: entry
+#: preparing.xml:496
+#, no-c-format
+msgid "Network"
+msgstr "Rete"
+
+#. Tag: entry
+#: preparing.xml:497
+#, no-c-format
+msgid "Type of adapter."
+msgstr "Tipo di scheda."
+
+#. Tag: entry
+#: preparing.xml:499
+#, no-c-format
+msgid "Device numbers."
+msgstr "Numero di dispositivi."
+
+#. Tag: entry
+#: preparing.xml:500
+#, no-c-format
+msgid "Relative adapter number for OSA cards."
+msgstr "Numero relativo per le schede OSA."
+
+#. Tag: title
+#: preparing.xml:508
+#, no-c-format
+msgid "Hardware Compatibility"
+msgstr "Compatibilità hardware"
+
+#. Tag: para
+#: preparing.xml:510
+#, no-c-format
+msgid ""
+"Many products work without trouble on &arch-kernel;. Moreover, hardware "
+"support in &arch-kernel; is improving daily. However, &arch-kernel; still "
+"does not run as many different types of hardware as some operating systems."
+msgstr ""
+"Molti prodotti funzionano senza problemi su &arch-kernel;. Inoltre "
+"l'hardware supportato da &arch-kernel; cresce quotidianamente anche se, "
+"purtroppo, &arch-kernel; non funziona ancora su parecchi tipi di hardware su "
+"cui invece funzionano altri sistemi operativi."
+
+#. Tag: para
+#: preparing.xml:516
+#, no-c-format
+msgid ""
+"Drivers in &arch-kernel; in most cases are not written for a certain "
+"<quote>product</quote> or <quote>brand</quote> from a specific manufacturer, "
+"but for a certain hardware/chipset. Many seemingly different products/brands "
+"are based on the same hardware design; it is not uncommon that chip "
+"manufacturers provide so-called <quote>reference designs</quote> for "
+"products based on their chips which are then used by several different "
+"device manufacturers and sold under lots of different product or brand names."
+msgstr ""
+"Nella maggior parte dei casi i driver in &arch-kernel; non sono stati "
+"scritti per un determinato <quote>prodotto</quote> o <quote>marchio</quote> "
+"da un particolare costruttore, ma sono stati scritti per un certo hardware/"
+"chip. Molti prodotti sono solo apparentemente differenti ma in realtà sono "
+"basati sullo stesso hardware; non è raro che i produttori di chip forniscano "
+"un <quote>reference designs</quote> per i prodotti basati sui loro chip che "
+"sono poi usati da vari costruttori per i dispositivi che poi sono venduti "
+"con molti nomi o marchi diversi."
+
+#. Tag: para
+#: preparing.xml:527
+#, no-c-format
+msgid ""
+"This has advantages and disadvantages. An advantage is that a driver for one "
+"chipset works with lots of different products from different manufacturers, "
+"as long as their product is based on the same chipset. The disadvantage is "
+"that it is not always easy to see which actual chipset is used in a certain "
+"product/brand. Unfortunately sometimes device manufacturers change the "
+"hardware base of their product without changing the product name or at least "
+"the product version number, so that when having two items of the same brand/"
+"product name bought at different times, they can sometimes be based on two "
+"different chipsets and therefore use two different drivers or there might be "
+"no driver at all for one of them."
+msgstr ""
+"Ciò ha dei vantaggi e degli svantaggi. Un vantaggio è che il driver per un "
+"chip funziona con molti prodotti anche di produttori differenti poiché i "
+"prodotti sono basati sullo stesso chip. Lo svantaggio è che non è sempre "
+"facile scoprire qual è il chip realmente montato in determinato dispositivo. "
+"Sfortunatamente qualche volta i produttori cambiano la base hardware dei "
+"loro prodotti senza cambiare il nome del prodotto e nemmeno il numero di "
+"versione, quindi avendo due oggetti con lo stesso marchio/nome prodotto "
+"comprati in tempi diversi potrebbero essere basati su due chip diversi e di "
+"conseguenza usare due driver diversi oppure uno dei due potrebbe non "
+"disporre di un driver."
+
+#. Tag: para
+#: preparing.xml:540
+#, no-c-format
+msgid ""
+"For USB and PCI/PCI-Express/ExpressCard devices, a good way to find out on "
+"which chipset they are based is to look at their device IDs. All USB/PCI/PCI-"
+"Express/ExpressCard devices have so called <quote>vendor</quote> and "
+"<quote>product</quote> IDs, and the combination of these two is usually the "
+"same for any product based on the same chipset."
+msgstr ""
+"Un buon modo per scoprire su quali chip sono basati i dispositivi USB e PCI/"
+"PCI-Express/ExpressCard è cercare gli ID del dispositivo. Tutti i "
+"dispositivi USB/PCI/PCI-Express/ExpressCard hanno un ID per il "
+"<quote>produttore</quote> e per il <quote>prodotto</quote> e la loro "
+"combinazione è solitamente la stessa per qualsiasi prodotto basato sullo "
+"stesso chip."
+
+#. Tag: para
+#: preparing.xml:548
+#, no-c-format
+msgid ""
+"On Linux systems, these IDs can be read with the <command>lsusb</command> "
+"command for USB devices and with the <command>lspci -nn</command> command "
+"for PCI/PCI-Express/ExpressCard devices. The vendor and product IDs are "
+"usually given in the form of two hexadecimal numbers, seperated by a colon, "
+"such as <quote>1d6b:0001</quote>."
+msgstr ""
+"Sui sistemi Linux, questi ID possono essere trovati con il comando "
+"<command>lsusb</command> per i dispositivi USB e con il comando "
+"<command>lspci -nn</command> per i dispositivi PCI/PCI-Express/ExpressCard."
+
+#. Tag: para
+#: preparing.xml:556
+#, no-c-format
+msgid ""
+"An example for the output of <command>lsusb</command>: <quote>Bus 001 Device "
+"001: ID 1d6b:0002 Linux Foundation 2.0 root hub</quote>, whereby 1d6b is the "
+"vendor ID and 0002 is the product ID."
+msgstr ""
+"Per esempio, l'output di <command>lsusb</command>: <quote>Bus 001 Device "
+"001: ID 1d6b:0002 Linux Foundation 2.0 root hub</quote> dove 1d6b è l'ID del "
+"produttore e 0002 è l'ID del prodotto."
+
+#. Tag: para
+#: preparing.xml:562
+#, no-c-format
+msgid ""
+"An example for the output of <command>lspci -nn</command> for an Ethernet "
+"card: <quote>03:00.0 Ethernet controller [0200]: Realtek Semiconductor Co., "
+"Ltd. RTL8111/8168B PCI Express Gigabit Ethernet controller [10ec:8168] (rev "
+"06)</quote>. The IDs are given inside the rightmost square brackets, i.e. "
+"here 10ec is the vendor- and 8168 is the product ID."
+msgstr ""
+"Per esempio, l'output di <command>lspci -nn</command> per una scheda "
+"Ethernet: <quote>03:00.0 Ethernet controller [0200]: Realtek Semiconductor "
+"Co., Ltd. RTL8111/8168B PCI Express Gigabit Ethernet controller [10ec:8168] "
+"(rev 06)</quote>. Gli ID sono mostrati dentro le parentesi quadre più a "
+"destra, in questo caso 10ec è il produttore e 8168 è l'ID del prodotto."
+
+#. Tag: para
+#: preparing.xml:570
+#, no-c-format
+msgid ""
+"As another example, a graphics card could give the following output: "
+"<quote>04:00.0 VGA compatible controller [0300]: Advanced Micro Devices "
+"[AMD] nee ATI RV710 [Radeon HD 4350] [1002:954f]</quote>."
+msgstr ""
+"Ancora un esempio, una scheda grafica potrebbe restituire il seguente "
+"output: <quote>04:00.0 VGA compatible controller [0300]: Advanced Micro "
+"Devices [AMD] nee ATI RV710 [Radeon HD 4350] [1002:954f]</quote>."
+
+#. Tag: para
+#: preparing.xml:576
+#, no-c-format
+msgid ""
+"On Windows systems, the IDs for a device can be found in the Windows device "
+"manager on the tab <quote>details</quote>, where the vendor ID is prefixed "
+"with VEN_ and the product ID is prefixed with DEV_. On Windows 7 systems, "
+"you have to select the property <quote>Hardware IDs</quote> in the device "
+"manager's details tab to actually see the IDs, as they are not displayed by "
+"default."
+msgstr ""
+"Su sistemi Windows, gli ID di un dispositivo possono essere trovati nella "
+"gestione dispositivi di Windows nella scheda <quote>dettagli</quote>, dove "
+"l'ID del produttore ha il prefisso VEN_ e l'ID del prodotto ha il prefisso "
+"DEV_. Su sistemi Windows 7, è necessario selezionare la proprietà <quote>ID "
+"Hardware</quote> nella scheda dettagli del gestore dispositivi per vedere "
+"gli ID perché normalmente non sono mostrati."
+
+#. Tag: para
+#: preparing.xml:586
+#, no-c-format
+msgid ""
+"Searching on the internet with the vendor/product ID, <quote>&arch-kernel;</"
+"quote> and <quote>driver</quote> as the search terms often results in "
+"information regarding the driver support status for a certain chipset. If a "
+"search for the vendor/product ID does not yield usable results, a search for "
+"the chip code names, which are also often provided by lsusb and lspci "
+"(<quote>RTL8111</quote>/<quote>RTL8168B</quote> in the network card example "
+"and <quote>RV710</quote> in the graphics card example), can help."
+msgstr ""
+"Cercando su Internet per produttore/ID prodotto, <quote>&arch-kernel;</"
+"quote> e <quote>driver</quote> come chiavi di ricerca spesso restituiscono "
+"informazioni riguardo lo stato dei driver per un certo chipset. Se la "
+"ricerca per produttore/ID prodotto non dà risultati utili, la ricerca con il "
+"nome del chip, tale nome è spesso mostrato fornito da lsusb e lspci "
+"(<quote>RTL8111</quote>/<quote>RTL8168B</quote> nell'esempio della scheda di "
+"rete e <quote>RV710</quote> nell'esempio della scheda grafica) può essere "
+"d'aiuto."
+
+#. Tag: title
+#: preparing.xml:599
+#, no-c-format
+msgid "Testing hardware compatibility with a Live-System"
+msgstr "Verifica della compatibilità hardware con un sistema live"
+
+#. Tag: para
+#: preparing.xml:601
+#, no-c-format
+msgid ""
+"&debian-gnu; is also available as a so-called <quote>live system</quote> for "
+"certain architectures. A live system is a preconfigured ready-to-use system "
+"in a compressed format that can be booted and used from a read-only medium "
+"like a CD or DVD. Using it by default does not create any permanent changes "
+"on your computer. You can change user settings and install additional "
+"programs from within the live system, but all this only happens in the "
+"computer's RAM, i.e. if you turn off the computer and boot the live system "
+"again, everything is reset to its defaults. If you want to see whether your "
+"hardware is supported by &debian-gnu;, the easiest way is to run a &debian; "
+"live system on it and try it out."
+msgstr ""
+"&debian-gnu; è disponibile su alcune architetture anche come <quote>sistema "
+"live</quote>. Un sistema live è un sistema preconfigurato e pronto all'uso "
+"in formato compresso che può essere avviato e usato da un supporto di sola "
+"lettura tipo un CD o DVD. L'uso di un sistema live non crea nessun "
+"cambiamento permanente sul proprio computer; con il sistema live è possibile "
+"cambiare le impostazioni dell'utente e installare programmi aggiuntivi ma "
+"tutto questo avviene nella RAM, cioè spegnendo il computer e avviando di "
+"nuovo il sistema live, tutto è ripristinato alla configurazione predefinita. "
+"Il modo più semplice per verificare se il proprio hardware è supportato da "
+"&debian-gnu; è avviare un sistema &debian; live e provarlo."
+
+#. Tag: para
+#: preparing.xml:614
+#, no-c-format
+msgid ""
+"There are a few limitations in using a live system. The first is that as all "
+"changes you do within the live system must be held in your computer's RAM, "
+"this only works on systems with enough RAM to do that, so installing "
+"additional large software packages may fail due to memory constraints. "
+"Another limitation with regards to hardware compatibility testing is that "
+"the official &debian-gnu; live system contains only free components, i.e. "
+"there are no non-free firmware files included in it. Such non-free packages "
+"can of course be installed manually within the system, but there is no "
+"automatic detection of required firmware files like in the &d-i;, so "
+"installation of non-free components must be done manually if needed."
+msgstr ""
+"Ci sono alcune limitazioni durante l'uso di un sistema live. La prima è che "
+"tutte le modifiche che si fanno dall'interno del sistema live devono essere "
+"tenute nella RAM del computer, quindi funziona solo su sistemi con RAM "
+"sufficiente, quindi l'installazione di grossi pacchetti aggiuntivi potrebbe "
+"fallire a causa di problemi di memoria. Un'altra limitazione che riguarda il "
+"test della compatibilità hardware è che il sistema &debian-gnu; live "
+"ufficiale contiene solo componenti libere, quindi non include i file del "
+"firmware non-free. I pacchetti non-free possono essere installati "
+"manualmente nel sistema ma non c'è il rilevamento automatico della necessità "
+"di firmware come nel &d-i;, quindi l'installazione di componenti non-free "
+"deve essere fatta manualmente."
+
+#. Tag: para
+#: preparing.xml:627
+#, no-c-format
+msgid ""
+"Information about the available variants of the &debian; live images can be "
+"found at the <ulink url=\"&url-debian-live-cd;\">Debian Live Images website</"
+"ulink>."
+msgstr ""
+"È possibile trovare informazioni sulle varianti disponibili delle immagini "
+"di &debian; live sul <ulink url=\"&url-debian-live-cd;\">sito web Debian "
+"Live Images</ulink>."
+
+#. Tag: title
+#: preparing.xml:641
+#, no-c-format
+msgid "Network Settings"
+msgstr "Impostazione della rete"
+
+#. Tag: para
+#: preparing.xml:643
+#, no-c-format
+msgid ""
+"If your computer is connected to a fixed network (i.e. an Ethernet or "
+"equivalent connection &mdash; not a dialup/PPP connection) which is "
+"administered by somebody else, you should ask your network's system "
+"administrator for this information:"
+msgstr ""
+"Se il computer ha una connessione permanente alla rete (cioè una connessione "
+"Ethernet o equivalente, non una connessione dialup/PPP) che è amministrata "
+"da qualcun altro, si deve chiedere all'amministratore di rete le seguenti "
+"informazioni:"
+
+#. Tag: para
+#: preparing.xml:651
+#, no-c-format
+msgid "Your host name (you may be able to decide this on your own)."
+msgstr "Il proprio hostname (forse lo si può decidere da soli)."
+
+#. Tag: para
+#: preparing.xml:656
+#, no-c-format
+msgid "Your domain name."
+msgstr "Il proprio nome di dominio."
+
+#. Tag: para
+#: preparing.xml:661
+#, no-c-format
+msgid "Your computer's IP address."
+msgstr "L'indirizzo IP dell'elaboratore."
+
+#. Tag: para
+#: preparing.xml:666
+#, no-c-format
+msgid "The netmask to use with your network."
+msgstr "La netmask da usare con la propria rete."
+
+#. Tag: para
+#: preparing.xml:671
+#, no-c-format
+msgid ""
+"The IP address of the default gateway system you should route to, if your "
+"network <emphasis>has</emphasis> a gateway."
+msgstr ""
+"L'indirizzo IP del gateway su cui effettuare l'instradamento predefinito, "
+"<emphasis>se</emphasis> la propria rete ne ha uno."
+
+#. Tag: para
+#: preparing.xml:677
+#, no-c-format
+msgid ""
+"The system on your network that you should use as a DNS (Domain Name "
+"Service) server."
+msgstr ""
+"Il sistema della propria rete da usare come server DNS (Domain Name Service)."
+
+#. Tag: para
+#: preparing.xml:685
+#, no-c-format
+msgid ""
+"If the network you are connected to uses DHCP (Dynamic Host Configuration "
+"Protocol) for configuring network settings, you don't need this information "
+"because the DHCP server will provide it directly to your computer during the "
+"installation process."
+msgstr ""
+"Se la rete a cui si è connessi usa DHCP (Dynamic Host Configuration "
+"Protocol) per la configurazione della rete, le informazioni precedenti sono "
+"inutili poiché il server DHCP le fornisce direttamente al proprio computer "
+"durante il processo d'installazione."
+
+#. Tag: para
+#: preparing.xml:692
+#, no-c-format
+msgid ""
+"If you have internet access via DSL or cable modem (i.e. over a cable tv "
+"network) and have a router (often provided preconfigured by your phone or "
+"catv provider) which handles your network connectivity, DHCP is usually "
+"available by default."
+msgstr ""
+"Chi accede a Internet via DSL o con un cable modem (cioè tramite la TV via "
+"cavo) e dispone di un router (spesso fornito già preconfigurato dal "
+"fornitore telefonico della TV via cavo) che gestisce la connettività di "
+"rete, solitamente è disponibile DHCP."
+
+#. Tag: para
+#: preparing.xml:700
+#, no-c-format
+msgid ""
+"As a rule of thumb: if you run a Windows system in your home network and did "
+"not have to manually perform any network settings there to achieve Internet "
+"access, network connectivity in &debian-gnu; will also be configured "
+"automatically."
+msgstr ""
+"Come regola del pollice: se nella propria rete casalinga si usa Windows e "
+"non è stata effettuata nessuna configurazione manuale sulla rete per potersi "
+"collegare a Internet, anche la connettività di rete di &debian-gnu; verrà "
+"configurata automaticamente."
+
+#. Tag: para
+#: preparing.xml:707
+#, no-c-format
+msgid "If you use a WLAN/WiFi network, you should find out:"
+msgstr "Se si usa una rete WLAN/WiFi si deve anche conoscere:"
+
+#. Tag: para
+#: preparing.xml:712
+#, no-c-format
+msgid "The ESSID (<quote>network name</quote>) of your wireless network."
+msgstr "L'ESSID (<quote>nome della rete</quote>) della propria rete wireless."
+
+#. Tag: para
+#: preparing.xml:717
+#, no-c-format
+msgid "The WEP or WPA/WPA2 security key to access the network (if applicable)."
+msgstr ""
+"La chiave di sicurezza WEP o WPA/WPA2 per accedere alla rete (se usata)."
+
+#. Tag: title
+#: preparing.xml:734
+#, no-c-format
+msgid "Meeting Minimum Hardware Requirements"
+msgstr "Requisiti hardware minimi"
+
+#. Tag: para
+#: preparing.xml:735
+#, no-c-format
+msgid ""
+"Once you have gathered information about your computer's hardware, check "
+"that your hardware will let you do the type of installation that you want to "
+"do."
+msgstr ""
+"Dopo aver raccolto le informazioni sull'hardware del proprio computer "
+"verificare che l'hardware sia compatibile con il tipo d'installazione che si "
+"ha in mente."
+
+#. Tag: para
+#: preparing.xml:741
+#, no-c-format
+msgid ""
+"Depending on your needs, you might manage with less than some of the "
+"recommended hardware listed in the table below. However, most users risk "
+"being frustrated if they ignore these suggestions."
+msgstr ""
+"A seconda delle proprie necessità si potrebbe aver a che fare con qualcosa "
+"meno di quanto raccomandato nella tabella seguente. Comunque, la maggior "
+"parte degli utenti diventa frustrata se ignora questi suggerimenti."
+
+#. Tag: para
+#: preparing.xml:747
+#, no-c-format
+msgid ""
+"A Pentium 4, 1GHz system is the minimum recommended for a desktop system."
+msgstr ""
+"Un Pentium 4, 1&nbsp;GHz è il sistema minimo raccomandato per un sistema "
+"desktop."
+
+#. Tag: para
+#: preparing.xml:752
+#, no-c-format
+msgid "Any OldWorld or NewWorld PowerPC can serve well as a desktop system."
+msgstr ""
+"Qualsiasi sistema PowerPC OldWorld o NewWorld può essere usato come sistema "
+"desktop."
+
+#. Tag: title
+#: preparing.xml:759
+#, no-c-format
+msgid "Recommended Minimum System Requirements"
+msgstr "Requisiti minimi del sistema raccomandati"
+
+#. Tag: entry
+#: preparing.xml:763
+#, no-c-format
+msgid "Install Type"
+msgstr "Tipologia d'installazione"
+
+#. Tag: entry
+#: preparing.xml:764
+#, no-c-format
+msgid "RAM (minimum)"
+msgstr "RAM (minima)"
+
+#. Tag: entry
+#: preparing.xml:765
+#, no-c-format
+msgid "RAM (recommended)"
+msgstr "RAM (raccomandata)"
+
+#. Tag: entry
+#: preparing.xml:766
+#, no-c-format
+msgid "Hard Drive"
+msgstr "Spazio su disco"
+
+#. Tag: entry
+#: preparing.xml:772
+#, no-c-format
+msgid "No desktop"
+msgstr "Senza desktop"
+
+#. Tag: entry
+#: preparing.xml:773
+#, no-c-format
+msgid "128 megabytes"
+msgstr "128 megabyte"
+
+#. Tag: entry
+#: preparing.xml:774
+#, no-c-format
+msgid "512 megabytes"
+msgstr "512 megabyte"
+
+#. Tag: entry
+#: preparing.xml:775
+#, no-c-format
+msgid "2 gigabytes"
+msgstr "2 gigabyte"
+
+#. Tag: entry
+#: preparing.xml:777
+#, no-c-format
+msgid "With Desktop"
+msgstr "Con desktop"
+
+#. Tag: entry
+#: preparing.xml:778
+#, no-c-format
+msgid "256 megabytes"
+msgstr "256 megabyte"
+
+#. Tag: entry
+#: preparing.xml:779
+#, no-c-format
+msgid "1 gigabyte"
+msgstr "1 gigabyte"
+
+#. Tag: entry
+#: preparing.xml:780
+#, no-c-format
+msgid "10 gigabytes"
+msgstr "5 gigabyte"
+
+#. Tag: para
+#: preparing.xml:785
+#, no-c-format
+msgid ""
+"The actual minimum memory requirements are a lot less than the numbers "
+"listed in this table. Depending on the architecture, it is possible to "
+"install &debian; with as little as 60MB (for amd64). The same goes for the "
+"disk space requirements, especially if you pick and choose which "
+"applications to install; see <xref linkend=\"tasksel-size-list\"/> for "
+"additional information on disk space requirements."
+msgstr ""
+"I reali requisiti minimi di memoria sono leggermente inferiori rispetto ai "
+"valori riportati nella tabella. In base all'architettura è possibile "
+"installare &debian; con meno di 60&nbsp;MB (per amd64). Lo stesso vale per i "
+"requisiti di spazio su disco, in particolare se si sceglie una per una le "
+"applicazioni da installare; si veda <xref linkend=\"tasksel-size-list\"/> "
+"per ulteriori informazioni sui requisiti di spazio su disco."
+
+#. Tag: para
+#: preparing.xml:795
+#, no-c-format
+msgid ""
+"It is possible to run a graphical desktop environment on older or low-end "
+"systems, but in that case it is recommended to install a window manager that "
+"is less resource-hungry than those of the GNOME or KDE Plasma desktop "
+"environments; alternatives include <classname>xfce4</classname>, "
+"<classname>icewm</classname> and <classname>wmaker</classname>, but there "
+"are others to choose from."
+msgstr ""
+"Si può usare un ambiente desktop grafico su sistemi più vecchi o meno "
+"performanti ma in questo caso si raccomanda l'installazione di un gestore di "
+"finestre meno avido di risorse rispetto a quelli degli ambienti desktop "
+"GNOME o KDE Plasma; delle alternative sono <classname>xfce4</classname>, "
+"<classname>icewm</classname> e <classname>wmaker</classname>, ma ne esistono "
+"anche altre."
+
+#. Tag: para
+#: preparing.xml:804
+#, no-c-format
+msgid ""
+"It is practically impossible to give general memory or disk space "
+"requirements for server installations as those very much depend on what the "
+"server is to be used for."
+msgstr ""
+"È praticamente impossibile dare dei requisiti di memoria e spazio su disco "
+"per le installazioni server dato che questi valori sono molto legati all'uso "
+"finale del server."
+
+#. Tag: para
+#: preparing.xml:810
+#, no-c-format
+msgid ""
+"Remember that these sizes don't include all the other materials which are "
+"usually to be found, such as user files, mail, and data. It is always best "
+"to be generous when considering the space for your own files and data."
+msgstr ""
+"Ricordarsi che le dimensioni specificate non includono tutto ciò che si può "
+"trovare di solito su un sistema, come per esempio i file degli utenti, la "
+"posta e dati vari. La cosa migliore è tenersi larghi, pensando allo spazio "
+"necessario per i propri dati."
+
+#. Tag: para
+#: preparing.xml:817
+#, no-c-format
+msgid ""
+"Disk space required for the smooth operation of the &debian-gnu; system "
+"itself is taken into account in these recommended system requirements. "
+"Notably, the <filename>/var</filename> partition contains a lot of state "
+"information specific to &debian; in addition to its regular contents, like "
+"logfiles. The <command>dpkg</command> files (with information on all "
+"installed packages) can easily consume 40MB. Also, <command>apt</command> "
+"puts downloaded packages here before they are installed. You should usually "
+"allocate at least 200MB for <filename>/var</filename>, and a lot more if you "
+"install a graphical desktop environment."
+msgstr ""
+"Nei seguenti requisiti di sistema è compreso lo spazio su disco richiesto "
+"dalle normali operazioni del sistema operativo &debian-gnu;. In particolare, "
+"la partizione <filename>/var</filename> contiene un sacco di informazioni "
+"sullo stato specifiche per &debian; oltre ai normali file con i log. I file "
+"di <command>dpkg</command> (che contengono informazioni su tutti i pacchetti "
+"installati) possono facilmente occupare 40&nbsp;MB. Inoltre <command>apt</"
+"command> mette i pacchetti scaricati in questa directory prima di "
+"installarli. Di solito si deve assegnare almeno 200&nbsp;MB a <filename>/"
+"var</filename>, un po' di più se si installa anche un ambiente desktop "
+"grafico."
+
+#. Tag: title
+#: preparing.xml:841
+#, no-c-format
+msgid "Pre-Partitioning for Multi-Boot Systems"
+msgstr "Prepartizionamento per sistemi ad avvio multiplo"
+
+#. Tag: para
+#: preparing.xml:842
+#, no-c-format
+msgid ""
+"Partitioning your disk simply refers to the act of breaking up your disk "
+"into sections. Each section is then independent of the others. It's roughly "
+"equivalent to putting up walls inside a house; if you add furniture to one "
+"room it doesn't affect any other room."
+msgstr ""
+"Il partizionamento del proprio disco consiste semplicemente nel suddividerlo "
+"in sezioni. Ogni sezione è indipendente dalle altre. Grosso modo equivale a "
+"tirare su dei muri in una casa: l'aggiunta dei mobili a una sola stanza non "
+"influisce sulle altre."
+
+#. Tag: para
+#: preparing.xml:849
+#, no-c-format
+msgid ""
+"Whenever this section talks about <quote>disks</quote> you should translate "
+"this into a DASD or VM minidisk in the &arch-title; world. Also a machine "
+"means an LPAR or VM guest in this case."
+msgstr ""
+"Nonostante questa sezione parli di <quote>dischi</quote>, nel mondo &arch-"
+"title; si deve tradurla in DASD o VM minidisk. Inoltre in questo caso "
+"macchina vuol dire LPAR o VM ospite."
+
+#. Tag: para
+#: preparing.xml:855
+#, no-c-format
+msgid ""
+"If you already have an operating system on your system <phrase arch=\"any-"
+"x86\"> (Windows 9x, Windows NT/2000/XP/2003/Vista/7, OS/2, MacOS, Solaris, "
+"FreeBSD, &hellip;) </phrase> <phrase arch=\"s390\"> (VM, z/OS, OS/390, "
+"&hellip;) </phrase> which uses the whole disk and you want to stick &debian; "
+"on the same disk, you will need to repartition it. &debian; requires its own "
+"hard disk partitions. It cannot be installed on Windows or Mac OS X "
+"partitions. It may be able to share some partitions with other Unix systems, "
+"but that's not covered here. At the very least you will need a dedicated "
+"partition for the &debian; root filesystem."
+msgstr ""
+"Se sul proprio sistema è già presente un sistema operativo <phrase arch="
+"\"any-x86\"> (Windows 9x, Windows NT/2000/XP/2003/Vista/7, OS/2, MacOS, "
+"Solaris, FreeBSD, &hellip;) </phrase> <phrase arch=\"s390\"> (VM, z/OS, "
+"OS/390, &hellip;) </phrase> che occupa tutto il disco e si vuole installare "
+"&debian; sullo stesso disco, allora è necessario ripartizionarlo. &debian; "
+"richiede delle partizioni riservate sul disco fisso, non può essere "
+"installata su partizioni Windows o Mac OS X. Si potrebbero invece "
+"condividere alcune partizioni con altri sistemi Unix, ma tale questione non "
+"verrà affrontata in questo documento. Come minimo è necessaria una "
+"partizione dedicata per il file system root di &debian;."
+
+#. Tag: para
+#: preparing.xml:874
+#, no-c-format
+msgid ""
+"You can find information about your current partition setup by using a "
+"partitioning tool for your current operating system<phrase arch=\"any-"
+"x86\">, such as the integrated Disk Manager in Windows or fdisk in DOS</"
+"phrase><phrase arch=\"powerpc\">, such as Disk Utility, Drive Setup, HD "
+"Toolkit, or MacTools</phrase><phrase arch=\"s390\">, such as the VM diskmap</"
+"phrase>. Partitioning tools always provide a way to show existing partitions "
+"without making changes."
+msgstr ""
+"È possibile ottenere delle informazioni sull'attuale configurazione delle "
+"partizioni usando un programma per il partizionamento per il sistema "
+"operativo che si sta attualmente usando<phrase arch=\"any-x86\">, per "
+"esempio il Gestore disco integrato in Windows o fdisk in DOS</phrase><phrase "
+"arch=\"powerpc\">, per esempio Disk Utility, Drive Setup, HD Toolkit o "
+"MacTools</phrase><phrase arch=\"s390\">, per esempio VM diskmap</phrase>. I "
+"programmi di partizionamento forniscono sempre un modo per visualizzare le "
+"partizioni esistenti senza effettuare delle modifiche."
+
+#. Tag: para
+#: preparing.xml:884
+#, no-c-format
+msgid ""
+"In general, changing a partition with a file system already on it will "
+"destroy any information there. Thus you should always make backups before "
+"doing any repartitioning. Using the analogy of the house, you would probably "
+"want to move all the furniture out of the way before moving a wall or you "
+"risk destroying it."
+msgstr ""
+"In generale, modificare una partizione che contiene già un file system "
+"distruggerà qualsiasi informazione preesistente. Perciò si dovrebbe sempre "
+"fare il backup prima di procedere a qualunque ripartizionamento. Continuando "
+"ad usare l'analogia della casa, è opportuno spostare tutti i mobili prima di "
+"procedere alla demolizione e ricostruzione di un muro, altrimenti si rischia "
+"di distruggerli."
+
+#. Tag: para
+#: preparing.xml:892
+#, no-c-format
+msgid ""
+"Several modern operating systems offer the ability to move and resize "
+"certain existing partitions without destroying their contents. This allows "
+"making space for additional partitions without losing existing data. Even "
+"though this works quite well in most cases, making changes to the "
+"partitioning of a disk is an inherently dangerous action and should only be "
+"done after having made a full backup of all data. <phrase arch=\"any-"
+"x86\">For FAT/FAT32 and NTFS partitions as used by DOS and Windows systems, "
+"the ability to move and resize them losslessly is provided both by &d-i; as "
+"well as by the integrated Disk Manager of Windows 7. </phrase>"
+msgstr ""
+"Molti dei sistemi operativi più recenti offrono la possibilità di spostare e "
+"ridimensionare certe partizioni esistenti senza distruggere il loro "
+"contenuto. Questo permette di creare lo spazio per altre partizioni senza "
+"perdere i dati esistenti. Anche se nella maggior parte dei casi questa "
+"operazione funziona correttamente rimane comunque un'azione intrinsecamente "
+"pericolosa perciò deve essere effettuata solo dopo aver fatto un backup "
+"completo di tutti i dati. <phrase arch=\"any-x86\">Le partizioni FAT/FAT32 e "
+"NTFS usate da sistemi DOS o Windows possono essere spostate e ridimensionate "
+"senza perdere dati usando &d-i; oppure il Gestore disco integrato in Windows "
+"7.</phrase>"
+
+#. Tag: para
+#: preparing.xml:907
+#, no-c-format
+msgid ""
+"To losslessly resize an existing FAT or NTFS partition from within &d-i;, go "
+"to the partitioning step, select the option for manual partitioning, select "
+"the partition to resize, and simply specify its new size."
+msgstr ""
+"Per ridimensionare una partizione FAT o NTFS esistente senza perdere i dati "
+"da &d-i; selezionare il passo di partizionamento e scegliere l'opzione per "
+"il partizionamento manuale, poi scegliere la partizione da ridimensionare e "
+"specificare la sua nuova dimensione."
+
+#. Tag: emphasis
+#: preparing.xml:915
+#, no-c-format
+msgid "FIXME: write about HP-UX disks?"
+msgstr "FIXME: write about HP-UX disks?"
+
+#. Tag: para
+#: preparing.xml:917
+#, no-c-format
+msgid ""
+"Creating and deleting partitions can be done from within &d-i; as well as "
+"from an existing operating system. As a rule of thumb, partitions should be "
+"created by the system for which they are to be used, i.e. partitions to be "
+"used by &debian-gnu; should be created from within &d-i; and partitions to "
+"be used from another operating system should be created from there. &d-i; is "
+"capable of creating non-&arch-kernel; partitions, and partitions created "
+"this way usually work without problems when used in other operating systems, "
+"but there are a few rare corner cases in which this could cause problems, so "
+"if you want to be sure, use the native partitioning tools to create "
+"partitions for use by other operating systems."
+msgstr ""
+"La creazione e la cancellazione di partizioni può essere fatta dall'interno "
+"di &d-i; oppure con il sistema operativo esistente. Come regola del pollice "
+"le partizioni dovrebbero essere create dal sistema che poi le utilizzerà, "
+"cioè le partizione che saranno usate da &debian-gnu; dovrebbero essere "
+"create da &d-i; e le partizioni che saranno usate da altri sistemi operativi "
+"dovrebbero essere create usando quest'ultimi. &d-i; è in grado di creare "
+"partizioni non-&arch-kernel;, solitamente tali partizioni funzionano senza "
+"problemi anche quando sono utilizzate da altri sistemi operativi tuttavia ci "
+"sono dei rari casi in cui si possono verificare dei problemi perciò, per "
+"essere assolutamente sicuri, utilizzare gli strumenti di partizionamento "
+"nativi per creare le partizioni usate da altri sistemi operativi."
+
+#. Tag: para
+#: preparing.xml:930
+#, no-c-format
+msgid ""
+"If you are going to install more than one operating system on the same "
+"machine, you should install all other system(s) before proceeding with the "
+"&debian; installation. Windows and other OS installations may destroy your "
+"ability to start &debian;, or encourage you to reformat non-native "
+"partitions."
+msgstr ""
+"Per installare più di un sistema operativo sulla stessa macchina si "
+"dovrebbero installare prima tutti gli altri sistemi e poi procedere con "
+"l'installazione di &debian;. L'installazione di Windows e di altri SO "
+"potrebbero distruggere la capacità di avviare &debian; oppure incoraggiare "
+"la formattazione delle partizioni non native."
+
+#. Tag: para
+#: preparing.xml:938
+#, no-c-format
+msgid ""
+"You can recover from these actions or avoid them, but installing the native "
+"system first saves you trouble."
+msgstr ""
+"Queste operazioni possono essere ripristinate o evitate, ma facendo prima "
+"l'installazione dei sistemi nativi si evitano parecchi problemi."
+
+#. Tag: para
+#: preparing.xml:943
+#, no-c-format
+msgid ""
+"In order for OpenFirmware to automatically boot &debian-gnu; the &arch-"
+"parttype; partitions should appear before all other partitions on the disk, "
+"especially Mac OS X boot partitions. This should be kept in mind when pre-"
+"partitioning; you should create a &arch-parttype; placeholder partition to "
+"come <emphasis>before</emphasis> the other bootable partitions on the disk. "
+"(The small partitions dedicated to Apple disk drivers are not bootable.) You "
+"can delete the placeholder with the &debian; partition tools later during "
+"the actual install, and replace it with &arch-parttype; partitions."
+msgstr ""
+"Per avviare automaticamente &debian-gnu; da OpenFirmware, le partizioni "
+"&arch-parttype; devono essere le prime partizioni presenti sul disco, "
+"specialmente delle partizioni di boot Mac OS X. Lo si dovrebbe tenere "
+"presente quando si partiziona il disco in anticipo. Si dovrebbe creare una "
+"partizione &arch-parttype; che faccia da segnaposto e <emphasis>preceda</"
+"emphasis> tutte le altre partizioni avviabili sul disco. In seguito, durante "
+"l'installazione effettiva, sarà possibile cancellare la partizione "
+"segnaposto usando gli appositi programmi &debian; e rimpiazzarla con "
+"partizioni &arch-parttype;."
+
+#. Tag: title
+#: preparing.xml:1019
+#, no-c-format
+msgid "Partitioning from SunOS"
+msgstr "Partizionare da SunOS"
+
+#. Tag: para
+#: preparing.xml:1021
+#, no-c-format
+msgid ""
+"It's perfectly fine to partition from SunOS; in fact, if you intend to run "
+"both SunOS and &debian; on the same machine, it is recommended that you "
+"partition using SunOS prior to installing &debian;. The Linux kernel "
+"understands Sun disk labels, so there are no problems there. SILO supports "
+"booting Linux and SunOS from any of EXT2 (Linux), UFS (SunOS), romfs or "
+"iso9660 (CDROM) partitions."
+msgstr ""
+"È un'ottima cosa partizionare da SunOS: di fatto se si intende avere SunOS e "
+"&debian; sulla stessa macchina, si raccomanda di partizionare da SunOS prima "
+"di installare &debian;. Il kernel Linux riconosce senza problemi le disk "
+"label Sun. SILO supporta il boot di Linux e SunOS da partizioni EXT2 "
+"(Linux), UFS (SunOS), romfs o iso9660 (CDROM)."
+
+#. Tag: title
+#: preparing.xml:1033
+#, no-c-format
+msgid "Partitioning from Linux or another OS"
+msgstr "Partizionare da Linux o da un altro sistema operativo"
+
+#. Tag: para
+#: preparing.xml:1035
+#, no-c-format
+msgid ""
+"Whatever system you are using to partition, make sure you create a "
+"<quote>Sun disk label</quote> on your boot disk. This is the only kind of "
+"partition scheme that the OpenBoot PROM understands, and so it's the only "
+"scheme from which you can boot. In <command>fdisk</command>, the <keycap>s</"
+"keycap> key is used to create Sun disk labels. You only need to do this on "
+"drives that do not already have a Sun disk label. If you are using a drive "
+"that was previously formatted using a PC (or other architecture) you must "
+"create a new disk label, or problems with the disk geometry will most likely "
+"occur."
+msgstr ""
+"Qualunque sistema si stia usando per partizionare, ci si deve assicurare di "
+"creare una <quote>disk label Sun</quote>. È il solo tipo di schema di "
+"partizionamento che la PROM OpenBoot riconosce, quindi è il solo dal quale "
+"si può fare l'avvio. In <command>fdisk</command> potete usare il tasto "
+"<emphasis>s</emphasis> per creare una disk label Sun. È necessario farlo "
+"solo sui dischi che non ne hanno già una. Se si usa un disco formattato in "
+"precedenza da un PC (o altre architetture) si deve per forza crearne una "
+"nuova, in caso contrario potranno facilmente manifestarsi problemi con la "
+"geometria del disco."
+
+#. Tag: para
+#: preparing.xml:1047
+#, no-c-format
+msgid ""
+"You will probably be using <command>SILO</command> as your boot loader (the "
+"small program which runs the operating system kernel). <command>SILO</"
+"command> has certain requirements for partition sizes and location; see "
+"<xref linkend=\"partitioning\"/>."
+msgstr ""
+"Probabilmente si userà <command>SILO</command> come boot loader (il "
+"programma di ridotte dimensioni che avvia il kernel del sistema operativo). "
+"<command>SILO</command> richiede che dimensioni e ubicazione delle "
+"partizioni soddisfino certi requisiti, si consulti <xref linkend="
+"\"partitioning\"/>."
+
+#. Tag: title
+#: preparing.xml:1062
+#, no-c-format
+msgid "Mac OS X Partitioning"
+msgstr "Partizionare da Mac OS X"
+
+#. Tag: para
+#: preparing.xml:1064
+#, no-c-format
+msgid ""
+"The <application>Disk Utility</application> application can be found under "
+"the <filename>Utilities</filename> menu in Mac OS X Installer. It will not "
+"adjust existing partitions; it is limited to partitioning the entire disk at "
+"once."
+msgstr ""
+"L'applicazione <application>Disk Utility</application> può essere trovata "
+"nella cartella <filename>Utilities</filename> del menu del programma "
+"d'installazione di Mac OS X. Tale applicazione non è in grado di modificare "
+"le partizioni esistenti e ha il limite di partizionare tutto il disco in una "
+"sola volta."
+
+#. Tag: para
+#: preparing.xml:1070
+#, no-c-format
+msgid ""
+"Remember to create a placeholder partition for GNU/Linux, preferably "
+"positioned first in the disk layout. it doesn't matter what type it is, it "
+"will be deleted and replaced later inside the &debian-gnu; installer."
+msgstr ""
+"Ricordarsi di creare una partizione (preferibilmente all'inizio del disco) "
+"per tenere il posto a GNU/Linux. Il tipo di questa partizione non è "
+"importante, in seguito verrà cancellata e sostituita dal programma "
+"d'installazione di &debian-gnu;."
+
+#. Tag: para
+#: preparing.xml:1076
+#, no-c-format
+msgid ""
+"&debian; installer partition table editing tools are compatible with OS X, "
+"but not with MacOS 9. If you are planning to use both MacOS 9 and OS X, it "
+"is best to install OS X and &debian; on one hard drive, and put MacOS 9 on a "
+"separate hard drive. Separate options for OS 9 and OS X will appear when "
+"holding the <keycap>option</keycap> key at boot time, and separate options "
+"can be installed in the <application>yaboot</application> boot menu as well."
+msgstr ""
+"Gli strumenti per la modifica della tabella delle partizioni presenti "
+"nell'Installatore &debian; sono compatibili con OS X ma non con MacOS9. Se "
+"si sta preparando l'installazione di MacOS 9 e OS X, si consiglia di "
+"installare OS X e &debian; su un disco e mettere MacOS 9 su un altro disco "
+"separato. Se durante l'avvio si tiene premuto il tasto <keycap>option</"
+"keycap> appariranno opzioni specifiche per OS 9 e OS X inoltre sarà "
+"possibile usare opzioni specifiche anche nel menu di avvio di "
+"<application>yaboot</application>."
+
+#. Tag: para
+#: preparing.xml:1086
+#, no-c-format
+msgid ""
+"GNU/Linux is unable to access information on UFS partitions, but can access "
+"HFS+ (aka MacOS Extended) partitions. OS X requires one of these two types "
+"for its boot partition. MacOS 9 can be installed on either HFS (aka MacOS "
+"Standard) or HFS+. To share information between the Mac OS X and GNU/Linux "
+"systems, an exchange partition is handy. HFS, HFS+ and MS-DOS FAT file "
+"systems are supported by MacOS 9, Mac OS X and GNU/Linux."
+msgstr ""
+"GNU/Linux non è in grado di accedere alle informazioni su partizioni UFS, "
+"però può accedere a partizioni HFS+ (note come MacOS Extended). OS X "
+"richiede uno di questi due tipi per la propria partizione di avvio. MacOS 9 "
+"può essere installato su partizioni HFS (note come MacOS Standard) o HFS+. "
+"Per condividere informazioni fra sistemi Mac OS X e GNU/Linux è necessaria "
+"una partizione di scambio. I file system HFS, HFS+ e MS-DOS FAT sono "
+"supportati da MacOS 9, Mac OS X e Linux."
+
+#. Tag: title
+#: preparing.xml:1106
+#, no-c-format
+msgid "Pre-Installation Hardware and Operating System Setup"
+msgstr ""
+"Configurazione di hardware e sistema operativo prima dell'installazione"
+
+#. Tag: para
+#: preparing.xml:1107
+#, no-c-format
+msgid ""
+"This section will walk you through pre-installation hardware setup, if any, "
+"that you will need to do prior to installing &debian;. Generally, this "
+"involves checking and possibly changing BIOS/system firmware settings for "
+"your system. The <quote>BIOS</quote> or <quote>system firmware</quote> is "
+"the core software used by the hardware; it is most critically invoked during "
+"the bootstrap process (after power-up)."
+msgstr ""
+"In alcuni casi, prima di installare &debian;, potrebbe essere necessario "
+"riconfigurare dell'hardware, in questa sezione è descritto cosa fare. "
+"Generalmente si tratta di controllare e, nel caso, di modificare le "
+"impostazioni del BIOS/firmware di sistema. Il <quote>BIOS</quote> o "
+"<quote>firmware di sistema</quote> è il software essenziale per il "
+"funzionamento dell'hardware, il suo utilizzo è critico durante il processo "
+"di bootstrap (che segue l'accensione)."
+
+#. Tag: title
+#: preparing.xml:1122
+#, no-c-format
+msgid "Invoking the BIOS Set-Up Menu"
+msgstr "Invocare il menu di configurazione del BIOS"
+
+#. Tag: para
+#: preparing.xml:1124
+#, no-c-format
+msgid ""
+"The BIOS provides the basic functions needed to boot your machine and to "
+"allow your operating system to access your hardware. Your system provides a "
+"BIOS setup menu, which is used to configure the BIOS. To enter the BIOS "
+"setup menu you have to press a key or key combination after turning on the "
+"computer. Often it is the <keycap>Delete</keycap> or the <keycap>F2</keycap> "
+"key, but some manufacturers use other keys. Usually upon starting the "
+"computer there will be a message stating which key to press to enter the "
+"setup screen."
+msgstr ""
+"Il BIOS fornisce le funzioni di base necessarie all'avvio della macchina e "
+"permette al sistema operativo di accedere all'hardware. Il proprio sistema è "
+"dotato di un apposito menu di configurazione del BIOS. Per accedere al menu "
+"di configurazione del BIOS è necessario premere un tasto o una combinazione "
+"di tasti; spesso è il tasto <keycap>Canc</keycap> o <keycap>F2</keycap> ma "
+"alcuni costruttori usano altri tasti. Solitamente dopo l'avvio del computer "
+"appare un messaggio che indica quale tasto premere per entrare nella "
+"configurazione."
+
+#. Tag: title
+#: preparing.xml:1138 preparing.xml:1481
+#, no-c-format
+msgid "Boot Device Selection"
+msgstr "Selezione del dispositivo di avvio"
+
+#. Tag: para
+#: preparing.xml:1140
+#, no-c-format
+msgid ""
+"Within the BIOS setup menu, you can select which devices shall be checked in "
+"which sequence for a bootable operating system. Possible choices usually "
+"include the internal harddisks, the CD/DVD-ROM drive and USB mass storage "
+"devices such as USB sticks or external USB harddisks. On modern systems "
+"there is also often a possibility to enable network booting via PXE."
+msgstr ""
+"All'interno del menu di configurazione del BIOS è possibile di scegliere da "
+"quali dispositivi e in che sequenza verrà fatto il bootstrap del sistema "
+"operativo. Le scelte disponibili solitamente includono i dischi fissi "
+"interni, il lettore CD/DVD-ROM e i dispositivi di memorizzazione di massa "
+"USB quali chiavette USB o dischi esterni USB. Sui sistemi più recenti è "
+"spesso disponibile anche la possibilità di attivare l'avvio da rete via PXE."
+
+#. Tag: para
+#: preparing.xml:1148
+#, no-c-format
+msgid ""
+"Depending on the installation media (CD/DVD ROM, USB stick, network boot) "
+"you have chosen you should enable the appropriate boot devices if they are "
+"not already enabled."
+msgstr ""
+"In base al supporto di installazione (CD/DVD ROM, chiavetta USB, avvio da "
+"rete) prescelto è necessario attivare, se non lo è già, l'avvio dai "
+"dispositivi appropriati."
+
+#. Tag: para
+#: preparing.xml:1154
+#, no-c-format
+msgid ""
+"Most BIOS versions allow you to call up a boot menu on system startup in "
+"which you select from which device the computer should start for the current "
+"session. If this option is available, the BIOS usually displays a short "
+"message like <quote>press <keycap>F12</keycap> for boot menu</quote> on "
+"system startup. The actual key used to select this menu varies from system "
+"to system; commonly used keys are <keycap>F12</keycap>, <keycap>F11</keycap> "
+"and <keycap>F8</keycap>. Choosing a device from this menu does not change "
+"the default boot order of the BIOS, i.e. you can start once from a USB stick "
+"while having configured the internal harddisk as the normal primary boot "
+"device."
+msgstr ""
+"La maggior parte delle versioni di BIOS permettono di richiamare un menu "
+"d'avvio da cui è possibile scegliere il dispositivo da cui il computer deve "
+"fare l'avvio. Quando questa opzione è disponibile, il BIOS solitamente "
+"mostra un breve messaggio <quote>press <keycap>F12</keycap> for boot menu</"
+"quote> (premere F12 per il menu di avvio) all'accensione del computer. Il "
+"tasto da premere varia da sistema a sistema; i tasti comunemente usati sono "
+"<keycap>F12</keycap>, <keycap>F11</keycap> e <keycap>F8</keycap>. La scelta "
+"del dispositivo fatta da questo menu non cambia l'ordine di avvio "
+"predefinito nel BIOS, sarà possibile avviare una volta dalla chiavetta USB "
+"lasciando il disco fisso interno come dispositivo di avvio principale."
+
+#. Tag: para
+#: preparing.xml:1168
+#, no-c-format
+msgid ""
+"If your BIOS does not provide you with a boot menu to do ad-hoc choices of "
+"the current boot device, you will have to change your BIOS setup to make the "
+"device from which the &d-i; shall be booted the primary boot device."
+msgstr ""
+"Se il proprio BIOS non fornisce il menu di avvio per modificare l'attuale "
+"dispositivo di avvio, è necessario cambiare la configurazione del BIOS per "
+"rendere il dispositivo da cui dovrà essere avviato il &d-i; il dispositivo "
+"di avvio principale."
+
+#. Tag: para
+#: preparing.xml:1174
+#, no-c-format
+msgid ""
+"Unfortunately some computers contain buggy BIOS versions. Booting &d-i; from "
+"a USB stick might not work even if there is an appropriate option in the "
+"BIOS setup menu and the stick is selected as the primary boot device. On "
+"some of these systems using a USB stick as boot medium is impossible; others "
+"can be tricked into booting from the stick by changing the device type in "
+"the BIOS setup from the default <quote>USB harddisk</quote> or <quote>USB "
+"stick</quote> to <quote>USB ZIP</quote> or <quote>USB CDROM</quote>. <phrase "
+"condition=\"isohybrid-supported\"> In particular if you use an isohybrid CD/"
+"DVD image on a USB stick (see <xref linkend=\"usb-copy-isohybrid\"/>), "
+"changing the device type to <quote>USB CDROM</quote> helps on some BIOSes "
+"which will not boot from a USB stick in USB harddisk mode.</phrase>"
+msgstr ""
+"Sfortunatamente alcuni computer contengono dei BIOS con problemi. L'avvio di "
+"&d-i; da una chiavetta USB potrebbe non funzionare anche quando esiste "
+"un'apposita voce nel menu del BIOS e con la chiavetta è selezionata come "
+"dispositivo di avvio principale. Su alcuni di questi sistemi è impossibile "
+"usare la chiavetta USB come supporto per l'avvio; su altri è possibile "
+"aggirare il problema cambiando il tipo di dispositivo da <quote>USB "
+"harddisk</quote> o <quote>USB stick</quote> in <quote>USB ZIP</quote> o "
+"<quote>USB CDROM</quote>. <phrase condition=\"isohybrid-supported\"> In "
+"particolare chi usa un'immagine di CD/DVD iso-ibride su una chiavetta USB "
+"(vedere <xref linkend=\"usb-copy-isohybrid\"/>), la modifica del tipo di "
+"dispositivo in <quote>USB CDROM</quote> aiuta su alcuni BIOS che non avviano "
+"da una chiavetta USB in modalità disco USB.</phrase>"
+
+#. Tag: para
+#: preparing.xml:1189
+#, no-c-format
+msgid ""
+"If you cannot manipulate the BIOS to boot directly from a USB stick you "
+"still have the option of using an ISO copied to the stick. Boot &d-i; using "
+"<xref linkend=\"boot-drive-files\"/> and, after scanning the hard drives for "
+"an installer ISO image, select the USB device and choose an installation "
+"image."
+msgstr ""
+"Se non è possibile intervenire sul BIOS per fare l'avvio da una chiavetta "
+"USB sarà comunque possibile usare l'immagine ISO copiata sulla chiavetta. "
+"Avviare &d-i; come descritto <xref linkend=\"boot-drive-files\"/> e, dopo la "
+"ricerca sui dischi rigidi dell'immagine ISO, selezionare il dispositivo USB "
+"e scegliere l'immagine."
+
+#. Tag: title
+#: preparing.xml:1207
+#, no-c-format
+msgid "Invoking OpenFirmware"
+msgstr "OpenFirmware"
+
+#. Tag: para
+#: preparing.xml:1208
+#, no-c-format
+msgid ""
+"There is normally no need to set up the BIOS (called OpenFirmware) on &arch-"
+"title; systems. PReP and CHRP are equipped with OpenFirmware, but "
+"unfortunately, the means you use to invoke it vary from manufacturer to "
+"manufacturer. You'll have to consult the hardware documentation which came "
+"with your machine."
+msgstr ""
+"Normalmente sui sistemi &arch-title; non c'è alcun bisogno di configurare il "
+"BIOS (chiamato OpenFirmware). PReP e CHRP sono dotati di OpenFirmware, ma "
+"sfortunatamente il modo usato per invocarlo varia a seconda del produttore. "
+"È necessario consultare la documentazione dell'hardware fornita con la "
+"propria macchina."
+
+#. Tag: para
+#: preparing.xml:1216
+#, no-c-format
+msgid ""
+"On &arch-title; Macintoshes, you invoke OpenFirmware with "
+"<keycombo><keycap>Command (cloverleaf/Apple)</keycap><keycap>Option</"
+"keycap><keycap>o</keycap><keycap>f</keycap></keycombo> while booting. "
+"Generally it will check for these keystrokes after the chime, but the exact "
+"timing varies from model to model. See <ulink url=\"&url-netbsd-powerpc-faq;"
+"\"></ulink> for more hints."
+msgstr ""
+"Per avviare OpenFirmware sui Macintosh &arch-title; occorre premere "
+"<keycombo><keycap>Command (quadrifoglio/Apple)</keycap><keycap>option</"
+"keycap><keycap>o</keycap><keycap>f</keycap></keycombo> durante l'avvio. In "
+"generale il sistema controllerà la pressione di tali tasti dopo la melodia, "
+"ma i tempi esatti variano da modello a modello. Per suggerimenti consultare "
+"<ulink url=\"&url-netbsd-powerpc-faq;\"></ulink>"
+
+#. Tag: para
+#: preparing.xml:1224
+#, no-c-format
+msgid ""
+"The OpenFirmware prompt looks like this: <informalexample><screen>\n"
+"ok\n"
+"0 &gt;\n"
+"</screen></informalexample> Note that on older model &arch-title; Macs, the "
+"default and sometimes hardwired I/O for OpenFirmware user interaction is "
+"through the serial (modem) port. If you invoke OpenFirmware on one of these "
+"machines, you will just see a black screen. In that case, a terminal program "
+"running on another computer, connected to the modem port, is needed to "
+"interact with OpenFirmware."
+msgstr ""
+"Il prompt di OpenFirmware somiglia a: <informalexample><screen>\n"
+"ok\n"
+"0 &gt;\n"
+"</screen></informalexample> Sui Mac &arch-title; più vecchi, per l'utente "
+"interagisce con OpenFirmware attraverso la porta seriale (modem). In alcuni "
+"casi non è nemmeno possibile fare altrimenti: invocando OpenFirmware su una "
+"di queste macchine, si vede solo uno schermo nero. In tal caso per "
+"interagire con OpenFirmware si deve connettersi attraverso la porta seriale "
+"da un altro elaboratore su cui è attivo un emulatore di terminale."
+
+#. Tag: para
+#: preparing.xml:1237
+#, no-c-format
+msgid ""
+"The OpenFirmware on OldWorld Beige G3 machines, OF versions 2.0f1 and 2.4, "
+"is broken. These machines will most likely not be able to boot from the hard "
+"drive unless the firmware is patched. A firmware patch is included in the "
+"<application>System Disk 2.3.1</application> utility, available from Apple "
+"at <ulink url=\"ftp://ftp.apple.com/developer/macosxserver/utilities/"
+"SystemDisk2.3.1.smi.bin\"></ulink>. After unpacking the utility in MacOS, "
+"and launching it, select the <guibutton>Save</guibutton> button to have the "
+"firmware patches installed to nvram."
+msgstr ""
+"Sulle macchine OldWorld Beige G3, OpenFirmware (OF versioni 2.0f1 e 2.4) è "
+"difettoso. Tali macchine molto probabilmente non saranno in grado di avviare "
+"il sistema dal disco fisso, a meno che al firmware non venga applicata una "
+"patch opportuna, come quella compresa nell'utility <application>System Disk "
+"2.3.1</application> scaricabile da Apple come <ulink url=\"ftp://ftp.apple."
+"com/developer/macosxserver/utilities/SystemDisk2.3.1.smi.bin\"></ulink>. "
+"Scompattate l'utility in MacOS, avviarla e azionare il pulsante "
+"<guibutton>Save</guibutton> affinché le patch del firmware vengano "
+"installate nella nvram."
+
+#. Tag: title
+#: preparing.xml:1253
+#, no-c-format
+msgid "How to update bare metal ppc64el firmware"
+msgstr "Come aggiornare il firmware di serie su ppc64el"
+
+#. Tag: para
+#: preparing.xml:1254
+#, no-c-format
+msgid ""
+"This is an excerpt from <ulink url=\"&url-ibm-powerkvm;\">IBM PowerKVM on "
+"IBM POWER8</ulink>."
+msgstr ""
+"Questo è un estratto da <ulink url=\"&url-ibm-powerkvm;\">IBM PowerKVM su "
+"IBM POWER8</ulink>."
+
+#. Tag: para
+#: preparing.xml:1259
+#, no-c-format
+msgid ""
+"Open Power Abstraction Layer (OPAL) is the system firmware in the stack of "
+"POWER processor-based server."
+msgstr ""
+"OPAL (Open Power Abstraction Layer) è il nome del firmware di sistema per i "
+"server basati su processori POWER."
+
+#. Tag: para
+#: preparing.xml:1264
+#, no-c-format
+msgid ""
+"There may be instances when the user might have to upgrade the Power Systems "
+"firmware to a more recent level to acquire new features or additional "
+"support for devices."
+msgstr ""
+"Per aver delle nuove funzionalità oppure per avere il supporto per altri "
+"dispositivi l'utente potrebbe voler aggiornare a una versione più recente il "
+"firmware sul proprio sistema Power."
+
+#. Tag: para
+#: preparing.xml:1270
+#, no-c-format
+msgid "Make sure that the following requirements are met:"
+msgstr "Assicurasi di avere i seguenti requisiti:"
+
+#. Tag: para
+#: preparing.xml:1275
+#, no-c-format
+msgid "an OS to be running on the system;"
+msgstr "un SO funzionante sul sistema;"
+
+#. Tag: para
+#: preparing.xml:1277
+#, no-c-format
+msgid "the .img file of the OPAL level that the user needs to update to;"
+msgstr "il file .img con la versione di OPAL a cui l'utente vuole aggiornare;"
+
+#. Tag: para
+#: preparing.xml:1279
+#, no-c-format
+msgid "the machine isn't under HMC control."
+msgstr "la macchina non è sotto controllo HMC."
+
+#. Tag: para
+#: preparing.xml:1283
+#, no-c-format
+msgid ""
+"Power Systems has two sides of flash to boot firmware from, namely permanent "
+"and temporary. This provides a way to test firmware updates on the temporary "
+"side of the flash before committing the tested changes to the permanent "
+"side, thereby committing the new updates."
+msgstr ""
+"I sistemi Power hanno due tipi di memoria flash da cui fare l'avvio, uno "
+"temporaneo e l'altro permanente. Ciò permette di testare gli aggiornamenti "
+"del firmware nella memoria temporanea prima di scriverli nella memoria "
+"permanente."
+
+#. Tag: para
+#: preparing.xml:1290
+#, no-c-format
+msgid "Perform the following steps for the update:"
+msgstr "Per effettuare l'aggiornamento seguire questi passi:"
+
+#. Tag: para
+#: preparing.xml:1295
+#, no-c-format
+msgid ""
+"Save the level of the existing firmware before really updating. In ASM, in "
+"the system menu, click <command>Service Aids -&gt; Service Processor Command "
+"Line</command>, and run the following command:"
+msgstr ""
+"Salvare la verisone esistente del firmware prima di aggiornarlo. Da ASM, nel "
+"menu di sistema, fare clic su <command>Service Aids -&gt; Service Processor "
+"Command Line</command> ed eseguire il seguente comando:"
+
+#. Tag: screen
+#: preparing.xml:1299
+#, no-c-format
+msgid "cupdcmd -f"
+msgstr "cupdcmd -f"
+
+#. Tag: para
+#: preparing.xml:1300
+#, no-c-format
+msgid ""
+"Download the .img file of the level of firmware to be updated to a location "
+"in the host filesystem. Refer to <ulink url=\"&url-ibm-fixcentral;\">IBM Fix "
+"Central</ulink> for downloading the image file."
+msgstr ""
+"Scaricare il file .img con la versione del firmware a cui aggiornare nel "
+"filesystem della macchina. Fare riferimento a <ulink url=\"&url-ibm-"
+"fixcentral;\">IBM Fix Central</ulink> per scaricare il file con l'immagine."
+
+#. Tag: para
+#: preparing.xml:1305
+#, no-c-format
+msgid ""
+"Verify the image downloaded by running the following command and save the "
+"output."
+msgstr ""
+"Verificare l'immagine scaricata eseguendo il seguente comando e salvarne "
+"l'output."
+
+#. Tag: screen
+#: preparing.xml:1308
+#, no-c-format
+msgid "$update_flash -v -f &lt;file_name.img&gt;"
+msgstr "$update_flash -v -f &lt;file_name.img&gt;"
+
+#. Tag: para
+#: preparing.xml:1310
+#, no-c-format
+msgid "Update the firmware by running the following command."
+msgstr "Aggiornare il firmware eseguendo il comando seguente."
+
+#. Tag: screen
+#: preparing.xml:1312
+#, no-c-format
+msgid "$update_flash -f &lt;file_name.img&gt;"
+msgstr "$update_flash -f &lt;file_name.img&gt;"
+
+#. Tag: para
+#: preparing.xml:1318
+#, no-c-format
+msgid ""
+"The command reboots the system and therefore, sessions if any, would be lost."
+msgstr ""
+"Il comando riavvia il sistema e quindi, se ci sono, le sessioni aperte "
+"andranno perse."
+
+#. Tag: para
+#: preparing.xml:1321
+#, no-c-format
+msgid "Do not reboot or switch off the system until it is back."
+msgstr ""
+"Non riavviare né spengere il sistema prima che sia ritornato alla normalità."
+
+#. Tag: para
+#: preparing.xml:1328
+#, no-c-format
+msgid ""
+"Verify the updated firmware level of the temporary side of the flash as in "
+"step 1."
+msgstr ""
+"Verificare il firmware caricato nella memoria flash temporanea come fatto al "
+"passo 1."
+
+#. Tag: para
+#: preparing.xml:1331
+#, no-c-format
+msgid ""
+"In case the update has to be reverted, the user can do so by running this "
+"command: <informalexample><screen>\n"
+"    $update_flash -r\n"
+"</screen></informalexample> Rejection would reject only the temporary side "
+"of the flash. Therefore, the new level should be committed to the permanent "
+"side only after thorough testing of the new firmware."
+msgstr ""
+"Nel caso necessità è possibile ripristinare la versione precedente con il "
+"seguente comando: <informalexample><screen>\n"
+"$update_flash -r\n"
+"</screen></informalexample> L'annullamento del firmware riguarda solo la "
+"memoria flash temporanea. Quindi sarà possibile scrivere il nuovo firmware "
+"nella memoria flash permanente sono dopo aver affettuato il test di un nuovo "
+"firmware."
+
+#. Tag: para
+#: preparing.xml:1338
+#, no-c-format
+msgid ""
+"The new updated level can be committed to the permanent side of the flash by "
+"running the following command."
+msgstr ""
+"Il firmware caricato nella memoria flash temporanea può essere scritto nella "
+"memoria flash permanente con questo commando:"
+
+#. Tag: screen
+#: preparing.xml:1341
+#, no-c-format
+msgid "$update_flash -c"
+msgstr "$update_flash -c"
+
+#. Tag: title
+#: preparing.xml:1349
+#, no-c-format
+msgid "Updating KVM guest firmware (SLOF)"
+msgstr "Updating KVM guest firmware (SLOF)"
+
+#. Tag: para
+#: preparing.xml:1350
+#, no-c-format
+msgid ""
+"Slimline Open Firmware (SLOF) is an implementation of the IEEE 1275 "
+"standard. It can be used as partition firmware for pSeries machines running "
+"on QEMU or KVM."
+msgstr ""
+"SLOF (Slimline Open Firmware) è una impementazione dello standard IEEE 1275. "
+"Può essere usato come firmware per le macchine pSeries con QEMU o KVM."
+
+#. Tag: para
+#: preparing.xml:1357
+#, no-c-format
+msgid ""
+"The package qemu-slof is, in fact, a dependency of package qemu-system-ppc "
+"(which also provides the virtual package qemu-system-ppc64), and can be "
+"installed or updated via <command>apt</command> tool on Debian-based "
+"distros. Like so: <informalexample><screen>\n"
+"# apt install qemu-slof\n"
+"</screen></informalexample> SLOF can also be installed into rpm-based "
+"distribution systems, given the proper repository or rpm package. "
+"Additionally, the upstream source code is available at <ulink url=\"http://"
+"github.com/leilihh/SLOF\"></ulink>."
+msgstr ""
+"Il pacchetto qemu-slof è un pacchetto che dipende da qemu-system-ppc (il "
+"quale fornisce anche il pacchetto virtuale qemu-system-ppc64) e può essere "
+"installato o aggiornato usando <command>apt</command> sulle distribuzioni "
+"basate su Debian in questo modo: <informalexample><screen>\n"
+"# apt install qemu-slof\n"
+"</screen></informalexample> SLOF può anche essere installato sulle "
+"distribuzioni basate sul sistema rpm una volta impostato il repository "
+"corretto. Inoltre il codice sorgente è disponibile su <ulink url=\"http://"
+"github.com/leilihh/SLOF\"></ulink>."
+
+#. Tag: para
+#: preparing.xml:1372
+#, no-c-format
+msgid ""
+"Thus, one can use a different SLOF file rather than the default, when "
+"running <command>qemu-system</command>, by adding the command line argument "
+"<userinput>-bios &lt;slof_file&gt; </userinput> when starting qemu."
+msgstr ""
+"Quindi quando si usa <command>qemu-system</command> è possibile usare un "
+"file SLOF diverso da quello predefinito aggiungendo l'argomento sulla riga "
+"di comando <userinput>-bios &lt;file_slof&gt; </userinput> all'avvio di qemu."
+
+#. Tag: title
+#: preparing.xml:1382
+#, no-c-format
+msgid "Updating PowerKVM hypervisor"
+msgstr "Aggiornamento dell'hypervisor PowerKVM"
+
+#. Tag: title
+#: preparing.xml:1383
+#, no-c-format
+msgid "Instructions for Netboot installation"
+msgstr "Istruzioni per l'avvio da rete"
+
+#. Tag: para
+#: preparing.xml:1384
+#, no-c-format
+msgid ""
+"You will need a DHCP/TFTP (BOOTP) server, as well as a web server. After "
+"downloading ibm-powerkvm-*-ppc64-service-*.iso, mount loop it and unpack it "
+"into some directory within your HTTP server www root structure (say "
+"wwwroot): <informalexample><screen>\n"
+"# cd &lt;directory-where-the-iso-is&gt;\n"
+"# mkdir ./iso\n"
+"# sudo mount -o loop ibm-powerkvm-*-ppc64-service-*.iso ./iso\n"
+"# cp -a ./iso/* &lt;path-to-wwwroot&gt;\n"
+"</screen></informalexample> Create the petitboot.conf file in a directory "
+"under your tftproot, say /tftproot/powerkvm, with the following contents: "
+"<informalexample><screen>\n"
+"label PowerKVM Automated Install\n"
+"kernel http://YOUR-SERVER-IP/SOME-PATH-TO-wwwroot/ppc/ppc64/vmlinuz\n"
+"initrd http://YOUR-SERVER-IP/SOME-PATH-TO-wwwroot/ppc/ppc64/initrd.img\n"
+"append root=live:http://YOUR-SERVER-IP/SOME-PATH-TO-wwwroot/LiveOS/squashfs."
+"img repo=http://YOUR-SERVER-IP/SOME-PATH-TO-wwwroot/packages rd.dm=0 rd.md=0 "
+"console=hvc0 console=tty0\n"
+"</screen></informalexample> Editing your dhcpd.conf, set this directive at "
+"the beginning: <informalexample><screen>\n"
+"option conf-file code 209 = text;\n"
+"</screen></informalexample> Add the system directive: "
+"<informalexample><screen>\n"
+"host &lt;your-system&gt; {\n"
+"    hardware ethernet &lt;system macaddr&gt;\n"
+"    fixed-address &lt;system ip&gt;;\n"
+"    option host-name \"&lt;system hostname&gt;\";\n"
+"    option conf-file \"&lt;powerkvm/petitboot.conf&gt;\";\n"
+" }\n"
+"</screen></informalexample> Reboot the dhcp server."
+msgstr ""
+"Sono necessari un server DHCP/TFTP (BOOTP) e un server web. Dopo aver "
+"scaricato ibm-powerkvm-*-ppc64-service-*.iso, montarlo in loop e copiarne il "
+"contenuto in una directory all'interno della root del server HTTP (per "
+"esempio wwwroot): <informalexample><screen>\n"
+"# cd &lt;directory-in-cui-è-il-file-iso&gt;\n"
+"# mkdir ./iso\n"
+"# sudo mount -o loop ibm-powerkvm-*-ppc64-service-*.iso ./iso\n"
+"# cp -a ./iso/* &lt;percorso-di-wwwroot&gt;\n"
+"</screen></informalexample> Creare il file petitboot.conf in una directory "
+"sotto tftproot, per esempio /tftproot/powerkvm, con il seguente contenuto: "
+"<informalexample><screen>\n"
+"label PowerKVM Automated Install\n"
+"kernel http://IP-DEL-SERVER/PERCORSO-DI-wwwroot/ppc/ppc64/vmlinuz\n"
+"initrd http://IP-DEL-SERVER/PERCORSO-DI-wwwroot/ppc/ppc64/initrd.img\n"
+"append root=live:http://IP-DEL-SERVER/PERCORSO-DI-wwwroot/LiveOS/squashfs."
+"img repo=http://IP-DEL-SERVER/PERCORSO-DI-TO-wwwroot/packages rd.dm=0 rd."
+"md=0 console=hvc0 console=tty0\n"
+"</screen></informalexample> Modificare dhcpd.conf e impostare questa "
+"direttiva all'inizio del file: <informalexample><screen>\n"
+"option conf-file code 209 = text;\n"
+"</screen></informalexample> Aggiungere la direttiva di sistema: "
+"<informalexample><screen>\n"
+"host &lt;proprio-sistema&gt; {\n"
+"    hardware ethernet &lt;indirizzo mac del sistema&gt;\n"
+"    fixed-address &lt;indirizzo ip del sistema&gt;;\n"
+"    option host-name \"&lt;nome host del sistema&gt;\";\n"
+"    option conf-file \"&lt;powerkvm/petitboot.conf&gt;\";\n"
+" }\n"
+"</screen></informalexample> Riavviare il server dhcp."
+
+#. Tag: para
+#: preparing.xml:1408
+#, no-c-format
+msgid "Boot your PowerLinux machine."
+msgstr "Avviare la macchina PowerLinux."
+
+#. Tag: para
+#: preparing.xml:1412
+#, no-c-format
+msgid ""
+"There should be the following option at petitboot (select it): "
+"<informalexample><screen>\n"
+"\"Power KVM Automated Install\" \n"
+"</screen></informalexample> The installer menu should appear automatically."
+msgstr ""
+"La seguente opzione sarà presente in petitboot (selezionarla): "
+"<informalexample><screen>\n"
+"\"Power KVM Automated Install\" \n"
+"</screen></informalexample> Il menu dell'installatore apparirà "
+"automaticamente."
+
+#. Tag: title
+#: preparing.xml:1423
+#, no-c-format
+msgid "Instructions for DVD"
+msgstr "Istruzioni per DVD"
+
+#. Tag: para
+#: preparing.xml:1424
+#, no-c-format
+msgid ""
+"Boot the ISO ibm-powerkvm-*-ppc64-service-*.iso (either burn a DVD or make "
+"it virtual if using QEMU) and simply wait for the boot."
+msgstr ""
+"Avviare la ISO ibm-powerkvm-*-ppc64-service-*.iso (dopo averla masterizzata "
+"su un DVD oppure da un dispositivo virtuale con QEMU) e attendere l'avvio."
+
+#. Tag: para
+#: preparing.xml:1427
+#, no-c-format
+msgid ""
+"There should be the following option at petitboot (select it): "
+"<informalexample><screen>\n"
+"\"POWERKVM_LIVECD\" \n"
+"</screen></informalexample> The installer menu should appear automatically."
+msgstr ""
+"La seguente opzione sarà presente in petitboot (selezionarla): "
+"<informalexample><screen>\n"
+"\"POWERKVM_LIVECD\" \n"
+"</screen></informalexample> Il menu dell'installatore apparirà "
+"automaticamente."
+
+#. Tag: title
+#: preparing.xml:1448
+#, no-c-format
+msgid "Invoking OpenBoot"
+msgstr "OpenBoot"
+
+#. Tag: para
+#: preparing.xml:1450
+#, no-c-format
+msgid ""
+"OpenBoot provides the basic functions needed to boot the &arch-title; "
+"architecture. This is rather similar in function to the BIOS in the x86 "
+"architecture, although much nicer. The Sun boot PROMs have a built-in forth "
+"interpreter which lets you do quite a number of things with your machine, "
+"such as diagnostics and simple scripts."
+msgstr ""
+"OpenBoot fornisce le funzioni di base necessarie per l'avvio del sistema "
+"dell'architettura &arch-title;. Svolge delle mansioni abbastanza simili a "
+"quelle del BIOS nell'architettura x86, tuttavia è fatto molto meglio. Le "
+"PROM di boot Sun hanno incorporato un interprete Forth, che permette di fare "
+"un sacco di cose, come diagnostica e semplici script."
+
+#. Tag: para
+#: preparing.xml:1458
+#, no-c-format
+msgid ""
+"To get to the boot prompt you need to hold down the <keycap>Stop</keycap> "
+"key (on older type 4 keyboards, use the <keycap>L1</keycap> key, if you have "
+"a PC keyboard adapter, use the <keycap>Break</keycap> key) and press the "
+"<keycap>A</keycap> key. The boot PROM will give you a prompt, either "
+"<userinput>ok</userinput> or <userinput>&gt;</userinput>. It is preferred to "
+"have the <userinput>ok</userinput> prompt. So if you get the old style "
+"prompt, hit the <keycap>n</keycap> key to get the new style prompt."
+msgstr ""
+"Per ottenere il prompt di boot si deve tenere premuto il tasto <keycap>Stop</"
+"keycap> (sulle vecchie tastiere tipo 4 usare il tasto <keycap>L1</keycap>, "
+"se si dispone di un adattatore per tastiera PC usare <keycap>Break</keycap>) "
+"e premere il tasto <keycap>A</keycap>. La PROM di boot emetterà un prompt, "
+"<userinput>ok</userinput> oppure <userinput>&gt;</userinput>. È preferibile "
+"il prompt <userinput>ok</userinput>, quindi se si ottiene quello vecchio "
+"stile premere <keycap>n</keycap> per cambiarlo con quello nuovo."
+
+#. Tag: para
+#: preparing.xml:1470
+#, no-c-format
+msgid ""
+"If you are using a serial console, send a break to the machine. With "
+"Minicom, use <keycap>Ctrl-A F</keycap>, with cu, hit <keycap>Enter</keycap>, "
+"then type <userinput>%~break</userinput>. Consult the documentation of your "
+"terminal emulator if you are using a different program."
+msgstr ""
+"Se si utilizza una console seriale, inviare un break alla macchina. Con "
+"Minicom usare <keycap>Ctrl-A F</keycap>, con cu premere <keycap>Invio</"
+"keycap>, e poi inserire <userinput>%~break</userinput>. Se si usa un "
+"emulatore di terminale diverso si consulti la sua documentazione."
+
+#. Tag: para
+#: preparing.xml:1483
+#, no-c-format
+msgid ""
+"You can use OpenBoot to boot from specific devices, and also to change your "
+"default boot device. However, you need to know some details about how "
+"OpenBoot names devices; it's considerably different from Linux device "
+"naming, described in <xref linkend=\"device-names\"/>. Also, the command "
+"will vary a bit, depending on what version of OpenBoot you have. More "
+"information about OpenBoot can be found in the <ulink url=\"&url-openboot;"
+"\">Sun OpenBoot Reference</ulink>."
+msgstr ""
+"Si può usare OpenBoot per avviare il sistema da un determinato dispositivo e "
+"anche per cambiare quello predefinito. È necessario conoscere alcuni "
+"dettagli sui nomi usati da OpenBoot per riferirsi ai dispositivi. Sono molto "
+"diversi da quelli usati da Linux, descritti in <xref linkend=\"device-names"
+"\"/>. Inoltre il comando esatto varia un pochino, a seconda della versione "
+"di OpenBoot. Si possono trovare più informazioni su OpenBoot nella <ulink "
+"url=\"&url-openboot;\">Sun OpenBoot Reference</ulink>."
+
+#. Tag: para
+#: preparing.xml:1493
+#, no-c-format
+msgid ""
+"Typically, with newer revisions, you can use OpenBoot devices such as "
+"<quote>floppy</quote>, <quote>cdrom</quote>, <quote>net</quote>, "
+"<quote>disk</quote>, or <quote>disk2</quote>. These have the obvious "
+"meanings; the <quote>net</quote> device is for booting from the network. "
+"Additionally, the device name can specify a particular partition of a disk, "
+"such as <quote>disk2:a</quote> to boot disk2, first partition. Full OpenBoot "
+"device names have the form: <informalexample> <screen>\n"
+"<replaceable>driver-name</replaceable>@\n"
+"<replaceable>unit-address</replaceable>:\n"
+"<replaceable>device-arguments</replaceable>\n"
+"</screen></informalexample> In older revisions of OpenBoot, device naming is "
+"a bit different: the floppy device is called <quote>/fd</quote>, and SCSI "
+"disk devices are of the form <quote>sd(<replaceable>controller</"
+"replaceable>, <replaceable>disk-target-id</replaceable>, <replaceable>disk-"
+"lun</replaceable>)</quote>. The command <userinput>show-devs</userinput> in "
+"newer OpenBoot revisions is useful for viewing the currently configured "
+"devices. For full information, whatever your revision, see the <ulink url="
+"\"&url-openboot;\">Sun OpenBoot Reference</ulink>."
+msgstr ""
+"Tipicamente con le versioni più recenti si possono usare dispositivi "
+"OpenBoot quali <quote>floppy</quote>, <quote>cdrom</quote>, <quote>net</"
+"quote>, <quote>disk</quote> o <quote>disk2</quote>. Il loro significato è "
+"ovvio. Il dispositivo <quote>net</quote> serve ad esempio per il boot via "
+"rete. In aggiunta, un nome di dispositivo può specificare una particolare "
+"partizione di un disco, ad esempio <quote>disk2:a</quote> per avviare il "
+"sistema dalla prima partizione di disk2. I nomi di dispositivo OpenBoot "
+"completi hanno la forma: <informalexample><screen>\n"
+"<replaceable>nome-driver</replaceable>@\n"
+"<replaceable>indirizzo-unità</replaceable>:\n"
+"<replaceable>argomenti-device</replaceable>\n"
+"</screen></informalexample> Nelle vecchie versioni di OpenBoot, i nomi "
+"vengono assegnati in modo leggermente diverso: il dischetto è chiamato "
+"<quote>/fd</quote> e i nomi dei dischi SCSI hanno la forma "
+"<quote>sd(<replaceable>controller</replaceable>, <replaceable>disk-target-"
+"id</replaceable>, <replaceable>disk-lun</replaceable>)</quote>. Il comando "
+"<userinput>show-devs</userinput> nelle versioni più recenti di OpenBoot "
+"serve a visualizzare i dispositivi configurati. Per informazioni complete, "
+"qualsiasi sia la versione, consultare la <ulink url=\"&url-openboot;\">Sun "
+"OpenBoot Reference</ulink>."
+
+#. Tag: para
+#: preparing.xml:1516
+#, no-c-format
+msgid ""
+"To boot from a specific device, use the command <userinput>boot "
+"<replaceable>device</replaceable></userinput>. You can set this behavior as "
+"the default using the <userinput>setenv</userinput> command. However, the "
+"name of the variable to set changed between OpenBoot revisions. In OpenBoot "
+"1.x, use the command <userinput>setenv boot-from <replaceable>device</"
+"replaceable></userinput>. In later revisions of OpenBoot, use the command "
+"<userinput>setenv boot-device <replaceable>device</replaceable></userinput>. "
+"Note, this is also configurable using the <command>eeprom</command> command "
+"on Solaris, or modifying the appropriate files in <filename>/proc/openprom/"
+"options/</filename>, for example under Linux: <informalexample><screen>\n"
+"# echo disk1:1 &gt; /proc/openprom/options/boot-device\n"
+"</screen></informalexample> and under Solaris:"
+msgstr ""
+"Per avviare il sistema da un dispositivo specifico, usare il comando "
+"<userinput>boot <replaceable>dispositivo</replaceable></userinput>. Si può "
+"impostarlo come comportamento predefinito con il comando <userinput>setenv</"
+"userinput>. In ogni caso il nome della variabile da impostare è diverso a "
+"seconda della versione di OpenBoot. In OpenBoot 1.x usare il comando "
+"<userinput>setenv boot-from <replaceable>dispositivo</replaceable></"
+"userinput>, nelle versioni successive, usare <userinput>setenv boot-device "
+"<replaceable>dispositivo</replaceable></userinput>. Si noti che lo si può "
+"configurare anche usando il comando <command>eeprom</command> su Solaris "
+"oppure modificando i file appropriati in <filename>/proc/openprom/options/</"
+"filename> sotto Linux <informalexample><screen>\n"
+"# echo disk1:1 &gt; /proc/openprom/options/boot-device\n"
+"</screen></informalexample> e sotto Solaris:"
+
+#. Tag: screen
+#: preparing.xml:1535
+#, no-c-format
+msgid "eeprom boot-device=disk1:1"
+msgstr "eeprom boot-device=disk1:1"
+
+#. Tag: title
+#: preparing.xml:1545
+#, no-c-format
+msgid "BIOS Setup"
+msgstr "Configurazione del BIOS"
+
+#. Tag: para
+#: preparing.xml:1546
+#, no-c-format
+msgid ""
+"In order to install &debian-gnu; on a &arch-title; or zSeries machine you "
+"have first boot a kernel into the system. The boot mechanism of this "
+"platform is inherently different to other ones, especially from PC-like "
+"systems: there are no floppy devices available at all. You will notice "
+"another big difference while you work with this platform: most (if not all) "
+"of the time you will work remote, with the help of some client session "
+"software like telnet, or a browser. This is due to that special system "
+"architecture where the 3215/3270 console is line-based instead of character-"
+"based."
+msgstr ""
+"Per effettuare l'installazione di &debian-gnu; su una &arch-title; o su una "
+"macchina zSeries si deve prima far partire un kernel nel sistema. Il "
+"meccanismo d'avvio per questa piattaforma è intrinsecamente diverso dagli "
+"altri e in modo particolare da quello dei sistemi PC: non esistono lettori "
+"per dischetti. Quando di lavora con questa piattaforma si nota un'altra "
+"grossa differenza: per la maggior parte del tempo (per non dire sempre) si "
+"lavora da remoto con l'ausilio di alcuni programmi client per la gestione "
+"della sessione come telnet o un browser. Questo è dovuto alla particolare "
+"architettura del sistema in cui la console 3215/3270 è basata su righe "
+"anziché su caratteri."
+
+#. Tag: para
+#: preparing.xml:1558
+#, no-c-format
+msgid ""
+"Linux on this platform runs either natively on the bare machine, in a so-"
+"called LPAR (Logical Partition) or in a virtual machine supplied by the VM "
+"system. Boot media differs depending on the runtime mode. For example, you "
+"can use the virtual card reader of a virtual machine, or boot from the HMC "
+"(Hardware Management Console) of an LPAR if the HMC and this option is "
+"available for you."
+msgstr ""
+"Su questa piattaforma Linux può funzionare sia direttamente sulla macchina, "
+"oppure in una LPAR (partizione logica) oppure in una macchina virtuale "
+"fornita dal sistema. Il supporto per l'avvio cambia a seconda della modalità "
+"di esecuzione; per esempio è possibile usare il lettore virtuale di schede "
+"di una macchina virtuale oppure fare l'avvio dalla HMC (Hardware Management "
+"Console) di una LPAR se l'HCM e la possibilità di fare l'avvio sono state "
+"abilitate."
+
+#. Tag: para
+#: preparing.xml:1567
+#, no-c-format
+msgid ""
+"Before you actually perform an installation, you have to go over some design "
+"and preparation steps. IBM has made documentation available about the whole "
+"process, e.g. how to prepare an installation medium and how actually to boot "
+"from that medium. Duplicating that information here is neither possible nor "
+"necessary. However, we will describe here which kind of &debian;-specific "
+"data is needed and where to find it. Using both sources of information, you "
+"have to prepare your machine and the installation medium before you can "
+"perform a boot from it. When you see the welcome message in your client "
+"session, return to this document to go through the &debian;-specific "
+"installation steps."
+msgstr ""
+"Prima di iniziare l'installazione è necessario pianificare ed effettuare "
+"alcune operazioni preliminari. IBM ha preparato parecchia documentazione "
+"sull'intero processo d'installazione, p.e. su come preparare il supporto "
+"d'installazione e su come usarlo per l'avvio. Copiare queste informazioni in "
+"questo documento non è permesso però non è nemmeno utile, verranno descritti "
+"solo i dati specifici di &debian; e dove poterli trovare. Basandosi su "
+"entrambe queste fonti d'informazione si dovrebbe essere in grado di "
+"preparare la macchina e il supporto per l'installazione prima di fare "
+"l'avvio. Quando appare il messaggio di benvenuto nella sessione riprendere "
+"questo documento e seguire i passi relativi all'installazione di &debian;."
+
+#. Tag: title
+#: preparing.xml:1584
+#, no-c-format
+msgid "Native and LPAR installations"
+msgstr "Installazioni native e LPAR"
+
+#. Tag: para
+#: preparing.xml:1585
+#, no-c-format
+msgid ""
+"Please refer to chapter 5 of the <ulink url=\"http://www.redbooks.ibm.com/"
+"pubs/pdfs/redbooks/sg244987.pdf\"> Linux for &arch-title;</ulink> Redbook "
+"and chapter 3.2 of the <ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/"
+"redbooks/sg246264.pdf\"> Linux for IBM eServer zSeries and &arch-title;: "
+"Distributions</ulink> Redbook on how to set up an LPAR for Linux."
+msgstr ""
+"Fare riferimento al capitolo 5 del Redbook <ulink url=\"http://www.redbooks."
+"ibm.com/pubs/pdfs/redbooks/sg244987.pdf\">Linux for &arch-title;</ulink> e "
+"al capitolo 3.2 del Redbook <ulink url=\"http://www.redbooks.ibm.com/pubs/"
+"pdfs/redbooks/sg246264.pdf\">Linux for IBM eServer zSeries and &arch-title;: "
+"Distributions</ulink> per la configurazione di una LPAR per Linux."
+
+#. Tag: title
+#: preparing.xml:1599
+#, no-c-format
+msgid "Installation as a VM guest"
+msgstr "Installazione su una VM ospite"
+
+#. Tag: para
+#: preparing.xml:1601
+#, no-c-format
+msgid ""
+"Please refer to chapter 6 of the <ulink url=\"http://www.redbooks.ibm.com/"
+"pubs/pdfs/redbooks/sg244987.pdf\"> Linux for &arch-title;</ulink> Redbook "
+"and chapter 3.1 of the <ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/"
+"redbooks/sg246264.pdf\"> Linux for IBM eServer zSeries and &arch-title;: "
+"Distributions</ulink> Redbook on how to set up a VM guest for running Linux."
+msgstr ""
+"Fare riferimento al capitolo 6 del Redbook <ulink url=\"http://www.redbooks."
+"ibm.com/pubs/pdfs/redbooks/sg244987.pdf\">Linux for &arch-title;</ulink> e "
+"al capitolo 3.1 del Redbook <ulink url=\"http://www.redbooks.ibm.com/pubs/"
+"pdfs/redbooks/sg246264.pdf\">Linux for IBM eServer zSeries and &arch-title;: "
+"Distributions</ulink> per la configurazione di una VM ospite per "
+"l'esecuzione di Linux."
+
+#. Tag: para
+#: preparing.xml:1611
+#, no-c-format
+msgid ""
+"You need to copy all the files from the <filename>generic</filename> sub-"
+"directory to your CMS disk. Be sure to transfer <filename>kernel.debian</"
+"filename> and <filename>initrd.debian</filename> in binary mode with a fixed "
+"record length of 80 characters (by specifying <userinput>BINARY</userinput> "
+"and <userinput>LOCSITE FIX 80</userinput> in your FTP client). "
+"<filename>parmfile.debian</filename> can be in either ASCII or EBCDIC "
+"format. A sample <filename>debian.exec</filename> script, which will punch "
+"the files in the proper order, is included with the images."
+msgstr ""
+"È necessario copiare tutti i file dalla sotto-directory <filename>generic</"
+"filename> sul proprio disco CMS. Assicurarsi che il trasferimento di "
+"<filename>kernel.debian</filename> e <filename>initrd.debian</filename> "
+"avvenga in modalità binaria e con record di lunghezza fissa pari a 80 "
+"caratteri (specificando <userinput>BINARY</userinput> e <userinput>LOCSITE "
+"FIX 80</userinput> nel proprio client FTP). <filename>parmfile.debian</"
+"filename> può essere in formato ASCII o EBCDIC. Un semplice script "
+"<filename>debian.exec</filename>, che prepara i file nell'ordine corretto, è "
+"incluso nelle immagini."
+
+#. Tag: title
+#: preparing.xml:1628
+#, no-c-format
+msgid "Setting up an installation server"
+msgstr "Preparazione di un server d'installazione"
+
+#. Tag: para
+#: preparing.xml:1630
+#, no-c-format
+msgid ""
+"If you don't have a connection to the Internet (either directly or via a web "
+"proxy) you need to create a local installation server that can be accessed "
+"from your S/390. This server keeps all the packages you want to install and "
+"must make them available using NFS, HTTP or FTP."
+msgstr ""
+"Se non si dispone di una connessione a Internet (né diretta né tramite un "
+"proxy) è necessario creare un server d'installazione locale a cui il proprio "
+"S/390 possa accedere. Questo server contiene tutti i pacchetti che si vuole "
+"installare e deve renderli disponibili tramite NFS, HTTP o FTP."
+
+#. Tag: para
+#: preparing.xml:1638
+#, no-c-format
+msgid ""
+"The installation server needs to copy the exact directory structure from any "
+"&debian-gnu; mirror, but only the s390 and architecture-independent files "
+"are required. You can also copy the contents of all installation CDs into "
+"such a directory tree."
+msgstr ""
+"È necessario che il server d'installazione abbia una copia della struttura "
+"delle directory identica a quella di un mirror &debian-gnu; per i soli file "
+"relativi all'architettura s390 e per i file indipendenti dall'architettura. "
+"Si può anche copiare il contenuto di tutti i CD d'installazione dentro "
+"questa struttura di directory."
+
+#. Tag: emphasis
+#: preparing.xml:1647
+#, no-c-format
+msgid "FIXME: more information needed &mdash; from a Redbook?"
+msgstr "FIXME: more information needed &mdash; from a Redbook?"
+
+#. Tag: title
+#: preparing.xml:1657
+#, no-c-format
+msgid "ARM firmware"
+msgstr "ARM firmware"
+
+#. Tag: para
+#: preparing.xml:1659
+#, no-c-format
+msgid ""
+"As already mentioned before, there is unfortunately no standard for system "
+"firmware on ARM systems. Even the behaviour of different systems which use "
+"nominally the same firmware can be quite different. This results from the "
+"fact that a large part of the devices using the ARM architecture are "
+"embedded systems, for which the manufacturers usually build heavily "
+"customized firmware versions and include device-specific patches. "
+"Unfortunately the manufacturers often do not submit their changes and "
+"extensions back to the mainline firmware developers, so their changes are "
+"not integrated into newer versions of the original firmware."
+msgstr ""
+"Come già menzionato in precedenza, sui sistemi ARM non esiste un firmware "
+"standard, persino il comportamento di sistemi che nominalmente usano lo "
+"stesso firmware può essere abbastanza differente. Ciò dipende dal fatto che "
+"gran parte dei dispositivi che utilizzano l'architettura ARM sono sistemi "
+"embedded per i quali il produttori realizzano versioni del firmware "
+"pesantemente personalizzate con patch specifiche per il dispositivo. "
+"Purtroppo è molto raro che i produttori inviino le proprie modifiche a chi "
+"sviluppa il firmware originale e quindi le modifiche fatte dai produttori "
+"non sono integrate nelle nuove versioni ufficiali del firmware."
+
+#. Tag: para
+#: preparing.xml:1671
+#, no-c-format
+msgid ""
+"As a result even newly sold systems often use a firmware that is based on a "
+"years-old manufacturer-modified version of a firmware whose mainline "
+"codebase has evolved a lot further in the meantime and offers additional "
+"features or shows different behaviour in certain aspects. In addition to "
+"that, the naming of onboard devices is not consistent between different "
+"manufacturer-modified versions of the same firmware, therefore it is nearly "
+"impossible to provide usable product-independend instructions for ARM-based "
+"systems."
+msgstr ""
+"Di conseguenza persino i sistemi appena usciti sul mercato utilizzano del "
+"firmware basato su una versione vecchia e personalizzata dal produttore del "
+"firmware originale che nel frattempo è stato migliorato dagli sviluppatori: "
+"aggiungendo funzionalità o cambiandone alcuni aspetti. Inoltre, anche il "
+"nome dei dispositivi montati non è consistente tra le versioni modificate "
+"dai produttori dello stesso firmware e quindi per i sistemi ARM è "
+"impossibile fornire istruzioni d'uso indipendenti dal prodotto."
+
+#. Tag: title
+#: preparing.xml:1684
+#, no-c-format
+msgid "Debian-provided U-Boot (system firmware) images"
+msgstr "Immgini di U-Boot (firmware di sistema) preparate da Debian"
+
+#. Tag: para
+#: preparing.xml:1685
+#, no-c-format
+msgid ""
+"Debian provides U-Boot images for various armhf systems that can load their "
+"U-Boot from an SD card at &armmp-uboot-img;. The U-Boot builds are offered "
+"in two formats: raw U-Boot components and a ready-made card image that can "
+"easily be written onto an SD card. The raw U-Boot components are provided "
+"for advanced users; the generally recommended way is to use one of the ready-"
+"made SD card images. They are named &lt;system-type&gt;.sdcard.img.gz and "
+"can be written to a card e.g. with <informalexample><screen>zcat &lt;system-"
+"type&gt;.sdcard.img.gz > /dev/SD_CARD_DEVICE</screen></informalexample> As "
+"with all images, please be aware that writing the image to an SD card wipes "
+"all previous contents of the card!"
+msgstr ""
+"Debian distribuisce da &armmp-uboot-img; delle immagini di U-Boot per i vari "
+"sistemi armhf in grado di caricare U-Boot da una scheda SD. Le immagini di U-"
+"Boot sono create in due formati: con i componenti in formato grezzo oppure "
+"in formato pronto per le schede, più facile da scrivere su schede SD. I "
+"componenti di U-Boot grezzi sono forniti per gli utenti più evoluti; in "
+"generale il metodo consigliato è usare una delle immagini pronte per le "
+"schede SD. Il nome delle immagini è &lt;tipo-sistema&gt;.sdcard.img.gz ed è "
+"possibile scriverle su una scheda con questo comando: "
+"<informalexample><screen>zcat &lt;tipo-sistema&gt;.sdcard.img.gz > /dev/"
+"DEVICE_SCHEDA_SD</screen></informalexample> Come per tutte le immagini, la "
+"scrittura dell'immagine sulla scheda SD sovrascrive completamente il "
+"contenuto della scheda!"
+
+#. Tag: para
+#: preparing.xml:1700
+#, no-c-format
+msgid ""
+"If Debian provides a U-Boot image for your system, it is recommended that "
+"you use this image instead of the vendor-provided U-Boot, as the version in "
+"Debian is usually newer and has more features."
+msgstr ""
+"Se è disponibile una immagine U-Boot per il proprio sistema, si raccomanda "
+"di usare quell'immagine al posto di U-Boot fornito dal produttore perché "
+"solitamennte la versione Debian è più recente ed ha più funzionalità."
+
+#. Tag: title
+#: preparing.xml:1708
+#, no-c-format
+msgid "Setting the ethernet MAC address in U-Boot"
+msgstr "Impostazione dell'indirizzo MAC in U-Boot"
+
+#. Tag: para
+#: preparing.xml:1709
+#, no-c-format
+msgid ""
+"The MAC address of every ethernet interface should normally be globally "
+"unique, and it technically has to be unique within its ethernet broadcast "
+"domain. To achieve this, the manufacturer usually allocates a block of MAC "
+"addresses from a centrally-administered pool (for which a fee has to be "
+"paid) and preconfigures one of these addresses on each item sold."
+msgstr ""
+"L'indirizzo MAC di ogni dispositivo Ethernet normalmente dovrebbe essere "
+"unico a livello mondiale e tecnicamente deve essere unico all'interno del "
+"dominio di broadcast ethernet. Per ottere questo risultato chi produce i "
+"dispositivi si fa assegnare un blocco di indirizzi MAC (e per questo paga "
+"una tassa) e preimposta uno di questi indirizzi su ogni dispositivo."
+
+#. Tag: para
+#: preparing.xml:1717
+#, no-c-format
+msgid ""
+"In the case of development boards, sometimes the manufacturer wants to avoid "
+"paying these fees and therefore provides no globally unique addresses. In "
+"these cases the users themselves have to define MAC addresses for their "
+"systems. When no MAC address is defined for an ethernet interface, some "
+"network drivers generate a random MAC address that can change on every boot, "
+"and if this happens, network access would be possible even when the user has "
+"not manually set an address, but e.g. assigning semi-static IP addresses by "
+"DHCP based on the MAC address of the requesting client would obviously not "
+"work reliably."
+msgstr ""
+"Nel caso delle schede di sviluppo, alcuni produttori vogliono non pagare "
+"questa tassa e quindi forniscono dispositivi che non hanno un indirizzo MAC "
+"univoco. In questo caso devono essere gli utenti a definire gli indirizzi "
+"MAC dei propri sistemi. Quando non è definito un indirizzo MAC, alcuni "
+"driver di rete ne generano uno casuale che cambia a ogni riavvio, in questo "
+"caso l'accesso alla rete funziona anche senza che l'utente abbia impostato "
+"un indirizzo MAC ma, per esempio, l'assegnazione semi-statica di indirizzi "
+"IP su DHCP in base all'indirizzo MAC del client che fa la richiesta non "
+"funziona in modo affidabile."
+
+#. Tag: para
+#: preparing.xml:1728
+#, no-c-format
+msgid ""
+"To avoid conflicts with existing officially-assigned MAC addresses, there is "
+"an address pool which is reserved for so-called <quote>locally administered</"
+"quote> addresses. It is defined by the value of two specific bits in the "
+"first byte of the address (the article <quote>MAC address</quote> in the "
+"English language Wikipedia gives a good explanation). In practice this means "
+"that e.g. any address starting with hexadecimal ca (such as ca:ff:"
+"ee:12:34:56) can be used as a locally administered address."
+msgstr ""
+"Per evitare conflitti con gli indirizzi MAC assegnati ufficialmente, c'è un "
+"insieme di indirizzi che è riservato agli indirizzi <quote>locally "
+"administered</quote> (amministrati localmente). È definito dal valore di due "
+"bit del primo byte dell'indirizzo (l'articolo in lungua inglese <quote>MAC "
+"Address</quote> su Wikipedia dà una buona spiegazione). In pratica vuol dire "
+"che, per esempio, tutti gli indirizzi che iniziano con il valore esadecimale "
+"ca (come ca:ff:ee:12:34:56) può essere usato come un indirizzo amministrato "
+"localmente."
+
+#. Tag: para
+#: preparing.xml:1738
+#, no-c-format
+msgid ""
+"On systems using U-Boot as system firmware, the ethernet MAC address is "
+"placed in the <quote>ethaddr</quote> environment variable. It can be checked "
+"at the U-Boot command prompt with the command <quote>printenv ethaddr</"
+"quote> and can be set with the command <quote>setenv ethaddr ca:ff:"
+"ee:12:34:56</quote>. After setting the value, the command <quote>saveenv</"
+"quote> makes the assignment permanent."
+msgstr ""
+"Per i sistemi che utilizzano U-Boot come firmware di sistema, l'indirizzo "
+"MAC ethernet è salvato nella variabile d'ambiente <quote>ethaddr</quote>; è "
+"possibile controllarne il valore dal prompt di U-Boot con il comando "
+"<quote>printenv ethaddr</quote> e può essere cambiato con il comando "
+"<quote>setenv ethaddr ca:ff:ee:12:34:56</quote>. Dopo aver impostato il "
+"nuovo valore, usare il comando <quote>saveenv</quote> per rendere permanente "
+"la modifica."
+
+#. Tag: title
+#: preparing.xml:1749
+#, no-c-format
+msgid "Kernel/Initrd/Device-Tree relocation issues in U-Boot"
+msgstr "Problemi di rilocazione del Kernel/Initrd/Device-Tree con U-Boot"
+
+#. Tag: para
+#: preparing.xml:1750
+#, no-c-format
+msgid ""
+"On some systems with older U-Boot versions there can be problems with "
+"properly relocating the Linux kernel, the initial ramdisk and the device-"
+"tree blob in memory during the boot process. In this case, U-Boot shows the "
+"message <quote>Starting kernel ...</quote>, but the system freezes "
+"afterwards without further output. These issues have been solved with newer "
+"U-Boot versions from v2014.07 onwards."
+msgstr ""
+"È possibile che su alcuni sistemi con vecchie versioni di U-Boot si "
+"verifichino durante il processo d'avvio dei problemi con la rilocazione in "
+"memoria del kernel Linux, del ramdisk iniziale e del device-tree blob. In "
+"questo caso, U-Boot mostra il messaggio <quote>Starting kernel ...</quote> e "
+"poi il sistema si blocca senza altri messaggi. Questi problemi sono stati "
+"risolti nelle versioni di U-Boot successive alla v2014.07."
+
+#. Tag: para
+#: preparing.xml:1759
+#, no-c-format
+msgid ""
+"If the system has originally used a U-Boot version older than v2014.07 and "
+"has been upgraded to a newer version later, the problem might still occur "
+"even after upgrading U-Boot. Upgrading U-Boot usually does not modify the "
+"existing U-Boot environment variables and the fix requires an additional "
+"environment variable (bootm_size) to be set, which U-Boot does automatically "
+"only on fresh installations without existing environment data. It is "
+"possible to manually set bootm_size to the new U-Boot's default value by "
+"running the command <quote>env default bootm_size; saveenv</quote> at the U-"
+"Boot prompt."
+msgstr ""
+"Questo problema potrebbe comunque verificarsi anche se il sistema era "
+"originariamente equipaggiato con una versione di U-Boot precedente alla "
+"v2014.07 e, in seguito, è stato aggiornato a una versione più recente. "
+"Infatti l'aggiornamento di U-Boot solitamente non modifica le variabili "
+"d'ambiente esistenti ma la correzione richiede l'impostazione della nuova "
+"variabile d'ambiente (bootm_size) che viene creata automticamente solo sulle "
+"nuove installazioni quindi senza variabili d'ambiente esistenti. È possibile "
+"impostare manualmente bootm_size al suo valore predefinito eseguendo il "
+"comando <quote>env default bootm_size; saveenv</quote> dal promnpt di U-Boot."
+
+#. Tag: para
+#: preparing.xml:1770
+#, no-c-format
+msgid ""
+"Another possibility to circumvent relocation-related problems is to run the "
+"command <quote>setenv fdt_high ffffffff; setenv initrd_high 0xffffffff; "
+"saveenv</quote> at the U-Boot prompt to completely disable the relocation of "
+"the initial ramdisk and the device-tree blob."
+msgstr ""
+"Un'altra possibilità per prevenire problemi legati alla rilocazione è "
+"eseguire il comando <quote>setenv fdt_high ffffffff; setenv initrd_high "
+"0xffffffff; saveenv</quote> dal prompt di U-Boot per disattivare "
+"completamente la rilocazione del ramdisk iniziale e del device-tree blob."
+
+#. Tag: title
+#: preparing.xml:1780
+#, no-c-format
+msgid "Systems with UEFI firmware"
+msgstr "Sistemi con firmware UEFI"
+
+#. Tag: para
+#: preparing.xml:1781
+#, no-c-format
+msgid ""
+"UEFI (<quote>Unified Extensible Firmware Interface</quote>) is a new kind of "
+"system firmware that is used on many modern systems and is - among other "
+"uses - intended to replace the classic PC BIOS."
+msgstr ""
+"UEFI (<quote>Unified Extensible Firmware Interface</quote>) è un nuovo tipo "
+"di firmware di sistema utilizzato su molti sistemi recenti ed è, tra le "
+"altre cose, pensato per rimpiazzare il BIOS classico dei PC."
+
+#. Tag: para
+#: preparing.xml:1787
+#, no-c-format
+msgid ""
+"Currently most PC systems that use UEFI also have a so-called "
+"<quote>Compatibility Support Module</quote> (CSM) in the firmware, which "
+"provides exactly the same interfaces to an operating system as a classic PC "
+"BIOS, so that software written for the classic PC BIOS can be used "
+"unchanged. Nonetheless UEFI is intended to one day completely replace the "
+"old PC BIOS without being fully backwards-compatible and there are already a "
+"lot of systems with UEFI but without CSM."
+msgstr ""
+"Attualmente la maggior parte dei sistemi PC che utilizzano UEFI hanno nel "
+"firmware il così detto CSM (<quote>Compatibility Support Module</quote>) che "
+"fornisce al sistema operativo esattamente le stesse interfacce del BIOS di "
+"un PC, in questo modo è possibile usare su sistemi UEFI il software scritto "
+"per il BIOS classico senza alcuna modifica. Ciononostante UEFI è pensato per "
+"rimpiazzare completamente il vecchio BIOS senza la completa compatibilità "
+"all'indietro ed esistono già molti sistemi UEFI senza CSM."
+
+#. Tag: para
+#: preparing.xml:1797
+#, no-c-format
+msgid ""
+"On systems with UEFI there are a few things to take into consideration when "
+"installing an operating system. The way the firmware loads an operating "
+"system is fundamentally different between the classic BIOS (or UEFI in CSM "
+"mode) and native UEFI. One major difference is the way the harddisk "
+"partitions are recorded on the harddisk. While the classic BIOS and UEFI in "
+"CSM mode use a DOS partition table, native UEFI uses a different "
+"partitioning scheme called <quote>GUID Partition Table</quote> (GPT). On a "
+"single disk, for all practical purposes only one of the two can be used and "
+"in case of a multi-boot setup with different operating systems on one disk, "
+"all of them must therefore use the same type of partition table. Booting "
+"from a disk with GPT is only possible in native UEFI mode, but using GPT "
+"becomes more and more common as hard disk sizes grow, because the classic "
+"DOS partition table cannot address disks larger than about 2 Terabytes while "
+"GPT allows for far larger disks. The other major difference between BIOS (or "
+"UEFI in CSM mode) and native UEFI is the location where boot code is stored "
+"and in which format it has to be. This means that different bootloaders are "
+"needed for each system."
+msgstr ""
+"Sui sistemi UEFI è necessario prendere alcuni accorgimenti per "
+"l'installazione del sistema operativo. La modalità con la quale il firmware "
+"di sistema carica il sistema operativo è notevolmente diversa tra il "
+"classico BIOS (o UEFI in modalità CSM) e UEFI in modalità nativa. La "
+"differenza principale è come le partizioni del disco sono scritte sul disco. "
+"Il BIOS classico e UEFI in modalità CSM usano una tabella della partizioni "
+"DOS, la modalità UEFI nativa utilizza uno schema di partizionamento diverso "
+"chiamato GPT (<quote>GUID Partition Table</quote>). Su un singolo disco è "
+"possibile usare solo una delle due e, nel caso di sistemi con più sistemi "
+"operativi installati su un unico disco, tutti i sistemi operativi devono "
+"obbligatoriamente utilizzare lo stesso tipo di tabella delle partizioni. "
+"L'avvio da un disco con GPT è possibile solo usando UEFI in modalità nativa; "
+"l'uso di GPT è diventato sempre più comune con il crescere della dimensione "
+"dei dischi poiché la tabella delle partizioni DOS non supporta dischi più "
+"grandi di circa 2 Terabyte invece GPT gestisce dischi molto più grandi. "
+"Un'altra importante differenza tra BIOS (o UEFI in modalità CSM) e UEFI in "
+"modalità nativa è dove è memorizzato il programma di avvio e in quale "
+"formato deve essere. Ciò comporta che è necessario usare un bootloader "
+"specifico per ciascun sistema."
+
+#. Tag: para
+#: preparing.xml:1817
+#, no-c-format
+msgid ""
+"The latter becomes important when booting &d-i; on a UEFI system with CSM "
+"because &d-i; checks whether it was started on a BIOS- or on a native UEFI "
+"system and installs the corresponding bootloader. Normally this simply works "
+"but there can be a problem in multi-boot environments. On some UEFI systems "
+"with CSM the default boot mode for removable devices can be different from "
+"what is actually used when booting from hard disk, so when booting the "
+"installer from a USB stick in a different mode from what is used when "
+"booting another already installed operating system from the hard disk, the "
+"wrong bootloader might be installed and the system might be unbootable after "
+"finishing the installation. When choosing the boot device from a firmware "
+"boot menu, some systems offer two seperate choices for each device, so that "
+"the user can select whether booting shall happen in CSM or in native UEFI "
+"mode."
+msgstr ""
+"Quest'ultima differenza è molto importante per avviare &d-i; su un sistema "
+"UEFI con CSM perché &d-i; sceglie se installare il bootloader per BIOS "
+"oppure per UEFI nativa in base alla modalità con la quale è stato avviato. "
+"Solitamente questo semplice controllo funziona ma può creare dei problemi "
+"quando ci sono più sistemi operativi. Inoltre su alcuni sistemi UEFI con CSM "
+"la modalità di avvio usata per i supporti removibili può essere diversa da "
+"quella usata per i dischi fissi e quindi può accadere che quando si avvia "
+"l'installatore da una chiavetta USB sia eseguito in una modalità diversa da "
+"quella con cui sono avviati i sistemi operativi presenti sul disco fisso. "
+"Ciò potrebbe comportare l'installazione di un bootloader non adatto e di "
+"conseguenza al termine dell'installazione il sistema potrebbe non essere più "
+"avviabile. Al momento di scegliere il dispositivo da cui fare l'avvio nel "
+"menu proposto dal firmware, alcuni sistemi offrono due opzioni separate per "
+"ciascun dispositivo in modo da lasciar decidere all'utente se l'avvio deve "
+"avvenire in modalità CSM oppure in modalità UEFI nativa."
+
+#. Tag: para
+#: preparing.xml:1833
+#, no-c-format
+msgid ""
+"Another UEFI-related topic is the so-called <quote>secure boot</quote> "
+"mechanism. Secure boot means a function of UEFI implementations that allows "
+"the firmware to only load and execute code that is cryptographically signed "
+"with certain keys and thereby blocking any (potentially malicious) boot code "
+"that is unsigned or signed with unknown keys. In practice the only key "
+"accepted by default on most UEFI systems with secure boot is a key from "
+"Microsoft used for signing the Windows bootloader. As the boot code used by "
+"&d-i; is not signed by Microsoft, booting the installer requires prior "
+"deactivation of secure boot in case it is enabled. Secure boot is often "
+"enabled by default on systems that come preinstalled with a 64-bit version "
+"of Windows 8 and there is unfortunately no standard way to disable it in the "
+"UEFI setup. On some systems, the option to disable secure boot is only made "
+"visible when a BIOS password has been set by the user, so if you have a "
+"system with secure boot enabled, but cannot find an option to disable it, "
+"try setting a BIOS password, powercycle the machine and look again for an "
+"appropriate option."
+msgstr ""
+"Un altro aspetto di UEFI è il così detto <quote>secure boot</quote> (avvio "
+"sicuro). Il secure boot è una funzionalità offerta da UEFI che consente al "
+"firmware di caricare ed eseguire solo il codice che è stato firmato "
+"crittograficamente con determinate chiavi e di conseguenza blocca qualsiasi "
+"altro codice (potenzialmente pericoloso) non firmato o firmato con una "
+"chiave non riconosciuta. In pratica l'unica chiave accettata dalla maggior "
+"parte dei sistemi UEFI con secure boot è una chiave di Microsoft usata per "
+"firmare il bootloader di Windows. Dato che il codice di avvio utilizzato da "
+"&d-i; non è firmato da Microsoft, per avviare l'installatore è necessario "
+"disattivare preventivamente, se è attivo, il secure boot. Il secure boot è "
+"spesso attivo sui sistemi su i quali è preinstallato Windows 8 a 64-bit, "
+"purtroppo non c'è un modo standard per disabilitarlo nella configurazione "
+"UEFI. Su alcuni sistemi la possibilità di disattivare il secure boot è "
+"visibile solo dopo aver impostato una password per il BIOS, quindi se il "
+"secure boot è attivo e non si riesce a trovare l'opzione per disattivarlo, "
+"provare a impostare la password del BIOS, spegnere e riaccendere la macchina "
+"e ripetere la ricerca dell'opzione."
+
+#. Tag: title
+#: preparing.xml:1855
+#, no-c-format
+msgid "Disabling the Windows 8 <quote>fast boot</quote> feature"
+msgstr "Disattivare la funzione <quote>fast boot</quote> di Windows 8"
+
+#. Tag: para
+#: preparing.xml:1856
+#, no-c-format
+msgid ""
+"Windows 8 offers a feature called <quote>fast boot</quote> to cut down "
+"system startup time. Technically, when this feature is enabled, Windows 8 "
+"does not do a real shutdown and a real cold boot afterwards when ordered to "
+"shut down, but instead does something resembling a partial suspend to disk "
+"to reduce the <quote>boot</quote> time. As long as Windows 8 is the only "
+"operating system on the machine, this is unproblematic, but it can result in "
+"problems and data loss when you have a dual boot setup in which another "
+"operating system accesses the same filesystems as Windows 8 does. In that "
+"case the real state of the filesystem can be different from what Windows 8 "
+"believes it to be after the <quote>boot</quote> and this could cause "
+"filesystem corruption upon further write accesses to the filesystem. "
+"Therefore in a dual boot setup, to avoid filesystem corruption the "
+"<quote>fast boot</quote> feature has to be disabled within Windows."
+msgstr ""
+"Windows 8 dispone di una funzionalità per ridurre il tempo d'avvio chiamata "
+"<quote>fast boot</quote>. Tecnicamente, quando questa funzione è attiva, "
+"Windows 8 non esegue un vero spegnimento né l'avvio successivo riparte da "
+"freddo, ciò che accade assomiglia a una sospensione parziale sul disco, "
+"questo riduce il tempo di avvio. Se Windows 8 è l'unico sistema presente sul "
+"disco, non ci sono problemi, invece se sono installati altri sistemi "
+"operativi che accedono agli stessi filesystem a cui accede Windows 8 "
+"potrebbero verificarsi dei problemi e delle perdite di dati. Infatti "
+"potrebbe accadere che al riavvio di Windows 8 lo stato reale del filesystem "
+"sia diverso da quello atteso, ciò potrebbe causare la corruzione del "
+"filesystem al successivo accesso in scrittura al filesystem. Quindi in "
+"configurazioni dual boot, per evitare corruzioni del filesystem, è "
+"necessario disattivare da Windows la funzionalità <quote>fast boot</quote>."
+
+#. Tag: para
+#: preparing.xml:1872
+#, no-c-format
+msgid ""
+"It may also be necessary to disable <quote>fast boot</quote> to even allow "
+"access to UEFI setup to choose to boot another operating system or &d-i;. On "
+"some UEFI systems, the firmware will reduce <quote>boot</quote> time by not "
+"initialising the keyboard controller or USB hardware; in these cases, it is "
+"necessary to boot into Windows and disable this feature to allow for a "
+"change of boot order."
+msgstr ""
+"Potrebbe anche essere necessario disattivare il <quote>fast boot</quote> "
+"persino per accedere alla configurazione di UEFI che permette di scegliere "
+"l'avvio di un Sistema Operativo differente oppure il &d-i;. Su alcuni "
+"sistemi UEFI, il firmware riduce il tempo di avvio non inizializzando il "
+"controller della tastiera e dell'hardwre USB; in questo caso è necessario "
+"avviare Windows e disattivare il <quote>fast boot</quote> per consentire di "
+"cambiare l'ordine d'avvio."
+
+#. Tag: title
+#: preparing.xml:1884
+#, no-c-format
+msgid "Hardware Issues to Watch Out For"
+msgstr "Problemi hardware a cui prestare attenzione"
+
+#. Tag: title
+#: preparing.xml:1887
+#, no-c-format
+msgid "USB BIOS support and keyboards"
+msgstr "Tastiere USB e BIOS"
+
+#. Tag: para
+#: preparing.xml:1888
+#, no-c-format
+msgid ""
+"If you have no PS/2-style keyboard, but only a USB model, on some very old "
+"PCs you may need to enable legacy keyboard emulation in your BIOS setup to "
+"be able to use your keyboard in the bootloader menu, but this is not an "
+"issue for modern systems. If your keyboard does not work in the bootloader "
+"menu, consult your mainboard manual and look in the BIOS for <quote>Legacy "
+"keyboard emulation</quote> or <quote>USB keyboard support</quote> options."
+msgstr ""
+"Se non si dispone di una tastiera PS/2 e si ha solo una tastiera USB, su "
+"alcuni PC molto vecchi potrebbe essere necessario attivare nella "
+"configurazione del BIOS l'emulazione di tastiera per poter usare la tastiera "
+"nel menu del bootloader; questo non è un problema sui sistemi più recenti. "
+"Se non è possibile usare la tastiera nel menu del bootloader, consultare il "
+"manuale della scheda madre cercando informazioni sulle opzioni <quote>Legacy "
+"keyboard emulation</quote> o <quote>USB keyboard support</quote>."
+
+#. Tag: title
+#: preparing.xml:1901
+#, no-c-format
+msgid "Display-visibility on OldWorld Powermacs"
+msgstr "Qualità della visualizzazione su Powermac OldWorld"
+
+#. Tag: para
+#: preparing.xml:1903
+#, no-c-format
+msgid ""
+"Some OldWorld Powermacs, most notably those with the <quote>control</quote> "
+"display driver, may not reliably produce a colormap under Linux when the "
+"display is configured for more than 256 colors. If you are experiencing such "
+"issues with your display after rebooting (you can sometimes see data on the "
+"monitor, but on other occasions cannot see anything) or, if the screen turns "
+"black after booting the installer instead of showing you the user interface, "
+"try changing your display settings under MacOS to use 256 colors instead of "
+"<quote>thousands</quote> or <quote>millions</quote>."
+msgstr ""
+"Alcuni Powermac OldWorld, principalmente quelli con il <quote>control "
+"display driver</quote>, potrebbero non essere in grado di riprodurre "
+"correttamente la mappa dei colori sotto Linux quando è richiesta una "
+"visualizzazione con più di 256 colori. Se si verificano problemi di "
+"visualizzazione dopo il riavvio (si vedono degli strani caratteri o non si "
+"vede nulla) oppure se dopo l'avvio lo schermo diventa nero anziché mostrare "
+"l'interfaccia utente del sistema d'installazione, è possibile provare a "
+"modificare le impostazioni di visualizzazione sotto MacOS in modo da usare "
+"256 colori al posto di <quote>migliaia</quote> o addirittura <quote>milioni</"
+"quote> di colori."
