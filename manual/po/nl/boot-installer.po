@@ -1,30 +1,33 @@
-# SOME DESCRIPTIVE TITLE.
+# Dutch translation of d-i-manual_boot-installer
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Frans Spiesschaert <Frans.Spiesschaert@yucom.be>, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: d-i-manual_boot-installer\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2017-02-19 15:42+0000\n"
-"PO-Revision-Date: 2016-11-25 19:03+0000\n"
-"Last-Translator: NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Debian l10n Dutch <LL@li.org>\n"
+"PO-Revision-Date: 2017-02-22 23:29+0100\n"
+"Last-Translator: Frans Spiesschaert <Frans.Spiesschaert@yucom.be>\n"
+"Language-Team: Debian Dutch l10n Team <debian-l10n-dutch@lists.debian.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
-"Content-Type: application/x-xml2pot; charset=UTF-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Gtranslator 2.91.6\n"
 
 #. Tag: title
 #: boot-installer.xml:4
 #, no-c-format
 msgid "Booting the Installation System"
-msgstr ""
+msgstr "Het installatiesysteem starten"
 
 #. Tag: title
 #: boot-installer.xml:9
 #, no-c-format
 msgid "Booting the Installer on &arch-title;"
-msgstr ""
+msgstr "Het installatiesysteem starten op &arch-title;"
 
 #. Tag: para
 #: boot-installer.xml:15
@@ -37,6 +40,14 @@ msgid ""
 "suspended to disk) could result in loss of, or damage to the state of the "
 "suspended operating system which could cause problems when it is rebooted."
 msgstr ""
+"Indien u nog andere besturingssystemen op uw systeem heeft die u wenst te "
+"behouden (een dual-boot opstelling), dan moet u ervoor zorgen dat ze "
+"behoorlijk afgesloten werden <emphasis>vooraleer</emphasis> u het "
+"installatiesysteem start. Een besturingssysteem installeren terwijl een "
+"ander besturingssysteem in slaapstand is (de inhoud van het werkgeheugen op "
+"schijf geplaatst werd), kan gegevensverlies tot gevolg hebben of een "
+"beschadiging van de toestand van het slapende besturingssysteem, hetgeen "
+"problemen zou kunnen geven als het terug opgestart wordt."
 
 #. Tag: para
 #: boot-installer.xml:26
@@ -45,12 +56,14 @@ msgid ""
 "For information on how to boot the graphical installer, see <xref linkend="
 "\"graphical\"/>."
 msgstr ""
+"Voor informatie over hoe u het grafische installatiesysteem moet starten, "
+"raadpleegt u <xref linkend=\"graphical\"/>."
 
 #. Tag: title
 #: boot-installer.xml:39
 #, no-c-format
 msgid "Boot image formats"
-msgstr ""
+msgstr "Vormen van het opstart-image"
 
 #. Tag: para
 #: boot-installer.xml:40
@@ -62,6 +75,12 @@ msgid ""
 "or b) uImage-format kernels (<quote>uImage</quote>) in conjunction with "
 "corresponding initial ramdisks (<quote>uInitrd</quote>)."
 msgstr ""
+"Op systemen die gebaseerd zijn op ARM wordt in de meeste gevallen een van de "
+"twee volgende vormen van opstart-images gebruikt: a) een kernel in standaard "
+"Linux zImage-indeling (<quote>vmlinuz</quote>) in combinatie met een "
+"standaard initiële Linux ramschijf (<quote>initrd.gz</quote>) of b) een "
+"kernel in uImage-indeling (<quote>uImage</quote>) in combinatie met een "
+"overeenkomstige initiële ramschijf (<quote>uInitrd</quote>)."
 
 #. Tag: para
 #: boot-installer.xml:48
@@ -75,6 +94,14 @@ msgid ""
 "command syntax to do that is slightly different from that for booting "
 "uImages."
 msgstr ""
+"uImage/uInitrd zijn image-indelingen die ontworpen zijn voor de U-Boot "
+"firmware die op veel systemen die op ARM gebaseerd zijn, gebruikt wordt "
+"(meestal de 32-bits types). Oudere versies van U-Boot kunnen enkel bestanden "
+"in de uImage/uInitrd-indeling opstarten en daarom worden die vaak op oudere "
+"armel-systemen gebruikt. Recentere versies van U-Boot kunnen - naast uImages/"
+"uInitrds - ook standaard Linux kernels en ramschijf-images opstarten, maar "
+"de syntaxis van het commando om dat te doen verschilt lichtjes van die voor "
+"het opstarten van uImages."
 
 #. Tag: para
 #: boot-installer.xml:57
@@ -86,12 +113,18 @@ msgid ""
 "of the particular hardware. The dtb should be supplied on the device by the "
 "firmware, but in practice a newer one often needs to be loaded."
 msgstr ""
+"Systemen die een multiplatformkernel gebruiken hebben naast een kernel en "
+"een initiële ramschijf ook nog een zogenaamd apparatenboombestand (of device-"
+"tree blob, <quote>dtb</quote>) nodig. Dat is specifiek voor elk ondersteund "
+"systeem en bevat een beschrijving van de bewuste hardware. De firmware van "
+"het apparaat zou moeten voorzien in de dtb, maar in de praktijk moet vaak "
+"een recentere versie geladen worden."
 
 #. Tag: title
 #: boot-installer.xml:68 boot-installer.xml:86
 #, no-c-format
 msgid "Console configuration"
-msgstr ""
+msgstr "De configuratie van de console"
 
 #. Tag: para
 #: boot-installer.xml:69
@@ -104,6 +137,13 @@ msgid ""
 "on those platforms you by default need a serial console cable to use the "
 "installer."
 msgstr ""
+"Het netboot tar-archief (<xref linkend=\"boot-armhf-netboot.tar.gz\"/>) en "
+"de SD-kaartimages van het installatiesysteem (<xref linkend=\"boot-installer-"
+"sd-image\"/>) gebruiken de (platformspecifieke) standaardconsole die door U-"
+"Boot gedefinieerd wordt in de variabele <quote>console</quote>. In de meeste "
+"gevallen is dit een seriële console en dus heeft u voor deze platformen "
+"standaard een seriële consolekabel nodig om het installatiesysteem te "
+"gebruiken."
 
 #. Tag: para
 #: boot-installer.xml:78
@@ -113,6 +153,9 @@ msgid ""
 "<quote>console</quote> variable accordingly if you would like the installer "
 "to start on the video console."
 msgstr ""
+"Op platformen die ook een videoconsole ondersteunen, kunt u de variabele "
+"<quote>console</quote> van U-Boot dienovereenkomstig aanpassen, indien u "
+"wilt dat het installatiesysteem op de videoconsole start."
 
 #. Tag: para
 #: boot-installer.xml:87
@@ -124,6 +167,11 @@ msgid ""
 "from the GRUB menu you will see a <quote>Booting Linux</quote> message, then "
 "nothing more."
 msgstr ""
+"Het grafische installatiesysteem is op de arm64 &d-i; images voor jessie "
+"niet beschikbaar en dus wordt de seriële console gebruikt. De console zou "
+"automatisch gedetecteerd moeten worden op basis van de firmware, maar als "
+"dat niet het geval is, zult u nadat u Linux vanuit het GRUB-menu opgestart "
+"heeft, de melding <quote>Booting Linux</quote> zien en dan niets meer."
 
 #. Tag: para
 #: boot-installer.xml:94
@@ -138,12 +186,22 @@ msgid ""
 "screen></informalexample>. When finished hit <keycombo><keycap>Control</"
 "keycap> <keycap>x</keycap></keycombo> to continue booting with new setting."
 msgstr ""
+"Indien u te maken krijgt met dit probleem, moet u een specifieke "
+"consoleconfiguratie instellen aan de commandoregel van de kernel. Druk in "
+"het GRUB-menu op de toets <userinput>e</userinput> voor <quote>Edit Kernel "
+"command-line</quote> (de commandoregel van de kernel bewerken) en verander "
+"<informalexample><screen>--- quiet</screen></informalexample> in "
+"<informalexample><screen>console=&lt;device&gt;,&lt;speed&gt;</screen></"
+"informalexample> bijv. <informalexample><screen>console=ttyAMA0,115200n8</"
+"screen></informalexample>. Als u klaar bent, drukt u op de toetsencombinatie "
+"<keycombo><keycap>Control</keycap> <keycap>x</keycap></keycombo> om het "
+"opstarten voort te zetten met de nieuwe instelling."
 
 #. Tag: title
 #: boot-installer.xml:108
 #, no-c-format
 msgid "Juno Installation"
-msgstr ""
+msgstr "De installatie op Juno"
 
 #. Tag: para
 #: boot-installer.xml:109
@@ -155,6 +213,12 @@ msgid ""
 "ulink> after March 2015 tested OK. Consult Juno documentation on firmware "
 "updating."
 msgstr ""
+"Juno beschikt over UEFI en dus verloopt de installatie eenvoudig. De meest "
+"praktische methode is installeren vanaf een USB-stick. Opdat opstarten vanaf "
+"USB zou werken, moet de firmware up-to-date zijn. Compilaties van <ulink url="
+"\"&url-juno-firmware;\">&url-juno-firmware;</ulink> die dateren van na maart "
+"2015 blijken oké te zijn. Raadpleeg de documentatie van Juno in verband met "
+"het opwaarderen van firmware."
 
 #. Tag: para
 #: boot-installer.xml:116
@@ -165,10 +229,25 @@ msgid ""
 "on the back. If you need networking (netboot image) plug the ethernet cable "
 "into the socket on the front of the machine."
 msgstr ""
+"Plaats een standaard arm64 CD-image op een USB-stick. Plaats die in een van "
+"de USB-poorten achteraan. Sluit een seriële kabel aan op de bovenste 9-pins "
+"seriële poort achteraan. Indien u een netwerkverbinding nodig heeft (als u "
+"het netboot-image gebruikt) moet u een ethernetkabel aansluiten op de socket "
+"vooraan op de machine."
 
 #. Tag: para
 #: boot-installer.xml:123
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "Run a serial console at 115200, 8bit no parity, and boot the Juno. It "
+#| "should boot from the USB stick to a GRUB menu. The console config is not "
+#| "correctly detected on Juno so just hitting return will show no kernel "
+#| "output. Set the console to "
+#| "<informalexample><screen>console=ttyAMA0,115200n8</screen></"
+#| "informalexample> as described in (<xref linkend=\"arm64-console-setup\"/"
+#| ">). <keycombo><keycap>Control</keycap> <keycap>x</keycap></keycombo> to "
+#| "boot should show you the &d-i; screens, and allow you to proceed with a "
+#| "standard installation."
 msgid ""
 "Run a serial console at 115200, 8bit no parity, and boot the Juno. It should "
 "boot from the USB stick to a GRUB menu. The console config is not correctly "
@@ -179,12 +258,22 @@ msgid ""
 "should show you the &d-i; screens, and allow you to proceed with a standard "
 "installation."
 msgstr ""
+"Gebruik een seriële console aan 115200, 8bits zonder pariteit, en start de "
+"Juno op. Het apparaat zou vanaf de USB-stick moeten opstarten naar het GRUB-"
+"menu. De configuratie van de console wordt op Juno niet correct gedetecteerd "
+"en dus zal gewoon op de enter-toets drukken geen uitvoer van de kernel "
+"tonen. Stel de console in op "
+"<informalexample><screen>console=ttyAMA0,115200n8</screen></informalexample> "
+"zoals beschreven wordt in (<xref linkend=\"arm64-console-setup\"/>). De "
+"toetsencombinatie <keycombo><keycap>Control</keycap> <keycap>x</keycap></"
+"keycombo> om op te starten zou u de schermuitvoer van &d-i; moeten laten "
+"zien en u in staat moeten stellen om een standaardinstallatie af te werken."
 
 #. Tag: title
 #: boot-installer.xml:136
 #, no-c-format
 msgid "Applied Micro Mustang Installation"
-msgstr ""
+msgstr "De installatie op Mustang van Applied Micro"
 
 #. Tag: para
 #: boot-installer.xml:137
@@ -197,6 +286,15 @@ msgid ""
 "a serial console to control the installation because the graphical installer "
 "is not enabled on the arm64 architecture."
 msgstr ""
+"Deze machine kan UEFI gebruiken, maar wordt gewoonlijk geleverd met U-Boot. "
+"U zal dus ofwel eerst de UEFI-firmware moeten installeren om daarna de "
+"standaardmethode te gebruiken voor het opstarten van het systeem en het "
+"uitvoeren van de installatie, ofwel zult u de opstartprocedure voor U-Boot "
+"moeten gebruiken. Bovendien wordt in de jessie kernel USB niet ondersteund, "
+"waardoor de installatie uitvoeren vanaf een USB-stick niet zal lukken. U "
+"moet een seriële console gebruiken om de installatie op te volgen, vermits "
+"het grafische installatiesysteem niet beschikbaar is voor de arm64-"
+"architectuur."
 
 #. Tag: para
 #: boot-installer.xml:146
@@ -209,6 +307,14 @@ msgid ""
 ">). After installation, manual changes to boot from the installed image are "
 "needed."
 msgstr ""
+"De aanbevolen installatiemethode is om de kernel en initrd van &d-i; naar de "
+"harde schijf te kopiëren met behulp van het 'openembedded' (open-ingebed) "
+"systeem dat met de machine meegeleverd wordt, om dan daarvandaan op te "
+"starten en het installatiesysteem te gebruiken. Een andere mogelijkheid is "
+"om TFTP te gebruiken om kernel/dtb/initrd binnen te halen en op te starten "
+"(<xref linkend=\"boot-tftp-uboot\"/>). Na de installatie van het image zijn "
+"handmatig uit te voeren aanpassingen nodig om van het geïnstalleerde image "
+"te kunnen opstarten."
 
 #. Tag: para
 #: boot-installer.xml:155
@@ -219,12 +325,18 @@ msgid ""
 "hit a key to get a Mustang# prompt. Then use U-Boot commands to load and "
 "boot the kernel, dtb and initrd."
 msgstr ""
+"Gebruik een seriële console aan 115200, 8bits zonder pariteit, en start de "
+"machine. Herstart de machine en als u de melding <quote>Hit any key to stop "
+"autoboot:</quote> (druk op een toets om het automatisch opstarten te "
+"onderbreken) ziet, moet u een toets indrukken om een Mustang# prompt te "
+"bekomen. Dan moet u U-Boot commando's gebruiken om de kernel, dtb en initrd "
+"te laden en op te starten."
 
 #. Tag: title
 #: boot-installer.xml:164
 #, no-c-format
 msgid "Booting by TFTP"
-msgstr ""
+msgstr "Opstarten via TFTP"
 
 #. Tag: para
 #: boot-installer.xml:170 boot-installer.xml:832 boot-installer.xml:1468
@@ -235,6 +347,9 @@ msgid ""
 "TFTP network boot server (and probably also a DHCP, RARP, or BOOTP server "
 "for automatic network configuration)."
 msgstr ""
+"Om over het netwerk te kunnen opstarten moet u een netwerkverbinding hebben "
+"en een TFTP netwerk-opstartserver (en wellicht ook een DHCP-, RARP-, of "
+"BOOTP-server voor het automatisch configureren van de netwerkinstellingen)."
 
 #. Tag: para
 #: boot-installer.xml:176 boot-installer.xml:838 boot-installer.xml:1474
@@ -244,6 +359,8 @@ msgid ""
 "Older systems such as the 715 might require the use of an RBOOT server "
 "instead of a BOOTP server."
 msgstr ""
+"Voor oudere systemen, zoals de 715, kan het nodig zijn dat u een RBOOT-"
+"server gebruikt in plaats van een BOOTP-server."
 
 #. Tag: para
 #: boot-installer.xml:181 boot-installer.xml:843 boot-installer.xml:1479
@@ -253,12 +370,15 @@ msgid ""
 "The server-side setup to support network booting is described in <xref "
 "linkend=\"install-tftp\"/>."
 msgstr ""
+"De instellingen aan de kant van de server voor het ondersteunen van "
+"opstarten over het netwerk, worden beschreven in <xref linkend=\"install-tftp"
+"\"/>."
 
 #. Tag: title
 #: boot-installer.xml:190
 #, no-c-format
 msgid "TFTP-booting in U-Boot"
-msgstr ""
+msgstr "Opstarten via TFTP in U-Boot"
 
 #. Tag: para
 #: boot-installer.xml:191
@@ -268,6 +388,10 @@ msgid ""
 "steps: a) configuring the network, b) loading the images (kernel/initial "
 "ramdisk/dtb) into memory and c) actually executing the previosly loaded code."
 msgstr ""
+"Over het netwerk opstarten met systemen die gebruik maken van de U-Boot "
+"firmware, omvat drie stappen: a) het netwerk configureren, b) de images "
+"(kernel/initiële ramschijf/dtb) in het geheugen laden, en c) de eerder "
+"geladen code daadwerkelijk uitvoeren."
 
 #. Tag: para
 #: boot-installer.xml:197
@@ -287,12 +411,25 @@ msgid ""
 "</screen></informalexample> If you prefer, you can make these settings "
 "permanent by running"
 msgstr ""
+"Eerst moet u het netwerk configureren, ofwel automatisch via DHCP met de "
+"opdrachten <informalexample><screen>\n"
+"setenv autoload no\n"
+"dhcp\n"
+"</screen></informalexample> ofwel handmatig door verschillende "
+"omgevingsvariabelen in te stellen <informalexample><screen>\n"
+"setenv ipaddr &lt;ip-adres van de cliënt&gt;\n"
+"setenv netmask &lt;netmasker&gt;\n"
+"setenv serverip &lt;ip-adres van de tftp-server&gt;\n"
+"setenv dnsip &lt;ip-adres van de naamserver&gt;\n"
+"setenv gatewayip &lt;ip-adres van de standaard gateway&gt;\n"
+"</screen></informalexample> Indien u dit verkiest, kunt u deze instellingen "
+"een permanent karakter geven met de opdracht"
 
 #. Tag: screen
 #: boot-installer.xml:204
 #, no-c-format
 msgid "saveenv"
-msgstr ""
+msgstr "saveenv"
 
 #. Tag: para
 #: boot-installer.xml:206
@@ -304,10 +441,27 @@ msgid ""
 "the memory map can vary from system to system, so there is no general rule "
 "which addresses can be used for this."
 msgstr ""
+"Nadien moet u de images (kernel/initiële ramschijf/dtb) in het geheugen "
+"laden. Dit gebeurt met het commando tftpboot, waaraan het adres opgegeven "
+"moet worden waar het image in het geheugen geplaatst zal worden. Jammer "
+"genoeg kan het indelingsplan van het geheugen verschillend zijn van systeem "
+"tot systeem, waardoor er geen algemene regel bestaat voor welke adressen "
+"daarvoor gebruikt kunnen worden."
 
 #. Tag: para
 #: boot-installer.xml:214
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "On some systems, U-Boot predefines a set of environment variables with "
+#| "suitable load addresses: kernel_addr_r, ramdisk_addr_r and fdt_addr_r. "
+#| "You can check whether they are defined by running "
+#| "<informalexample><screen>\n"
+#| "printenv kernel_addr_r ramdisk_addr_r fdt_addr_r\n"
+#| "</screen></informalexample> If they are not defined, you have to check "
+#| "your system's documentation for appropriate values and set them manually. "
+#| "For systems based on Allwinner SunXi SOCs (e.g. the Allwinner A10, "
+#| "architecture name <quote>sun4i</quote> or the Allwinner A20, architecture "
+#| "name <quote>sun7i</quote>), you can e.g. use the follwing values:"
 msgid ""
 "On some systems, U-Boot predefines a set of environment variables with "
 "suitable load addresses: kernel_addr_r, ramdisk_addr_r and fdt_addr_r. You "
@@ -319,6 +473,17 @@ msgid ""
 "name <quote>sun4i</quote> or the Allwinner A20, architecture name "
 "<quote>sun7i</quote>), you can e.g. use the following values:"
 msgstr ""
+"Op sommige systemen stelt U-Boot vooraf een aantal omgevingsvariabelen in "
+"met geschikte laadadressen: kernel_addr_r, ramdisk_addr_r en fdt_addr_r. U "
+"kunt nagaan of ze ingesteld werden met de opdracht "
+"<informalexample><screen>\n"
+"printenv kernel_addr_r ramdisk_addr_r fdt_addr_r\n"
+"</screen></informalexample> Indien ze niet gedefinieerd zijn, moet u in de "
+"documentatie bij uw systeem nagaan welke waarden geschikt zijn en ze "
+"handmatig instellen. Bijvoorbeeld voor systemen die gebaseerd zijn op SunXi "
+"SOC's van Allwinner (bijv. de Allwinner A10, met als architectuurnaam "
+"<quote>sun4i</quote> of de Allwinner A20, met als architectuurnaam "
+"<quote>sun7i</quote>), kunt u de volgende waarden gebruiken:"
 
 #. Tag: screen
 #: boot-installer.xml:225
@@ -328,6 +493,9 @@ msgid ""
 "setenv fdt_addr_r 0x47000000\n"
 "setenv ramdisk_addr_r 0x48000000"
 msgstr ""
+"setenv kernel_addr_r 0x46000000\n"
+"setenv fdt_addr_r 0x47000000\n"
+"setenv ramdisk_addr_r 0x48000000"
 
 #. Tag: para
 #: boot-installer.xml:227
@@ -336,6 +504,8 @@ msgid ""
 "When the load addresses are defined, you can load the images into memory "
 "from the previously defined tftp server with"
 msgstr ""
+"Wanneer de laadadressen gedefinieerd zijn, kunt u de images vanaf de "
+"voordien gedefinieerde tftp-server in het geheugen laden met"
 
 #. Tag: screen
 #: boot-installer.xml:230
@@ -345,6 +515,10 @@ msgid ""
 "tftpboot ${fdt_addr_r} &lt;filename of the dtb&gt;\n"
 "tftpboot ${ramdisk_addr_r} &lt;filename of the initial ramdisk image&gt;"
 msgstr ""
+"tftpboot ${kernel_addr_r} &lt;bestandsnaam van het kernel-image&gt;\n"
+"tftpboot ${fdt_addr_r} &lt;bestandsnaam van het dtb&gt;\n"
+"tftpboot ${ramdisk_addr_r} &lt;bestandsnaam van het initiële ramschijf-"
+"image&gt;"
 
 #. Tag: para
 #: boot-installer.xml:232
@@ -364,12 +538,27 @@ msgid ""
 "bootm ${kernel_addr_r} ${ramdisk_addr_r} ${fdt_addr_r}\n"
 "</screen></informalexample> and with native Linux images it is"
 msgstr ""
+"De derde stap is het instellen van de commandoregel voor de kernel en het "
+"daadwerkelijk uitvoeren van de geladen code. U-Boot geeft de inhoud van de "
+"omgevingsvariabele <quote>bootargs</quote> als commandoregel door aan de "
+"kernel. Dus alle parameters voor de kernel en het installatiesysteem - zoals "
+"het apparaat dat de console gebruikt (zie <xref linkend=\"boot-console\"/>) "
+"of opties in het kader van preseeding (vooraf ingestelde antwoorden - zie "
+"<xref linkend=\"installer-args\"/> en <xref linkend=\"appendix-preseed\"/>) "
+"- kunnen ingesteld worden met een commando zoals <informalexample><screen>\n"
+"setenv bootargs console=ttyS0,115200 rootwait panic=10\n"
+"</screen></informalexample> Het exacte commando voor het uitvoeren van de "
+"voordien geladen code is afhankelijk van welk van de twee imagevormen "
+"gebruikt wordt. Met uImage/uInitrd is het commando "
+"<informalexample><screen>\n"
+"bootm ${kernel_addr_r} ${ramdisk_addr_r} ${fdt_addr_r}\n"
+"</screen></informalexample> en met een authentieke Linux-image is het"
 
 #. Tag: screen
 #: boot-installer.xml:245
 #, no-c-format
 msgid "bootz ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}"
-msgstr ""
+msgstr "bootz ${kernel_addr_r} ${ramdisk_addr_r}:${filesize} ${fdt_addr_r}"
 
 #. Tag: para
 #: boot-installer.xml:247
@@ -382,12 +571,19 @@ msgid ""
 "a platform-specific kernel, i.e. a kernel without device-tree, simply omit "
 "the ${fdt_addr_r} parameter."
 msgstr ""
+"Opmerking: Als u standaard Linux images start, is het belangrijk om het "
+"image van de initiële ramschijf te laden na de kernel en de dtb, omdat U-"
+"Boot de variabele filesize instelt op de grootte van het laatst geladen "
+"bestand en het commando bootz de grootte van de ramschijf nodig heeft om "
+"correct te werken. Indien u een platformspecifieke kernel start, d.w.z. een "
+"kernel zonder apparatenboom, moet u gewoon de parameter ${fdt_addr_r} "
+"weglaten."
 
 #. Tag: title
 #: boot-installer.xml:258
 #, no-c-format
 msgid "Pre-built netboot tarball"
-msgstr ""
+msgstr "Voorgecompileerd netboot tar-archief"
 
 #. Tag: para
 #: boot-installer.xml:259
@@ -402,6 +598,17 @@ msgid ""
 "Prerequisite for using this feature is that you have a dhcp server in your "
 "network which provides the client with the address of the tftp server."
 msgstr ""
+"&debian; stelt een voorgecompileerd tar-archief (&armmp-netboot-tarball;) "
+"ter beschikking, dat gewoon op uw tftp-server uitgepakt kan worden en alle "
+"noodzakelijke bestanden bevat om opstarten over het netwerk mogelijk te "
+"maken. Het bevat ook een opstartscript dat alle stappen voor het laden van "
+"het installatiesysteem automatiseert. Moderne versies van U-Boot hebben een "
+"functie voor automatisch opstarten via tftp dat actief wordt als er geen "
+"lokaal opslagapparaat (MMC/SD, USB, IDE/SATA/SCSI) gevonden wordt waarvan "
+"opgestart kan worden en die functie laadt dan dat opstartscript vanaf de "
+"tftp-server. Voorwaarde om deze functionaliteit te kunnen gebruiken is dat u "
+"in uw netwerk een dhcp-server heeft die aan de cliënt het adres van de tftp-"
+"server geeft."
 
 #. Tag: para
 #: boot-installer.xml:271
@@ -410,12 +617,15 @@ msgid ""
 "If you would like to trigger the tftp autoboot feature from the U-Boot "
 "commandline, you can use the follwing command:"
 msgstr ""
+"Indien u de functie voor automatisch opstarten via tftp vanaf de "
+"commandoregel van U-Boot wilt uitlokken, kunt u het volgende commando "
+"gebruiken:"
 
 #. Tag: screen
 #: boot-installer.xml:274
 #, no-c-format
 msgid "run bootcmd_dhcp"
-msgstr ""
+msgstr "run bootcmd_dhcp"
 
 #. Tag: para
 #: boot-installer.xml:276
@@ -424,6 +634,9 @@ msgid ""
 "To manually load the bootscript provided by the tarball, you can "
 "alternatively issue the following commands at the U-Boot prompt:"
 msgstr ""
+"Een alternatief is om het opstartscript dat met het tar-archief meekomt, "
+"handmatig te laden. Daarvoor kunt u de volgende commando's gebruiken aan de "
+"prompt van U-Boot:"
 
 #. Tag: screen
 #: boot-installer.xml:280
@@ -434,12 +647,16 @@ msgid ""
 "tftpboot ${scriptaddr} /debian-installer/armhf/tftpboot.scr\n"
 "source ${scriptaddr}"
 msgstr ""
+"setenv autoload no\n"
+"dhcp\n"
+"tftpboot ${scriptaddr} /debian-installer/armhf/tftpboot.scr\n"
+"source ${scriptaddr}"
 
 #. Tag: title
 #: boot-installer.xml:288
 #, no-c-format
 msgid "Booting from USB Memory Stick with UEFI"
-msgstr ""
+msgstr "Opstarten vanaf een USB-geheugenstick met UEFI"
 
 #. Tag: para
 #: boot-installer.xml:294 boot-installer.xml:553
@@ -454,12 +671,22 @@ msgid ""
 "hardware that supports it). Here you can select various installer options, "
 "or just hit &enterkey;."
 msgstr ""
+"Indien uw computer vanaf USB kan opstarten, is dit wellicht de "
+"gemakkelijkste weg om een installatie uit te voeren. Als we ervan uitgaan "
+"dat u alle voorbereidingen getroffen heeft uit <xref linkend=\"boot-dev-"
+"select\"/> en <xref linkend=\"boot-usb-files\"/>, moet u gewoon de USB-stick "
+"in een vrije USB-connector plaatsen en de computer herstarten. Het systeem "
+"zou moeten opstarten en u zou het grafische opstartmenu te zien moeten "
+"krijgen (op hardware dat dit ondersteunt), tenzij u gekozen heeft voor de "
+"flexibele manier om de stick samen te stellen en u daarbij niet voor het "
+"grafische installatiesysteem koos. In het menu kunt u verschillende "
+"installatieopties selecteren of gewoon op &enterkey; drukken."
 
 #. Tag: title
 #: boot-installer.xml:310
 #, no-c-format
 msgid "Booting from a USB stick in U-Boot"
-msgstr ""
+msgstr "In U-Boot opstarten vanaf een USB-stick"
 
 #. Tag: para
 #: boot-installer.xml:311
@@ -469,6 +696,10 @@ msgid ""
 "storage devices such as USB sticks. Unfortunately the exact steps required "
 "to do that can vary quite a bit from device to device."
 msgstr ""
+"Veel moderne versies van U-Boot ondersteunen USB en bieden de mogelijkheid "
+"om op te starten vanaf USB-massaopslagapparaten, zoals USB-sticks. Jammer "
+"genoeg kunnen de exacte stappen die daarvoor nodig zijn nogal wat "
+"verschillen van apparaat tot apparaat."
 
 #. Tag: para
 #: boot-installer.xml:318
@@ -480,6 +711,12 @@ msgid ""
 "stick on such systems, but unfortunately not all platforms have adopted this "
 "new framework yet."
 msgstr ""
+"Met U-Boot v2014.10 werd een gemeenschappelijk commandoregelgebruik "
+"geïntroduceerd en een raamwerk voor automatisch opstarten. Dit maakt het "
+"mogelijk om algemene opstart-images te bouwen die werken op elk systeem dat "
+"dit raamwerk gebruikt. Op dergelijke systemen ondersteunt &d-i; een "
+"installatie vanaf USB-stick, maar jammer genoeg hebben nog niet alle "
+"platformen reeds dit raamwerk overgenomen."
 
 #. Tag: para
 #: boot-installer.xml:327
@@ -492,6 +729,13 @@ msgid ""
 "Then copy the ISO image file of the first &debian; installation CD or DVD "
 "onto the stick."
 msgstr ""
+"Om een opstartbare USB-stick te bouwen om &debian; te installeren, moet u "
+"het tar-archief hd-media (zie <xref linkend=\"where-files\"/>) uitpakken op "
+"een USB-stick die geformatteerd werd met een bestandssysteem dat ondersteund "
+"wordt door de versie van U-Boot op uw apparaat. Moderne versies van U-Boot "
+"kunnen gewoonlijk werken met FAT16 / FAT32 / ext2 / ext3 / ext4. Nadien moet "
+"u het ISO-imagebestand van de eerste &debian; installatie-CD of -DVD naar de "
+"stick kopiëren."
 
 #. Tag: para
 #: boot-installer.xml:337
@@ -505,6 +749,15 @@ msgid ""
 "the USB-boot process any time from the U-Boot prompt by entering the "
 "<quote>run bootcmd_usb0</quote> command."
 msgstr ""
+"Het raamwerk voor automatisch opstarten van moderne U-Boot-versies heeft een "
+"gelijkaardige werking als de opstartvolgordeopties in het BIOS van een PC. "
+"Het controleert dus een lijst van mogelijke opstartapparaten op een geldig "
+"opstartimage en start het eerste dat het vindt, op. Indien er geen "
+"besturingssysteem geïnstalleerd is, zou het inpluggen van de USB-stick en "
+"het aanzetten van het systeem moeten uitmonden in het opstarten van het "
+"installatiesysteem. U kunt het proces van het opstarten vanaf USB ook op elk "
+"ogenblik uitlokken aan de prompt van U-Boot met het commando <quote>run "
+"bootcmd_usb0</quote>."
 
 #. Tag: para
 #: boot-installer.xml:347
@@ -525,12 +778,30 @@ msgid ""
 "console variable to contain the correct baudrate for your system and then "
 "start the installer with the <quote>run bootcmd_usb0</quote> command."
 msgstr ""
+"Een probleem dat zich kan stellen bij het opstarten vanaf een USB-stick "
+"terwijl u een seriële console gebruikt, is een verkeerde baudsnelheid van de "
+"console. Indien de variabele console gedefinieerd werd in U-Boot, geeft het "
+"opstartscript van &d-i; dit automatisch door aan de kernel voor het "
+"instellen van het primaire console-apparaat en, in voorkomend geval, de "
+"baudsnelheid van de console. Jammer genoeg verschilt de wijze van aanpakken "
+"van de variabele console van platform tot platform - op sommige platformen "
+"bevat de variabele console de baudsnelheid (zoals bij "
+"<quote>console=ttyS0,115200</quote>), terwijl op andere platformen de "
+"variabele console enkel het apparaat bevat (zoals bij <quote>console=ttyS0</"
+"quote>). In dit laatste geval krijgt u een verknoeide uitvoer op de console "
+"als U-Boot en de kernel een verschillende standaard baudsnelheid hebben. "
+"Moderne versies van U-Boot gebruiken vaak een baud van 115200, terwijl de "
+"kernel nog steeds als standaard de traditionele 9600 baud gebruikt. Als dit "
+"zich voordoet, moet u de variabele console handmatig instellen, zodat hij de "
+"voor uw systeem correcte baudsnelheid bevat, en moet u nadien het "
+"installatiesysteem starten met het commando <quote>run bootcmd_usb0</quote>."
 
 #. Tag: title
 #: boot-installer.xml:368
 #, no-c-format
 msgid "Using pre-built SD-card images with the installer"
 msgstr ""
+"Het installatiesysteem gebruiken met een voorgecompileerd SD-kaartimage"
 
 #. Tag: para
 #: boot-installer.xml:369
@@ -545,6 +816,15 @@ msgid ""
 "<quote>firmware.&lt;system-type&gt;.img.gz</quote>, and a system-independent "
 "part named <quote>partition.img.gz</quote>."
 msgstr ""
+"Voor een aantal systemen stelt Debian SD-kaartimages ter beschikking die "
+"zowel U-Boot als  &d-i; bevatten. Deze images zijn in twee varianten "
+"beschikbaar - een variant waarbij de softwarepakketten over het netwerk "
+"opgehaald worden (te vinden op &armmp-netboot-sd-img;) en een variant voor "
+"offline-installaties waarbij een Debian CD/DVD gebruikt wordt (te vinden op "
+"&armmp-hd-media-sd-img;). Om ruimte en netwerkbandbreedte te sparen bestaan "
+"de images uit twee delen - een systeemafhankelijk gedeelte met de naam "
+"<quote>firmware.&lt;system-type&gt;.img.gz</quote> en een "
+"systeemonafhankelijk gedeelte met als naam <quote>partition.img.gz</quote>."
 
 #. Tag: para
 #: boot-installer.xml:380
@@ -559,6 +839,15 @@ msgid ""
 "firmware.&lt;system-type&gt;.img + partition.img complete_image.img</"
 "screen></informalexample> in a Windows CMD.exe window."
 msgstr ""
+"Om op Linux-systemen een volledig image te maken van de twee onderdelen, "
+"kunt u als volgt zcat gebruiken: <informalexample><screen>zcat firmware.&lt;"
+"system-type&gt;.img.gz partition.img.gz > volledig_image.img</screen></"
+"informalexample> Op Windows-systemen moet u eerst de beide onderdelen "
+"afzonderlijk decomprimeren, wat u bijvoorbeeld kunt doen met 7-Zip, en "
+"daarna moet u de gedecomprimeerde delen samenvoegen met het volgende "
+"commando in een CMD.exe-venster van Windows: <informalexample><screen>copy /"
+"b firmware.&lt;system-type&gt;.img + partition.img complete_image.img</"
+"screen></informalexample>"
 
 #. Tag: para
 #: boot-installer.xml:394
@@ -572,6 +861,14 @@ msgid ""
 "you must provide the installer with access to the first &debian; CD/DVD on a "
 "separate medium, which can e.g. be a CD/DVD ISO image on a USB stick."
 msgstr ""
+"Schrijf het bekomen image naar een SD-kaart, bijvoorbeeld op een Linux-"
+"systeem met het volgende commando: <informalexample><screen>cat "
+"volledig_image.img > /dev/SD_KAART_APPARAAT</screen></informalexample> Als u "
+"de SD-kaart op het doelsysteem inplugt en het systeem dan aanzet, zal het "
+"installatiesysteem geladen worden van de SD-kaart. Indien u de variant 'hd-"
+"media' voor offline installaties gebruikt, moet u het installatiesysteem op "
+"een apart medium toegang verlenen tot de eerste &debian; CD/DVD, wat "
+"bijvoorbeeld een CD/DVD-ISO-image op een USB-stick kan zijn."
 
 #. Tag: para
 #: boot-installer.xml:406
@@ -585,19 +882,28 @@ msgid ""
 "partition layout on the SD card is to let the installer automatically create "
 "one for you (see <xref linkend=\"partman-auto\"/>)."
 msgstr ""
+"Wanneer u in het installatiesysteem toegekomen bent aan de schijfindeling "
+"(zie <xref linkend=\"di-partition\"/>), kunt u op de kaart alle eerdere "
+"partities verwijderen of vervangen. Eens het installatiesysteem opgestart "
+"is, wordt het volledig uitgevoerd in het hoofdgeheugen van het systeem en "
+"heeft het geen toegang tot de SD-kaart meer nodig, waardoor u de volledige "
+"kaart kunt gebruiken om er &debian; op te installeren. De makkelijkste "
+"manier om voor de SD-kaart een passend schijfindelingsschema toe te passen, "
+"is om dit automatisch te laten doen door het installatiesysteem (zie <xref "
+"linkend=\"partman-auto\"/>)."
 
 #. Tag: title
 #: boot-installer.xml:547
 #, no-c-format
 msgid "Booting from USB Memory Stick"
-msgstr ""
+msgstr "Opstarten van een USB-geheugenstick"
 
 #. Tag: title
 #: boot-installer.xml:568 boot-installer.xml:1082 boot-installer.xml:1683
 #: boot-installer.xml:2101
 #, no-c-format
 msgid "Booting from a CD-ROM"
-msgstr ""
+msgstr "Opstarten van een CD"
 
 #. Tag: para
 #: boot-installer.xml:574 boot-installer.xml:1088 boot-installer.xml:1689
@@ -609,6 +915,11 @@ msgid ""
 "off a CD as described in <xref linkend=\"boot-dev-select\"/>, </phrase> "
 "insert your CD, reboot, and proceed to the next chapter."
 msgstr ""
+"Indien u over een set CD's beschikt en uw machine het rechtstreeks opstarten "
+"vanaf CD ondersteunt, zit u goed! U moet gewoon <phrase arch=\"x86\"> uw "
+"systeem configureren om vanaf CD op te starten zoals beschreven in <xref "
+"linkend=\"boot-dev-select\"/>, </phrase> de CD in het station plaatsen, "
+"herstarten en doorgaan naar het volgende hoofdstuk."
 
 #. Tag: para
 #: boot-installer.xml:584 boot-installer.xml:1098 boot-installer.xml:1699
@@ -621,6 +932,12 @@ msgid ""
 "and read about alternate kernels and installation methods which may work for "
 "you."
 msgstr ""
+"Merk op dat sommige CD-stations bijzondere stuurprogramma's nodig hebben en "
+"daardoor niet toegankelijk zijn tijdens de eerste fases van de installatie. "
+"Als voor uw hardware de standaardmethode om vanaf CD op te starten niet "
+"blijkt te werken, moet u in dit hoofdstuk nog eens het onderdeel herlezen "
+"over alternatieve kernels en installatiemethodes. Daarin vindt u misschien "
+"iets dat voor u kan werken."
 
 #. Tag: para
 #: boot-installer.xml:592 boot-installer.xml:1106 boot-installer.xml:1707
@@ -633,6 +950,12 @@ msgid ""
 "system, and any additional packages, point the installation system at the CD-"
 "ROM drive."
 msgstr ""
+"Zelfs indien u niet kunt opstarten vanaf CD, kunt u wellicht de componenten "
+"van het &debian; systeem en de gewenste pakketten installeren vanaf CD. "
+"Start gewoon op met behulp van een ander medium en verwijs het "
+"installatiesysteem door naar de CD wanneer het moment aangebroken is om het "
+"besturingssysteem, het basissysteem en eventuele andere pakketten te "
+"installeren."
 
 #. Tag: para
 #: boot-installer.xml:600 boot-installer.xml:1114 boot-installer.xml:1715
@@ -641,18 +964,20 @@ msgstr ""
 msgid ""
 "If you have problems booting, see <xref linkend=\"boot-troubleshooting\"/>."
 msgstr ""
+"Indien u problemen ondervindt bij het opstarten, raadpleeg dan <xref linkend="
+"\"boot-troubleshooting\"/>."
 
 #. Tag: title
 #: boot-installer.xml:610
 #, no-c-format
 msgid "Booting from Windows"
-msgstr ""
+msgstr "Opstarten vanuit Windows"
 
 #. Tag: para
 #: boot-installer.xml:611
 #, no-c-format
 msgid "To start the installer from Windows, you can either"
-msgstr ""
+msgstr "Om het installatiesysteem vanuit Windows op te starten, kunt u ofwel"
 
 #. Tag: para
 #: boot-installer.xml:616
@@ -663,6 +988,10 @@ msgid ""
 "cdrom\"/><phrase condition=\"bootable-usb\"> respective <xref linkend=\"boot-"
 "usb-files\"/></phrase> or"
 msgstr ""
+"zorgen voor een installatiemedium op CD/DVD<phrase condition=\"bootable-usb"
+"\"> of op een USB-geheugenstick</phrase> zoals beschreven in <xref linkend="
+"\"official-cdrom\"/><phrase condition=\"bootable-usb\">, respectievelijk in "
+"<xref linkend=\"boot-usb-files\"/></phrase>, ofwel"
 
 #. Tag: para
 #: boot-installer.xml:624
@@ -671,6 +1000,8 @@ msgid ""
 "download a standalone Windows executable, which is available as tools/win32-"
 "loader/stable/win32-loader.exe on the &debian; mirrors."
 msgstr ""
+"een afzonderlijk werkend Windows-programma downloaden dat u op de &debian; "
+"spiegelservers vindt als tools/win32-loader/stable/win32-loader.exe."
 
 #. Tag: para
 #: boot-installer.xml:632
@@ -682,6 +1013,12 @@ msgid ""
 "it manually by accessing the device and executing <command>setup.exe</"
 "command>."
 msgstr ""
+"Indien u een installatie-CD of -DVD gebruikt, zou een "
+"installatievoorbereidend programma automatisch moeten opgestart worden "
+"wanneer u de schijf in het station plaatst. In het geval Windows het niet "
+"automatisch opstart, of indien u een USB-geheugenstick gebruikt, kunt u het "
+"handmatig starten door naar het apparaat te gaan en <command>setup.exe</"
+"command> uit te voeren."
 
 #. Tag: para
 #: boot-installer.xml:640
@@ -691,12 +1028,15 @@ msgid ""
 "asked and the system will be prepared to reboot into the &debian-gnu; "
 "installer."
 msgstr ""
+"Na het starten van het programma zullen u een aantal voorafgaande vragen "
+"gesteld worden en zal het systeem klaargemaakt worden om opnieuw op te "
+"starten en het &debian-gnu; installatiesysteem te laden."
 
 #. Tag: title
 #: boot-installer.xml:650
 #, no-c-format
 msgid "Booting from DOS using loadlin"
-msgstr ""
+msgstr "Opstarten vanuit DOS met behulp van loadlin"
 
 #. Tag: para
 #: boot-installer.xml:651
@@ -705,6 +1045,8 @@ msgid ""
 "Boot into DOS (not Windows). To do this, you can for instance boot from a "
 "recovery or diagnostic disk."
 msgstr ""
+"Start op in DOS (niet in Windows). Om dit te bereiken, kunt u bijvoorbeeld "
+"opstarten vanaf een reparatieschijf of een diagnoseschijf."
 
 #. Tag: para
 #: boot-installer.xml:656
@@ -717,6 +1059,13 @@ msgid ""
 "disk as explained in <xref linkend=\"files-loadlin\"/>, and change the "
 "current drive to it if needed."
 msgstr ""
+"Indien u toegang heeft tot de installatie-CD, moet u van de huidige schijf "
+"naar de CD gaan, bijvoorbeeld <informalexample><screen>\n"
+"d:\n"
+"</screen></informalexample> In het andere geval moet u er eerst voor zorgen "
+"om uw harde schijf voor te bereiden, zoals uitgelegd wordt in <xref linkend="
+"\"files-loadlin\"/>, en indien nodig er vanuit de huidige schijf naartoe "
+"gaan."
 
 #. Tag: para
 #: boot-installer.xml:666
@@ -731,6 +1080,16 @@ msgid ""
 "</screen></informalexample> Next, execute <command>install.bat</command>. "
 "The kernel will load and launch the installer system."
 msgstr ""
+"Ga naar de onderliggende map van de door u uitgekozen variant, bijvoorbeeld "
+"<informalexample><screen>\n"
+"cd \\&x86-install-dir;\n"
+"</screen></informalexample> Indien u verkiest het grafische "
+"installatiesysteem te gebruiken, moet u naar de onderliggende map "
+"<filename>gtk</filename> gaan. <informalexample><screen>\n"
+"cd gtk\n"
+"</screen></informalexample> Daarna moet u het commando <command>install.bat</"
+"command> uitvoeren. De kernel zal geladen worden en het installatiesysteem "
+"starten."
 
 #. Tag: title
 #: boot-installer.xml:684
@@ -738,6 +1097,8 @@ msgstr ""
 msgid ""
 "Booting from Linux using <command>LILO</command> or <command>GRUB</command>"
 msgstr ""
+"Opstarten vanuit Linux met behulp van <command>LILO</command> of "
+"<command>GRUB</command>"
 
 #. Tag: para
 #: boot-installer.xml:687
@@ -746,6 +1107,9 @@ msgid ""
 "To boot the installer from hard disk, you must first download and place the "
 "needed files as described in <xref linkend=\"boot-drive-files\"/>."
 msgstr ""
+"Om het installatiesysteem vanaf een harde schijf op te starten, moet u eerst "
+"de benodigde bestanden downloaden en op hun plaats zetten, zoals beschreven "
+"wordt in <xref linkend=\"boot-drive-files\"/>."
 
 #. Tag: para
 #: boot-installer.xml:692
@@ -758,6 +1122,13 @@ msgid ""
 "linux</filename>. This will allow you to repartition the hard disk from "
 "which you boot the installer, although you should do so with care."
 msgstr ""
+"Indien u van plan bent om de harde schijf enkel te gebruiken voor het "
+"opstarten van het systeem en daarna alles over het netwerk zult ophalen, "
+"moet u het bestand <filename>netboot/debian-installer/&architecture;/initrd."
+"gz</filename> en de overeenkomstige kernel <filename>netboot/debian-"
+"installer/&architecture;/linux</filename> downloaden. Dit zal u toelaten om "
+"de harde schijf die u gebruikte om het installatiesysteem op te starten, "
+"opnieuw in te delen in partities, hoewel u dit zorgvuldig moet doen."
 
 #. Tag: para
 #: boot-installer.xml:702
@@ -770,6 +1141,13 @@ msgid ""
 "installer can then boot from the drive and install from the CD/DVD image, "
 "without needing the network."
 msgstr ""
+"Indien u echter van plan bent om tijdens de installatie een bestaande "
+"partitie op de harde schijf ongewijzigd te behouden, kunt u het bestand "
+"<filename>hd-media/initrd.gz</filename> en zijn kernel downloaden, en een CD-"
+"iso (of DVD-iso) kopiëren naar de schijf (zorg ervoor dat u het bestand een "
+"naam geeft die eindigt op  <literal>.iso</literal>). Het installatiesysteem "
+"kan dan opstarten van de harde schijf en de installatie uitvoeren op basis "
+"van het CD/DVD-image, zonder dat toegang tot het netwerk vereist is."
 
 #. Tag: para
 #: boot-installer.xml:711
@@ -782,6 +1160,13 @@ msgid ""
 "a RAM disk as its root partition. </para></listitem> </itemizedlist> Here is "
 "a <filename>/etc/lilo.conf</filename> example:"
 msgstr ""
+"Met <command>LILO</command> zult u twee essentiële dingen moeten "
+"configureren in <filename>/etc/lilo.conf</filename>: <itemizedlist> "
+"<listitem><para> om bij het opstarten het <filename>initrd.gz</filename> "
+"installatiesysteem te laden; </para></listitem> <listitem><para> om de "
+"kernel <filename>vmlinuz</filename> een RAM-schijf te laten gebruiken als "
+"zijn basispartitie. </para></listitem> </itemizedlist> Hierna volgt een "
+"voorbeeld van een <filename>/etc/lilo.conf</filename>:"
 
 #. Tag: screen
 #: boot-installer.xml:732
@@ -791,6 +1176,9 @@ msgid ""
 "       label=newinstall\n"
 "       initrd=/boot/newinstall/initrd.gz"
 msgstr ""
+"image=/boot/newinstall/vmlinuz\n"
+"       label=newinstall\n"
+"       initrd=/boot/newinstall/initrd.gz"
 
 #. Tag: para
 #: boot-installer.xml:732
@@ -802,6 +1190,11 @@ msgid ""
 "manvolnum></citerefentry> man pages. Now run <userinput>lilo</userinput> and "
 "reboot."
 msgstr ""
+"Raadpleeg voor bijkomende informatie de man-pagina's "
+"<citerefentry><refentrytitle>initrd</refentrytitle> <manvolnum>4</"
+"manvolnum></citerefentry> en <citerefentry><refentrytitle>lilo.conf</"
+"refentrytitle> <manvolnum>5</manvolnum></citerefentry>. Voer nu het commando "
+"<userinput>lilo</userinput> uit en herstart de computer."
 
 #. Tag: para
 #: boot-installer.xml:741
@@ -813,6 +1206,12 @@ msgid ""
 "entry for the installer, for example (assuming <filename>/boot</filename> is "
 "on the first partition of the first disk in the system):"
 msgstr ""
+"De werkwijze met <command>GRUB1</command> is vrij vergelijkbaar. Zoek naar "
+"het bestand <filename>menu.lst</filename> in de map <filename>/boot/grub/</"
+"filename> (of soms <filename>/boot/boot/grub/</filename>) en voeg een item "
+"toe voor het installatiesysteem, bijvoorbeeld (in de veronderstelling dat de "
+"map <filename>/boot</filename> zich bevindt op de eerste partitie van de "
+"eerste schijf op het systeem):"
 
 #. Tag: screen
 #: boot-installer.xml:749
@@ -823,6 +1222,10 @@ msgid ""
 "kernel /boot/newinstall/vmlinuz\n"
 "initrd /boot/newinstall/initrd.gz"
 msgstr ""
+"title  Nieuwe Installatie\n"
+"root   (hd0,0)\n"
+"kernel /boot/newinstall/vmlinuz\n"
+"initrd /boot/newinstall/initrd.gz"
 
 #. Tag: para
 #: boot-installer.xml:751
@@ -832,6 +1235,10 @@ msgid ""
 "named <filename>grub.cfg</filename> instead of <filename>menu.lst</"
 "filename>. An entry for the installer would be for instance for example:"
 msgstr ""
+"De werkwijze met <command>GRUB2</command> is vrij vergelijkbaar. De naam van "
+"het bestand is <filename>grub.cfg</filename> in plaats van <filename>menu."
+"lst</filename>. Een item voor het installatiesysteem zou bijvoorbeeld kunnen "
+"zijn:"
 
 #. Tag: screen
 #: boot-installer.xml:757
@@ -845,6 +1252,13 @@ msgid ""
 "initrd /boot/newinstall/initrd.gz\n"
 "}"
 msgstr ""
+"menuentry 'Nieuwe Installatie' {\n"
+"insmod part_msdos\n"
+"insmod ext2\n"
+"set root='(hd0,msdos1)'\n"
+"linux /boot/newinstall/vmlinuz\n"
+"initrd /boot/newinstall/initrd.gz\n"
+"}"
 
 #. Tag: para
 #: boot-installer.xml:759
@@ -853,12 +1267,14 @@ msgid ""
 "From here on, there should be no difference between <command>GRUB</command> "
 "or <command>LILO</command>."
 msgstr ""
+"Vanaf dan is er geen verschil meer tussen <command>GRUB</command> en "
+"<command>LILO</command>."
 
 #. Tag: title
 #: boot-installer.xml:768 boot-installer.xml:1969
 #, no-c-format
 msgid "Booting from Floppies"
-msgstr ""
+msgstr "Opstarten vanaf diskettes"
 
 #. Tag: para
 #: boot-installer.xml:769 boot-installer.xml:1977
@@ -867,6 +1283,9 @@ msgid ""
 "You will have already downloaded the floppy images you needed and created "
 "floppies from the images in <xref linkend=\"create-floppy\"/>."
 msgstr ""
+"We nemen aan dat u de diskette-images die u nodig heeft, gedownload heeft en "
+"van de images diskettes gemaakt heeft, zoals beschreven in <xref linkend="
+"\"create-floppy\"/>."
 
 #. Tag: para
 #: boot-installer.xml:776
@@ -875,6 +1294,9 @@ msgid ""
 "To boot from the installer boot floppy, place it in the primary floppy "
 "drive, shut down the system as you normally would, then turn it back on."
 msgstr ""
+"Om met de opstartdiskette van het installatiesysteem op te starten, steekt u "
+"die in het eerste diskettestation, sluit u het systeem af zoals u dat gewoon "
+"bent te doen, en zet u de computer terug aan."
 
 #. Tag: para
 #: boot-installer.xml:782
@@ -887,6 +1309,13 @@ msgid ""
 "is connected as the first IDE device (master) on the second cable, you enter "
 "<userinput>install root=/dev/hdc</userinput> at the boot prompt."
 msgstr ""
+"Om de installatie met een set diskettes vanaf een LS-120-station (de ATAPI "
+"versie) uit te voeren, moet u de virtuele locatie van het diskettestation "
+"opgeven. Dit doet u met het opstartargument <emphasis>root=</emphasis>, "
+"waarbij u het apparaat vermeldt dat overeenkomt met de ide-diskette. Als "
+"bijvoorbeeld uw LS-120-station gekoppeld is aan het eerste IDE-apparaat "
+"(master) op de tweede kabel, geeft u aan de opstartprompt <userinput>install "
+"root=/dev/hdc</userinput> op."
 
 #. Tag: para
 #: boot-installer.xml:792
@@ -898,6 +1327,12 @@ msgid ""
 "installing from an existing operating system (e.g., from a DOS box) you "
 "don't have a choice. Otherwise, please do a hard reboot when booting."
 msgstr ""
+"Merk op dat op sommige machines <keycombo><keycap>Control</keycap> "
+"<keycap>Alt</keycap> <keycap>Delete</keycap></keycombo> de machine niet "
+"behoorlijk herinitialiseert en om die reden wordt een volledige herstart "
+"aanbevolen. Indien u vanaf een bestaand besturingssysteem installeert (bijv. "
+"van een DOS box) is er geen keuze. Voer in het andere geval een volledige "
+"herstart uit als u het installatiesysteem wilt opstarten."
 
 #. Tag: para
 #: boot-installer.xml:801
@@ -906,6 +1341,9 @@ msgid ""
 "The floppy disk will be accessed, and you should then see a screen that "
 "introduces the boot floppy and ends with the <prompt>boot:</prompt> prompt."
 msgstr ""
+"Het diskettestation zou benaderd moeten worden en u zou dan een scherm "
+"moeten zien dat de opstartdiskette aankondigt en eindigt met de prompt "
+"<prompt>boot:</prompt>."
 
 #. Tag: para
 #: boot-installer.xml:807
@@ -918,6 +1356,12 @@ msgid ""
 "information on this phase of the boot process can be found below in <xref "
 "linkend=\"kernel-msgs\"/>."
 msgstr ""
+"Nadat u op de toets &enterkey; gedrukt heeft, zou u de melding "
+"<computeroutput>Loading...</computeroutput> moeten zien, gevolgd door "
+"<computeroutput>Uncompressing Linux...</computeroutput>, en vervolgens "
+"ongeveer een volledig scherm met informatie over de hardware op het systeem. "
+"Meer informatie over dit opstartproces is hieronder te vinden bij <xref "
+"linkend=\"kernel-msgs\"/>."
 
 #. Tag: para
 #: boot-installer.xml:816
@@ -928,25 +1372,29 @@ msgid ""
 "The installer program <command>debian-installer</command> is automatically "
 "launched."
 msgstr ""
+"Nadat u opgestart bent vanaf de opstartdiskette, wordt naar de root-diskette "
+"gevraagd. Steek de root-diskette in het station en druk op &enterkey;. De "
+"inhoud ervan wordt in het geheugen geladen en het installatieprogramma "
+"<command>debian-installer</command> wordt automatisch gestart."
 
 #. Tag: title
 #: boot-installer.xml:826 boot-installer.xml:1450 boot-installer.xml:1592
 #: boot-installer.xml:1913 boot-installer.xml:2061
 #, no-c-format
 msgid "Booting with TFTP"
-msgstr ""
+msgstr "Opstarten met TFTP"
 
 #. Tag: para
 #: boot-installer.xml:851
 #, no-c-format
 msgid "There are various ways to do a TFTP boot on i386."
-msgstr ""
+msgstr "Er bestaan verschillende methodes om op i386 op te starten met TFTP."
 
 #. Tag: title
 #: boot-installer.xml:857
 #, no-c-format
 msgid "NIC or Motherboard that support PXE"
-msgstr ""
+msgstr "PXE wordt ondersteund door netwerkkaart of moederbord"
 
 #. Tag: para
 #: boot-installer.xml:858
@@ -957,12 +1405,16 @@ msgid ""
 "re-implementation of TFTP boot. If so, you may be able to configure your "
 "BIOS to boot from the network."
 msgstr ""
+"Het is mogelijk dat uw netwerkkaart of uw moederbord beschikken over de "
+"functie opstarten via PXE. Dit is een herimplementatie door <trademark class="
+"\"trade\">Intel</trademark> van opstarten via TFTP. Indien dat het geval is, "
+"zou u het BIOS moeten kunnen instellen om over het netwerk op te starten."
 
 #. Tag: title
 #: boot-installer.xml:869
 #, no-c-format
 msgid "NIC with Network BootROM"
-msgstr ""
+msgstr "Netwerkkaart met Network BootROM"
 
 #. Tag: para
 #: boot-installer.xml:870
@@ -971,6 +1423,7 @@ msgid ""
 "It could be that your Network Interface Card provides TFTP boot "
 "functionality."
 msgstr ""
+"Het kan zijn dat uw netwerkkaart een functie 'opstarten met TFTP' heeft."
 
 #. Tag: para
 #: boot-installer.xml:875
@@ -979,12 +1432,14 @@ msgid ""
 "Let us (<email>&email-debian-boot-list;</email>) know how did you manage it. "
 "Please refer to this document."
 msgstr ""
+"Laat ons weten (<email>&email-debian-boot-list;</email>) hoe u het deed. "
+"Gelieve te verwijzen naar dit document."
 
 #. Tag: title
 #: boot-installer.xml:883
 #, no-c-format
 msgid "Etherboot"
-msgstr ""
+msgstr "Etherboot"
 
 #. Tag: para
 #: boot-installer.xml:884
@@ -993,12 +1448,15 @@ msgid ""
 "The <ulink url=\"http://www.etherboot.org\">etherboot project</ulink> "
 "provides bootdiskettes and even bootroms that do a TFTPboot."
 msgstr ""
+"Het <ulink url=\"http://www.etherboot.org\">etherboot-project</ulink> stelt "
+"opstartdiskettes en zelfs bootROM's ter beschikking die een opstart via TFTP "
+"uitvoeren."
 
 #. Tag: title
 #: boot-installer.xml:894
 #, no-c-format
 msgid "The Boot Screen"
-msgstr ""
+msgstr "Het opstartscherm"
 
 #. Tag: para
 #: boot-installer.xml:895
@@ -1007,6 +1465,8 @@ msgid ""
 "When the installer boots, you should be presented with a friendly graphical "
 "screen showing the &debian; logo and a menu:"
 msgstr ""
+"Wanneer het installatiesysteem opstart, zou u een vriendelijk grafisch "
+"scherm te zien moeten krijgen met het logo van &debian; en een menu:"
 
 #. Tag: screen
 #: boot-installer.xml:900
@@ -1020,6 +1480,13 @@ msgid ""
 "Help\n"
 "Install with speech synthesis"
 msgstr ""
+"&debian-gnu; opstartmenu van het installatiesysteem\n"
+"\n"
+"Grafische installatie\n"
+"Installatie\n"
+"Geavanceerde opties             >\n"
+"Hulp\n"
+"Installatie met spraaksynthese"
 
 #. Tag: para
 #: boot-installer.xml:904
@@ -1028,6 +1495,9 @@ msgid ""
 "This graphical screen will look very slightly different depending on how "
 "your computer has booted (BIOS or UEFI), but the same options will be shown."
 msgstr ""
+"Dit grafisch scherm zal er lichtjes anders uitzien naargelang de manier "
+"waarop uw computer opstartte (BIOS of UEFI), maar dezelfde opties worden "
+"geboden."
 
 #. Tag: para
 #: boot-installer.xml:912
@@ -1038,6 +1508,10 @@ msgid ""
 "have a 64 bit variant for each install option, right below it, thus almost "
 "doubling the number of options."
 msgstr ""
+"Afhankelijk van de gebruikte installatiemethode is het mogelijk dat de optie "
+"<quote>Grafische installatie</quote> niet beschikbaar is. Bi-architectuur-"
+"images bieden daarenboven bij elke installatieoptie daar net onder een 64-"
+"bits variant, wat dus het aantal opties bijna verdubbelt."
 
 #. Tag: para
 #: boot-installer.xml:919
@@ -1049,6 +1523,12 @@ msgid ""
 "and press &enterkey; to boot the installer. The <quote>Graphical install</"
 "quote> entry is already selected by default."
 msgstr ""
+"Kies voor een gewone installatie ofwel het item <quote>Grafische "
+"installatie</quote> of <quote>Installatie</quote> &mdash; u kunt daarvoor de "
+"pijltjestoetsen gebruiken of op uw toetsenbord de eerste (gemarkeerde) "
+"letter typen &mdash; en druk &enterkey; om het installatiesysteem te "
+"starten. De methode <quote>Grafische installatie</quote> is standaard reeds "
+"geselecteerd."
 
 #. Tag: para
 #: boot-installer.xml:927
@@ -1058,6 +1538,9 @@ msgid ""
 "allows to boot the installer in expert mode, in rescue mode and for "
 "automated installs."
 msgstr ""
+"Het item <quote>Geavanceerde opties</quote> geeft toegang tot een tweede "
+"menu die u de kans biedt om het installatiesysteem op te starten in "
+"expertmodus, in reparatiemodus of om automatische installaties uit te voeren."
 
 #. Tag: para
 #: boot-installer.xml:933
@@ -1071,6 +1554,15 @@ msgid ""
 "or &f10key; (UEFI boot) to boot the installer with your options; pressing "
 "&escapekey; will return you to the boot menu and undo any changes you made."
 msgstr ""
+"Indien u opstartparameters wenst of moet meegeven aan het installatiesysteem "
+"of aan de kernel, gebruikt u &tabkey; (BIOS-opstart), of &ekey; en dan "
+"driemaal &downkey; en dan &endkey; (UEFI-opstart). Dit geeft u het "
+"opstartcommando voor het gekozen menu-item en biedt u de mogelijkheid om het "
+"volgens uw behoeften te bewerken. De hulpschermen (zie hieronder) vermelden "
+"enkele gebruikelijke opties. Druk op &enterkey; (BIOS-opstart) of &f10key; "
+"(UEFI-opstart) om het installatiesysteem met uw opties op te starten. Op "
+"&escapekey; drukken brengt u terug naar het opstartmenu en annuleert "
+"eventueel gemaakte wijzigingen."
 
 #. Tag: para
 #: boot-installer.xml:945
@@ -1090,6 +1582,22 @@ msgid ""
 "method (the default is <userinput>install</userinput>) and a space before "
 "the first parameter (e.g., <userinput>install fb=false</userinput>)."
 msgstr ""
+"Als u het item <quote>Hulp</quote> selecteert, krijgt u een eerste "
+"hulpscherm te zien dat een overzicht geeft van alle mogelijke hulpschermen. "
+"Om terug te keren naar het opstartmenu nadat u de hulpschermen geraadpleegd "
+"heeft, moet u aan de opstartprompt 'menu' typen en op &enterkey; drukken. "
+"Bij elk hulpscherm krijgt u een opstartprompt waar u het opstartcommando "
+"kunt typen: <informalexample><screen>\n"
+"Druk F1 voor een lijst met hulponderwerpen, of ENTER om op te starten:\n"
+"</screen></informalexample> Aan deze opstartprompt kunt u ofwel gewoon op "
+"&enterkey; drukken om het installatiesysteem op te starten met de "
+"standaardopties of een specifiek opstartcommando ingeven en eventuele "
+"opstartparameters. In de verschillende hulpschermen vindt u een aantal "
+"opstartparameters die handig kunnen zijn. Indien u aan de "
+"opstartcommandoregel eventuele opstartparameters opgeeft, moet u eerst de "
+"opstartmethode opgeven (standaard is dat <userinput>install</userinput> "
+"(installatie)) en een spatie voorafgaand aan de eerste parameter (bijv. "
+"<userinput>install fb=false</userinput>)."
 
 #. Tag: para
 #: boot-installer.xml:963
@@ -1102,6 +1610,13 @@ msgid ""
 "keymap;\">schema of the US keyboard layout</ulink> which can be used as a "
 "reference to find the correct keys to use."
 msgstr ""
+"Standaard wordt er op dit punt vanuit gegaan dat het toetsenbord een "
+"indeling Amerikaans Engels heeft. Dit betekent dat wanneer u parameters "
+"intypt, er op het scherm andere tekens kunnen te zien zijn dan u zou "
+"verwachten. Dit zal het geval zijn als u een toetsenbord met een andere "
+"(taalspecifieke) indeling gebruikt. Op Wikipedia is een <ulink url=\"&url-us-"
+"keymap;\">schema met de indeling van een US-toetsenbord</ulink> te vinden "
+"dat u als referentie kunt gebruiken om de correcte toetsen te vinden."
 
 #. Tag: para
 #: boot-installer.xml:973
@@ -1115,6 +1630,15 @@ msgid ""
 "include the text console of Compaq's <quote>integrated Lights Out</quote> "
 "(iLO) and HP's <quote>Integrated Remote Assistant</quote> (IRA)."
 msgstr ""
+"Indien u een systeem gebruikt waarvan het BIOS ingesteld werd om een seriële "
+"console te gebruiken, kan het zijn dat u bij het opstarten van het "
+"installatiesysteem het initiële grafische welkomstscherm niet kunt zien en "
+"misschien zelfs niet het opstartmenu. Hetzelfde kan gebeuren als u het "
+"systeem installeert via een apparaat voor besturing vanop afstand dat "
+"voorziet in een tekstinterface met de VGA-console. Voorbeelden van "
+"dergelijke apparaten zijn de tekstconsole van Compaq's <quote>integrated "
+"Lights Out</quote> (iLO) en HP's <quote>Integrated Remote Assistant</quote> "
+"(IRA)."
 
 #. Tag: para
 #: boot-installer.xml:983
@@ -1128,12 +1652,21 @@ msgid ""
 "you will also want to add <userinput>vga=normal fb=false</userinput> to the "
 "boot prompt, as described in the help text."
 msgstr ""
+"Om voorbij het grafische opstartscherm te geraken, kunt u ofwel blind op "
+"&escapekey; drukken om een tekstuele opstartprompt te krijgen, ofwel "
+"(eveneens blind) op <quote>H</quote> drukken, gevolgd door &enterkey;, "
+"waardoor u de optie <quote>Hulp</quote> selecteert, zoals hiervoor "
+"beschreven werd. Nadien zouden uw toetsaanslagen aan de prompt weergegeven "
+"moeten worden. Om te verhinderen dat het installatiesysteem tijdens het "
+"verdere verloop van de installatie de framebuffer blijft gebruiken, zult u "
+"<userinput>vga=normal fb=false</userinput> moeten toevoegen aan de "
+"opstartprompt, zoals beschreven wordt in de hulptekst."
 
 #. Tag: title
 #: boot-installer.xml:999
 #, no-c-format
 msgid "The Graphical Installer"
-msgstr ""
+msgstr "Het grafische installatiesysteem"
 
 #. Tag: para
 #: boot-installer.xml:1000
@@ -1145,6 +1678,11 @@ msgid ""
 "installer as it basically uses the same programs, but with a different "
 "frontend."
 msgstr ""
+"De grafische versie van het installatiesysteem is enkel voor een beperkt "
+"aantal architecturen beschikbaar, waaronder &arch-title;. De functionaliteit "
+"van het grafische installatiesysteem is essentieel dezelfde als die van het "
+"tekstgeoriënteerde installatiesysteem, aangezien het in principe dezelfde "
+"programma's gebruikt met enkel een andere frontend."
 
 #. Tag: para
 #: boot-installer.xml:1008
@@ -1157,6 +1695,13 @@ msgid ""
 "usability advantages such as the option to use a mouse, and in some cases "
 "several questions can be displayed on a single screen."
 msgstr ""
+"Hoewel de functionaliteit identiek is, biedt het grafische "
+"installatiesysteem toch enkele significante voordelen. Het grootste voordeel "
+"is dat het meer talen ondersteunt, met name die welke een tekenset gebruiken "
+"die niet weergegeven kan worden in de tekstgeoriënteerde frontend "
+"<quote>newt</quote>. Het biedt ook enkele voordelen op het vlak van gebruik, "
+"zoals de mogelijkheid om een muis te gebruiken. En in sommige gevallen "
+"kunnen verschillende vragen op een scherm weergegeven worden."
 
 #. Tag: para
 #: boot-installer.xml:1017
@@ -1171,6 +1716,16 @@ msgid ""
 "still be used from the boot prompt which is shown after selecting the "
 "<quote>Help</quote> option in the boot menu."
 msgstr ""
+"Het grafische installatiesysteem bevindt zich op alle CD-images en maakt ook "
+"deel uit van de installatiemethode hd-media. Om het grafische "
+"installatiesysteem op te starten moet u gewoon de desbetreffende optie uit "
+"het opstartmenu selecteren. De expertmodus en de reparatiemodus van het "
+"grafische installatiesysteem zijn te vinden in het menu met "
+"<quote>Geavanceerde opties</quote>. De vroeger gebruikte opstartmethodes "
+"<userinput>installgui</userinput>, <userinput>expertgui</userinput> en "
+"<userinput>rescuegui</userinput> kunnen nog steeds gebruikt worden aan de "
+"opstartprompt die u krijgt na het selecteren van de optie <quote>Hulp</"
+"quote> in het opstartmenu."
 
 #. Tag: para
 #: boot-installer.xml:1028
@@ -1183,6 +1738,13 @@ msgid ""
 "<filename>netboot/gtk/mini.iso</filename>. </para> </footnote>, which is "
 "mainly useful for testing."
 msgstr ""
+"Er bestaat ook een image van het grafische installatiesysteem dat over het "
+"net opgestart kan worden. En er bestaat een speciaal <quote>mini</quote> ISO-"
+"image<footnote id=\"gtk-miniiso\"> <para> Het mini ISO-image kan gedownload "
+"worden van een &debian; spiegelserver zoals beschreven wordt in <xref "
+"linkend=\"downloading-files\"/>. Zoek naar <filename>netboot/gtk/mini.iso</"
+"filename>. </para> </footnote>, dat hoofdzakelijk voor testdoeleinden nuttig "
+"is."
 
 #. Tag: para
 #: boot-installer.xml:1041
@@ -1195,6 +1757,13 @@ msgid ""
 "</para> </footnote>. It should work on almost all PowerPC systems that have "
 "an ATI graphical card, but is unlikely to work on other systems."
 msgstr ""
+"Voor &arch-title; is momenteel enkel een experimenteel <quote>mini</quote> "
+"ISO-image beschikbaar<footnote id=\"gtk-miniiso\"> <para> Het mini ISO-image "
+"kan gedownload worden van een &debian; spiegelserver zoals beschreven wordt "
+"in <xref linkend=\"downloading-files\"/>. Zoek naar <filename>netboot/gtk/"
+"mini.iso</filename>. </para> </footnote>. Het zou moeten werken op bijna "
+"alle PowerPC-systemen die beschikken over een ATI grafische kaart, maar het "
+"is onwaarschijnlijk dat het zal werken op andere systemen."
 
 #. Tag: para
 #: boot-installer.xml:1055
@@ -1203,6 +1772,9 @@ msgid ""
 "Just as with the text-based installer it is possible to add boot parameters "
 "when starting the graphical installer."
 msgstr ""
+"Juist zoals dit het geval is voor het tekstgeoriënteerde installatiesysteem, "
+"is het ook bij het starten van het grafische installatiesysteem mogelijk om "
+"opstartparameters op te geven."
 
 #. Tag: para
 #: boot-installer.xml:1061
@@ -1213,6 +1785,10 @@ msgid ""
 "available, it will automatically fall back to the text-based <quote>newt</"
 "quote> frontend."
 msgstr ""
+"Het grafische installatiesysteem heeft significant meer geheugen nodig om te "
+"kunnen functioneren dan het tekstgeoriënteerde installatiesysteem: &minimum-"
+"memory-gtk;. Indien onvoldoende geheugen beschikbaar is, zal het automatisch "
+"terugvallen op de tekstgeoriënteerde frontend <quote>newt</quote>."
 
 #. Tag: para
 #: boot-installer.xml:1068
@@ -1223,12 +1799,17 @@ msgid ""
 "installer would still work. Using the text-based installer is recommended "
 "for systems with little available memory."
 msgstr ""
+"Indien op uw systeem de hoeveelheid geheugen kleiner is dan &minimum-"
+"memory;, kan het opstarten van het grafische installatiesysteem volledig "
+"mislukken, terwijl het opstarten van het tekstgeoriënteerde "
+"installatiesysteem nog altijd zou werken. Op systemen met weinig geheugen "
+"wordt het gebruik van het tekstgeoriënteerde installatiesysteem aanbevolen."
 
 #. Tag: title
 #: boot-installer.xml:1122
 #, no-c-format
 msgid "CD Contents"
-msgstr ""
+msgstr "Inhoud van de CD"
 
 #. Tag: para
 #: boot-installer.xml:1124
@@ -1244,6 +1825,17 @@ msgid ""
 "The set of &debian; CDs can install a complete system from the wide range of "
 "packages without needing access to the network."
 msgstr ""
+"Er bestaan drie basisvarianten van de installatie-CD's van &debian;. De "
+"<emphasis>Business Card</emphasis> CD (visitekaart-CD) bevat een minimale "
+"installatie die past op een CD van klein formaat. Men heeft er een "
+"netwerkverbinding bij nodig om de rest van de basisinstallatie uit te voeren "
+"en een bruikbaar systeem te bekomen. De <emphasis>Network Install</emphasis> "
+"CD (netwerkinstallatie-CD) bevat alle pakketten voor een basisinstallatie, "
+"maar heeft een netwerkverbinding met een &debian; spiegelserver nodig om de "
+"bijkomende pakketten te installeren die men wil hebben om een compleet "
+"systeem te bekomen. Met de volledige set &debian; CD's kan men een compleet "
+"systeem installeren uit een ruime waaier pakketten zonder dat men "
+"netwerktoegang nodig heeft."
 
 #. Tag: para
 #: boot-installer.xml:1140
@@ -1260,6 +1852,17 @@ msgid ""
 "partition dedicated to EFI instead of the simple MBR or boot block on more "
 "conventional systems."
 msgstr ""
+"De architectuur IA-64 gebruikt de Extensible Firmware Interface (EFI) van "
+"Intel van de volgende generatie. In tegenstelling tot het traditionele x86 "
+"BIOS dat weinig meer weet over het opstartapparaat dan de partitietabel en "
+"het Master Boot Record (MBR) ervan, kan EFI bestanden in schijfpartities van "
+"het type FAT16 en FAT32 lezen en schrijven. Dit vereenvoudigt het vaak "
+"duister proces van het opstarten van een systeem. Het opstartprogramma van "
+"het systeem en de EFI firmware die het ondersteunt, beschikken over een "
+"volledig bestandssysteem om de bestanden die nodig zijn om de machine op te "
+"starten, op te slaan. Dit houdt in dat de systeemschijf op een IA-64-systeem "
+"beschikt over een extra schijfpartitie die voorbehouden is voor EFI, in "
+"plaats van het eenvoudige MBR opstartblok op de meer conventionele systemen."
 
 #. Tag: para
 #: boot-installer.xml:1156
@@ -1271,6 +1874,13 @@ msgid ""
 "contains an EFI partition where the necessary files for booting the system "
 "reside. These files are readable from the EFI Shell as described below."
 msgstr ""
+"De &debian; CD met het installatiesysteem bevat een kleine EFI-partitie "
+"waarop zich het opstartprogramma <command>ELILO</command>, het "
+"configuratiebestand ervan, de kernel van het installatiesysteem en het "
+"initiële bestandssysteem (initrd) bevinden. Het actieve systeem heeft ook "
+"een EFI-partitie waarop zich de bestanden bevinden die nodig zijn om dat "
+"systeem op te starten. Deze bestanden kunnen vanuit de EFI Shell gelezen "
+"worden, zoals hierna beschreven wordt."
 
 #. Tag: para
 #: boot-installer.xml:1165
@@ -1285,6 +1895,16 @@ msgid ""
 "system disk. The partitioning task also verifies that a suitable EFI "
 "partition is present before allowing the installation to proceed."
 msgstr ""
+"De meeste details over hoe <command>ELILO</command> een systeem feitelijk "
+"laadt en start zijn transparant voor het installatiesysteem. Het "
+"installatiesysteem moet echter een EFI-partitie opzetten vooraleer het "
+"basissysteem geïnstalleerd kan worden. Anders zal de installatie van "
+"<command>ELILO</command> mislukken en zal het systeem niet meer opgestart "
+"kunnen worden. Het toekennen en formatteren van de EFI-partitie gebeurt "
+"tijdens de schijfindelingsfase van de installatie. Dit gebeurt nog vooraleer "
+"enig pakket op de systeemschijf geladen wordt. De schijfindelingsactiviteit "
+"houdt ook in dat nagegaan wordt of er een geschikte EFI-partitie bestaat, "
+"voordat de installatie voortgezet kan worden."
 
 #. Tag: para
 #: boot-installer.xml:1177
@@ -1300,12 +1920,22 @@ msgid ""
 "available or the CD for some reason does not boot with it, use the second "
 "option."
 msgstr ""
+"Als laatste stap in de firmware-initialisatie krijgt u de EFI Boot Manager "
+"te zien. Het is een menu waaruit de gebruiker een optie kan selecteren. "
+"Afhankelijk van het type systeem en van welke andere software op het systeem "
+"staat, kan dit menu van systeem tot systeem verschillen. Het menu zou "
+"minstens twee items moeten bevatten, <command>Boot Option Maintenance Menu</"
+"command> (menu voor het onderhoud van de opstartopties) en <command>EFI "
+"Shell (Built-in)</command> (ingebouwde EFI-shell). Het gebruik van de eerste "
+"optie valt te verkiezen, maar indien die optie niet beschikbaar is of de CD "
+"er om een of andere reden niet mee opgestart kan worden, moet u de tweede "
+"optie kiezen."
 
 #. Tag: title
 #: boot-installer.xml:1196
 #, no-c-format
 msgid "IMPORTANT"
-msgstr ""
+msgstr "BELANGRIJK"
 
 #. Tag: para
 #: boot-installer.xml:1197
@@ -1319,12 +1949,20 @@ msgid ""
 "you can return to the Boot Manager by running <command>exit</command> at the "
 "shell prompt."
 msgstr ""
+"Binnen een tijdspanne van een vooraf ingesteld aantal seconden zal de EFI "
+"Boot Manager een standaard opstartactie selecteren, meestal de eerste "
+"keuzemogelijkheid uit het menu. Het aftellen onderaan het scherm geeft dit "
+"aan. Eens het aftellen beëindigd is en het systeem zijn standaardactie "
+"opgestart heeft, zult u de machine moeten herstarten om voort te gaan met de "
+"installatie. Indien de EFI-shell de standaardactie is, kunt u terugkeren "
+"naar de Boot Manager door aan de shell-prompt het commando <command>exit</"
+"command> in te voeren."
 
 #. Tag: title
 #: boot-installer.xml:1209
 #, no-c-format
 msgid "Option 1: Booting from the Boot Option Maintenance Menu"
-msgstr ""
+msgstr "Optie 1: Opstarten vanuit het Menu voor opstartoptieonderhoud"
 
 #. Tag: para
 #: boot-installer.xml:1216
@@ -1334,6 +1972,9 @@ msgid ""
 "display the EFI Boot Manager page and menu after it completes its system "
 "initialization."
 msgstr ""
+"Plaats de CD in het DVD/CD-station en herstart de machine. Nadat de firmware "
+"het systeem geïnitialiseerd heeft, zal de pagina met het menu van de EFI "
+"Boot Manager getoond worden."
 
 #. Tag: para
 #: boot-installer.xml:1222
@@ -1342,6 +1983,9 @@ msgid ""
 "Select <command>Boot Maintenance Menu</command> from the menu with the arrow "
 "keys and press <command>ENTER</command>. This will display a new menu."
 msgstr ""
+"Selecteer met de pijltjestoetsen in het menu <command>Boot Maintenance Menu</"
+"command> (opstartonderhoud) en druk op <command>ENTER</command>. Hierdoor "
+"krijgt u een nieuw menu."
 
 #. Tag: para
 #: boot-installer.xml:1228
@@ -1354,6 +1998,13 @@ msgid ""
 "Boot</command>. If you examine the rest of the menu line, you will notice "
 "that the device and controller information should be the same."
 msgstr ""
+"Selecteer met de pijltjestoetsen in het menu <command>Boot From a File</"
+"command> (opstarten vanaf een bestand) en druk op <command>ENTER</command>. "
+"Dit zal een lijst van apparaten tonen die door de firmware aangetroffen "
+"werden. U zou twee menuregels moeten zien met ofwel het label "
+"<command>Debian Inst [Acpi ...</command> ofwel <command>Removable Media "
+"Boot</command>. Indien u naar de rest van de menuregel gaat kijken, zou u "
+"moeten merken dat de informatie over apparaat en controller dezelfde is."
 
 #. Tag: para
 #: boot-installer.xml:1239
@@ -1366,6 +2017,14 @@ msgid ""
 "command> instead, it will display a directory listing of the bootable "
 "portion of the CD, requiring you to proceed to the next (additional) step."
 msgstr ""
+"U kunt om het even welk van de items selecteren die verwijzen naar het CD/"
+"DVD-station. Maak uw keuze met behulp van de pijltjestoetsen en druk op "
+"<command>ENTER</command>. Indien u koos voor <command>Removable Media Boot</"
+"command> zal de machine onmiddellijk beginnen met de laadsequentie van het "
+"opstartproces. Indien u daarentegen koos voor <command>Debian Inst [Acpi ..."
+"</command> zal het een oplijsting tonen van de inhoud van het opstartbare "
+"gedeelte van de CD en zult u door moeten gaan naar de volgende (bijkomende) "
+"stap."
 
 #. Tag: para
 #: boot-installer.xml:1250
@@ -1377,6 +2036,12 @@ msgid ""
 "line with the arrow keys and press <command>ENTER</command>. This will start "
 "the boot load sequence."
 msgstr ""
+"Deze stap is enkel nodig als u koos voor <command>Debian Inst [Acpi ...</"
+"command>. Op de voorlaatste regel van de oplijsting zult u <command>[Treat "
+"like Removable Media Boot]</command> (behandelen als een opstart vanaf een "
+"verwijderbaar medium) zien staan. Selecteer deze regel met de "
+"pijltjestoetsen en druk op <command>ENTER</command>. Dit zal de "
+"laadsequentie van het opstartproces activeren."
 
 #. Tag: para
 #: boot-installer.xml:1262
@@ -1386,12 +2051,15 @@ msgid ""
 "for you to select a boot kernel and options. Proceed to selecting the boot "
 "kernel and options."
 msgstr ""
+"Deze stappen starten de &debian; opstartlader die u een menupagina toont "
+"waaruit u een opstartkernel en opties kunt selecteren. Ga door met het "
+"selecteren van de opstartkernel en de opties."
 
 #. Tag: title
 #: boot-installer.xml:1272
 #, no-c-format
 msgid "Option 2: Booting from the EFI Shell"
-msgstr ""
+msgstr "Optie 2: Opstarten vanaf de EFI Shell"
 
 #. Tag: para
 #: boot-installer.xml:1273
@@ -1402,6 +2070,10 @@ msgid ""
 "<command>EFI Shell [Built-in]</command>. Boot the &debian; Installer CD with "
 "the following steps:"
 msgstr ""
+"Indien om een of andere reden optie 1 zonder succes blijft, moet u de "
+"machine herstarten en wanneer het scherm van de EFI Boot Manager verschijnt "
+"zou u er een optie <command>EFI Shell [Built-in]</command> moeten vinden. "
+"Start de &debian; installatie-CD via de volgende stappen:"
 
 #. Tag: para
 #: boot-installer.xml:1284
@@ -1411,6 +2083,9 @@ msgid ""
 "display the EFI Boot Manager page and menu after it completes system "
 "initialization."
 msgstr ""
+"Plaats de CD in het DVD/CD-station en herstart de machine. Nadat de firmware "
+"het systeem geïnitialiseerd heeft, zal de pagina met het menu van de EFI "
+"Boot Manager getoond worden."
 
 #. Tag: para
 #: boot-installer.xml:1290
@@ -1425,6 +2100,16 @@ msgid ""
 "replaceable>:</filename>. If you inserted the CD just before entering the "
 "shell, this may take a few extra seconds as it initializes the CD drive."
 msgstr ""
+"Selecteer met de pijltjestoetsen in het menu <command>EFI Shell</command> en "
+"druk op <command>ENTER</command>. De EFI Shell zal alle opstartbare "
+"apparaten doorzoeken en ze op de console tonen en daarna een commandoregel-"
+"prompt tonen. De gevonden opstartbare partities op apparaten zullen vermeld "
+"worden met een apparaatnaam in de zin van <filename>fs<replaceable>n</"
+"replaceable>:</filename>. Alle andere gevonden partities zullen vermeld "
+"worden als <filename>blk<replaceable>n</replaceable>:</filename>. Indien u "
+"de CD in het station plaatste net voordat u de shell binnenging, kan dit "
+"enkele seconden extra tijd in beslag nemen, terwijl het CD-station "
+"geïnitialiseerd wordt."
 
 #. Tag: para
 #: boot-installer.xml:1304
@@ -1435,6 +2120,10 @@ msgid ""
 "bootable partitions will also show up as <filename>fs<replaceable>n</"
 "replaceable></filename>."
 msgstr ""
+"Bekijk de uitvoer van de shell en zoek er naar het CD-station. "
+"Hoogstwaarschijnlijk zal dat het apparaat <filename>fs0:</filename> zijn, "
+"hoewel andere apparaten die ook opstartbare partities hebben ook als "
+"<filename>fs<replaceable>n</replaceable></filename> vermeld worden."
 
 #. Tag: para
 #: boot-installer.xml:1311
@@ -1445,6 +2134,10 @@ msgid ""
 "replaceable> is the partition number for the CDROM. The shell will now "
 "display the partition number as its prompt."
 msgstr ""
+"Voer <command>fs<replaceable>n</replaceable>:</command> in en druk op "
+"<command>ENTER</command> om dat apparaat te selecteren, waarbij "
+"<replaceable>n</replaceable> het nummer is van de partitie van de CD. De "
+"shell zal nu het partitienummer als zijn prompt gebruiken."
 
 #. Tag: para
 #: boot-installer.xml:1318
@@ -1453,6 +2146,8 @@ msgid ""
 "Enter <command>elilo</command> and press <command>ENTER</command>. This will "
 "start the boot load sequence."
 msgstr ""
+"Voer <command>elilo</command> in en druk op <command>ENTER</command>. Dit "
+"zal de laadsequentie van het opstartproces activeren."
 
 #. Tag: para
 #: boot-installer.xml:1325
@@ -1464,12 +2159,17 @@ msgid ""
 "command> command at the shell prompt. Proceed to selecting the boot kernel "
 "and options."
 msgstr ""
+"Zoals bij optie 1 starten deze stappen de &debian; opstartlader die u een "
+"menupagina toont waaruit u een opstartkernel en opties kunt selecteren. U "
+"kunt aan de shell-prompt ook het verkorte commando "
+"<command>fs<replaceable>n</replaceable>:elilo</command> invoeren. Ga door "
+"met het selecteren van de opstartkernel en de opties."
 
 #. Tag: title
 #: boot-installer.xml:1339
 #, no-c-format
 msgid "Installing using a Serial Console"
-msgstr ""
+msgstr "De installatie met behulp van een seriële console"
 
 #. Tag: para
 #: boot-installer.xml:1341
@@ -1483,6 +2183,15 @@ msgid ""
 "serial console. Menu items for the most typical baud rate settings on the "
 "ttyS0 device are preconfigured."
 msgstr ""
+"U kunt er voor kiezen om de installatie uit te voeren met behulp van een "
+"monitor en een toetsenbord of met behulp van een seriële verbinding. Om een "
+"opzet met monitor/toetsenbord te kiezen, moet u een optie selecteren die de "
+"tekenreeks [VGA console] bevat. Om over een seriële verbinding te "
+"installeren, moet u een optie selecteren die de tekenreeks "
+"[<replaceable>BAUD</replaceable> baud serial console] bevat, waarbij "
+"<replaceable>BAUD</replaceable> de snelheid van uw seriële console is. Er "
+"zijn vooraf geconfigureerde menu-items voor het apparaat ttyS0 met daarbij "
+"de meest voorkomende instellingen inzake baudsnelheid. "
 
 #. Tag: para
 #: boot-installer.xml:1352
@@ -1493,6 +2202,10 @@ msgid ""
 "is, you can obtain it using the command <command>baud</command> at the EFI "
 "shell."
 msgstr ""
+"In de meeste omstandigheden zult u willen dat het installatiesysteem "
+"dezelfde baudsnelheid gebruikt als uw verbinding met de EFI-console. Indien "
+"u niet zeker weet welke dat is, kunt u die te weten komen door aan de EFI-"
+"shell het commando <command>baud</command> te gebruiken."
 
 #. Tag: para
 #: boot-installer.xml:1359
@@ -1504,6 +2217,12 @@ msgid ""
 "over the ttyS1 device, enter <command>console=ttyS1,57600n8</command> into "
 "the <classname>Boot:</classname> text window."
 msgstr ""
+"Indien er voor het seriële apparaat en de baudsnelheid die u wilt gebruiken, "
+"geen optie beschikbaar is, kunt u bij een van de bestaande menu-opties de "
+"console-instelling vervangen. Om bijvoorbeeld een console te gebruiken met "
+"een baudsnelheid 57600 via het apparaat ttyS1, voert u in het tekstvenster "
+"<classname>Boot:</classname> het commando <command>console=ttyS1,57600n8</"
+"command> in."
 
 #. Tag: para
 #: boot-installer.xml:1370
@@ -1516,6 +2235,14 @@ msgid ""
 "Mode installation. See the <classname>Params</classname> help menu for "
 "instructions on starting the installer in Text Mode."
 msgstr ""
+"De meeste IA-64-apparaten komen met een standaardinstelling van 9600 baud "
+"voor de console. Dit is een eerder trage instelling en in het gewone "
+"installatieproces zal de weergave van elk scherm een significante "
+"hoeveelheid tijd vragen. U zou moeten overwegen om ofwel de gebruikte "
+"baudsnelheid bij het uitvoeren van de installatie te verhogen, of een "
+"installatie uit te voeren in tekstmodus. Zie het hulpscherm over "
+"<classname>Params</classname> (parameters) voor instructies over het starten "
+"van het installatiesysteem in tekstmodus."
 
 #. Tag: para
 #: boot-installer.xml:1379
@@ -1526,12 +2253,16 @@ msgid ""
 "soon as the kernel starts, requiring you to reboot before you can begin the "
 "installation."
 msgstr ""
+"Indien u het verkeerde consoletype selecteert, zult u in staat zijn om de "
+"kernel te selecteren en parameters op te geven, maar zowel de uitvoer als uw "
+"invoer zullen stilvallen van zodra de kernel start en u zult verplicht zijn "
+"om de machine terug op te starten voor u met de installatie kunt beginnen."
 
 #. Tag: title
 #: boot-installer.xml:1388
 #, no-c-format
 msgid "Selecting the Boot Kernel and Options"
-msgstr ""
+msgstr "De opstartkernel en opties selecteren"
 
 #. Tag: para
 #: boot-installer.xml:1390
@@ -1545,6 +2276,15 @@ msgid ""
 "explains the menu choices and the <classname>Params</classname> screen "
 "explains the common command line options."
 msgstr ""
+"De opstartlader zal een formulier weergeven met menu-items en een "
+"tekstvenster met de prompt <classname>Boot:</classname>. Met de "
+"pijltjestoetsen selecteert u een item uit het menu. De tekst die op het "
+"toetsenbord getypt wordt, verschijnt in het tekstvenster. Er zijn ook "
+"hulpschermen die opgeroepen kunnen worden door de passende functietoets in "
+"te drukken. Het hulpscherm <classname>General</classname> (algemene hulp) "
+"geeft uitleg bij de keuzemogelijkheden in het menu en het scherm "
+"<classname>Params</classname> (parameters) geeft uitleg bij de meest "
+"courante opties voor de commandoregel."
 
 #. Tag: para
 #: boot-installer.xml:1402
@@ -1560,6 +2300,16 @@ msgid ""
 "same problems with the system you install. The following two steps will "
 "select and start the install:"
 msgstr ""
+"Raadpleeg het hulpscherm <classname>General</classname> voor een "
+"beschrijving van de kernels en de installatiemethodes om te weten welke het "
+"meest geschikt is voor uw installatie. U moet ook <xref linkend=\"boot-parms"
+"\"/> hieronder raadplegen voor de bijkomende parameters die u eventueel zou "
+"willen instellen in het tekstvenster <classname>Boot:</classname>. De "
+"kernelversie welke u kiest, selecteert de versie van de kernel die zal "
+"gebruikt worden voor het installatieproces en voor het geïnstalleerde "
+"systeem. Indien u problemen ondervindt met de kernel bij de installatie, "
+"kunt u dezelfde problemen ook ervaren met het systeem dat u installeert. De "
+"volgende twee stappen selecteren en starten de installatie:"
 
 #. Tag: para
 #: boot-installer.xml:1420
@@ -1568,6 +2318,8 @@ msgid ""
 "Select the kernel version and installation mode most appropriate to your "
 "needs with the arrow keys."
 msgstr ""
+"Selecteer met de pijltjestoetsen de kernelversie en de installatiemodus die "
+"best aansluit bij uw noden."
 
 #. Tag: para
 #: boot-installer.xml:1425
@@ -1577,6 +2329,9 @@ msgid ""
 "displayed directly in the text window. This is where kernel parameters (such "
 "as serial console settings) are specified."
 msgstr ""
+"Voer eventuele opstartparameters in door ze op het toetsenbord te typen. De "
+"tekst zal meteen weergegeven worden in het tekstvenster. Hier worden "
+"kernelparameters (zoals de instellingen voor de seriële console) opgegeven."
 
 #. Tag: para
 #: boot-installer.xml:1432
@@ -1586,6 +2341,9 @@ msgid ""
 "kernel will display its usual initialization messages followed by the first "
 "screen of the &debian; Installer."
 msgstr ""
+"Druk op <command>ENTER</command>. Daardoor wordt de kernel geladen en "
+"gestart. De kernel zal de gebruikelijke initialisatiemeldingen weergeven, "
+"gevolgd door het openingsscherm van het &debian; installatiesysteem."
 
 #. Tag: para
 #: boot-installer.xml:1441 boot-installer.xml:1578
@@ -1594,6 +2352,8 @@ msgid ""
 "Proceed to the next chapter to continue the installation where you will set "
 "up the language locale, network, and disk partitions."
 msgstr ""
+"Ga door naar het volgende hoofdstuk om de installatie voort te zetten, "
+"waarbij u de taallokalisatie, het netwerk en de schijfpartities instelt."
 
 #. Tag: para
 #: boot-installer.xml:1452
@@ -1607,6 +2367,14 @@ msgid ""
 "packages of the base install will be loaded from the network rather than the "
 "CD drive."
 msgstr ""
+"Een IA-64-systeem over het netwerk opstarten is vergelijkbaar met een "
+"opstart vanaf een CD. Het enige verschil zit in de manier waarop de "
+"installatiekernel geladen wordt. De EFI Boot Manager kan programma's vanaf "
+"een server op het netwerk laden en starten. Eens de installatiekernel "
+"geladen en gestart is, zal het installatiesysteem dezelfde stappen volgen "
+"als een installatie vanaf CD, met die uitzondering dat de pakketten voor de "
+"basisinstallatie over het netwerk geladen zullen worden in plaats van uit "
+"het CD-station."
 
 #. Tag: para
 #: boot-installer.xml:1487
@@ -1617,12 +2385,17 @@ msgid ""
 "<command>elilo</command>. On the client a new boot option must be defined in "
 "the EFI boot manager to enable loading over a network."
 msgstr ""
+"Een IA-64-systeem over het netwerk opstarten vereist twee "
+"architectuurspecifieke acties. Op de opstartserver moeten DHCP en TFTP "
+"geconfigureerd worden om <command>elilo</command> aan te bieden. Op de "
+"cliënt moet een nieuwe opstartoptie gedefinieerd worden in de EFI "
+"opstartmanager om het inladen over het netwerk mogelijk te maken."
 
 #. Tag: title
 #: boot-installer.xml:1498
 #, no-c-format
 msgid "Configuring the Server"
-msgstr ""
+msgstr "De server configureren"
 
 #. Tag: para
 #: boot-installer.xml:1499
@@ -1638,6 +2411,15 @@ msgid ""
 "</screen></informalexample> Note that the goal is to get <command>elilo.efi</"
 "command> running on the client."
 msgstr ""
+"Een passende TFTP-opgave om een IA-64 systeem over het netwerk op te "
+"starten, ziet er uit zoals dit: <informalexample><screen>\n"
+"host mcmuffin {\n"
+"        hardware ethernet 00:30:6e:1e:0e:83;\n"
+"        fixed-address 10.0.0.21;\n"
+"        filename \"debian-installer/ia64/elilo.efi\";\n"
+"}\n"
+"</screen></informalexample> Merk op dat het de bedoeling is dat "
+"<command>elilo.efi</command> uitgevoerd wordt op de cliënt."
 
 #. Tag: para
 #: boot-installer.xml:1509
@@ -1649,6 +2431,12 @@ msgid ""
 "will create a <filename>debian-installer</filename> directory tree "
 "containing the boot files for an IA-64 system."
 msgstr ""
+"Pak het bestand <filename>netboot.tar.gz</filename> uit in de map die als "
+"basismap dienst doet voor uw tftp-server. Vaak voorkomende basismappen voor "
+"tftp zijn <filename>/var/lib/tftp</filename> en <filename>/tftpboot</"
+"filename>. Het uitpakken van het bestand maakt een mappenboom "
+"<filename>debian-installer</filename> aan die de opstartbestanden voor een "
+"IA-64 systeem bevatten."
 
 #. Tag: screen
 #: boot-installer.xml:1519
@@ -1661,6 +2449,12 @@ msgid ""
 "./debian-installer/ia64/\n"
 "[...]"
 msgstr ""
+"# cd /var/lib/tftp\n"
+"# tar xvfz /home/user/netboot.tar.gz\n"
+"./\n"
+"./debian-installer/\n"
+"./debian-installer/ia64/\n"
+"[...]"
 
 #. Tag: para
 #: boot-installer.xml:1519
@@ -1675,12 +2469,21 @@ msgid ""
 "<filename>elilo.conf</filename>. See documentation provided in the "
 "<classname>elilo</classname> package for details."
 msgstr ""
+"Het bestand <filename>netboot.tar.gz</filename> bevat een bestand "
+"<filename>elilo.conf</filename> dat voor de meeste configuraties zou moeten "
+"werken. Mocht u het bestand echter moeten aanpassen, dan vindt u het in de "
+"map <filename>debian-installer/ia64/</filename>. U mag voor verschillende "
+"cliënten aparte configuratiebestanden hebben, als u ze, in plaats van de "
+"naam <filename>elilo.conf</filename> te geven, vernoemt naar het IP-adres in "
+"hexadecimale cijfers van de betreffende cliënt met de extensie <filename>."
+"conf</filename>. Raadpleeg voor bijkomende informatie de documentatie die "
+"meekomt met het pakket <classname>elilo</classname>."
 
 #. Tag: title
 #: boot-installer.xml:1536
 #, no-c-format
 msgid "Configuring the Client"
-msgstr ""
+msgstr "De cliënt configureren"
 
 #. Tag: para
 #: boot-installer.xml:1537
@@ -1699,6 +2502,21 @@ msgid ""
 "you just created, and selecting it should initiate a DHCP query, leading to "
 "a TFTP load of <filename>elilo.efi</filename> from the server."
 msgstr ""
+"Om de cliënt te configureren zodat die kan opstarten via TFTP, moet u eerst "
+"naar EFI opstarten en er naar het <guimenu>Boot Option Maintenance Menu</"
+"guimenu> (menu voor het onderhoud van opstartopties) gaan. <itemizedlist> "
+"<listitem><para> Add a boot option (Voeg een opstartoptie toe). </para></"
+"listitem> <listitem><para> U zou een of meer regels moeten zien met de tekst "
+"<guimenuitem>Load File [Acpi()/.../Mac()]</guimenuitem>. Indien er meer dan "
+"een dergelijke regel bestaat, moet u degene kiezen die het MAC-adres bevat "
+"van de interface van waaraf u zult opstarten. Gebruik de pijltjestoetsen om "
+"uw keuze te maken en druk dan op enter. </para></listitem> <listitem><para> "
+"Geef het item de naam <userinput>Netboot</userinput> of iets dergelijks, "
+"bewaar en keer terug naar het menu voor opstartopties. </para></listitem> </"
+"itemizedlist> U zou de nieuwe opstartoptie die u zonet aanmaakte, moeten "
+"zien en als u die selecteert, zou dit een DHCP-aanvraag in gang moeten "
+"zetten en het via TFTP laden vanaf de server van <filename>elilo.efi</"
+"filename>."
 
 #. Tag: para
 #: boot-installer.xml:1569
@@ -1710,12 +2528,17 @@ msgid ""
 "when the kernel has completed installing itself from the network, it will "
 "start the &debian; Installer."
 msgstr ""
+"De opstartlader zal na het ophalen en verwerken van zijn configuratiebestand "
+"een prompt geven. Vanaf hier verloopt de installatie volgens dezelfde "
+"stappen als een installatie vanaf CD. Selecteer een opstartoptie zoals dat "
+"hiervoor uitgelegd werd en wanneer de kernel klaar is met zichzelf over het "
+"netwerk te installeren, zal het installatiesysteem van &debian; starten."
 
 #. Tag: title
 #: boot-installer.xml:1623
 #, no-c-format
 msgid "s390 Limitations"
-msgstr ""
+msgstr "Restricties bij de s390"
 
 #. Tag: para
 #: boot-installer.xml:1624
@@ -1724,6 +2547,8 @@ msgid ""
 "In order to run the installation system a working network setup and ssh "
 "session is needed on S/390."
 msgstr ""
+"Om het installatiesysteem uit te voeren op de S/390 zijn een werkende "
+"netwerkopstelling en een ssh-sessie vereist."
 
 #. Tag: para
 #: boot-installer.xml:1629
@@ -1734,12 +2559,16 @@ msgid ""
 "by starting an ssh session which will launch the standard installation "
 "system."
 msgstr ""
+"Het opstartproces begint met het instellen van het netwerk waarbij u naar "
+"verschillende netwerkparameters gevraagd wordt. Indien het instellen "
+"succesvol was, kunt u op het systeem inloggen via een ssh-sessie wat het "
+"standaard installatiesysteem zal activeren."
 
 #. Tag: title
 #: boot-installer.xml:1640
 #, no-c-format
 msgid "s390 Boot Parameters"
-msgstr ""
+msgstr "Opstartparameters voor de s390"
 
 #. Tag: para
 #: boot-installer.xml:1641
@@ -1753,6 +2582,14 @@ msgid ""
 "of the next line. All the lines are concatenated without spaces when being "
 "passed to the kernel."
 msgstr ""
+"Op de S/390 kunt u opstartparameters toevoegen via het parm-bestand. Dit "
+"bestand mag in ASCII of EBCDIC zijn. Het moet een vaste regelbreedte van 80 "
+"tekens hebben. U vindt een voorbeeld van een parm-bestand, "
+"<filename>parmfile.debian</filename>, in de installatie-images. Als een "
+"parameter te lang is en niet binnen de limiet van 80 lettertekens past, kunt "
+"u gewoon voortgaan op de eerste kolom van de volgende regel. Bij het "
+"doorgeven aan de kernel worden alle regels samengevoegd zonder toevoeging "
+"van extra spaties."
 
 #. Tag: para
 #: boot-installer.xml:1658
@@ -1776,6 +2613,26 @@ msgid ""
 "process the above option needs to be added to <filename>parmfile.debian</"
 "filename>."
 msgstr ""
+"Indien u het installatiesysteem opstart in een logische partitie (LPAR) of "
+"in een virtuele machine (VM) met een groot aantal zichtbare apparaten, kunt "
+"u de kernel opdragen zich te beperken tot een vastgestelde verzameling "
+"apparaten. Bij het opstartproces van het installatiesysteem wordt dit "
+"aanbevolen als er een groot aantal schijven zichtbaar is, wat in LPAR-modus "
+"erg waarschijnlijk is. De optie <quote>cio_ignore</quote> kan zowel met een "
+"zwarte lijst (om slechts een beperkt aantal apparaten niet toe te laten) als "
+"met een witte lijst (om enkel specifieke apparaten toe te laten) werken: "
+"<informalexample role=\"example\"><screen>\n"
+" # zwarte lijst: negeer enkel de twee apparaten 300 en 301\n"
+" cio_ignore=0.0.0300-0.0.0301\n"
+" # witte lijst: negeer alles behalve 1150, FD00, FD01 en FD02\n"
+" cio_ignore=all,!0.0.1150,!0.0.fd00-0.0.fd02\n"
+"</screen></informalexample> Merk op dat alle hexadecimale cijfers van de "
+"apparaatnummering in kleine letters moeten zijn. Daarenboven moeten alle "
+"apparaten vermeld worden als deze opstartparameter gebruikt wordt: dit "
+"betreft minstens schijven, netwerkapparatuur en de console. Opdat met deze "
+"optie rekening zou gehouden worden tijdens het opstartproces van het "
+"installatiesysteem, moet deze opgegeven worden in <filename>parmfile.debian</"
+"filename>."
 
 #. Tag: para
 #: boot-installer.xml:1722
@@ -1788,6 +2645,13 @@ msgid ""
 "and <keycap>Delete</keycap> keys together while booting to boot from the "
 "factory default CD/DVD drive."
 msgstr ""
+"De enige subarchitecturen van &arch-title; die momenteel opstarten vanaf CD "
+"ondersteunen, zijn PReP/CHRP (weliswaar niet alle systemen) en New World "
+"PowerMacs. Om op PowerMacs op te starten vanaf het door de fabrikant als "
+"standaard ingestelde CD/DVD-station, moet u bij het opstarten de <keycap>c</"
+"keycap>-toets ingedrukt houden, ofwel de toetsencombinatie <keycap>Command</"
+"keycap>, <keycap>Option</keycap>, <keycap>Shift</keycap> en <keycap>Delete</"
+"keycap>."
 
 #. Tag: para
 #: boot-installer.xml:1731
@@ -1800,12 +2664,18 @@ msgid ""
 "</screen></informalexample> for an alternative way to boot from the internal "
 "factory default CD/DVD drive type"
 msgstr ""
+"Om met een PowerMac op te starten vanaf een extern Firewire CD/DVD-station, "
+"moet u eerst een prompt van Open Firmware oproepen (zie <xref linkend="
+"\"invoking-openfirmware\"/>), daarna typt u <informalexample><screen>\n"
+"0 &gt; boot fw/node/sbp-2/disk:,\\install\\yaboot\n"
+"</screen></informalexample> als een alternatieve methode om op te starten "
+"vanaf het soort CD/DVD-station dat als interne fabrieksstandaard geldt."
 
 #. Tag: screen
 #: boot-installer.xml:1742
 #, no-c-format
 msgid "0 &gt; boot cd:,\\install\\yaboot"
-msgstr ""
+msgstr "0 &gt; boot cd:,\\install\\yaboot"
 
 #. Tag: para
 #: boot-installer.xml:1744
@@ -1817,6 +2687,13 @@ msgid ""
 "floppy drives, so use the floppy drive to launch the installer, and then "
 "point the installer to the CD for the needed files."
 msgstr ""
+"OldWorld PowerMacs kunnen niet opstarten vanaf een &debian; CD, omdat "
+"OldWorld computers verwachten dat er op de CD een ROM-CD-"
+"opstartstuurprogramma van Mac OS staat, maar een versie van dit "
+"stuurprogramma uit vrije software bestaat niet. Alle OldWorld systemen "
+"hebben een diskettestation. Gebruik dus het diskettestation om het "
+"installatiesysteem te starten en verwijs het installatiesysteem dan naar de "
+"CD voor de benodigde bestanden."
 
 #. Tag: para
 #: boot-installer.xml:1753
@@ -1826,33 +2703,44 @@ msgid ""
 "immediately after pressing the power-on button, when SmartFirmware prompt "
 "appears, type"
 msgstr ""
+"Om op een Pegasos II machine op te starten vanaf een &debian; CD/DVD, moet u "
+"de <keycap>Esc</keycap>-toets ingedrukt houden, onmiddellijk na het "
+"aanzetten van de startschakelaar. Als u dan de SmartFirmware prompt krijgt, "
+"typt u"
 
 #. Tag: screen
 #: boot-installer.xml:1759
 #, no-c-format
 msgid "boot cd install/pegasos"
-msgstr ""
+msgstr "boot cd install/pegasos"
 
 #. Tag: para
 #: boot-installer.xml:1761
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "On YDL Powerstation machine, pres <keycap>s</keycap> immediately after "
+#| "<quote>Press 's' to enter Open Firmware</quote> message, when SLOF prompt "
+#| "appears type"
 msgid ""
 "On YDL Powerstation machine, press <keycap>s</keycap> immediately after "
 "<quote>Press 's' to enter Open Firmware</quote> message, when SLOF prompt "
 "appears type"
 msgstr ""
+"Op een YDL Powerstation machine moet u onmiddellijk na het verschijnen van "
+"de melding <quote>Press 's' to enter Open Firmware</quote> op <keycap>s</"
+"keycap> drukken. Wanneer u de SLOF-prompt krijgt, typt u"
 
 #. Tag: screen
 #: boot-installer.xml:1766
 #, no-c-format
 msgid "0 > boot cdrom"
-msgstr ""
+msgstr "0 > boot cdrom"
 
 #. Tag: title
 #: boot-installer.xml:1772
 #, no-c-format
 msgid "Booting from Hard Disk"
-msgstr ""
+msgstr "Opstarten vanaf de harde schijf"
 
 #. Tag: para
 #: boot-installer.xml:1778
@@ -1861,6 +2749,9 @@ msgid ""
 "Booting from an existing operating system is often a convenient option; for "
 "some systems it is the only supported method of installation."
 msgstr ""
+"Vaak is opstarten vanuit een bestaand besturingssysteem een handige optie. "
+"Bij sommige systemen is dit de enige installatiemethode die ondersteund "
+"wordt."
 
 #. Tag: para
 #: boot-installer.xml:1784
@@ -1870,12 +2761,15 @@ msgid ""
 "downloading and placing the needed files as described in <xref linkend="
 "\"boot-drive-files\"/>."
 msgstr ""
+"Om het installatiesysteem vanaf een harde schijf op te starten, moet u de "
+"benodigde bestanden reeds gedownload en op de juiste plaats gezet hebben, "
+"zoals beschreven wordt in <xref linkend=\"boot-drive-files\"/>."
 
 #. Tag: title
 #: boot-installer.xml:1804
 #, no-c-format
 msgid "Booting OldWorld PowerMacs from MacOS"
-msgstr ""
+msgstr "Op OldWorld PowerMacs opstarten vanuit MacOS"
 
 #. Tag: para
 #: boot-installer.xml:1805
@@ -1890,12 +2784,22 @@ msgid ""
 "on your hardware. Then click the <guibutton>Linux</guibutton> button to shut "
 "down MacOS and launch the installer."
 msgstr ""
+"Indien u BootX in <xref linkend=\"files-oldworld\"/> instelt, kunt u het "
+"gebruiken om op te starten in het installatiesysteem. Dubbelklik op het "
+"toepassingsicoon van <guiicon>BootX</guiicon>. Klik op de knop "
+"<guibutton>Options</guibutton> (opties) en selecteer <guilabel>Use Specified "
+"RAM Disk</guilabel> (een opgegeven RAM-schijf gebruiken). Daardoor krijgt u "
+"de mogelijkheid om het bestand <filename>ramdisk.image.gz</filename> te "
+"selecteren. Afhankelijk van uw apparatuur kan het nodig zijn om het vakje "
+"<guilabel>No Video Driver</guilabel> (geen videostuurprogramma) aan te "
+"vinken. Klik vervolgens op de knop <guibutton>Linux</guibutton> om MacOS af "
+"te sluiten en het installatiesysteem te starten."
 
 #. Tag: title
 #: boot-installer.xml:1823
 #, no-c-format
 msgid "Booting NewWorld Macs from OpenFirmware"
-msgstr ""
+msgstr "Op NewWorld Macs opstarten vanuit OpenFirmware"
 
 #. Tag: para
 #: boot-installer.xml:1824
@@ -1920,18 +2824,40 @@ msgid ""
 "argument is for maximum compatibility; you can try it if <userinput>install</"
 "userinput> doesn't work. The &debian; installation program should start."
 msgstr ""
+"We nemen aan dat u de bestanden <filename>vmlinux</filename>, "
+"<filename>initrd.gz</filename>, <filename>yaboot</filename> en "
+"<filename>yaboot.conf</filename> reeds in de hoofdmap van uw HFS-partitie "
+"geplaatst heeft, zoals aangegeven in <xref linkend=\"files-newworld\"/>. Nu "
+"moet u naar OpenFirmware opstarten (zie <xref linkend=\"invoking-openfirmware"
+"\"/>). Aan de prompt typt u <informalexample><screen>\n"
+"0 &gt; boot hd:<replaceable>x</replaceable>,yaboot\n"
+"</screen></informalexample>, waarbij <replaceable>x</replaceable> vervangen "
+"wordt door het nummer van de HFS-partitie waarop de bestanden van de kernel "
+"en yaboot geplaatst werden. Druk vervolgens op &enterkey;. Op sommige "
+"machines zult u <userinput>ide0:</userinput> in plaats van <userinput>hd:</"
+"userinput> moeten gebruiken. Na enkele seconden zult u de prompt van yaboot "
+"krijgen <informalexample><screen>\n"
+"boot:\n"
+"</screen></informalexample> Aan deze <prompt>boot:</prompt> prompt van "
+"yaboot, typt u ofwel <userinput>install</userinput> of <userinput>install "
+"video=ofonly</userinput>, gevolgd door &enterkey;. Het argument "
+"<userinput>video=ofonly</userinput> is bedoeld voor maximale "
+"compatibiliteit. U kunt het gebruiken wanneer <userinput>install</userinput> "
+"niet werkt. Het installatieprogramma van &debian; zou nu moeten starten."
 
 #. Tag: title
 #: boot-installer.xml:1856
 #, no-c-format
 msgid "Booting from USB memory stick"
-msgstr ""
+msgstr "Opstarten vanaf een USB-geheugenstick"
 
 #. Tag: para
 #: boot-installer.xml:1857
 #, no-c-format
 msgid "Currently, NewWorld PowerMac systems are known to support USB booting."
 msgstr ""
+"Van NewWorld PowerMac systemen is geweten dat ze tegenwoordig kunnen "
+"opstarten vanaf USB."
 
 #. Tag: para
 #: boot-installer.xml:1863
@@ -1942,6 +2868,11 @@ msgid ""
 "Open Firmware prompt, since Open Firmware does not search USB storage "
 "devices by default. See <xref linkend=\"invoking-openfirmware\"/>."
 msgstr ""
+"Zorg ervoor dat u alle voorbereidingen uit <xref linkend=\"boot-usb-files\"/"
+"> getroffen heeft. Om een Macintosh-systeem vanaf een USB-stick op te "
+"starten, zult u via de prompt van Open Firmware moeten gaan, aangezien Open "
+"Firmware standaard niet gaat kijken in USB-opslagapparaten. Zie <xref "
+"linkend=\"invoking-openfirmware\"/>."
 
 #. Tag: para
 #: boot-installer.xml:1872
@@ -1956,6 +2887,15 @@ msgid ""
 "filename>, <filename>/pci@f2000000/usb@1b,1/disk@1</filename>, and "
 "<filename>/pci@f2000000/usb@1b,1/hub@1/disk@1</filename> work."
 msgstr ""
+"U zult moeten uitzoeken waar ergens in de apparatenboom het USB-"
+"opslagapparaat te vinden is, vermits <command>ofpath</command> momenteel "
+"niet in staat is om dat automatisch uit te zoeken. Typ <userinput>dev / ls</"
+"userinput> en <userinput>devalias</userinput> aan de Open Firmware prompt om "
+"een lijst te krijgen van alle gekende apparaten en apparaataliassen. Op het "
+"systeem van de schrijver van dit onderdeel blijken bij verschillende types "
+"USB-sticks paden zoals <filename>usb0/disk</filename>, <filename>usb0/hub/"
+"disk</filename>, <filename>/pci@f2000000/usb@1b,1/disk@1</filename> en "
+"<filename>/pci@f2000000/usb@1b,1/hub@1/disk@1</filename> te werken."
 
 #. Tag: para
 #: boot-installer.xml:1884
@@ -1972,6 +2912,17 @@ msgid ""
 "<command>yaboot</command>) in the directory previously blessed with "
 "<command>hattrib -b</command>."
 msgstr ""
+"Indien u het pad voor het apparaat gevonden heeft, moet u een commando zoals "
+"hierna gebruiken om het installatiesysteem te starten: "
+"<informalexample><screen>\n"
+"boot <replaceable>usb0/disk</replaceable>:<replaceable>2</replaceable>,\\\\:"
+"tbxi\n"
+"</screen></informalexample> De <replaceable>2</replaceable> komt overeen met "
+"de Apple_HFS- of Apple_Bootstrap-partitie waarnaar u het opstartimage eerder "
+"kopieerde, en het onderdeel <userinput>,\\\\:tbxi</userinput> geeft Open "
+"Firmware de instructie om op te starten vanaf het bestand met het HFS-"
+"bestandstype \"tbxi\" (d.w.z. <command>yaboot</command>) in de map die "
+"eerder gezegend werd met <command>hattrib -b</command>."
 
 #. Tag: para
 #: boot-installer.xml:1898
@@ -1981,6 +2932,9 @@ msgid ""
 "<prompt>boot:</prompt> prompt. Here you can enter optional boot arguments, "
 "or just hit &enterkey;."
 msgstr ""
+"Het systeem zou nu moeten opstarten en u zou de prompt <prompt>boot:</"
+"prompt> te zien moeten krijgen. Hier kunt u eventueel bijkomende "
+"opstartargumenten opgeven of gewoon op &enterkey; drukken."
 
 #. Tag: para
 #: boot-installer.xml:1904
@@ -1990,12 +2944,18 @@ msgid ""
 "NewWorld systems. If you have problems, please file an installation report, "
 "as explained in <xref linkend=\"submit-bug\"/>."
 msgstr ""
+"Dit is een nieuwe opstartmethode en op sommige NewWorld systemen kan het "
+"moeilijk zijn om ze te doen werken. Indien u problemen ervaart, stuur dan "
+"een rapport over de installatie op, zoals uitgelegd wordt in <xref linkend="
+"\"submit-bug\"/>."
 
 #. Tag: para
 #: boot-installer.xml:1938
 #, no-c-format
 msgid "Currently, PReP and New World PowerMac systems support netbooting."
 msgstr ""
+"Momenteel ondersteunen PReP en New World PowerMac systemen het opstarten "
+"over het netwerk."
 
 #. Tag: para
 #: boot-installer.xml:1942
@@ -2017,6 +2977,22 @@ msgid ""
 "machines) the command <userinput>help boot</userinput> may give a "
 "description of syntax and available options."
 msgstr ""
+"Op machines met Open Firmware, zoals de NewWorld Power Macs, moet u naar de "
+"'boot monitor' (zie <xref linkend=\"invoking-openfirmware\"/>) gaan en het "
+"commando <informalexample><screen>\n"
+"0 &gt; boot enet:0\n"
+"</screen></informalexample> gebruiken. Indien dit niet werkt, moet u "
+"misschien op de volgende manier de bestandsnaam toevoegen: "
+"<informalexample><screen>\n"
+"0 &gt; boot enet:0,yaboot\n"
+"</screen></informalexample> PReP- en CHRP-systemen kunnen verschillende "
+"manieren gebruiken om zich tot het netwerk te richten. Op een PReP machine "
+"zou u <informalexample><screen>\n"
+"boot net:<replaceable>server_ip-adres</replaceable>,<replaceable>bestand</"
+"replaceable>,<replaceable>client_ip-adres</replaceable>\n"
+"</screen></informalexample> moeten proberen. Op sommige PReP systemen (bijv. "
+"Motorola PowerStack machines) kunt u met het commando <userinput>help boot</"
+"userinput> een beschrijving krijgen van syntaxis en beschikbare opties."
 
 #. Tag: para
 #: boot-installer.xml:1970
@@ -2027,6 +3003,10 @@ msgid ""
 "equipped with floppy drives, and attached USB floppy drives are not "
 "supported for booting."
 msgstr ""
+"Opstarten vanaf diskette is mogelijk met &arch-title;, hoewel het over het "
+"algemeen slechts van toepassing is voor OldWorld systemen. NewWorld-systemen "
+"zijn niet uitgerust met een diskettestation en aangekoppelde USB-"
+"diskettestations kunnen niet gebruikt worden om op te starten."
 
 #. Tag: para
 #: boot-installer.xml:1982
@@ -2036,6 +3016,9 @@ msgid ""
 "in floppy drive after shutting the system down, and before pressing the "
 "power-on button."
 msgstr ""
+"Om van de diskette <filename>boot-floppy-hfs.img</filename> op te starten, "
+"moet u ze in het diskettestation plaatsen na het afsluiten van het systeem "
+"en vooraleer u terug op de startknop drukt."
 
 #. Tag: para
 #: boot-installer.xml:1988
@@ -2046,6 +3029,11 @@ msgid ""
 "from. A floppy without a valid boot system will be ejected, and the machine "
 "will then check for bootable hard disk partitions."
 msgstr ""
+"Voor wie niet vertrouwd is met de manier waarop Macintosh met diskettes "
+"omgaat: een diskette die voor het opstarten in de machine geplaatst werd, "
+"zal als prioritair opstartapparaat beschouwd worden. Een diskette zonder "
+"geldig opstartsysteem zal uitgeworpen worden en de machine zal vervolgens op "
+"zoek gaan naar een partitie op een harde schijf waarvan opgestart kan worden."
 
 #. Tag: para
 #: boot-installer.xml:1995
@@ -2055,12 +3043,16 @@ msgid ""
 "the root floppy and press &enterkey;. The installer program is automatically "
 "launched after the root system has been loaded into memory."
 msgstr ""
+"Na het opstarten wordt gevraagd naar de diskette <filename>root.bin</"
+"filename>. Plaats de root-diskette in het station en druk op &enterkey;. Het "
+"installatieprogramma wordt automatisch gestart nadat het root-systeem in het "
+"geheugen geladen werd."
 
 #. Tag: title
 #: boot-installer.xml:2006
 #, no-c-format
 msgid "PowerPC Boot Parameters"
-msgstr ""
+msgstr "Opstartparameters voor PowerPC"
 
 #. Tag: para
 #: boot-installer.xml:2007
@@ -2072,24 +3064,30 @@ msgid ""
 "most Mach64 and Rage video hardware. For Rage 128 hardware, this changes to "
 "<userinput>video=aty128fb:vmode:6</userinput> ."
 msgstr ""
+"Veel oudere Apple monitors gebruikten de modus 640x480 67Hz. Indien op een "
+"oudere Apple monitor de beeldweergave lijkt te hellen, moet u het proberen "
+"met het toevoegen van het opstartargument <userinput>video=atyfb:vmode:6</"
+"userinput> . Dat zal die modus selecteren voor de meeste videohardware van "
+"de types Mach64 en Rage. Voor hardware van het type Rage 128 moet u dit "
+"aanpassen naar <userinput>video=aty128fb:vmode:6</userinput> ."
 
 #. Tag: title
 #: boot-installer.xml:2019
 #, no-c-format
 msgid "Booting a ppc64el machine"
-msgstr ""
+msgstr "Een ppc64el machine opstarten"
 
 #. Tag: para
 #: boot-installer.xml:2020
 #, no-c-format
 msgid "How to boot a ppc64el machine:"
-msgstr ""
+msgstr "Zo kunt u een ppc64el machine opstarten:"
 
 #. Tag: title
 #: boot-installer.xml:2026
 #, no-c-format
 msgid "Petitboot"
-msgstr ""
+msgstr "Petitboot"
 
 #. Tag: para
 #: boot-installer.xml:2027
@@ -2101,6 +3099,13 @@ msgid ""
 "FTP, SFTP, TFTP, NFS, HTTP and HTTPS protocols. Petitboot can boot any "
 "operating system that includes kexec boot support."
 msgstr ""
+"Petitboot is een platformonafhankelijke  opstartlader, gebaseerd op de Linux "
+"kexec. Petitboot ondersteunt het laden van de kernel, initrd en "
+"apparatenboombestanden vanaf elk bestandssysteem dat door Linux aangekoppeld "
+"kan worden. Het kan daarenboven bestanden laden over het netwerk met behulp "
+"van de protocollen FTP, SFTP, TFTP, NFS, HTTP en HTTPS. Petitboot kan elk "
+"besturingssysteem opstarten dat ondersteuning biedt voor het kexec "
+"opstartmechanisme."
 
 #. Tag: para
 #: boot-installer.xml:2035
@@ -2110,6 +3115,9 @@ msgid ""
 "the system, and can also be configured to use boot information from a DHCP "
 "server."
 msgstr ""
+"Petitboot gaat op zoek naar configuratiebestanden voor de opstartlader op "
+"aankoppelbare apparaten op het systeem en kan ook ingesteld worden om "
+"opstartinformatie te gebruiken die afkomstig is van een DHCP-server."
 
 #. Tag: para
 #: boot-installer.xml:2086
@@ -2123,6 +3131,13 @@ msgid ""
 "extra boot parameters to &d-i; at the end of the <userinput>boot</userinput> "
 "command."
 msgstr ""
+"Op machines met OpenBoot gaat u op de machine waarop de installatie moet "
+"gebeuren, gewoon naar de 'boot monitor' (zie <xref linkend=\"invoking-"
+"openboot\"/>). Gebruik het commando <userinput>boot net</userinput> om op te "
+"starten vanaf een TFTP- en RARP-server, of <userinput>boot net:bootp</"
+"userinput> of <userinput>boot net:dhcp</userinput> om op te starten vanaf "
+"een TFTP- en BOOTP- of DHCP-server. U kunt extra opstartparameters opgeven "
+"aan &d-i; aan het einde van het <userinput>boot</userinput> commando."
 
 #. Tag: para
 #: boot-installer.xml:2140
@@ -2132,12 +3147,16 @@ msgid ""
 "which is simply an alias to boot from the SCSI device on ID 6 (or the "
 "secondary master for IDE based systems)."
 msgstr ""
+"De meeste OpenBoot-versies ondersteunen het commando <userinput>boot cdrom</"
+"userinput> dat gewoon een alias is voor het opstarten vanaf het SCSI-"
+"apparaat op ID 6 (of voor systemen die IDE gebruiken, het tweede master-"
+"apparaat)."
 
 #. Tag: title
 #: boot-installer.xml:2149
 #, no-c-format
 msgid "IDPROM Messages"
-msgstr ""
+msgstr "Meldingen over IDPROM"
 
 #. Tag: para
 #: boot-installer.xml:2150
@@ -2149,16 +3168,33 @@ msgid ""
 "<ulink url=\"&url-sun-nvram-faq;\">Sun NVRAM FAQ</ulink> for more "
 "information."
 msgstr ""
+"Indien u niet kunt opstarten omdat u meldingen krijgt over een probleem met "
+"<quote>IDPROM</quote>, is het mogelijk dat uw NVRAM-batterij die "
+"configuratie-informatie voor uw firmware bewaart, leeg is. Zie de <ulink url="
+"\"&url-sun-nvram-faq;\">NVRAM FAQ van Sun</ulink> voor meer informatie."
 
 #. Tag: title
 #: boot-installer.xml:2169
 #, no-c-format
 msgid "Accessibility"
-msgstr ""
+msgstr "Toegankelijkheid"
 
 #. Tag: para
 #: boot-installer.xml:2170
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "Some users may need specific support because of e.g. some visual "
+#| "impairment. <phrase arch=\"ia64;powerpc;ppc64el;x86\">USB braille "
+#| "displays are detected automatically (not serial displays connected via a "
+#| "serial-to-USB converter), but most other</phrase> <phrase arch=\"arm;hppa;"
+#| "mips;mipsel;sparc\">Most</phrase> accessibility features have to be "
+#| "enabled manually. <phrase arch=\"x86\">On machines that support it, the "
+#| "boot menu emits beeps when it is ready to receive keystrokes. It beeps "
+#| "once on BIOS systems, and beeps twice on UEFI systems.</phrase> Some boot "
+#| "parameters can <phrase arch=\"x86\">then</phrase> be appended to enable "
+#| "accessibility features<phrase arch=\"x86\"> (see also <xref linkend="
+#| "\"boot-screen\"/>)</phrase>. Note that on most architectures the boot "
+#| "loader interprets your keyboard as a QWERTY keyboard."
 msgid ""
 "Some users may need specific support because of e.g. some visual impairment. "
 "<phrase arch=\"ia64;powerpc;ppc64el;x86\">USB braille displays are detected "
@@ -2173,12 +3209,26 @@ msgid ""
 "on most architectures the boot loader interprets your keyboard as a QWERTY "
 "keyboard."
 msgstr ""
+"Sommige gebruikers kunnen specifieke ondersteuning nodig hebben omwille van "
+"bijvoorbeeld een visuele beperking. <phrase arch=\"ia64;powerpc;ppc64el;"
+"x86\">USB brailleschermen worden automatisch herkend (niet de seriële "
+"schermen die gekoppeld zijn aan een serieel-USB-convertor), maar de meeste "
+"andere</phrase> <phrase arch=\"arm;hppa;mips;mipsel;sparc\">De meeste</"
+"phrase> toegankelijkheidsvoorzieningen moeten handmatig geactiveerd worden. "
+"<phrase arch=\"x86\">Op machines die dit ondersteunen, geeft het opstartmenu "
+"een pieptoon, wanneer het klaar is om invoer van het toetsenbord te "
+"ontvangen. Op BIOS-systemen piept het eenmaal, op UEFI-systemen tweemaal.</"
+"phrase> Bepaalde opstartparameters kunnen <phrase arch=\"x86\">dan</phrase> "
+"opgegeven worden om bepaalde toegankelijkheidsfuncties te activeren<phrase "
+"arch=\"x86\"> (zie ook <xref linkend=\"boot-screen\"/>)</phrase>. Merk op "
+"dat de opstartlader op de meeste architecturen uw toetsenbord als een QWERTY-"
+"toetsenbord beschouwt."
 
 #. Tag: title
 #: boot-installer.xml:2191
 #, no-c-format
 msgid "Installer front-end"
-msgstr ""
+msgstr "Frontend voor het installatiesysteem"
 
 #. Tag: para
 #: boot-installer.xml:2192
@@ -2191,12 +3241,19 @@ msgid ""
 "documentation for <userinput>DEBIAN_FRONTEND</userinput> in <xref linkend="
 "\"installer-args\"/>."
 msgstr ""
+"Het installatiesysteem van &debian; kan verschillende frontends gebruiken "
+"voor het stellen van vragen met een wisselend comfort vanuit het oogpunt van "
+"toegankelijkheid: met name maakt <userinput>text</userinput> gebruik van "
+"platte tekst en <userinput>newt</userinput> van tekstgeoriënteerde "
+"dialoogvensters. Er kan een keuze gemaakt worden aan de opstartprompt. "
+"Raadpleeg de documentatie bij <userinput>DEBIAN_FRONTEND</userinput> in "
+"<xref linkend=\"installer-args\"/>."
 
 #. Tag: title
 #: boot-installer.xml:2204
 #, no-c-format
 msgid "USB Braille Displays"
-msgstr ""
+msgstr "USB brailleschermen"
 
 #. Tag: para
 #: boot-installer.xml:2205
@@ -2211,12 +3268,21 @@ msgid ""
 "available on the <ulink url=\"&url-brltty-driver-help;\"><classname>brltty</"
 "classname> website</ulink>."
 msgstr ""
+"USB brailleschermen zouden automatisch herkend moeten worden. Er zal dan "
+"automatisch een tekstgeoriënteerde versie van het installatiesysteem "
+"geselecteerd worden en op het doelsysteem zal de ondersteuning voor het "
+"braillescherm automatisch geïnstalleerd worden. U kunt dus gewoon aan het "
+"opstartmenu op &enterkey; drukken. Eens <classname>brltty</classname> "
+"gestart is, kunt u een brailletabel kiezen via de voorkeursinstellingen uit "
+"het menu. U vindt documentatie over sneltoetsen voor brailleapparatuur op de "
+"<ulink url=\"&url-brltty-driver-help;\"><classname>brltty</classname> "
+"website</ulink>."
 
 #. Tag: title
 #: boot-installer.xml:2220
 #, no-c-format
 msgid "Serial Braille Displays"
-msgstr ""
+msgstr "Seriële brailleschermen"
 
 #. Tag: para
 #: boot-installer.xml:2221
@@ -2242,12 +3308,33 @@ msgid ""
 "the <ulink url=\"&url-brltty-driver-help;\"><classname>brltty</classname> "
 "website</ulink>."
 msgstr ""
+"Seriële brailleschermen kunnen niet op een betrouwbare manier automatisch "
+"herkend worden (omdat dit aan sommige ervan schade zou kunnen toebrengen). U "
+"moet dus een opstartparameter <userinput>brltty=<replaceable>stuurprogramma</"
+"replaceable>,<replaceable>poort</replaceable></userinput> opgeven om "
+"<classname>brltty</classname> duidelijk te maken welk stuurprogramma en "
+"welke poort gebruikt moeten worden. <replaceable>stuurprogramma</"
+"replaceable> moet de twee-lettercode voor uw terminal zijn (zie het <ulink "
+"url=\"&url-brltty-manual;\">BRLTTY handboek</ulink>). <replaceable>poort</"
+"replaceable> moet de naam van de seriële poort zijn waarmee het scherm "
+"verbonden is. De standaard is <userinput>ttyS0</userinput>. Wanneer een "
+"serieel-USB-convertor gebruikt wordt, kan men doorgaans <userinput>ttyUSB0</"
+"userinput> gebruiken. Er kan nog een derde parameter opgegeven worden om de "
+"naam op te geven van de te gebruiken brailletabel (zie het <ulink url=\"&url-"
+"brltty-manual;\">BRLTTY handboek</ulink>). De Engelse tabel is standaard. "
+"Merk op dat u de tabel ook later nog kunt aanpassen via het menu "
+"voorkeursinstellingen. Een vierde parameter kan gebruikt worden om "
+"parameters door te geven aan het braillestuurprogramma, zoals "
+"<userinput>protocol=foo</userinput>, wat voor sommige ongewone modellen "
+"nodig kan zijn. Documentatie over sneltoetsen voor brailleapparatuur is te "
+"vinden op de <ulink url=\"&url-brltty-driver-help;\"><classname>brltty</"
+"classname> website</ulink>."
 
 #. Tag: title
 #: boot-installer.xml:2248 boot-installer.xml:3277
 #, no-c-format
 msgid "Software Speech Synthesis"
-msgstr ""
+msgstr "Softwarematige spraaksynthese"
 
 #. Tag: para
 #: boot-installer.xml:2249
@@ -2260,6 +3347,14 @@ msgid ""
 "the installer will then be automatically selected, and support for software "
 "speech synthesis will be automatically installed on the target system."
 msgstr ""
+"Alle images van het installatiesysteem waarop de grafische versie van het "
+"installatiesysteem staat, bieden ondersteuning voor softwarematige "
+"spraaksynthese, d.w.z. alle netinst-, CD- en DVD-images en de gtk-variant "
+"van het netboot-image. De softwarematige spraaksynthese kan geactiveerd "
+"worden door dit in het opstartmenu te selecteren door <userinput>s</"
+"userinput> &enterkey; te typen. Dan zal automatisch de tekstversie van het "
+"installatiesysteem geselecteerd worden en op het doelsysteem zal automatisch "
+"ondersteuning voor softwarematige spraaksynthese geïnstalleerd worden."
 
 #. Tag: para
 #: boot-installer.xml:2258
@@ -2269,6 +3364,9 @@ msgid ""
 "installation is spoken in the selected language (if available in "
 "<classname>espeak</classname>)."
 msgstr ""
+"De eerste vraag (de taalkeuze) wordt in het Engels gesteld en tijdens de "
+"rest van de installatie wordt de gekozen taal gesproken (als die beschikbaar "
+"is in <classname>espeak</classname>)."
 
 #. Tag: para
 #: boot-installer.xml:2264
@@ -2287,12 +3385,25 @@ msgid ""
 "prompt. To get back to the previous question, type <userinput>&lt;</"
 "userinput> at the prompt."
 msgstr ""
+"De standaardspreeksnelheid is redelijk traag. Om ze te versnellen, drukt u "
+"op <keycombo><keycap>CapsLock</keycap><keycap>6</keycap></keycombo>. Om ze "
+"te vertragen, drukt u op <keycombo><keycap>CapsLock</keycap><keycap>5</"
+"keycap></keycombo>. Standaard staat een gemiddelde geluidsterkte ingesteld. "
+"Voor een luider geluid drukt u op <keycombo><keycap>CapsLock</"
+"keycap><keycap>2</keycap></keycombo>. Voor een stiller geluid drukt u op "
+"<keycombo><keycap>CapsLock</keycap><keycap>1</keycap></keycombo>. Voor meer "
+"informatie over navigatie-sneltoetsen kunt u de <ulink url=\"&url-speakup-"
+"guide;\">Handleiding bij het speakup-programma</ulink> raadplegen. Om het "
+"standaardantwoord op een vraag te aanvaarden, drukt u aan de prompt gewoon "
+"op <keycap>Enter</keycap>. Om op een vraag een leeg antwoord te geven, typt "
+"u aan de prompt <userinput>!</userinput>. Om naar de vorige vraag terug te "
+"keren, typt u aan de prompt <userinput>&lt;</userinput>."
 
 #. Tag: title
 #: boot-installer.xml:2292
 #, no-c-format
 msgid "Hardware Speech Synthesis"
-msgstr ""
+msgstr "Hardwarespraaksynthese"
 
 #. Tag: para
 #: boot-installer.xml:2293
@@ -2303,6 +3414,11 @@ msgid ""
 "images, and the netboot gtk variant. You thus need to select a "
 "<quote>Graphical install</quote> entry in the boot menu."
 msgstr ""
+"Alle images van het installatiesysteem waarop de grafische versie van het "
+"installatiesysteem staat, bieden ondersteuning voor hardwarespraaksynthese, "
+"d.w.z. alle netinst-, CD- en DVD-images en de gtk-variant van het netboot-"
+"image. U moet dus in het opstartmenu kiezen voor een <quote>Grafische "
+"installatie</quote>."
 
 #. Tag: para
 #: boot-installer.xml:2300
@@ -2317,12 +3433,22 @@ msgid ""
 "installer will then be automatically selected, and support for the speech "
 "synthesis device will be automatically installed on the target system."
 msgstr ""
+"Apparatuur voor hardwarespraaksynthese kan niet automatisch herkend worden. "
+"U moet dus een opstartparameter <userinput>speakup."
+"synth=<replaceable>stuurprogramma</replaceable></userinput> opgeven om "
+"<classname>speakup</classname> duidelijk te maken welk stuurprogramma "
+"gebruikt moet worden. <replaceable>stuurprogramma</replaceable> moet u "
+"vervangen door de stuurprogrammacode van uw apparaat (zie de <ulink url="
+"\"&url-speakup-guide;\">lijst met stuurprogrammacodes</ulink>). Automatisch "
+"zal dan de tekstversie van het installatiesysteem gekozen worden en op het "
+"doelsysteem zal automatisch ondersteuning voor het spraaksyntheseapparaat "
+"geïnstalleerd worden."
 
 #. Tag: title
 #: boot-installer.xml:2315
 #, no-c-format
 msgid "Board Devices"
-msgstr ""
+msgstr "Apparatuur op een kaart"
 
 #. Tag: para
 #: boot-installer.xml:2316
@@ -2334,6 +3460,13 @@ msgid ""
 "\"x86\">vga=normal</userinput> <userinput>fb=false</userinput> boot "
 "parameter. This will however reduce the number of available languages."
 msgstr ""
+"Sommige apparatuur voor toegankelijkheid heeft in feite de vorm van een "
+"kaart die binnenin de machine ingeplugd moet worden en die de tekst "
+"rechtstreeks leest uit het videogeheugen. Opdat dit soort apparaten zou "
+"werken moet u framebufferondersteuning uitzetten door de opstartparameter "
+"<userinput arch=\"x86\">vga=normal</userinput> <userinput>fb=false</"
+"userinput> te gebruiken. Op die manier wordt het aantal ondersteunde talen "
+"wel beperkt."
 
 #. Tag: para
 #: boot-installer.xml:2324
@@ -2342,12 +3475,15 @@ msgid ""
 "If desired a textual version of the bootloader can be activated before "
 "adding the boot parameter by typing <userinput>h</userinput> &enterkey;."
 msgstr ""
+"Desgewenst kan een tekstversie van de opstartlader geactiveerd worden "
+"vooraleer de opstartparameter opgegeven wordt, door <userinput>h</userinput> "
+"&enterkey; te typen."
 
 #. Tag: title
 #: boot-installer.xml:2332
 #, no-c-format
 msgid "High-Contrast Theme"
-msgstr ""
+msgstr "Een stijl met verhoogd contrast"
 
 #. Tag: para
 #: boot-installer.xml:2333
@@ -2357,12 +3493,16 @@ msgid ""
 "that makes it more readable. To enable it, append the <userinput>theme=dark</"
 "userinput> boot parameter."
 msgstr ""
+"Voor gebruikers met een verminderd gezichtsvermogen bestaat de mogelijkheid "
+"om voor het installatiesysteem een kleurenschema met verhoogd contrast te "
+"kiezen, waardoor het beter leesbaar wordt. Om dit te activeren moet u de "
+"opstartparameter <userinput>theme=dark</userinput> gebruiken."
 
 #. Tag: title
 #: boot-installer.xml:2342
 #, no-c-format
 msgid "Zoom"
-msgstr ""
+msgstr "Zoomfunctie"
 
 #. Tag: para
 #: boot-installer.xml:2343
@@ -2373,12 +3513,17 @@ msgid ""
 "keycombo> and <keycombo><keycap>Control</keycap> <keycap>-</keycap></"
 "keycombo> shortcuts increase and decrease the font size."
 msgstr ""
+"Voor gebruikers met een verminderd gezichtsvermogen biedt het grafische "
+"installatiesysteem een erg basale zoomfunctie: met de sneltoetsen "
+"<keycombo><keycap>Control</keycap> <keycap>+</keycap></keycombo> en "
+"<keycombo><keycap>Control</keycap> <keycap>-</keycap></keycombo> kunnen de "
+"letters groter en kleiner gemaakt worden."
 
 #. Tag: title
 #: boot-installer.xml:2353
 #, no-c-format
 msgid "Preseeding"
-msgstr ""
+msgstr "Antwoorden vooraf instellen (preseeding)"
 
 #. Tag: para
 #: boot-installer.xml:2354
@@ -2387,12 +3532,15 @@ msgid ""
 "Alternatively, &debian; can be installed completely automatically by using "
 "preseeding. This is documented in <xref linkend=\"appendix-preseed\"/>."
 msgstr ""
+"Als alternatief heeft u de mogelijkheid om &debian; volledig automatisch te "
+"installeren via het gebruik van preseeding (vooraf ingestelde antwoorden). "
+"Dit wordt gedocumenteerd in <xref linkend=\"appendix-preseed\"/>."
 
 #. Tag: title
 #: boot-installer.xml:2362
 #, no-c-format
 msgid "Accessibility of the installed system"
-msgstr ""
+msgstr "Toegankelijkheid van het geïnstalleerde systeem"
 
 #. Tag: para
 #: boot-installer.xml:2363
@@ -2402,12 +3550,15 @@ msgid ""
 "<ulink url=\"&url-debian-wiki-accessibility;\">Debian Accessibility wiki "
 "page</ulink>."
 msgstr ""
+"Documentatie over de toegankelijkheid van een geïnstalleerd systeem is te "
+"vinden op de <ulink url=\"&url-debian-wiki-accessibility;\">Wikipagina van "
+"Debian over toegankelijkheid</ulink>."
 
 #. Tag: title
 #: boot-installer.xml:2377
 #, no-c-format
 msgid "Boot Parameters"
-msgstr ""
+msgstr "Opstartparameters"
 
 #. Tag: para
 #: boot-installer.xml:2378
@@ -2418,6 +3569,11 @@ msgid ""
 "can auto-detect information about your peripherals. However, in some cases "
 "you'll have to help the kernel a bit."
 msgstr ""
+"Opstartparameters zijn parameters voor de Linux kernel die over het algemeen "
+"gebruikt worden om ervoor te zorgen dat correct omgesprongen wordt met "
+"randapparatuur. In het merendeel van de gevallen kan de kernel zelf "
+"automatisch informatie over uw randapparatuur verzamelen. Maar in sommige "
+"gevallen moet u de kernel echter een beetje helpen."
 
 #. Tag: para
 #: boot-installer.xml:2385
@@ -2428,6 +3584,12 @@ msgid ""
 "correctly. It probably will. If not, you can reboot later and look for any "
 "special parameters that inform the system about your hardware."
 msgstr ""
+"Als u het systeem voor het eerst opstart, kunt u dit best met de standaard "
+"opstartparameters proberen (d.w.z. zonder te proberen parameters in te "
+"stellen) en zien of de zaak correct werkt. En waarschijnlijk zal dit het "
+"geval zijn. Is dit niet zo, dan kunt u later opnieuw opstarten en uitkijken "
+"naar eventuele bijzondere parameters die het systeem over uw hardware kunnen "
+"informeren."
 
 #. Tag: para
 #: boot-installer.xml:2392
@@ -2439,12 +3601,18 @@ msgid ""
 "the most salient parameters. Some common gotchas are included below in <xref "
 "linkend=\"boot-troubleshooting\"/>."
 msgstr ""
+"Over veel opstartparameters is informatie te vinden in de <ulink url="
+"\"http://www.tldp.org/HOWTO/BootPrompt-HOWTO.html\"> Linux BootPrompt HOWTO</"
+"ulink>, met inbegrip van tips voor obscure apparatuur. Dit onderdeel schetst "
+"enkel de meest in het oog springende parameters. Enkele veel voorkomende "
+"valkuilen worden hierna in <xref linkend=\"boot-troubleshooting\"/> "
+"behandeld."
 
 #. Tag: title
 #: boot-installer.xml:2404
 #, no-c-format
 msgid "Boot console"
-msgstr ""
+msgstr "Opstartconsole"
 
 #. Tag: para
 #: boot-installer.xml:2406
@@ -2458,6 +3626,13 @@ msgid ""
 "is your serial device, which is usually something like <filename>ttyS0</"
 "filename>."
 msgstr ""
+"Indien u met een seriële console opstart, zal de kernel die meestal "
+"automatisch herkennen. Indien de computer ook een grafische kaart "
+"(framebuffer) en een toetsenbord heeft, terwijl u hem via een seriële "
+"console wilt laten opstarten, zult u aan de kernel het argument "
+"<userinput>console=<replaceable>apparaat</replaceable></userinput> moeten "
+"doorgeven, waarbij <replaceable>apparaat</replaceable> uw serieel apparaat "
+"is, wat gewoonlijk iets in de zin van <filename>ttyS0</filename> is."
 
 #. Tag: para
 #: boot-installer.xml:2418
@@ -2469,10 +3644,28 @@ msgid ""
 "<quote>---</quote>, so that it is copied into the bootloader configuration "
 "for the installed system (if supported by the installer for the bootloader)."
 msgstr ""
+"U zult mogelijk parameters moeten opgeven voor de seriële poort, zoals "
+"snelheid en pariteit, bijvoorbeeld <userinput>console=ttyS0,9600n8</"
+"userinput>. Andere gebruikelijke snelheden zijn 57600 en 115200. Zorg ervoor "
+"dat u deze optie specificeert na <quote>---</quote>, waardoor die gekopieerd "
+"wordt naar de configuratie van de opstartlader van het geïnstalleerde "
+"systeem (als het installatiesysteem dit voor de opstartlader ondersteunt)."
 
 #. Tag: para
 #: boot-installer.xml:2426
-#, no-c-format
+#, fuzzy, no-c-format
+#| msgid ""
+#| "In order to ensure the terminal type used by the installer matches your "
+#| "terminal emulator, the parameter <userinput>TERM=<replaceable>type</"
+#| "replaceable></userinput> can be added. Note that the installer only "
+#| "supports the following terminal types: <literal>linux</literal>, "
+#| "<literal>bterm</literal>, <literal>ansi</literal>, <literal>vt102</"
+#| "literal> and <literal>dumb</literal>. The default for serial console in "
+#| "&d-i; is <userinput>vt102</userinput>. If you are using a virtualization "
+#| "tool which does not provide conversion into such terminals types itself, "
+#| "e.g. QEMU/KVM, you can start it inside a <command>screen</command> "
+#| "session. That will indeed perform translation into the <literal>screen</"
+#| "literal> terminal type, which is very close to <literal>vt102</literal>."
 msgid ""
 "In order to ensure the terminal type used by the installer matches your "
 "terminal emulator, the parameter <userinput>TERM=<replaceable>type</"
@@ -2487,6 +3680,18 @@ msgid ""
 "<literal>screen</literal> terminal type, which is very close to "
 "<literal>vt102</literal>."
 msgstr ""
+"Om er voor te zorgen dat het terminaltype dat door het installatiesysteem "
+"gebruikt wordt, overeenkomt met uw terminal-emulator, kunt u de parameter "
+"<userinput>TERM=<replaceable>type</replaceable></userinput> gebruiken. Merk "
+"op dat het installatiesysteem enkel de volgende terminaltypes ondersteunt: "
+"<literal>linux</literal>, <literal>bterm</literal>, <literal>ansi</literal>, "
+"<literal>vt102</literal> en <literal>dumb</literal>. Voor een seriële "
+"console in &d-i; is de standaard <userinput>vt102</userinput>. Indien u een "
+"virtualisatietoepassing gebruikt die zelf geen conversie naar dergelijke "
+"terminaltypes verzorgt, bijvoorbeeld QEMU/KVM, kunt u die opstarten binnenin "
+"een <command>screen</command>-sessie. Dat zal inderdaad voor een omslag naar "
+"het terminaltype <literal>screen</literal> zorgen, wat heel dicht bij het "
+"type <literal>vt102</literal> aanleunt."
 
 #. Tag: para
 #: boot-installer.xml:2442
@@ -2497,12 +3702,16 @@ msgid ""
 "envar> and <envar>output-device</envar> OpenPROM variables to "
 "<filename>ttya</filename>."
 msgstr ""
+"Bij &arch-title; zijn de seriële apparaten <filename>ttya</filename> en "
+"<filename>ttyb</filename>. Als alternatief kunt u de OpenPROM-variabelen "
+"<envar>input-device</envar> en <envar>output-device</envar> instellen op "
+"<filename>ttya</filename>."
 
 #. Tag: title
 #: boot-installer.xml:2454
 #, no-c-format
 msgid "&debian; Installer Parameters"
-msgstr ""
+msgstr "Parameters voor het installatiesysteem van &debian;"
 
 #. Tag: para
 #: boot-installer.xml:2455
@@ -2513,6 +3722,11 @@ msgid ""
 "use 32 command line options and 32 environment options. If these numbers are "
 "exceeded, the kernel will panic. </para> </footnote> which may be useful."
 msgstr ""
+"Het installatiesysteem herkent enkele bijkomende opstartparameters<footnote> "
+"<para> Met de huidige kernels (2.6.9 of recenter) kunt u 32 "
+"commandoregelopties en 32 omgevingsopties gebruiken. Indien deze aantallen "
+"overschreden worden, dan zal de kernel panikeren. </para> </footnote> die "
+"handig kunnen zijn."
 
 #. Tag: para
 #: boot-installer.xml:2468
@@ -2524,18 +3738,26 @@ msgid ""
 "brackets behind the (normal) long form. Examples in this manual will "
 "normally use the short form too."
 msgstr ""
+"Een aantal parameters hebben een <quote>verkorte vorm</quote>, hetgeen helpt "
+"om de beperkingen van de kernel inzake commandoregelopties te vermijden en "
+"het invoeren van parameters vergemakkelijkt. Indien een parameter een "
+"verkorte vorm heeft, zal die vermeld worden tussen haakjes achter de "
+"(normale) lange vorm. In deze handleiding zal de verkorte vorm gewoonlijk "
+"ook in de voorbeelden toegepast worden."
 
 #. Tag: term
 #: boot-installer.xml:2480
 #, no-c-format
 msgid "debconf/priority (priority)"
-msgstr ""
+msgstr "debconf/priority (priority)"
 
 #. Tag: para
 #: boot-installer.xml:2481
 #, no-c-format
 msgid "This parameter sets the lowest priority of messages to be displayed."
 msgstr ""
+"Deze parameter definieert wat de minimale prioriteit moet zijn opdat "
+"meldingen op het scherm weergegeven zouden worden."
 
 #. Tag: para
 #: boot-installer.xml:2485
@@ -2546,6 +3768,12 @@ msgid ""
 "and low priority messages are skipped. If problems are encountered, the "
 "installer adjusts the priority as needed."
 msgstr ""
+"Een standaardinstallatie gebruikt <userinput>priority=high</userinput>. Dit "
+"betekent dat meldingen die behoren tot de prioriteitsklassen hoog (high) en "
+"kritiek (critical) weergegeven zullen worden, maar dat de meldingen die "
+"behoren tot de prioriteitsklassen middelmatig (medium) en laag (low) "
+"weggelaten worden. Indien er zich problemen voordoen, past het "
+"installatiesysteem indien nodig de urgentie aan."
 
 #. Tag: para
 #: boot-installer.xml:2492
@@ -2559,12 +3787,20 @@ msgid ""
 "system will display only critical messages and try to do the right thing "
 "without fuss."
 msgstr ""
+"Indien u <userinput>priority=medium</userinput> als opstartparameter "
+"opgeeft, zult u het installatiemenu te zien krijgen en zult u meer controle "
+"hebben over de installatie. Indien u <userinput>priority=low</userinput> "
+"gebruikt, worden alle meldingen weergegeven (dit is het equivalent van de "
+"opstartmethode <emphasis>expert</emphasis>). Bij "
+"<userinput>priority=critical</userinput> zal het installatiesysteem enkel "
+"kritieke meldingen weergeven en trachten zonder poespas de juiste beslissing "
+"te nemen."
 
 #. Tag: term
 #: boot-installer.xml:2506
 #, no-c-format
 msgid "DEBIAN_FRONTEND"
-msgstr ""
+msgstr "DEBIAN_FRONTEND"
 
 #. Tag: para
 #: boot-installer.xml:2507
@@ -2586,12 +3822,28 @@ msgid ""
 "media. On architectures that support it, the graphical installer uses the "
 "<userinput>gtk</userinput> frontend."
 msgstr ""
+"Deze opstartparameter controleert het type gebruikersinterface dat voor het "
+"installatiesysteem gebruikt wordt. Momenteel kunnen voor deze parameter de "
+"volgende instellingen gebruikt worden: <itemizedlist> <listitem> "
+"<para><userinput>DEBIAN_FRONTEND=noninteractive</userinput></para> </"
+"listitem><listitem> <para><userinput>DEBIAN_FRONTEND=text</userinput></para> "
+"</listitem><listitem> <para><userinput>DEBIAN_FRONTEND=newt</userinput></"
+"para> </listitem><listitem> <para><userinput>DEBIAN_FRONTEND=gtk</"
+"userinput></para> </listitem> </itemizedlist> Het standaard frontend is "
+"<userinput>DEBIAN_FRONTEND=newt</userinput>. "
+"<userinput>DEBIAN_FRONTEND=text</userinput> valt te verkiezen bij "
+"installaties via een seriële console. Sommige gespecialiseerde types "
+"installatiemedia hebben een gelimiteerd aantal beschikbare frontends, maar "
+"de frontends <userinput>newt</userinput> en <userinput>text</userinput> zijn "
+"op de meeste standaardinstallatiemedia beschikbaar. Op de architecturen die "
+"dit ondersteunen gebruikt het grafische installatiesysteem de frontend "
+"<userinput>gtk</userinput>."
 
 #. Tag: term
 #: boot-installer.xml:2538
 #, no-c-format
 msgid "BOOT_DEBUG"
-msgstr ""
+msgstr "BOOT_DEBUG"
 
 #. Tag: para
 #: boot-installer.xml:2539
@@ -2602,48 +3854,52 @@ msgid ""
 "strategic points in the boot process. (Exit the shells to continue the boot "
 "process.)"
 msgstr ""
+"Door deze opstartparameter op 2 in te stellen geeft u het installatiesysteem "
+"de opdracht om het opstartproces uitgebreid te loggen. Hem instellen op 3 "
+"maakt dat er op strategische punten in het opstartproces debug-shells "
+"beschikbaar worden. (Verlaat de shells om het opstartproces voort te zetten.)"
 
 #. Tag: userinput
 #: boot-installer.xml:2548
 #, no-c-format
 msgid "BOOT_DEBUG=0"
-msgstr ""
+msgstr "BOOT_DEBUG=0"
 
 #. Tag: para
 #: boot-installer.xml:2549
 #, no-c-format
 msgid "This is the default."
-msgstr ""
+msgstr "Dit is de standaardinstelling."
 
 #. Tag: userinput
 #: boot-installer.xml:2553
 #, no-c-format
 msgid "BOOT_DEBUG=1"
-msgstr ""
+msgstr "BOOT_DEBUG=1"
 
 #. Tag: para
 #: boot-installer.xml:2554
 #, no-c-format
 msgid "More verbose than usual."
-msgstr ""
+msgstr "Omslachtiger dan gebruikelijk."
 
 #. Tag: userinput
 #: boot-installer.xml:2558
 #, no-c-format
 msgid "BOOT_DEBUG=2"
-msgstr ""
+msgstr "BOOT_DEBUG=2"
 
 #. Tag: para
 #: boot-installer.xml:2559
 #, no-c-format
 msgid "Lots of debugging information."
-msgstr ""
+msgstr "Een hoop debug-informatie."
 
 #. Tag: userinput
 #: boot-installer.xml:2563
 #, no-c-format
 msgid "BOOT_DEBUG=3"
-msgstr ""
+msgstr "BOOT_DEBUG=3"
 
 #. Tag: para
 #: boot-installer.xml:2564
@@ -2652,12 +3908,15 @@ msgid ""
 "Shells are run at various points in the boot process to allow detailed "
 "debugging. Exit the shell to continue the boot."
 msgstr ""
+"Op verschillende punten in het opstartproces wordt een shell gestart die "
+"toelaat om doorgedreven te debuggen. Verlaat de shell om het opstarten voort "
+"te zetten."
 
 #. Tag: term
 #: boot-installer.xml:2578
 #, no-c-format
 msgid "INSTALL_MEDIA_DEV"
-msgstr ""
+msgstr "INSTALL_MEDIA_DEV"
 
 #. Tag: para
 #: boot-installer.xml:2579
@@ -2667,6 +3926,9 @@ msgid ""
 "installer from. For example, <userinput>INSTALL_MEDIA_DEV=/dev/floppy/0</"
 "userinput>"
 msgstr ""
+"De waarde van de parameter is het pad naar het apparaat waarvandaan het "
+"&debian; installatiesysteem geladen moet worden. Bijvoorbeeld "
+"<userinput>INSTALL_MEDIA_DEV=/dev/floppy/0</userinput>"
 
 #. Tag: para
 #: boot-installer.xml:2585
@@ -2675,18 +3937,21 @@ msgid ""
 "The boot floppy, which normally scans all floppies it can to find the root "
 "floppy, can be overridden by this parameter to only look at the one device."
 msgstr ""
+"Normaal doorzoekt de opstartdiskette (boot floppy) alle mogelijke diskettes "
+"om de root-diskette te vinden. Met deze parameter kunt u ze opdragen om "
+"enkel naar dat ene apparaat te kijken."
 
 #. Tag: term
 #: boot-installer.xml:2596
 #, no-c-format
 msgid "log_host"
-msgstr ""
+msgstr "log_host"
 
 #. Tag: term
 #: boot-installer.xml:2597
 #, no-c-format
 msgid "log_port"
-msgstr ""
+msgstr "log_port"
 
 #. Tag: para
 #: boot-installer.xml:2598
@@ -2696,12 +3961,16 @@ msgid ""
 "specified host and port as well as to a local file. If not specified, the "
 "port defaults to the standard syslog port 514."
 msgstr ""
+"Doet het installatiesysteem de logberichten zowel naar een extern syslog-"
+"bestand op de opgegeven computer en poort als naar een lokaal bestand "
+"sturen. Indien het poortnummer niet opgegeven werd, wordt de standaard "
+"syslogpoort 514 gebruikt."
 
 #. Tag: term
 #: boot-installer.xml:2609
 #, no-c-format
 msgid "lowmem"
-msgstr ""
+msgstr "lowmem"
 
 #. Tag: para
 #: boot-installer.xml:2610
@@ -2711,12 +3980,16 @@ msgid ""
 "installer sets by default based on available memory. Possible values are 1 "
 "and 2. See also <xref linkend=\"lowmem\"/>."
 msgstr ""
+"Kan gebruikt worden om het installatiesysteem te dwingen om een strengere "
+"norm voor weinig geheugen te hanteren dan het standaard geneigd is in te "
+"stellen op basis van het beschikbaar geheugen. Mogelijke waarden zijn 1 en "
+"2. Zie ook <xref linkend=\"lowmem\"/>."
 
 #. Tag: term
 #: boot-installer.xml:2620
 #, no-c-format
 msgid "noshell"
-msgstr ""
+msgstr "noshell"
 
 #. Tag: para
 #: boot-installer.xml:2621
@@ -2725,12 +3998,15 @@ msgid ""
 "Prevents the installer from offering interactive shells on tty2 and tty3. "
 "Useful for unattended installations where physical security is limited."
 msgstr ""
+"Verhindert dat het installatiesysteem een interactieve shell ter beschikking "
+"stelt op tty2 en tty3. Nuttig voor onbemande installaties met een beperkte "
+"fysieke beveiliging."
 
 #. Tag: term
 #: boot-installer.xml:2630
 #, no-c-format
 msgid "debian-installer/framebuffer (fb)"
-msgstr ""
+msgstr "debian-installer/framebuffer (fb)"
 
 #. Tag: para
 #: boot-installer.xml:2631
@@ -2743,12 +4019,20 @@ msgid ""
 "messages about bterm or bogl, a blank screen, or a freeze within a few "
 "minutes after starting the install."
 msgstr ""
+"Sommige architecturen maken gebruik van de framebuffer van de kernel om de "
+"installatie in een aantal talen aan te bieden. Indien de framebuffer op uw "
+"systeem voor problemen zorgt, kunt u die functionaliteit uitschakelen door "
+"de parameter <userinput arch=\"x86\">vga=normal</userinput> "
+"<userinput>fb=false</userinput> te gebruiken. Symptomen van het probleem "
+"zijn foutmeldingen in verband met bterm en bogl, een leeg scherm of het "
+"vastlopen van de computer binnen enkele minuten na het starten van de "
+"installatie."
 
 #. Tag: para
 #: boot-installer.xml:2640
 #, no-c-format
 msgid "Such problems have been reported on hppa."
-msgstr ""
+msgstr "Dergelijke problemen werden op hppa gesignaleerd."
 
 #. Tag: para
 #: boot-installer.xml:2644
@@ -2761,12 +4045,19 @@ msgid ""
 "installer, you can try booting with parameter <userinput>debian-installer/"
 "framebuffer=true</userinput> or <userinput>fb=true</userinput> for short."
 msgstr ""
+"Wegens schermproblemen op sommige systemen, is op &arch-title; framebuffer-"
+"ondersteuning <emphasis>standaard uitgeschakeld</emphasis>. Op systemen die "
+"framebuffer correct ondersteunen, zoals die met een ATI grafische kaart, kan "
+"dit tot een lelijke weergave leiden. Indien u in het installatiesysteem "
+"weergaveproblemen vaststelt, kunt u proberen op te starten met de parameter "
+"<userinput>debian-installer/framebuffer=true</userinput> of met de verkorte "
+"schrijfwijze ervan <userinput>fb=true</userinput>."
 
 #. Tag: term
 #: boot-installer.xml:2658
 #, no-c-format
 msgid "debian-installer/theme (theme)"
-msgstr ""
+msgstr "debian-installer/theme (theme)"
 
 #. Tag: para
 #: boot-installer.xml:2659
@@ -2778,12 +4069,18 @@ msgid ""
 "designed for visually impaired users. Set the theme by booting with "
 "<userinput>theme=<replaceable>dark</replaceable></userinput>."
 msgstr ""
+"Een stijl bepaalt hoe de gebruikersinterface van het installatiesysteem er "
+"uitziet (kleuren, iconen, enz.). Welke stijlen beschikbaar zijn, verschilt "
+"per frontend. Momenteel hebben enkel de frontend newt en de frontend gtk een "
+"stijl <quote>dark</quote> die ontworpen is voor gebruikers met een visuele "
+"beperking. Stel de stijl in door op te starten met "
+"<userinput>theme=<replaceable>dark</replaceable></userinput>."
 
 #. Tag: term
 #: boot-installer.xml:2671 boot-installer.xml:2904
 #, no-c-format
 msgid "netcfg/disable_autoconfig"
-msgstr ""
+msgstr "netcfg/disable_autoconfig"
 
 #. Tag: para
 #: boot-installer.xml:2672
@@ -2794,6 +4091,11 @@ msgid ""
 "chance to review and change the obtained settings. You can get to the manual "
 "network setup only in case the automatic configuration fails."
 msgstr ""
+"Standaard probeert &d-i; het netwerk automatisch te configureren via IPv6-"
+"autoconfiguratie en DHCP. Indien dit slaagt krijgt u niet de kans de "
+"verkregen instellingen na te kijken en te veranderen. U komt enkel uit bij "
+"het handmatig instellen van het netwerk in het geval de automatische "
+"configuratie mislukt."
 
 #. Tag: para
 #: boot-installer.xml:2679
@@ -2805,12 +4107,18 @@ msgid ""
 "any automatic configuration of the network (neither v4 nor v6) and to enter "
 "the information manually."
 msgstr ""
+"Indien u op uw lokaal netwerk een IPv6-router of een DHCP-server heeft die u "
+"wenst te vermijden, bijvoorbeeld omdat ze verkeerde antwoorden geven, kunt u "
+"de parameter <userinput>netcfg/disable_autoconfig=true</userinput> gebruiken "
+"om te verhinderen dat er een automatische configuratie van het netwerk (niet "
+"voor v4 en evenmin voor v6) plaats vindt en om de informatie handmatig te "
+"kunnen invoeren."
 
 #. Tag: term
 #: boot-installer.xml:2690
 #, no-c-format
 msgid "hw-detect/start_pcmcia"
-msgstr ""
+msgstr "hw-detect/start_pcmcia"
 
 #. Tag: para
 #: boot-installer.xml:2691
@@ -2819,12 +4127,15 @@ msgid ""
 "Set to <userinput>false</userinput> to prevent starting PCMCIA services, if "
 "that causes problems. Some laptops are well known for this misbehavior."
 msgstr ""
+"Stel dit in op <userinput>false</userinput> om te voorkomen dat PCMCIA-"
+"diensten opgestart worden indien dat problemen veroorzaakt. Sommige laptops "
+"staan erom bekend zich slecht te gedragen op dit punt."
 
 #. Tag: term
 #: boot-installer.xml:2701
 #, no-c-format
 msgid "disk-detect/dmraid/enable (dmraid)"
-msgstr ""
+msgstr "disk-detect/dmraid/enable (dmraid)"
 
 #. Tag: para
 #: boot-installer.xml:2702
@@ -2835,12 +4146,18 @@ msgid ""
 "that this support is currently experimental. Additional information can be "
 "found on the <ulink url=\"&url-d-i-wiki;\">&debian; Installer Wiki</ulink>."
 msgstr ""
+"Stel dit in op <userinput>true</userinput> om in het installatiesysteem de "
+"ondersteuning te activeren voor een opstelling met Seriële ATA RAID (ook ATA "
+"RAID, BIOS RAID of pseudo- of fake RAID genoemd) schijven. Merk op dat een "
+"dergelijke ondersteuning momenteel slechts experimenteel is. Bijkomende "
+"informatie vindt u op de <ulink url=\"&url-d-i-wiki;\">Wiki-pagina van het "
+"installatiesysteem van &debian;</ulink>."
 
 #. Tag: term
 #: boot-installer.xml:2713
 #, no-c-format
 msgid "preseed/url (url)"
-msgstr ""
+msgstr "preseed/url (url)"
 
 #. Tag: para
 #: boot-installer.xml:2714
@@ -2849,12 +4166,15 @@ msgid ""
 "Specify the url to a preconfiguration file to download and use for "
 "automating the install. See <xref linkend=\"automatic-install\"/>."
 msgstr ""
+"Geef de url op van een te downloaden bestand met vooraf ingestelde "
+"configuraties om dat te gebruiken bij een automatische installatie. Zie "
+"<xref linkend=\"automatic-install\"/>."
 
 #. Tag: term
 #: boot-installer.xml:2723
 #, no-c-format
 msgid "preseed/file (file)"
-msgstr ""
+msgstr "preseed/file (file)"
 
 #. Tag: para
 #: boot-installer.xml:2724
@@ -2863,12 +4183,15 @@ msgid ""
 "Specify the path to a preconfiguration file to load for automating the "
 "install. See <xref linkend=\"automatic-install\"/>."
 msgstr ""
+"Geef het pad op naar een te laden bestand met vooraf ingestelde "
+"configuraties om dat te gebruiken bij een automatische installatie. Zie "
+"<xref linkend=\"automatic-install\"/>."
 
 #. Tag: term
 #: boot-installer.xml:2733
 #, no-c-format
 msgid "preseed/interactive"
-msgstr ""
+msgstr "preseed/interactive"
 
 #. Tag: para
 #: boot-installer.xml:2734
@@ -2880,12 +4203,19 @@ msgid ""
 "boot parameters, but for those a special syntax can be used. See <xref "
 "linkend=\"preseed-seenflag\"/> for details."
 msgstr ""
+"Stel dit in op <userinput>true</userinput> om de vragen te tonen, ook al "
+"zijn de antwoorden in een antwoordbestand opgenomen. Kan nuttig zijn om een "
+"bestand met vooraf ingestelde configuraties te testen of op fouten te "
+"onderzoeken. Merk op dat dit geen effect zal hebben op parameters die als "
+"opstartparameters opgegeven werden, maar voor hen kan een bijzondere "
+"syntaxis gebruikt worden. Zie <xref linkend=\"preseed-seenflag\"/> voor "
+"details."
 
 #. Tag: term
 #: boot-installer.xml:2746
 #, no-c-format
 msgid "auto-install/enable (auto)"
-msgstr ""
+msgstr "auto-install/enable (auto)"
 
 #. Tag: para
 #: boot-installer.xml:2747
@@ -2895,12 +4225,17 @@ msgid ""
 "after the network is configured. See <xref linkend=\"preseed-auto\"/> for "
 "details about using this to automate installs."
 msgstr ""
+"Stel vragen die normaal gezien gesteld worden vooraleer het doorgeven van "
+"antwoorden via een antwoordbestand mogelijk is, uit tot na de "
+"netwerkconfiguratie. Zie <xref linkend=\"preseed-auto\"/> voor meer "
+"informatie over hoe u dit gebruikt met het oog op het automatiseren van "
+"installaties."
 
 #. Tag: term
 #: boot-installer.xml:2758
 #, no-c-format
 msgid "finish-install/keep-consoles"
-msgstr ""
+msgstr "finish-install/keep-consoles"
 
 #. Tag: para
 #: boot-installer.xml:2759
@@ -2910,12 +4245,16 @@ msgid ""
 "consoles (VT1 to VT6) are normally disabled in <filename>/etc/inittab</"
 "filename>. Set to <userinput>true</userinput> to prevent this."
 msgstr ""
+"Tijdens een installatie vanaf een seriële of een Management Console, worden "
+"de reguliere consoles (VT1 tot VT6) normaal gezien uitgeschakeld in "
+"<filename>/etc/inittab</filename>. Stel dit in op <userinput>true</"
+"userinput> om dit te voorkomen."
 
 #. Tag: term
 #: boot-installer.xml:2770
 #, no-c-format
 msgid "cdrom-detect/eject"
-msgstr ""
+msgstr "cdrom-detect/eject"
 
 #. Tag: para
 #: boot-installer.xml:2771
@@ -2928,6 +4267,13 @@ msgid ""
 "is not there to do it manually. Many slot loading, slim-line, and caddy "
 "style drives cannot reload media automatically."
 msgstr ""
+"Standaard werpt &d-i; de tijdens de installatie gebruikte optische media uit "
+"vooraleer er herstart wordt. Als het systeem niet automatisch opstart vanaf "
+"een CD is dit onnodig. In sommige gevallen kan het zelfs onwenselijk zijn, "
+"bijvoorbeeld als het optische station het medium niet zelf terug kan "
+"plaatsen en de gebruiker niet aanwezig is om dit handmatig te doen. Veel "
+"sleufstations en stations van het slim-line- of caddy-type kunnen media niet "
+"automatisch terugplaatsen."
 
 #. Tag: para
 #: boot-installer.xml:2780
@@ -2937,12 +4283,16 @@ msgid ""
 "aware that you may need to ensure that the system does not automatically "
 "boot from the optical drive after the initial installation."
 msgstr ""
+"Stel in op <userinput>false</userinput> om het automatisch uitwerpen uit te "
+"schakelen. U moet er wel rekening mee houden dat u moet kunnen verzekeren "
+"dat het systeem niet automatisch opstart vanaf het optisch station na de "
+"initiële installatie."
 
 #. Tag: term
 #: boot-installer.xml:2791
 #, no-c-format
 msgid "base-installer/install-recommends (recommends)"
-msgstr ""
+msgstr "base-installer/install-recommends (recommends)"
 
 #. Tag: para
 #: boot-installer.xml:2792
@@ -2953,6 +4303,11 @@ msgid ""
 "<quote>Recommends</quote>, both during the installation and for the "
 "installed system. See also <xref linkend=\"di-install-base\"/>."
 msgstr ""
+"Door deze optie in te stellen op <userinput>false</userinput> wordt het "
+"pakketbeheersysteem ingesteld om pakketten die tot de categorie "
+"<quote>Recommends</quote> (aangeraden) behoren, niet automatisch te "
+"installeren tijdens het installatieproces en op het geïnstalleerde systeem. "
+"Zie ook <xref linkend=\"di-install-base\"/>."
 
 #. Tag: para
 #: boot-installer.xml:2799
@@ -2964,12 +4319,18 @@ msgid ""
 "full functionality you want. This option should therefore only be used by "
 "very experienced users."
 msgstr ""
+"Merk op dat deze optie het mogelijk maakt om een compacter systeem te "
+"hebben, maar dat het gevolg ook kan zijn dat bepaalde functies ontbreken die "
+"u normaal gezien wel verwacht. Misschien zult u bepaalde van de aanbevolen "
+"pakketten handmatig moeten installeren om de door u gewenste volle "
+"functionaliteit te verkrijgen. Daarom zou deze optie enkel gebruikt moeten "
+"worden door zeer ervaren gebruikers."
 
 #. Tag: term
 #: boot-installer.xml:2811
 #, no-c-format
 msgid "debian-installer/allow_unauthenticated"
-msgstr ""
+msgstr "debian-installer/allow_unauthenticated"
 
 #. Tag: para
 #: boot-installer.xml:2812
@@ -2980,12 +4341,16 @@ msgid ""
 "authentication. <emphasis role=\"bold\">Warning: insecure, not recommended.</"
 "emphasis>"
 msgstr ""
+"Standaard vereist het installatiesysteem dat pakketbronnen geauthenticeerd "
+"worden met een gekende gpg-sleutel. Stel dit in op <userinput>true</"
+"userinput> om die authenticatie uit te schakelen. <emphasis role=\"bold"
+"\">Waarschuwing: onveilig, niet aanbevolen.</emphasis>"
 
 #. Tag: term
 #: boot-installer.xml:2823
 #, no-c-format
 msgid "ramdisk_size"
-msgstr ""
+msgstr "ramdisk_size"
 
 #. Tag: para
 #: boot-installer.xml:2824
@@ -2995,12 +4360,16 @@ msgid ""
 "only it you see errors during the boot that indicate the ramdisk could not "
 "be loaded completely. The value is in kB."
 msgstr ""
+"Deze parameter zou waar nodig reeds ingesteld moeten zijn op een correcte "
+"waarde. Stel hem enkel in indien u tijdens het opstarten foutmeldingen ziet "
+"die erop wijzen dat de ramschijf niet volledig geladen kon worden. Deze "
+"waarde wordt in kB uitgedrukt."
 
 #. Tag: term
 #: boot-installer.xml:2834
 #, no-c-format
 msgid "rescue/enable"
-msgstr ""
+msgstr "rescue/enable"
 
 #. Tag: para
 #: boot-installer.xml:2835
@@ -3009,12 +4378,15 @@ msgid ""
 "Set to <userinput>true</userinput> to enter rescue mode rather than "
 "performing a normal installation. See <xref linkend=\"rescue\"/>."
 msgstr ""
+"Stel in op <userinput>true</userinput> om naar de reparatiemodus te gaan in "
+"plaats van een normale installatie uit te voeren. Zie <xref linkend=\"rescue"
+"\"/>."
 
 #. Tag: title
 #: boot-installer.xml:2848
 #, no-c-format
 msgid "Using boot parameters to answer questions"
-msgstr ""
+msgstr "Het gebruik van opstartparameters om op vragen te antwoorden"
 
 #. Tag: para
 #: boot-installer.xml:2849
@@ -3025,24 +4397,29 @@ msgid ""
 "cases. General instructions how to do this can be found in <xref linkend="
 "\"preseed-bootparms\"/>. Some specific examples are listed below."
 msgstr ""
+"Op enkele uitzonderingen na kan voor elke tijdens de installatie gestelde "
+"vraag een waarde ingesteld worden aan de opstartprompt. Dit is evenwel enkel "
+"in specifieke situaties echt nuttig. Algemene instructies over de manier "
+"waarop u dit doet, vindt u in <xref linkend=\"preseed-bootparms\"/>. Enkele "
+"specifieke voorbeelden worden hierna vermeld."
 
 #. Tag: term
 #: boot-installer.xml:2861
 #, no-c-format
 msgid "debian-installer/language (language)"
-msgstr ""
+msgstr "debian-installer/language (language)"
 
 #. Tag: term
 #: boot-installer.xml:2862
 #, no-c-format
 msgid "debian-installer/country (country)"
-msgstr ""
+msgstr "debian-installer/country (country)"
 
 #. Tag: term
 #: boot-installer.xml:2863
 #, no-c-format
 msgid "debian-installer/locale (locale)"
-msgstr ""
+msgstr "debian-installer/locale (locale)"
 
 #. Tag: para
 #: boot-installer.xml:2864
@@ -3051,6 +4428,9 @@ msgid ""
 "There are two ways to specify the language, country and locale to use for "
 "the installation and the installed system."
 msgstr ""
+"Er bestaan twee manieren om de taal, het land en het taalgebied die voor de "
+"installatie en het geïnstalleerde systeem gebruikt moeten worden, in te "
+"stellen."
 
 #. Tag: para
 #: boot-installer.xml:2869
@@ -3064,6 +4444,14 @@ msgid ""
 "possible combinations of language, country and locale can be achieved this "
 "way."
 msgstr ""
+"De eerste en gemakkelijkste manier is om enkel de parameter <literal>locale</"
+"literal> (taalgebied) op te geven. Taal en land worden dan van deze waarde "
+"afgeleid. U kunt bijvoorbeeld <userinput>locale=de_CH</userinput> gebruiken "
+"om Duits als taal te kiezen en Zwitserland als land (<literal>de_CH.UTF-8</"
+"literal> zal als het standaard taalgebied (locale) ingesteld worden op het "
+"geïnstalleerde systeem). De beperking zit in het feit dat op deze manier "
+"niet alle mogelijke combinaties van taal, land en taalgebied uitgedrukt "
+"kunnen worden."
 
 #. Tag: para
 #: boot-installer.xml:2878
@@ -3075,12 +4463,18 @@ msgid ""
 "the installed system. Example: <userinput>language=en country=DE "
 "locale=en_GB.UTF-8</userinput>."
 msgstr ""
+"De tweede meer flexibele optie is om <literal>language</literal> (taal) en "
+"<literal>country</literal> (land) apart op te geven. In dat geval kan "
+"eventueel ook <literal>locale</literal> (taalgebied) opgegeven worden om een "
+"specifiek standaardtaalgebied voor het geïnstalleerde systeem in te stellen. "
+"Bijvoorbeeld: <userinput>language=en country=DE locale=en_GB.UTF-8</"
+"userinput>."
 
 #. Tag: term
 #: boot-installer.xml:2890
 #, no-c-format
 msgid "anna/choose_modules (modules)"
-msgstr ""
+msgstr "anna/choose_modules (modules)"
 
 #. Tag: para
 #: boot-installer.xml:2891
@@ -3092,6 +4486,12 @@ msgid ""
 "command> during the installation)<phrase arch=\"not-s390\"> and "
 "<classname>ppp-udeb</classname> (see <xref linkend=\"pppoe\"/>)</phrase>."
 msgstr ""
+"Kan gebruikt worden om automatisch componenten van het installatiesysteem te "
+"laden die niet standaard geladen worden. Voorbeelden van facultatieve "
+"componenten die nuttig kunnen zijn, zijn <classname>openssh-client-udeb</"
+"classname> (waardoor u tijdens de installatie <command>scp</command> kunt "
+"gebruiken)<phrase arch=\"not-s390\"> en <classname>ppp-udeb</classname> (zie "
+"<xref linkend=\"pppoe\"/>)</phrase>."
 
 #. Tag: para
 #: boot-installer.xml:2905
@@ -3100,12 +4500,15 @@ msgid ""
 "Set to <userinput>true</userinput> if you want to disable IPv6 "
 "autoconfiguration and DHCP and instead force static network configuration."
 msgstr ""
+"Stel dit in op <userinput>true</userinput> als u IPv6-autoconfiguratie en "
+"DHCP wilt uitschakelen en in plaats daarvan een statische "
+"netwerkconfiguratie wilt afdwingen."
 
 #. Tag: term
 #: boot-installer.xml:2914
 #, no-c-format
 msgid "mirror/protocol (protocol)"
-msgstr ""
+msgstr "mirror/protocol (protocol)"
 
 #. Tag: para
 #: boot-installer.xml:2915
@@ -3118,12 +4521,19 @@ msgid ""
 "instead. Note that you cannot select an ftp mirror from a list, you have to "
 "enter the hostname manually."
 msgstr ""
+"Standaard maakt het installatiesysteem gebruik van het http-protocol voor "
+"het downloaden van bestanden van &debian; spiegelservers. En tijdens een "
+"installatie op een gewoon prioriteitsniveau is het niet mogelijk om dit te "
+"veranderen naar ftp. Door deze parameter in te stellen op <userinput>ftp</"
+"userinput> kunt u het installatiesysteem dwingen om van dat protocol gebruik "
+"te maken. Merk op dat u geen ftp-spiegelserver kunt selecteren uit een lijst "
+"en dat u die computernaam dan handmatig zult moeten instellen."
 
 #. Tag: term
 #: boot-installer.xml:2928
 #, no-c-format
 msgid "tasksel:tasksel/first (tasks)"
-msgstr ""
+msgstr "tasksel:tasksel/first (tasks)"
 
 #. Tag: para
 #: boot-installer.xml:2929
@@ -3133,12 +4543,15 @@ msgid ""
 "list, such as the <literal>kde-desktop</literal> task. See <xref linkend="
 "\"pkgsel\"/> for additional information."
 msgstr ""
+"Kan gebruikt worden om taken te selecteren die niet voorkomen in de "
+"interactieve takenlijst, zoals de taak <literal>kde-desktop</literal>. Zie "
+"<xref linkend=\"pkgsel\"/> voor bijkomende informatie."
 
 #. Tag: title
 #: boot-installer.xml:2943
 #, no-c-format
 msgid "Passing parameters to kernel modules"
-msgstr ""
+msgstr "Parameters doorgeven aan kernelmodules"
 
 #. Tag: para
 #: boot-installer.xml:2944
@@ -3154,6 +4567,18 @@ msgid ""
 "thus be used when the modules are actually loaded. The parameters will also "
 "be propagated automatically to the configuration for the installed system."
 msgstr ""
+"Voor stuurprogramma's die in de kernel gecompileerd werden, kunt u "
+"parameters doorgeven zoals beschreven wordt in de documentatie bij de "
+"kernel. Indien een stuurprogramma evenwel als module gecompileerd werd en "
+"omdat kernelmodules tijdens een installatie iets anders geladen worden dan "
+"het geval is bij een geïnstalleerd systeem, is het niet mogelijk om op de "
+"gebruikelijke manier parameters door te geven aan modules. In de plaats "
+"daarvan moet u een speciale syntaxis gebruiken die door het "
+"installatiesysteem herkend wordt. Het installatiesysteem draagt er dan zorg "
+"voor dat de parameters in de passende configuratiebestanden opgeslagen "
+"worden, zodat ze gebruikt zullen worden als de modules effectief geladen "
+"worden. De parameters zullen ook automatisch doorgegeven worden aan de "
+"configuratie-instellingen van het geïnstalleerde systeem."
 
 #. Tag: para
 #: boot-installer.xml:2957
@@ -3164,6 +4589,11 @@ msgid ""
 "system and set good defaults that way. However, in some situations it may "
 "still be needed to set parameters manually."
 msgstr ""
+"Merk op dat het tegenwoordig zelden nodig is om parameters door te geven aan "
+"modules. In de meeste gevallen zal de kernel in staat zijn om de in het "
+"systeem aanwezige hardware te herkennen en op die manier goede "
+"standaardwaarden in te stellen. Toch kan het in sommige situaties nog steeds "
+"nodig zijn om parameters handmatig in te stellen."
 
 #. Tag: para
 #: boot-installer.xml:2964
@@ -3178,18 +4608,26 @@ msgid ""
 "network interface card to use the BNC (coax) connector and IRQ 10, you would "
 "pass:"
 msgstr ""
+"De syntaxis die u moet gebruiken om parameters in te stellen voor modules "
+"is: <informalexample><screen>\n"
+"<replaceable>module_naam</replaceable>.<replaceable>parameter_naam</"
+"replaceable>=<replaceable>waarde</replaceable>\n"
+"</screen></informalexample> Indien u aan dezelfde of aan verschillende "
+"modules meerdere parameters moet doorgeven, moet u deze werkwijze gewoon "
+"herhalen. Om bijvoorbeeld in te stellen dat een oude 3Com-netwerkkaart de "
+"BNC (coax) connector en IRQ 10 moet gebruiken, zou u doorgeven:"
 
 #. Tag: screen
 #: boot-installer.xml:2974
 #, no-c-format
 msgid "3c509.xcvr=3 3c509.irq=10"
-msgstr ""
+msgstr "3c509.xcvr=3 3c509.irq=10"
 
 #. Tag: title
 #: boot-installer.xml:2980
 #, no-c-format
 msgid "Blacklisting kernel modules"
-msgstr ""
+msgstr "Kernel modules op een zwarte lijst plaatsen"
 
 #. Tag: para
 #: boot-installer.xml:2981
@@ -3202,6 +4640,13 @@ msgid ""
 "the device to not work correctly if the drivers conflict or if the wrong "
 "driver is loaded first."
 msgstr ""
+"Soms kan het nodig zijn om een module op de zwarte lijst te plaatsen om te "
+"voorkomen dat ze automatisch geladen wordt door de kernel en udev. Een "
+"mogelijke reden kan zijn dat een specifieke module op uw hardware voor "
+"problemen zorgt. Soms vermeldt de kernel ook twee verschillende "
+"stuurprogramma's voor hetzelfde apparaat. Dit kan tot gevolg hebben dat het "
+"apparaat niet correct werkt als de twee stuurprogramma's tegenstrijdig zijn "
+"of als het verkeerde stuurprogramma eerst geladen werd."
 
 #. Tag: para
 #: boot-installer.xml:2990
@@ -3213,6 +4658,11 @@ msgid ""
 "blacklist.local</filename> both during the installation and for the "
 "installed system."
 msgstr ""
+"U kunt een module op de zwarte lijst plaatsen met de volgende syntaxis: "
+"<userinput><replaceable>module_naam</replaceable>.blacklist=yes</userinput>. "
+"Dit leidt ertoe dat de module op de zwarte lijst geplaatst wordt "
+"in<filename>/etc/modprobe.d/blacklist.local</filename> zowel tijdens de "
+"installatie als op het geïnstalleerd systeem."
 
 #. Tag: para
 #: boot-installer.xml:2998
@@ -3223,18 +4673,22 @@ msgid ""
 "mode and unselecting the module from the list of modules displayed during "
 "the hardware detection phases."
 msgstr ""
+"Merk op dat een module nog steeds geladen kan worden door het "
+"installatiesysteem zelf. U kunt dit voorkomen door de installatie in "
+"expertmodus uit te voeren en de module te verwijderen uit de lijst van "
+"modules die weergegeven wordt tijdens de fase van apparaatherkenning."
 
 #. Tag: title
 #: boot-installer.xml:3014
 #, no-c-format
 msgid "Troubleshooting the Installation Process"
-msgstr ""
+msgstr "Probleemanalyse bij het installatieproces"
 
 #. Tag: title
 #: boot-installer.xml:3019
 #, no-c-format
 msgid "CD-ROM Reliability"
-msgstr ""
+msgstr "Deugdelijkheid van CD's"
 
 #. Tag: para
 #: boot-installer.xml:3020
@@ -3245,6 +4699,11 @@ msgid ""
 "successfully from CD-ROM &mdash; fail to recognize the CD-ROM or return "
 "errors while reading from it during the installation."
 msgstr ""
+"Soms kan het gebeuren, vooral bij oudere CD-stations, dat het "
+"installatiesysteem er niet in slaagt op te starten vanaf CD. Het is ook "
+"mogelijk &mdash; zelfs nadat met succes opgestart werd van de CD &mdash; dat "
+"het installatiesysteem er niet in slaagt de CD te herkennen of foutmeldingen "
+"produceert bij het lezen van de CD tijdens de installatie."
 
 #. Tag: para
 #: boot-installer.xml:3027
@@ -3254,12 +4713,15 @@ msgid ""
 "list some common issues and provide general suggestions on how to deal with "
 "them. The rest is up to you."
 msgstr ""
+"Er kunnen veel verschillende mogelijke oorzaken zijn voor deze problemen. We "
+"kunnen enkel enige courante problemen vermelden en algemene suggesties geven "
+"over hoe ermee om te gaan. De rest laten we aan u over."
 
 #. Tag: para
 #: boot-installer.xml:3033
 #, no-c-format
 msgid "There are two very simple things that you should try first."
-msgstr ""
+msgstr "Eerst zou u twee heel eenvoudige dingen moeten proberen."
 
 #. Tag: para
 #: boot-installer.xml:3038
@@ -3268,6 +4730,8 @@ msgid ""
 "If the CD-ROM does not boot, check that it was inserted correctly and that "
 "it is not dirty."
 msgstr ""
+"Indien er niet opgestart wordt vanaf de CD, moet u nagaan of die wel correct "
+"in het station geplaatst werd en of hij niet vuil is."
 
 #. Tag: para
 #: boot-installer.xml:3044
@@ -3278,6 +4742,11 @@ msgid ""
 "menuchoice> a second time. Some DMA related issues with very old CD-ROM "
 "drives are known to be resolved in this way."
 msgstr ""
+"Indien het installatiesysteem er niet in slaagt een CD te herkennen, moet u "
+"gewoon nog een tweede keer de optie <menuchoice> <guimenuitem>Een CD "
+"detecteren en aankoppelen</guimenuitem> </menuchoice> uitproberen. Het is "
+"bekend dat sommige DMA-gerelateerde problemen bij erg oude CD-stations op "
+"die manier opgelost raken."
 
 #. Tag: para
 #: boot-installer.xml:3054
@@ -3287,6 +4756,10 @@ msgid ""
 "Most, but not all, suggestions discussed there are valid for both CD-ROM and "
 "DVD, but we'll use the term CD-ROM for simplicity."
 msgstr ""
+"Indien dit niet helpt, kunt u de suggesties uit de onderstaande paragrafen "
+"uitproberen. De meeste, hoewel niet alle, hierna behandelde suggesties "
+"gelden zowel voor CD als voor DVD, maar om het eenvoudig te houden zullen we "
+"hier de term CD gebruiken."
 
 #. Tag: para
 #: boot-installer.xml:3060
@@ -3295,12 +4768,14 @@ msgid ""
 "If you cannot get the installation working from CD-ROM, try one of the other "
 "installation methods that are available."
 msgstr ""
+"Indien u er niet in slaagt de installatie vanaf een CD op gang te krijgen, "
+"moet u het met een van de andere mogelijke installatiemethodes proberen."
 
 #. Tag: title
 #: boot-installer.xml:3068
 #, no-c-format
 msgid "Common issues"
-msgstr ""
+msgstr "Gebruikelijke problemen"
 
 #. Tag: para
 #: boot-installer.xml:3071
@@ -3309,6 +4784,8 @@ msgid ""
 "Some older CD-ROM drives do not support reading from discs that were burned "
 "at high speeds using a modern CD writer."
 msgstr ""
+"Sommige oudere CD-stations slagen er niet in om schijven te lezen die aan "
+"een hoge snelheid gebrand werden door een moderne CD-writer."
 
 #. Tag: para
 #: boot-installer.xml:3088
@@ -3317,18 +4794,22 @@ msgid ""
 "Some very old CD-ROM drives do not work correctly if <quote>direct memory "
 "access</quote> (DMA) is enabled for them."
 msgstr ""
+"Sommige zeer oude CD-stations werken niet correct als voor hen <quote>direct "
+"memory access</quote> (DMA) gebruikt wordt."
 
 #. Tag: title
 #: boot-installer.xml:3099
 #, no-c-format
 msgid "How to investigate and maybe solve issues"
-msgstr ""
+msgstr "Problemen onderzoeken en ze eventueel oplossen"
 
 #. Tag: para
 #: boot-installer.xml:3100
 #, no-c-format
 msgid "If the CD-ROM fails to boot, try the suggestions listed below."
 msgstr ""
+"Indien het niet lukt om met de CD op te starten, probeer dan de hierna "
+"vermelde suggesties."
 
 #. Tag: para
 #: boot-installer.xml:3105
@@ -3337,6 +4818,9 @@ msgid ""
 "Check that your BIOS actually supports booting from CD-ROM (only an issue "
 "for very old systems) and that CD booting is enabled in the BIOS."
 msgstr ""
+"Ga na of uw BIOS effectief het opstarten vanaf CD ondersteunt (kan enkel een "
+"probleem zijn op zeer oude systemen) en dat het opstarten vanaf CD in het "
+"BIOS geactiveerd is."
 
 #. Tag: para
 #: boot-installer.xml:3112
@@ -3353,6 +4837,17 @@ msgid ""
 "matches as well. The following command should work. It uses the size of the "
 "image to read the correct number of bytes from the CD-ROM."
 msgstr ""
+"Indien u een ISO-image downloadde, controleer dan of de md5sum van dat image "
+"overeenkomt met dat wat voor dat image in het bestand <filename>MD5SUMS</"
+"filename> vermeld staat. Dat bestand zou te vinden moeten zijn op dezelfde "
+"plaats waar u het image downloadde. <informalexample><screen>\n"
+"$ md5sum <replaceable>debian-testing-i386-netinst.iso</replaceable>\n"
+"a20391b12f7ff22ef705cee4059c6b92  <replaceable>debian-testing-i386-netinst."
+"iso</replaceable>\n"
+"</screen></informalexample> Ga vervolgens na of ook de md5sum van de "
+"gebrande CD ermee overeenkomt. Het volgende commando zou moeten werken. Het "
+"maakt gebruik van de grootte van het image om het correct aantal bytes van "
+"de CD te lezen."
 
 #. Tag: screen
 #: boot-installer.xml:3125
@@ -3367,6 +4862,14 @@ msgid ""
 "262668+0 records out\n"
 "134486016 bytes (134 MB) copied, 97.474 seconds, 1.4 MB/s"
 msgstr ""
+"$ dd if=/dev/cdrom | \\\n"
+"> head -c `stat --format=%s <replaceable>debian-testing-i386-netinst.iso</"
+"replaceable>` | \\\n"
+"> md5sum\n"
+"a20391b12f7ff22ef705cee4059c6b92  -\n"
+"262668+0 records in\n"
+"262668+0 records out\n"
+"134486016 bytes (134 MB) copied, 97.474 seconds, 1.4 MB/s"
 
 #. Tag: para
 #: boot-installer.xml:3130
@@ -3381,6 +4884,14 @@ msgid ""
 "should first switch to the second virtual console (VT2) and activate the "
 "shell there."
 msgstr ""
+"Als, nadat het installatiesysteem met succes opgestart werd, de CD niet "
+"herkend wordt, kan het probleem eenvoudig opgelost worden door nog eens te "
+"proberen. Indien u meer dan één CD-station heeft, probeer de CD dan eens in "
+"het andere station te plaatsen. Indien dat niet helpt, of indien de CD "
+"herkend wordt maar er bij het lezen ervan foutmeldingen komen, moet u de "
+"hieronder vermelde suggesties proberen. Daarvoor is enige basiskennis van "
+"&arch-kernel; nodig. Om deze commando's uit te voeren, moet u eerst naar de "
+"tweede virtuele console (VT2) gaan en daar de shell activeren."
 
 #. Tag: para
 #: boot-installer.xml:3142
@@ -3390,6 +4901,10 @@ msgid ""
 "(use <command>nano</command> as editor) to check for any specific error "
 "messages. After that, also check the output of <command>dmesg</command>."
 msgstr ""
+"Ga naar VT4 of bekijk de inhoud van <filename>/var/log/syslog</filename> "
+"(gebruik de editor <command>nano</command>) om eventuele specifieke "
+"foutmeldingen op te sporen. Kijk nadien ook de uitvoer na van "
+"<command>dmesg</command>."
 
 #. Tag: para
 #: boot-installer.xml:3149
@@ -3408,6 +4923,19 @@ msgid ""
 "not supported at all. If you know what driver is needed for the controller, "
 "you can try loading it manually using <command>modprobe</command>."
 msgstr ""
+"Ga in de uitvoer van <command>dmesg</command> na of uw CD-station herkend "
+"werd. U zou iets moeten vinden in de zin van (de regels moeten niet "
+"noodzakelijk na elkaar komen): <informalexample><screen>\n"
+"Probing IDE interface ide1...\n"
+"hdc: TOSHIBA DVD-ROM SD-R6112, ATAPI CD/DVD-ROM drive\n"
+"ide1 at 0x170-0x177,0x376 on irq 15\n"
+"hdc: ATAPI 24X DVD-ROM DVD-R CD-R/RW drive, 2048kB Cache, UDMA(33)\n"
+"Uniform CD-ROM driver Revision: 3.20\n"
+"</screen></informalexample> Indien u niets dergelijks vindt, is het mogelijk "
+"dat de controller waarmee uw CD-station verbonden is, niet herkend werd of "
+"zelfs helemaal niet ondersteund wordt. Indien u weet welk stuurprogramma er "
+"nodig is voor de controller, kunt u het handmatig proberen laden met "
+"<command>modprobe</command>."
 
 #. Tag: para
 #: boot-installer.xml:3163
@@ -3417,6 +4945,10 @@ msgid ""
 "</filename>. In the example above, this would be <filename>/dev/hdc</"
 "filename>. There should also be a <filename>/dev/cdrom</filename>."
 msgstr ""
+"Ga na of er voor uw CD-station onder <filename>/dev/</filename> een 'device "
+"node' (apparaatbestand) bestaat. In het bovenstaande voorbeeld is dit "
+"<filename>/dev/hdc</filename>. Er zou ook een <filename>/dev/cdrom</"
+"filename> moeten bestaan."
 
 #. Tag: para
 #: boot-installer.xml:3171
@@ -3428,6 +4960,12 @@ msgid ""
 "</screen></informalexample> Check if there are any error messages after that "
 "command."
 msgstr ""
+"Gebruik het commando <command>mount</command> om na te gaan of de CD reeds "
+"aangekoppeld is. Indien dit niet het geval is, moet u proberen hem handmatig "
+"aan te koppelen: <informalexample><screen>\n"
+"$ mount /dev/<replaceable>hdc</replaceable> /cdrom\n"
+"</screen></informalexample> Ga na of dit commando eventueel aanleiding geeft "
+"tot foutmeldingen."
 
 #. Tag: para
 #: boot-installer.xml:3181
@@ -3444,6 +4982,16 @@ msgid ""
 "</screen></informalexample> Make sure that you are in the directory for the "
 "device that corresponds to your CD-ROM drive."
 msgstr ""
+"Ga na of DMA momenteel geactiveerd is: <informalexample><screen>\n"
+"$ cd /proc/<replaceable>ide</replaceable>/<replaceable>hdc</replaceable>\n"
+"$ grep using_dma settings\n"
+"using_dma      1       0       1       rw\n"
+"</screen></informalexample> Een <quote>1</quote> in de eerste kolom na "
+"<literal>using_dma</literal> wijst erop dat het geactiveerd is. Indien dit "
+"het geval is moet u proberen het te deactiveren: <informalexample><screen>\n"
+"$ echo -n \"using_dma:0\" >settings\n"
+"</screen></informalexample> Zorg ervoor dat u zich bevindt in de map van het "
+"apparaat dat met uw CD-station overeenkomt."
 
 #. Tag: para
 #: boot-installer.xml:3196
@@ -3454,12 +5002,17 @@ msgid ""
 "main menu. This option can also be used as a general test if the CD-ROM can "
 "be read reliably."
 msgstr ""
+"Indien er zich tijdens de installatie problemen voordoen, moet u de "
+"integriteit van de CD proberen na te gaan met behulp van de optie die u "
+"vindt ergens onderaan in het hoofdmenu van het installatiesysteem. Deze "
+"optie kan ook gebruikt worden als algemene test om na te gaan of de CD op "
+"een betrouwbare wijze gelezen kan worden."
 
 #. Tag: title
 #: boot-installer.xml:3211
 #, no-c-format
 msgid "Floppy Disk Reliability"
-msgstr ""
+msgstr "Deugdelijkheid van diskettes"
 
 #. Tag: para
 #: boot-installer.xml:3213
@@ -3468,6 +5021,8 @@ msgid ""
 "The biggest problem for people using floppy disks to install &debian; seems "
 "to be floppy disk reliability."
 msgstr ""
+"Het grootste probleem voor mensen die diskettes gebruiken om &debian; te "
+"installeren, blijkt de betrouwbaarheid van diskettes te zijn."
 
 #. Tag: para
 #: boot-installer.xml:3218
@@ -3480,6 +5035,14 @@ msgid ""
 "failures in the driver floppies, most of which indicate themselves with a "
 "flood of messages about disk I/O errors."
 msgstr ""
+"De opstartdiskette (boot floppy) is de diskette die voor de grootste "
+"problemen zorgt, omdat die rechtstreeks door de hardware gelezen wordt, "
+"vooraleer Linux opgestart wordt. Vaak leest de hardware minder betrouwbaar "
+"dan het diskettestuurprogramma van Linux en bij het lezen van onjuiste "
+"gegevens, kan het proces gewoon stoppen zonder enige foutmelding te geven. "
+"Er kunnen ook problemen zijn met de diskettes met stuurprogramma's. De "
+"meeste daarvan worden gekenmerkt door een vloedgolf van foutmeldingen van "
+"het type 'disk I/O error'."
 
 #. Tag: para
 #: boot-installer.xml:3227
@@ -3492,6 +5055,13 @@ msgid ""
 "reformatted and written with no errors. It is sometimes useful to try "
 "writing the floppy on a different system."
 msgstr ""
+"Indien u geconfronteerd wordt met het feit dat de installatie vastloopt bij "
+"een specifieke diskette, is het eerste wat u zou moeten doen, het image "
+"opnieuw op een <emphasis>andere</emphasis> diskette schrijven en nagaan of "
+"dit het probleem oplost. Gewoon de oude diskette opnieuw formatteren kan "
+"onvoldoende zijn, zelfs al lijkt het erop dat de diskette foutloos opnieuw "
+"geformatteerd en beschreven kon worden. Soms kan het nuttig zijn om te "
+"proberen de diskette op een ander systeem te schrijven."
 
 #. Tag: para
 #: boot-installer.xml:3236
@@ -3501,6 +5071,9 @@ msgid ""
 "emphasis> times before one worked, and then everything was fine with the "
 "third floppy."
 msgstr ""
+"Een gebruiker rapporteerde ooit dat hij een image <emphasis>driemaal</"
+"emphasis> naar een diskette had moeten schrijven vooraleer er een was die "
+"werkte en dat nadien alles vlot verliep met die derde diskette."
 
 #. Tag: para
 #: boot-installer.xml:3242
@@ -3510,6 +5083,9 @@ msgid ""
 "are experiencing problems it is always useful to verify that the images were "
 "downloaded correctly by verifying their md5sums."
 msgstr ""
+"Normaal gezien zou u een diskette-image niet opnieuw moeten downloaden, maar "
+"als u problemen ervaart is het altijd nuttig om na te gaan of de images "
+"correct gedownload werden door hun md5sum te controleren."
 
 #. Tag: para
 #: boot-installer.xml:3248
@@ -3519,12 +5095,16 @@ msgid ""
 "floppy in the floppy drive can lead to a successful boot. This is all due to "
 "buggy hardware or firmware floppy drivers."
 msgstr ""
+"Andere gebruikers rapporteerden dat gewoon enige keren opnieuw proberen "
+"opstarten met dezelfde diskette in het diskettestation, uiteindelijk "
+"succesvol was. Dit houdt allemaal verband met het feit dat de hardware of de "
+"fabriekssoftware voor het diskettestation niet vrij van fouten is."
 
 #. Tag: title
 #: boot-installer.xml:3257
 #, no-c-format
 msgid "Boot Configuration"
-msgstr ""
+msgstr "De configuratie van het opstartproces"
 
 #. Tag: para
 #: boot-installer.xml:3259
@@ -3535,6 +5115,11 @@ msgid ""
 "properly, the first thing to check is the boot parameters, as discussed in "
 "<xref linkend=\"boot-parms\"/>."
 msgstr ""
+"Indien u problemen ervaart en de kernel gaat hangen tijdens het "
+"opstartproces, of bepaalde randapparaten die u wel degelijk heeft, niet "
+"herkent, of stations niet correct aanspreekt, is het eerste wat u moet doen, "
+"de opstartparameters controleren, zoals besproken wordt in <xref linkend="
+"\"boot-parms\"/>."
 
 #. Tag: para
 #: boot-installer.xml:3268
@@ -3544,6 +5129,9 @@ msgid ""
 "<xref linkend=\"hardware-firmware\"/> and <xref linkend=\"loading-firmware\"/"
 ">)."
 msgstr ""
+"In sommige gevallen kan het slecht functioneren te wijten zijn aan het feit "
+"dat er firmware ontbreekt voor het apparaat (zie <xref linkend=\"hardware-"
+"firmware\"/> en <xref linkend=\"loading-firmware\"/>)."
 
 #. Tag: para
 #: boot-installer.xml:3279
@@ -3556,36 +5144,44 @@ msgid ""
 "includes the output of the following commands, run on the same machine from "
 "a Linux system which is known to have sound working (e.g., a live CD)."
 msgstr ""
+"Indien de softwarematige spraaksynthese niet werkt, is de kans het grootst "
+"dat er een probleem is met uw geluidskaart. Gewoonlijk is dat dan ofwel een "
+"stuurprogramma dat niet aanwezig is in het installatiesysteem, ofwel een "
+"stuurprogramma dat ongebruikelijke namen gebruikt om het geluidsniveau voor "
+"de mixer aan te geven en die worden standaard op stil gezet. In een "
+"dergelijk geval zou u dus een bugrapport moeten opsturen met daarin de "
+"uitvoer van de volgende commando's. Dit moet op dezelfde machine gebeuren en "
+"vanuit een Linux-systeem met werkend geluid (bijv. een live-CD)."
 
 #. Tag: userinput
 #: boot-installer.xml:3290
 #, no-c-format
 msgid "dmesg"
-msgstr ""
+msgstr "dmesg"
 
 #. Tag: userinput
 #: boot-installer.xml:3292
 #, no-c-format
 msgid "lspci"
-msgstr ""
+msgstr "lspci"
 
 #. Tag: userinput
 #: boot-installer.xml:3294
 #, no-c-format
 msgid "lsmod"
-msgstr ""
+msgstr "lsmod"
 
 #. Tag: userinput
 #: boot-installer.xml:3296
 #, no-c-format
 msgid "amixer"
-msgstr ""
+msgstr "amixer"
 
 #. Tag: title
 #: boot-installer.xml:3304 boot-installer.xml:3415
 #, no-c-format
 msgid "Common &arch-title; Installation Problems"
-msgstr ""
+msgstr "Gebruikelijke installatieproblemen bij &arch-title;"
 
 #. Tag: para
 #: boot-installer.xml:3305
@@ -3594,6 +5190,9 @@ msgid ""
 "There are some common installation problems that can be solved or avoided by "
 "passing certain boot parameters to the installer."
 msgstr ""
+"Sommige gebruikelijke installatieproblemen kunnen opgelost of vermeden "
+"worden door bepaalde opstartparameters door te geven aan het "
+"installatiesysteem."
 
 #. Tag: para
 #: boot-installer.xml:3356
@@ -3607,12 +5206,20 @@ msgid ""
 "languages will be available during the installation due to limited console "
 "features. See <xref linkend=\"boot-parms\"/> for details."
 msgstr ""
+"Indien uw systeem bij het opstarten van de kernel een vreemd beeld begint te "
+"vertonen, bijv. een volledig wit of volledig zwart scherm of een rommelige "
+"boel kleurrijke pixels, dan is het mogelijk dat er een problematische "
+"videokaart insteekt die niet correct naar framebuffermodus overschakelt. U "
+"kunt dan de opstartparameter <userinput>fb=false</userinput> gebruiken om de "
+"framebufferconsole uit te zetten. Tijdens de installatie zullen dan slechts "
+"een bepekt aantal talen ter beschikking staan wegens de beperkte "
+"consolefunctionaliteit. Zie <xref linkend=\"boot-parms\"/> voor details."
 
 #. Tag: title
 #: boot-installer.xml:3370
 #, no-c-format
 msgid "System Freeze During the PCMCIA Configuration Phase"
-msgstr ""
+msgstr "Het vastlopen van het systeem in de fase van de PCMCIA-configuratie"
 
 #. Tag: para
 #: boot-installer.xml:3371
@@ -3626,6 +5233,15 @@ msgid ""
 "can then configure PCMCIA after the installation is completed and exclude "
 "the resource range causing the problems."
 msgstr ""
+"Van sommige erg oude laptopmodellen die door Dell gefabriceerd werden, is "
+"geweten dat ze crashen op het moment dat de detectie van PCMCIA-apparaten "
+"sommige hardware-adressen probeert aan te spreken. Andere laptops kunnen "
+"gelijkaardige problemen vertonen. Indien u een dergelijk probleem ervaart en "
+"u tijdens de installatie geen behoefte heeft aan ondersteuning voor PCMCIA, "
+"kunt u dat uitzetten met de opstartparameter <userinput>hw-detect/"
+"start_pcmcia=false</userinput>. U kunt dan na het beëindigen van de "
+"installatie de configuratie van PCMCIA uitvoeren en het systeembronnenbereik "
+"dat verantwoordelijk is voor de problemen, uitsluiten."
 
 #. Tag: para
 #: boot-installer.xml:3381
@@ -3640,18 +5256,29 @@ msgid ""
 "settings section of the PCMCIA HOWTO</ulink>. Note that you have to omit the "
 "commas, if any, when you enter this value in the installer."
 msgstr ""
+"In het andere geval kunt u het installatiesysteem opstarten in expertmodus. "
+"Er zal u dan gevraagd worden om de opties voor systeembronnenbereik, waaraan "
+"uw systeem behoefte heeft, op te geven. Indien u bijvoorbeeld een van de "
+"hierboven vermelde Dell-laptops heeft, zou u hier <userinput>exclude port "
+"0x800-0x8ff</userinput> moeten opgeven. U kunt ook een lijst van "
+"gebruikelijke opties voor systeembronnenbereik vinden in het hoofdstuk "
+"<ulink url=\"http://pcmcia-cs.sourceforge.net/ftp/doc/PCMCIA-HOWTO-1."
+"html#ss1.12\">System resource settings</ulink> van de PCMCIA HOWTO. Merk op "
+"dat u eventuele komma's moet weglaten wanneer u deze waarde aan het "
+"installatiesysteem doorgeeft."
 
 #. Tag: para
 #: boot-installer.xml:3416
 #, no-c-format
 msgid "There are some common installation problems that are worth mentioning."
 msgstr ""
+"Een aantal gebruikelijke installatieproblemen zijn het vermelden waard."
 
 #. Tag: title
 #: boot-installer.xml:3422
 #, no-c-format
 msgid "Misdirected video output"
-msgstr ""
+msgstr "Verkeerd geadresseerde video-uitvoer"
 
 #. Tag: para
 #: boot-installer.xml:3423
@@ -3668,6 +5295,19 @@ msgid ""
 "phase using a kernel parameter. For example, to disable an ATI card, you "
 "should boot the installer with <userinput>video=atyfb:off</userinput>."
 msgstr ""
+"Bij &arch-title; is het redelijk gebruikelijk om op de machine twee "
+"grafische kaarten te hebben, bijvoorbeeld een ATI-kaart en een Sun Creator "
+"3D. In sommige gevallen kan dit tot een situatie leiden, waarbij de uitvoer "
+"verkeerd geadresseerd wordt kort na het opstarten van het systeem. Typisch "
+"voor een dergelijk geval is dat op het scherm enkel het volgende te zien is: "
+"<informalexample><screen>\n"
+"Remapping the kernel... done\n"
+"Booting Linux...\n"
+"</screen></informalexample> Om dit te omzeilen kunt u ofwel een van beide "
+"grafische kaarten verwijderen, of die welke tijdens de OpenProm-opstartfase "
+"niet gebruikt wordt, uitschakelen met behulp van een kernel-parameter. Om "
+"bijvoorbeeld een ATI-kaart uit te schakelen, moet u het installatiesysteem "
+"opstarten met <userinput>video=atyfb:off</userinput>."
 
 #. Tag: para
 #: boot-installer.xml:3437
@@ -3678,12 +5318,17 @@ msgid ""
 "rebooting) and, if you installed X11, modify the video driver in <filename>/"
 "etc/X11/xorg.conf</filename>."
 msgstr ""
+"Merk op dat u deze parameter mogelijk ook handmatig zult moeten toevoegen "
+"aan de configuratie van silo (bewerk <filename>/target/etc/silo.conf</"
+"filename> vooraleer opnieuw op te starten) en het grafische stuurprogramma "
+"in <filename>/etc/X11/xorg.conf</filename> zult moeten aanpassen, indien u "
+"X11 installeerde."
 
 #. Tag: title
 #: boot-installer.xml:3448
 #, no-c-format
 msgid "Failure to Boot or Install from CD-ROM"
-msgstr ""
+msgstr "Opstarten of installeren van CD mislukt"
 
 #. Tag: para
 #: boot-installer.xml:3449
@@ -3693,18 +5338,24 @@ msgid ""
 "they do boot, there may be inexplicable failures during the installation. "
 "Most problems have been reported with SunBlade systems."
 msgstr ""
+"Sommige Sparc-systemen zijn ervoor berucht dat ze moeilijk opstarten van CD, "
+"en zelfs als ze daarin slagen, dat ze tijdens de installatie op "
+"onverklaarbare wijze bij een mislukking uitkomen. De meeste van die "
+"problemen werden bij SunBlade systemen gesignaleerd."
 
 #. Tag: para
 #: boot-installer.xml:3455
 #, no-c-format
 msgid "We recommend to install such systems by netbooting the installer."
 msgstr ""
+"We raden aan om bij dergelijke systemen het installatiesysteem over het "
+"netwerk op te starten."
 
 #. Tag: title
 #: boot-installer.xml:3464
 #, no-c-format
 msgid "Interpreting the Kernel Startup Messages"
-msgstr ""
+msgstr "De meldingen bij het opstarten van de kernel interpreteren"
 
 #. Tag: para
 #: boot-installer.xml:3466
@@ -3727,12 +5378,30 @@ msgid ""
 "a custom kernel later <phrase arch=\"linux-any\">(see <xref linkend=\"kernel-"
 "baking\"/>)</phrase>."
 msgstr ""
+"Tijdens de opstartsequentie kan het gebeuren dat u verschillende meldinden "
+"ziet in de zin van <computeroutput>can't find <replaceable>iets</"
+"replaceable></computeroutput>, of <computeroutput><replaceable>iets</"
+"replaceable> not present</computeroutput>, <computeroutput>can't initialize "
+"<replaceable>iets</replaceable></computeroutput>, of zelfs "
+"<computeroutput>this driver release depends on <replaceable>iets</"
+"replaceable></computeroutput>. De meeste van dit soort meldingen zijn "
+"onschadelijk. U krijgt ze te zien omdat de kernel voor het "
+"installatiesysteem gebouwd is om uitgevoerd te kunnen worden op computers "
+"met veel verschillende randapparaten. Vanzelfsprekend zal geen enkele "
+"computer met alle mogelijke randapparatuur uitgerust zijn en dus kan het "
+"besturingssysteem enkele klachten uiten omdat het randapparaten die u niet "
+"heeft, niet kan vinden. Het kan ook zijn dat u vaststelt dat het systeem "
+"even pauzeert. Dit gebeurt wanneer het wacht op een antwoord van een "
+"apparaat dat niet op uw systeem aanwezig is. Indien u de tijd die het "
+"systeem nodig heeft, als onaanvaardbaar lang ervaart, kunt u later een "
+"aangepaste kernel maken <phrase arch=\"linux-any\">(zie <xref linkend="
+"\"kernel-baking\"/>)</phrase>."
 
 #. Tag: title
 #: boot-installer.xml:3491
 #, no-c-format
 msgid "Reporting Installation Problems"
-msgstr ""
+msgstr "Installatieproblemen rapporteren"
 
 #. Tag: para
 #: boot-installer.xml:3492
@@ -3746,6 +5415,14 @@ msgid ""
 "you are submitting a bug report, you may want to attach this information to "
 "the bug report."
 msgstr ""
+"Indien u door de initiële opstartfase heen geraakt, maar de installatie niet "
+"kunt voltooien, kan de menuoptie <guimenuitem>Save debug logs</guimenuitem> "
+"(debug-logs opslaan) nuttig zijn. Het laat u toe om logs over systeemfouten "
+"en configuratie-informatie uit het installatiesysteem op een diskette op te "
+"slaan of ze met een webbrowser te downloaden. Deze informatie kan "
+"aanwijzingen bevatten over wat er fout liep en hoe het gerepareerd kan "
+"worden. Indien u een bugrapport instuurt, kunt u deze informatie toevoegen "
+"aan het bugrapport."
 
 #. Tag: para
 #: boot-installer.xml:3503
@@ -3755,12 +5432,15 @@ msgid ""
 "filename> during the installation, and <filename>/var/log/installer/</"
 "filename> after the computer has been booted into the installed system."
 msgstr ""
+"Andere pertinente installatiemeldingen kunt u vinden in <filename>/var/log/</"
+"filename> tijdens de installatie en in <filename>/var/log/installer/</"
+"filename> nadat de computer opgestart werd met het geïnstalleerde systeem."
 
 #. Tag: title
 #: boot-installer.xml:3514
 #, no-c-format
 msgid "Submitting Installation Reports"
-msgstr ""
+msgstr "Installatierapporten insturen"
 
 #. Tag: para
 #: boot-installer.xml:3515
@@ -3771,6 +5451,11 @@ msgid ""
 "successful, so that we can get as much information as possible on the "
 "largest number of hardware configurations."
 msgstr ""
+"Indien u problemen blijft ervaren, hebben we graag dat u een "
+"installatierapport instuurt. We moedigen het insturen van "
+"installatierapporten zelfs aan als de installatie succesvol was. Op die "
+"manier kunnen we zoveel mogelijk informatie verzamelen over een zo groot "
+"mogelijk aantal hardwareconfiguraties."
 
 #. Tag: para
 #: boot-installer.xml:3522
@@ -3780,6 +5465,10 @@ msgid ""
 "Tracking System (BTS) and forwarded to a public mailing list. Make sure that "
 "you use an e-mail address that you do not mind being made public."
 msgstr ""
+"Merk op dat uw installatierapport gepubliceerd zal worden in het Debian Bug "
+"Tracking System (BTS), het bug-opvolgingssysteem van Debian, en doorgestuurd "
+"wordt maar een publieke mailinglijst. Zorg ervoor dat u een e-mailadres "
+"gebruikt waarvan u het niet erg vindt dat het openbaar gemaakt wordt."
 
 #. Tag: para
 #: boot-installer.xml:3528
@@ -3793,6 +5482,13 @@ msgid ""
 "outgoing\"/>, and run the command <command>reportbug installation-reports</"
 "command>."
 msgstr ""
+"Indien u over een werkend &debian; systeem beschikt, loopt de gemakkelijkste "
+"manier om een installatierapport in te sturen via het installeren van de "
+"pakketten <classname>installation-report</classname> en "
+"<classname>reportbug</classname> (<command>apt install installation-report "
+"reportbug</command>). Configureer <classname>reportbug</classname> zoals "
+"uitgelegd wordt in <xref linkend=\"mail-outgoing\"/> en voer het commando "
+"<command>reportbug installation-reports</command> uit."
 
 #. Tag: para
 #: boot-installer.xml:3538
@@ -3841,3 +5537,132 @@ msgid ""
 "Describe the steps that you did which brought the system into the problem "
 "state."
 msgstr ""
+"Een andere mogelijkheid is om dit model te gebruiken bij het opstellen van "
+"het installatierapport en het verslag als een bugrapport over het pseudo-"
+"pakket<classname>installation-reports</classname> in te sturen naar "
+"<email>submit@bugs.debian.org</email>.\n"
+"Noot van het Nederlandse vertaalteam van Debian: aangezien Debian een "
+"wereldwijd project is, wordt in de interne communicatie hoofdzakelijk de "
+"Engelse taal gehanteerd. Mocht u dit als een drempel ervaren, dan kunt u "
+"daarbij misschien hulp vragen op de mailinglijst van de Nederlandstalige "
+"gebruikersgemeenschap van debian: <email>debian-user-dutch@lists.debian.org</"
+"email>. <informalexample><screen>\n"
+"Package: installation-reports\n"
+"(Pakket: installation-reports)\n"
+"\n"
+"Boot method: &lt;How did you boot the installer? CD? floppy? network?&gt;\n"
+"(Opstartmethode: &lt;Hoe startte u het installatiesysteem? CD? diskette? "
+"netwerk?&gt;)\n"
+"Image version: &lt;Full URL to image you downloaded is best&gt;\n"
+"(Image-versie: &lt;Bij voorkeur de volledige URL van het gedownloade "
+"image&gt;)\n"
+"Date: &lt;Date and time of the install&gt;\n"
+"(Datum &lt;Datum en tijd van de installatie&gt;)\n"
+"\n"
+"Machine: &lt;Description of machine (eg, IBM Thinkpad R32)&gt;\n"
+"(Computer:&lt;Beschrijving van de machine (bijv. IBM Thinkpad R32)&gt;)\n"
+"Processor:\n"
+"(Processor:)\n"
+"Memory:\n"
+"(Geheugen:)\n"
+"Partitions: &lt;df -Tl will do; the raw partition table is preferred&gt;\n"
+"(Partities: &lt;df -Tl is bruikbaar; de ruwe partitietabel geniet de "
+"voorkeur&gt;)\n"
+"\n"
+"Output of lspci -knn (or lspci -nn):\n"
+"(Uitvoer van lspci -knn (of lspci -nn):)\n"
+"\n"
+"Base System Installation Checklist:\n"
+"(Checklist bij de installatie van het basissysteem:)\n"
+"[O] = OK, [E] = Error (please elaborate below), [ ] = didn't try it\n"
+"([O] = OK, [E] = Fout (geef hieronder wat toelichting), [ ] = niet "
+"geprobeerd)\n"
+"\n"
+"Initial boot:                    [ ]\n"
+"(Aanvankelijk opstarten          [ ])\n"
+"Detect network card:             [ ]\n"
+"(Herkennen netwerkkaart          [ ])\n"
+"Configure network:               [ ]\n"
+"(Netwerkconfiguratie:            [ ])\n"
+"Detect CD:                       [ ]\n"
+"(Herkennen CD:                   [ ])\n"
+"Load installer modules:          [ ]\n"
+"(Installatiemodules laden:       [ ])\n"
+"Detect hard drives:              [ ]\n"
+"(Herkennen harde schijven:       [ ])\n"
+"Partition hard drives:           [ ]\n"
+"(Indelen harde schijven:         [ ])\n"
+"Install base system:             [ ]\n"
+"(Basissysteem installeren        [ ])\n"
+"Clock/timezone setup:            [ ]\n"
+"(Instellen klok/tijdzone         [ ])\n"
+"User/password setup:             [ ]\n"
+"(Instellen gebruiker/wachtwoord: [ ])\n"
+"Install tasks:                   [ ]\n"
+"(Taken installeren:              [ ])\n"
+"Install boot loader:             [ ]\n"
+"(Opstartlader installeren        [ ])\n"
+"Overall install:                 [ ]\n"
+"(De globale installatie:         [ ])\n"
+"\n"
+"Comments/Problems:\n"
+"(Commentaar/Problemen:)\n"
+"\n"
+"&lt;Description of the install, in prose, and any thoughts, comments\n"
+"      and ideas you had during the initial install.&gt;\n"
+"(&lt;Beschrijf de installatie in gewone woorden en vermeld eventuele\n"
+"   bedenkingen, commentaar en ideeën die u tijdens de installatie had.&gt;)\n"
+"</screen></informalexample> Beschrijf in het bugrapport wat het probleem is, "
+"vermeld ook de laatste zichtbare meldingen van de kernel als het een "
+"vastlopen van de kernel betreft. Beschrijf de verschillende stappen die u "
+"ondernam en die tot het probleem op het systeem leidden."
+
+#~ msgid "SGI TFTP Booting"
+#~ msgstr "Opstarten met TFTP voor SGI"
+
+#~ msgid ""
+#~ "After entering the command monitor use <informalexample><screen>\n"
+#~ "bootp():\n"
+#~ "</screen></informalexample> on SGI machines to boot linux and to begin "
+#~ "installation of the &debian; Software. In order to make this work you may "
+#~ "have to unset the <envar>netaddr</envar> environment variable. Type "
+#~ "<informalexample><screen>\n"
+#~ "unsetenv netaddr\n"
+#~ "</screen></informalexample> in the command monitor to do this."
+#~ msgstr ""
+#~ "Nadat u naar de 'command monitor' (hulpmiddel voor het superviseren en "
+#~ "manipuleren van de opstartomgeving) gegaan bent, moet u op SGI-machines "
+#~ "<informalexample><screen>\n"
+#~ "bootp():\n"
+#~ "</screen></informalexample> gebruiken om Linux te starten en te beginnen "
+#~ "met de installatie van de software van &debian;. Opdat dit zou kunnen "
+#~ "werken kan het nodig zijn om de omgevingsvariabele <envar>netaddr</envar> "
+#~ "uit te schakelen. Typ <informalexample><screen>\n"
+#~ "unsetenv netaddr\n"
+#~ "</screen></informalexample> in de 'command monitor' om dit te realiseren."
+
+#~ msgid ""
+#~ "On SGI machines you can append boot parameters to the <command>bootp():</"
+#~ "command> command in the command monitor."
+#~ msgstr ""
+#~ "Op SGI-machines kunt u in de 'command monitor' opstartparameters "
+#~ "toevoegen aan het commando <command>bootp():</command>."
+
+#~ msgid ""
+#~ "Following the <command>bootp():</command> command you can give the path "
+#~ "and name of the file to boot if you did not give an explicit name via "
+#~ "your bootp/dhcp server. Example: <informalexample><screen>\n"
+#~ "bootp():/boot/tftpboot.img\n"
+#~ "</screen></informalexample> Further kernel parameters can be passed via "
+#~ "<command>append</command>:"
+#~ msgstr ""
+#~ "Achter het commando <command>bootp():</command> kunt u het pad en de naam "
+#~ "van het bestand vermelden waarmee opgestart moet worden indien u niet "
+#~ "expliciet via uw bootp/dhcp-server een naam opgaf. Bijvoorbeeld "
+#~ "<informalexample><screen>\n"
+#~ "bootp():/boot/tftpboot.img\n"
+#~ "</screen></informalexample> Andere kernelparameters kunnen via "
+#~ "<command>append</command> opgegeven worden:"
+
+#~ msgid "bootp(): append=\"root=/dev/sda1\""
+#~ msgstr "bootp(): append=\"root=/dev/sda1\""
