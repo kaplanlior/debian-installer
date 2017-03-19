@@ -1,27 +1,64 @@
 <!-- $Id$ -->
-<!-- original version: 70558 -->
+<!-- original version: 70568 -->
 
   <sect2 arch="mips;mips64el;mipsel">
-  <title>Procesory, základní desky a grafické karty</title>
+  <title>Platformy podporované v &debian; &architecture;</title>
 <para>
 
 &debian; na &arch-title; podporuje následující platformy:
 
-<itemizedlist>
-<listitem><para>
+<variablelist>
+<varlistentry>
+  <term>Cavium Octeon</term>
+  <listitem><para>
+
+Společnost Cavium navrhuje řadu 64 bitových procesorů MIPS Octeon,
+které se používají převážně v síťových zařízeních. Mezi tato zařízení
+patří Ubiquiti EdgeRouter a Rhino Labs UTM8.
+
+  </para></listitem>
+</varlistentry>
+
+<varlistentry arch="mips64el;mipsel">
+  <term>Loongson 3</term>
+  <listitem><para>
+
+Podporována jsou zařízení založená na procesorech Loongson 3A a 3B.
+<!-- TODO list some actual devices here -->
+
+  </para></listitem>
+</varlistentry>
+
+<varlistentry>
+  <term>MIPS Malta</term>
+  <listitem><para>
 
 MIPS Malta: tato platforma je emulovaná v QEMU a je tudíž příjemnou
 možností, jak testovat/používat &debian; na platformě MIPS v případě, že
 nedisponujete příslušným hardwarem.
 
-</para></listitem>
-</itemizedlist>
+  </para><para>
 
-Kompletní informace o podporovaných počítačích mips/mipsel/mips64el najdete
-na stránce <ulink url="&url-linux-mips;">Linux MIPS</ulink>. V této
-sekci popíšeme pouze systémy podporované instalačními médii.
+Pro Maltu existují dvě varianty jádra: 4kc-malta pro 32 bitové
+procesory a 5kc-malta pro procesory 64 bitové.
+
+  </para></listitem>
+</varlistentry>
+</variablelist>
+
+</para><para>
+
+Mimo výše uvedené by měl &debian; běžet i na deskách s procesory
+<phrase arch="mips;mipsel">MIPS32r2 nebo</phrase> MIPS64r2, ale pro
+tyto nesestavujeme jádra a &d-i; je nepodporuje.
+
+</para><para>
+
+Kompletní informace o podporovaných počítačích mips/mipsel/mips64el
+najdete na stránce <ulink url="&url-linux-mips;">Linux MIPS</ulink>.
+V této sekci popíšeme pouze systémy podporované instalačními médii.
 Hledáte-li podporu pro ostatní podarchitektury, kontaktujte prosím
-diskusní list <ulink
+diskusní skupinu <ulink
 url="&url-list-subscribe;">debian-&arch-listname;</ulink>.
 
 </para>
@@ -30,10 +67,71 @@ url="&url-list-subscribe;">debian-&arch-listname;</ulink>.
 <para>
 
 Některé MIPS počítače mohou běžet jak v little, tak v big endian
-režimu.  Poznámka: pro MIPS s adresováním <quote>little endian</quote>
-se podívejte na architekturu mipsel nebo mips64el.
+režimu.
+
+<phrase arch="mips64el;mipsel">
+
+Pro MIPS s adresováním <quote>little endian</quote> se podívejte na
+architekturu mipsel nebo mips64el.
+
+</phrase><phrase arch="mips">
+
+Pro MIPS s adresováním <quote>big endian</quote> se podívejte na
+architekturu mips.
+
+</phrase>
 
 </para>
    </sect3>
   </sect2>
 
+  <sect2 arch="mips;mipsel">
+  <title>Platformy dále nepodporované v &debian; &architecture;</title>
+<para>
+
+Počínaje &debian;em Stretch byla odstraněna podpora pro procesory
+MIPS, neimplementující specifikaci MIPS32 Release 2 a proto již nejsou
+podporovány následující platformy, které byly podporovány v Jessie:
+
+<variablelist>
+<varlistentry>
+<term>Loongson 2E a 2F</term>
+<listitem>
+
+Jedná se o starší procesory Loongson, které lze najít v zařízeních
+jako Fuloong Mini-PC a Lemote Yeeloong laptop.
+
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>SGI IP22</term>
+<listitem>
+
+Tato platforma zahrnuje stanice SGI Indy, Indigo 2 a Challenge S.
+
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>SGI IP32</term>
+<listitem>
+
+Tato platforma je obecně známá jako SGI O2.
+
+</listitem>
+</varlistentry>
+
+<varlistentry>
+<term>Broadcom BCM91250</term>
+<listitem>
+
+Vývojářská deska pro Broadcom SiByte, též známá pod kódovým názvem
+SWARM.
+
+</listitem>
+</varlistentry>
+</variablelist>
+
+</para>
+  </sect2>
