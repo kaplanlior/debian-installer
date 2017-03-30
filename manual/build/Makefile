@@ -23,6 +23,7 @@ $(TARGETS): %:
 	fi ; \
 	export destdir=build.out.$$lang.$$arch ; \
 	export tempdir=build.tmp.$$lang.$$arch ; \
+	echo "Calling ./buildone.sh \"$$arch\" \"$$lang\" \"$$formats\"" ; \
 	./buildone.sh "$$arch" "$$lang" "$$formats" ; \
 	mkdir -p "$$arch_destination/$$destsuffix" ; \
 	for format in $$formats; do \
