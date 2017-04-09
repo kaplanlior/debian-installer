@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: d-i-manual_preparing\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2017-02-17 15:37+0000\n"
-"PO-Revision-Date: 2017-04-09 10:40+0100\n"
+"PO-Revision-Date: 2017-04-09 11:40+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -885,6 +885,13 @@ msgid ""
 "(<quote>RTL8111</quote>/<quote>RTL8168B</quote> in the network card example "
 "and <quote>RV710</quote> in the graphics card example), can help."
 msgstr ""
+"En søgning på internettet med leverandør-/produkt-id, <quote>&arch-kernel;</"
+"quote> og <quote>driver</quote> som søgeord giver ofte information om "
+"status på driverunderstøttelsen for et bestemt chipsæt. Hvis en søgning på "
+"leverandør-/produkt-id ikke giver et nyttigt resultat, kan en søgning på "
+"chipkodenavnet, som ofte også er angivet via lsusb og lspci (<quote>RTL8111"
+"</quote>/<quote>RTL8168B</quote> i eksemplet for netværkskort og "
+"<quote>RV710</quote> i eksemplet med grafikkortet), også hjælpe."
 
 #. Tag: title
 #: preparing.xml:599
@@ -907,6 +914,17 @@ msgid ""
 "hardware is supported by &debian-gnu;, the easiest way is to run a &debian; "
 "live system on it and try it out."
 msgstr ""
+"&debian-gnu; er også tilgængelig som et såkaldt <quote>live system</quote> "
+"for bestemte arkitekturer. Et live system er et på forhånd konfigureret "
+"system i et komprimeret format, som der kan startes op fra og bruges fra "
+"et skrivebeskyttet medie såsom en cd eller dvd. Brug af den som standard "
+"opretter ingen permanente ændringer på din computer. Du kan ændre "
+"brugerindstillinger og installere og installere yderligere programmer "
+"inden fra live systemet, men alt dette sker kun i computerens ram, dvs. "
+"hvis du slukker for din computer og starter live systemet igen, så er alt "
+"tilbage til standard. Hvis du ønsker at se om dit udstyr er understøttet "
+"af &debian-gnu;, er den hurtigste måde at afvikle et &debian; live system "
+"på udstyret og prøve sig frem."
 
 #. Tag: para
 #: preparing.xml:614
@@ -923,6 +941,17 @@ msgid ""
 "automatic detection of required firmware files like in the &d-i;, so "
 "installation of non-free components must be done manually if needed."
 msgstr ""
+"Der er nogle få begrænsninger i brugen af et live system. Den første er "
+"at alle ændringer du udfører på systemet skal være i computerens ram-lager, "
+"og dette fungerer kun på systemer med nok ram til dette formål, så "
+"installation af store programpakker kan fejle på grund af "
+"hukommelsesbegrænsninger. En anden begrænsning vedrørende udstyrets "
+"kompatibilitetstest er at det officielle &debian-gnu; live system kun "
+"indeholder frie komponenter, det vil sige at der er ingen ikke-frie "
+"firmwarefiler inkluderet. Sådanne ikke-frie pakker kan selvfølgelig "
+"installeres manuelt på systemet, men der er ingen automatisk "
+"registrering af krævede firmwarefiler som i &d-i;, så installation af "
+"ikke-frie komponenter skal udføres manuelt, såfremt de er krævet."
 
 #. Tag: para
 #: preparing.xml:627
@@ -1580,6 +1609,11 @@ msgid ""
 "devices such as USB sticks or external USB harddisks. On modern systems "
 "there is also often a possibility to enable network booting via PXE."
 msgstr ""
+"I BIOS-opsætningsmenuen kan du vælge hvilke enheder, der skal kontrolleres "
+"i hvilken sekvens af det startende operativsystem. Mulige valg inkluderer "
+"normalt interne harddiske, cd/dvd-rom-drev og USB-enheder enten i form af "
+"små drev eller eksterne USB-harddiske. På moderne systemer er det ofte "
+"også muligt at aktivere netværksopstart via PXE."
 
 #. Tag: para
 #: preparing.xml:1148
@@ -1617,6 +1651,9 @@ msgid ""
 "the current boot device, you will have to change your BIOS setup to make the "
 "device from which the &d-i; shall be booted the primary boot device."
 msgstr ""
+"Hvis din BIOS ikke giver dig en opstartsmenu til ad hoc-valg for din "
+"nuværende opstartsenhed, så skal du ændre din BIOS-opsætning, så enheden "
+"hvorfra &d-i; startes op er den primære opstartsenhed."
 
 #. Tag: para
 #: preparing.xml:1174
@@ -1693,6 +1730,15 @@ msgid ""
 "running on another computer, connected to the modem port, is needed to "
 "interact with OpenFirmware."
 msgstr ""
+"OpenFirmware-prompten ser således ud: <informalexample><screen>\n"
+"ok\n"
+"0 &gt;\n"
+"</screen></informalexample> Bemærk at på ældre modeller &arch-title; Macs, "
+"er standarden og undertiden hardwired I/O for OpenFirmware-brugerinteraktion "
+"via den serielle (modem) port. Hvis du starter OpenFirmware på en af disse "
+"maskiner, så får du en sort skærm. I det tilfælde, er et terminalprogram "
+"der kører på en anden computer, forbundet til modemporten, krævet for at "
+"interagere med OpenFirmware."
 
 #. Tag: para
 #: preparing.xml:1237
@@ -1794,6 +1840,9 @@ msgid ""
 "the system menu, click <command>Service Aids -&gt; Service Processor Command "
 "Line</command>, and run the following command:"
 msgstr ""
+"Gem niveauet for den eksisterende firmware før du udfører den faktiske "
+"opdatering. I ASM, i systemmenuen, klik på <command>Service Aids -&gt; "
+"Service Processor Command Line</command>, og afvikl den følgende kommando:"
 
 #. Tag: screen
 #: preparing.xml:1299
@@ -1809,6 +1858,9 @@ msgid ""
 "in the host filesystem. Refer to <ulink url=\"&url-ibm-fixcentral;\">IBM Fix "
 "Central</ulink> for downloading the image file."
 msgstr ""
+"Hent .img-filen for det niveau af firmwaren, der skal opdateres, til en "
+"placering i værtsfilsystemet. Se <ulink url=\"&url-ibm-fixcentral;\">IBM Fix "
+"Central</ulink> for hvordan filen hentes."
 
 #. Tag: para
 #: preparing.xml:1305
@@ -2225,6 +2277,11 @@ msgid ""
 "redbooks/sg246264.pdf\"> Linux for IBM eServer zSeries and &arch-title;: "
 "Distributions</ulink> Redbook on how to set up an LPAR for Linux."
 msgstr ""
+"Se venligst kapitel 5 i <ulink url=\"http://www.redbooks.ibm.com/"
+"pubs/pdfs/redbooks/sg244987.pdf\"> Linux for &arch-title;</ulink> Redbook "
+"og kapitel 3.2 i <ulink url=\"http://www.redbooks.ibm.com/pubs/pdfs/"
+"redbooks/sg246264.pdf\"> Linux for IBM eServer zSerien og &arch-title;: "
+"Distributions</ulink> Redbook for hvordan en LPAR sættes op for Linux."
 
 #. Tag: title
 #: preparing.xml:1599
@@ -2277,6 +2334,10 @@ msgid ""
 "from your S/390. This server keeps all the packages you want to install and "
 "must make them available using NFS, HTTP or FTP."
 msgstr ""
+"Hvis du ikke har en forbindelse til internettet (enten direkte eller via "
+"en netproxy) så skal du oprette en lokal installationsserver, som kan tilgås "
+"fra din S/390. Denne server indeholder alle pakkerne, du ønsker at installere "
+"og de skal være tilgængelige via NFS, HTTP eller FTP."
 
 #. Tag: para
 #: preparing.xml:1638
@@ -2296,7 +2357,7 @@ msgstr ""
 #: preparing.xml:1647
 #, no-c-format
 msgid "FIXME: more information needed &mdash; from a Redbook?"
-msgstr ""
+msgstr "FIXME: more information needed &mdash; from a Redbook?"
 
 #. Tag: title
 #: preparing.xml:1657
@@ -2383,6 +2444,11 @@ msgid ""
 "addresses from a centrally-administered pool (for which a fee has to be "
 "paid) and preconfigures one of these addresses on each item sold."
 msgstr ""
+"MAC-adressen for hver ethernetgrænseflade skal normalt være global unik, "
+"og den skal teknisk være unik indenfor sit ethernet broadcast-domæne. For "
+"at opnå dette, allokerer leverandøren normalt en blok af MAC-adresser fra "
+"en centralt administreret pulje (hvilket der skal betales et vederlag for) "
+"og forhåndskonfigurerer en af disse adresser på hvert solgt enhed."
 
 #. Tag: para
 #: preparing.xml:1717
@@ -2428,7 +2494,7 @@ msgstr ""
 #: preparing.xml:1749
 #, no-c-format
 msgid "Kernel/Initrd/Device-Tree relocation issues in U-Boot"
-msgstr ""
+msgstr "Kernel/Initrd/Device-Tree-flytteproblemstillinger i U-Boot"
 
 #. Tag: para
 #: preparing.xml:1750
@@ -2663,14 +2729,3 @@ msgstr ""
 "MacOS til at bruge 256 farver i stedet for <quote>tusinde</quote> eller "
 "<quote>millioner</quote>."
 
-#~ msgid ""
-#~ "Der bør være den følgende indstilling med petitboot (vælg den): "
-#~ "<informalexample><screen>\n"
-#~ "\"Power KVM Automated Install\" \n"
-#~ "</screen></informalexample> The installer menu should appear "
-#~ "automatically."
-#~ msgstr ""
-#~ "There should be the following option at petitboot (select it): "
-#~ "<informalexample><screen>\n"
-#~ "\"Power KVM Automated Install\" \n"
-#~ "</screen></informalexample> Installationsmenuen kommer frem automatisk."
