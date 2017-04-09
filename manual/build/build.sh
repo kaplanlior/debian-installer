@@ -59,7 +59,8 @@ PRESEED="../en/appendix/preseed.xml"
 if [ -f $PRESEED ] && [ -f preseed.pl ] ; then
     for arch in $architectures; do
 	eval arch_destination=$destination
-	./preseed.pl -r $manual_release $PRESEED >$arch_destination/example-preseed.txt
+	echo '#_preseed_V1' >$arch_destination/example-preseed.txt
+	./preseed.pl -r $manual_release $PRESEED >>$arch_destination/example-preseed.txt
     done
 fi
 

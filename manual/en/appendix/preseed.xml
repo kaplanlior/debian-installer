@@ -633,6 +633,18 @@ a line in a preconfiguration file is:
 
 </para><para>
 
+The file should start with <literal>#_preseed_V1</literal>
+<!--
+  The "should" is for the Stretch release,
+  so later releases use the comment
+  as a magic string to identify a preseed file
+
+  see also https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=848726
+-->
+
+
+</para><para>
+
 There are a few rules to keep in mind when writing a preconfiguration file.
 
 </para>
@@ -667,6 +679,10 @@ There are a few rules to keep in mind when writing a preconfiguration file.
   Some questions take a code as value instead of the English text that is
   shown during installation.
 </para></listitem>
+<listitem><para>
+  Start with <literal>#_preseed_V1</literal>
+  <!-- https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=848726 -->
+</para></listitem>
 </itemizedlist>
 
 <para>
@@ -682,7 +698,8 @@ rebooting, use the <command>debconf-get-selections</command> from the
 database and the installer's cdebconf database to a single file:
 
 <informalexample><screen>
-$ debconf-get-selections --installer &gt; <replaceable>file</replaceable>
+$ echo "#_preseed_V1" &gt; <replaceable>file</replaceable>
+$ debconf-get-selections --installer &gt;&gt; <replaceable>file</replaceable>
 $ debconf-get-selections &gt;&gt; <replaceable>file</replaceable>
 </screen></informalexample>
 
