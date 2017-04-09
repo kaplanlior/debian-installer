@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: d-i-manual_preparing\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2017-02-17 15:37+0000\n"
-"PO-Revision-Date: 2017-02-23 10:40+0100\n"
+"PO-Revision-Date: 2017-04-09 10:40+0100\n"
 "Last-Translator: Joe Hansen <joedalton2@yahoo.dk>\n"
 "Language-Team: Danish <debian-l10n-danish@lists.debian.org>\n"
 "Language: da\n"
@@ -545,6 +545,12 @@ msgid ""
 "Usually upon starting the computer there will be a message stating which key "
 "to press to enter the setup screen."
 msgstr ""
+"BIOS-opsætningsskærmene for din computer. Du kan se disse skærme, når du "
+"starter din computer ved at rykke på en tastekombination. Se i din manual "
+"for kombinationen. Ofte er det <keycap>Slet</keycap> eller <keycap>F2</"
+"keycap>, men nogle producenter bruger andre taster eller tastekombinationer. "
+"Normalt vil der ved opstart af computeren være en besked med hvilken "
+"tast, der skal trykkes på, for at komme til opsætningsskærmen."
 
 #. Tag: para
 #: preparing.xml:396
@@ -578,7 +584,7 @@ msgid ""
 "tell you the settings you need to set up your networking and e-mail."
 msgstr ""
 "Din systemadministrator eller internetleverandør. Disse kilder kan fortælle "
-"dig om indstillingerne du skal bruge for at opsætte dit netværk og e-post."
+"dig om indstillingerne, du skal bruge for at opsætte dit netværk og e-post."
 
 #. Tag: title
 #: preparing.xml:427
@@ -767,6 +773,16 @@ msgid ""
 "different chipsets and therefore use two different drivers or there might be "
 "no driver at all for one of them."
 msgstr ""
+"Dette har fordele og ulemper. En fordel er at en driver for et chipsæt "
+"fungerer med en masse forskellige produkter fra forskellige leverandører, "
+"så længe deres produkt er baseret på det samme chipsæt. Ulempen er, at det "
+"ikke altid er nemt at se hvilket chipsæt der bruges i et produkt/mærke. "
+"Undertiden ændrer enhedsleverandører også udstyrsgrundlaget for deres "
+"produkt uden at ændre produktnavnet eller i det mindste produktets "
+"versionsnummer, så to produkter med samme mærke/produktnavn købt på "
+"forskellige tidspunkter, kan undertiden være baseret på to forskellige "
+"chipsæt og derfor anvende forskellige drivere eller der er måske ingen "
+"driver overhovedet for en af dem."
 
 #. Tag: para
 #: preparing.xml:540
@@ -778,6 +794,11 @@ msgid ""
 "<quote>product</quote> IDs, and the combination of these two is usually the "
 "same for any product based on the same chipset."
 msgstr ""
+"For USB- og PCI/PCI-Express/ExpressCard-enheder kan man se hvilke chipsæt "
+"de er baseret på ved at kigge på deres enheds-id'er. Alle USB/PCI/PCI-"
+"Express/ExpressCard-enheder har såkaldte <quote>vendor</quote>- og "
+"<quote>product</quote>-id'er, og kombinationen af disse to er normalt "
+"den samme for et produkt baseret på det samme chipsæt."
 
 #. Tag: para
 #: preparing.xml:548
@@ -789,6 +810,11 @@ msgid ""
 "usually given in the form of two hexadecimal numbers, seperated by a colon, "
 "such as <quote>1d6b:0001</quote>."
 msgstr ""
+"På Linuxsystemer kan disse id'er læses med kommandoen "
+"<command>lsusb</command> for USB-enheder og med kommandoen <command>lspci "
+"-nn</command> for PCI/PCI-Express/ExpressCard-enheder. Leverandør- (vendor) "
+"og product-id'er er normalt anført i form af to hexadeciamle tal, adskilt af "
+"et kolon, såsom <quote>1d6b:0001</quote>."
 
 #. Tag: para
 #: preparing.xml:556
@@ -841,6 +867,11 @@ msgid ""
 "manager's details tab to actually see the IDs, as they are not displayed by "
 "default."
 msgstr ""
+"På Windowssystemer kan ID'erne for en enhed findes i »Windows device manager« "
+"på fanebladet <quote>detaljer</quote>, hvor leverandør-id'et har præfikset "
+"VEN_ og produkt-id'et har præfikset DEV_. På Windows 7-systemer, skal du vælge "
+"egenskaben <quote>Hardware IDs</quote> i enhedshåndteringens faneblad med "
+"detaljer for faktisk at se id'et, da de ikke vises som standard."
 
 #. Tag: para
 #: preparing.xml:586
@@ -1286,6 +1317,13 @@ msgid ""
 "phrase>. Partitioning tools always provide a way to show existing partitions "
 "without making changes."
 msgstr ""
+"Du kan finde information om din nuværende partitionsopsætning ved at bruge "
+"et partitioneringsværktøj for dit nuværende operativsystem<phrase arch=\"any-"
+"x86\">, såsom den integrerede diskhåndtering i Windows eller fdisk i DOS</"
+"phrase><phrase arch=\"powerpc\">, såsom Disk Utility, Drive Setup, HD "
+"Toolkit, eller MacTools</phrase><phrase arch=\"s390\">, såsomVM diskmap</"
+"phrase>. Partitioneringsværktøjer tilbyder altid en måde at se eksisterende "
+"partitioner uden at lave ændringer."
 
 #. Tag: para
 #: preparing.xml:884
@@ -1492,7 +1530,7 @@ msgstr ""
 #: preparing.xml:1106
 #, no-c-format
 msgid "Pre-Installation Hardware and Operating System Setup"
-msgstr ""
+msgstr "Præinstallation af udstyr og operativsystem"
 
 #. Tag: para
 #: preparing.xml:1107
@@ -1551,6 +1589,9 @@ msgid ""
 "you have chosen you should enable the appropriate boot devices if they are "
 "not already enabled."
 msgstr ""
+"Afhængig af dit valgte installationsmedie (cd/dvd rom, usb-drev, "
+"netværksopstart) skal du aktivere de passende opstartsenheder, hvis de "
+"ikke allerede er det."
 
 #. Tag: para
 #: preparing.xml:1154
@@ -1621,6 +1662,10 @@ msgid ""
 "manufacturer. You'll have to consult the hardware documentation which came "
 "with your machine."
 msgstr ""
+"Der er normalt ikke brug for at opsætte BIOS'en (kaldt OpenFirmware) på "
+"&arch-title;-systemer. PReP og CHRP er udstyret med OpenFirmware, men desværre "
+"betyder dette, at starten varierer fra leverandør til leverandør. Du skal "
+"kigge i udstyrets dokumentation, som fulgte med din maskine."
 
 #. Tag: para
 #: preparing.xml:1216
@@ -1667,7 +1712,7 @@ msgstr ""
 #: preparing.xml:1253
 #, no-c-format
 msgid "How to update bare metal ppc64el firmware"
-msgstr ""
+msgstr "Sådan opdateres »bare metal ppc64el-firmware«"
 
 #. Tag: para
 #: preparing.xml:1254
@@ -1686,6 +1731,8 @@ msgid ""
 "Open Power Abstraction Layer (OPAL) is the system firmware in the stack of "
 "POWER processor-based server."
 msgstr ""
+"Open Power Abstraction Layer (OPAL) er systemfirmwaren i stakken af "
+"POWER processor-baserede servere."
 
 #. Tag: para
 #: preparing.xml:1264
@@ -1695,6 +1742,9 @@ msgid ""
 "firmware to a more recent level to acquire new features or additional "
 "support for devices."
 msgstr ""
+"Der kan være tilfælde, hvor brugeren skal opgradere Power Systems-"
+"firmwaren til en nyere version for at kunne bruge nye funktioner eller få "
+"yderligere understøttelse for enheder."
 
 #. Tag: para
 #: preparing.xml:1270
@@ -1809,6 +1859,8 @@ msgid ""
 "Verify the updated firmware level of the temporary side of the flash as in "
 "step 1."
 msgstr ""
+"Verificer det opdaterede firmwareniveau for den midlertidige side af "
+"flashen som i trin 1."
 
 #. Tag: para
 #: preparing.xml:1331
@@ -1829,6 +1881,8 @@ msgid ""
 "The new updated level can be committed to the permanent side of the flash by "
 "running the following command."
 msgstr ""
+"Det nye opdaterede niveau kan anvendes på den permanente side af flashen ved "
+"at køre den følgende kommando."
 
 #. Tag: screen
 #: preparing.xml:1341
