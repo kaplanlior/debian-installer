@@ -22,13 +22,6 @@ original are not proper XML, we've had to "integrate" the files per chapter.
 This means that instead of translating about 160 small files, you will be
 translating about 16 large files.
 
-Current limitations
-===================
-Building from PO files is currently not supported in the Sarge branch of d-i's
-SVN repository. This is however not a real problem as the XML files created
-from the PO files are used to synchronise the Sarge branch from trunk.
-Therefore translators should not worry about this.
-
 Requirements
 ============
 The following packages need to be installed on your system:
@@ -142,6 +135,16 @@ the ./build directory. If you run buildone.sh without first generating the
 XML files, you will either get an error message "unknown language" or build
 from an outdated version of the XML files.
 
+buildone_ng.sh
+--------------
+To provide an easier method for building the manual from po files,
+a modified version of the buildone.sh script has been added as buildone_ng.sh,
+which does all the needed steps including 1-5 from above to build the manual
+out of your po files.
+However, the update_pot and update_pot functions from above's step 1-3 are
+performed in a temporary directory, so buildone_ng.sh cannot be used to update
+your translation po files!
+For this, you need to still follow the chapter "Updating your translation".
 
 Converting an existing translation from .xml files to .po files
 ===============================================================
@@ -285,6 +288,11 @@ If you find any errors in this file, please fix them.
 
 --------------------------------------------------------------------------
 Changelog:
+
+2017-04-12 Holger Wansing
+ - Document new buildone_ng.sh script, to build manual from po files
+   with one command.
+ - Remove old 'Limitations' paragraph (from Sarge period).
 
 2010-10-05 Omar Campagne
  - Document steps for conversion from XML to PO-based translations.
