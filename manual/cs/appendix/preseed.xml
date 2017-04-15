@@ -1,5 +1,5 @@
 <!-- $Id$ -->
-<!-- original version: 70417 -->
+<!-- original version: 70672 -->
 
 <!--
 Be carefull with the format of this file as it is parsed to generate
@@ -686,6 +686,10 @@ Soubor s přednastavením soubor má stejný formát jako používá příkaz
 
 </para><para>
 
+Soubor by měl začínat komentářem <literal>#_preseed_V1</literal>
+
+</para><para>
+
 Při vytváření souboru s přednastavením byste měli mít na paměti
 několik pravidel.
 
@@ -723,6 +727,9 @@ několik pravidel.
   Dále pak některé otázky vyžadují hodnotu formou kódu (a ne text,
   který se zobrazuje během instalace).
 </para></listitem>
+<listitem><para>
+  Na začátku souboru uveďte <literal>#_preseed_V1</literal>
+</para></listitem>
 </itemizedlist>
 
 <para>
@@ -739,7 +746,8 @@ balíku <classname>debconf-utils</classname>) a uložit databázi
 debconfu i cdebconfu do jediného souboru:
 
 <informalexample><screen>
-$ debconf-get-selections --installer &gt; <replaceable>soubor</replaceable>
+$ echo "#_preseed_V1" &gt; <replaceable>soubor</replaceable>
+$ debconf-get-selections --installer &gt;&gt; <replaceable>soubor</replaceable>
 $ debconf-get-selections &gt;&gt; <replaceable>soubor</replaceable>
 </screen></informalexample>
 
@@ -1254,6 +1262,9 @@ d-i partman-partitioning/confirm_write_new_label boolean true
 d-i partman/choose_partition select finish
 d-i partman/confirm boolean true
 d-i partman/confirm_nooverwrite boolean true
+
+# Je-li povoleno šifrování disku, přeskočí úvodní vymazání oblastí.
+#d-i partman-auto-crypto/erase_disks boolean false
 </screen></informalexample>
 
    </sect3>
