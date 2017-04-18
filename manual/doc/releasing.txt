@@ -1,0 +1,37 @@
+This document briefly describes how to make a installation-guide release.
+
+- First make sure to be up to date
+
+    svn up
+
+- Set the release date
+
+    dch -r
+
+    and set the package version to the date.
+
+- Commit that
+
+    svn commit
+
+    and remember the commit number (say, 12345)
+
+- Prepare a bare tree
+
+    svn export $PWD /tmp/manual-build
+
+- Build from it (use a machine with a lot of cores to make this fast)
+
+    cd /tmp/manual-build
+    pdebuild
+
+- Compare against a previous version to make sure we didn't mess it up
+  completely
+
+    debdiff installation-guide_2017WWWW_amd64.changes installation-guide_2017XXXX_amd64.changes
+
+- Upload the result
+
+- When ACCEPTed, Tag the commit:
+
+    svn cp svn+ssh://svn.debian.org/svn/d-i/trunk/manual@12345 svn+ssh://svn.debian.org/svn/d-i/tags/manual/2017XXXX
