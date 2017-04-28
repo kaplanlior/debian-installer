@@ -1,30 +1,32 @@
-# SOME DESCRIPTIVE TITLE.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Dutch translation of d-i-manual_partitioning.
+# Frans Spiesschaert <Frans.Spiesschaert@yucom.be>, 2017.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: d-i-manual_partitioning\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2015-04-15 20:29+0000\n"
-"PO-Revision-Date: 2015-04-15 20:29+0000\n"
-"Last-Translator: NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Debian l10n Dutch <LL@li.org>\n"
+"PO-Revision-Date: 2017-04-06 12:10+0200\n"
+"Last-Translator: Frans Spiesschaert <Frans.Spiesschaert@yucom.be>\n"
+"Language-Team: Debian Dutch l10n Team <debian-l10n-dutch@lists.debian.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
-"Content-Type: application/x-xml2pot; charset=UTF-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Gtranslator 2.91.6\n"
 
 #. Tag: title
 #: partitioning.xml:5
 #, no-c-format
 msgid "Partitioning for &debian;"
-msgstr ""
+msgstr "Schijven indelen voor &debian;"
 
 #. Tag: title
 #: partitioning.xml:13
 #, no-c-format
 msgid "Deciding on &debian; Partitions and Sizes"
-msgstr ""
+msgstr "Keuzes maken in verband met &debian; partities en hun grootte"
 
 #. Tag: para
 #: partitioning.xml:14
@@ -40,6 +42,16 @@ msgid ""
 "is possible to force &arch-kernel; to use a regular file as swap, but it is "
 "not recommended."
 msgstr ""
+"Als absolute minimum heeft GNU/&arch-kernel; zelf één partitie nodig. U kunt "
+"één enkele partitie hebben met daarop zowel het volledige besturingssysteem "
+"als de toepassingen en uw persoonlijke bestanden. De meeste mensen vinden "
+"dat een aparte swap-partitie (wisselgeheugenpartitie) ook noodzakelijk is, "
+"al is dat strikt genomen niet het geval. <quote>Swap</quote> is kladruimte "
+"voor een besturingssysteem, wat het systeem toelaat om schijfopslagruimte te "
+"gebruiken als <quote>virtueel geheugen</quote>. Door wisselgeheugen op een "
+"aparte partitie te plaatsen, kan &arch-kernel; er veel efficiënter gebruik "
+"van maken. Het is mogelijk om &arch-kernel; te dwingen een gewoon bestand "
+"als wisselgeheugen te gebruiken, maar dit wordt niet aanbevolen."
 
 #. Tag: para
 #: partitioning.xml:26
@@ -57,6 +69,18 @@ msgid ""
 "the system. This can save you the trouble of having to reinstall the system "
 "from scratch."
 msgstr ""
+"De meeste mensen kiezen er evenwel voor om GNU/&arch-kernel; meer dan het "
+"minimum aantal partities te geven. Er zijn twee redenen waarom u het "
+"bestandssysteem wellicht zult willen opsplitsen in een aantal kleinere "
+"partities. De eerste reden is veiligheid. Indien er iets gebeurt dat het "
+"bestandssysteem beschadigt, wordt meestal slechts één partitie getroffen. En "
+"dus moet u slechts een deel van uw systeem vervangen (met behulp van de "
+"reservekopieën die u zorgvuldig bijgehouden heeft). Als absolute minimum zou "
+"u moeten overwegen om wat men gewoonlijk een <quote>root-partitie</quote> "
+"noemt, aan te maken. Deze bevat de meest essentiële componenten van het "
+"systeem. Als een van de andere partities beschadigd raakt, kunt u toch nog "
+"altijd GNU/&arch-kernel; opstarten om het systeem te repareren. Dit kan u de "
+"moeite besparen om het hele systeem helemaal opnieuw te moeten installeren."
 
 #. Tag: para
 #: partitioning.xml:40
@@ -68,6 +92,13 @@ msgid ""
 "<filename>/var/mail</filename> a separate partition on the mail server, most "
 "of the system will remain working even if you get spammed."
 msgstr ""
+"De tweede reden heeft over het algemeen meer belang in een bedrijfscontext, "
+"hoewel het echt afhankelijk is van het gebruik dat u van de machine maakt. "
+"Bij een e-mailserver bijvoorbeeld, die overspoeld wordt met spamberichten, "
+"kan een partitie gemakkelijk vollopen. Indien u op de e-mailserver een "
+"aparte partitie aanmaakte voor <filename>/var/mail</filename>, zal het "
+"systeem grotendeels blijven functioneren, zelfs als u af te rekenen krijgt "
+"met een spamtoevloed."
 
 #. Tag: para
 #: partitioning.xml:48
@@ -81,12 +112,20 @@ msgid ""
 "wasting space that could be used elsewhere. Disk space is cheap nowadays, "
 "but why throw your money away?"
 msgstr ""
+"Het enige nadeel van het gebruik van meerdere partities is, dat het dikwijls "
+"moeilijk vooraf in te schatten valt welke uw behoeften zullen zijn. Indien u "
+"een bepaalde partitie te klein maakt, zult u ofwel het systeem opnieuw "
+"moeten installeren of voortdurend zaken moeten verplaatsen om in de te "
+"kleine partitie vrije ruimte te creëren. Als u daarentegen de partitie te "
+"groot maakt, verspilt u ruimte die wellicht elders nuttig gebruikt kon "
+"worden. Tegenwoordig is schijfruimte wel goedkoop, maar toch kunt u zich "
+"blijven afvragen of u geen geld aan het verspillen bent."
 
 #. Tag: title
 #: partitioning.xml:67
 #, no-c-format
 msgid "The Directory Tree"
-msgstr ""
+msgstr "De mappenboom"
 
 #. Tag: para
 #: partitioning.xml:68
@@ -99,228 +138,235 @@ msgid ""
 "<filename>/</filename>. At the root level, all &debian; systems include "
 "these directories:"
 msgstr ""
+"&debian-gnu; volgt voor het benoemen van mappen en bestanden de <ulink url="
+"\"&url-fhs-home;\">Filesystem Hierarchy Standard</ulink> (de standaard die "
+"de hiërarchische opbouw van het bestandssysteem bepaalt). Deze standaard "
+"maakt het mogelijk voor gebruikers en softwareprogramma's om vooraf te weten "
+"op welke plaats bestanden en mappen te vinden zullen zijn. De map op het "
+"basisniveau wordt gewoon voorgesteld door een slash <filename>/</filename>. "
+"In deze basismap bevinden zich op alle &debian; systemen de volgende mappen:"
 
 #. Tag: entry
 #: partitioning.xml:82
 #, no-c-format
 msgid "Directory"
-msgstr ""
+msgstr "Map"
 
 #. Tag: entry
 #: partitioning.xml:82
 #, no-c-format
 msgid "Content"
-msgstr ""
+msgstr "Inhoud"
 
 #. Tag: filename
 #: partitioning.xml:88
 #, no-c-format
 msgid "<filename>bin</filename>"
-msgstr ""
+msgstr "<filename>bin</filename>"
 
 #. Tag: entry
 #: partitioning.xml:89
 #, no-c-format
 msgid "Essential command binaries"
-msgstr ""
+msgstr "Essentiële commando's in binaire vorm"
 
 #. Tag: filename
 #: partitioning.xml:91
 #, no-c-format
 msgid "boot"
-msgstr ""
+msgstr "boot"
 
 #. Tag: entry
 #: partitioning.xml:92
 #, no-c-format
 msgid "Static files of the boot loader"
-msgstr ""
+msgstr "Statische bestanden van de opstartlader"
 
 #. Tag: filename
 #: partitioning.xml:94
 #, no-c-format
 msgid "<filename>dev</filename>"
-msgstr ""
+msgstr "<filename>dev</filename>"
 
 #. Tag: entry
 #: partitioning.xml:95
 #, no-c-format
 msgid "Device files"
-msgstr ""
+msgstr "Apparaat-bestanden"
 
 #. Tag: filename
 #: partitioning.xml:97
 #, no-c-format
 msgid "<filename>etc</filename>"
-msgstr ""
+msgstr "<filename>etc</filename>"
 
 #. Tag: entry
 #: partitioning.xml:98
 #, no-c-format
 msgid "Host-specific system configuration"
-msgstr ""
+msgstr "Computerspecifieke systeemconfiguratie"
 
 #. Tag: filename
 #: partitioning.xml:100
 #, no-c-format
 msgid "home"
-msgstr ""
+msgstr "home"
 
 #. Tag: entry
 #: partitioning.xml:101
 #, no-c-format
 msgid "User home directories"
-msgstr ""
+msgstr "Persoonlijke mappen van gebruikers"
 
 #. Tag: filename
 #: partitioning.xml:103
 #, no-c-format
 msgid "<filename>lib</filename>"
-msgstr ""
+msgstr "<filename>lib</filename>"
 
 #. Tag: entry
 #: partitioning.xml:104
 #, no-c-format
 msgid "Essential shared libraries and kernel modules"
-msgstr ""
+msgstr "Essentiële gedeelde bibliotheken en kernelmodules"
 
 #. Tag: filename
 #: partitioning.xml:106
 #, no-c-format
 msgid "media"
-msgstr ""
+msgstr "media"
 
 #. Tag: entry
 #: partitioning.xml:107
 #, no-c-format
 msgid "Contains mount points for replaceable media"
-msgstr ""
+msgstr "Bevat aankoppelpunten voor verwijderbare media"
 
 #. Tag: filename
 #: partitioning.xml:109
 #, no-c-format
 msgid "<filename>mnt</filename>"
-msgstr ""
+msgstr "<filename>mnt</filename>"
 
 #. Tag: entry
 #: partitioning.xml:110
 #, no-c-format
 msgid "Mount point for mounting a file system temporarily"
-msgstr ""
+msgstr "Aankoppelpunt om tijdelijk een bestandssysteem op aan te koppelen"
 
 #. Tag: filename
 #: partitioning.xml:112
 #, no-c-format
 msgid "proc"
-msgstr ""
+msgstr "proc"
 
 #. Tag: entry
 #: partitioning.xml:113 partitioning.xml:125
 #, no-c-format
 msgid "Virtual directory for system information"
-msgstr ""
+msgstr "Virtuele map voor systeeminformatie"
 
 #. Tag: filename
 #: partitioning.xml:115
 #, no-c-format
 msgid "root"
-msgstr ""
+msgstr "root"
 
 #. Tag: entry
 #: partitioning.xml:116
 #, no-c-format
 msgid "Home directory for the root user"
-msgstr ""
+msgstr "Persoonlijke map van gebruiker root, de systeembeheerder"
 
 #. Tag: filename
 #: partitioning.xml:118
 #, no-c-format
 msgid "<filename>run</filename>"
-msgstr ""
+msgstr "<filename>run</filename>"
 
 #. Tag: entry
 #: partitioning.xml:119
 #, no-c-format
 msgid "Run-time variable data"
-msgstr ""
+msgstr "Variabele gegevens van actieve programma's"
 
 #. Tag: filename
 #: partitioning.xml:121
 #, no-c-format
 msgid "sbin"
-msgstr ""
+msgstr "sbin"
 
 #. Tag: entry
 #: partitioning.xml:122
 #, no-c-format
 msgid "Essential system binaries"
-msgstr ""
+msgstr "Essentiële systeemprogramma's in binaire vorm"
 
 #. Tag: filename
 #: partitioning.xml:124
 #, no-c-format
 msgid "<filename>sys</filename>"
-msgstr ""
+msgstr "<filename>sys</filename>"
 
 #. Tag: filename
 #: partitioning.xml:127
 #, no-c-format
 msgid "<filename>tmp</filename>"
-msgstr ""
+msgstr "<filename>tmp</filename>"
 
 #. Tag: entry
 #: partitioning.xml:128
 #, no-c-format
 msgid "Temporary files"
-msgstr ""
+msgstr "Tijdelijke bestanden"
 
 #. Tag: filename
 #: partitioning.xml:130
 #, no-c-format
 msgid "<filename>usr</filename>"
-msgstr ""
+msgstr "<filename>usr</filename>"
 
 #. Tag: entry
 #: partitioning.xml:131
 #, no-c-format
 msgid "Secondary hierarchy"
-msgstr ""
+msgstr "Secundaire hiërarchie"
 
 #. Tag: filename
 #: partitioning.xml:133
 #, no-c-format
 msgid "<filename>var</filename>"
-msgstr ""
+msgstr "<filename>var</filename>"
 
 #. Tag: entry
 #: partitioning.xml:134
 #, no-c-format
 msgid "Variable data"
-msgstr ""
+msgstr "Variabele data"
 
 #. Tag: filename
 #: partitioning.xml:136
 #, no-c-format
 msgid "<filename>srv</filename>"
-msgstr ""
+msgstr "<filename>srv</filename>"
 
 #. Tag: entry
 #: partitioning.xml:137
 #, no-c-format
 msgid "Data for services provided by the system"
-msgstr ""
+msgstr "Data voor door het systeem verleende diensten"
 
 #. Tag: filename
 #: partitioning.xml:139
 #, no-c-format
 msgid "<filename>opt</filename>"
-msgstr ""
+msgstr "<filename>opt</filename>"
 
 #. Tag: entry
 #: partitioning.xml:140
 #, no-c-format
 msgid "Add-on application software packages"
-msgstr ""
+msgstr "Pakketten met supplementaire toepassingssoftware"
 
 #. Tag: para
 #: partitioning.xml:145
@@ -331,6 +377,11 @@ msgid ""
 "configuration and specific usage patterns. The recommendations here are "
 "general guidelines and provide a starting point for partitioning."
 msgstr ""
+"Hierna volgt een lijst met belangrijke overwegingen in verband met mappen en "
+"partities. Merk op dat het schijfgebruik erg verschillend kan zijn "
+"naargelang de systeemconfiguratie en de specifieke taken die de computer "
+"moet vervullen. De hierna gegeven aanbevelingen zijn algemene richtlijnen "
+"die een aanknopingspunt bieden voor de schijfindeling."
 
 #. Tag: para
 #: partitioning.xml:155
@@ -339,9 +390,14 @@ msgid ""
 "The root partition <filename>/</filename> must always physically contain "
 "<filename>/etc</filename>, <filename>/bin</filename>, <filename>/sbin</"
 "filename>, <filename>/lib</filename> and <filename>/dev</filename>, "
-"otherwise you won't be able to boot. Typically &root-system-size-min;&ndash;&root-system-size-max;MB is needed for "
-"the root partition."
+"otherwise you won't be able to boot. Typically &root-system-size-min;&ndash;"
+"&root-system-size-max;MB is needed for the root partition."
 msgstr ""
+"De root-partitie <filename>/</filename> moet fysiek steeds de mappen "
+"<filename>/etc</filename>, <filename>/bin</filename>, <filename>/sbin</"
+"filename>, <filename>/lib</filename> en <filename>/dev</filename> bevatten, "
+"anders zal de computer niet kunnen opstarten. Voor de root-partitie is "
+"gewoonlijk &root-system-size-min;&ndash;&root-system-size-max;MB vereist."
 
 #. Tag: para
 #: partitioning.xml:164
@@ -355,6 +411,14 @@ msgid ""
 "type of packages you plan to install. A generous workstation or server "
 "installation should allow 4&ndash;6GB."
 msgstr ""
+"<filename>/usr</filename>: bevat alle gebruikersprogramma's (<filename>/usr/"
+"bin</filename>), bibliotheken (<filename>/usr/lib</filename>), documentatie "
+"(<filename>/usr/share/doc</filename>), enz. Dit onderdeel van het "
+"bestandssysteem neemt meestal de meeste ruimte in. U moet er minstens 500MB "
+"schijfruimte voor voorzien. Afhankelijk van het aantal en het type pakketten "
+"dat u denkt te zullen installeren, moet u dit getal verhogen. Een rijkelijk "
+"gestoffeerd werkstation of een server hebben hiervoor ongeveer 4&ndash;6GB "
+"nodig."
 
 #. Tag: para
 #: partitioning.xml:177
@@ -366,6 +430,12 @@ msgid ""
 "disk space for the root partition including <filename>/usr</filename>, or "
 "5&ndash;6GB for a workstation or a server installation."
 msgstr ""
+"Het wordt tegenwoordig aanbevolen dat <filename>/usr</filename> op de root-"
+"partitie <filename>/</filename> staat, anders is het mogelijk dat er zich "
+"bij het opstarten problemen manifesteren. Dit betekent dat u voor de root-"
+"partitie met inbegrip van <filename>/usr</filename> minstens 600&ndash;750MB "
+"schijfruimte moet voorzien of wanneer het een werkstation of een server "
+"betreft, 5&ndash;6GB."
 
 #. Tag: para
 #: partitioning.xml:187
@@ -383,6 +453,20 @@ msgid ""
 "MB. If hard drive space is at a premium and you don't plan on doing major "
 "system updates, you can get by with as little as 30 or 40 MB."
 msgstr ""
+"<filename>/var</filename>: variabele data, zoals nieuwsartikels, e-mails, "
+"websites, databanken, de cache van het pakketbeheersysteem, enz., worden "
+"onder deze map geplaatst. De grootte van deze map is sterk afhankelijk van "
+"het gebruik dat van het systeem gemaakt wordt, maar bij de meeste mensen "
+"wordt ze vooral bepaald door wat het gereedschap voor pakketbeheer nodig "
+"heeft. Indien u in één enkele sessie een volledige installatie van zowat "
+"alles wat &debian; te bieden heeft, gaat uitvoeren, zou 2 tot 3 GB "
+"schijfruimte voorzien voor <filename>/var</filename> moeten volstaan. Indien "
+"u zinnens bent de installatie in verschillende fases uit te voeren (dat wil "
+"zeggen, eerst diensten en hulpprogramma's installeren, nadien "
+"tekstgereedschappen, dan X, ...), kunt reeds genoeg hebben aan 300&ndash;500 "
+"MB. Indien harde schijfruimte een primaire bekommernis is, en u niet zinnens "
+"bent om grote systeemupdates te doen, kunt u zelfs volstaan met een uiterst "
+"beperkte 30 tot 40 MB."
 
 #. Tag: para
 #: partitioning.xml:203
@@ -395,6 +479,13 @@ msgid ""
 "temporarily store image files. If you plan to use such applications, you "
 "should adjust the space available in <filename>/tmp</filename> accordingly."
 msgstr ""
+"<filename>/tmp</filename>: tijdelijke data die door programma's gecreëerd "
+"worden, komen meestal in deze map terecht. 40&ndash;100MB zou normaal moeten "
+"volstaan. Sommige toepassingen &mdash; zoals gereedschap waarmee u archieven "
+"of CD's/DVD's kunt bewerken, en multimediasoftware &mdash; maken mogelijk "
+"gebruik van <filename>/tmp</filename> om tijdelijk image-bestanden op te "
+"slaan. Indien u plant om dergelijke toepassingen te gebruiken, moet u de "
+"ruime die u voorziet voor <filename>/tmp</filename> daaraan aanpassen."
 
 #. Tag: para
 #: partitioning.xml:214
@@ -408,12 +499,20 @@ msgid ""
 "plan to save a lot of multimedia files (pictures, MP3, movies) in your home "
 "directory."
 msgstr ""
+"<filename>/home</filename>: iedere gebruiker zal zijn persoonlijke "
+"documenten in een onderliggende map van deze map plaatsen. De grootte is dus "
+"afhankelijk van het aantal gebruikers op het systeem en van welk soort "
+"bestanden er in hun persoonlijke map terecht zullen komen. Afhankelijk van "
+"waarvoor u het systeem denkt te zullen gebruiken, moet u ongeveer 100MB per "
+"gebruiker voorzien. Maar pas deze waarde wel aan uw behoeften aan. Voorzie "
+"veel meer ruimte als u zinnens bent om veel multimediabestanden (foto's, MP3-"
+"muziekbestanden, films) op te slaan in uw persoonlijke map."
 
 #. Tag: title
 #: partitioning.xml:235
 #, no-c-format
 msgid "Recommended Partitioning Scheme"
-msgstr ""
+msgstr "Aanbevolen schijfindelingsschema"
 
 #. Tag: para
 #: partitioning.xml:236
@@ -426,6 +525,14 @@ msgid ""
 "periodic file system integrity checking, and this can cause delays during "
 "booting when the partition is large."
 msgstr ""
+"Voor een nieuwe gebruiker, een persoonlijke &debian; computer, een "
+"thuiscomputer en andere situaties waarin de computer hoofdzakelijk slechts "
+"voor één persoon bestemd is, is een opstelling met één enkele <filename>/</"
+"filename>-partitie (plus swap) wellicht de makkelijkste en eenvoudigste "
+"oplossing. Als uw partitie echter groter is dan ongeveer 6GB, kies dan voor "
+"ext3 als partitietype. Ext2-partities hebben periodiek een "
+"integriteitscontrole nodig en dit kan tijdens het opstarten voor vertraging "
+"zorgen als de partitie redelijk groot is."
 
 #. Tag: para
 #: partitioning.xml:245
@@ -436,6 +543,10 @@ msgid ""
 "filename> each on their own partitions separate from the <filename>/</"
 "filename> partition."
 msgstr ""
+"Voor systemen met meerdere gebruikers en systemen met veel schijfruimte is "
+"het beter om <filename>/var</filename>, <filename>/tmp</filename> en "
+"<filename>/home</filename> telkens op een eigen partitie te plaatsen, los "
+"van de <filename>/</filename>-partitie."
 
 #. Tag: para
 #: partitioning.xml:253
@@ -451,6 +562,16 @@ msgid ""
 "partition. In general, the partitioning situation varies from computer to "
 "computer depending on its uses."
 msgstr ""
+"Misschien heeft u een aparte <filename>/usr/local</filename>-partitie nodig "
+"als u veel programma's denkt te installeren die geen deel uitmaken van de "
+"&debian;-distributie. Als uw computer dienst zal doen als een e-mailserver, "
+"moet u misschien een aparte partitie voorzien voor <filename>/var/mail</"
+"filename>. Vaak is het een goede zaak om <filename>/tmp</filename> op een "
+"eigen partitie van bijvoorbeeld 20&ndash;50MB te plaatsen. Indien u een "
+"server met veel gebruikersaccounts installeert, is het over het algemeen "
+"aangewezen om een ruime aparte partitie voor te behouden voor <filename>/"
+"home</filename>. Over het algemeen verschilt de toegepaste schijfindeling "
+"per computer naargelang het gebruik dat er van gemaakt wordt."
 
 #. Tag: para
 #: partitioning.xml:265
@@ -460,6 +581,10 @@ msgid ""
 "howto;\"> Multi Disk HOWTO</ulink>. This contains in-depth information, "
 "mostly of interest to ISPs and people setting up servers."
 msgstr ""
+"Voor erg complexe systemen raadpleegt u best de <ulink url=\"&url-multidisk-"
+"howto;\"> Multi Disk HOWTO</ulink>. Die bevat diepgaande informatie die "
+"vooral nuttig is voor aanbieders van internetdiensten (ISP's) en voor mensen "
+"die servers beheren."
 
 #. Tag: para
 #: partitioning.xml:272
@@ -472,6 +597,13 @@ msgid ""
 "simultaneous equations on a machine with 256MB of memory, you may need a "
 "gigabyte (or more) of swap."
 msgstr ""
+"Er bestaan verschillende opvattingen over de grootte van de "
+"wisselgeheugenpartitie (swap). Een goede vuistregel is om evenveel swap te "
+"gebruiken als het werkgeheugen waarover uw computer beschikt. In de meeste "
+"gevallen zou die partitie ook niet kleiner dan 16MB mogen zijn. Natuurlijk "
+"zijn er uitzonderingen op deze algemene regel. Indien u op een machine met "
+"256MB werkgeheugen tegelijkertijd meer dan 10000 complexe rekenbewerkingen "
+"gaat uitvoeren, heeft u misschien wel een gigabyte (of meer) swap nodig."
 
 #. Tag: para
 #: partitioning.xml:281
@@ -484,6 +616,14 @@ msgid ""
 "and, if possible, different SCSI or IDE channels. The kernel will balance "
 "swap usage between multiple swap partitions, giving better performance."
 msgstr ""
+"Op sommige 32-bits architecturen (m68k en PowerPC) is de maximale grootte "
+"van een swap-partitie 2GB. Voor bijna elke installatie zal dit volstaan. "
+"Indien u echter zoveel wisselgeheugen nodig heeft, doet u er wellicht goed "
+"aan om het wisselgeheugen te spreiden over verschillende schijven (ook wel "
+"<quote>spindles</quote> of spoelen genoemd) en zo mogelijk ook over "
+"verschillende SCSI- of IDE-kanalen. De kernel zal het wisselgeheugengebruik "
+"evenredig verdelen over de verschillende swap-partities, wat tot betere "
+"prestaties leidt."
 
 #. Tag: para
 #: partitioning.xml:291
@@ -495,6 +635,12 @@ msgid ""
 "partition on <filename>/dev/sda3</filename> and about 1.2GB on <filename>/"
 "dev/sda2</filename> as the Linux partition."
 msgstr ""
+"Een mogelijk voorbeeld is een oudere thuiscomputer met 32MB RAM-geheugen en "
+"een IDE harde schijf van 1.7GB op <filename>/dev/sda</filename>. Deze zou "
+"een partitie kunnen hebben van 500MB op <filename>/dev/sda1</filename> met "
+"daarop een ander besturingssysteem, een swap-partitie van 32MB op <filename>/"
+"dev/sda3</filename> en een Linux-partitie van ongeveer 1.2GB op <filename>/"
+"dev/sda2</filename>."
 
 #. Tag: para
 #: partitioning.xml:300
@@ -504,12 +650,15 @@ msgid ""
 "after your system installation is complete, check <xref linkend=\"tasksel-"
 "size-list\"/>."
 msgstr ""
+"Als u een idee wilt krijgen van de ruimte die ingenomen wordt door bepaalde "
+"taken die u na de installatie van het systeem zou willen installeren, kunt u "
+"<xref linkend=\"tasksel-size-list\"/> raadplegen."
 
 #. Tag: title
 #: partitioning.xml:316
 #, no-c-format
 msgid "Device Names in Linux"
-msgstr ""
+msgstr "De benaming van apparaten in Linux"
 
 #. Tag: para
 #: partitioning.xml:317
@@ -519,24 +668,30 @@ msgid ""
 "systems. You need to know the names that Linux uses when you create and "
 "mount partitions. Here's the basic naming scheme:"
 msgstr ""
+"Onder Linux is de benaming van schijven en partities mogelijk anders dan bij "
+"andere besturingssystemen. Als u partities maakt en aankoppelt moet u de "
+"namen die door Linux gebruikt worden, kennen. Hierna volgt basisinformatie "
+"over het naamgevingsschema:"
 
 #. Tag: para
 #: partitioning.xml:325
 #, no-c-format
 msgid "The first floppy drive is named <filename>/dev/fd0</filename>."
-msgstr ""
+msgstr "Het eerste diskettestation heet <filename>/dev/fd0</filename>."
 
 #. Tag: para
 #: partitioning.xml:330
 #, no-c-format
 msgid "The second floppy drive is named <filename>/dev/fd1</filename>."
-msgstr ""
+msgstr "Het tweede diskettestation heet <filename>/dev/fd1</filename>."
 
 #. Tag: para
 #: partitioning.xml:335
 #, no-c-format
 msgid "The first hard disk detected is named <filename>/dev/sda</filename>."
 msgstr ""
+"De harde schijf die eerst aangetroffen wordt, heet <filename>/dev/sda</"
+"filename>."
 
 #. Tag: para
 #: partitioning.xml:340
@@ -545,6 +700,8 @@ msgid ""
 "The second hard disk detected is named <filename>/dev/sdb</filename>, and so "
 "on."
 msgstr ""
+"De harde schijf die als tweede aangetroffen wordt, heet <filename>/dev/sdb</"
+"filename>, enzovoort."
 
 #. Tag: para
 #: partitioning.xml:346
@@ -553,12 +710,14 @@ msgid ""
 "The first SCSI CD-ROM is named <filename>/dev/scd0</filename>, also known as "
 "<filename>/dev/sr0</filename>."
 msgstr ""
+"Het eerste SCSI CD-station heet <filename>/dev/scd0</filename> en is ook "
+"gekend als <filename>/dev/sr0</filename>."
 
 #. Tag: para
 #: partitioning.xml:355
 #, no-c-format
 msgid "The first DASD device is named <filename>/dev/dasda</filename>."
-msgstr ""
+msgstr "Het eerste DASD-apparaat heet <filename>/dev/dasda</filename>."
 
 #. Tag: para
 #: partitioning.xml:361
@@ -566,6 +725,7 @@ msgstr ""
 msgid ""
 "The second DASD device is named <filename>/dev/dasdb</filename>, and so on."
 msgstr ""
+"Het tweede DASD-apparaat heet <filename>/dev/dasdb</filename>, enzovoort."
 
 #. Tag: para
 #: partitioning.xml:369
@@ -576,6 +736,10 @@ msgid ""
 "represent the first and second partitions of the first SCSI disk drive in "
 "your system."
 msgstr ""
+"De partities op iedere schijf worden voorgesteld door aan de naam van de "
+"schijf een decimaal getal toe te voegen: <filename>sda1</filename> en "
+"<filename>sda2</filename> stellen de eerste en de tweede partitie voor op de "
+"eerse SCSI-schijf op uw systeem."
 
 #. Tag: para
 #: partitioning.xml:376
@@ -589,6 +753,14 @@ msgid ""
 "<filename>sda2</filename>, and <filename>sda3</filename>. The same applies "
 "to the <filename>sdb</filename> disk and its partitions."
 msgstr ""
+"Hierna volgt een voorbeeld uit de praktijk. Laten we aannemen dat u een "
+"systeem heeft met 2 SCSI-schijven, de ene op het SCSI-adres 2 en de andere "
+"op het SCSI-adres 4. De eerste schijf (op adres 2) krijgt dan de naam "
+"<filename>sda</filename> en de tweede <filename>sdb</filename>. Als er zich "
+"op de schijf <filename>sda</filename> 3 partities bevinden, zullen die "
+"<filename>sda1</filename>, <filename>sda2</filename> en <filename>sda3</"
+"filename> heten. Hetzelfde geldt voor schijf <filename>sdb</filename> en "
+"haar partities."
 
 #. Tag: para
 #: partitioning.xml:387
@@ -599,6 +771,11 @@ msgid ""
 "watch the boot messages, assuming you know the drive models and/or "
 "capacities."
 msgstr ""
+"Merk op dat als uw computer twee computerbusadapters voor SCSI heeft (d.w.z. "
+"twee SCSI-controllers), er verwarring kan ontstaan over de volgorde van de "
+"schijven. In dat geval is de beste oplossing om de opstartberichten in het "
+"oog te houden en deze informatie te koppelen aan wat u weet over het type en "
+"de grootte van de schijven."
 
 #. Tag: para
 #: partitioning.xml:394
@@ -611,6 +788,13 @@ msgid ""
 "sda5</filename>. Remember that the extended partition, that is, the primary "
 "partition holding the logical partitions, is not usable by itself."
 msgstr ""
+"Linux stelt de primaire partities voor door de naam van de schijf te nemen "
+"met daarbij het cijfer 1 tot 4. De eerste primaire partitie op de eerste "
+"schijf is dus <filename>/dev/sda1</filename>. De logische partities worden "
+"genummerd te beginnen vanaf 5 en dus is de eerste logische partitie op "
+"diezelfde schijf <filename>/dev/sda5</filename>. Denk eraan dat de "
+"uitgebreide partitie, dit wil zeggen de primaire partitie die de logische "
+"partities bevat, op zich niet bruikbaar is."
 
 #. Tag: para
 #: partitioning.xml:404
@@ -621,6 +805,11 @@ msgid ""
 "quote> partition. This partition references all of the sectors of the disk, "
 "and is used by the boot loader (either SILO, or Sun's)."
 msgstr ""
+"De schijfindeling van Sun laat 8 verschillende partities (of schijfjes, "
+"slices) toe. De derde partitie is gewoonlijk (en bij voorkeur) de "
+"<quote>Whole Disk</quote>-partitie (de volledige-schijfpartitie). Deze "
+"partitie verwijst naar elke sector van de schijf en wordt door de "
+"opstartlader gebruikt (ofwel SILO, ofwel die van Sun)."
 
 #. Tag: para
 #: partitioning.xml:411
@@ -631,12 +820,16 @@ msgid ""
 "represent the first and second partitions of the first DASD device in your "
 "system."
 msgstr ""
+"De partities op iedere schijf worden voorgesteld door een decimaal getal toe "
+"te voegen aan de naam van de schijf: <filename>dasda1</filename> en "
+"<filename>dasda2</filename> stellen de eerste en de tweede partitie voor op "
+"het eerste DASD-apparaat op uw systeem."
 
 #. Tag: title
 #: partitioning.xml:426
 #, no-c-format
 msgid "&debian; Partitioning Programs"
-msgstr ""
+msgstr "&debian; schijfindelingsprogramma's"
 
 #. Tag: para
 #: partitioning.xml:427
@@ -647,6 +840,10 @@ msgid ""
 "architectures. Following is a list of the program(s) applicable for your "
 "architecture."
 msgstr ""
+"De ontwikkelaars van &debian; hebben verschillende aantallen "
+"schijfindelingsprogramma's aangepast om uiteenlopende types harde schijven "
+"en computerarchitecturen te kunnen bedienen. Hierna volgt een lijst met de "
+"programma's die voor uw architectuur van toepassing zijn."
 
 #. Tag: para
 #: partitioning.xml:440
@@ -657,12 +854,16 @@ msgid ""
 "(<quote>format</quote> in Windows speak)</phrase> and assign them to the "
 "mountpoints."
 msgstr ""
+"Het aanbevolen schijfindelingsgereedschap in &debian;. Dit Zwitsers zakmes "
+"is ook in staat de partitiegrootte te wijzigen, bestandssystemen aan te "
+"maken <phrase arch=\"any-x86\"> (<quote>formatteren</quote> in Windows-"
+"taalgebruik)</phrase> en ze toe te wijzen aan aankoppelpunten."
 
 #. Tag: para
 #: partitioning.xml:452
 #, no-c-format
 msgid "The original Linux disk partitioner, good for gurus."
-msgstr ""
+msgstr "Het originele Linux schijfindelingsprogramma; goed voor goeroes."
 
 #. Tag: para
 #: partitioning.xml:456
@@ -674,12 +875,19 @@ msgid ""
 "differ. See the <ulink url=\"&url-linux-freebsd;\">Linux+FreeBSD HOWTO</"
 "ulink>."
 msgstr ""
+"Wees voorzichtig als uw machine bestaande FreeBSD-partities heeft. De "
+"kernels van het installatiesysteem ondersteunen deze partities, maar de "
+"wijze waarop <command>fdisk</command> ze voorstelt (of dat niet doet) kan "
+"maken dat de benaming van de schijven verschilt. Zie de <ulink url=\"&url-"
+"linux-freebsd;\">Linux+FreeBSD HOWTO</ulink>."
 
 #. Tag: para
 #: partitioning.xml:469
 #, no-c-format
 msgid "A simple-to-use, full-screen disk partitioner for the rest of us."
 msgstr ""
+"Een gemakkelijk te gebruiken schijfindelingsprogramma in een volledig scherm "
+"voor de rest onder ons."
 
 #. Tag: para
 #: partitioning.xml:473
@@ -688,24 +896,27 @@ msgid ""
 "Note that <command>cfdisk</command> doesn't understand FreeBSD partitions at "
 "all, and, again, device names may differ as a result."
 msgstr ""
+"Merk op dat <command>cfdisk</command> helemaal geen notie heeft van FreeBSD-"
+"partities, en nogmaals, als gevolg daarvan kan de benaming van de schijven "
+"verschillend zijn."
 
 #. Tag: para
 #: partitioning.xml:483
 #, no-c-format
 msgid "Atari-aware version of <command>fdisk</command>."
-msgstr ""
+msgstr "Een voor Atari geschikte versie van <command>fdisk</command>."
 
 #. Tag: para
 #: partitioning.xml:492
 #, no-c-format
 msgid "Amiga-aware version of <command>fdisk</command>."
-msgstr ""
+msgstr "Een voor Amiga geschikte versie van <command>fdisk</command>."
 
 #. Tag: para
 #: partitioning.xml:501
 #, no-c-format
 msgid "Mac-aware version of <command>fdisk</command>."
-msgstr ""
+msgstr "Een voor Mac geschikte versie van <command>fdisk</command>."
 
 #. Tag: para
 #: partitioning.xml:510
@@ -714,6 +925,8 @@ msgid ""
 "PowerMac-aware version of <command>fdisk</command>, also used by BVM and "
 "Motorola VMEbus systems."
 msgstr ""
+"Een voor PowerMac geschikte versie van <command>fdisk</command>, die ook "
+"gebruikt wordt voor VMEbus-systemen van BVM en Motorola."
 
 #. Tag: para
 #: partitioning.xml:520
@@ -724,6 +937,11 @@ msgid ""
 "developerworks/opensource/linux390/docu/l390dd08.pdf\"> Device Drivers and "
 "Installation Commands</ulink> for details."
 msgstr ""
+"Versie van <command>fdisk</command> voor &arch-title;. Gelieve de man-pagina "
+"van fdasd of hoofdstuk 13 in <ulink url=\"http://oss.software.ibm.com/"
+"developerworks/opensource/linux390/docu/l390dd08.pdf\"> Device Drivers and "
+"Installation Commands</ulink> (apparaatstuurprogramma's en "
+"installatiecommando's) te lezen voor meer informatie."
 
 #. Tag: para
 #: partitioning.xml:531
@@ -734,12 +952,18 @@ msgid ""
 "to use a different partitioning tool from the command line on VT2, but this "
 "is not recommended."
 msgstr ""
+"Een van deze programma's zal standaard uitgevoerd worden als u "
+"<guimenuitem>Schijven indelen</guimenuitem> (of iets dergelijks) selecteert. "
+"Het is mogelijk om een ander schijfindelingsprogramma te gebruiken aan de "
+"commandoregel op VT2, maar dit wordt niet aangeraden."
 
 #. Tag: para
 #: partitioning.xml:538
 #, no-c-format
 msgid "Remember to mark your boot partition as <quote>Bootable</quote>."
 msgstr ""
+"Denk eraan om uw opstartpartitie te markeren als <quote>Bootable</quote> "
+"(opstartbaar)."
 
 #. Tag: para
 #: partitioning.xml:541
@@ -752,13 +976,21 @@ msgid ""
 "mac-fdisk-tutorial;\">mac-fdisk Tutorial</ulink>, which includes steps you "
 "should take if you are sharing your disk with MacOS."
 msgstr ""
+"Een belangrijk gegeven bij het indelen van schijven van het type Mac is, dat "
+"de partitie voor het wisselgeheugen aan de hand van haar naam "
+"geïdentificeerd wordt. Ze moet dus <quote>swap</quote> genoemd worden. Alle "
+"linux-partities op Mac zijn van hetzelfde partitietype, Apple_UNIX_SRV2. "
+"Raadpleeg de handleiding. We raden eveneens aan om de <ulink url=\"&url-mac-"
+"fdisk-tutorial;\">mac-fdisk Tutorial</ulink> te lezen. Daarin worden ook de "
+"stappen beschreven die u moet zetten als u de schijf samen met MacOS wilt "
+"gebruiken."
 
 #. Tag: title
 #: partitioning.xml:557 partitioning.xml:581 partitioning.xml:677
 #: partitioning.xml:791 partitioning.xml:868
 #, no-c-format
 msgid "Partitioning for &arch-title;"
-msgstr ""
+msgstr "Schijven indelen voor &arch-title;"
 
 #. Tag: para
 #: partitioning.xml:558
@@ -777,6 +1009,19 @@ msgid ""
 "kernels (and backups) you might wish to load; 25&ndash;50MB is generally "
 "sufficient."
 msgstr ""
+"PALO, de opstartlader voor HPPA heeft ergens in de eerste 2GB een partitie "
+"nodig van het type <quote>F0</quote>. Daar worden de opstartlader en een "
+"facultatieve kernel en RAM-schijf opgeslagen. Zorg er dus voor dat ze "
+"voldoende groot is &mdash; minstens 4Mb (ik verkies 8&ndash;16MB). Een "
+"bijkomende vereiste van de firmware is dat de Linux-kernel zich op de eerste "
+"2GB van de schijf moet bevinden. Dit wordt normaal gerealiseerd door ervoor "
+"te zorgen dat de root-partitie, die van het type ext2 is, volledig binnen de "
+"eerste 2GB van de schijf past. Een andere mogelijkheid is een kleine ext2-"
+"partitie te maken bij het begin van de schijf en die aan te koppelen aan "
+"<filename>/boot</filename>, vermits dit de map is waarin de Linux-kernel(s) "
+"opgeslagen worden. <filename>/boot</filename> moet voldoende groot zijn om "
+"alle mogelijke kernels (en reserve-exemplaren) te bevatten die u wilt "
+"gebruiken; 25&ndash;50MB volstaat meestal."
 
 #. Tag: para
 #: partitioning.xml:582
@@ -790,6 +1035,15 @@ msgid ""
 "option <guimenuitem>Manual</guimenuitem> and then simply select an existing "
 "partition and change its size."
 msgstr ""
+"Indien u een ander besturingssysteem, zoals DOS of Windows, op de computer "
+"heeft staan en dat parallel met de installatie van &debian; wilt behouden, "
+"zult u de partitie waarop dit besturingssysteem staat, moeten verkleinen om "
+"plaats vrij te maken voor de installatie van &debian;. Het "
+"installatiesysteem ondersteunt het aanpassen van de grootte van zowel FAT- "
+"als NTFS-bestandssystemen. Als u tijdens het installatieproces toe komt aan "
+"de fase van schijfindeling, moet u de optie <guimenuitem>Handmatig</"
+"guimenuitem> selecteren en dan gewoon een bestaande partitie selecteren en "
+"de grootte ervan wijzigen."
 
 #. Tag: para
 #: partitioning.xml:592
@@ -803,6 +1057,14 @@ msgid ""
 "Partition HOWTO</ulink>, but this section will include a brief overview to "
 "help you plan most situations."
 msgstr ""
+"Het PC BIOS legt gewoonlijk extra beperkingen op aan de schijfindeling. Er "
+"bestaat een limiet voor het aantal <quote>primaire</quote> en "
+"<quote>logische</quote> partities die een schijf kan bevatten. Voor BIOS-en "
+"die dateren van voor 1994&ndash;98 geldt een bijkomende beperking inzake de "
+"plaats op de schijf waarvandaan het BIOS kan opstarten. Meer informatie "
+"vindt u in de <ulink url=\"&url-partition-howto;\">Linux Partition HOWTO</"
+"ulink>, maar in dit onderdeel geven we een kort overzicht waarmee u de meest "
+"voorkomende situaties kunt aanpakken."
 
 #. Tag: para
 #: partitioning.xml:602
@@ -816,6 +1078,14 @@ msgid ""
 "logical partitions. You can create up to 60 logical partitions per extended "
 "partition; however, you can only have one extended partition per drive."
 msgstr ""
+"De <quote>primaire</quote> partities zijn het originele "
+"schijfindelingssysteem voor PC-schijven. Er kunnen er echter slechts vier "
+"van bestaan. Om aan deze beperking te ontkomen, werden <quote>extended</"
+"quote> (uitgebreide) en <quote>logical</quote> (logische) partities bedacht. "
+"Door van een van uw primaire partities een uitgebreide partitie te maken, "
+"kunt u alle ruimte die aan die partitie toegekend werd opdelen in logische "
+"partities. Per uitgebreide partitie kunt u 60 logische partities aanmaken. "
+"Op een schijf kunt u echter slecht één uitgebreide partitie hebben."
 
 #. Tag: para
 #: partitioning.xml:613
@@ -828,6 +1098,13 @@ msgid ""
 "may not install on partitions higher than 20 unless you first manually "
 "create devices for those partitions."
 msgstr ""
+"Linux beperkt het aantal partities per schijf tot een totaal van 255 voor "
+"SCSI-schijven (3 bruikbare primaire partities en 252 logische partities) en "
+"tot 63 voor IDE-schijven (3 bruikbare primaire partities en 60 logische "
+"partities). Maar het normale &debian-gnu;-systeem voorziet slechts in 20 "
+"devices (apparaten) voor partities. U kunt dus niet installeren op een "
+"hogere partitie dan de 20e, tenzij u eerst zelf apparaten creëert voor die "
+"partities."
 
 #. Tag: para
 #: partitioning.xml:623
@@ -839,6 +1116,12 @@ msgid ""
 "within the first 1024 cylinders of your hard drive (usually around 524 "
 "megabytes, without BIOS translation)."
 msgstr ""
+"Indien u een grote IDE-schijf heeft en geen gebruik maakt van de LBA-"
+"adresseringstechniek of van een overlay-stuurprogramma (soms meegeleverd "
+"door de fabrikant van de harde schijf), moet de opstartpartitie (de boot-"
+"partitie - de partitie waarop het kernel-image staat) op de eerste 1024 "
+"cylinders van de harde schijf (zonder BIOS-translation meestal ongeveer 524 "
+"megabytes) staan."
 
 #. Tag: para
 #: partitioning.xml:631
@@ -856,6 +1139,18 @@ msgid ""
 "has, these restrictions no longer apply, since &arch-kernel; does not use "
 "the BIOS for disk access."
 msgstr ""
+"Deze beperking geldt niet voor een BIOS van na ongeveer 1995&ndash;98 "
+"(afhankelijk van de fabrikant) die ondersteuning bevat voor de "
+"<quote>Enhanced Disk Drive Support Specification</quote>. Zowel Lilo, de "
+"Linux-opstartlader, als <command>mbr</command>, het alternatief van "
+"&debian;, moeten het BIOS gebruiken om de kernel van de schijf in het RAM in "
+"te lezen. Indien de int 0x13 BIOS-uitbreidingen voor toegang tot grote harde "
+"schijven aangetroffen worden, worden ze gebruikt. Anders wordt teruggevallen "
+"op de oudere interface voor het benaderen van harde schijven, maar die kan "
+"niet gebruikt worden voor het benaderen van een plaats op de schijf voorbij "
+"de 1023e cylinder. Deze beperkingen gelden niet meer nadat de &arch-kernel; "
+"opgestart is, ongeacht het BIOS van uw computer. De &arch-kernel; maakt "
+"immers geen gebruik van het BIOS om de harde schijf te benaderen."
 
 #. Tag: para
 #: partitioning.xml:645
@@ -870,6 +1165,16 @@ msgid ""
 "access extensions, then your boot partition has to fit within the "
 "<emphasis>translated</emphasis> representation of the 1024th cylinder."
 msgstr ""
+"Indien u een harde schijf heeft, zult u mogelijk zogenaamde cylinder "
+"translation technieken (cylinderomzettingstechnieken) moeten gebruiken. U "
+"kunt die instellen met het setup-programma van uw BIOS. Het gaat dan om "
+"technieken als LBA (Logical Block Addressing) of de CHS translation modus "
+"(<quote>Large</quote>). Meer informatie over aandachtspunten bij grote harde "
+"schijven kunt u vinden in de <ulink url=\"&url-large-disk-howto;\">Large "
+"Disk HOWTO</ulink>. Indien u een model voor cylinder translation toepast, "
+"maar uw BIOS de uitbreidingen voor het benaderen van grote harde schijven "
+"niet ondersteunt, moet uw boot-partitie (opstartpartitie) zich binnen de "
+"<emphasis>omgezette</emphasis> representatie van de 1024e cylinder bevinden."
 
 #. Tag: para
 #: partitioning.xml:657
@@ -885,6 +1190,16 @@ msgid ""
 "disk CHS translation is used, and regardless of whether your BIOS supports "
 "the large disk access extensions."
 msgstr ""
+"De aanbevolen manier om dit te realiseren is om een kleine (25&ndash;50MB "
+"zou moeten volstaan) partitie aan het begin van de harde schijf aan te maken "
+"die dan als boot-partitie gebruikt wordt. Daarna kunt u op het resterende "
+"deel alle overige gewenste partities aanmaken. Deze opstartpartitie "
+"<emphasis>moet</emphasis> aangekoppeld worden op <filename>/boot</filename>, "
+"aangezien dat de map is waarin de &arch-kernel; kernel(s) opgeslagen worden. "
+"Een dergelijke configuratie werkt op elk systeem, ongeacht of LBA of CHS "
+"translation voor grote harde schijven gebruikt wordt of niet en ongeacht het "
+"feit of uw BIOS de uitbreidingen voor het benaderen van grote harde schijven "
+"ondersteunt of niet."
 
 #. Tag: para
 #: partitioning.xml:678
@@ -896,12 +1211,18 @@ msgid ""
 "a successful installation. It actually uses <command>parted</command> to do "
 "the on-disk partitioning."
 msgstr ""
+"Het <command>partman</command> schijfindelingsprogramma is het standaard "
+"schijfindelingsgereedschap van het installatiesysteem. Het regelt het "
+"instellen van de partities en hun aankoppelpunten en zorgt voor een passende "
+"configuratie van de schijven en de bestandssystemen, zodat de installatie "
+"succesvol kan verlopen. Zelf maakt het gebruik van <command>parted</command> "
+"om op de schijf de indeling uit te voeren."
 
 #. Tag: title
 #: partitioning.xml:690
 #, no-c-format
 msgid "EFI Recognized Formats"
-msgstr ""
+msgstr "Door EFI herkende indelingen"
 
 #. Tag: para
 #: partitioning.xml:691
@@ -914,6 +1235,13 @@ msgid ""
 "<command>parted</command></ulink> because only it can manage both GPT and MS-"
 "DOS tables correctly."
 msgstr ""
+"De IA-64 EFI firmware ondersteunt twee vormen van partitietabel (of "
+"schijflabel), GPT en MS-DOS. MS-DOS, het model dat gewoonlijk op i386 PC's "
+"gebruikt wordt, wordt voor IA-64 systemen niet langer aanbevolen. Hoewel het "
+"installatiesysteem ook <command>cfdisk</command> ter beschikking stelt, zou "
+"u enkel  <ulink url=\"parted.txt\"> <command>parted</command></ulink> mogen "
+"gebruiken omdat enkel dat programma op een correcte manier kan omgaan met "
+"zowel GPT- als MS-DOS-tabellen."
 
 #. Tag: para
 #: partitioning.xml:703
@@ -925,6 +1253,12 @@ msgid ""
 "main menu in a manner similar to setting up a <emphasis>swap</emphasis> "
 "partition."
 msgstr ""
+"De schema's voor automatische schijfindeling die door <command>partman</"
+"command> gebruikt worden, voorzien in een EFI-partitie als eerste partitie "
+"op de schijf. U kunt die partitie ook instellen onder <guimenuitem>Begeleide "
+"schijfindeling</guimenuitem> uit het hoofdmenu op eenzelfde manier als "
+"waarop u een <emphasis>swap</emphasis>-partitie (partitie voor "
+"wisselgeheugen) instelt."
 
 #. Tag: para
 #: partitioning.xml:711
@@ -953,12 +1287,38 @@ msgid ""
 "with <command>parted</command> can take a few minutes to complete, as it "
 "scans the partition for bad blocks."
 msgstr ""
+"Het schijfindelingsprogramma <command>partman</command> kan met de meeste "
+"schijfinrichtingen overweg. Voor die zeldzame gevallen waarin het nodig is "
+"om een schijf handmatig in te stellen, kunt u een shell gebruiken, zoals "
+"hiervoor beschreven werd, en het hulpprogramma <command>parted</command> "
+"rechtstreeks gebruiken via zijn interface voor de commandoregel. Als we "
+"ervan uitgaan dat u de volledige schijf wenst te wissen en een GPT-tabel en "
+"enkele partities wenst aan te maken, dan kunt u iets gebruiken zoals de "
+"volgende reeks commando's <informalexample><screen>\n"
+"      mklabel gpt\n"
+"      mkpartfs primary fat 0 50\n"
+"      mkpartfs primary linux-swap 51 1000\n"
+"      mkpartfs primary ext2 1001 3000\n"
+"      set 1 boot on\n"
+"      print\n"
+"      quit\n"
+"</screen></informalexample> Dit creëert een nieuwe partitietabel en drie "
+"partities die respectievelijk gebruikt worden als EFI boot-partitie, "
+"wisselgeheugen (swap) en root-bestandssysteem. Tenslotte zet het op de EFI-"
+"partitie de vlag die aangeeft dat van deze partitie opgestart kan worden (de "
+"boot flag). De partities worden in Megabytes gedefinieerd met een begin- en "
+"eindplaats te tellen vanaf het begin van de schijf. Hierboven bijvoorbeeld "
+"creëerden we een ext2-bestandssysteem met een grootte van 1999MB te beginnen "
+"op plaats 1001MB, geteld vanaf het begin van de schijf. Merk op dat het "
+"formatteren van wisselgeheugen (swap space) met <command>parted</command> "
+"enkele minuten in beslag kan nemen, aangezien het programma de partitie "
+"onderzoekt op slechte blokken."
 
 #. Tag: title
 #: partitioning.xml:736
 #, no-c-format
 msgid "Boot Loader Partition Requirements"
-msgstr ""
+msgstr "Schijfindelingsvereisten van de opstartlader"
 
 #. Tag: para
 #: partitioning.xml:737
@@ -970,6 +1330,13 @@ msgid ""
 "to boot. A minimum size would be about 20MB, but if you expect to run with "
 "multiple kernels, then 128MB might be a better size."
 msgstr ""
+"ELILO, de IA-64 opstartlader, heeft een partitie nodig met daarop een FAT-"
+"bestandssysteem en met een ingestelde <userinput>boot</userinput>-vlag "
+"(waarmee aangegeven wordt dat vanaf die partitie opgestart kan worden). De "
+"partitie moet voldoende groot zijn om de opstartlader te bevatten en alle "
+"kernels en RAM-schijven die u wilt gebruiken om de machine op te starten. "
+"Een minimale grootte is ongeveer 20MB, maar als u meerdere kernels wilt "
+"kunnen gebruiken is een grootte van 128MB wellicht beter."
 
 #. Tag: para
 #: partitioning.xml:746
@@ -986,6 +1353,18 @@ msgid ""
 "omission is to shrink the last partition of the disk to make enough free "
 "space for adding an EFI partition."
 msgstr ""
+"De EFI Boot Manager en de EFI Shell bieden volledige ondersteuning voor de "
+"GPT-tabel. Daardoor moet de boot-partitie niet noodzakelijk de eerste "
+"partitie op de schijf zijn en zelfs niet noodzakelijk op dezelfde schijf "
+"staan. Dit is handig als u zou vergeten om die partitie te voorzien en pas "
+"na het formatteren van de overige partities op uw schijven tot die "
+"constatatie komt. Het schijfindelingsprogramma <command>partman</command> "
+"controleert of er een EFI-partitie aanwezig is op het moment dat het nagaat "
+"of er een correct ingestelde <emphasis>root</emphasis>-partitie is. Dit "
+"geeft u de kans om de inrichting van de schijf te corrigeren vooraleer met "
+"het installeren van pakketten begonnen wordt. De makkelijkste manier om deze "
+"vergetelheid recht te zetten is om de laatste partitie op de schijf in te "
+"krimpen, zodat voldoende ruimte vrij komt om de EFI-partitie toe te voegen."
 
 #. Tag: para
 #: partitioning.xml:761
@@ -994,12 +1373,14 @@ msgid ""
 "It is strongly recommended that you allocate the EFI boot partition on the "
 "same disk as the <emphasis>root</emphasis> filesystem."
 msgstr ""
+"Het wordt stek aanbevolen om de EFI boot-partitie op dezelfde schijf te "
+"plaatsen als het <emphasis>root</emphasis>-bestandssysteem."
 
 #. Tag: title
 #: partitioning.xml:769
 #, no-c-format
 msgid "EFI Diagnostic Partitions"
-msgstr ""
+msgstr "Diagnostische EFI-partities"
 
 #. Tag: para
 #: partitioning.xml:770
@@ -1014,6 +1395,16 @@ msgid ""
 "details. The easiest time to set up a diagnostics partition is at the same "
 "time you set up the EFI boot partition."
 msgstr ""
+"De EFI firmware is beduidend meer geavanceerd dan het gebruikelijke BIOS dat "
+"men op de meeste x86 PC's aantreft. Sommige fabrikanten van computersystemen "
+"benutten de mogelijkheid van het EFI om bestanden te benaderen en "
+"programma's uit te voeren die op een bestandssysteem van een harde schijf "
+"staan, om diagnostische en EFI-gerelateerde systeembeheerprogramma's op te "
+"slaan op de harde schijf. Het gaat om een apart FAT-bestandssysteem op de "
+"systeemschijf. Raadpleeg voor bijkomende informatie de met het systeem "
+"meegeleverde documentatie en accessoires. Het makkelijkste ogenblik voor het "
+"opzetten van een diagnostische partitie is op het moment waarop u de EFI "
+"boot-partitie opzet."
 
 #. Tag: para
 #: partitioning.xml:792
@@ -1026,12 +1417,20 @@ msgid ""
 "number 9 and re-add it with a different size. Note that the volume header "
 "must start at sector 0."
 msgstr ""
+"SGI machines vereisen een SGI schijflabel opdat het systeem vanaf de harde "
+"schijf opgestart zou kunnen worden. Het kan aangemaakt worden in het menu "
+"voor gevorderden van fdisk. Het daarbij op het volume gecreëerde voorstuk "
+"(een zogenaamde volume header - partitienummer 9) moet minstens 3MB groot "
+"zijn. Indien het op het volume gecreëerde voorstuk te klein uitvalt, kunt u "
+"gewoon partitie nummer 9 wissen en ze opnieuw aanmaken met een andere "
+"grootte. Merk op dat de header van het volume (het voorstuk) moet beginnen "
+"bij sector 0."
 
 #. Tag: title
 #: partitioning.xml:809
 #, no-c-format
 msgid "Partitioning Newer PowerMacs"
-msgstr ""
+msgstr "De schijfindeling op recentere PowerMacs"
 
 #. Tag: para
 #: partitioning.xml:810
@@ -1047,6 +1446,17 @@ msgid ""
 "telling it to use it as a <quote>NewWorld boot partition</quote>, or in "
 "<command>mac-fdisk</command> using the <userinput>b</userinput> command."
 msgstr ""
+"Indien u een installatie uitvoert op een NewWorld PowerMac, moet u een "
+"speciale bootstrap-partitie maken waarop de opstartlader moet komen. Deze "
+"partitie moet minstens een grootte van 819200 bytes hebben en de partitie "
+"moet van het type <emphasis>Apple_Bootstrap</emphasis> zijn. Indien u de "
+"bootstrap-partitie niet van het type <emphasis>Apple_Bootstrap</emphasis> "
+"maakt, kunt u de machine niet laten opstarten van de harde schijf. U kunt "
+"deze partitie eenvoudig aanmaken door met <command>partman</command> een "
+"nieuwe partitie te creëren en het programma te zeggen dat die partitie "
+"gebruikt moet worden als een <quote>NewWorld boot partition</quote>. Of u "
+"kunt dit doen door in <command>mac-fdisk</command> het commando "
+"<userinput>b</userinput> te gebruiken."
 
 #. Tag: para
 #: partitioning.xml:823
@@ -1056,6 +1466,10 @@ msgid ""
 "mounting and damaging the bootstrap partition, as there are special "
 "modifications made to it in order for OpenFirmware to boot it automatically."
 msgstr ""
+"Het bijzondere partitietype Apple_Bootstrap is noodzakelijk om te "
+"verhinderen dat MacOS de bootstrap-partitie aankoppelt en beschadigt. Aan "
+"die partitie worden namelijk bijzondere aanpassingen gemaakt om ervoor te "
+"zorgen dat OpenFirmware ze kan gebruiken om automatisch op te starten."
 
 #. Tag: para
 #: partitioning.xml:830
@@ -1068,6 +1482,14 @@ msgid ""
 "kernels or anything else copied to it. The <command>ybin</command> and "
 "<command>mkofboot</command> utilities are used to manipulate this partition."
 msgstr ""
+"Merk op dat de bootstrap-partitie enkel bedoeld is om er 3 kleine bestanden "
+"op te plaatsen: het binaire bestand <command>yaboot</command>, de "
+"configuratie ervan, <filename>yaboot.conf</filename>, en <command>ofboot.b</"
+"command>, een lader van het eerste stadium van OpenFirmware. Ze moet en mag "
+"niet aangekoppeld worden op het bestandssysteem en u mag er geen kernels of "
+"andere zaken naartoe kopiëren. De hulpprogramma's <command>ybin</command> en "
+"<command>mkofboot</command> kunnen gebruikt worden om deze partitie te "
+"bewerken."
 
 #. Tag: para
 #: partitioning.xml:840
@@ -1082,6 +1504,15 @@ msgid ""
 "(which is always partition 1). It's the logical map order, not the physical "
 "address order, that counts."
 msgstr ""
+"Opdat OpenFirmware &debian-gnu; automatisch zou opstarten, moet de bootstrap-"
+"partitie voor alle andere opstartpartities komen op de schijf, in het "
+"bijzonder de MacOS opstartpartities. De bootstrap-partitie moet de eerste "
+"partitie zijn die u aanmaakt. Indien u echter pas later een bootstrap-"
+"partitie toevoegt, kunt u het commando <userinput>r</userinput> van "
+"<command>mac-fdisk</command> gebruiken om het partitiegrondplan te "
+"herordenen, zodat de bootstrap-partitie onmiddellijk na het grondplan (dat "
+"altijd partitie 1 is) komt. Het is de volgorde uit het logische grondplan "
+"die van belang is en niet de volgorde van de fysieke adressen."
 
 #. Tag: para
 #: partitioning.xml:852
@@ -1093,6 +1524,13 @@ msgid ""
 "every boot, offers to initialize any disks which do not have active MacOS "
 "partitions and driver partitions."
 msgstr ""
+"Apple-schijven bevatten normaal verschillende kleine "
+"stuurprogrammapartities. Indien u van plan bent om op uw computer ook MacOSX "
+"te blijven gebruiken (een zogenaamde dual-boot opstelling), moet u die "
+"partities en een kleine HFS-partitie (de grootte ervan moet minimaal 800k "
+"zijn) behouden. Dit is omdat MacOSX telkens bij het opstarten aanbiedt om "
+"alle schijven te initialiseren die geen actieve MacOS partities en "
+"stuurprogrammaparities bevatten."
 
 #. Tag: para
 #: partitioning.xml:869
@@ -1103,6 +1541,11 @@ msgid ""
 "so it's the only scheme from which you can boot. The <keycap>s</keycap> key "
 "is used in <command>fdisk</command> to create Sun disk labels."
 msgstr ""
+"Zorg ervoor om op uw opstartschijf een <quote>Sun schijflabel</quote> te "
+"creëren. Dit is het enige soort partitiemodel waarmee het OpenBoot PROM "
+"overweg kan en dus is dit het enige model waarmee u kunt opstarten. In "
+"<command>fdisk</command> kunt u de <keycap>s</keycap>-toets gebruiken om Sun "
+"schijflabels te creëren."
 
 #. Tag: para
 #: partitioning.xml:877
@@ -1117,6 +1560,15 @@ msgid ""
 "put Ext2 or UFS partitions there; these will leave the partition table and "
 "the boot block alone."
 msgstr ""
+"Zorg er bovendien voor dat op &arch-title;-schijven de eerste partitie van "
+"uw opstartschijf begint bij cylinder 0. Aangezien dit een vereiste is, "
+"betekent dit eveneens dat de eerste partitie ook de partitietabel en het "
+"boot block, welke op de eerste twee sectoren van de schijf staan, bevat. U "
+"mag het wisselgeheugen (swap) <emphasis>niet</emphasis> op de eerste "
+"partitie van de opstartschijf plaatsen, aangezien swap-partities de "
+"allereerste sectoren van de partitie niet in ere houden. U kunt daar Ext2- "
+"of UFS-partities plaatsen. Deze laten de partitietabel en het boot block "
+"ongemoeid."
 
 #. Tag: para
 #: partitioning.xml:888
@@ -1127,3 +1579,8 @@ msgid ""
 "to the last). This is simply a convention of Sun disk labels, and helps the "
 "<command>SILO</command> boot loader keep its bearings."
 msgstr ""
+"Er wordt ook aanbevolen om van de derde partitie een partitie van het type "
+"<quote>Whole disk</quote> (volledige schijf - type 5) te maken die de "
+"volledige schijf omvat (van de eerste cylinder tot de laatste). Dit is "
+"gewoon een conventie van Sun schijflabels en het helpt de opstartlader "
+"<command>SILO</command> zijn weg te vinden."
