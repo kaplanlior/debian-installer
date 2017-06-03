@@ -155,11 +155,11 @@ recognized. You should see something like (the lines do not necessarily
 have to be consecutive):
 
 <informalexample><screen>
-Probing IDE interface ide1...
-hdc: TOSHIBA DVD-ROM SD-R6112, ATAPI CD/DVD-ROM drive
-ide1 at 0x170-0x177,0x376 on irq 15
-hdc: ATAPI 24X DVD-ROM DVD-R CD-R/RW drive, 2048kB Cache, UDMA(33)
-Uniform CD-ROM driver Revision: 3.20
+ata1.00: ATAPI: MATSHITADVD-RAM UJ-822S, 1.61, max UDMA/33
+ata1.00: configured for UDMA/33
+scsi 0:0:0:0: CD-ROM            MATSHITA DVD-RAM UJ-822S  1.61 PQ: 0 ANSI: 5
+sr0: scsi3-mmc drive: 24x/24x writer dvd-ram cd/rw xa/form2 cdda tray
+cdrom: Uniform CD-ROM driver Revision: 3.20
 </screen></informalexample>
 
 If you don't see something like that, chances are the controller your CD-ROM
@@ -172,7 +172,7 @@ using <command>modprobe</command>.
 
 Check that there is a device node for your CD-ROM drive under
 <filename>/dev/</filename>. In the example above, this would be
-<filename>/dev/hdc</filename>.
+<filename>/dev/sr0</filename>.
 There should also be a <filename>/dev/cdrom</filename>.
 
   </para></listitem>
