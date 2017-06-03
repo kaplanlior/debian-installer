@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
-"POT-Creation-Date: 2017-04-19 20:02+0000\n"
+"POT-Creation-Date: 2017-06-03 20:05+0000\n"
 "PO-Revision-Date: 2017-04-20 05:02+0900\n"
 "Last-Translator: KURASAWA Nozomu (nabetaro) <nabetaro@debian.or.jp>\n"
 "Language-Team: Japanese <debian-japanese@lists.debian.org>\n"
@@ -324,8 +324,7 @@ msgstr ""
 msgid ""
 "Older systems such as the 715 might require the use of an RBOOT server "
 "instead of a BOOTP server."
-msgstr ""
-"715 のような古いシステムは、BOOTP サーバではなく RBOOT サーバが必要です。"
+msgstr "715 のような古いシステムは、BOOTP サーバではなく RBOOT サーバが必要です。"
 
 #. Tag: para
 #: boot-installer.xml:180 boot-installer.xml:842 boot-installer.xml:1478
@@ -880,8 +879,7 @@ msgstr ""
 #, no-c-format
 msgid ""
 "If you have problems booting, see <xref linkend=\"boot-troubleshooting\"/>."
-msgstr ""
-"起動に問題があれば、<xref linkend=\"boot-troubleshooting\"/> をご覧ください。"
+msgstr "起動に問題があれば、<xref linkend=\"boot-troubleshooting\"/> をご覧ください。"
 
 #. Tag: title
 #: boot-installer.xml:609
@@ -1006,8 +1004,7 @@ msgstr ""
 #, no-c-format
 msgid ""
 "Booting from Linux using <command>LILO</command> or <command>GRUB</command>"
-msgstr ""
-"<command>LILO</command> や <command>GRUB</command> を用いた Linux からの起動"
+msgstr "<command>LILO</command> や <command>GRUB</command> を用いた Linux からの起動"
 
 #. Tag: para
 #: boot-installer.xml:686
@@ -2159,8 +2156,7 @@ msgstr ""
 msgid ""
 "Select the kernel version and installation mode most appropriate to your "
 "needs with the arrow keys."
-msgstr ""
-"カーネルのバージョンと目的に対して最も適切なモードを、矢印キーで選択する。"
+msgstr "カーネルのバージョンと目的に対して最も適切なモードを、矢印キーで選択する。"
 
 #. Tag: para
 #: boot-installer.xml:1424
@@ -3533,8 +3529,7 @@ msgstr "debconf/priority (priority)"
 #: boot-installer.xml:2495
 #, no-c-format
 msgid "This parameter sets the lowest priority of messages to be displayed."
-msgstr ""
-"このパラメータには、表示するメッセージのもっとも低い優先度を設定します。"
+msgstr "このパラメータには、表示するメッセージのもっとも低い優先度を設定します。"
 
 #. Tag: para
 #: boot-installer.xml:2499
@@ -4625,11 +4620,12 @@ msgid ""
 "Check in the output of <command>dmesg</command> if your CD-ROM drive was "
 "recognized. You should see something like (the lines do not necessarily have "
 "to be consecutive): <informalexample><screen>\n"
-"Probing IDE interface ide1...\n"
-"hdc: TOSHIBA DVD-ROM SD-R6112, ATAPI CD/DVD-ROM drive\n"
-"ide1 at 0x170-0x177,0x376 on irq 15\n"
-"hdc: ATAPI 24X DVD-ROM DVD-R CD-R/RW drive, 2048kB Cache, UDMA(33)\n"
-"Uniform CD-ROM driver Revision: 3.20\n"
+"ata1.00: ATAPI: MATSHITADVD-RAM UJ-822S, 1.61, max UDMA/33\n"
+"ata1.00: configured for UDMA/33\n"
+"scsi 0:0:0:0: CD-ROM            MATSHITA DVD-RAM UJ-822S  1.61 PQ: 0 ANSI: "
+"5\n"
+"sr0: scsi3-mmc drive: 24x/24x writer dvd-ram cd/rw xa/form2 cdda tray\n"
+"cdrom: Uniform CD-ROM driver Revision: 3.20\n"
 "</screen></informalexample> If you don't see something like that, chances "
 "are the controller your CD-ROM is connected to was not recognized or may be "
 "not supported at all. If you know what driver is needed for the controller, "
@@ -4638,11 +4634,12 @@ msgstr ""
 "CD-ROM ドライブを認識したかを <command>dmesg</command> の出力でチェックしてく"
 "ださい。以下のように見えます。(行は連続している必要はありません) "
 "<informalexample><screen>\n"
-"Probing IDE interface ide1...\n"
-"hdc: TOSHIBA DVD-ROM SD-R6112, ATAPI CD/DVD-ROM drive\n"
-"ide1 at 0x170-0x177,0x376 on irq 15\n"
-"hdc: ATAPI 24X DVD-ROM DVD-R CD-R/RW drive, 2048kB Cache, UDMA(33)\n"
-"Uniform CD-ROM driver Revision: 3.20\n"
+"ata1.00: ATAPI: MATSHITADVD-RAM UJ-822S, 1.61, max UDMA/33\n"
+"ata1.00: configured for UDMA/33\n"
+"scsi 0:0:0:0: CD-ROM            MATSHITA DVD-RAM UJ-822S  1.61 PQ: 0 ANSI: "
+"5\n"
+"sr0: scsi3-mmc drive: 24x/24x writer dvd-ram cd/rw xa/form2 cdda tray\n"
+"cdrom: Uniform CD-ROM driver Revision: 3.20\n"
 "</screen></informalexample> 以上のように見えなければ、CD-ROM を接続したコント"
 "ローラを認識できないか、おそらく全くサポートされていません。コントローラに必"
 "要なドライバが分かっていれば、<command>modprobe</command> を用い、手で読み込"
@@ -4653,11 +4650,11 @@ msgstr ""
 #, no-c-format
 msgid ""
 "Check that there is a device node for your CD-ROM drive under <filename>/dev/"
-"</filename>. In the example above, this would be <filename>/dev/hdc</"
+"</filename>. In the example above, this would be <filename>/dev/sr0</"
 "filename>. There should also be a <filename>/dev/cdrom</filename>."
 msgstr ""
 "<filename>/dev/</filename> にある CD-ROM ドライブのデバイスノードをチェックし"
-"てください。上の例では、<filename>/dev/hdc</filename> になっています。"
+"てください。上の例では、<filename>/dev/sr0</filename> になっています。"
 "<filename>/dev/cdrom</filename> にもあるかもしれません。"
 
 #. Tag: para
@@ -5033,8 +5030,7 @@ msgstr ""
 #: boot-installer.xml:3469
 #, no-c-format
 msgid "We recommend to install such systems by netbooting the installer."
-msgstr ""
-"そのようなシステムでは、インストーラをネットから起動するのをお勧めします。"
+msgstr "そのようなシステムでは、インストーラをネットから起動するのをお勧めします。"
 
 #. Tag: title
 #: boot-installer.xml:3478
@@ -5256,3 +5252,4 @@ msgstr ""
 "</screen></informalexample> バグ報告の際には、カーネルがハングした直前に表示"
 "されたカーネルメッセージを添えて、何が問題なのかを説明してください。また、問"
 "題が起きるまでにシステムに対して行ったことも記述してください。"
+
