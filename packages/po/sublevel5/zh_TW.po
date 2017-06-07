@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: debian-installer\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2008-08-09 00:18+0800\n"
+"PO-Revision-Date: 2017-06-06 13:17+0800\n"
 "Last-Translator: Yao Wei (魏銘廷) <mwei@lxde.org>\n"
 "Language-Team: Debian-user in Chinese [Big5] <debian-chinese-big5@lists."
 "debian.org>\n"
@@ -15,6 +15,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
 
 #. Type: text
 #. Description
@@ -123,7 +124,7 @@ msgstr "找不到 EFI 分割區。"
 #. Up to 10 character positions
 #: ../partman-efi.templates:5001
 msgid "ESP"
-msgstr ""
+msgstr "ESP"
 
 #. Type: text
 #. Description
@@ -166,6 +167,9 @@ msgid ""
 "might be difficult to reboot the machine into any BIOS-mode operating "
 "systems later."
 msgstr ""
+"這個機器的韌體使用 UEFI 模式啟動安裝程式，但是似乎先前使用了「BIOS 相容模式」"
+"安裝作業系統。如果您繼續使用 UEFI 模式安裝 Debian，之後啟動使用 BIOS 模式安裝"
+"的作業系統可能會造成困難。"
 
 #. Type: boolean
 #. Description
@@ -177,6 +181,9 @@ msgid ""
 "If you wish to keep the option to boot an existing operating system, you "
 "should choose NOT to force UEFI installation here."
 msgstr ""
+"如果您想要繼續透過 UEFI 模式安裝作業系統而不理會既有作業系統的開機的話，請選"
+"擇「是」。如果您想要保留既有作業系統的開機方式的話，請選擇「否」不強制 UEFI "
+"安裝。"
 
 #. Type: select
 #. Choices
@@ -518,7 +525,7 @@ msgstr "是否要將裝置格式化？"
 #. :sl5:
 #: ../s390-dasd.templates:4001
 msgid "The DASD ${device} is already low-level formatted."
-msgstr ""
+msgstr "DASD 裝置 ${device} 已經經過低階格式化。"
 
 #. Type: boolean
 #. Description
@@ -528,31 +535,25 @@ msgid ""
 "Please choose whether you want to format again and remove any data on the "
 "DASD. Note that formatting a DASD might take a long time."
 msgstr ""
+"請選擇是否要重新格式化並移除 DASD 上的任何資料。格式化 DASD 可能很耗時。"
 
 #. Type: boolean
 #. Description
 #. :sl5:
 #: ../s390-dasd.templates:5001
-#, fuzzy
-#| msgid ""
-#| "The installer is unable to detect if the device ${device} has already "
-#| "been formatted or not. Devices need to be formatted before you can create "
-#| "partitions."
 msgid ""
 "The DASD ${device} is not low-level formatted. DASD devices must be "
 "formatted before you can create partitions."
 msgstr ""
-"安裝程式無法判別 ${device} 裝置是否已經過格式化。在建立磁碟分割之前，裝置必須"
-"先經過格式化。"
+"安裝程式無法判別 DASD ${device} 裝置是否經過低階格式化。在建立磁碟分割之前，"
+"DASD 裝置必須先經過格式化。"
 
 #. Type: error
 #. Description
 #. :sl5:
 #: ../s390-dasd.templates:6001
-#, fuzzy
-#| msgid "Device in use"
 msgid "The DASD ${device} is in use"
-msgstr "使用中的裝置"
+msgstr "DASD 裝置 ${device} 正在使用中"
 
 #. Type: error
 #. Description
@@ -563,6 +564,8 @@ msgid ""
 "For example, the DASD could be a member of a mapped device in an LVM volume "
 "group."
 msgstr ""
+"因為 DASD ${device} 正在使用中，因此無法低階格式化。例如該 DASD 可能是 LVM "
+"volume group 中被映射的裝置。"
 
 #. Type: text
 #. Description
