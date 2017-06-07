@@ -85,10 +85,10 @@ sub archname {
 		return "all";
 	}
 	elsif (keys %unseen > keys %seen) {
-		return join(",", keys %seen);
+		return join(",", sort keys %seen);
 	}
 	else {
-		return join(",", map { "!$_" } keys %unseen);
+		return join(",", sort map { "!$_" } keys %unseen);
 	}
 }
 
