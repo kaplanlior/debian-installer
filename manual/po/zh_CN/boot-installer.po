@@ -1,16 +1,20 @@
 # Debian GNU/Linux Installation Guide
+# Yangfl <mmyangfl@gmail.com>, 2017.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: d-i-manual\n"
 "Report-Msgid-Bugs-To: debian-boot@lists.debian.org\n"
 "POT-Creation-Date: 2017-06-03 20:05+0000\n"
-"PO-Revision-Date: 2015-03-21 18:13+0100\n"
-"Last-Translator: Ji YongGang <jungleji@gmail.com>\n"
-"Language-Team: debian-chinese-gb <debian-chinese-gb@lists.debian.org>\n"
+"PO-Revision-Date: 2017-06-11 22:36+0800\n"
+"Last-Translator: Yangfl <mmyangfl@gmail.com>\n"
+"Language-Team:  <debian-l10n-chinese@lists.debian.org>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Gtranslator 2.91.7\n"
 
 #. Tag: title
 #: boot-installer.xml:4
@@ -35,10 +39,10 @@ msgid ""
 "suspended to disk) could result in loss of, or damage to the state of the "
 "suspended operating system which could cause problems when it is rebooted."
 msgstr ""
-"假如您的机器上有其他的操作系统，并希望保留(多重启动设置)，您要确保它在启动安"
-"装程序<emphasis>之前</emphasis>正确地被关闭。在另外一个操作系统休眠时(中断并"
-"保存到磁盘)进行安装，被中断的操作系统的状态信息可能会丢失或者损坏，再次启动将"
-"会出现问题。"
+"假如您的机器上有其他的操作系统，并希望保留 (多重启动设置)，您要确保它在启动安"
+"装程序<emphasis>之前</emphasis>正确地被关闭。在另外一个操作系统休眠时 (中断并"
+"保存到磁盘) 进行安装，被中断的操作系统的状态信息可能会丢失或者损坏，再次启动"
+"将会出现问题。"
 
 #. Tag: para
 #: boot-installer.xml:26
@@ -46,14 +50,14 @@ msgstr ""
 msgid ""
 "For information on how to boot the graphical installer, see <xref linkend="
 "\"graphical\"/>."
-msgstr "关于如何引导图形安装程序，请参阅 <xref linkend=\"graphical\"/>。"
+msgstr "关于如何启动图形安装程序，请参见<xref linkend=\"graphical\"/>。"
 
 #. Tag: title
 #: boot-installer.xml:39
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "Booting from Firmware"
 msgid "Boot image formats"
-msgstr "从固件引导"
+msgstr "启动映像格式"
 
 #. Tag: para
 #: boot-installer.xml:40
@@ -65,6 +69,10 @@ msgid ""
 "or b) uImage-format kernels (<quote>uImage</quote>) in conjunction with "
 "corresponding initial ramdisks (<quote>uInitrd</quote>)."
 msgstr ""
+"在基于 ARM 的系统中，大多数情况下使用两种引导映像格式之一：a) 标准的 Linux "
+"zImage 格式内核（<quote>vmlinuz</quote>）与标准的Linux初始化内存盘"
+"（<quote>initrd.gz</quote>）结合使用 或 b）uImage格式的内核（<quote>uImage</"
+"quote>）与相应的初始化内存盘（<quote>uInitrd</quote>）结合使用。"
 
 #. Tag: para
 #: boot-installer.xml:48
@@ -78,6 +86,11 @@ msgid ""
 "command syntax to do that is slightly different from that for booting "
 "uImages."
 msgstr ""
+"uImage/uInitrd 是为许多基于 ARM 的系统（大多数为 32 位系统）使用的 U-Boot 固"
+"件设计的映像格式。较旧的 U-Boot 版本只能以 uImage/uInitrd 格式启动文件，因此"
+"通常在较旧的 armel 系统上使用。除了启动 uImage/uInitrd 外，较新的 U-Boot 版本"
+"还可以引导标准的 Linux 内核和内存盘映像，但是这样做的命令语法与启动 uImage 时"
+"的略有不同。"
 
 #. Tag: para
 #: boot-installer.xml:57
@@ -89,13 +102,16 @@ msgid ""
 "of the particular hardware. The dtb should be supplied on the device by the "
 "firmware, but in practice a newer one often needs to be loaded."
 msgstr ""
+"对于使用多平台内核的系统，除内核和初始化内存盘之外，还需要一个所谓的设备树文"
+"件（或设备树 blob，<quote>dtb</quote>）。它特定于每个受支持的系统，并包含特定"
+"硬件的描述。设备上的固件应该会提供 dtb，但实际上通常需要加载较新的 dtb。"
 
 #. Tag: title
 #: boot-installer.xml:68 boot-installer.xml:86
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "Boot Configuration"
 msgid "Console configuration"
-msgstr "引导配置"
+msgstr "控制台配置"
 
 #. Tag: para
 #: boot-installer.xml:69
@@ -108,6 +124,11 @@ msgid ""
 "on those platforms you by default need a serial console cable to use the "
 "installer."
 msgstr ""
+"网络启动 tarball（<xref linkend=\"boot-armhf-netboot.tar.gz\"/>）和安装程序"
+"的 SD 卡映像（<xref linkend=\"boot-installer-sd-image\"/>）使用 U-Boot 中 "
+"<quote>console</quote> 变量定义的（特定于平台的）默认控制台。大多数情况下，这"
+"是一个串行控制台，所以在这些平台上，默认需要使用串行控制台电缆才能使用安装程"
+"序。"
 
 #. Tag: para
 #: boot-installer.xml:78
@@ -117,6 +138,8 @@ msgid ""
 "<quote>console</quote> variable accordingly if you would like the installer "
 "to start on the video console."
 msgstr ""
+"在还支持视频控制台的平台上，如果您希望安装程序在视频控制台上启动，您可以修改"
+"对应的 U-Boot <quote>console</quote> 变量。"
 
 #. Tag: para
 #: boot-installer.xml:87
@@ -128,6 +151,9 @@ msgid ""
 "from the GRUB menu you will see a <quote>Booting Linux</quote> message, then "
 "nothing more."
 msgstr ""
+"stretch 上的 arm64 &d-i; 映像未启用图形安装程序，所以会使用串行控制台。从固件"
+"中应该会自动检测出控制台设备，但如果没有，则从 GRUB 菜单启动 linux 后，您将看"
+"到一个 <quote>Booting Linux</quote> 的消息，然后就没了。"
 
 #. Tag: para
 #: boot-installer.xml:94
@@ -142,13 +168,20 @@ msgid ""
 "screen></informalexample>. When finished hit <keycombo><keycap>Control</"
 "keycap> <keycap>x</keycap></keycombo> to continue booting with new setting."
 msgstr ""
+"如果您遇到此问题，您需要在内核命令行上设置特定的控制台配置。在 GRUB 菜单中按 "
+"<userinput>e</userinput>，以<quote>编辑内核命令行</quote>，然后将 "
+"<informalexample><screen>--- quiet</screen></informalexample> 更改为 "
+"<informalexample><screen>console=&lt;device&gt;,&lt;speed&gt;</screen></"
+"informalexample>，例如 <informalexample><screen>console=ttyAMA0,115200n8</"
+"screen></informalexample>。完成后，按 <keycombo><keycap>Control</keycap> "
+"<keycap>x</keycap></keycombo> 使用新设置继续进行引导。"
 
 #. Tag: title
 #: boot-installer.xml:108
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "Submitting Installation Reports"
 msgid "Juno Installation"
-msgstr "提交缺陷报告"
+msgstr "Juno 安装"
 
 #. Tag: para
 #: boot-installer.xml:109
@@ -160,6 +193,9 @@ msgid ""
 "ulink> after March 2015 tested OK. Consult Juno documentation on firmware "
 "updating."
 msgstr ""
+"Juno 有 UEFI，所以安装很简单。最直接的方法是从 U 盘安装。您需要最新的固件以"
+"从 USB 启动。在 2015 年 3 月后的 <ulink url=\"&url-juno-firmware;\">&url-"
+"juno-firmware;</ulink> 上测试成功。请参见有关文档更新 Juno 固件。"
 
 #. Tag: para
 #: boot-installer.xml:116
@@ -170,6 +206,9 @@ msgid ""
 "on the back. If you need networking (netboot image) plug the ethernet cable "
 "into the socket on the front of the machine."
 msgstr ""
+"在 U 盘上准备一个标准的 arm64 CD 映像。将其插入背板 USB 口的其中之一。将串行"
+"电缆插入背板上的 9 针串行端口。如果您需要网络连接（网络启动映像），请将以太网"
+"电缆插入机器正面的接口中。"
 
 #. Tag: para
 #: boot-installer.xml:123
@@ -184,12 +223,19 @@ msgid ""
 "should show you the &d-i; screens, and allow you to proceed with a standard "
 "installation."
 msgstr ""
+"运行串行控制台，波特率 115200，8 位，无奇偶校验位，并启动 Juno。它应会从 U 盘"
+"启动到 GRUB 菜单。在 Juno 上检测不到正确的控制台配置，所以只是按下 "
+"&enterkey; 将显示不了内核输出。将控制台设为 "
+"<informalexample><screen>console=ttyAMA0,115200n8</screen></"
+"informalexample>（如<xref linkend=\"arm64-console-setup\"/>中所述）。"
+"<keycombo><keycap>Control</keycap> <keycap>x</keycap></keycombo> 启动应该会显"
+"示 &d-i; 屏幕，然后您可以继续进行标准安装。"
 
 #. Tag: title
 #: boot-installer.xml:136
 #, no-c-format
 msgid "Applied Micro Mustang Installation"
-msgstr ""
+msgstr "Applied Micro Mustang 安装"
 
 #. Tag: para
 #: boot-installer.xml:137
@@ -201,6 +247,9 @@ msgid ""
 "to control the installation because the graphical installer is not enabled "
 "on the arm64 architecture."
 msgstr ""
+"UEFI 可用于此机器，但通常随 U-Boot 一起提供，因此您首先需要安装 UEFI 固件，然"
+"后使用标准的引导/安装方法，或使用 U-Boot 引导方法。您必须使用串行控制台来控制"
+"安装，因为 arm64 架构上未启用图形安装程序。"
 
 #. Tag: para
 #: boot-installer.xml:145
@@ -213,6 +262,10 @@ msgid ""
 ">). After installation, manual changes to boot from the installed image are "
 "needed."
 msgstr ""
+"推荐的安装方法是使用随机附带的 openembedded 系统，将 &d-i; 内核和 initrd 复制"
+"到硬盘驱动器上，然后从中启动以运行安装程序。或者使用 TFTP 复制 kernel/dtb/"
+"initrd 并启动（<xref linkend=\"boot-tftp-uboot\"/>）。安装后，需要进行手动更"
+"改，取消从安装映像引导。"
 
 #. Tag: para
 #: boot-installer.xml:154
@@ -223,6 +276,9 @@ msgid ""
 "hit a key to get a Mustang# prompt. Then use U-Boot commands to load and "
 "boot the kernel, dtb and initrd."
 msgstr ""
+"运行串行控制台，波特率 115200，8 位，无奇偶校验位，并启动机器。重启机器，当您"
+"看到 <quote>Hit any key to stop autoboot:</quote> 时，按下任意键，获得 "
+"Mustang# 提示符。然后使用 U-Boot 命令加载并引导内核、dtb 及 initrd。"
 
 #. Tag: title
 #: boot-installer.xml:163
@@ -234,7 +290,7 @@ msgstr "从 TFTP 引导"
 #. Tag: para
 #: boot-installer.xml:169 boot-installer.xml:831 boot-installer.xml:1467
 #: boot-installer.xml:1597 boot-installer.xml:1918 boot-installer.xml:2066
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Booting from the network requires that you have a network connection and "
 #| "a TFTP network boot server (DHCP, RARP, or BOOTP)."
@@ -243,8 +299,8 @@ msgid ""
 "TFTP network boot server (and probably also a DHCP, RARP, or BOOTP server "
 "for automatic network configuration)."
 msgstr ""
-"从网络引导需要已经具备网络连接和一台 TFTP 网络引导服务器(DHCP、RARP 或 "
-"BOOTP)。"
+"从网络引导需要网络连接和一台 TFTP 网络引导服务器 (也可能是 DHCP、RARP 或 "
+"BOOTP 服务器，以进行自动网络配置)。"
 
 # index.docbook:437, index.docbook:791, index.docbook:1343, index.docbook:1824, index.docbook:2247, index.docbook:2343
 #. Tag: para
@@ -254,26 +310,26 @@ msgstr ""
 msgid ""
 "Older systems such as the 715 might require the use of an RBOOT server "
 "instead of a BOOTP server."
-msgstr "较早的系统比如 715 也许需要使用一台 RBOOT 服务器来取代 BOOTP 服务器。"
+msgstr "较早的系统，如 715，也许需要使用 RBOOT 服务器替代 BOOTP 服务器。"
 
 # index.docbook:442, index.docbook:796, index.docbook:1348, index.docbook:1829, index.docbook:2252, index.docbook:2348
 #. Tag: para
 #: boot-installer.xml:180 boot-installer.xml:842 boot-installer.xml:1478
 #: boot-installer.xml:1608 boot-installer.xml:1929 boot-installer.xml:2077
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "The installation method to support network booting is described in <xref "
 #| "linkend=\"install-tftp\"/>."
 msgid ""
 "The server-side setup to support network booting is described in <xref "
 "linkend=\"install-tftp\"/>."
-msgstr "支持的网络引导安装方法在 <xref linkend=\"install-tftp\"/>。"
+msgstr "参见<xref linkend=\"install-tftp\"/>设置用于支持网络引导的服务器端。"
 
 #. Tag: title
 #: boot-installer.xml:189
 #, no-c-format
 msgid "TFTP-booting in U-Boot"
-msgstr ""
+msgstr "在 U-Boot 中启动 TFTP"
 
 #. Tag: para
 #: boot-installer.xml:190
@@ -283,6 +339,8 @@ msgid ""
 "steps: a) configuring the network, b) loading the images (kernel/initial "
 "ramdisk/dtb) into memory and c) actually executing the previosly loaded code."
 msgstr ""
+"使用 U-Boot 固件上的网络引导需要三个步骤：a）配置网络，b）将映像（内核/初始化"
+"内存盘/dtb）加载到内存中，c）执行预加载的代码。"
 
 #. Tag: para
 #: boot-installer.xml:196
@@ -302,6 +360,17 @@ msgid ""
 "</screen></informalexample> If you prefer, you can make these settings "
 "permanent by running"
 msgstr ""
+"首先，您必须运行<informalexample><screen>\n"
+"setenv autoload no\n"
+"dhcp\n"
+"</screen></informalexample>使用 DHCP 自动配置网络，或者手动设置环境变量"
+"<informalexample><screen>\n"
+"setenv ipaddr &lt;ip address of the client&gt;\n"
+"setenv netmask &lt;netmask&gt;\n"
+"setenv serverip &lt;ip address of the tftp server&gt;\n"
+"setenv dnsip &lt;ip address of the nameserver&gt;\n"
+"setenv gatewayip &lt;ip address of the default gateway&gt;\n"
+"</screen></informalexample>如果您愿意，可以运行"
 
 #. Tag: screen
 #: boot-installer.xml:203
@@ -319,6 +388,9 @@ msgid ""
 "the memory map can vary from system to system, so there is no general rule "
 "which addresses can be used for this."
 msgstr ""
+"命令，保存这些设置。之后，您需要将映像（内核/初始化内存盘/dtb）加载到内存中。"
+"这可以通过 tftpboot 命令来完成，但该命令必须提供内存地址，然后将映像存储于"
+"此。不幸的是，内存映射因系统而异，所以没有一般规则可以预测哪些地址可用。"
 
 #. Tag: para
 #: boot-installer.xml:213
@@ -334,6 +406,14 @@ msgid ""
 "name <quote>sun4i</quote> or the Allwinner A20, architecture name "
 "<quote>sun7i</quote>), you can e.g. use the following values:"
 msgstr ""
+"在某些系统上， U-Boot 预定义了一组环境变量，其中存有适当的加载地址："
+"kernel_addr_r、ramdisk_addr_r和fdt_addr_r。您可以运行"
+"<informalexample><screen>\n"
+"printenv kernel_addr_r ramdisk_addr_r fdt_addr_r\n"
+"</screen></informalexample>，来检查它们是否已定义。如果未定义，则必须查看系统"
+"文档以获取适当的值并手动设置。对于基于 Allwinner SunXi SOC 的系统（例如"
+"Allwinner A10，架构名 <quote>sun4i</quote> 或 Allwinner A20，架构名 "
+"<quote>sun7i</quote>），您可以使用以下值："
 
 #. Tag: screen
 #: boot-installer.xml:224
@@ -353,7 +433,7 @@ msgstr ""
 msgid ""
 "When the load addresses are defined, you can load the images into memory "
 "from the previously defined tftp server with"
-msgstr ""
+msgstr "定义加载地址后，将映像加载到内存中，可以使用之前定义的 tftp 服务器"
 
 #. Tag: screen
 #: boot-installer.xml:229
@@ -363,6 +443,9 @@ msgid ""
 "tftpboot ${fdt_addr_r} &lt;filename of the dtb&gt;\n"
 "tftpboot ${ramdisk_addr_r} &lt;filename of the initial ramdisk image&gt;"
 msgstr ""
+"tftpboot ${kernel_addr_r} &lt;内核映像文件名&gt;\n"
+"tftpboot ${fdt_addr_r} &lt;dtb 文件名&gt;\n"
+"tftpboot ${ramdisk_addr_r} &lt;初始化内存盘映像文件名&gt;"
 
 #. Tag: para
 #: boot-installer.xml:231
@@ -382,6 +465,16 @@ msgid ""
 "bootm ${kernel_addr_r} ${ramdisk_addr_r} ${fdt_addr_r}\n"
 "</screen></informalexample> and with native Linux images it is"
 msgstr ""
+"第三部分是设置内核命令行并实际执行加载的代码。U-Boot 将 <quote>bootargs</"
+"quote> 环境变量的内容作为命令行传递给内核，因此内核和安装程序的任何参数（如控"
+"制台设备）（请参见<xref linkend=\"boot-console\"/>）或预设选项（请参见<xref "
+"linkend=\"installer-args\"/>>和<xref linkend=\"appendix-preseed\"/>） - 可以"
+"使用命令，如<informalexample><screen>\n"
+"setenv bootargs console=ttyS0,115200 rootwait panic=10\n"
+"</screen></informalexample>执行先前加载的代码的确切命令取决于所使用的映像格"
+"式。要使用 uImage/uInitrd，命令是<informalexample><screen>\n"
+"bootm ${kernel_addr_r} ${ramdisk_addr_r} ${fdt_addr_r}\n"
+"</screen></informalexample>，若要使用原生 Linux 映像，则是"
 
 #. Tag: screen
 #: boot-installer.xml:244
@@ -400,12 +493,16 @@ msgid ""
 "a platform-specific kernel, i.e. a kernel without device-tree, simply omit "
 "the ${fdt_addr_r} parameter."
 msgstr ""
+"注意：引导标准的 linux 映像时，重要的是在内核和 dtb 之后加载初始化内存盘映"
+"像，因为 U-Boot 将 filesize 变量设置为最后一个加载文件的大小，并且 bootz 命令"
+"需要 ramdisk 映像的大小才能正常工作。在引导特定平台的内核时，即没有设备树的内"
+"核，省略 ${fdt_addr_r} 参数即可。"
 
 #. Tag: title
 #: boot-installer.xml:257
 #, no-c-format
 msgid "Pre-built netboot tarball"
-msgstr ""
+msgstr "预制的网络引导 tarball"
 
 #. Tag: para
 #: boot-installer.xml:258
@@ -420,6 +517,12 @@ msgid ""
 "Prerequisite for using this feature is that you have a dhcp server in your "
 "network which provides the client with the address of the tftp server."
 msgstr ""
+"&debian; 提供了一个预置的 tarball（&armmp-netboot-tarball;），您可以直接在 "
+"tftp 服务器上解包，其中包含了所有网络引导所需的文件。它还包括一个启动脚本，可"
+"自动执行加载安装程序的所有步骤。现代 U-Boot 版本包含 tftp 自动启动功能，当没"
+"有可供启动的本地存储设备（MMC/SD、USB、IDE/SATA/SCSI）时会自动启动，然后从 "
+"tftp 服务器加载该引导脚本。使用此功能的先决条件是您的网络中有 dhcp 服务器，可"
+"为客户端提供 tftp 服务器的地址。"
 
 #. Tag: para
 #: boot-installer.xml:270
@@ -427,13 +530,13 @@ msgstr ""
 msgid ""
 "If you would like to trigger the tftp autoboot feature from the U-Boot "
 "commandline, you can use the follwing command:"
-msgstr ""
+msgstr "如果要从 U-Boot 命令行使用 tftp 自动启动功能，可以使用以下命令："
 
 #. Tag: screen
 #: boot-installer.xml:273
 #, no-c-format
 msgid "run bootcmd_dhcp"
-msgstr ""
+msgstr "run bootcmd_dhcp"
 
 #. Tag: para
 #: boot-installer.xml:275
@@ -442,6 +545,7 @@ msgid ""
 "To manually load the bootscript provided by the tarball, you can "
 "alternatively issue the following commands at the U-Boot prompt:"
 msgstr ""
+"要手动加载 tarball 提供的引导脚本，您还可以在 U-Boot 提示符执行以下命令："
 
 #. Tag: screen
 #: boot-installer.xml:279
@@ -452,18 +556,22 @@ msgid ""
 "tftpboot ${scriptaddr} /debian-installer/armhf/tftpboot.scr\n"
 "source ${scriptaddr}"
 msgstr ""
+"setenv autoload no\n"
+"dhcp\n"
+"tftpboot ${scriptaddr} /debian-installer/armhf/tftpboot.scr\n"
+"source ${scriptaddr}"
 
 # index.docbook:700, index.docbook:2176
 #. Tag: title
 #: boot-installer.xml:287
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "Booting from USB Memory Stick"
 msgid "Booting from USB Memory Stick with UEFI"
-msgstr "从 U 盘引导"
+msgstr "在 UEFI 下从 U 盘启动"
 
 #. Tag: para
 #: boot-installer.xml:293 boot-installer.xml:552
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Let's assume you have prepared everything from <xref linkend=\"boot-dev-"
 #| "select\"/> and <xref linkend=\"boot-usb-files\"/>. Now just plug your USB "
@@ -482,18 +590,19 @@ msgid ""
 "hardware that supports it). Here you can select various installer options, "
 "or just hit &enterkey;."
 msgstr ""
-"假设您已经准备好了从 <xref linkend=\"boot-dev-select\"/> 到 <xref linkend="
-"\"boot-usb-files\"/> 的所有步骤。现在只需插入 U 盘到一个空的 USB 插槽并重启。"
-"除非您使用了灵活方式创建 U 盘并不激活，系统应该引导，并看到一个 <prompt>boot:"
-"</prompt> 提示符。此时您可以输入一些引导选项，也可以直接按 &enterkey;。"
+"如果您的计算机可以从 USB 启动，这可能是最简单的安装方法。假设您已经准备好了"
+"从 <xref linkend=\"boot-dev-select\"/> 到 <xref linkend=\"boot-usb-files\"/> "
+"的所有步骤，只需插入 U 盘到一个空的 USB 口并重启。除非您使用了灵活方式创建 U "
+"盘并不激活，系统应该引导，并看到一个 <prompt>boot:</prompt> 提示符。此时您可"
+"以输入一些引导选项，也可以直接按 &enterkey;。"
 
 # index.docbook:700, index.docbook:2176
 #. Tag: title
 #: boot-installer.xml:309
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "Booting from USB memory stick"
 msgid "Booting from a USB stick in U-Boot"
-msgstr "从 U 盘引导"
+msgstr "在 U-Boot 下从 U 盘启动"
 
 #. Tag: para
 #: boot-installer.xml:310
@@ -503,6 +612,8 @@ msgid ""
 "storage devices such as USB sticks. Unfortunately the exact steps required "
 "to do that can vary quite a bit from device to device."
 msgstr ""
+"许多现代 U-Boot 版本支持 USB ，并允许从 USB 大容量存储设备（如 U 盘）启动。不"
+"幸的是，这样做的确切步骤可能因设备的不同而会有所不同。"
 
 #. Tag: para
 #: boot-installer.xml:317
@@ -514,6 +625,9 @@ msgid ""
 "stick on such systems, but unfortunately not all platforms have adopted this "
 "new framework yet."
 msgstr ""
+"U-Boot v2014.10 引入了通用的命令行处理和自动启动框架。这使得构建任何系统上都"
+"能工作的通用引导映像成为可能。&d-i; 支持在这样的系统上从 U 盘安装，但不幸的"
+"是，并不是所有的平台都采用了这个新框架。"
 
 #. Tag: para
 #: boot-installer.xml:326
@@ -526,6 +640,10 @@ msgid ""
 "Then copy the ISO image file of the first &debian; installation CD or DVD "
 "onto the stick."
 msgstr ""
+"要构建安装 debian 的可引导 U 盘，请将 hd-media tarball（请参见<xref linkend="
+"\"where-files\"/>）解压到 U 盘上，并使用您设备 U-Boot 版本支持的文件系统。对"
+"于现代的 U-Boot 而言，FAT16/FAT32/ext2/ext3/ext4 通常都可以正常工作。然后复制"
+"第一个 &debian; 安装 CD/DVD ISO 映像文件到 U 盘上。"
 
 #. Tag: para
 #: boot-installer.xml:336
@@ -539,6 +657,10 @@ msgid ""
 "the USB-boot process any time from the U-Boot prompt by entering the "
 "<quote>run bootcmd_usb0</quote> command."
 msgstr ""
+"现代 U-Boot 版本中的自动启动框架工作原理与 PC BIOS 中的启动顺序选项相似，即它"
+"会检查可能的引导设备列表，以获取有效的启动映像，然后启动所找到的第一个。如果"
+"没有安装操作系统，则插入 USB 棒并启动系统应该会启动安装程序。在 U-Boot 提示符"
+"中，您也随时可以输入 <quote>run bootcmd_usb0</quote> 命令启动 USB 引导过程。"
 
 #. Tag: para
 #: boot-installer.xml:346
@@ -559,12 +681,21 @@ msgid ""
 "console variable to contain the correct baudrate for your system and then "
 "start the installer with the <quote>run bootcmd_usb0</quote> command."
 msgstr ""
+"使用串行控制台从 U 盘启动时，一个可能出现的问题是控制台波特率不匹配。如果在 "
+"U-Boot 中定义了控制台变量，那么 &d-i; 引导脚本会自动将其传递给内核，如果合"
+"适，则会设置控制台波特率。不幸的是，对控制台变量的处理因平台而异 - 在某些平台"
+"上，控制台变量包含波特率（如 <quote>console=ttyS0,115200</quote>），而在其他"
+"平台上，控制台变量只包含设备（如 <quote>console=ttyS0</quote>）。当 U-Boot 和"
+"内核之间的默认波特率不同时，后一种情况将导致控制台输出乱码。现代 U-Boot 版本"
+"通常使用 115200 波特率，而内核仍默认传统的 9600 波特率。如果发生这种情况，您"
+"应该手动设置控制台变量，将其包括正确的系统波特率，然后使用 <quote>run "
+"bootcmd_usb0</quote> 命令启动安装程序。"
 
 #. Tag: title
 #: boot-installer.xml:367
 #, no-c-format
 msgid "Using pre-built SD-card images with the installer"
-msgstr ""
+msgstr "使用预置的 SD 卡映像"
 
 #. Tag: para
 #: boot-installer.xml:368
@@ -579,6 +710,12 @@ msgid ""
 "<quote>firmware.&lt;system-type&gt;.img.gz</quote>, and a system-independent "
 "part named <quote>partition.img.gz</quote>."
 msgstr ""
+"对于许多系统，Debian 还提供 SD 卡映像，其中包含 U-Boot 和 &d-i;。这些映像有两"
+"种变体 - 一种用于使用网络下载软件包（可在 &armmp-netboot-sd-img; 上获得），另"
+"一种用于使用 Debian CD/DVD 进行离线安装（可在 &armmp-hd-media-sd-img; 上获"
+"得）。为了节省空间和网络带宽，映像由两部分组成：系统相关部分，名为 "
+"<quote>firmware.&lt;system-type&gt;.img.gz</quote>，和与系统无关的部分，名为 "
+"<quote>partition.img.gz</quote>。"
 
 #. Tag: para
 #: boot-installer.xml:379
@@ -593,6 +730,13 @@ msgid ""
 "firmware.&lt;system-type&gt;.img + partition.img complete_image.img</"
 "screen></informalexample> in a Windows CMD.exe window."
 msgstr ""
+"要从 Linux 系统的两部分创建一个完整的映像，可以使用zcat，如下所示："
+"<informalexample><screen>zcat firmware.&lt;system-type&gt;.img.gz partition."
+"img.gz &gt; complete_image.img</screen></informalexample>在 Windows 系统上，"
+"您必须首先解压这两个部分，可使用 7-Zip 来完成，然后在 Windows CMD.exe 中运行"
+"命令<informalexample><screen>copy /b firmware.&lt;system-type&gt;.img + "
+"partition.img complete_image.img</screen></informalexample>将解压的两个部分连"
+"接起来。"
 
 #. Tag: para
 #: boot-installer.xml:393
@@ -607,6 +751,11 @@ msgid ""
 "&debian; CD/DVD on a separate medium, which can e.g. be a CD/DVD ISO image "
 "on a USB stick."
 msgstr ""
+"将生成的映像写入 SD 卡，例如在 Linux 系统上运行以下命令："
+"<informalexample><screen>cat complete_image.img &gt; /dev/SD_CARD_DEVICE</"
+"screen></informalexample>将 SD 卡插入目标系统并为系统上电后，安装程序将从 SD "
+"卡中加载。如果您使用 hd-media 变体进行离线安装，则必须在单独的介质上向安装程"
+"序提供第一个 &debian; CD/DVD，例如，可以是 U 盘上的 CD/DVD ISO 映像。"
 
 #. Tag: para
 #: boot-installer.xml:405
@@ -620,13 +769,18 @@ msgid ""
 "partition layout on the SD card is to let the installer automatically create "
 "one for you (see <xref linkend=\"partman-auto\"/>)."
 msgstr ""
+"当您进入安装程序中的分区步骤（请参见<xref linkend=\"di-partition\"/>）时，可"
+"以删除或替换卡上的任何先前分区。一旦安装程序启动，它将完全在系统的主内存中运"
+"行，不需要再访问 SD 卡，所以可以使用完整的卡进行安装和 &debian;。要在 SD 卡上"
+"创建正确的分区布局，最简单的方法是让安装程序为您自动创建一个（请参见<xref "
+"linkend=\"partman-auto\"/>）。"
 
 # index.docbook:700, index.docbook:2176
 #. Tag: title
 #: boot-installer.xml:546
 #, no-c-format
 msgid "Booting from USB Memory Stick"
-msgstr "从 U 盘引导"
+msgstr "从 U 盘启动"
 
 # index.docbook:578, index.docbook:951, index.docbook:1764, index.docbook:2018, index.docbook:2372
 #. Tag: title
@@ -648,8 +802,8 @@ msgid ""
 "insert your CD, reboot, and proceed to the next chapter."
 msgstr ""
 "如果您有此套件，并且如果您的机器支持直接 CD 引导，太棒了！只需要<phrase arch="
-"\"x86\">配置您的系统可以用 CD 启动，参见 <xref linkend=\"boot-dev-select\"/"
-">, </phrase>插入您的 CD，重启，然后继续下一章。"
+"\"x86\">配置您的系统可以用 CD 启动，参见<xref linkend=\"boot-dev-select\"/>，"
+"</phrase>插入您的 CD，重启，然后继续下一章。"
 
 # index.docbook:542, index.docbook:595, index.docbook:968, index.docbook:1787, index.docbook:2035, index.docbook:2389
 #. Tag: para
@@ -671,7 +825,7 @@ msgstr ""
 #. Tag: para
 #: boot-installer.xml:591 boot-installer.xml:1105 boot-installer.xml:1706
 #: boot-installer.xml:2124
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Even if you cannot boot from CD-ROM, you can probably install the "
 #| "&debian; system components and any packages you want from CD-ROM. Simply "
@@ -686,8 +840,8 @@ msgid ""
 "ROM drive."
 msgstr ""
 "即便您不能从 CD-ROM 引导，依然可以安装 CD-ROM 上面的 &debian; 系统组件和所有"
-"软件包。这只要使用不同的媒介引导，比如软盘。当安装操作系统、基础系统和任意附"
-"加的软件包时，只需将安装系统指向 CD-ROM 驱动器即可。"
+"软件包。只要使用不同的媒介引导，当安装操作系统、基础系统和任意附加的软件包"
+"时，只需将安装系统指向 CD-ROM 驱动器即可。"
 
 # index.docbook:558, index.docbook:611, index.docbook:984, index.docbook:1803, index.docbook:2051, index.docbook:2405
 #. Tag: para
@@ -696,7 +850,8 @@ msgstr ""
 #, no-c-format
 msgid ""
 "If you have problems booting, see <xref linkend=\"boot-troubleshooting\"/>."
-msgstr "如果您遇到引导方面的问题，请参见 <xref linkend=\"boot-troubleshooting\"/>。"
+msgstr ""
+"如果您遇到引导方面的问题，请参见<xref linkend=\"boot-troubleshooting\"/>。"
 
 #. Tag: title
 #: boot-installer.xml:609
@@ -719,9 +874,9 @@ msgid ""
 "cdrom\"/><phrase condition=\"bootable-usb\"> respective <xref linkend=\"boot-"
 "usb-files\"/></phrase> or"
 msgstr ""
-"从 <xref linkend=\"official-cdrom\"/><phrase condition=\"bootable-usb\"> 以"
-"及 <xref linkend=\"boot-usb-files\"/></phrase> 获取 CD-ROM/DVD-ROM<phrase "
-"condition=\"bootable-usb\"> 或 U 盘</phrase> 安装介质，或"
+"从<xref linkend=\"official-cdrom\"/><phrase condition=\"bootable-usb\">以及"
+"<xref linkend=\"boot-usb-files\"/></phrase>获取 CD-ROM/DVD-ROM<phrase "
+"condition=\"bootable-usb\"> 或 U 盘</phrase>安装介质，或"
 
 #. Tag: para
 #: boot-installer.xml:623
@@ -731,7 +886,7 @@ msgid ""
 "loader/stable/win32-loader.exe on the &debian; mirrors."
 msgstr ""
 "下载独立的 Windows 可执行程序，它位于 &debian; 镜像网站 tools/win32-loader/"
-"stable/win32-loader.exe."
+"stable/win32-loader.exe。"
 
 #. Tag: para
 #: boot-installer.xml:631
@@ -760,10 +915,10 @@ msgstr ""
 
 #. Tag: title
 #: boot-installer.xml:649
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid "Booting from DOS"
 msgid "Booting from DOS using loadlin"
-msgstr "从 DOS 引导"
+msgstr "从 DOS 下使用 loadlin 引导"
 
 #. Tag: para
 #: boot-installer.xml:650
@@ -771,7 +926,7 @@ msgstr "从 DOS 引导"
 msgid ""
 "Boot into DOS (not Windows). To do this, you can for instance boot from a "
 "recovery or diagnostic disk."
-msgstr "要启动到 DOS (非 Windows)，您可以从一个用于恢复或诊断的磁盘引导。"
+msgstr "启动到 DOS（非 Windows）。例如，您可以从用于恢复或诊断的磁盘中启动。"
 
 #. Tag: para
 #: boot-installer.xml:655
@@ -784,11 +939,11 @@ msgid ""
 "disk as explained in <xref linkend=\"files-loadlin\"/>, and change the "
 "current drive to it if needed."
 msgstr ""
-"如果您可以使用安装 CD, 请切换到 CD-ROM 驱动器，例如. "
+"如果您可以使用安装 CD，请切换到 CD-ROM 驱动器，例如，"
 "<informalexample><screen>\n"
 "d:\n"
-"</screen></informalexample> ，或者确认您已依照 <xref linkend=\"files-loadlin"
-"\"/> 指引准备好了硬盘, 然后切换到该磁盘。"
+"</screen></informalexample>，或者确认您已依照<xref linkend=\"files-loadlin\"/"
+">指引准备好了硬盘, 然后切换到该磁盘。"
 
 #. Tag: para
 #: boot-installer.xml:665
@@ -803,12 +958,12 @@ msgid ""
 "</screen></informalexample> Next, execute <command>install.bat</command>. "
 "The kernel will load and launch the installer system."
 msgstr ""
-"进入您选择的 flavor 子目录，如, <informalexample><screen>\n"
+"进入您选择的 flavor 子目录，如<informalexample><screen>\n"
 "cd \\&x86-install-dir;\n"
-"</screen></informalexample> 如果您希望使用图形安装程序，请进入 "
-"<filename>gtk</filename> 子目录。<informalexample><screen>\n"
+"</screen></informalexample>如果您希望使用图形安装程序，请进入 <filename>gtk</"
+"filename> 子目录。<informalexample><screen>\n"
 "cd gtk\n"
-"</screen></informalexample> 然后，执行 <command>install.bat</command>。内核将"
+"</screen></informalexample>然后，执行 <command>install.bat</command>。内核将"
 "会加载并运行安装程序。"
 
 #. Tag: title
@@ -825,7 +980,7 @@ msgid ""
 "To boot the installer from hard disk, you must first download and place the "
 "needed files as described in <xref linkend=\"boot-drive-files\"/>."
 msgstr ""
-"为了从硬盘引导安装程序，您首先必须按照要求下载并且放置所需的文件，请参见 "
+"为了从硬盘引导安装程序，您首先必须按照要求下载并且放置所需的文件，请参见"
 "<xref linkend=\"boot-drive-files\"/>。"
 
 #. Tag: para
@@ -856,9 +1011,9 @@ msgid ""
 "without needing the network."
 msgstr ""
 "另一种方法，可以在安装时保持原硬盘的分区不变，您需要下载 <filename>hd-media/"
-"initrd.gz</filename> 文件以及对应的内核，还需要一个 CD(或者 DVD) iso 文件的副"
-"本放在硬盘上(确认文件名是以 <literal>.iso</literal> 结尾的)。这样安装程序就可"
-"以从硬盘引导，并从 CD/DVD 映像文件上安装，而不使用网络。"
+"initrd.gz</filename> 文件以及对应的内核，还需要一个 CD（或者 DVD） iso 文件的"
+"副本放在硬盘上（确认文件名是以 <literal>.iso</literal> 结尾的）。这样安装程序"
+"就可以从硬盘引导，并从 CD/DVD 映像文件上安装，而不使用网络。"
 
 #. Tag: para
 #: boot-installer.xml:710
@@ -900,7 +1055,7 @@ msgid ""
 "manvolnum></citerefentry> man pages. Now run <userinput>lilo</userinput> and "
 "reboot."
 msgstr ""
-"欲获知更多细节，请参阅 <citerefentry><refentrytitle>initrd</refentrytitle> "
+"欲获知更多细节，请参见 <citerefentry><refentrytitle>initrd</refentrytitle> "
 "<manvolnum>4</manvolnum></citerefentry> 和 <citerefentry><refentrytitle>lilo."
 "conf</refentrytitle> <manvolnum>5</manvolnum></citerefentry> man 手册。现在运"
 "行 <userinput>lilo</userinput> 并且重新启动。"
@@ -916,9 +1071,9 @@ msgid ""
 "on the first partition of the first disk in the system):"
 msgstr ""
 "使用 <command>GRUB1</command> 的过程也类似。在 <filename>/boot/grub/</"
-"filename> 目录下找到 <filename>menu.lst</filename> (或者位于 <filename>/boot/"
-"boot/grub/</filename>)，然后给安装程序增添一个入口，例如(假设 <filename>/"
-"boot</filename> 位于系统中第一个磁盘的第一个分区上面):"
+"filename> 目录下找到 <filename>menu.lst</filename>（或者位于 <filename>/boot/"
+"boot/grub/</filename>），然后给安装程序增添一个入口，例如（假设 <filename>/"
+"boot</filename> 位于系统中第一个磁盘的第一个分区上面）："
 
 #. Tag: screen
 #: boot-installer.xml:748
@@ -990,8 +1145,8 @@ msgid ""
 "You will have already downloaded the floppy images you needed and created "
 "floppies from the images in <xref linkend=\"create-floppy\"/>."
 msgstr ""
-"您可能已经下载了所需要的软盘映像，并且根据这些映像创建了软盘 <xref linkend="
-"\"create-floppy\"/>。"
+"您可能已经下载了所需要的软盘映像，并且根据<xref linkend=\"create-floppy\"/>从"
+"映像创建了软盘。"
 
 #. Tag: para
 #: boot-installer.xml:775
@@ -1014,10 +1169,10 @@ msgid ""
 "is connected as the first IDE device (master) on the second cable, you enter "
 "<userinput>install root=/dev/hdc</userinput> at the boot prompt."
 msgstr ""
-"要想在 LS-120 驱动器(ATAPI 版本)使用这些软盘，您需指定这些软盘设备的虚拟地"
+"要想在 LS-120 驱动器（ATAPI 版本）使用这些软盘，您需指定这些软盘设备的虚拟地"
 "址。这可以通过 <emphasis>root=</emphasis> 引导参数来指定映射的 ide-floppy 驱"
-"动器设备名来完成。比如，您的 LS-120 驱动器连接到第二根线第一个 IDE 设备"
-"(master)，那么在提示符下输入 <userinput>install root=/dev/hdc</userinput>。"
+"动器设备名来完成。比如，您的 LS-120 驱动器连接到第二根线第一个（主） IDE 设"
+"备，那么在提示符下输入 <userinput>install root=/dev/hdc</userinput>。"
 
 #. Tag: para
 #: boot-installer.xml:791
@@ -1031,8 +1186,8 @@ msgid ""
 msgstr ""
 "注意有些机器上，<keycombo><keycap>Control</keycap> <keycap>Alt</keycap> "
 "<keycap>Delete</keycap></keycombo> 不能正常地重启系统，所以推荐使用<quote>硬"
-"</quote>启动。如果您正从已有的操作系统上安装(比如在 DOS 系统上)，将没有这样的"
-"选择。在其它情况下，请在引导时使用硬重启。"
+"</quote>启动。如果您正从已有的操作系统上安装（比如在 DOS 系统上），将没有这样"
+"的选择。在其它情况下，请在引导时使用硬重启。"
 
 #. Tag: para
 #: boot-installer.xml:800
@@ -1055,10 +1210,10 @@ msgid ""
 "information on this phase of the boot process can be found below in <xref "
 "linkend=\"kernel-msgs\"/>."
 msgstr ""
-"一旦敲入 &enterkey;，您应该能够看到 <computeroutput>Loading...</"
-"computeroutput> 消息，并且接下来是 <computeroutput>Uncompressing Linux...</"
+"一旦按下 &enterkey;，您应该能够看到 <computeroutput>Loading...</"
+"computeroutput> 信息，并且接下来是 <computeroutput>Uncompressing Linux...</"
 "computeroutput>，然后是一些有关系统硬件的信息。更多有关这段引导过程的信息，在"
-"下面 <xref linkend=\"kernel-msgs\"/> 可以找到。"
+"下面的<xref linkend=\"kernel-msgs\"/>可以找到。"
 
 #. Tag: para
 #: boot-installer.xml:815
@@ -1069,7 +1224,7 @@ msgid ""
 "The installer program <command>debian-installer</command> is automatically "
 "launched."
 msgstr ""
-"从引导软盘启动后需要根软盘。请插入根软盘并且输入 &enterkey;，其中的内容会被装"
+"从引导软盘启动后需要根软盘。请插入根软盘并且按下 &enterkey;，其中的内容会被装"
 "入内存。安装程序 <command>debian-installer</command> 会自动加载。"
 
 # index.docbook:274, index.docbook:780, index.docbook:1320, index.docbook:1813, index.docbook:1896, index.docbook:2236, index.docbook:2332
@@ -1126,8 +1281,8 @@ msgid ""
 "Let us (<email>&email-debian-boot-list;</email>) know how did you manage it. "
 "Please refer to this document."
 msgstr ""
-"让我们知道(<email>&email-debian-boot-list;</email>)您如何来操作它的。请参阅此"
-"文档。"
+"让我们知道（<email>&email-debian-boot-list;</email>）您如何来操作它的。请参见"
+"此文档。"
 
 #. Tag: title
 #: boot-installer.xml:882
@@ -1143,7 +1298,7 @@ msgid ""
 "provides bootdiskettes and even bootroms that do a TFTPboot."
 msgstr ""
 "<ulink url=\"http://www.etherboot.org\">etherboot project</ulink> 提供了为 "
-"TFTP 引导所需要的引导软盘甚至是引导 ROMS 。"
+"TFTP 引导所需要的引导软盘甚至是引导 ROMS。"
 
 # index.docbook:1943, index.docbook:2477
 #. Tag: title
@@ -1158,7 +1313,7 @@ msgstr "引导界面"
 msgid ""
 "When the installer boots, you should be presented with a friendly graphical "
 "screen showing the &debian; logo and a menu:"
-msgstr ""
+msgstr "当安装程序启动时，您应该看到友好的图形屏幕，显示 &debian; 标志和菜单："
 
 #. Tag: screen
 #: boot-installer.xml:899
@@ -1172,6 +1327,13 @@ msgid ""
 "Help\n"
 "Install with speech synthesis"
 msgstr ""
+"&debian-gnu; 安装程序启动菜单\n"
+"\n"
+"图形安装\n"
+"安装\n"
+"高级选项             >\n"
+"帮助\n"
+"使用语音合成器进行安装"
 
 #. Tag: para
 #: boot-installer.xml:903
@@ -1180,6 +1342,8 @@ msgid ""
 "This graphical screen will look very slightly different depending on how "
 "your computer has booted (BIOS or UEFI), but the same options will be shown."
 msgstr ""
+"根据计算机的启动方式（BIOS 或 UEFI）不同，此图形屏幕将看起来略有不同，但会显"
+"示相同的选项。"
 
 #. Tag: para
 #: boot-installer.xml:911
@@ -1190,10 +1354,12 @@ msgid ""
 "have a 64 bit variant for each install option, right below it, thus almost "
 "doubling the number of options."
 msgstr ""
+"根据您使用的安装方法，<quote>图形安装</quote>选项可能不可用。另外，双架构映像"
+"在每个安装选项下方还会显示它的 64 位变体，因此选项数量几乎会翻倍。"
 
 #. Tag: para
 #: boot-installer.xml:918
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "For a normal installation, select either the <quote>Install</quote> or "
 #| "the <quote>Graphical install</quote> entry &mdash; using either the arrow "
@@ -1207,9 +1373,9 @@ msgid ""
 "and press &enterkey; to boot the installer. The <quote>Graphical install</"
 "quote> entry is already selected by default."
 msgstr ""
-"普通安装时，选择 <quote>Install</quote> 或 <quote>Graphical install</quote> "
-"入口 &mdash; 可以使用键盘方向键或者键入(高亮的)首字母，默认 <quote>Install</"
-"quote> 入口已经选中 &mdash; 然后按下 &enterkey; 引导安装程序。"
+"普通安装时，选择<quote>图形安装</quote>或<quote>安装</quote>入口 &mdash; 可以"
+"使用键盘方向键或者键入（高亮的）首字母，然后按下 &enterkey; 引导安装程序。默"
+"认情况下，<quote>图形安装</quote>入口已经选中。"
 
 #. Tag: para
 #: boot-installer.xml:926
@@ -1219,12 +1385,12 @@ msgid ""
 "allows to boot the installer in expert mode, in rescue mode and for "
 "automated installs."
 msgstr ""
-"<quote>Advanced options</quote> 选项用于访问第二层菜单，引导安装程序进入 "
-"expert 模式、rescue 模式和自动安装。"
+"<quote>高级选项</quote>用于访问第二层菜单，引导安装程序进入专家模式、救援模式"
+"和自动安装。"
 
 #. Tag: para
 #: boot-installer.xml:932
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "If you wish or need to add any boot parameters for either the installer "
 #| "or the kernel, press &tabkey;. This will display the default boot command "
@@ -1266,14 +1432,14 @@ msgid ""
 msgstr ""
 "选择 <quote>Help</quote> 项将进入第一个帮助界面，显示可用的帮助界面概要。当出"
 "现帮助界面后要返回引导菜单，需要在引导提示符后输入 'menu' 并按 &enterkey;。所"
-"有的帮助界面在引导命令可以输入的地方都有一个引导提示： "
+"有的帮助界面在引导命令可以输入的地方都有一个引导提示："
 "<informalexample><screen>\n"
 "Press F1 for the help index, or ENTER to boot:\n"
 "</screen></informalexample> 在这个引导提示的地方您可以按下 &enterkey; 使用默"
 "认的选项引导安装程序，或者输入指定的引导命令以及引导参数。一些可用的引导参数"
 "可能会在多个帮助界面看到。假如您要添加任何参数到引导命令行，确保首先输入的是"
-"引导方法(默认为 <userinput>install</userinput>)，然后在第一个参数前要有空格"
-"(例如：<userinput>install fb=false</userinput>)。"
+"引导方法（默认为 <userinput>install</userinput>)，然后在第一个参数前要有空格"
+"(例如：<userinput>install fb=false</userinput>）。"
 
 #. Tag: para
 #: boot-installer.xml:962
@@ -1286,10 +1452,10 @@ msgid ""
 "keymap;\">schema of the US keyboard layout</ulink> which can be used as a "
 "reference to find the correct keys to use."
 msgstr ""
-"此时键盘假设使用的是默认美式英文布局。这意味着如果您的键盘使用不同的(特定语言"
-"的)布局，显示在屏幕上的字符可能与您键入参数时希望的不同。维基百科里面有一个 "
-"<ulink url=\"&url-us-keymap;\">schema of the US keyboard layout</ulink> 条目"
-"说明了如何找到要使用正确的键。"
+"此时键盘假设使用的是默认美式英文布局。这意味着如果您的键盘使用不同的（特定语"
+"言的）布局，显示在屏幕上的字符可能与您键入参数时希望的不同。维基百科里面有一"
+"个 <ulink url=\"&url-us-keymap;\">schema of the US keyboard layout</ulink> 条"
+"目说明了如何找到要使用正确的键。"
 
 #. Tag: para
 #: boot-installer.xml:972
@@ -1331,7 +1497,7 @@ msgstr ""
 #: boot-installer.xml:998
 #, no-c-format
 msgid "The Graphical Installer"
-msgstr ""
+msgstr "图形安装程序"
 
 #. Tag: para
 #: boot-installer.xml:999
@@ -1343,6 +1509,8 @@ msgid ""
 "installer as it basically uses the same programs, but with a different "
 "frontend."
 msgstr ""
+"安装程序的图形版本仅适用于有限数量的架构，包括 &arch-title;。图形安装程序的功"
+"能几乎与基于文本的安装程序功能相同，因为它基本使用相同的程序，只是前端不同。"
 
 #. Tag: para
 #: boot-installer.xml:1007
@@ -1355,6 +1523,10 @@ msgid ""
 "usability advantages such as the option to use a mouse, and in some cases "
 "several questions can be displayed on a single screen."
 msgstr ""
+"虽然功能相同，图形安装程序仍然有一些显著优势。主要优点在于它支持更多的语言，"
+"即可以使用在基于文本的 <quote>newt</quote> 前端上无法显示的字符集的语言。它还"
+"具有一些可用性上的优点，例如可以使用鼠标，在某些情况下还可以在单个屏幕上显示"
+"多个问题。"
 
 #. Tag: para
 #: boot-installer.xml:1016
@@ -1369,6 +1541,11 @@ msgid ""
 "still be used from the boot prompt which is shown after selecting the "
 "<quote>Help</quote> option in the boot menu."
 msgstr ""
+"图形安装程序可用于所有的 CD 映像，及hd-media安装方法。要启动图形安装程序，只"
+"需从引导菜单中选择相关选项即可。可以从<quote>高级选项</quote>菜单中选择图形安"
+"装程序的专家和救援模式。以前使用的引导方法 <userinput>installgui</"
+"userinput>、<userinput>expertgui</userinput> 和 <userinput> rescuegui</"
+"userinput> 仍然可以从引导提示符中使用，在选择<quote>帮助</quote>选项后。"
 
 #. Tag: para
 #: boot-installer.xml:1027
@@ -1381,6 +1558,11 @@ msgid ""
 "<filename>netboot/gtk/mini.iso</filename>. </para> </footnote>, which is "
 "mainly useful for testing."
 msgstr ""
+"还有一个可用于网络启动的图形安装程序映像。还有一个特殊的<quote>迷你</quote> "
+"ISO 映像<footnote id=\"gtk-miniiso\"> <para> 可以从 &debian; 镜像下载迷你 "
+"ISO 映像，述于<xref linkend=\"downloading-files\"/>。其位于 "
+"<filename>netboot/gtk/mini.iso</filename>。</para> </footnote>，它主要用于测"
+"试。"
 
 #. Tag: para
 #: boot-installer.xml:1040
@@ -1393,6 +1575,11 @@ msgid ""
 "</para> </footnote>. It should work on almost all PowerPC systems that have "
 "an ATI graphical card, but is unlikely to work on other systems."
 msgstr ""
+"对于 &arch-title;，目前只有一个实验性的<quote>迷你</quote> ISO镜像可用"
+"<footnote id=\"gtk-miniiso\"> <para> 可以从 &debian; 镜像下载迷你 ISO 映像，"
+"述于<xref linkend=\"downloading-files\"/>。其位于 <filename>netboot/gtk/mini."
+"iso</filename>。</para> </footnote>。它应该可以适用于几乎所有具有 ATI 显卡的 "
+"PowerPC 系统，但不太可能在其他系统上工作。"
 
 #. Tag: para
 #: boot-installer.xml:1054
@@ -1400,7 +1587,7 @@ msgstr ""
 msgid ""
 "Just as with the text-based installer it is possible to add boot parameters "
 "when starting the graphical installer."
-msgstr ""
+msgstr "与基于文本的安装程序一样，启动图形安装程序时可以添加引导参数。"
 
 #. Tag: para
 #: boot-installer.xml:1060
@@ -1411,6 +1598,9 @@ msgid ""
 "available, it will automatically fall back to the text-based <quote>newt</"
 "quote> frontend."
 msgstr ""
+"与基于文本的安装程序相比，图形安装程序需要更多的内存才能运行：&minimum-"
+"memory-gtk;。如果内存不足，它将自动返回到基于文本的 <quote>newt</quote> 前"
+"端。"
 
 #. Tag: para
 #: boot-installer.xml:1067
@@ -1421,6 +1611,9 @@ msgid ""
 "installer would still work. Using the text-based installer is recommended "
 "for systems with little available memory."
 msgstr ""
+"如果系统中的内存量低于 &minimum-memory;，图形安装程序可能无法启动，而基于文本"
+"的安装程序可能仍可以工作。对于可用内存很小的系统，建议使用基于文本的安装程"
+"序。"
 
 #. Tag: title
 #: boot-installer.xml:1121
@@ -1442,10 +1635,10 @@ msgid ""
 "The set of &debian; CDs can install a complete system from the wide range of "
 "packages without needing access to the network."
 msgstr ""
-"有三种基本的 &debian; 安装光盘 CD 衍生品：<emphasis>名片式(Business Card)</"
-"emphasis> CD 有一个微型的安装程序，并且可以储存在一小张 CD 介质上。它需要借助"
+"有三种基本的 &debian; 安装光盘 CD 衍生品：<emphasis>名片式（Business Card）</"
+"emphasis>CD 有一个微型的安装程序，并且可以储存在一小张 CD 介质上。它需要借助"
 "网络连接来安装基本系统的其他部分，才能建立起一个可用的系统。<emphasis>网络安"
-"装(Network Install)</emphasis> CD 光盘具有基本系统需的所有包，但是它还是需要"
+"装（Network Install）</emphasis>CD 光盘具有基本系统需的所有包，但是它还是需要"
 "网络连接到 &debian; 的镜像，安装其他的软件包建立一个完整的系统。&debian; CD "
 "光盘套件，则可以不使用网络就能安装大量软件包，建立完整的系统。"
 
@@ -1464,13 +1657,12 @@ msgid ""
 "partition dedicated to EFI instead of the simple MBR or boot block on more "
 "conventional systems."
 msgstr ""
-"IA-64 使用 Intel 最新的可拓展固件界面(Extensible Firmware Interface (EFI))。"
-"与传统的 x86 BIOS 只了解分区表和主引导记录(MBR)而不知道其他引导设备的特点不"
-"同，EFI 可以对 FAT16 和 FAT32 格式的硬盘分区进行读写操作。这个特点简化了通常"
-"很难以理解的系统启动过程。系统 boot loader 以及 EFI 固件支持一个完全的文件系"
-"统，来保存引导一个机器所需要得所有文件。这意味着在一个 IA-64 系统上的系统磁"
-"盘，具有一个附加的专门为 EFI 服务的磁盘分区，而不是像传统系统上只是简单的 "
-"MBR 或者引导块记录。"
+"IA-64 使用 Intel 最新的可扩展固件界面（EFI）。与传统的 x86 BIOS 只了解分区表"
+"和主引导记录（MBR）而不知道其他引导设备的特点不同，EFI 可以对 FAT16 和 FAT32 "
+"格式的硬盘分区进行读写操作。这个特点简化了通常很难以理解的系统启动过程。系统"
+"启动引导器以及 EFI 固件支持一个完全的文件系统，来保存引导一个机器所需要得所有"
+"文件。这意味着在一个 IA-64 系统上的系统磁盘，具有一个附加的专门为 EFI 服务的"
+"磁盘分区，而不是像传统系统上只是简单的 MBR 或者引导块记录。"
 
 #. Tag: para
 #: boot-installer.xml:1155
@@ -1520,9 +1712,9 @@ msgid ""
 "available or the CD for some reason does not boot with it, use the second "
 "option."
 msgstr ""
-"EFI Boot Manager 在固件初始化的最后一步会被启动。它显示一个菜单列表供用户选"
-"择。取决于系统的型号并且是否有其他的软件已经被装入系统，这个菜单可能在不同系"
-"统上有不同表现。在每一个系统上，至少有两个菜单项显示，<command>Boot Option "
+"EFI 启动管理器在固件初始化的最后一步会被启动。它显示一个菜单列表供用户选择。"
+"取决于系统的型号并且是否有其他的软件已经被装入系统，这个菜单可能在不同系统上"
+"有不同表现。在每一个系统上，至少有两个菜单项显示，<command>Boot Option "
 "Maintenance Menu</command> 与 <command>EFI Shell (Built-in)</command>。推荐使"
 "用第一个，当然，该选项不可用或者 CD 由于某种原因没法启动，使用第二个。"
 
@@ -1544,10 +1736,10 @@ msgid ""
 "you can return to the Boot Manager by running <command>exit</command> at the "
 "shell prompt."
 msgstr ""
-"EFI Boot Manager 会在预设的几秒钟之后选择默认的启动方式，一般是第一菜单项。在"
-"屏幕底部会有倒计时显示。时间一到，系统按默认方式启动，这样您也许需要重新启动"
-"才能继续安装。如果默认是 EFI Shell，您可在提示符下执行 <command>exit</"
-"command>返回 Boot Manager。"
+"EFI 启动管理器会在预设的几秒钟之后选择默认的启动方式，一般是第一菜单项。在屏"
+"幕底部会有倒计时显示。时间一到，系统按默认方式启动，这样您也许需要重新启动才"
+"能继续安装。如果默认是 EFI Shell，您可在提示符下执行 <command>exit</command>"
+"返回启动管理器。"
 
 #. Tag: title
 #: boot-installer.xml:1208
@@ -1573,7 +1765,7 @@ msgid ""
 "Select <command>Boot Maintenance Menu</command> from the menu with the arrow "
 "keys and press <command>ENTER</command>. This will display a new menu."
 msgstr ""
-"选择 <command>Boot Maintenance Menu</command> 通过方向键然后按下 "
+"用方向键选择 <command>Boot Maintenance Menu</command>，然后按下 "
 "<command>ENTER</command>。会显示一个新菜单。"
 
 #. Tag: para
@@ -1587,10 +1779,10 @@ msgid ""
 "Boot</command>. If you examine the rest of the menu line, you will notice "
 "that the device and controller information should be the same."
 msgstr ""
-"选择 <command>Boot From a File</command> 通过方向键，然后按下 "
-"<command>ENTER</command>。将显示固件检测到的设备列表。您会看到两个菜单行，它"
-"们包括 <command>Debian Inst [Acpi ...</command> 或 <command>Removable Media "
-"Boot</command>标签。如果您检查菜单行其他部分，会看到对应的设备和控制器信息。"
+"用方向键选择 <command>Boot From a File</command>，然后按下 <command>ENTER</"
+"command>。将显示固件检测到的设备列表。您会看到两个菜单行，它们包括 "
+"<command>Debian Inst [Acpi ...</command> 或 <command>Removable Media Boot</"
+"command>标签。如果您检查菜单行其他部分，会看到对应的设备和控制器信息。"
 
 #. Tag: para
 #: boot-installer.xml:1238
@@ -1630,8 +1822,8 @@ msgid ""
 "for you to select a boot kernel and options. Proceed to selecting the boot "
 "kernel and options."
 msgstr ""
-"这些步骤启动的 &debian; boot loader 会显示一个菜单页用于选择启动内核和选项。"
-"进入选择启动内核和选项。"
+"这些步骤启动的 &debian; 启动引导器会显示一个菜单页用于选择启动内核和选项。进"
+"入选择启动内核和选项。"
 
 #. Tag: title
 #: boot-installer.xml:1271
@@ -1727,8 +1919,8 @@ msgid ""
 "command> command at the shell prompt. Proceed to selecting the boot kernel "
 "and options."
 msgstr ""
-"与选项 1 相同，这些步骤也会启动 &debian; boot loader，显示一个菜单页供选择启"
-"动内核和参数。您可在 shell 提示符下输入 <command>fs<replaceable>n</"
+"与选项 1 相同，这些步骤也会启动 &debian; 启动引导器，显示一个菜单页供选择启动"
+"内核和参数。您可在 shell 提示符下输入 <command>fs<replaceable>n</"
 "replaceable>:elilo</command>简短命令。进入选择启动内核和选项。"
 
 #. Tag: title
@@ -1940,7 +2132,7 @@ msgid ""
 "</screen></informalexample> Note that the goal is to get <command>elilo.efi</"
 "command> running on the client."
 msgstr ""
-"一个合适的用于 IA-64 系统网络引导的 TFTP 选项应该看起来像这样： "
+"一个合适的用于 IA-64 系统网络引导的 TFTP 选项应该看起来像这样："
 "<informalexample><screen>\n"
 "host mcmuffin {\n"
 "        hardware ethernet 00:30:6e:1e:0e:83;\n"
@@ -1960,8 +2152,8 @@ msgid ""
 "will create a <filename>debian-installer</filename> directory tree "
 "containing the boot files for an IA-64 system."
 msgstr ""
-"使用 root 解压 <filename>netboot.tar.gz</filename> 文件到您的 tftp 服务器。典"
-"型的 tftp 根目录包括 <filename>/var/lib/tftp</filename> 和 <filename>/"
+"使用 root 解压 <filename>网络启动.tar.gz</filename> 文件到您的 tftp 服务器。"
+"典型的 tftp 根目录包括 <filename>/var/lib/tftp</filename> 和 <filename>/"
 "tftpboot</filename>。这将创建 <filename>debian-installer</filename> 目录树，"
 "它包括 IA-64 系统需要的启动文件。"
 
@@ -1977,7 +2169,7 @@ msgid ""
 "[...]"
 msgstr ""
 "# cd /var/lib/tftp\n"
-"# tar xvfz /home/user/netboot.tar.gz\n"
+"# tar xvfz /home/user/网络启动.tar.gz\n"
 "./\n"
 "./debian-installer/\n"
 "./debian-installer/ia64/\n"
@@ -1996,8 +2188,8 @@ msgid ""
 "<filename>elilo.conf</filename>. See documentation provided in the "
 "<classname>elilo</classname> package for details."
 msgstr ""
-"<filename>netboot.tar.gz</filename> 包含 <filename>elilo.conf</filename> 可以"
-"工作在大多数的配置下。另外，要修改这个文件，您可以在 <filename>debian-"
+"<filename>网络启动.tar.gz</filename> 包含 <filename>elilo.conf</filename> 可"
+"以工作在大多数的配置下。另外，要修改这个文件，您可以在 <filename>debian-"
 "installer/ia64/</filename> 目录中找到。这只需要按照客户机 IP 地址的16进制命名"
 "这些文件并且给出 <filename>.conf</filename> 后缀取代 <filename>elilo.conf</"
 "filename>。请查看 <classname>elilo</classname> 软件包附带的文档以获得细节。"
@@ -2045,9 +2237,9 @@ msgid ""
 "when the kernel has completed installing itself from the network, it will "
 "start the &debian; Installer."
 msgstr ""
-"在下载并且处理配置文件后，boot loader 将显示它的提示符。从这里开始，安装过程"
-"将和 CD 安装是 同样的过程。在内核已经完成从网络的自我安装后选择一个像上面提到"
-"的引导选项，它将开始 &debian; 安装程序。"
+"在下载并且处理配置文件后，启动引导器将显示它的提示符。从这里开始，安装过程将"
+"和 CD 安装是 同样的过程。在内核已经完成从网络的自我安装后选择一个像上面提到的"
+"引导选项，它将开始 &debian; 安装程序。"
 
 #. Tag: title
 #: boot-installer.xml:1622
@@ -2083,7 +2275,7 @@ msgstr "s390 引导参数"
 
 #. Tag: para
 #: boot-installer.xml:1640
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "On S/390 you can append boot parameters in the parm file. This file can "
 #| "either be in ASCII or EBCDIC format. A sample parm file "
@@ -2124,6 +2316,19 @@ msgid ""
 "process the above option needs to be added to <filename>parmfile.debian</"
 "filename>."
 msgstr ""
+"如果您在逻辑分区（LPAR）或虚拟机（VM）中启动安装程序，而其中又有许多可见设"
+"备，则可以指示内核限制只使用一组固定的设备。如果大量磁盘可见，建议在安装程序"
+"启动时使用，这最有可能发生在 LPAR 模式中。<quote>cio_ignore</quote> 选项支持"
+"黑名单（仅禁用少数设备）和白名单（仅允许特定设备）：<informalexample role="
+"\"example\"><screen>\n"
+" # 黑名单：忽略两个设备 300 和 301\n"
+" cio_ignore=0.0.0300-0.0.0301\n"
+" # 白名单：忽略除1150、FD00、FD01和FD02之外的所有设备\n"
+" cio_ignore=all,!0.0.1150,!0.0.fd00-0.0.fd02\n"
+"</screen></informalexample>请注意，所有设备编号的十六进制数字需要以小写形式指"
+"定。此外，如果使用此引导参数，则需要列出所有设备：至少包括磁盘、网络设备和控"
+"制台。要在安装程序启动过程中加入上述选项，需要将其添加到 <filename>parmfile."
+"debian</filename> 中。"
 
 #. Tag: para
 #: boot-installer.xml:1721
@@ -2136,7 +2341,7 @@ msgid ""
 "and <keycap>Delete</keycap> keys together while booting to boot from the "
 "factory default CD/DVD drive."
 msgstr ""
-"目前，&arch-title; 下的子体系只有 PReP/CHRP (并非所有系统)和 New World "
+"目前，&arch-title; 下的子体系只有 PReP/CHRP （并非所有系统）和 New World "
 "PowerMacs 支持 CD-ROM 引导。在 PowerMacs 上，启动时按住 <keycap>c</keycap> "
 "键，或者 <keycap>Command</keycap>、<keycap>Option</keycap>、<keycap>Shift</"
 "keycap> 和 <keycap>Delete</keycap> 组合键引导出厂默认的 CD/DVD 驱动器。"
@@ -2198,7 +2403,7 @@ msgstr "boot cd install/pegasos"
 
 #. Tag: para
 #: boot-installer.xml:1760
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "To boot &debian; CD/DVD on Pegasos II machine, hold <keycap>Esc</keycap> "
 #| "key immediately after pressing the power-on button, when SmartFirmware "
@@ -2305,8 +2510,8 @@ msgstr ""
 "您应该已经将 <filename>vmlinux</filename>、 <filename>initrd.gz</filename>、 "
 "<filename>yaboot</filename> 和 <filename>yaboot.conf</filename> 文件在 HFS 分"
 "区的根层次放置好了 <xref linkend=\"files-newworld\"/>。现在必须引导进入 Open "
-"Firmware (参阅 <xref linkend=\"invoking-openfirmware\"/>)。在提示符下，输"
-"入： <informalexample><screen>\n"
+"Firmware (参阅 <xref linkend=\"invoking-openfirmware\"/>)。在提示符下，输入："
+"<informalexample><screen>\n"
 "0 &gt; boot hd:<replaceable>x</replaceable>,yaboot\n"
 "</screen></informalexample> 用放置内核和 yaboot 文件的 HFS 分区号来替换 "
 "<replaceable>x</replaceable>, 然后按下 &enterkey;。在某些机器上，您也许需要时"
@@ -2359,12 +2564,12 @@ msgid ""
 "<filename>/pci@f2000000/usb@1b,1/hub@1/disk@1</filename> work."
 msgstr ""
 "您还需要算出 USB 存储设备在设备树上的位置，因为现在 <command>ofpath</"
-"command> 无法自动计算。键入 <userinput>dev / ls</userinput> 和 "
+"command> 无法自动计算。键入 <userinput>dev/ls</userinput> 和 "
 "<userinput>devalias</userinput> 到 Open Firmware 提示符下，得到所有的已知设备"
 "和设备别名。在笔者的系统上有各种 USB 记忆棒，路径诸如 <filename>usb0/disk</"
 "filename>, <filename>usb0/hub/disk</filename>, <filename>/pci@f2000000/"
 "usb@1b,1/disk@1</filename>，和 <filename>/pci@f2000000/usb@1b,1/hub@1/"
-"disk@1</filename> 。"
+"disk@1</filename>。"
 
 #. Tag: para
 #: boot-installer.xml:1883
@@ -2381,7 +2586,7 @@ msgid ""
 "<command>yaboot</command>) in the directory previously blessed with "
 "<command>hattrib -b</command>."
 msgstr ""
-"得到设备路径之后，用类似下面的命令启动安装程序： <informalexample><screen>\n"
+"得到设备路径之后，用类似下面的命令启动安装程序：<informalexample><screen>\n"
 "boot <replaceable>usb0/disk</replaceable>:<replaceable>2</replaceable>,\\\\:"
 "tbxi\n"
 "</screen></informalexample> <replaceable>2</replaceable> 匹配前面复制启动映象"
@@ -2448,7 +2653,7 @@ msgstr ""
 "上，您应该尝试 <informalexample><screen>\n"
 "boot net:<replaceable>server_ipaddr</replaceable>,<replaceable>file</"
 "replaceable>,<replaceable>client_ipaddr</replaceable>\n"
-"</screen></informalexample> 在有些 PReP 系统上(比如 Motorola PowerStack)， "
+"</screen></informalexample> 在有些 PReP 系统上(比如 Motorola PowerStack)，"
 "<userinput>help boot</userinput> 命令可以给出语法和选项的说明。"
 
 #. Tag: para
@@ -2484,7 +2689,7 @@ msgid ""
 "will then check for bootable hard disk partitions."
 msgstr ""
 "对于不熟悉 Macintosh 软盘操作的人来说：一个放在软驱的软盘将获得第一优先引导顺"
-"序。一个 没有有效引导系统的软盘将回被弹出，并且机器将检查硬盘分区。"
+"序。一个没有有效引导系统的软盘将回被弹出，并且机器将检查硬盘分区。"
 
 #. Tag: para
 #: boot-installer.xml:1994
@@ -2515,20 +2720,20 @@ msgid ""
 msgstr ""
 "许多比较老的 Apple 显示器使用 640x480 67Hz 模式。如果您的显示在这些老 Apple "
 "显示器上是扭曲的，请尝试加入引导参数 <userinput>video=atyfb:vmode:6</"
-"userinput> 。它将为大多数 Mach64 和 Rage 显示设备选择合适的模式。对于 Rage "
-"128 来说，请改变其值为 <userinput>video=aty128fb:vmode:6</userinput> 。"
+"userinput>。它将为大多数 Mach64 和 Rage 显示设备选择合适的模式。对于 Rage "
+"128 来说，请改变其值为 <userinput>video=aty128fb:vmode:6</userinput>。"
 
 #. Tag: title
 #: boot-installer.xml:2018
 #, no-c-format
 msgid "Booting a ppc64el machine"
-msgstr ""
+msgstr "启动 ppc64el 机器"
 
 #. Tag: para
 #: boot-installer.xml:2019
 #, no-c-format
 msgid "How to boot a ppc64el machine:"
-msgstr ""
+msgstr "如何启动 ppc64el 机器："
 
 #. Tag: title
 #: boot-installer.xml:2025
@@ -2546,6 +2751,10 @@ msgid ""
 "FTP, SFTP, TFTP, NFS, HTTP and HTTPS protocols. Petitboot can boot any "
 "operating system that includes kexec boot support."
 msgstr ""
+"Petitboot 是基于 Linux kexec 的平台独立启动加载程序。Petitboot 支持从任何 "
+"Linux 可挂载的文件系统加载内核、initrd 和设备树文件，还可以使用FTP、SFTP、"
+"TFTP、NFS、HTTP 和 HTTPS 协议从网络加载文件。Petitboot 可以引导任何包含 "
+"kexec 启动支持的操作系统。"
 
 #. Tag: para
 #: boot-installer.xml:2034
@@ -2555,6 +2764,8 @@ msgid ""
 "the system, and can also be configured to use boot information from a DHCP "
 "server."
 msgstr ""
+"Petitboot 在系统中的可挂载设备上查找启动加载程序配置文件，还可以配置为使用 "
+"DHCP 服务器的引导信息。"
 
 #. Tag: para
 #: boot-installer.xml:2085
@@ -2572,8 +2783,7 @@ msgstr ""
 "\"invoking-openboot\"/>)。使用命令 <userinput>boot net</userinput> 从一个 "
 "TFTP 和 RARP 服务器上引导，或者用 <userinput>boot net:bootp</userinput> 或 "
 "<userinput>boot net:dhcp</userinput> 从一个 TFTP 和 BOOTP 或 DHCP 服务器上引"
-"导。您可以在 <userinput>boot</userinput> 命令后面传递额外的引导参数给 &d-"
-"i; 。"
+"导。您可以在 <userinput>boot</userinput> 命令后面传递额外的引导参数给 &d-i;。"
 
 #. Tag: para
 #: boot-installer.xml:2139
@@ -2603,7 +2813,7 @@ msgid ""
 "<ulink url=\"&url-sun-nvram-faq;\">Sun NVRAM FAQ</ulink> for more "
 "information."
 msgstr ""
-"如果您由于得到一个有关<quote>IDPROM</quote>问题的消息而不能引导，这可能是 "
+"如果您由于得到一个有关 <quote>IDPROM</quote> 问题的消息而不能引导，这可能是 "
 "NVRAM 电池已经用光。通常它为固件保持配置信息。请查阅 <ulink url=\"&url-sun-"
 "nvram-faq;\">Sun NVRAM FAQ</ulink> 以获得更多信息。"
 
@@ -2615,7 +2825,7 @@ msgstr "辅助功能"
 
 #. Tag: para
 #: boot-installer.xml:2169
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Some users may need specific support because of e.g. some visual "
 #| "impairment. <phrase arch=\"ia64;powerpc;ppc64el;x86\">USB braille "
@@ -2643,19 +2853,19 @@ msgid ""
 "keyboard."
 msgstr ""
 "一些用户，比如有视觉障碍的，可能需要特别的支持。<phrase arch=\"ia64;powerpc;"
-"ppc64el;x86\">USB(不含通过串口 USB 转换口转换的) 盲文点字显示器(braille "
-"displays)可以自动检测到，但多数情况下其他的</phrase> <phrase arch=\"arm;hppa;"
-"mips;mipsel;sparc\">多数情况下</phrase>辅助功能不得不通过手动进行设置。"
-"<phrase arch=\"x86\">在可以支持的机器上，可以接收输入的时候，引导菜单会哔一"
-"声。</phrase> 一些引导参数可以 <phrase arch=\"x86\">接着</phrase> 被添加到后"
-"面打开这些辅助功能<phrase arch=\"x86\"> (参阅 <xref linkend=\"boot-screen\"/"
-">)</phrase>。需要注意在大多数架构下 boot loader 将视您的键盘为 QWERTY 布局。"
+"ppc64el;x86\">USB（不含通过串口 USB 转换口转换的）盲文点字显示器可以自动检测"
+"到，但多数情况下其他的</phrase> <phrase arch=\" ARM ;hppa;mips;mipsel;sparc"
+"\">多数情况下</phrase>辅助功能不得不通过手动进行设置。<phrase arch=\"x86\">在"
+"可以支持的机器上，可以接收输入的时候，引导菜单会哔一声。</phrase> 一些引导参"
+"数可以 <phrase arch=\"x86\">接着</phrase> 被添加到后面打开这些辅助功能"
+"<phrase arch=\"x86\">（请参见<xref linkend=\"boot-screen\"/>）</phrase>。需要"
+"注意在大多数架构下启动引导器 将视您的键盘为 QWERTY 布局。"
 
 #. Tag: title
 #: boot-installer.xml:2189
 #, no-c-format
 msgid "Installer front-end"
-msgstr ""
+msgstr "安装人员前端"
 
 #. Tag: para
 #: boot-installer.xml:2190
@@ -2668,6 +2878,10 @@ msgid ""
 "documentation for <userinput>DEBIAN_FRONTEND</userinput> in <xref linkend="
 "\"installer-args\"/>."
 msgstr ""
+"&debian; 安装程序支持使用多个前端提出问题，可访问性各有不同：特别是 "
+"<userinput>text</userinput> 使用纯文本，而 <userinput>newt</userinput> 使用基"
+"于文本的对话框。可以在启动提示符下进行选择，请参见<xref linkend=\"installer-"
+"args\"/>中的 <userinput>DEBIAN_FRONTEND</userinput> 文档。"
 
 #. Tag: title
 #: boot-installer.xml:2202
@@ -2702,7 +2916,7 @@ msgstr "串口盲文点显器"
 
 #. Tag: para
 #: boot-installer.xml:2219
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Serial braille displays cannot safely be automatically detected (since "
 #| "that may damage some of them). You thus need to append the "
@@ -2748,8 +2962,8 @@ msgstr ""
 "<classname>brltty</classname> 该使用哪个驱动程序。<replaceable>driver</"
 "replaceable> 应该替换为您终端的两个字母的驱动程序代码(参阅 <ulink url=\"&url-"
 "brltty-manual;\">BRLTTY manual</ulink>). <replaceable>port</replaceable> 应该"
-"替换为该设备连接使用的串口名，默认为 <userinput>ttyS0</userinput> ，如果通过"
-"串口转 USB 转接应使用 <userinput>ttyUSB0</userinput> 。 <replaceable>table</"
+"替换为该设备连接使用的串口名，默认为 <userinput>ttyS0</userinput>，如果通过串"
+"口转 USB 转接应使用 <userinput>tty USB 0</userinput>。<replaceable>table</"
 "replaceable> 是使用的 braille table 名 (参阅 <ulink url=\"&url-brltty-manual;"
 "\">BRLTTY manual</ulink>); 默认为英语。注意该表可以在后续菜单中选择修改。该设"
 "备的键绑定文档可以在 <ulink url=\"&url-brltty-driver-help;"
@@ -2759,11 +2973,11 @@ msgstr ""
 #: boot-installer.xml:2246 boot-installer.xml:3291
 #, no-c-format
 msgid "Software Speech Synthesis"
-msgstr "软件语音合成(Software Speech Synthesis)"
+msgstr "软件语音合成"
 
 #. Tag: para
 #: boot-installer.xml:2247
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Support for hardware speech synthesis devices is available only alongside "
 #| "support for graphical installer. You thus need to select a "
@@ -2781,7 +2995,7 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:2256
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Support for software speech synthesis can be activated by selecting it in "
 #| "the boot menu by typing <userinput>s</userinput> &enterkey;. The first "
@@ -2814,16 +3028,26 @@ msgid ""
 "prompt. To get back to the previous question, type <userinput>&lt;</"
 "userinput> at the prompt."
 msgstr ""
+"默认语速很慢。要使其更快，请按<keycombo> <keycap> CapsLock</keycap> <keycap> "
+"6</keycap></keycombo>。要使其更慢，请按<keycombo> <keycap> CapsLock</keycap> "
+"<keycap> 5</keycap></keycombo>。默认音量应该是中等的。要更大声，请按"
+"<keycombo> <keycap> CapsLock</keycap> <keycap> 2</keycap></keycombo>。要使其"
+"更安静，请按<keycombo> <keycap> CapsLock</keycap> <keycap> 1</keycap></"
+"keycombo>。要获取有关浏览快捷方式的更多详细信息，请参见<ulink url =  “＆url-"
+"speak-guide;  ”> Speakup向导</ ulink>。要接受问题的默认答案，只需在提示符下按"
+"<keycap> Enter</keycap>即可。要为问题提供空答案，请在提示符下键入"
+"<userinput>！</ userinput>。要返回上一个问题，请在提示符下键入<userinput>＆"
+"lt;</userinput>。"
 
 #. Tag: title
 #: boot-installer.xml:2290
 #, no-c-format
 msgid "Hardware Speech Synthesis"
-msgstr "硬件语音合成(Hardware Speech Synthesis)"
+msgstr "硬件语音合成"
 
 #. Tag: para
 #: boot-installer.xml:2291
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Support for hardware speech synthesis devices is available only alongside "
 #| "support for graphical installer. You thus need to select a "
@@ -2885,7 +3109,7 @@ msgid ""
 "If desired a textual version of the bootloader can be activated before "
 "adding the boot parameter by typing <userinput>h</userinput> &enterkey;."
 msgstr ""
-"假如希望使用字符界面的 bootloader，可以在添加引导参数前输入 <userinput>h</"
+"假如希望使用字符界面的启动引导器，可以在添加引导参数前输入 <userinput>h</"
 "userinput> &enterkey;。"
 
 #. Tag: title
@@ -2896,7 +3120,7 @@ msgstr "高亮主题"
 
 #. Tag: para
 #: boot-installer.xml:2331
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "For users with low vision, the installer can use a high-contrast theme "
 #| "that makes it more readable. To enable it, append the "
@@ -2913,7 +3137,7 @@ msgstr ""
 #: boot-installer.xml:2340
 #, no-c-format
 msgid "Zoom"
-msgstr ""
+msgstr "缩放"
 
 #. Tag: para
 #: boot-installer.xml:2341
@@ -2924,12 +3148,15 @@ msgid ""
 "keycombo> and <keycombo><keycap>Control</keycap> <keycap>-</keycap></"
 "keycombo> shortcuts increase and decrease the font size."
 msgstr ""
+"对于低视力的用户，图形安装程序有非常基本的缩放支持：<keycombo> <keycap>控件"
+"</ keycap> <keycap> +</keycap></keycombo>和<keycombo> <keycap> keycap> "
+"<keycap>  - </keycap></keycombo>快捷键，用于增减字体大小。"
 
 #. Tag: title
 #: boot-installer.xml:2351
 #, no-c-format
 msgid "Expert install, rescue mode, automated install"
-msgstr ""
+msgstr "专家安装、救援模式、自动安装"
 
 #. Tag: para
 #: boot-installer.xml:2352
@@ -2947,10 +3174,17 @@ msgid ""
 "automated installation. When using a BIOS system, they must be followed by "
 "&enterkey;."
 msgstr ""
+"专家、救援和自动安装选择也可以使用辅助功能。要访问它们，必须在引导菜单中键入 "
+"<userinput>a</userinput> 进入<quote>高级选项</quote>子菜单。当使用 BIOS 系统"
+"时（启动菜单只有一次 beep 音），其之后必须按下 &enterkey;。然后，要启用语音合"
+"成，可以选择按下 <userinput>s</userinput>（使用 BIOS 系统时再次按下 "
+"&enterkey;）。从那里可以使用各种快捷方式：用于专家安装的 <userinput>x</"
+"userinput>，用于救援模式的 <userinput>r</userinput> 或用于自动安装的 "
+"<userinput>a</userinput>。使用 BIOS 系统时，必须紧接着按下 &enterkey;。"
 
 #. Tag: para
 #: boot-installer.xml:2366
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Alternatively, &debian; can be installed completely automatically by "
 #| "using preseeding. This is documented in <xref linkend=\"appendix-preseed"
@@ -2961,14 +3195,14 @@ msgid ""
 "accessibility features get started. Preseeding itself is documented in <xref "
 "linkend=\"appendix-preseed\"/>."
 msgstr ""
-"另外，&debian; 可以使用预置进行完全自动安装。相关文档参见 <xref linkend="
+"另外，&debian; 可以使用预置进行完全自动安装。相关文档参见<xref linkend="
 "\"appendix-preseed\"/>。"
 
 #. Tag: title
 #: boot-installer.xml:2376
 #, no-c-format
 msgid "Accessibility of the installed system"
-msgstr ""
+msgstr "已安装系统的辅助功能"
 
 #. Tag: para
 #: boot-installer.xml:2377
@@ -2978,6 +3212,8 @@ msgid ""
 "<ulink url=\"&url-debian-wiki-accessibility;\">Debian Accessibility wiki "
 "page</ulink>."
 msgstr ""
+"可在 <ulink url=\"&url-debian-wiki-accessibility;\">Debian Accessibility "
+"wiki 页面</ulink>中找到有关已安装系统可访问性的文档。"
 
 # index.docbook:1943, index.docbook:2477
 #. Tag: title
@@ -3031,7 +3267,7 @@ msgstr ""
 #: boot-installer.xml:2418
 #, no-c-format
 msgid "Boot console"
-msgstr ""
+msgstr "启动控制台"
 
 #. Tag: para
 #: boot-installer.xml:2420
@@ -3060,10 +3296,14 @@ msgid ""
 "<quote>---</quote>, so that it is copied into the bootloader configuration "
 "for the installed system (if supported by the installer for the bootloader)."
 msgstr ""
+"您可能需要指定串行端口的参数，例如波特率和奇偶校验位，如<userinput> console "
+"= ttyS0,9600n8</userinput>;其他的典型波特率可能是57600或115200。请确保在 "
+"<quote>---</quote>之后指定此选项，以便已安装的系统能将其复制到启动加载程序的"
+"配置中（如果安装程序支持此启动加载程序）。"
 
 #. Tag: para
 #: boot-installer.xml:2440
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "In order to ensure the terminal type used by the installer matches your "
 #| "terminal emulator, the parameter <userinput>TERM=<replaceable>type</"
@@ -3094,8 +3334,8 @@ msgstr ""
 "<userinput>TERM=<replaceable>type</replaceable></userinput> 参数。注意，安装"
 "程序仅支持下列终端类型: <literal>linux</literal>、<literal>bterm</literal>、"
 "<literal>ansi</literal>、<literal>vt102</literal> 和 <literal>dumb</"
-"literal>。 &d-i; 中默认的串口控制台终端类型是 <userinput>vt102</userinput>。"
-"如果您使用的虚拟工具，比如 QEMU/KVM，不支持转换成这些终端类型，您可以从一个 "
+"literal>。&d-i; 中默认的串口控制台终端类型是 <userinput>vt102</userinput>。如"
+"果您使用的虚拟工具，比如 QEMU/KVM，不支持转换成这些终端类型，您可以从一个 "
 "<command>screen</command> 会话中启动。这会将其转换成 <literal>screen</"
 "literal> 终端类型，而它又非常接近于 <literal>vt102</literal> 类型。"
 
@@ -3109,7 +3349,7 @@ msgid ""
 "<filename>ttya</filename>."
 msgstr ""
 "对于 &arch-title; 串口设备名称是 <filename>ttya</filename> 或 "
-"<filename>ttyb</filename> 。或者，通过设置<envar>input-device</envar> 和 "
+"<filename>ttyb</filename>。或者，通过设置<envar>input-device</envar> 和 "
 "<envar>output-device</envar> OpenPROM 变量至 <filename>ttya</filename>。"
 
 #. Tag: title
@@ -3166,9 +3406,9 @@ msgid ""
 "and low priority messages are skipped. If problems are encountered, the "
 "installer adjusts the priority as needed."
 msgstr ""
-"缺省安装使用 <userinput>priority=high</userinput> 。这意味着高优先级的和至关"
-"重要的信息将被显示，但是中级和低级信息将被跳过。如果其间出现了问题，安装程序"
-"将按照要求调整优先级别。"
+"缺省安装使用 <userinput>priority=high</userinput>。这意味着高优先级的和至关重"
+"要的信息将被显示，但是中级和低级信息将被跳过。如果其间出现了问题，安装程序将"
+"按照要求调整优先级别。"
 
 #. Tag: para
 #: boot-installer.xml:2506
@@ -3221,7 +3461,7 @@ msgstr ""
 "listitem><listitem> <para><userinput>DEBIAN_FRONTEND=newt</userinput></para> "
 "</listitem><listitem> <para><userinput>DEBIAN_FRONTEND=gtk</userinput></"
 "para> </listitem> </itemizedlist> 缺省的前端是 "
-"<userinput>DEBIAN_FRONTEND=newt</userinput>。 "
+"<userinput>DEBIAN_FRONTEND=newt</userinput>。"
 "<userinput>DEBIAN_FRONTEND=text</userinput> 可以用于串口控制台的安装。一些特"
 "殊类型的安装介质可能只含有限的几个前端，但是 <userinput>newt</userinput> 和 "
 "<userinput>text</userinput> 在多少安装介质上都是默认采用。图形安装程序可以在"
@@ -3320,7 +3560,8 @@ msgstr ""
 msgid ""
 "The boot floppy, which normally scans all floppies it can to find the root "
 "floppy, can be overridden by this parameter to only look at the one device."
-msgstr "引导软盘通常会扫描所有的软盘来找到根软盘，可以通过此参数设置只查找一个设备。"
+msgstr ""
+"引导软盘通常会扫描所有的软盘来找到根软盘，可以通过此参数设置只查找一个设备。"
 
 #. Tag: term
 #: boot-installer.xml:2610
@@ -3452,7 +3693,7 @@ msgstr "netcfg/disable_autoconfig"
 
 #. Tag: para
 #: boot-installer.xml:2686
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "By default, the &d-i; automatically probes for network configuration via "
 #| "DHCP. If the probe succeeds, you won't have a chance to review and change "
@@ -3469,7 +3710,7 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:2693
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "If you have a DHCP server on your local network, but want to avoid it "
 #| "because e.g. it gives wrong answers, you can use the parameter "
@@ -3803,7 +4044,7 @@ msgid ""
 msgstr ""
 "第二种更具弹性的方法，是分开指定 <literal>language</literal> 和 "
 "<literal>country</literal>。这种方式下 <literal>locale</literal> 可以作为选项"
-"来指定安装后系统中默认的 locale 值。例如： <userinput>language=en country=DE "
+"来指定安装后系统中默认的 locale 值。例如：<userinput>language=en country=DE "
 "locale=en_GB.UTF-8</userinput>。"
 
 #. Tag: term
@@ -3829,14 +4070,15 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:2919
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "Set to <userinput>true</userinput> if you want to disable DHCP and "
 #| "instead force static network configuration."
 msgid ""
 "Set to <userinput>true</userinput> if you want to disable IPv6 "
 "autoconfiguration and DHCP and instead force static network configuration."
-msgstr "如果您想禁止 DHCP 使用静态网络设置，将它设为 <userinput>true</userinput>。"
+msgstr ""
+"如果您想禁止 DHCP 使用静态网络设置，将它设为 <userinput>true</userinput>。"
 
 #. Tag: term
 #: boot-installer.xml:2928
@@ -4297,7 +4539,8 @@ msgstr "软盘的可靠性"
 msgid ""
 "The biggest problem for people using floppy disks to install &debian; seems "
 "to be floppy disk reliability."
-msgstr "对于用软盘安装 &debian; 的人来说，他们遇到的最大的问题很可能是软盘的可靠性。"
+msgstr ""
+"对于用软盘安装 &debian; 的人来说，他们遇到的最大的问题很可能是软盘的可靠性。"
 
 #. Tag: para
 #: boot-installer.xml:3232
@@ -4349,7 +4592,7 @@ msgid ""
 "are experiencing problems it is always useful to verify that the images were "
 "downloaded correctly by verifying their md5sums."
 msgstr ""
-"一般情况下，您不必重新下载软盘映像，但如果一直有问题，可以通过它们的 md5sum "
+"一般情况下，您不必重新下载软盘映像，但如果一直有问题，可以使用它们的 md5sum "
 "来检验下载的映像是否正确。"
 
 #. Tag: para
@@ -4535,7 +4778,7 @@ msgid ""
 "phase using a kernel parameter. For example, to disable an ATI card, you "
 "should boot the installer with <userinput>video=atyfb:off</userinput>."
 msgstr ""
-"对于 &arch-title; ，一台机器有两个视频卡很常见，例如一个 ATI 卡和一个 Sun "
+"对于 &arch-title;，一台机器有两个视频卡很常见，例如一个 ATI 卡和一个 Sun "
 "Creator 3D。有时，系统启动后，视频输出到错误的地方。典型的例子是，显示器只显"
 "示：<informalexample><screen>\n"
 "Remapping the kernel... done\n"
@@ -4685,7 +4928,7 @@ msgstr ""
 
 #. Tag: para
 #: boot-installer.xml:3542
-#, fuzzy, no-c-format
+#, no-c-format
 #| msgid ""
 #| "If you have a working &debian; system, the easiest way to send an "
 #| "installation report is to install the <classname>installation-report</"
@@ -4758,8 +5001,8 @@ msgid ""
 "state."
 msgstr ""
 "另外，您可以采用下列模板填写安装报告，并将它当作 <classname>installation-"
-"reports</classname> 虚拟软件包的 bug 报告，发送到 <email>submit@bugs.debian."
-"org</email>。 <informalexample><screen>\n"
+"reports</classname> 虚包的错误报告，发送到 <email>submit@bugs.debian.org</"
+"email>。<informalexample><screen>\n"
 "Package: installation-reports\n"
 "\n"
 "Boot method: &lt;How did you boot the installer? CD? floppy? network?&gt;\n"
@@ -4915,11 +5158,11 @@ msgstr ""
 #~ "footnote>."
 #~ msgstr ""
 #~ "由于 SS4000-E 固件限制，当前除了使用串口还无法启动安装程序。为了启动安装程"
-#~ "序，您需要一条串口 nullmodem 线； 一台带有串口的计算机<footnote id=\"arm-"
-#~ "s4ke-port\"> <para> USB 串口转换器也可以工作。</para> </footnote>； 以及一"
+#~ "序，您需要一条串口 nullmodem 线；一台带有串口的计算机<footnote id=\"arm-"
+#~ "s4ke-port\"> <para> USB 串口转换器也可以工作。</para> </footnote>；以及一"
 #~ "端为公 DB9 口，另一端为 10-pin .1\" IDC 头的扁平电缆<footnote id=\"arm-"
-#~ "s4k-rib\"> <para> 这种电缆过去常用在桌面电脑内置的 9 针串口上。</para> </"
-#~ "footnote>。"
+#~ "s4k-rib\"> <para> 这种电缆过去常用在桌面计算机内置的 9 针串口上。</para> "
+#~ "</footnote>。"
 
 #~ msgid ""
 #~ "To boot the SS4000-E, use your serial nullmodem cable and the ribbon "
@@ -4931,7 +5174,7 @@ msgstr ""
 #~ "filename>, use the following command line:"
 #~ msgstr ""
 #~ "要启动 SS4000-E，请使用您的串行 nullmodem 线和 ribbon 线连接到 SS4000-E 的"
-#~ "串口，然后重新启动机器。您需要用一个串行终端程序与此机器通讯； &debian; "
+#~ "串口，然后重新启动机器。您需要用一个串行终端程序与此机器通讯；&debian; "
 #~ "GNU/Linux 上可以使用 <command>cu</command> 程序，软件包和该程序同名。假设"
 #~ "您计算机上的串口是 <filename>/dev/ttyS0</filename>，请使用下列命令行："
 
@@ -5032,7 +5275,7 @@ msgstr ""
 #~ "<replaceable>192.168.2.4</replaceable> the IP address of the HTTP server "
 #~ "containing the kernel and ramdisk files."
 #~ msgstr ""
-#~ "您需要再次按下 Ctrl-C 中断启动。然后： <informalexample><screen>\n"
+#~ "您需要再次按下 Ctrl-C 中断启动。然后：<informalexample><screen>\n"
 #~ "ip_address -l <replaceable>192.168.2.249</replaceable> -h "
 #~ "<replaceable>192.168.2.4</replaceable>\n"
 #~ "load -v -r -b 0x01800000 -m http /initrd.gz\n"
@@ -5040,7 +5283,7 @@ msgstr ""
 #~ "exec -c \"console=ttyS0,115200 rw root=/dev/ram mem=256M@0xa0000000\" -r "
 #~ "0x01800000\n"
 #~ "</screen></informalexample> 其中 <replaceable>192.168.2.249</replaceable> "
-#~ "是安装好系统的 IP 地址， <replaceable>192.168.2.4</replaceable> 为含有内核"
+#~ "是安装好系统的 IP 地址，<replaceable>192.168.2.4</replaceable> 为含有内核"
 #~ "和 ramdisk 文件的 HTTP 服务器 IP 地址。"
 
 #~ msgid "The installer will now start as usual."
