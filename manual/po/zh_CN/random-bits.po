@@ -102,7 +102,6 @@ msgstr "sda1"
 #. Tag: entry
 #: random-bits.xml:44
 #, no-c-format
-#| msgid "First partition of the first IDE hard disk"
 msgid "First partition of the first hard disk"
 msgstr "第一块硬盘上的第一个分区"
 
@@ -115,7 +114,6 @@ msgstr "sdb7"
 #. Tag: entry
 #: random-bits.xml:47
 #, no-c-format
-#| msgid "Tenth partition of the fourth SCSI hard disk"
 msgid "Seventh partition of the second hard disk"
 msgstr "第二块硬盘上的第七个分区"
 
@@ -769,12 +767,6 @@ msgstr "准备开始"
 #. Tag: para
 #: random-bits.xml:356
 #, no-c-format
-#| msgid ""
-#| "With your current *nix partitioning tools, repartition the hard drive as "
-#| "needed, creating at least one filesystem plus swap. You need around &base-"
-#| "system-size;MB of space available for a console only install, or about "
-#| "&task-desktop-lxde-inst;MB if you plan to install X (more if you intend "
-#| "to install desktop environments like GNOME or KDE)."
 msgid ""
 "With your current *nix partitioning tools, repartition the hard drive as "
 "needed, creating at least one filesystem plus swap. You need around &base-"
@@ -951,14 +943,6 @@ msgstr ""
 #. Tag: para
 #: random-bits.xml:467
 #, no-c-format
-#| msgid ""
-#| "Substitute one of the following for <replaceable>ARCH</replaceable> in "
-#| "the <command>debootstrap</command> command: <userinput>amd64</userinput>, "
-#| "<userinput>arm64</userinput>, <userinput>armel</userinput>, "
-#| "<userinput>armhf</userinput>, <userinput>i386</userinput>, "
-#| "<userinput>mips</userinput>, <userinput>mipsel</userinput>, "
-#| "<userinput>powerpc</userinput>, <userinput>ppc64el</userinput>, or "
-#| "<userinput>s390x</userinput>."
 msgid ""
 "Substitute one of the following for <replaceable>ARCH</replaceable> in the "
 "<command>debootstrap</command> command: <userinput>amd64</userinput>, "
@@ -988,13 +972,6 @@ msgstr "基本系统的配置"
 #. Tag: para
 #: random-bits.xml:494
 #, no-c-format
-#| msgid ""
-#| "Now you've got a real &debian; system, though rather lean, on disk. "
-#| "<command>chroot</command> into it: <informalexample><screen>\n"
-#| "# LANG=C.UTF-8 chroot /mnt/debinst /bin/bash\n"
-#| "</screen></informalexample> After chrooting you may need to set the "
-#| "terminal definition to be compatible with the &debian; base system, for "
-#| "example:"
 msgid ""
 "Now you've got a real &debian; system, though rather lean, on disk. "
 "<command>chroot</command> into it: <informalexample><screen>\n"
@@ -1219,11 +1196,6 @@ msgstr "设置时区"
 #. Tag: para
 #: random-bits.xml:606
 #, no-c-format
-#| msgid ""
-#| "An option in the file <filename>/etc/default/rcS</filename> determines "
-#| "whether the system will interpret the hardware clock as being set to UTC "
-#| "or local time. The following command allows you to set that and choose "
-#| "your timezone."
 msgid ""
 "Setting the third line of the file <filename>/etc/adjtime</filename> to "
 "<quote>UTC</quote> or <quote>LOCAL</quote> determines whether the system "
@@ -1382,17 +1354,6 @@ msgstr "配置 Apt"
 #. Tag: para
 #: random-bits.xml:669
 #, no-c-format
-#| msgid ""
-#| "Debootstrap will have created a very basic <filename>/etc/apt/sources."
-#| "list</filename> that will allow installing additional packages. However, "
-#| "you may want to add some additional sources, for example for source "
-#| "packages and security updates: <informalexample><screen>\n"
-#| "deb-src http://ftp.us.debian.org/debian &releasename; main\n"
-#| "\n"
-#| "deb http://security.debian.org/ &releasename;/updates main\n"
-#| "deb-src http://security.debian.org/ &releasename;/updates main\n"
-#| "</screen></informalexample> Make sure to run <userinput>aptitude update</"
-#| "userinput> after you have made changes to the sources list."
 msgid ""
 "Debootstrap will have created a very basic <filename>/etc/apt/sources.list</"
 "filename> that will allow installing additional packages. However, you may "
@@ -1424,14 +1385,6 @@ msgstr "本地化和键盘的配置"
 #. Tag: para
 #: random-bits.xml:686
 #, no-c-format
-#| msgid ""
-#| "To configure your locale settings to use a language other than English, "
-#| "install the <classname>locales</classname> support package and configure "
-#| "it. Currently the use of UTF-8 locales is recommended. "
-#| "<informalexample><screen>\n"
-#| "# aptitude install locales\n"
-#| "# dpkg-reconfigure locales\n"
-#| "</screen></informalexample> To configure your keyboard (if needed):"
 msgid ""
 "To configure your locale settings to use a language other than English, "
 "install the <classname>locales</classname> support package and configure it. "
@@ -1508,11 +1461,6 @@ msgstr "Boot Loader 的设置"
 #. Tag: para
 #: random-bits.xml:727
 #, no-c-format
-#| msgid ""
-#| "To make your &debian-gnu; system bootable, set up your boot loader to "
-#| "load the installed kernel with your new root partition. Note that "
-#| "<command>debootstrap</command> does not install a boot loader, though you "
-#| "can use <command>aptitude</command> inside your &debian; chroot to do so."
 msgid ""
 "To make your &debian-gnu; system bootable, set up your boot loader to load "
 "the installed kernel with your new root partition. Note that "
@@ -1550,16 +1498,6 @@ msgstr ""
 #. Tag: para
 #: random-bits.xml:746
 #, no-c-format
-#| msgid ""
-#| "Installing and setting up <classname>grub2</classname> is as easy as: "
-#| "<informalexample><screen>\n"
-#| "# aptitude install grub-pc\n"
-#| "# grub-install /dev/<replaceable>sda</replaceable>\n"
-#| "# update-grub\n"
-#| "</screen></informalexample> The second command will install "
-#| "<command>grub2</command> (in this case in the MBR of <literal>sda</"
-#| "literal>). The last command will create a sane and working <filename>/"
-#| "boot/grub/grub.cfg</filename>."
 msgid ""
 "Installing and setting up <classname>grub2</classname> is as easy as: "
 "<informalexample><screen>\n"
@@ -1668,7 +1606,6 @@ msgstr ""
 #. Tag: title
 #: random-bits.xml:791
 #, no-c-format
-#| msgid "Remote access: Installing SSH and setting a password"
 msgid "Remote access: Installing SSH and setting up access"
 msgstr "远程访问：安装 SSH 并设置密码"
 
@@ -1734,14 +1671,6 @@ msgstr "最后一笔"
 #. Tag: para
 #: random-bits.xml:822
 #, no-c-format
-#| msgid ""
-#| "As mentioned earlier, the installed system will be very basic. If you "
-#| "would like to make the system a bit more mature, there is an easy method "
-#| "to install all packages with <quote>standard</quote> priority: "
-#| "<informalexample><screen>\n"
-#| "# tasksel install standard\n"
-#| "</screen></informalexample> Of course, you can also just use "
-#| "<command>aptitude</command> to install packages individually."
 msgid ""
 "As mentioned earlier, the installed system will be very basic. If you would "
 "like to make the system a bit more mature, there is an easy method to "
