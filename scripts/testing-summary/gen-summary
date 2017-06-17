@@ -7,12 +7,12 @@ use File::Basename;
 use File::Path;
 use URI::Escape;
 
-my $mirror=shift || "/org/ftp.debian.org/ftp/";
+my $mirror=shift || "/srv/mirrors/debian/";
 # Die now if a local mirror can't be found:
 if ($mirror =~ m{^/} and ! -d $mirror) {
 	print STDERR "The local mirror $mirror can't be found, please specify another mirror.\n";
-	print STDERR "Example for a remote mirror: $0 http://ftp.fr.debian.org/debian\n";
-	print STDERR "Example for a local  mirror: $0 /srv/mirror/debian/\n";
+	print STDERR "Example for a remote mirror: $0 http://deb.debian.org/debian\n";
+	print STDERR "Example for a local  mirror: $0 /srv/mirrors/debian/\n";
 	exit 1;
 }
 
