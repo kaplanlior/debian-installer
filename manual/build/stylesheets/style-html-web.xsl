@@ -5,6 +5,6 @@
 <xsl:include href="style-html.xsl"/>
 
 <!-- What extention to use for resulting html. -->
-<xsl:param name="html.ext" select="concat('.html.',/book/@lang)"/>
+<xsl:param name="html.ext" select="concat('.',concat(/book/@lang,'.html'))"/>
 
 </xsl:stylesheet>
