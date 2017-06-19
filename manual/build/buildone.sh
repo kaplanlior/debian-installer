@@ -57,7 +57,7 @@ create_profiled () {
     fi
 
     if [ -z "$manual_release" ]; then
-        manual_release="stretch"
+        manual_release="buster"
     fi
     if [ -z "$manual_target" ]; then
         manual_target="for_cd"
