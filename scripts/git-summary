@@ -5,7 +5,7 @@ use strict;
 use warnings;
 
 use File::Basename;
-use List::MoreUtils qw(all);
+use List::MoreUtils qw(all any);
 
 # What the branches mean in term of suites:
 my %branches = qw(
@@ -55,9 +55,14 @@ for my $package_dir ($di_dir, <$root_dir/*/>) {
   # Skip packages with uninteresting stats:
   next
     if all { $_ eq '-' or $_ eq '0' } (values %package_commits);
+
+  # Pre-compute interest:
+  my $interesting = any { $_ ne '-' and $_ ne '0' } (@package_commits{@important});
+
   push @git_stats, {
     package => $package,
     commits => \%package_commits,
+    highlight => $interesting,
   };
 }
 
@@ -70,6 +75,7 @@ my $html = << 'EOS';
     <link rel="icon"       type="text/png" href="/static/favicon.png" />
     <style>
       .rightalign { text-align: right; }
+      .highlight { background: #ff8080; }
       table { border-spacing: 10px 2px; border-collapse: separate; }
     </style>
   </head>
@@ -87,7 +93,8 @@ $html .= "</tr>\n";
 
 # Contents:
 for my $stat (@git_stats) {
-  $html .= "      <tr><td>" . $stat->{package} . "</td>";
+  my $style = $stat->{highlight} ? ' class="highlight"' : '';
+  $html .= "      <tr$style><td>" . $stat->{package} . "</td>";
   for my $suite (sort keys %branches) {
     $html .= "<td class=\"rightalign\">" . $stat->{commits}{$suite} . "</td>";
   }
