@@ -76,6 +76,7 @@ my $html = << 'EOS';
     <style>
       .rightalign { text-align: right; }
       .highlight { background: #ff8080; }
+      .todo { font-weight: bold; }
       th, td { padding: 2px 5px; }
       table { border-collapse: collapse; }
     </style>
@@ -97,7 +98,12 @@ for my $stat (@git_stats) {
   my $style = $stat->{highlight} ? ' class="highlight"' : '';
   $html .= "      <tr$style><td>" . $stat->{package} . "</td>";
   for my $suite (sort keys %branches) {
-    $html .= "<td class=\"rightalign\">" . $stat->{commits}{$suite} . "</td>";
+    my $extrastyle = '';
+    if (! grep { $stat->{commits}{$suite} eq $_ } qw(- 0)
+        and grep { $suite eq $_ } @important) {
+      $extrastyle = ' todo';
+    }
+    $html .= "<td class=\"rightalign$extrastyle\">" . $stat->{commits}{$suite} . "</td>";
   }
   $html .= "</tr>\n";
 }
