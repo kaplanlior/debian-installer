@@ -25,7 +25,7 @@ my @git_stats;
 for my $package_dir ($di_dir, <$root_dir/*/>) {
   # Compute git commits for all branches/suites:
   my $package = basename $package_dir;
-  my @package_commits;
+  my %package_commits;
   for my $suite (sort keys %branches) {
     my $branch = $branches{ $suite };
     my $desc = `GIT_DIR=$package_dir/.git git describe --tags origin/$branch 2>/dev/null`;
@@ -39,25 +39,25 @@ for my $package_dir ($di_dir, <$root_dir/*/>) {
         my $merge_desc = `GIT_DIR=$package_dir/.git git describe --tags $merge_base 2>/dev/null`;
         chomp $merge_desc;
         if ($merge_desc eq $desc) {
-          push @package_commits, '-';
+          $package_commits{$suite} = '-';
           next;
         }
       }
 
       my $commits = $desc =~ /-(\d+)-g/ ? $1 : 0;
-      push @package_commits, $commits;
+      $package_commits{$suite} = $commits;
     }
     else {
-      push @package_commits, '-';
+      $package_commits{$suite} = '-';
     }
   }
 
   # Skip packages with uninteresting stats:
   next
-    if all { $_ eq '-' or $_ eq '0' } @package_commits;
+    if all { $_ eq '-' or $_ eq '0' } (values %package_commits);
   push @git_stats, {
     package => $package,
-    commits => [@package_commits],
+    commits => \%package_commits,
   };
 }
 
@@ -88,8 +88,8 @@ $html .= "</tr>\n";
 # Contents:
 for my $stat (@git_stats) {
   $html .= "      <tr><td>" . $stat->{package} . "</td>";
-  for my $commit (@{ $stat->{commits} }) {
-    $html .= "<td class=\"rightalign\">$commit</td>";
+  for my $suite (sort keys %branches) {
+    $html .= "<td class=\"rightalign\">" . $stat->{commits}{$suite} . "</td>";
   }
   $html .= "</tr>\n";
 }
