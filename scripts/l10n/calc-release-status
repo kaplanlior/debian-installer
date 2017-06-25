@@ -39,14 +39,14 @@ set -e
 # Make sure output of gettext commands are in English
 export LC_ALL=C
 
-NUMLEVELS=5
-SUITE=testing
-REPO=svn://svn.debian.org/svn/d-i
-GITREPO=${GITREPO:-git+ssh://git.debian.org/git/d-i}
-PTAGS=$REPO/tags/packages
+export NUMLEVELS=5
+export SUITE=testing
+export REPO=svn://svn.debian.org/svn/d-i
+export GITREPO=${GITREPO:-git+ssh://git.debian.org/git/d-i}
+export PTAGS=$REPO/tags/packages
 
-OLDIFS="$IFS"
-NL="
+export OLDIFS="$IFS"
+export NL="
 "
 
 log() {
@@ -149,72 +149,12 @@ version=$(get_version localechooser)
 mkdir -p stats
 rm -f stats/*
 
-log "Gathering the data..."
+log "Gathering the data using parallelism..."
 > packages.log
 
 > stats/languages
-#real_contents packages_list | sort | while read p_dir p_status; do
-for p_dir in `real_contents packages_list | sort `; do
-	package=$(basename $p_dir)
-
-	if [ "$p_status" = "-" ]; then
-		log "- INFO: skipping $package (excluded in packages_list)"
-		echo "$package (skipped)" >>packages.log
-		continue
-	elif ! version=$(get_version $package); then
-		# packages_exceptions says to skip the package
-		continue
-	fi
-
-	log "- processing $p_dir ($version)"
-	echo "$package ($version)" >>packages.log
-	# Assume tags with an epoch are committed without it ("bar" instead of "foo:bar"):
-	version=$(echo $version|sed 's/^[0-9]\+://')
-	if [ ! -d $package/$version/po ]; then
-		mkdir -p $package/$version
-		pushd $package/$version >/dev/null
-		if [ ! -f "../../$package.workaround" ]; then
-			git clone $GITREPO/$package
-			pushd $package
-			git checkout -b tag $version || {
-				echo "Unable to find $version in $package; you might try:";
-				echo "  touch $package.workaround";
-				echo "  rm -rf $package/$version/$package";
-				exit 1;
-			}
-			popd
-		else
-			echo "Using apt-get source since $package.workaround exists"
-			apt-get source $package=$version
-			mv $package-*/ $package
-		fi
-		cp -r $package/debian/po .
-	else
-		pushd $package/$version >/dev/null
-	fi
-
-	# We need the templates file in case a translation is missing
-	sed -i 's/charset=CHARSET/charset=UTF-8/g' po/templates.pot
-	split_levels po/templates.pot
-	for level in $(seq 1 $NUMLEVELS); do
-		echo "template: $(po_status sublevel$level/templates.pot)" \
-			>../../stats/$package.$level
-	done
-
-	for pofile in po/*.po; do
-		lang=$(basename $pofile .po)
-		if ! grep -q "^$lang$" ../../stats/languages; then
-			echo $lang >>../../stats/languages
-		fi
-		split_levels $pofile
-		for level in $(seq 1 $NUMLEVELS); do
-			if stats="$(po_status sublevel$level/$lang.po)"; then
-				echo "$lang: $stats" >>../../stats/$package.$level
-			fi
-		done
-	done
-	popd >/dev/null
-done
+p_dirs=$(real_contents packages_list | sort)
+parallel --jobs 100% ./calc-release-status-helper ::: "$p_dirs"
 
 log "Calculating statistics..."
 
