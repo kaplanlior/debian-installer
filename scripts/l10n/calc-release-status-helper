@@ -121,14 +121,14 @@ if [ ! -d $package/$version/po ]; then
 	pushd $package/$version >/dev/null
 	if [ ! -f "../../$package.workaround" ]; then
 		git clone $GITREPO/$package
-		pushd $package
+		pushd $package >/dev/null
 		git checkout -b tag $version || {
 			echo "Unable to find $version in $package; you might try:";
 			echo "  touch $package.workaround";
 			echo "  rm -rf $package/$version/$package";
 			exit 1;
 		}
-		popd
+		popd >/dev/null
 	else
 		echo "Using apt-get source since $package.workaround exists"
 		apt-get source $package=$version
