@@ -6,7 +6,6 @@ different languages and in different document types.
 The currently supported document types are:
 - html
 - pdf
-- ps  (currently not enabled)
 - txt
 
 
@@ -16,7 +15,6 @@ The currently supported document types are:
 The build dependencies depend on which document types you wish to generate:
 all     : dpkg-dev, docbook, docbook-xml, docbook-xsl, xsltproc, poxml
 html    : (no additional packages required)
-ps      : openjade, jadetex, docbook-dsssl
 pdf     : docbook-dsssl, ghostscript, dblatex
 txt     : w3m
 
@@ -26,10 +24,6 @@ ru      : cm-super (type1 fonts)
 zh      : fonts-wqy-microhei
 ja      : fonts-vlgothic
 
-Note: jadetex depends on tetex-bin which unfortunately depends on some X libs,
-      so installing jadetex will pull in a basic X installation.
-      There are several open bugs about this (the oldest over 3 years old, but
-      it seems nobody cares enough to fix it (see #223728).
 
 2. Included Files:
 ==================
@@ -74,8 +68,6 @@ In ./stylesheets
 style-common.xsl: Common parameters for xsl transformation.
 
 style-html.xsl: HTML-specific parameters for xsl transformation.
-
-style-print.dsl: Parameters for dvi transformation.
 
 style-fo.xsl: FO-specific parameters for xsl transformation.
     (currently unused)

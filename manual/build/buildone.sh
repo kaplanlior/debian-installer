@@ -4,7 +4,7 @@ if [ "$1" = "--help" ]; then
     echo "$0: Generate the Debian Installer Manual in several different formats"
     echo "Usage: $0 [arch] [lang] [format]"
     echo "[format] may consist of multiple formats provided they are quoted (e.g. \"html pdf\")"
-    echo "Supported formats: html, ps, pdf, txt"
+    echo "Supported formats: html, pdf, txt"
     exit 0
 fi
 
@@ -179,53 +179,6 @@ create_text () {
     return 0
 }
 
-create_dvi () {
-    
-    [ -x "`which openjade 2>/dev/null`" ] || return 9
-    [ -x "`which jadetex 2>/dev/null`" ] || return 9
-
-    # Skip this step if the .dvi file already exists
-    [ -f "$tempdir/install.${language}.dvi" ] && return
-
-    echo "Info: creating temporary .tex file..."
-
-    # And use openjade to generate a .tex file
-    export SP_ENCODING="utf-8"
-    openjade -t tex \
-        -b utf-8 \
-        -o $tempdir/install.${language}.tex \
-        -d $stylesheet_dsssl \
-        -V tex-backend declaration/xml.dcl \
-        $tempdir/install.${language}.profiled.xml
-    RET=$?; [ $RET -ne 0 ] && return $RET
-
-    # some languages need additional macro
-    case "$language" in
-        ko)
-            mv $tempdir/install.${language}.tex \
-                $tempdir/install.${language}.orig.tex
-            cat templates/header.${language}.tex \
-                $tempdir/install.${language}.orig.tex \
-                > $tempdir/install.${language}.tex
-            rm $tempdir/install.${language}.orig.tex
-            ;;
-    esac
-
-    echo "Info: creating temporary .dvi file..."
-
-    # Next we use jadetex to generate a .dvi file
-    # This needs three passes to properly generate the index (page numbering)
-    cd $tempdir
-    for PASS in 1 2 3 ; do
-        jadetex install.${language}.tex >/dev/null
-        RET=$?; [ $RET -ne 0 ] && break
-    done
-    cd ..
-    [ $RET -ne 0 ] && return $RET
-
-    return 0
-}
-
 create_pdf() {
 
     [ -x "`which dblatex 2>/dev/null`" ] || return 9
@@ -238,22 +191,6 @@ create_pdf() {
     $tempdir/install.${language}.profiled.xml --param=lingua=${language} )
     RET=$?; [ $RET -ne 0 ] && return $RET
     mv $tempdir/install.${language}.pdf $destdir/
-
-    return 0
-}
-
-create_ps() {
-    
-    [ -x "`which dvips 2>/dev/null`" ] || return 9
-
-    create_dvi
-    RET=$?; [ $RET -ne 0 ] && return $RET
-
-    echo "Info: creating .ps file..."
-
-    dvips -q $tempdir/install.${language}.dvi
-    RET=$?; [ $RET -ne 0 ] && return $RET
-    mv install.${language}.ps $destdir/
 
     return 0
 }
@@ -281,8 +218,8 @@ BUILD_FAIL=""
 for format in $formats ; do
     case "$language" in
         __)
-            if [ "$format" = "pdf" -o "$format" = "ps" ] ; then
-                echo "Warning: pdf and ps formats are currently not supported for __."
+            if [ "$format" = "pdf" ] ; then
+                echo "Warning: pdf format is currently not supported for __."
                 BUILD_SKIP="$BUILD_SKIP $format"
                 continue
             fi
@@ -291,7 +228,6 @@ for format in $formats ; do
 
     case $format in
         html)  create_html;;
-        ps)    create_ps;;
         pdf)   create_pdf;;
         txt)   create_text;;
         *)

@@ -23,7 +23,6 @@ if [ -z "$destination" ]; then
 fi
 
 if [ -z "$formats" ]; then
-    #formats="html pdf ps txt"
     formats="html pdf txt"
 fi
 
