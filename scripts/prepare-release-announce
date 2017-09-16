@@ -84,7 +84,7 @@ sub get_release_archs {
         if not $response->is_success;
     my $json = JSON->new;
     my $data = $json->decode( $response->decoded_content );
-    return grep { $_ ne 'all' and $_ ne 'source' and $_ ne 'mips64el' } @{ $data->{architectures} };
+    return grep { $_ ne 'all' and $_ ne 'source' } @{ $data->{architectures} };
 }
 
 my @ra = get_release_archs;
