@@ -31,14 +31,14 @@ LANGCODE=$1
 help () {
 	echo " $0 <lang_code>"
 	echo '    Strips the font(s) found in the third column of ./lang2font'
-	echo '    of the line containing the given laguage code, so that'
+	echo '    of the line containing the given language code, so that'
 	echo '    it(they) will contain only the ranges specified on'
 	echo "    <lang_code>'s line in lang2range"
 }
 
 # strips font $1 for language $2
 stripfont4lang () {
-	# extract the lines which contain only the ranges for the current laguage
+	# extract the lines which contain only the ranges for the current language
 	# if no suffix is specified, use the langauge code as a suffix
 	LINES=`cat $LANG2RANGE | grep -E "^lang=[^,]*:$2:[^,]*," | sed "s/:,,/:,$2,/g"`
 

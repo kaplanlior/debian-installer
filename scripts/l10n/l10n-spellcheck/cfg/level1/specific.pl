@@ -114,7 +114,7 @@ sub checkSpecials (@)
 			   "sa", "ta", "te", "th");
 	    my $lang=$ARGV[1];
 
-	    # check lenght of the msgstr only if language is supported by newt frontend
+	    # check length of the msgstr only if language is supported by newt frontend
 	    if(!grep $_ eq $lang, @gi_only)
             {
 

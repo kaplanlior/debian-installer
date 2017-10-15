@@ -59,7 +59,7 @@ get_version () {
 	if [ -z "$rmadison_out" ]; then
 		get_rmadison 
 	fi
-	# Assumes higest version listed last; ignore stable updates
+	# Assumes highest version listed last; ignore stable updates
 	echo "$rmadison_out" | grep " $1 " | awk '{print $3}' | \
 		tail -n1 | sed -r "s/[a-z]+[0-9]$//"
 }

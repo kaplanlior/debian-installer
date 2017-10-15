@@ -47,7 +47,7 @@ fi
 DI_COPY=$1
 DEST_DIR=$2
 
-initialise	# initalise some variables
+initialise	# initialise some variables
 checks          # do an environment check
 
 i=0
