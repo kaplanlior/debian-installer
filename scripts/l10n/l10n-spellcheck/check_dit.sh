@@ -66,7 +66,7 @@ DICT=$2
 BASE_SEARCH_DIR=$3
 DEST_DIR=$4
 
-initialise	# initalise some variables
+initialise	# initialise some variables
 checks		# do an environment check
 
 PO_FILE_LIST="${DEST_DIR}/${LANG}_file_list.txt"
